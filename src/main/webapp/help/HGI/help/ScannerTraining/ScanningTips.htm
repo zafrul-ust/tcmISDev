@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>BAE Systems tcmIS Scanning Tips</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" />
+</head>
+
+<body>
+<h1><a name="ScanningTips" id="ScanningTips"></a>Scanning Tips</h1>
+<p><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" style="border-style: none" /></a>
+   <a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" style="border-style: none" /></a></p>
+
+<p>We think of scanning as a simple matter of aim, scan and decode. Usually a few quick trial efforts are all 
+	that is required to master it quickly and intuitively. (Decode is the process that occurs inside the 
+	scanner when the scanner &#39;reads&#39; the lines and spaces and produces the data that they represent.) But there 
+	is more going on than is obvious and some understanding of those things will help develop techniques to make the 
+	process easier.</p> 
+<p>Two important aspects of the technology can clarify how to optimize scanning techniques: angle and range.</p>
+	<ul>
+		<li><strong>Angle</strong>: Do not hold the terminal&#39;s scan window directly over the barcode. This strong light 
+			 can blind the scanner and make decoding difficult.
+			 <ul>
+			 	<li>Laser light reflecting directly back into the scan window from the bar code is known as 
+			 		 &#39;specular reflection&#39;.  The area where specular reflection occurs is known as the 
+			 		 &#39;dead zone&#39;.</li>
+				<li>You can tilt the terminal up to 55 degrees forward or back and achieve a successful decode. 
+					 Practice quickly shows within what tolerances to work.</li>
+			 </ul>
+		</li>
+		<li><strong>Range</strong>: Any scanning device decodes well over a particular working range. This 
+			 range varies according to bar code density and scanning device optics. 
+			 <ul>
+			 	<li>Scanning within range brings quick and constant decodes while scanning too close or too 
+			 		 far away prevents decodes. You need to find the right working range for the bar codes you are scanning.</li>
+				<li>The bar codes printed by tcmIS are fairly dense so it is best start scanning at a distance of about 12&#8221; 
+					 from the label. If the scanner does not beep to signify a successful decode slowly move the scanner in closer.</li>
+			</ul>
+		</li>
+	</ul>
+<div class="image"><img src="ScanTip1.gif" width="416" height="260" alt="Scanner angles" />
+<div>Figure 1</div></div>
+
+<p>The bar code scanners we use do not employ the traditional straight red laser line (1D Scanner) 
+	but instead use an aiming pattern with corner border marks and a center crosshair (2D Scanner).</p>
+	<ul>
+		<li>When using the 2D scanner it is possible to have more than one barcode in the scan zone. 
+			 When this happens the scanner decodes the symbol nearest the crosshairs.</li>
+	</ul>
+<p>When the scanner successfully decodes a bar code it will emit a beep and turn off the laser.</p>
+<div class="image"><img src="ScanTip2.png" width="470" height="165" alt="1-Dimensional and 2-Dimensional barcode labels" />
+<div>Figure 2</div></div>
+
+<p>You may find bar codes that the scanner simply will not read no matter how close or from what angle 
+	you scan. This may be caused by an improperly formatted barcode (maybe from a printer problem), 
+	improperly attached labels, or physical damage to the bar code label itself.</p>
+	<ul>
+		<li>The scanner can only read a complete bar code: if part of the bar codes is obscured 
+			 or otherwise unavailable, the reading will fail. (See below.)</li>
+		<li>The most common barcode damage in Chemical Cabinet Management is caused by exposing the barcode 
+			 to strong chemicals, usually from container dripping or leakage, followed by indiscriminate 
+			 wiping to clean the container carrying the barcode.</li>
+	</ul>	  
+<p>All of the tcmIS bar codes are printed with a caption below the symbol containing the actual data encoded 
+	in the barcode. When the scanner cannot read the barcode, whether due to an incorrectly printed, incorrectly attached, or 
+	damaged label, simply use the scanner&#39;s keypad to enter the data exactly as it appears below the barcode 
+	followed by the <strong>Enter</strong> key.</p>
+<p><strong><em>Warning</em></strong> &#8211; Use only your clean fingertip or the plastic tipped stylus provided to make 
+	on-screen selections. It is very tempting to use a pen or pencil instead of the provided stylus. <em>Pencils have 
+  very sharp points and pens have hardened steel writing points</em>: either may permanently damage the touch-screen.</p>
+
+<p>Only materials identified with tcmIS item ID labels can be controlled by the scanning process.</p> 
+<p>When placing labels on individual items it is important that:</p>
+	<ul>
+		<li>the label does not obstruct any of the manufacturer usage instructions or safety information;</li>
+		<li>the barcode not be bent vertically in a diameter of less than 2 inches (which also means it cannot 
+			 be creased so as to place the bar code on two opposing sides of the label.</li>
+	</ul> 
+<p>The pictures below are examples of labels where the scanner will not be able to read the barcode.</p>
+<div class="image"><img src="ScanTip3.png" width="580" height="169" alt="Unreadable barcode labels" />
+<div>Figure 3</div></div>
+
+<p>The pictures below are examples of labels where the barcode can be read successfully.</p>
+<div class="image"><img src="ScanTip4.png" width="578" height="167" alt="Readable barcode labels" />
+<div>Figure 4</div></div>
+
+<p>For small containers, fold the label onto itself just past the edge of the barcode and apply the remaining 
+	adhesive to the container. This forms a compact 2-sided label &#8220;flag&#8221;.</p>
+<div class="image"><img src="ScanTip5.gif" width="392" height="216" alt="Readable folded labels" />
+<div>Figure 5</div></div>
+
+<p>Frozen materials can present a challenge because the container surface is cold enough to prevent the label 
+	adhesive from sticking or because condensation forms before a label can be applied. For these items or any 
+	item where the surface is incompatible with the labels adhesive apply the label to a separate tag and attach 
+	the tag to the item.</p>
+<div class="image"><img src="ScanTip6.gif" width="295" height="416" alt="Separate barcode label-bearing tag" />
+<div>Figure 6</div></div>
+
+<p>Proper labeling should ensure that only one component of the kit has a barcode label although each component 
+	has a label. The second component has a label without a bar code. This is to ensure that we do not double 
+  count kit components as &quot;eaches&quot;.</p>
+<div class="image"><img src="ScanTip7.gif" width="828" height="156" alt="Distinct barcode labels for kit parts" />
+<div>Figure 7</div></div>
+
+<p>The scanning devices require a minimum amount of care. However, keeping the terminal clean will avoid problems 
+	and prolong the terminal&#8217;s life.</p>
+<ul>
+	<li>Before doing any maintenance or cleaning, power the terminal off.</li>
+	<li>To clean a terminal use a clean, soft cloth dampened with a mild cleaner such as soap and water.
+		<ul>
+			<li><strong><em>Do not use abrasive paper, cloth or abrasive/corrosive cleaners.</em></strong></li>
+		</ul>
+	</li>
+	<li>Wipe the entire terminal, except for the scanner window, with the damp cloth. Clean the charging contacts, 
+		 keypad and scan trigger.</li>
+	<li>Wipe the scanner window periodically with a lens tissue or other material suitable for cleaning optical 
+  		 material such as eyeglasses.
+		<ul>
+			<li><strong><em>Do not pour, spray or spill any liquid on any part of the terminal, particularly the scanner 
+				 or scan element components.</em></strong></li>
+		</ul>
+  	</li>
+</ul>   
+   
+</body>
+</html>

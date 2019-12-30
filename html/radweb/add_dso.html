@@ -1,0 +1,35 @@
+<html><head><title>Add DSO</title></head>
+<body bgcolor="#FFFFFF">
+<center><h2>Add DSO</h2>
+</center>
+<hr>
+<center><form action="/cgi-bin/radweb/add_dso.cgi" method="post">
+Alter DSO for &nbsp;
+<select name="fac">
+<option value="Andover">Andover (*)
+<option value="Bedford">Bedford
+<option value="Lexington">Lexington
+<option value="Tewksbury">Tewksbury
+<option value="Sudbury">Sudbury/Marlboro
+<option value="Portsmouth">Portsmouth
+<option value="Quincy">Quincy
+<option value="RRFC">RRFC
+<option value="Waltham">Waltham/Waltham Labs
+</select>
+<br>
+(*) includes Pelham, Huntsville, Texarkana, & White Sands LC-38
+<br>
+<table cellpadding=3 border=3>
+<tr><td align=right>DSO<td><INPUT name="dso" type="TEXT" size=12> 
+</table> 
+<br>
+<input type="radio" name="act" value="add" CHECKED> Add this DSO
+<br>
+<input type="radio" name="act" value="del"> Delete this DSO
+<p>
+<input type="submit">
+</form> 
+</center>
+<hr>
+</body>
+</html> 

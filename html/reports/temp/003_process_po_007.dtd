@@ -1,0 +1,54 @@
+<!-- License information for this file is provided in LICENSE.TXT -->
+<!-- For support, more information, or to report implementation bugs, 
+     please contact the Open Applications Group at xml@openapplications.org -->
+<!--
+    $Header: 003_process_po_007.dtd 120.2 2005/07/13 02:01:24 bsaratna noship $
+    $Revision: 120.2 $
+    $Date: 2005/07/13 02:01:24 $
+    Open Applications Group DTD
+    Copyright 1998-2001, All Rights Reserved
+
+    $Name:  $
+
+Kurt	6.2.0   	11/22/1999	Initial Release - update from version 003
+							Add POLNSTATUS, DATETIME.NEEDDELV to POORDERLIN
+							Fix processing note rules
+rjj	7.0.0		10/15/2000	Special Revision Update
+rjj	7.0.2		11/24/2000	Allow multiple instances of NOTES.
+mlr	7.1		04/16/2001	Add ATTCHREF datatype.
+
+	Structure Overview
+
+	PROCESS_PO (POORDERHDR, POORDERLIN+)
+		POORDERHDR (PARTNER+, ATTCHREF*, CHARGE*, POTERM*)
+			POTERM ()
+		POORDERLIN (ATTCHREF*, CHARGE*, DISTRIBUTN*, PARTNER*, POTERM*, 
+		  POBSUBLINE*, POLINESCHD*)
+			POTERM ()
+			POSUBLINE ()
+			POLINESCHD ()
+
+Notes:
+
+-->
+<!-- ==================================================== -->
+<!ENTITY % RESOURCES SYSTEM "oagis_resources.dtd">
+%RESOURCES;
+<!-- ==================================================== -->
+<!ELEMENT PROCESS_PO_007 (CNTROLAREA, DATAAREA+)>
+<!ATTLIST VERB
+	value CDATA #FIXED "PROCESS"
+>
+<!ATTLIST NOUN
+	value CDATA #FIXED "PO"
+>
+<!ATTLIST REVISION
+	value CDATA #FIXED "007"
+>
+<!ELEMENT DATAAREA (PROCESS_PO)>
+<!ELEMENT PROCESS_PO (POORDERHDR, POORDERLIN+)>
+<!ELEMENT POORDERHDR ((%DATETIME.DOCUMENT;)?, (%OPERAMT.EXTENDED.T;)?, POID, POTYPE, ACKREQUEST?, CONTRACTB?, CONTRACTS?, DESCRIPTN?, NOTES*, OPRAMTAUTH?, PORELEASE?, TAXWHEXMPT?, USERAREA?, PARTNER+, ATTCHREF*, CHARGE*, POTERM*)>
+<!ELEMENT POTERM (DESCRIPTN?, TERMID?, ((DAYOFMONTH, PROXMONTH) | DAYSNUM), ((%OPERAMT.EXTENDED.T;) | (%QUANTITY.PERCENT;)), USERAREA?)>
+<!ELEMENT POORDERLIN ((%QUANTITY.ORDERED;), (%DATETIME.NEEDDELV;)?, (%OPERAMT.UNIT.T;)?, POLINENUM, DRAWING?, HAZRDMATL?, ITEMRV?, ITEMRVX?, NOTES*, PACKING?, POLNSTATUS?, TAXWHEXMPT?, ((DESCRIPTN, ITEM?, ITEMX?, UPC?) | (ITEM, ITEMX?, UPC?) | (ITEMX, UPC?) | (UPC)), USERAREA?, ATTCHREF*, CHARGE*, DISTRIBUTN*, PARTNER*, POTERM*, POSUBLINE*, POLINESCHD*)>
+<!ELEMENT POSUBLINE ((%QUANTITY.ITEM;), DRAWING?, ITEMRV?, ITEMRVX?, PSBLINENUM?, ((DESCRIPTN, ITEM?, ITEMX?, UPC?) | (ITEM, ITEMX?, UPC?) | (ITEMX, UPC?) | (UPC)), USERAREA?)>
+<!ELEMENT POLINESCHD ((%DATETIME.NEEDDELV;), (%QUANTITY.ORDERED;), DESCRIPTN?, PSCLINENUM?, USERAREA?)>

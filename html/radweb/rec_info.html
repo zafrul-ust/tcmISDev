@@ -1,0 +1,85 @@
+<html><head><title>Item Receiving Info</title></head>
+
+<body bgcolor="#FFFFFF">
+<center>
+<h2>Item Receiving Info</h2>
+<form action="/cgi-bin/radweb/rec_info_enter.cgi" method="post">
+<table>
+  <tr>
+    <td align="left">Hub:</td>
+    <td align="left"><select name="bp">
+      <option value="Boston Hub" SELECTED>Boston
+	  <option value="Jonestown Hub">Jonestown
+      <option value="Tucson">Tucson
+      <option value="Dallas">Dallas
+      <option value="Normandale">Normandale
+      <option value="San Antonio">San Antonio
+      <option value="Largo">Largo
+      <option value="Silicon Valley">Silicon Valley
+      <option value="Greenville">Greenville
+      <option value="Philadelphia">Philadelphia
+      <option value="MSP">MSP
+      <option value="Fresno">Fresno
+      <option value="Montreal Hub">Montreal
+      <option value="Mielec">Mielec
+      <option value="Harrisburg">Harrisburg
+      <option value="Miami Hub">Miami
+      <option value="Whippany Hub">Whippany
+      <option value="Crawley Hub">Crawley
+      <option value="Leigh Hub">Leigh
+      <option value="Los Angeles Hub">Los Angeles
+      <option value="Atlanta Hub">Atlanta
+      <option value="LM Marietta Hub">LM Marietta
+      <option value="Sacramento Hub">Sacramento
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td align="left">Haas Item ID:</td>
+    <td align="left"><input type="text" name="item_id" size="25"></td>
+  </tr>
+  <tr>
+    <td align="left">Client Part #:</td>
+    <td align="left"><input type="text" name="part" size="25"></td>
+  </tr>
+  <tr>
+    <td align="left">Expected Shelf Life:</td>
+    <td align="left"><input type="text" name="shelf_life" size="25"></td>
+  </tr>
+  <tr>
+    <td align="left">Requires Testing:</td>
+    <td align="left"><input type="radio" name="test_req" value="Y">Y
+    &nbsp; &nbsp;    <input type="radio" name="test_req" value="N" CHECKED>N </td>
+  </tr>
+  <tr>
+    <td align="left">Requires Chem Lab:</td>
+    <td align="left"><input type="radio" name="chem_req" value="Y">Y
+    &nbsp; &nbsp;    <input type="radio" name="chem_req" value="N" CHECKED>N </td>
+  </tr>
+  <tr>
+    <td align="left">Recertifiable:</td>
+    <td align="left"><input type="radio" name="recert" value="Y">Y
+    &nbsp; &nbsp;    <input type="radio" name="recert" value="N" CHECKED>N 
+    &nbsp; &nbsp;    <input type="text" name="recert_txt" size="15"></td>
+  </tr>
+  <tr>
+    <td align="left">Requires Quarantine:</td>
+    <td align="left"><input type="radio" name="quar_req" value="Y">Y
+    &nbsp; &nbsp;    <input type="radio" name="quar_req" value="N" CHECKED>N </td>
+  </tr>
+  <tr>
+    <td align="left">Notes Display on Tablet:</td>
+    <td align="left"><input type="radio" name="display" value="Y">Y
+    &nbsp; &nbsp;    <input type="radio" name="display" value="N" CHECKED>N </td>
+  </tr>
+  <tr>
+    <td align="left">Storage Requirement:</td>
+    <td align="left"><input type="text" name="stor_req" size="25"></td>
+  </tr>
+  <tr>
+    <td align="left">Notes:</td>
+    <td align="left"><textarea name="notes" rows="3" cols="25"></textarea></td>
+  </tr>
+</table>
+<input type="submit" value="Enter Info">
+</form></center></body></html>

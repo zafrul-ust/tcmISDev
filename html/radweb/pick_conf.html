@@ -1,0 +1,29 @@
+<html><head><title>Pick Bulk Gas Receiving Confirm</title></head>
+<body bgcolor="#FFFFFF">
+<center>
+<form action="/cgi-bin/radweb/pick_conf.cgi" method="post">
+<table width="90%">
+  <tr>
+    <td align="left" width="20%"><img src="/images/logo_s.gif" border="1" align="left"></td>
+    <td align="left" width="20%"><b><i>tcm</i>IS<br>Pick Bulk Gas Receiving Confirm</b></td>
+    <td align="center" width="40%">Customer: &nbsp;
+	<select name="cust">
+	    <option value="ack">Select a Customer
+	    <option value="ray">Raytheon
+	    <option value="drs">DRS
+	    <option value="sea">Seagate
+	    <option value="any">Any Customer
+	</select><br>
+    Hub: &nbsp;
+	<select name="hub">
+	    <option value="ack">Select a Hub
+	    <option value="2101">Salem
+	    <option value="2102">Dallas
+	    <option value="2103">Tucson
+	    <option value="2106">Normandale
+	    <option value="any">Any Hub
+	</select><br></td>
+    <td align="center" width="20%"><input type="submit" value="Search" name="Search"></td>
+  </tr>
+</table>
+</body></html>

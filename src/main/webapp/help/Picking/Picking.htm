@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>Haas TCM Picking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript" src="textsizer.js">
+
+/***********************************************
+* Document Text Sizer- Copyright 2003 - Taewook Kang.  All rights reserved.
+* Coded by: Taewook Kang (http://www.txkang.com)
+* This notice must stay intact for use
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+</head>
+
+<body bgcolor="#FFFFFF">
+<h3><font face="Tahoma"><a name="Picking"></a>Picking</font></h3>
+<a href="javascript:ts('body',1)"><font face="tahoma">+ Larger Font</font></a><font face="tahoma"> 
+| <a
+href="javascript:ts('body',-1)">- Smaller Font</a> </font> 
+<p><font face="Tahoma" size="-1">A pick is an instruction in tcmIS to obtain material 
+  from inventory to satisfy a customer's Material Request. Picked materials may 
+  be either routinely stocked MM items or OOR items ordered specially for the 
+  customer. An OOR is in Haas TCM inventory only so long as necessary to complete 
+  quality reviews and labeling.</font></p>
+<p><font size="-1" face="tahoma">Watch the following movie to learn more about 
+  the Picking process: <a href="https://www.tcmis.com/tcmIS/help/Picking/PickingMovie.htm">https://www.tcmis.com/tcmIS/help/Picking/PickingMovie.htm</a>.</font></p>
+<p><font face="Tahoma" size="-1">Picking is completed in tcmIS on the <b>Picking 
+  </b>page. This page can be accessed from the <strong>Supply Chain</strong> Menu. 
+  Select <strong>Stock Room Operations</strong>. Under <strong>Delivery</strong>, 
+  choose <strong>Picking.</strong></font></p>
+<p><img src="Picking1.gif" width="850" height="398"></p>
+<h6><font face="Tahoma">Figure 1</font></h6>
+<p><font face="Tahoma" size="-1">Select the Hub for which picking will be performed 
+  from the <b>Hub</b> drop-down box. Click <b>Search</b> to display all Material 
+  Requests which are ready to be picked.</font></p>
+<p><font face="Tahoma" size="-1">The results may be sorted by Facility/Work Area, 
+  Material Request ID, Part Number, or date needed. Select the desired sort option 
+  from the <b>Sort</b> drop-down list. The default is to sort by Facility/Work 
+  Area.</font></p>
+<h6><img src="Picking2.gif" width="850" height="612"></h6>
+<h6><font face="Tahoma">Figure 2</font></h6>
+<p><font face="Tahoma" size="-1">To display picks for a specific facility, select 
+  the desired facility from the <b>Facility</b> drop-down box and click <b>Search.</b></font></p>
+<p><img src="Picking3.gif" width="850" height="612"></p>
+<h6><font face="Tahoma">Figure 3</font></h6>
+<p><font face="Tahoma" size="-1">To locate a pick for a specific Material Request, 
+  enter the MR number in the <b>MR </b>text box and click <b>Search</b>.</font></p>
+<h6><img src="Picking4.gif" width="850" height="398"></h6>
+<h6><font face="Tahoma">Figure 4</font></h6>
+<p><font face="Tahoma" size="-1">Select the materials to be picked by checking 
+  the <b>OK </b>box on the far left of the <b>Picking </b>page for each line which 
+  is to be picked. To select all lines on the <b>Picking </b>page, check the <b>OK 
+  </b>box in the blue header. Click <b>Generate Picklist</b>.</font></p>
+<p><img src="Picking5.gif" width="850" height="612"></p>
+<h6><font face="Tahoma">Figure 5</font></h6>
+<p><font face="Tahoma" size="-1">A summary of the pick information is displayed. 
+  Click <b>Print Picklist</b> to produce a printable copy of the pick list in 
+  PDF format. A sample pick list is shown below.</font></p>
+<h6><img src="picking6.jpg" width="652" height="625"></h6>
+<h6><font face="Tahoma">Figure 6</font></h6>
+<p><font face="Tahoma" size="-1">Return to the summary page and print the Bill 
+  of Lading by clicking <b>Print BOL Long</b> or <b>Print BOL Short</b>.</font></p>
+<p><img src="picking7.gif" width="850" height="504"></p>
+<h6><font face="Tahoma">Figure 7</font></h6>
+<p><font face="Tahoma" size="-1">A Bill of Lading will be produced in PDF format. 
+  A sample long Bill of Lading is shown below.</font></p>
+<p><img src="picking9.jpg" width="652" height="673"></p>
+<h6><font face="Tahoma">Figure 8</font></h6>
+<p><font face="Tahoma" size="-1">Box labels can be printed by clicking <b>Print 
+  BOX labels</b>. Select the label size and complete the <b>Deliver To</b>,<b> 
+  Part No.</b>, and <b>No. of Labels</b> fields. Click <b>Generate Labels</b>.</font></p>
+<p><img src="picking8.gif" width="707" height="382"></p>
+<h6><font face="Tahoma">Figure 9</font></h6>
+<p><font face="Tahoma" size="-1">Once a pick list has been generated, it will 
+  no longer appear on the <b>Picking</b> page. To reprint a pick list that has 
+  been previously printed, click <b>Re-Print Picklist.</b></font></p>
+<h6><img src="picking7.jpg" width="300" height="175"></h6>
+<h6><font face="Tahoma">Figure 10</font></h6>
+<p><font face="Tahoma" size="-1">Select the pick list to reprint from the drop-down 
+  list which is displayed and click <b>OK</b>. The summary page will be displayed. 
+  Click <b>Re-print Picklist</b> to produce a printable copy of the pick list 
+  in PDF format.</font></p>
+<p><font face="Tahoma" size="-1">Materials are retrieved by warehouse personnel 
+  from Haas TCM inventory using the pick list. TcmIS selects materials for shipping 
+  on the basis of lot status and age. Only materials with lot status <b>Available</b> 
+  or <b>Pending Recert</b> may be picked. If a given material has multiple Receipt 
+  IDs, tcmIS will request the item with the oldest original receipt date using 
+  a First In/First Out (FIFO) algorithm. This will occur even if the shelf life 
+  of a material has been extended through the recertification process making its 
+  expiration date later than other items in inventory. The pick list shows the 
+  receipt ID of the item which is to be picked as well as other available receipt 
+  IDs. If a receipt ID can not be located and/or is picked outside of the FIFO 
+  algorithm, the pick list is annotated to provide the quantity of the selected 
+  receipt ID together with an explanation of why it was picked.</font></p>
+<p><font face="Tahoma" size="-1">It is important to note that printing the pick 
+  list decrements the Haas TCM inventory as reflected on the <strong>Logistics</strong> 
+  page.</font></p>
+<p><font face="Tahoma" size="-1">Picking QC is the process of independently checking 
+  materials picked for delivery <i>before</i> final packaging and shipment to 
+  the customer. The completed pick list is compared against material staged for 
+  delivery to confirm that the correct receipt ID and quantity has been picked 
+  and that the materials are properly labeled. To complete the delivery, proceed 
+  to the <strong>Picking QC</strong> page.</font></p>
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<html>
+
+<head>
+<title>Items Needing Price Quotes</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p>
+<center><h2>Items Needing Price Quotes</h2>
+<p>
+<form action="/cgi-bin/purch/pqlist_new.cgi" method="post">
+Show items for assigned quoter &nbsp;
+<select name="quoter">
+<option value="Any" SELECTED>Any Buyer</option>
+<option value="19313">Kathy Buckler</option>
+<option value="85909">Mark Baletka</option>
+<option value="19288">Ken Yancey</option>
+<option value="85655">Ben Mills</option>
+<!-- removed Perry 8/15/01 dsc
+<option value="Ford">Perry Ford</option>
+-->
+<option value="18789">Penny Phillips-Powers</option>
+<!-- removed Terry and Don 8/15/01 dsc
+removed Mary, Bob, Lynne, Vicki 6/6/02 swb
+<option value="Sherman">Don Sherman</option>
+<option value="Nicholson">Terry Nicholson</option>
+<option value="Williams">Lynne Williams</option>
+<option value="Tolan">Vicki Tolan</option>
+<option value="Arnett">Mary Arnett</option>
+<option value="Moore">Bob Moore</option>
+-->
+<option value="85805">JoAnne Collins</option>
+<option value="86652">Michael Shires</option>
+<option value="388">Jonathan Luppens</option>
+<option value="354">Evelyn Sadler</option>
+<option value="991">Harley Fisk</option>
+<option value="1929">Priscilla Delaney</option>
+<option value="1395">Tanya Sanchez</option>
+<option value="3059">CW Bruner</option>
+<option value="3060">Rick Rennells</option>
+<option value="1928">Sally Albachten</option>
+<option value="2782">Pat Roach</option>
+<option value="3800">Christine Longval</option>
+<option value="None">No quoter assigned
+</select>
+<br>
+where the client Part # contains &nbsp;
+<input type="text" name="part_id" value="">
+<br>(blank means any client part #)
+<br>
+where the Radian Item ID is &nbsp;
+<input type="text" name="item_id" value="">
+<br>(blank means any Item ID)
+<p>
+<input type="radio" name="never_flag" value="Y" CHECKED> &nbsp; Show
+&nbsp; &nbsp; &nbsp;
+<input type="radio" name="never_flag" value="N"> &nbsp; Do NOT Show
+&nbsp; &nbsp; &nbsp;
+Items never purchased for client
+<p>
+Sort by: &nbsp;
+<select name="sortby">
+        <option value="priority">Priority 
+        <option value="item_id">Radian Item ID
+        <option value="item_desc">Description
+        <option value="facility_part_id">Raytheon Part #
+<!--        <option value="hub">Hub/Catalog
+-->
+</select>
+<input type="radio" name="up" value="" CHECKED>Ascending
+<input type="radio" name="up" value="desc">Descending
+<input type="submit" value="Submit & Sort">
+</form></center></body></html>

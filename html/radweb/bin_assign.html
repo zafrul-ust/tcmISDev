@@ -1,0 +1,21 @@
+<html><head><title>Assign a Bin to a Room</title></head>
+<body bgcolor="#FFFFFF">
+<center>
+<h2>Assign a Bin to a Room</h2>
+<p>
+<form action="/cgi-bin/radweb/bin_map.cgi" method="POST">
+List current bin/room pairs for hub &nbsp;
+<select name="hub">
+<option value="2101">Salem
+<option value="2102">Dallas
+<option value="2124">Israel
+<option value="2136">Middletown
+<option value="2141">East Hartford
+<option value="2156">Greenville
+</select>
+<p>
+where the bin contains the string &nbsp;
+<input name="bin" type="text"> 
+<p>
+<input type="submit" name="List" value="List">
+</form></center></body></html>

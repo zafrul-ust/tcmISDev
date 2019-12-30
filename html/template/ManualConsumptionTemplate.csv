@@ -1,0 +1,8 @@
+UsageDate,Location,MSDSID,CustMsdsNo,MsdsUnitMeas,MsdsUnitQty,Part,ItemQty,PurchaseSource
+9/25/1981,POU-123,,12345,FOZ,16,,,Other Purchase
+9/25/1981,POU-465,,78901,GAL,1,,,Other Purchase
+9/25/1981,POU-789,,45678,g,32,,,Other Purchase
+9/25/1981,POU-789,324534,,kg,100,,,Other Purchase
+9/25/2009,POU-123,,12345,,,PART-123,2,Other Purchase
+9/25/2009,POU-465,,78901,,,PART-456,1,Other Purchase
+9/25/2009,POU-789,,45678,,,PART-789,3,Other Purchase

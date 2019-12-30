@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Demo Corp. tcmIS Work Area Definition</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" />
+</head>
+
+<body>
+<h1><a name="WorkAreaDefinition" id="WorkAreaDefinition"></a>Work Area Definition</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Work Area Definition</strong> page is used to view, manage, and print information about work areas
+   set up in tcmIS. The <strong>Work Area Definition</strong> page can be accessed from the <strong>Supply Chain</strong>
+	menu by selecting the <strong>Work Area Inventory</strong> menu item, then the <strong>Work Area Definition</strong> item. 
+	The <strong>Work Area Definition</strong> page is launched in a new tab.</p>
+<div class="image"><img src="WorkAreaDef1.png" height="230" width="835" alt="Work Area Definition menu item" />
+<div class="caption">Figure 1</div></div>
+
+<p>You must choose a specific facility for the work area(s) from the <strong>Facility</strong> list. You may
+   choose to narrow the range of work areas by selecting from the <em>Physical Layout</em> portion of the selection 
+   panel and/or from the <em>Organizational Layout</em> section.</p>
+   <ul>
+   	<li><em>Physical Layout</em>: refers to the physical location of the Work Area.
+   		<ul>
+   			<li>You may select a specific Area from the <strong>Area</strong> list.</li>
+   			<li>You may also further narrow the selection by selecting a specific building from the <strong>Building</strong> list.</li>
+   		</ul>
+   	</li>
+   	<li><em>Organizational Layout</em>: refers to the work area position in the company hierarchy.
+   		<ul>
+   			<li>You may select a specific work area from the <strong>Work Area Group</strong> list.</li>
+   			<li>You may select a specific department from the <strong>Dept.</strong> list.</li>
+   		</ul>
+   	</li>
+   </ul>
+<p>Click the <strong>Search</strong> button. The work areas will be displayed in the data grid. (Because the grid
+   includes so many columns it is illustrated in left and right sections, below.) </p>
+<p>Click the <strong>Create Excel</strong> button to export results in Excel format.</p>
+<div class="image"><img src="WorkAreaDef2.png" height="427" width="901" alt="Work Area Definition page selection panels" />
+<div class="caption">Figure 2: Work Area Definition selection panels</div></div>
+
+<p>The Work Area Definition data grid has many columns. They are all shown in the figures below and are described 
+	in the section between the two figures in the left-to-right order of the columns on the page.</p> 
+	<ul>
+		<li>For some columns there is a <a href="../Administration/Searches.htm#lookup">Lookup form</a> represented by a small 
+			 <img src="../../images/glass.gif" width="21" height="16" alt="glass">magnifying glass. Click on the glass to 
+			 display the lookup form.</li>
+		<li>Some columns provide a drop-down list from which you may select alternative values, for example the
+			 <em>Inventory Group</em> column.</li>
+	</ul>
+
+<div class="image"><img src="WorkAreaDef2A.png" height="588" width="960" alt="Work Area Definition left columns" />
+<div class="caption">Figure 2A: Work Area Definition left columns</div></div>
+
+	<ul>
+		<li><a class="tooltip" href="#"><strong>Active?</strong><span class="classic"> A work area may be active or inactive. If it is inactive 
+			 it cannot place orders or add inventory.</span></a> Status</li>
+
+		<li><a class="tooltip" href="#"><strong>Work Area</strong> [name]<span class="classic"> Every work area must have a name and must 
+			 belong to a work area group. The name uniquely identifies the work area to distinguish it from all other work areas.</span></a> 
+			 The work area name may be edited directly in the text box in the <strong>Work Area</strong> column.</li>
+			 
+		<li>The <strong>Department</strong> section includes two columns:  
+			 <a class="tooltip" href="#">[Department] <strong>Name</strong><span class="classic"> contains the department identification. 
+			 	A single department may (usually does) include multiple work areas.</span></a>
+			and 
+			<img src="../../images/glass.gif" width="21" height="16" alt="Magnifying glass"></li>
+
+		<li><a class="tooltip" href="#"><strong>DropShip?</strong> checkbox<span class="classic"> when selected indicates that delivery is direct from the 
+			 supplier and will not be routed through a HGI Hub. <em>Labeling and quality inspection are not done by HGI Hub staff</em>. 
+			 The ship to location on the HGI PO will be the work area and not the hub.</span></a></li>
+		
+		<li><a class="tooltip" href="#"><strong>Offsite?</strong> checkbox<span class="classic"> when selected the work area is not physically located 
+			 at the facility.  Usage <em>is NOT included</em> on usage reports such as Ad Hoc Usage and Ad Hoc Material Matrix.</span></a></li>
+
+		<li>The <a class="tooltip" href="#"><strong>Work Area Group</strong><span class="classic"> associates the work area with others with 
+			 which it is operationally or organizationally tied.</span></a> section includes two columns: 
+			 <a class="tooltip" href="#"><strong>Group</strong> [name]<span class="classic"> a name that incorporates the Department 
+			 name. The name uniquely identifies the work area GROUP to distinguish it from all other groups.</span></a>
+			 and 
+			 <img src="../../images/glass.gif" width="21" height="16" alt="Magnifying glass"> 
+			 (See <a href="#manageworkareagroups">Work Area Groups form</a> for details.)</li>
+
+		<li><a class="tooltip" href="#"><strong>Ordering Method for Stocked Parts</strong><span class="classic"> is the means 
+			 by which inventory may be obtained for the work area. It is indicated and edited using the list in the column.</span></a> 
+			 There are three ordering methods:
+			<ul>
+				<li><strong>Manual Ordering</strong> indicates the replenishment occurs when a customer places an order using the
+	    			<strong><a href="../Catalog/Catalog.htm">Catalog</a></strong> page.</li>
+				<li><strong>Stock Level Ordering</strong> indicates the replenishment occurs when a
+	    			<a href="../ScannerTraining/ScannerTraining.htm#WorkAreaScanning">work area scan</a> indicates that
+	    			additional inventory is needed.</li>
+				<li><strong>Manual &amp; Stock Level</strong> indicates that both manual and stock level ordering are used for
+	    			obtaining needed inventory.</li>
+			</ul>
+		</li>			
+
+		<li><a class="tooltip" href="#"><strong>Pulled within days</strong><span class="classic"> The number of days prior to expiration that 
+			material should be removed from the cabinet. During scanning the scanner beeps (loudly) and instructs the operator to remove the 
+			product from the cabinet this number of days before it expires.</span></a></li>
+			 
+		<li><a class="tooltip" href="#"><strong>Days between scan</strong><span class="classic"> is the usual number of days 
+			between cabinet replenishment scans.</span></a></li>
+
+		<li>The <strong>Location</strong> section includes six columns:  
+			 <strong>Area</strong> 
+			 | 
+			 <strong>Building</strong> 
+			 |
+			 <strong>Floor</strong> 
+			 | 
+			 <strong>Room</strong> 
+			 | 
+			 <a class="tooltip" href="#"><strong>Interior/Exterior</strong><span class="classic"> indicates whether the work area is inside 
+			 	or outside the building specified by the other Location columns.</span></a> 
+			 | 
+			 <img src="../../images/glass.gif" width="21" height="16" alt="Magnifying glass"> 
+			 (for Area, Building, Floor, and Room).</li>
+
+		<li><a class="tooltip" href="#"><strong>Inventory Group</strong><span class="classic"> a list from which you may choose the 
+			 appropriate inventory group for each work group. <em>Not all organizations use inventory groups. If they are not used, the list in
+			 this column is replaced with a default text group name.</em></span></a></li>
+
+		<li><a class="tooltip" href="#"><strong>Account</strong>[ing] <strong>Sys</strong>[tem]<span class="classic"> a list from which you may choose the 
+			 appropriate accounting system for each work group. <em>In many instances there is only a single &lsquo;choice&rsquo;.</em></span></a></li>
+			 
+		<li>The <a class="tooltip" href="#"><strong>Dock</strong><span class="classic"> is the loading dock within the facility 
+			 for truck delivery.</span></a> section includes two columns:  
+			 [Dock] <a class="tooltip" href="#"><strong>Name</strong><span class="classic"> identifies the delivery dock.</span></a> 
+			 and 
+			 <a class="tooltip" href="#"><strong>Fixed</strong><span class="classic"> when selected indicates that there is a single delivery 
+			 	dock which must be used; when cleared there may be multiple delivery docks and the user selects the dock when creating the 
+			 	Material Request.</span></a> check box.</li>
+			 
+		<li>The <a class="tooltip" href="#"><strong>Delivery Point</strong><span class="classic"> is the designated location within the 
+			 facility for final delivery whether by HGI driver or facility personnel.</span></a> section includes three columns: 
+			 [Delivery Point] <a class="tooltip" href="#"><strong>Name</strong><span class="classic"> identifies the 
+			 designated location.</span></a> 
+			 | 
+			 <a class="tooltip" href="#"><strong>Fixed</strong> checkbox<span class="classic"> when selected indicates that there is a single delivery 
+			 point which must be used; when cleared there may be multiple delivery points and the user selects the delivery point when creating 
+			 the Material Request.</span></a> 
+			 |
+			 <img src="../../images/glass.gif" width="21" height="16" alt="Magnifying glass"></li>
+
+		<li><a class="tooltip" href="#"><strong>Description</strong><span class="classic"> may be used to record a term by which the work group is 
+			 commonly known.</span></a></li>
+		<li><a class="tooltip" href="#"><strong>Contact name</strong><span class="classic"> records the name of the contact person for 
+			 the work area.</span></a> may be edited directly in the text box of this column.</li>
+
+		<li><a class="tooltip" href="#">[Contact] <strong>Phone</strong><span class="classic"> records the telephone number of the contact person for 
+			 the work area.</span></a> may be edited directly in the text box of this column.</li>
+
+		<li><a class="tooltip" href="#">[Contact] <strong>Email</strong><span class="classic"> records the email address of the contact person for 
+			 the work area.</span></a> may be edited directly in the text box of this column.</li>
+
+		<li><a class="tooltip" href="#"><strong>Customer Work Area ID</strong><span class="classic"> records the ID number of the work area of the 
+			 contact person for the work area. (The contact person for the work area does not have to be in that work area.)</span></a> may 
+			 be edited directly in the text box of this column.</li>
+	</ul>
+<div class="image"><img src="WorkAreaDef2B.png" height="588" width="960" alt="Work Area Definition right columns" />
+<div class="caption">Figure 2B: Work Area Definition right columns</div></div>
+
+<h3>Action links</h3>
+<p>In addition to the <strong>Update</strong> link, there are two other links in the upper-left of the data grid:</p>
+<ul>
+	<li>The <strong>New Work Area</strong> link may be clicked to add a new work area line to the data grid. You must
+	    edit this line (as described in the sections below) to complete the information needed, and click the
+		 <strong>Update</strong> link to save the new record.</li>
+	<li>The <strong>Show Legend</strong> link will cause a small window to open, on top of the current page, to display
+	    a color key to any shading used to characterize the records in the data grid.</li>
+</ul>
+<div class="image"><img src="WorkAreaDef3.png" height="588" width="960" alt="Work Area Definition page action links" />
+<div class="caption">Figure 3</div></div>
+
+
+<h3>Context menu links</h3>
+<p>Right click on any column of a record for a context menu.</p>
+<ul>
+	<li>Select the <strong><a id="EditCharge">Edit Work Area Directed Charge</a></strong> link to view or edit these details. 
+		 See <strong><a href="../Catalog/Catalog.htm#EditCharge">Edit Charge</a></strong> on the <strong>Catalog</strong> page for details.
+		<ul>
+			<li>If directed charges have been entered for both a part and the work area, the part directed charge will be used
+   			 rather than the work area directed charge.</li>
+		</ul>	 
+	</li>
+	<li>Select the <strong>Change History</strong> to display a child window listing the records of changes made for the part.</li>
+</ul>
+<div class="image"><img src="WorkAreaDef4.png" height="588" width="960" alt="Work Area Definition page context menu" />
+<div class="caption">Figure 4</div></div>
+
+<p>The <strong><a id="manageworkareagroups">Work Area Groups</a></strong> page simply lists all the existing work area groups to which any
+   particular work area may be assigned. There are three things that can be done on this page.</p>
+<ul>
+	<li><strong>Edit</strong> one or more of the existing work area group names. The work area name may be edited
+	    directly in the text box in the <strong>Work Area Group</strong> column. No changes made on the <strong>Manage
+		 Work Area Groups</strong> page are saved until the <strong>Update</strong> link on this page is clicked.</li>
+	<li><strong>Create</strong> a new work area group by clicking the <strong>New Work Area Group</strong> link at the
+	    upper-left of the page. A blank work area group line will be added at the bottom of the list: you may have to
+		 scroll down the list to see it. Enter a work area name directly into the text box in the <strong>Work Area
+		 Group</strong> column. No changes made on the <strong>Manage Work Area Groups</strong> page are saved until the
+		 <strong>Update</strong> link on this page is clicked.</li>
+	<li><strong>Assign</strong> a work area group to the work area you selected on the <strong>Work Area
+	   Definition</strong> page when you clicked the magnifying glass icon <img class="small" src="../../images/glass.gif" height="16" 
+	   width="21"  alt="magnifying glass" />. A new link, <strong>Return Work Area Group</strong>, will appear at the 
+	   top of the page. Click this link.  The <strong>Manage Work Area Groups</strong> page will close and the selected 
+	   group will appear in the <strong>Group</strong> column. (Since you will be back on the <strong>Work Area 
+	   Definition</strong> page, remember, no changes made are saved until the <strong>Update</strong> link is clicked.)</li>
+</ul>
+<div class="image"><img src="WorkAreaDef5-5A.png" height="272" width="1001" alt="Manage Work Area Group page" />
+<div class="caption">Figures 5 and 5A</div></div>
+
+</body>
+</html>

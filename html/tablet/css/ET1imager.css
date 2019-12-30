@@ -1,0 +1,15 @@
+.buttonOn{
+	
+}
+
+.buttonOff{
+	color: black;
+}
+
+#cameraControlDiv{
+	display: block;
+}
+
+#imageAcceptDiv{
+	display: none;
+}

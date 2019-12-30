@@ -1,0 +1,78 @@
+.catalogData {
+background-color:#7777ff;
+}
+
+.useApprovalData {
+background-color:#a6c6bd;
+width:100px;
+}
+
+.overRideData {
+background-color:#b6ff6c;
+width:100px;
+}
+
+.kanBanData {
+background-color:#CCCC99;
+width:100px;
+}
+
+.grayData {
+background-color:#dfdfdf;
+width:100px;
+}
+
+.bd table td{
+display:table-cell;
+height:30px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 10px;
+text-align:left;
+}
+
+.legendText{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+}
+
+.white {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        background-color:  #ffffff;
+        text-align: center;
+        height:25px;
+}
+
+.blue {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        background-color:  #E6E8FA;
+        text-align: center;
+        height:25px;
+}
+
+/*This applies to input elements which you want to make invisible to the user*/
+.invisibleHeadBlue
+{
+	  font-size: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        /*color: Maroon;*/
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        background-color:  #f5f5ff;
+        border: 1px
+}
+
+/*This applies to input elements which you want to make invisible to the user*/
+.invisibleHeadWhite
+{
+	  font-size: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        /*color: Maroon;*/
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        background-color:  #ffffff;
+        border: 1px
+}

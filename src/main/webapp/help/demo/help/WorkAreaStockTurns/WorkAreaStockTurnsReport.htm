@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Work Area Stock Turns Report</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" />
+</head>
+
+<body>
+<h1><a name="WorkAreaStockTurns" id="WorkAreaStockTurns"></a>Work Area Stock Turns Report</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Work Area Stock Turns Report</strong> page is used to produce a usage report of material over the most recent six-month period with a calculation 
+   of the six-month total usage, average weekly usage, and projection of annual inventory turnover given the established stocking level.
+   The <strong>Work Area Stock Turns Report</strong> page can be accessed by selecting <strong>Inventory</strong> from the <strong>Reports</strong>
+	menu and the selecting <strong>Work Area Stock Turns Report</strong>. The <strong>Work Area Stock Turns Report</strong> page is launched
+	in a new tab.</p>
+<div class="image"><img src="StockTurns1.png" height="343" width="835" alt="Work Area Stock Turns Report menu item" />
+<div class="caption">Figure 1</div></div>
+
+<p>Select the <strong>Division</strong>, <strong>Facility Group</strong>, and <strong>Facility</strong> from their respective 
+   lists. <em>In some cases the default values are all that are available to you</em>. Choose the <strong>Work Area Group</strong> 
+   from its list, or leave the default value of <strong>All</strong>, and the specific <strong>Work Area</strong> if appropriate.</p>
+<p>You may use the <strong>Facility with Bin</strong> check box to limit the search to those facilities.</p>
+
+<p>Click the <strong>Search</strong> button to see the report. The numbers are arranged in the right-most columns (shown below).</p>
+<ul>
+	<li>The <strong>M1</strong> through <strong>M6</strong> columns display the quantity dispensed from the cabinet in each of the previous six months (from 
+	    oldest to most recent).</li>
+	<li>The <strong>Half-year Total</strong> is simply the sum of the previous six month totals.</li>
+	<li>The <strong>Avg User per Week</strong> is the Half-year Total divided by the 26 weeks in the six months.</li>
+	<li>The <strong>Turns</strong> is an annualized projection based on the <strong>SL</strong> (stocking level). For 
+	    the given SL and at the average user per week, <strong>Turns</strong> is the number of times the inventory 
+	    will be completely replaced.</li>
+</ul>
+<div class="image"><img src="StockTurns2.png" height="529" width="1048" alt="Work Area Stock Turns Report page" />
+<div class="caption">Figure 2: scrolled to right for details</div></div>
+
+<p>Click the <strong>Create Excel File</strong> button to export the results of the report in Excel format.</p>
+</body>
+</html>

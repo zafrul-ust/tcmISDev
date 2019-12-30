@@ -1,0 +1,143 @@
+<html>
+<head>
+
+<META HTTP-EQUIV="Expires" CONTENT="Tue, 01 Jan 1980 1:00:00 GMT">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+
+<title>OCULUS - Login</title>
+
+<script language="JavaScript">
+<!--
+
+if (window != window.top)
+  top.location.href = location.href;
+
+function validateLogin(form) {
+        return ( checkString( document.loginForm.elements[ "loginID" ] ) &&
+                        checkString( document.loginForm.elements[ "loginPW" ] )
+                );
+}
+
+function checkString(theField) {
+        if( isEmpty( theField.value ) )
+                alert( 'You must enter your Login ID and\n' + 'your Password to access OCULUS.' );
+        else return true;
+}
+
+function isEmpty(s) {
+        return ( ( s== null ) || ( s.length == 0  ) )
+}
+
+function getLogin() {
+        var username = getCookie("login");
+
+        if (username) {
+                document.loginForm.loginID.value = username;
+                document.loginForm.loginPW.focus();
+        } else document.loginForm.loginID.focus();
+}
+
+function setLogin() {
+        var username = document.loginForm.loginID.value;
+        var now = new Date();
+        fixDate(now);
+        now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+        setCookie( "login", username, now );
+
+        if (navigator.appName=="Netscape")
+                document.loginForm.action = '/servlet/NSLoginServlet';
+        document.loginForm.submit();
+}
+
+function setCookie(name, value, expires, path, domain, secure) {
+        var curCookie = name + "=" + escape(value) +
+                ((expires) ? "; expires=" + expires.toGMTString() : "") +
+                ((path) ? "; path=" + path : "") +
+                ((domain) ? "; domain=" + domain : "") +
+                ((secure) ? "; secure" : "");
+//      document.cookie = curCookie;
+}
+
+function getCookie(name) {
+        var dc = document.cookie;
+        var prefix = name + "=";
+        var begin = dc.indexOf("; " + prefix);
+        if (begin == -1) {
+                begin = dc.indexOf(prefix);
+                if (begin != 0) return null;
+        } else
+                begin += 2;
+                var end = document.cookie.indexOf(";", begin);
+                if (end == -1)
+                end = dc.length;
+                return unescape(dc.substring(begin + prefix.length, end));
+}
+
+function fixDate(date) {
+        var base = new Date(0);
+        var skew = base.getTime();
+        if (skew > 0)
+                date.setTime(date.getTime() - skew);
+}
+
+// -->
+</script>
+</head>
+
+<body bgcolor="#FFF0E0" link="#dd0000" alink="#ff3333" vlink="#dd0000" onload="getLogin();">
+        <center>
+                <table border="0" cellpadding="0" cellspacing="2">
+                        <tr><td align="center"><img src="/logos/icon_small.gif"></td></tr>
+                        <tr><td><font size=1>&nbsp;</font></td></tr>
+                        <tr><td align="center"><img src="/logos/oclogotextblue.gif"></td></tr>
+                        <tr><td><font size=1>&nbsp;</font></td></tr>
+                        <tr>
+                                <td align="center">
+                                                <table border="0" cellpadding="4" cellspacing="0" width="300">
+                                                <form name="loginForm" action="/servlet/LoginServlet" method="post">
+                                                        <tr>
+                                                                <td width="80" align="right"><font face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular" size="2">Login ID: </font></td>
+                                                                <td><input type="text" name="loginID" size="24" tabindex="1"></td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td width="80" align="right"><font face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular" size="2">Password: </font></td>
+                                                                <td><input type="password" name="loginPW" size="24" tabindex="2"></td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td colspan="2" align="center"><input type="submit" value="Login" name="login" tabindex="3" onclick="if (validateLogin(this.form)) setLogin(); else return false;"></td>
+                                                        </tr>
+                                                </form>
+                                                </table>
+                                </td>
+                        </tr>
+                        <tr>
+                                <td align="center">
+                                                <font face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular" size="1">For Help e-mail:</font><font face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular" size="1" color="white"> </font><a href="mailto:austin-corporatehelpdesk@urscorp.com"><font face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular" size="1" color="#ff3333">Austin Corporate Help Desk</font></A><font face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular" size="1" color="black"> or call (512) 419 6910</font></a><font face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular" size="1"> </font>
+                                </td>
+                        </tr>
+                        <tr>
+                                <td align="center">
+                                        <table border="0" cellpadding="4" cellspacing="0" width="400">
+                                                <tr>
+                                                        <td align="center"><font face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular" size="1"></font></td>
+                                                </tr>
+                                        </table>
+                                </td>
+                        </tr>
+                        <tr>
+                                <td align="center">
+                                                <font face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular" size="1">OCULUS 2.5d Copyright &copy;1999,2000 ROH Incorporated. All Rights Reserved.
+</font><font face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular" size="2"> </font><br>
+                                </td>
+                        </tr>
+                </table>
+<BR>
+<BR>
+                                                <font face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular" size="1">Download the <A HREF="OCULUS.DOC">Oculus User Guide</A></font></center>
+        </center>
+
+</body>
+
+</html>
+

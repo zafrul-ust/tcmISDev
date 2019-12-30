@@ -1,0 +1,26 @@
+<html><head><title>List of DD250s to Print</title></head>
+<body bgcolor="#FFFFFF">
+<a href="/gen/lmk/index.html">Return to Main Menu</a>
+<p>
+<center>
+<h1>TCM Receiving</h1>
+<form action="/cgi-bin/gen/lmk/TCMReceiving.cgi" method="post">
+Show all orders for LMKAC &nbsp;
+<p>
+where the part number contains &nbsp;
+<input type="text" name="fpn">
+<br>
+(blank means any part number)
+<p>
+where the TCM PO number contains &nbsp;
+<input type="text" name="rpo">
+<br>
+(blank means any TCM PO number)
+<p>
+where the shipment &nbsp;
+<input type="checkbox" name="recv" value="Y"> has &nbsp; &nbsp;
+<input type="checkbox" name="nrecv" value="N" CHECKED> has not &nbsp; &nbsp;
+been fully received in the past
+<p>
+<input type="submit" value="Show Orders">
+</form></center></body></html>

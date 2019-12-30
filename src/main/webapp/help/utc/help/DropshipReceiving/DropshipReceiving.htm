@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Dropship Receiving</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+
+<h1><a name="DropshipReceiving" id="DropshipReceiving"></a>Dropship Receiving</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The<strong> Dropship Receiving</strong> page is used by HGI customers to record
+   the receipt of an order in tcmIS when the material was shipped directly to the customer's facility
+	and did not pass through an HGI hub. The <strong>Dropship Receiving</strong> page is accessed from the <strong>Order
+	Management</strong> menu by selecting the <strong>Dropship Receiving</strong> menu item. The page is launched
+  in a new tab.</p>
+<div class="image"><img src="DropshipReceiving1.png" height="236" width="835" alt="Dropship Receiving menu item" />
+<div class="caption">Figure 1</div></div>
+
+<p>There are a number of selections that define the search:</p>
+	<ul>
+		<li>You must use the <strong>Company</strong>, <strong>Facility</strong>, and <strong>Ship To</strong> 
+			 lists to specify the drop ship information you want.</li>
+		<li>In some situations <strong>Ship To</strong> allows you to choose either all docks or one single dock.</li>
+		<li>You may provide something to at least partially identify the material you want using the <strong>Search by</strong> boxes. Your 
+		 	 search may be specified by <em>Item Desc</em>[ription], <em>Item ID</em>, <em>MR Number</em>, or <em>Haas PO</em>. See 
+		 	 <a href="../Administration/Searches.htm">Search functions</a> for more information.</li>
+		<li>You may specify the order in which the items are listed using the <strong>Sort</strong> list.
+			<ul>
+				<li>by date expected and, within date, by supplier when you select <strong>Date Exptd/Supplier</strong>;</li>
+				<li>by Material Request line number when you select <strong>MR-Line</strong>;</li>
+				<li>by Purchase Order and, within PO, by line when you select <strong>PO/PO Line</strong>;</li>
+				<li>by supplier and, within supplier, by date expected when you select <strong>Supplier/Date Exptd</strong>.</li>
+			</ul>
+		</li>
+		<li>By default only orders expected to be delivered in the next 30 days are listed. To see more orders,
+	    	increase the number of days in the <strong>Expected Within</strong> box.</li>
+	</ul>
+<p>Click the <strong>Search</strong> button to display the records. Click the <strong>Create Excel</strong> button to export the displayed data in Excel format.</p>
+<div class="image"><img src="DropshipReceiving2.png" height="585" width="835" alt="Drop ship receiving page - left portion" />
+<div class="caption">Figure 2</div></div>
+
+<p>When you have located the shipment you want to 'receive' (by entering details into tcmIS), use the input
+   boxes on the selected line of the <strong>Dropship Receiving</strong> page to enter the needed details.</p>
+<ul>
+	<li>Although the <strong>OK</strong> check box is the first field available for action, it is actually the
+	   very last thing to do when receiving the order into tcmIS. Fill in all the other information before you
+		select this box.</li>
+	<li>Begin by entering the manufacturer's lot number from the material in the <strong>Lot</strong> column.</li>
+	<li>If the supplier ship date is known, enter that date in the <strong>Actual Supplier Ship Date</strong>
+	    column. Place your cursor in the field and the Date Selector form will open to allow you to
+		 choose the date. This is not a required field and can be left blank if this information is not
+		 provided by the supplier.</li>
+	<li>Enter the actual date the material was delivered to your facility in the <strong>DOR</strong> (date of
+	    receipt) column. The date defaults to today's date which you may leave if that is correct. Place your
+		 cursor in the field and the Date Selector form will open to allow you to choose another date
+		 (but you may not use a date later than today). </li>
+	<li>Enter the expiration date of the material in the <strong>Exp Date</strong> column. Place your
+	    cursor in the field and the Date Selector form will open to allow you to choose the date. If
+		 this is not a shelf life sensitive product, enter the word Indefinite by clicking the <strong>
+		 Indefinite</strong> button at the bottom of the calendar form.</li>
+	<li>Enter the quantity delivered in the <strong>Qty Rec'd</strong> column. <em>Note that it is very
+	    important to receive material in terms of the unit of measure displayed in the packaging
+		 field</em>.</li>
+	<li>Enter any notes in the <strong>Notes</strong> text box. </li>
+	<li>Provide the supplier's delivery ticket information in the <strong>Delivery Ticket</strong>
+	    text box. </li>
+	<li>Select the country of origin for the material from the <strong>Ship From Country</strong> list. </li>
+</ul>
+<div class="image"><img src="DropshipReceiving3.png" height="585" width="902" alt="Drop ship receiving input boxes" />
+<div class="caption">Figure 3</div></div>
+
+<p>If the material delivered has more than a single lot number or more than a single expiration date,
+   split the shipment into enough lines to record each lot number and expiration date combination on
+	a separate line. Click the <strong>Dupl</strong>[icate] button to add a split line, repeating
+	until you have all the lines you need for the shipment. Complete all the required fields for each
+	line.</p>
+<div class="image"><img src="DropshipReceiving4.png" height="585" width="902" alt="Dupl button and duplicated line" />
+<div class="caption">Figure 4</div></div>
+
+<p>Items are sometimes shipped in different quantities in different deliveries. These items are known as
+   variably sized or MV items. For MV items on the <strong>Dropship Receiving</strong> page,
+	you must enter both quantity and size in the <strong>Packaged Qty x Packaged Size</strong> column.
+   If more than one size was delivered, use the <strong>Dup Pkg</strong> button as needed and enter the
+   <strong>Packaged Qty x Packaged Size</strong> for each size.</p>
+<div class="image"><img src="DropshipReceiving5.png" height="176" width="286" alt="Packaged Qty x Packaged Size column and text boxes" />
+<div class="caption">Figure 5</div></div>
+
+<p>Complete all the data entry for each line received. After all lines are complete, select the check box
+   in the <strong>OK</strong> column for each completed line.</p>
+<p>After all lines are marked OK, click the <strong>Receive</strong> link at the top left of the data
+   grid to complete the process. Unchecked lines will be left for future action.</p>
+<div class="image"><img src="DropshipReceiving6.png" height="585" width="902" alt="Completed lines to be marked Received" />
+<div class="caption">Figure 6</div></div>
+
+<p>When the <strong>Receive</strong> link is clicked, in addition to updating the tcmIS record, a child window is opened 
+	to display the <a id="receivedreceipts"><strong>Received Receipts</strong> form</a> which summarizes all receipts made.</p>
+	<ul>
+		<li>If the customer is equipped with a Zebra printer, and it has been configured to work with tcmIS, container/kit labels can 
+			 be printed by clicking the <strong>Container Labels</strong> button. Contact the Technical Center to enable label printing.</li>
+		<li>At HGI Distribution Hubs the <strong>Document Labels</strong> button is used to print labels that, affixed to receipt 
+			 documents, automates the storage of scanned, labeled documents into tcmIS.</li>
+		<li>This form itself can be printed for your records by clicking the <strong>Print This Page</strong> button.</li>
+	</ul>
+<p>In the <strong>Receipt ID</strong> column there is a small plus-symbol-in-a-box icon. Click on this icon 
+	and tcmIS will open a child window to display the <strong>Receipt Documents</strong> form.</p>
+<div class="image"><img src="DropshipReceiving7.png" alt="Received items summary page" height="293" width="656" />
+<div class="caption">Figure 7</div></div>
+
+<p>The <strong>Receipt Documents</strong> form displays a list of any documents that 
+	have been uploaded and stored for this particular <strong>Receipt ID</strong> (if any. Management of uploaded 
+	documents is handled from this form.</p>
+	<ul>
+		<li>View a receipt document by clicking on the <strong>Name</strong> which is a link that will open a new 
+			 window to display the previously uploaded document.</li>
+		<li>Select the check box in the <strong>Delete</strong> column to discard an existing receipt document. 
+			 You must click the <strong>Update</strong> button to cause tcmIS to make any deletions.</li>
+		<li>Click the <strong>Add New Document</strong> button to display another form for uploading an additional 
+			 receipt document.</li>
+		<li>Click the <strong>Close</strong> button to close the form and the window.</li>
+	</ul>
+<div class="image"><img src="DropshipReceiving8.png" alt="Receipt documents form" height="197" width="376" />
+<div class="caption">Figure 8</div></div>
+
+<p>When the <strong>Add New Document</strong> button is clicked, tcmIS will open another child window and display 
+	the Add Receipt Document form. All fields have to be completed:</p>
+	<ul>
+		<li>Accept the default Company or choose another (if desired and available) from the <strong>Company</strong> 
+			 drop-down list.</li>
+		<li>Enter a document name in the <strong>Doc Name</strong> text box.</li>
+		<li>Accept the default date (which is always the current date) or choose another from the calendar form that 
+			 is displayed when you click into the <strong>Doc Date</strong> text box.</li>
+		<li>Use the <strong>Browse</strong> button to locate the document to be uploaded for the <strong>File</strong> 
+			 text box.</li>
+		<li>Select the type of document from the <strong>Doc Type</strong> drop-down list: <em>COA, COC, Picture, or Receiving Checklist</em>.</li>
+		<li>Click the <strong>Save</strong> button to complete the upload process or click the <strong>Cancel</strong> button to abandon the 
+			 upload process.</li>
+	</ul>
+<div class="image"><img src="DropshipReceiving9.png" alt="Add New Receipt document form" height="212" width="496" />
+<div class="caption">Figure 9</div></div>
+
+</body>
+</html>

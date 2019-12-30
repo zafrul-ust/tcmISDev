@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Charge Number Management</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" />
+</head>
+
+<body>
+<h1><a name="ChargeNumberMgt" id="ChargeNumberMgt"></a>Charge Number Management</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Charge Number Management</strong> page is used to identify (and manage) authorized approvers for use 
+	of individual Direct or Indirect charge numbers on requests. The authorized approver may be different for 
+	different work areas or work area groups, etc., as needed for the organization&rsquo;s accounting purposes. 
+	tcmIS automatically routes Material Requests to Approver(s) for the needed authorization. See 
+	<strong><a href="ChargeNumbers.htm">Charge Numbers Set Up</a></strong> for details on recording valid charge 
+	numbers and number combinations.</p>
+<p>The <strong>Charge Number Management</strong> page can be accessed from the <strong>Administration</strong> 
+	menu. The <strong>Charge Number Management</strong> page is launched in a new tab.</p>
+<div class="image"><img src="ChgNbrMgt1.png" height="230" width="835" alt="Charge Number Management menu item" />
+<div class="caption">Figure 1</div></div>
+
+<p>Select the facility for the charge number(s) from the <strong>Facility</strong> list.</p>
+<p>In some cases you may also be able to choose</p>
+	<ul>
+		<li>the accounting system and/or</li>
+		<li>the charge type</li>
+	</ul>
+<p>from the respective boxes. Your choices depend on how the Facility has defined charge number set up requirements. In many cases 
+	there is a single &ldquo;choice&rdquo;.</p>
+<p>Additionally, you may narrow your search by specifying all or part of the charge number particulars in
+   one or more text boxes on the right side of the search parameter panel. Depending on your own situation these
+	possibilities may include one or more of the specific elements included in your charge number combinations, for
+	example <strong>Cost Center</strong> or <strong>Network</strong>.</p>
+<p>Click the <strong>Search</strong> button. The work areas will be displayed in the data grid. Sort the data, ascending or descending, by clicking in the header of the data grid for the item you want. A small upward- or downward-pointing triangle will appear in the header to indicate the sort.</p>
+<p>Click the <strong>Create Excel</strong> link to export the displayed data in Excel format.</p>
+<p></p>
+<div class="image"><img src="ChgNbrMgt2.png" height="496" width="714" alt="Charge Number Management search parameter panel" />
+<div class="caption">Figure 2: Charge Number Management search parameter panel</div></div>
+
+<p>On the <strong>Charge Number Management</strong> page data grid the center column is the <strong>Active</strong>
+   column. If the check box is selected for the line, the WBS Element-Approver combination on that line is active. If the box is cleared, 
+   the combination is inactive. If it is inactive it will not be used to route orders.</p>
+<div class="image"><img src="ChgNbrMgt3.png" height="496" width="714" alt="Charge Number Management Active column" />
+<div class="caption">Figure 3</div></div>
+
+<p>In order to add a WBS Element-Approver combination to tcmIS you must click the <strong>Add</strong> link on the upper-left of
+   the data grid. tcmIS will add a new, blank row to the data grid where you enter the values for the WBS Element and the
+	Approver Name in their respective columns. (The active check box is selected by default.)</p>
+	<ul>
+		<li>Both the <strong>WBS Element</strong> text box and the <strong>Approver Name</strong> text box are 
+			<a href="../Administration/#typeahead">Type Ahead Searches</a> to allow easy location 
+			of valid Elements and Names.</li>
+	</ul>
+<p>Any added (or changed) record on the <strong>Charge Number Management</strong> page is not saved until the
+   <strong>Update</strong> link is clicked.</p>
+<p>Click the <strong>Create Excel</strong> button on the <strong>Catalog Add Tracking</strong>
+  page to export results in Excel format.</p>
+<div class="image"><img src="ChgNbrMgt4.png" height="496" width="714" alt="Creating a new Charge Number-Approver combination" />
+<div class="caption">Figure 4</div></div>
+
+<p>In order to edit or delete a Charge Number-Approver combination in tcmIS you must right-click the record you want to 
+	edit or delete. tcmIS will display a context menu with two menu items: <strong>Update Approvers</strong> and 
+	<strong>Remove Line</strong>.</p>
+	<ul>
+		<li>Select the <strong>Update Approvers</strong> menu item to edit the existing combination.  tcmIS will redisplay the 
+			 record and make it possible to change the Approver. Just as in Adding a record, the Approver text box also 
+			 serves as a <a href="../Administration/Searches.htm#typeahead">Type Ahead Searches</a> to locate a valid Approver 
+			 Name.</li>
+		<li>Select the <strong>Remove Line</strong> menu item and tcmIS will immediately remove the WBS Element-Approver Name 
+			 combination permanently.</li>
+	</ul>
+<div class="image"><img src="ChgNbrMgt5.png" height="496" width="714" alt="Charge Number Management record context menu" />
+<div class="caption">Figure 5</div></div>
+
+<div class="image"><img src="ChgNbrMgt5A.png" height="496" width="714" alt="Charge Number Management edit Approver" />
+<div class="caption">Figure 5A</div></div>
+
+</body>
+</html>

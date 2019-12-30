@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+   <form-bean name="genericForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm"/>
+
+   <form-bean name="supplierLocationForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm">
+     <form-property name="suppLocationIdArray" type="java.lang.String[]"/>
+   </form-bean>
+          
+	<form-bean name="customerordertracking"
+		type="org.apache.struts.validator.LazyValidatorActionForm">
+		<form-property name="customerId" type="java.lang.String[]" />     
+	</form-bean>     
+  </form-beans>
+
+   <!-- ========== Global Forward Definitions ============================== -->
+  <global-forwards>
+    <forward name="launchguimain"
+             path="/launchguimain.do" />
+    <forward name="resetsession"
+             path="/resetsession.do" />
+    <forward name="dropshipreceivingmain"
+             path="/dropshipreceivingmain.do" />
+    <forward name="dlagasordertrackingmain"
+             path="/dlagasordertrackingmain.do" />
+    <forward name="splitpoline"
+             path="/splitpoline.do" />
+    <forward name="polchemordertrackingmain"
+             path="/polchemordertrackingmain.do" />     
+    <forward name="customerreturnrequest"
+             path="/customerreturnrequest.do" />        
+    <forward name="checklog"
+             path="/checklog.do" />        
+    <forward name="databaseobjectsmain"
+             path="/databaseobjectsmain.do" />        
+    <forward name="inventorygroupdefinitionupdatemain"
+             path="/inventorygroupdefinitionupdatemain.do" />
+    <forward name="inventorygroupdefinitionupdateresults"
+             path="/inventorygroupdefinitionupdateresults.do" />
+	<forward name="customerordertrackingmain"
+		path="/customerordertrackingmain.do" /> 
+	<forward name="changefilepath"
+		path="/changefilepath.do" /> 
+	<forward name="testrequestform"
+     		path="/testrequestform.do" />
+     <forward name="testrequestsearchmain"
+     		path="/testrequestsearchmain.do" />
+     <forward name="testrequestsearchresults"
+     		path="/testrequestsearchresults.do" />
+     <forward name="troubleshootingfaqmain"
+     		path="/troubleshootingfaqmain.do" />	
+     <forward name="editbulletinmain"
+	         path="/editbulletinmain.do" />  	
+	 <forward name="clonemessage"
+	         path="/clonemessage.do" />     
+	 <forward name="dlagasordercorrectionsmain"
+	         path="/dlagasordercorrectionsmain.do" />     
+	 <forward name="dlainventoryadjustmentmain"
+             path="/dlainventoryadjustmentmain.do" />
+	 <forward name="raytheoninactivechargeno"
+             path="/raytheoninactivechargeno.do" />
+	 <forward name="fetchMSDS"
+             path="/fetchMSDS.do" />
+     <forward name="forgetpassword"
+             path="/forgetpassword.do" />
+     <forward name="partavailability"
+             path="/partavailability.do" />
+     <forward name="fixpdf"
+             path="/fixpdf.do" />
+  </global-forwards>
+
+  <action-mappings>
+      <!-- ========== Action Mapping Definitions ============================== -->
+
+    <action path="/launchguimain"
+            type="com.tcmis.client.launchgui.action.LaunchGuiAction"
+            validate="false"
+            input="/common/javaapp/launchguimain.jsp"
+            scope="request">
+        <forward name="success" path="/common/javaapp/launchguimain.jsp" module=""/>
+    </action>
+
+    <action path="/launchguisearch"
+            type="com.tcmis.client.launchgui.action.LaunchGuiAction"
+            name="genericForm"
+            validate="false"
+            input="/common/javaapp/launchguisearch.jsp"
+            scope="request">
+        <forward name="success" path="/common/javaapp/launchguisearch.jsp" module=""/>
+    </action>
+
+    <action path="/launchguiresult"
+            type="com.tcmis.client.launchgui.action.LaunchGuiAction"
+            name="genericForm"
+            validate="false"
+            input="/common/javaapp/launchguiresult.jsp"
+            scope="request">
+        <forward name="starttcmis" path="/common/javaapp/launchguiresult.jsp" module=""/>
+    </action>
+
+    <action path  = "/catalog"
+            type  = "com.tcmis.common.admin.action.MissingPageAction"
+            validate="false"
+            input="/common/pageunderconstruction.jsp"
+            scope="request">
+        <forward name="missingpage" path="/common/pageunderconstruction.jsp" module=""/>
+    </action>
+
+    <action path  = "/catalogspecmain"
+            type  = "com.tcmis.common.admin.action.MissingPageAction"
+            validate="false"
+            input="/common/pageunderconstruction.jsp"
+            scope="request">
+        <forward name="missingpage" path="/common/pageunderconstruction.jsp" module=""/>
+    </action>
+
+    <action path  = "/formattedscaqmdreport"
+            type  = "com.tcmis.common.admin.action.MissingPageAction"
+            validate="false"
+            input="/common/pageunderconstruction.jsp"
+            scope="request">
+        <forward name="missingpage" path="/common/pageunderconstruction.jsp" module=""/>
+    </action>
+
+    <action path  = "/inventory"
+            type  = "com.tcmis.common.admin.action.MissingPageAction"
+            validate="false"
+            input="/common/pageunderconstruction.jsp"
+            scope="request">
+        <forward name="missingpage" path="/common/pageunderconstruction.jsp" module=""/>
+    </action>
+
+    <action path  = "/manifestreportmain"
+            type  = "com.tcmis.common.admin.action.MissingPageAction"
+            validate="false"
+            input="/common/pageunderconstruction.jsp"
+            scope="request">
+        <forward name="missingpage" path="/common/pageunderconstruction.jsp" module=""/>
+    </action>
+
+    <action path  = "/monthlyinventorydetail"
+            type  = "com.tcmis.common.admin.action.MissingPageAction"
+            validate="false"
+            input="/common/pageunderconstruction.jsp"
+            scope="request">
+        <forward name="missingpage" path="/common/pageunderconstruction.jsp" module=""/>
+    </action>
+
+    <action path  = "/ordertracking"
+            type  = "com.tcmis.common.admin.action.MissingPageAction"
+            validate="false"
+            input="/common/pageunderconstruction.jsp"
+            scope="request">
+        <forward name="missingpage" path="/common/pageunderconstruction.jsp" module=""/>
+    </action>
+
+    <action path  = "/receiptdocumentviewermain"
+            type  = "com.tcmis.common.admin.action.MissingPageAction"
+            validate="false"
+            input="/common/pageunderconstruction.jsp"
+            scope="request">
+        <forward name="missingpage" path="/common/pageunderconstruction.jsp" module=""/>
+    </action>
+
+    <action path  = "/showbuyorders"
+            type  = "com.tcmis.common.admin.action.MissingPageAction"
+            validate="false"
+            input="/common/pageunderconstruction.jsp"
+            scope="request">
+        <forward name="missingpage" path="/common/pageunderconstruction.jsp" module=""/>
+    </action>
+
+    <action path  = "/showmaterialsused"
+            type  = "com.tcmis.common.admin.action.MissingPageAction"
+            validate="false"
+            input="/common/pageunderconstruction.jsp"
+            scope="request">
+        <forward name="missingpage" path="/common/pageunderconstruction.jsp" module=""/>
+    </action>
+
+    <action path  = "/showpurchaseorders"
+            type  = "com.tcmis.common.admin.action.MissingPageAction"
+            validate="false"
+            input="/common/pageunderconstruction.jsp"
+            scope="request">
+        <forward name="missingpage" path="/common/pageunderconstruction.jsp" module=""/>
+    </action>
+
+    <action path  = "/showsearchmsds"
+            type  = "com.tcmis.common.admin.action.MissingPageAction"
+            validate="false"
+            input="/common/pageunderconstruction.jsp"
+            scope="request">
+        <forward name="missingpage" path="/common/pageunderconstruction.jsp" module=""/>
+    </action>
+
+    <action path  = "/showuseapprovalstatus"
+            type  = "com.tcmis.common.admin.action.MissingPageAction"
+            validate="false"
+            input="/common/pageunderconstruction.jsp"
+            scope="request">
+        <forward name="missingpage" path="/common/pageunderconstruction.jsp" module=""/>
+    </action>
+
+    <action path  = "/tsdfcontainerreportmain"
+            type  = "com.tcmis.common.admin.action.MissingPageAction"
+            validate="false"
+            input="/common/pageunderconstruction.jsp"
+            scope="request">
+        <forward name="missingpage" path="/common/pageunderconstruction.jsp" module=""/>
+    </action>
+
+    <action path  = "/tsdfwastereceivingmain"
+            type  = "com.tcmis.common.admin.action.MissingPageAction"
+            validate="false"
+            input="/common/pageunderconstruction.jsp"
+            scope="request">
+        <forward name="missingpage" path="/common/pageunderconstruction.jsp" module=""/>
+    </action>
+
+    <action path="/resetsession"
+            type="com.tcmis.common.admin.action.ResetSessionAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+        <forward name="success" path="/common/done.jsp" module="" />
+    </action>
+
+    <action path="/dropshipreceivingmain"
+            type="com.tcmis.internal.hub.action.DropshipReceivingAction"
+            validate="true"
+            input="/common/operations/hubdropshipreceivingmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/operations/hubdropshipreceivingmain.jsp" module=""/>
+    </action>
+
+    <action path="/dropshipreceivingsearch"
+            type="com.tcmis.internal.hub.action.DropshipReceivingAction"
+            name="genericForm"
+            validate="true"
+            input="/common/operations/hubdropshipreceivingsearch.jsp"
+            scope="request">
+        <forward name="success" path="/common/operations/hubdropshipreceivingsearch.jsp" module=""/>
+    </action>
+
+    <action path="/dropshipreceivingresults"
+            type="com.tcmis.client.operations.action.DropshipReceivingAction"
+            name="genericForm"
+            validate="true"
+            input="/common/operations/dropshipreceivingresults.jsp"
+            scope="request">
+        <forward name="showresults" path="/common/operations/dropshipreceivingresults.jsp" module=""/>
+    </action>
+
+    <action path="/dlagasordertrackingmain"
+          type="com.tcmis.client.dla.action.DLAGasOrderTrackingAction"
+          validate="false"
+          name="supplierLocationForm"
+          input="/../common/ordertracking/dlagasordertrackingmain.jsp"
+          scope="request">
+    	<forward name="success" path="/common/ordertracking/dlagasordertrackingmain.jsp" module=""/>
+    </action>
+
+    <action path="/dlagasordertrackingsearch"
+            type="com.tcmis.client.dla.action.DLAGasOrderTrackingAction"
+		        name="supplierLocationForm"
+            validate="false"
+            input="/../common/ordertracking/dlagasordertrackingsearch.jsp"
+            scope="request">
+        <forward name="success" path="/common/ordertracking/dlagasordertrackingsearch.jsp" module=""/>
+    </action>      
+
+    <action path="/dlagasordertrackingresults"
+            type="com.tcmis.client.dla.action.DLAGasOrderTrackingAction"
+            name="supplierLocationForm"
+            validate="false"
+            input="/../common/ordertracking/dlagasordertrackingresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/ordertracking/dlagasordertrackingresults.jsp" module=""/>
+        <forward name="changesupplier" path="/common/ordertracking/dlagaschangesupplier.jsp" module=""/>
+        <forward name="cancelorder" path="/common/ordertracking/dlagascancelorder.jsp" module=""/>
+    </action>
+
+    <action path="/splitpoline"
+            type="com.tcmis.supplier.wbuy.action.SplitPoLineAction"
+            name="genericForm"
+            validate="true"
+            input="/../supplier/splitPoLine.jsp"
+            scope="request">
+       <forward name="sucess" path="/supplier/splitPoLine.jsp" module=""/>
+    </action>
+
+    <action path="/polchemordertrackingmain"
+            type="com.tcmis.client.dla.action.PolchemOrderTrackingAction"
+            validate="false"
+            input="/../common/ordertracking/polchemordertrackingmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/ordertracking/polchemordertrackingmain.jsp" module=""/>
+    </action>
+
+    <action path="/polchemordertrackingsearch"
+            type="com.tcmis.client.dla.action.PolchemOrderTrackingAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/ordertracking/polchemordertrackingsearch.jsp"
+            scope="request">
+        <forward name="success" path="/common/ordertracking/polchemordertrackingsearch.jsp" module=""/>
+    </action>
+
+    <action path="/polchemordertrackingresults"
+            type="com.tcmis.client.dla.action.PolchemOrderTrackingAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/ordertracking/polchemordertrackingresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/ordertracking/polchemordertrackingresults.jsp" module=""/>
+    </action>
+ 
+    <action path="/customerreturnrequest"
+            type="com.tcmis.internal.distribution.action.CustomerReturnRequestAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/operations/customerreturnrequest.jsp"
+            scope="request">
+        <forward name="success" path="/../common/operations/customerreturnrequest.jsp"/>
+    </action> 
+
+    <action path="/checklog"
+            type="com.tcmis.common.admin.action.CheckLogAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/checklog.jsp"
+            scope="request">
+        <forward name="success" path="/../common/checklog.jsp"/>
+    </action> 
+
+    <action path="/checklogresults"
+            type="com.tcmis.common.admin.action.CheckLogAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/checklogresults.jsp"
+            scope="request">
+        <forward name="success" path="/../common/checklogresults.jsp"/>
+    </action> 
+
+    <action path="/databaseobjectsmain"
+            type="com.tcmis.common.admin.action.DatabaseObjectsAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/misc/databaseobjectsmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/misc/databaseobjectsmain.jsp" module=""/>
+    </action> 
+
+    <action path="/databaseobjectsresults"
+            type="com.tcmis.common.admin.action.DatabaseObjectsAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/misc/databaseobjectsresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/misc/databaseobjectsresults.jsp" module=""/>
+    </action> 
+
+    <action path="/inventorygroupdefinitionupdatemain"
+          type="com.tcmis.common.admin.action.InventoryGroupDefinitionUpdateAction"
+          name="genericForm"
+          validate="false"
+          input="/inventorygroupdefinitionupdatemain.jsp"
+          scope="request">
+          <forward name="success" path="/common/admin/inventorygroupdefinitionupdatemain.jsp" module=""/>
+    </action>
+     
+    <action path="/inventorygroupdefinitionupdateresults"
+          type="com.tcmis.common.admin.action.InventoryGroupDefinitionUpdateAction"
+          name="genericForm"
+          validate="false"
+          input="/inventorygroupdefinitionupdateresults.jsp"
+          scope="request">
+          <forward name="success" path="/common/admin/inventorygroupdefinitionupdateresults.jsp" module=""/>
+    </action>
+
+	 <action path="/customerordertrackingmain"
+            type="com.tcmis.internal.distribution.action.CustomerOrderTrackingAction"
+            validate="false"
+            name="customerordertracking"
+            input="/../distribution/customerordertrackingmain.jsp"
+            scope="request">
+        	<forward name="success" path="/distribution/customerordertrackingmain.jsp" module=""/>
+	</action>
+
+	<action path="/customerordertrackingresults"
+		type="com.tcmis.internal.distribution.action.CustomerOrderTrackingAction"
+		name="customerordertracking"
+		validate="false"
+		input="/../distribution/customerordertrackingresults.jsp"
+		scope="request">
+		<forward name="success" path="/distribution/customerordertrackingresults.jsp" module=""/>
+	</action>  
+	
+	 <action path="/changefilepath"
+          type="com.tcmis.common.admin.action.ChangeFilePathAction"
+          name="genericForm"
+          validate="false"
+          input="/changefilepath.jsp"
+          scope="request">
+          <forward name="success" path="/common/changefilepath.jsp" module=""/>
+    </action>
+    
+    <action path="/testrequestsearchmain"
+    		type="com.tcmis.internal.hub.action.TestRequestSearchAction"
+    		name="genericForm"
+    		validate="false"
+    		input="/../hub/testrequestsearchmain.jsp"
+    		scope="request">
+    	<forward name="success" path="/../hub/testrequestsearchmain.jsp"/>
+    </action>
+    
+    <action path="/testrequestsearchresults"
+    		type="com.tcmis.internal.hub.action.TestRequestSearchAction"
+    		name="genericForm"
+    		validate="false"
+    		input="/../hub/testrequestsearchresults.jsp"
+    		scope="request">
+    	<forward name="success" path="/../hub/testrequestsearchresults.jsp"/>
+    </action>
+        
+    <action path="/testrequestform"
+    		type="com.tcmis.internal.hub.action.TestRequestAction"
+    		name="genericForm"
+    		validate="false"
+    		input="/../hub/testrequestform.jsp"
+    		scope="request">
+    	<forward name="success" path="/../hub/testrequestform.jsp"/>
+    	<forward name="newTest" path="/../hub/testrequestcreatedefinition.jsp"/>
+    	<forward name="error" path="/../common/genericerror.jsp"/>
+    </action>
+  
+    <action path="/troubleshootingfaqmain"
+            type="com.tcmis.common.admin.action.TroubleShootingFAQAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/misc/troubleshootingfaqmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/misc/troubleshootingfaqmain.jsp" module=""/>
+    </action> 
+
+    <action path="/troubleshootingfaqresults"
+            type="com.tcmis.common.admin.action.TroubleShootingFAQAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/misc/troubleshootingfaqresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/misc/troubleshootingfaqresults.jsp" module=""/>
+    </action> 
+    
+       
+    <action path="/editbulletinmain"
+            type="com.tcmis.common.admin.action.EditBulletinAction"
+            validate="false"
+            name="genericForm"
+            input="/../common/admin/editbulletinmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/editbulletinmain.jsp" module=""/>
+   </action>
+   
+   <action path="/editbulletinresults"
+            type="com.tcmis.common.admin.action.EditBulletinAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/admin/editbulletinresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/editbulletinresults.jsp" module=""/>
+    </action>
+  
+  	<action path="/clonemessage"
+            type="com.tcmis.common.admin.action.EditBulletinAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/admin/clonemessage.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/clonemessage.jsp" module=""/>
+        
+    </action>
+    
+    <action path="/dlagasordercorrectionsmain"
+          type="com.tcmis.client.dla.action.DlaGasOrderCorrectionsAction"
+          validate="false"
+          name="genericForm"
+          input="/../common/ordertracking/dlagasordercorrectionsmain.jsp"
+          scope="request">
+    	<forward name="success" path="/common/ordertracking/dlagasordercorrectionsmain.jsp" module=""/>
+    </action>
+    
+    <action path="/dlagasordercorrectionsresults"
+            type="com.tcmis.client.dla.action.DlaGasOrderCorrectionsAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/ordertracking/dlagasordercorrectionsresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/ordertracking/dlagasordercorrectionsresults.jsp" module=""/>
+    </action>
+    
+        <action path="/dlainventoryadjustmentmain"
+            type="com.tcmis.client.dla.action.DlaInventoryAdjusmentAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/ordertracking/dlainventoryadjustmentmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/ordertracking/dlainventoryadjustmentmain.jsp" module=""/>
+    </action>
+    <action path="/dlainventoryadjustmentresults"
+            type="com.tcmis.client.dla.action.DlaInventoryAdjusmentAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/ordertracking/dlainventoryadjustmentresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/ordertracking/dlainventoryadjustmentresults.jsp" module=""/>
+    </action>    
+    <action path="/raytheoninactivechargeno"
+          type="com.tcmis.internal.report.action.RaytheonInactiveChargeNoAction"
+          validate="false"
+          input="/rayinactivechargeno.jsp"
+          scope="request">
+          <forward name="success" path="/rayinactivechargeno.jsp"/>
+    </action>     
+    <action path="/rayinactivechargenoresult"
+          type="com.tcmis.internal.report.action.RaytheonInactiveChargeNoAction"
+          name="genericForm"
+          validate="false"
+          input="/rayinactivechargeno.jsp"
+          scope="request">
+          <forward name="success" path="/rayinactivechargenoresults.jsp"/>
+          <forward name="viewfile" path="/common/viewexcel.jsp" module=""/>
+    </action>     
+    
+	<action path="/fetchMSDS"
+		type="com.tcmis.common.admin.action.FetchMSDSAction"
+		name="genericForm"
+		validate="false"
+		input="/error.jsp"
+		scope="request">
+		<forward name="success" path="/common/empty.jsp" module=""/>
+	</action>
+    
+ 	<action path="/forgetpassword"
+		type="com.tcmis.common.admin.action.ForgetPasswordAction"
+		name="genericForm"
+		validate="false"
+		input="/../common/forgetpassword.jsp"
+		scope="request">
+		<forward name="success" path="/common/forgetpassword.jsp" module=""/>
+	</action>
+    
+    <action path="/partavailability"
+        type="com.tcmis.internal.jde.action.PartAvailabilityAction"
+        name="genericForm"
+        validate="false"
+        input="/../jde/partavailability.jsp"
+        scope="request">
+        <forward name="success" path="/jde/partavailability.jsp" module=""/>        
+    </action>
+    
+    <action path="/partavailabilityresults"
+        type="com.tcmis.internal.jde.action.PartAvailabilityAction"
+        name="genericForm"
+        validate="false"
+        input="/../jde/partavailabilityresults.jsp"
+        scope="request">
+        <forward name="success" path="/jde/partavailabilityresults.jsp" module=""/>        
+    </action>
+
+    <action path="/fixpdf"
+        type="com.tcmis.common.admin.action.FixPdfAction"
+        name="genericForm"
+        validate="false"
+        input="/error.jsp"
+        scope="request">
+        <forward name="success" path="/common/done.jsp" module=""/>
+    </action>
+    
+  </action-mappings>
+  <!-- ========== Message Resources Definitions =========================== -->
+  <message-resources parameter="com.tcmis.common.resources.CommonResources"
+                     null="false" />
+  <!-- ========== Plug Ins Configuration ================================== -->
+  <!--
+     Add multiple validator resource files by setting the pathnames property
+     with a comma delimitted list of resource files to load.
+    -->
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property value="/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml"
+                  property="pathnames" />
+  </plug-in>
+</struts-config>

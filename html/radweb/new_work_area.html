@@ -1,0 +1,133 @@
+<html><head><title>New Work Area Request</title></head>
+<body bgcolor="#FFFFFF">
+<center>
+<form action="/cgi-bin/radweb/nwa.cgi" method="POST">
+<h2>NEW WORK AREA / PROJECT TRANSFER FORM</H2>
+<table border="1" width="100%">
+<tr bgcolor="#FFFFAA">
+<td colspan="3"><b>Contact Information - Required</b></td>
+</tr>
+<tr bgcolor="#FFFFAA">
+<td><b>Name:</b>&nbsp; &nbsp; <input type="text" name="name" size="50"></td>
+<td><b>Phone:</b>&nbsp; &nbsp; <input type="text" name="phone" width="20"></td>
+<td><b>Email:</b>&nbsp; &nbsp; <input type="text" name="email" size="50"></td>
+</tr>
+<tr bgcolor="#BBBBBB">
+<td colspan="3">&nbsp;</td>
+</tr>
+</table>
+<table width="100%" border="1">
+<tr bgcolor="#99B0FF">
+<td colspan="3"><b>NEW WORK AREA - Use this section if you are creating a new work area or adding a new project/program to an existing work area</td>
+</tr>
+<tr>
+<td width="75%">End-Use mailstop where chemical will be used & stored.  (Approved CATS Location)</td>
+<td width="25%"><input type="text" name="nwms" size="40"></td>
+</tr>
+<tr>
+<td width="75%">Description of area. <i>(example: Final, CMWS, Advanced Composites, etc.)</i></td>
+<td><input type="text" name="nwarea" size="40"></td>
+</tr>
+<tr>
+<td width="75%">Is this a new program going into an existing cabinet?  If so, please enter the current cabinet</td>
+<td><input type="text" name="nwcab" size="40"></td>
+</tr>
+<tr>
+<td width="75%">Type(s) of storage <i>(example: Flammable or Corrosive Cabinet, Freezer)</i></td>
+<td><input type="text" name="nwst" size="40"></td>
+</tr>
+<tr bgcolor="#BBBBBB">
+<td colspan="3">&nbsp;</td>
+</tr>
+<tr bgcolor="#99B0FF">
+<td colspan="3"><b>WORK AREA RELOCATION - Use this section if your location is moving from one mailstop to another</td>
+</tr>
+<tr>
+<td width="75%">List the current end-use mailstop EXACTLY how it appears in CATS</td>
+<td><input type="text" name="rlms" size="40"></td>
+</tr>
+<tr>
+<td width="75%">List the end-use mailstop material is moving to, EXACTLY how it appears in CATS</td>
+<td><input type="text" name="rlnms" size="40"></td>
+</tr>
+<tr bgcolor="#BBBBBB">
+<td colspan="3">&nbsp;</td>
+</tr>
+<tr bgcolor="#99B0FF">
+<td colspan="3"><b>Project Transfer - Use this section for transferring a current work area from one task code to another</td>
+</tr>
+<tr>
+<td width="75%">Current project/program transferring FROM</td>
+<td><input type="text" name="ptfrom" size="40"></td>
+</tr>
+<tr>
+<td width="75%">Current project/program transferring TO</td>
+<td><input type="text" name="ptto" size="40"></td>
+</tr>
+<tr>
+<td width="75%">Is Haas transferring any and all active work area(s) with that project/program?  If no, please specify below which cabinets you want the project/program to transfer.  If you want only specific items within cabinets transferred, please list them.</td>
+<td><input type="radio" name="trall" value="Y" CHECKED>Yes &nbsp; &nbsp; <input type="radio" name="trall" value="N">No</td>
+</tr>
+</table>
+<table border="1" width="100%">
+<tr>
+<td colspan="2" width="100%"><hr></td>
+</tr>
+<tr>
+<td colspan="2" width="100%"><font color="#FF0000">This section is ONLY for transferring items between projects.  Do NOT use for item adds to a work area.</font></td>
+</tr>
+<tr>
+<td width="45%">WORK AREA / CABINET ID</td>
+<td width="55%">ITEM(s) - List specific items or write ALL to have everything in that cabinet get transferred</td>
+</tr>
+<tr>
+<td width="45%"><input type="text" name="cab1" size="40"></td>
+<td width="55%"><input type="text" name="item1" size="80"></td>
+</tr>
+<tr>
+<td width="45%"><input type="text" name="cab2" size="40"></td>
+<td width="55%"><input type="text" name="item2" size="80"></td>
+</tr>
+<tr>
+<td width="45%"><input type="text" name="cab3" size="40"></td>
+<td width="55%"><input type="text" name="item3" size="80"></td>
+</tr>
+<tr>
+<td width="45%"><input type="text" name="cab4" size="40"></td>
+<td width="55%"><input type="text" name="item4" size="80"></td>
+</tr>
+<tr>
+<td width="45%"><input type="text" name="cab5" size="40"></td>
+<td width="55%"><input type="text" name="item5" size="80"></td>
+</tr>
+<tr>
+<td width="45%"><input type="text" name="cab6" size="40"></td>
+<td width="55%"><input type="text" name="item6" size="80"></td>
+</tr>
+<tr>
+<td width="45%"><input type="text" name="cab7" size="40"></td>
+<td width="55%"><input type="text" name="item7" size="80"></td>
+</tr>
+<tr>
+<td width="45%"><input type="text" name="cab8" size="40"></td>
+<td width="55%"><input type="text" name="item8" size="80"></td>
+</tr>
+<tr>
+<td width="45%"><input type="text" name="cab9" size="40"></td>
+<td width="55%"><input type="text" name="item9" size="80"></td>
+</tr>
+<tr>
+<td width="45%"><input type="text" name="cab10" size="40"></td>
+<td width="55%"><input type="text" name="item10" size="80"></td>
+</tr>
+<tr>
+<td colspan="3">Comments / Special Instructions</td>
+</tr>
+<tr>
+<td colspan="3"><textarea name="comments" rows="10" cols="150"></textarea></td>
+</tr>
+</table>
+<p>
+<input type="submit" name="Submit Request" value="Submit Request">
+</form>
+</center></body></html>

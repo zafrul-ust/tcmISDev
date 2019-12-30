@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+	 <form-bean name="clientCabinetManagementForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm">
+      <form-property name="countTypeArraySel" type="java.lang.String[]"/>   
+    </form-bean>
+	<form-bean name="clientCabinetLabelForm" type="org.apache.struts.validator.LazyValidatorActionForm">
+		<form-property name="cabinetIdArray" type="java.lang.String[]"/>
+	</form-bean>
+
+	<form-bean name="clientCabinetCountForm" type="org.apache.struts.validator.LazyValidatorActionForm">
+		<form-property name="cabinetIdArray" type="java.lang.String[]"/>
+	</form-bean>
+
+	<form-bean name="clientCabinetSetupForm" type="org.apache.struts.validator.LazyValidatorActionForm">
+		<form-property name="cabinetIdArray" type="java.lang.String[]"/>
+	</form-bean>
+	
+	<form-bean name="cabinetSetupForm" type="org.apache.struts.validator.LazyValidatorActionForm">
+	</form-bean>
+	
+	 <form-bean name="clientInventoryCountUploadForm"
+             type="com.tcmis.internal.hub.beans.InventoryCountScanInputForm">
+    </form-bean>
+
+	 <form-bean name="clientCabinetInventoryForm"
+              type="org.apache.struts.validator.LazyValidatorActionForm">
+         <form-property name="cabinetIdArray" type="java.lang.String[]"/>
+   </form-bean>
+   
+   <form-bean name="clientCabinetDownloadForm" type="org.apache.struts.validator.LazyValidatorActionForm">
+		<form-property name="cabinetIdArray" type="java.lang.String[]"/>
+	</form-bean>
+	
+	<form-bean name="clientCabinetPutAwayForm" type="org.apache.struts.validator.LazyValidatorActionForm">
+		<form-property name="cabinetIdArray" type="java.lang.String[]"/>
+	</form-bean>
+
+
+	<form-bean name="genericForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm" />
+	  
+  </form-beans>
+  <!-- ========== Global Forward Definitions ============================== -->
+  <global-forwards>
+    <forward name="clientcabinetdefinitionmain"
+             path="/clientcabinetdefinitionmain.do" />
+	 <forward name="clientcabinetmanagementmain"
+             path="/clientcabinetmanagementmain.do" />
+	 <forward name="clientcabinetlabelmain"
+             path="/clientcabinetlabelmain.do" />
+	 <forward name="clientcabinetsetupmain"
+             path="/clientcabinetsetupmain.do" />
+	 <forward name="customermrtracking"
+             path="/customermrtracking.do" />
+	 <forward name="clientshowcabinetcountupload"
+             path="/clientshowcabinetcountupload.do" />
+	 <forward name="showcabinetcountupload"
+             path="/clientshowcabinetcountupload.do" />
+	 <forward name="clientforcecabinetcount"
+             path="/clientforcecabinetcount.do" />
+	 <forward name="showuseapprovalstatus"
+             path="/useapprovalstatus.do" />
+	 <forward name="newclientcabinetinventorymain"
+             path="/newclientcabinetinventorymain.do" />
+	<forward name="clientcabinetcountmain"
+             path="/clientcabinetcountmain.do" />
+	<forward name="manageworkareagroups"
+             path="/manageworkareagroups.do" />
+	<forward name="managedepartments"
+             path="/managedepartments.do" />
+	<forward name="managedeliverypoints"
+             path="/managedeliverypoints.do" />
+	<forward name="managebuildingrooms"
+             path="/managebuildingrooms.do" />
+    <forward name="materialsearchmain"
+             path="/materialsearchmain.do" />
+    <forward name="addnonmanagedmaterial"
+             path="/addnonmanagedmaterial.do" />
+    <forward name="manageusecode"
+             path="/manageusecode.do" />
+    <forward name="clientcabinetbinaddpart"
+             path="/clientcabinetbinaddpart.do" />  
+    <forward name="selectworkareafornonmanagedmatl"
+             path="/selectworkareafornonmanagedmatl.do" />
+    <forward name="clientcabinetdownload"
+             path="/clientcabinetdownload.do" />
+    <forward name="clientcabinetmanagementhistoryresults"
+             path="/clientcabinetmanagementhistoryresults.do" />
+    <forward name="msdssusedatlocationsmain"
+             path="/msdssusedatlocationsmain.do" />
+    <forward name="clientcabinetputaway"
+             path="/clientcabinetputaway.do" />   
+    <forward name="workareastocktransfer"
+             path="/workareastocktransfer.do" />   
+    <forward name="managevoczones"
+             path="/managevoczones.do" />           
+    <forward name="manageflamctrlzones"
+             path="/manageflamctrlzones.do" />
+   	<forward name="workareaacknowledgementmain"
+             path="/workareaacknowledgementmain.do" />
+   	<forward name="emissionpointmanagement"
+   			 path="/emissionpointmanagement.do" />
+  </global-forwards>
+  <!-- ========== Action Mapping Definitions ============================== -->
+  <action-mappings>
+   <action path="/clientcabinetdefinitionmain"
+            type="com.tcmis.client.common.action.ClientCabinetDefinitionAction"
+		 		name="clientCabinetLabelForm"
+		      validate="false"
+            input="/../common/cabinet/clientcabinetdefinitionmain.jsp"
+				scope="request">
+        <forward name="success" path="/common/cabinet/clientcabinetdefinitionmain.jsp" module=""/>
+   </action>
+
+   <action path="/clientcabinetdefinitionresults"
+            type="com.tcmis.client.common.action.ClientCabinetDefinitionAction"
+            name="clientCabinetLabelForm"
+            validate="false"
+            input="/../common/cabinet/clientcabinetdefinitionresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/clientcabinetdefinitionresults.jsp" module=""/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+   </action>
+
+	<action path="/customermrtracking"
+		type="com.tcmis.client.common.action.CustomerMrTrackingAction"
+		name="genericForm"
+		validate="false"
+            	input="/../common/cabinet/customermrtracking.jsp"
+		scope="request">
+		<forward name="success" path="/common/cabinet/customermrtracking.jsp" module=""/>
+	</action>
+	
+	<action path="/clientcabinetsetupmain"
+		type="com.tcmis.client.common.action.ClientWorkAreaSetupAction"
+		name="cabinetSetupForm"
+		validate="false"
+            	input="/../common/cabinet/clientworkareasetupmain.jsp"
+		scope="request">
+		<forward name="success" path="/common/cabinet/clientworkareasetupmain.jsp" module=""/>
+		 <forward name="setDept" path="/common/cabinet/setDepartment.jsp" module=""/>
+	</action>
+
+	<action path="/clientcabinetsetupresults"
+		type="com.tcmis.client.common.action.ClientWorkAreaSetupAction"
+		name="cabinetSetupForm"
+		validate="false"
+            	input="/../common/cabinet/clientworkareasetupresults.jsp"
+		scope="request">
+		<forward name="success" path="/common/cabinet/clientworkareasetupresults.jsp" module=""/>
+		<forward name="history" path="/common/cabinet/clientworkareasetuphistory.jsp" module=""/>
+	</action>
+
+	<action path="/clientcabinetlabelmain"
+		type="com.tcmis.client.common.action.ClientCabinetLabelAction"
+		name="clientCabinetLabelForm"
+		validate="false"
+            	input="/../common/cabinet/clientcabinetlabelmain.jsp"
+		scope="request">
+		<forward name="success" path="/common/cabinet/clientcabinetlabelmain.jsp" module=""/>
+	</action>
+
+	<action path="/clientcabinetlabelresults"
+		type="com.tcmis.client.common.action.ClientCabinetLabelAction"
+		name="clientCabinetLabelForm"
+		validate="false"
+            	input="/../common/cabinet/clientcabinetlabelresults.jsp"
+		scope="request">
+		<forward name="success" path="/common/cabinet/clientcabinetlabelresults.jsp" module=""/>
+	</action>
+
+	<action path="/clientcabinetbinlabel"
+		type="com.tcmis.client.common.action.ClientCabinetLabelAction"
+		name="clientCabinetLabelForm"
+		validate="false"
+            	input="/../common/cabinet/clientcabinetlabelresults.jsp"
+		scope="request">
+		<forward name="success" path="/common/cabinet/clientcabinetbinlabel.jsp" module=""/>
+	</action>
+
+	<action path="/clientcabinetcountmain"
+		type="com.tcmis.client.common.action.ClientCabinetCountAction"
+		name="clientCabinetCountForm"
+		validate="false"
+            	input="/../common/cabinet/clientcabinetcountmain.jsp"
+		scope="request">
+		<forward name="success" path="/common/cabinet/clientcabinetcountmain.jsp" module=""/>
+	</action>
+
+	<action path="/clientcabinetcountresults"
+		type="com.tcmis.client.common.action.ClientCabinetCountAction"
+		name="clientCabinetCountForm"
+		validate="false"
+            	input="/../common/cabinet/clientcabinetcountresults.jsp"
+		scope="request">
+		<forward name="success" path="/common/cabinet/clientcabinetcountresults.jsp" module=""/>
+	</action>
+
+	<action path="/workareareceiptcount"
+            type="com.tcmis.client.common.action.ClientCabinetCountAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/cabinet/workareareceiptcount.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/workareareceiptcount.jsp" module=""/>  
+   </action>
+   
+	<action path="/clientcabinetmanagementmain"
+            type="com.tcmis.client.common.action.ClientCabinetManagementAction"
+            name="clientCabinetManagementForm"
+            validate="false"
+            input="/../common/cabinet/clientcabinetmanagementmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/clientcabinetmanagementmain.jsp" module=""/>
+		  <forward name="loadChargeInfo" path="/client/catalog/chargepoinfo.jsp" module=""/>
+		  <forward name="loadChargeNumberValidator" path="/client/catalog/chargenumbervalidator.jsp" module=""/>
+		  <forward name="loadChangeOwnership" path="/common/cabinet/clientcabinetchangeownership.jsp" module=""/>  
+		  <forward name="loadChangeBinName" path="/common/cabinet/clientcabinetchangebinname.jsp" module=""/>  
+	</action>
+
+   <action path="/clientcabinetmanagementresults"
+            type="com.tcmis.client.common.action.ClientCabinetManagementAction"
+            name="clientCabinetManagementForm"
+            validate="false"
+            input="/../common/cabinet/clientcabinetmanagementresults.jsp"
+            scope="request">
+        <forward name="results" path="/common/cabinet/clientcabinetmanagementresults.jsp" module=""/>
+        <forward name="clientcabinetnewbin" path="/common/cabinet/clientcabinetbinaddpart.jsp" module=""/>
+        <forward name="clientcabinetmanagementhistory" path="/common/cabinet/clientcabinetmanagementhistoryresults.jsp" module=""/>
+        <forward name="viewparthistory" path="/common/cabinet/cabinetpartmanagementhistoryresults.jsp" module=""/>
+    </action>
+
+	<action path="/clientcabinetbin"
+            type="com.tcmis.client.common.action.ClientCabinetBinAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/cabinet/clientcabinetbin.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/clientcabinetbin.jsp" module=""/>
+   </action>
+   
+   	<action path="/clientcabinetbinaddpart"
+            type="com.tcmis.client.common.action.ClientCabinetBinAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/cabinet/clientcabinetbinaddpart.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/clientcabinetbinaddpart.jsp" module=""/>
+   </action>
+
+   <action path="/clientshowcabinetcountupload"
+            type="com.tcmis.client.common.action.ClientCabinetCountAction"
+            name="clientInventoryCountUploadForm"
+            validate="false"
+            input="/../common/cabinet/clientcabinetcountupload.jsp"
+            scope="request">
+        <forward name="showinput" path="/common/cabinet/clientcabinetcountupload.jsp" module=""/>
+        <forward name="showresults" path="/common/cabinet/clientcabinetcountupload.jsp"/>
+   </action>
+
+  <action path="/clientcabinetcountupload"
+            type="com.tcmis.client.common.action.ClientCabinetCountAction"
+            name="clientInventoryCountUploadForm"
+            validate="false"
+            input="/../common/cabinet/clientcabinetcountupload.jsp"
+            scope="request">
+        <forward name="showinput" path="/common/cabinet/clientcabinetcountupload.jsp" module=""/>
+        <forward name="showresults" path="/common/cabinet/clientcabinetcountupload.jsp" module=""/>
+   </action>
+
+	<action path="/clientforcecabinetcount"
+            type="com.tcmis.client.common.action.ClientForceCabinetCountAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/cabinet/clientforcecabinetcount.jsp"
+            scope="request">
+        <forward name="showinput" path="/common/cabinet/clientforcecabinetcount.jsp" module=""/>
+   </action>
+
+   <action path="/showuseapprovalstatus"
+            type="com.tcmis.client.catalog.action.UseApprovalStatusAction"
+            validate="false"
+            input="/../common/cabinet/useapprovalstatus.jsp"
+            scope="request">
+        <forward name="showresults" path="/common/cabinet/useapprovalstatus.jsp" module=""/>
+        <forward name="closewindow" path="/closewindow.jsp"/>
+        <forward name="showUseApprovers" path="/common/cabinet/showUseApprovers.jsp" module=""/>
+        <forward name="showajaxresults" path="/common/cabinet/useapprovaldetails.jsp" module=""/>
+        <forward name="viewfile" path="/common/viewexcel.jsp" module=""/>
+    </action>
+
+    <action path="/useapprovalstatus"
+            type="com.tcmis.client.catalog.action.UseApprovalStatusAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/cabinet/useapprovalstatus.jsp"
+            scope="request">
+        <forward name="showresults" path="/common/cabinet/useapprovalstatus.jsp" module=""/>
+        <forward name="closewindow" path="/closewindow.jsp"/>
+        <forward name="showUseApprovers" path="/common/cabinet/showUseApprovers.jsp" module=""/>
+        <forward name="showajaxresults" path="/common/cabinet/useapprovaldetails.jsp" module=""/>
+        <forward name="viewfile" path="/common/viewexcel.jsp" module=""/>
+    </action>
+
+	 <action path="/clientcabinetlevel"
+            type="com.tcmis.client.common.action.ClientCabinetLevelAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/cabinet/clientcabinetlevel.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/clientcabinetlevel.jsp" module=""/>
+   </action>
+
+	<action path="/newclientcabinetinventorymain"
+            type="com.tcmis.client.common.action.ClientCabinetInventoryAction"
+            name="clientCabinetInventoryForm"
+            validate="false"
+            input="/../common/cabinet/clientcabinetinventorymain.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/clientcabinetinventorymain.jsp" module=""/>
+   </action>
+
+   <action path="/newclientcabinetinventoryresults"
+            type="com.tcmis.client.common.action.ClientCabinetInventoryAction"
+            name="clientCabinetInventoryForm"
+            validate="false"
+            input="/../common/cabinet/clientcabinetinventoryresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/clientcabinetinventoryresults.jsp" module=""/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+   </action>
+   
+    <action path="/manageworkareagroups"
+            type="com.tcmis.client.common.action.ClientWorkAreaGroupAction"
+            validate="false"
+            name="genericForm"
+            input="/../common/cabinet/manageworkareagroups.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/manageworkareagroups.jsp" module=""/>
+    </action>
+   
+    <action path="/managedepartments"
+            type="com.tcmis.client.common.action.ClientDepartmentAction"
+            validate="false"
+            name="genericForm"
+            input="/../common/cabinet/managedepartments.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/managedepartments.jsp" module=""/>
+    </action>
+
+    <action path="/managedeliverypoints"
+            type="com.tcmis.client.common.action.ClientDeliveryPointAction"
+            validate="false"
+            name="genericForm"
+            input="/../common/cabinet/managedeliverypoints.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/managedeliverypoints.jsp" module=""/>
+    </action>
+
+    <action path="/managebuildingrooms"
+            type="com.tcmis.client.common.action.ClientBuildingRoomAction"
+            validate="false"
+            name="genericForm"
+            input="/../common/cabinet/managebuildingrooms.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/managebuildingrooms.jsp" module=""/>
+    </action>
+    
+    <action path="/materialsearchmain"
+            type="com.tcmis.client.common.action.MaterialSearchAction"
+            validate="true"
+            input="/../common/cabinet/materialsearchmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/materialsearchmain.jsp" module=""/>
+        <forward name="newmaterial" path="/newmaterial.jsp" module=""/>
+    </action>
+
+    <action path="/materialsearchresults"
+            type="com.tcmis.client.common.action.MaterialSearchAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/cabinet/materialsearchresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/materialsearchresults.jsp" module=""/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+    
+    <action path="/addnonmanagedmaterial"
+            type="com.tcmis.client.common.action.ClientCabinetManagementAction"
+            name="clientCabinetManagementForm"
+            validate="true"
+            input="/../common/cabinet/addnonmanagedmaterial.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/addnonmanagedmaterial.jsp" module=""/>
+        <forward name="countCheck" path="/common/cabinet/countCheck.jsp" module=""/>
+    </action>
+    
+     <action path="/manageusecode"
+            type="com.tcmis.client.common.action.ClientManageUseCodeAction"
+            validate="false"
+            name="genericForm"
+            input="/../common/cabinet/manageusecode.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/manageusecode.jsp" module=""/>
+    </action>
+    
+    <action path="/selectworkareafornonmanagedmatl"
+            type="com.tcmis.client.common.action.ClientCabinetManagementAction"
+            name="clientCabinetManagementForm"
+            validate="true"
+            input="/../common/cabinet/selectworkareafornonmanagedmatl.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/selectworkareafornonmanagedmatl.jsp" module=""/>
+    </action>
+    
+    <action path="/clientcabinetdownload"
+		type="com.tcmis.client.common.action.ClientCabinetDownloadAction"
+		name="clientCabinetDownloadForm"
+		validate="false"
+            	input="/../common/cabinet/clientcabinetdownload.jsp"
+		scope="request">
+		<forward name="success" path="/common/cabinet/clientcabinetdownload.jsp" module=""/>
+	</action>	
+	
+	<action path="/clientcabinetmanagementhistoryresults"
+            type="com.tcmis.client.common.action.ClientCabinetBinAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/cabinet/clientcabinetmanagementhistoryresults.jsp"
+            scope="request">
+     <forward name="success" path="/common/cabinet/clientcabinetmanagementhistoryresults.jsp" module=""/>
+   </action>
+
+	<action path="/msdssusedatlocationsmain"
+            type="com.tcmis.client.common.action.MSDSsUsedAtLocationsAction"
+            name="clientCabinetManagementForm"
+            validate="false"
+            input="/../common/cabinet/msdssusedatlocationsmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/msdssusedatlocationsmain.jsp" module=""/>
+
+	</action>
+
+   <action path="/msdssusedatlocationsresults"
+            type="com.tcmis.client.common.action.MSDSsUsedAtLocationsAction"
+            name="clientCabinetManagementForm"
+            validate="false"
+            input="/../common/cabinet/msdssusedatlocationsresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/msdssusedatlocationsresults.jsp" module=""/>
+	</action>
+
+   	<action path="/clientcabinetputawaymain"
+		type="com.tcmis.client.common.action.CabinetPutAwayAction"
+		name="clientCabinetPutAwayForm"
+		validate="false"
+            	input="/../common/cabinet/clientcabinetputawaymain.jsp"
+		scope="request">
+		<forward name="success" path="/common/cabinet/clientcabinetputawaymain.jsp" module=""/>
+	</action>
+
+	<action path="/clientcabinetputawayresults"
+		type="com.tcmis.client.common.action.CabinetPutAwayAction"
+		name="clientCabinetPutAwayForm"
+		validate="false"
+            	input="/../common/cabinet/clientcabinetputawayresults.jsp"
+		scope="request">
+		<forward name="success" path="/common/cabinet/clientcabinetputawayresults.jsp" module=""/>
+	</action>
+	
+	<action path="/workareastocktransfermain"
+		type="com.tcmis.client.common.action.WorkAreaStockTransferAction"
+		name="genericForm"
+		validate="false"
+            	input="/../common/cabinet//workareastocktransfermain.jsp"
+		scope="request">
+		<forward name="success" path="/common/cabinet//workareastocktransfermain.jsp" module=""/>
+	</action>
+
+	<action path="/workareastocktransferresults"
+		type="com.tcmis.client.common.action.WorkAreaStockTransferAction"
+		name="genericForm"
+		validate="false"
+            	input="/../common/cabinet//workareastocktransferresults.jsp"
+		scope="request">
+		<forward name="success" path="/common/cabinet//workareastocktransferresults.jsp" module=""/>
+	</action>
+	
+	<action path="/uploadpartlevel"
+            type="com.tcmis.client.common.action.UploadPartLevelAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/cabinet/uploadpartlevel.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/uploadpartlevel.jsp" module=""/>
+   </action>
+
+   	<action path="/simplecalltoserver"
+            type="com.tcmis.client.common.action.SimpleCallToServerAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/simplecalltoserver.jsp"
+            scope="request">
+        <forward name="success" path="/common/simplecalltoserver.jsp" module=""/>
+   </action>
+	
+    <action path="/managevoczones"
+            type="com.tcmis.client.common.action.ClientVocZoneAction"
+            validate="false"
+            name="genericForm"
+            input="/../common/cabinet/managevoczones.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/managevoczones.jsp" module=""/>
+    </action>
+	
+	 <action path="/manageflamctrlzones"
+            type="com.tcmis.client.common.action.ClientFlamCtrlZoneAction"
+            validate="false"
+            name="genericForm"
+            input="/../common/cabinet/manageflamctrlzones.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/manageflamctrlzones.jsp" module=""/>
+    </action>
+	
+	<action path="/clientcabinettanklevelcount"
+            type="com.tcmis.client.common.action.ClientCabinetTankLevelCountAction"
+            validate="false"
+            name="genericForm"
+            input="/../common/cabinet/clientcabinettanklevelcount.jsp"
+            scope="request">
+        <forward name="success" path="/common/cabinet/clientcabinettanklevelcount.jsp" module=""/>
+    </action>
+	
+	<action path="/clientcabinetinterpolation"
+            type="com.tcmis.client.common.action.ClientCabinetCountInterpolationAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/cabinet/clientcabinetinterpolation.jsp"
+            scope="request">        
+        <forward name="success" path="/common/cabinet/clientcabinetinterpolation.jsp" module=""/> 
+   </action>
+
+   <action path="/rightmouseclickmenu"
+            type="com.tcmis.common.admin.action.RightMouseClickMenuAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+        <forward name="success" path="/common/rightmouseclickmenudata.jsp" module=""/>
+   </action>      
+   
+   
+   	<action path="/workareaacknowledgementmain"
+		type="com.tcmis.client.common.action.WorkAreaAcknowledgementAction"
+		name="clientCabinetCountForm"
+		validate="false"
+            	input="/../common/cabinet/workareaacknowledgementmain.jsp"
+		scope="request">
+		<forward name="success" path="/common/cabinet/workareaacknowledgementmain.jsp" module=""/>
+	</action>
+
+	<action path="/workareaacknowledgementresults"
+		type="com.tcmis.client.common.action.WorkAreaAcknowledgementAction"
+		name="clientCabinetCountForm"
+		validate="false"
+            	input="/../common/cabinet/workareaacknowledgementresults.jsp"
+		scope="request">
+		<forward name="success" path="/common/cabinet/workareaacknowledgementresults.jsp" module=""/>
+	</action>
+	
+	<action path="/emissionpointmanagement"
+            type="com.tcmis.client.common.action.EmissionPointManagamentAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/cabinet/emissionpointmanagement.jsp"
+            scope="request">        
+        <forward name="success" path="/common/cabinet/emissionpointmanagement.jsp" module=""/> 
+   </action>
+	
+  </action-mappings>
+  <!-- ========== Message Resources Definitions =========================== -->
+  <message-resources parameter="com.tcmis.common.resources.CommonResources"
+                     null="false" />
+  <!-- ========== Plug Ins Configuration ================================== -->
+  <!--
+     Add multiple validator resource files by setting the pathnames property
+     with a comma delimitted list of resource files to load.
+    -->
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property value="/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml"
+                  property="pathnames" />
+  </plug-in>
+</struts-config>

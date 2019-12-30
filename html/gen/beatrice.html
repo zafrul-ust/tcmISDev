@@ -1,0 +1,77 @@
+<html><head><title>Beatrice's Page</title></head>
+<body bgcolor="#FFFFFF">
+<h1>Edit the lines in the box below with the invoice<br>
+numbers, then click the Submit button below the box</h1>
+<p>
+<form action="/cgi-bin/gen/beatrice.cgi" method="post">
+<textarea name="msg" rows="20" cols="70">
+If you Submit this form, it's
+faster for me, but I can accept
+a Lotus spreadsheet if it's easier. 
+
+Materials period 86 (06/06/02 - 06/12/02)
+
+A new contract started 4/1/02, so the fees
+are much higher; the adjustments are more
+then normal because the LPPs were reset in
+Oracle but not on sales orders created before
+4/1/02.  Trust me.
+
+Materials (Fee + recon = book)
+
+RAY_ ACCOUNT_SYS_        FEE       CORR   FEE+CORR
+---- ------------ ---------- ---------- ----------
+AZT1 Tucson         26940.55    15400.8   42341.35
+AR01 Tucson           197.63     -13.77     183.86
+KY01 Tucson           761.41    -306.86     454.55
+OK01 Tucson             4.74          0       4.74
+NM01 Tucson           717.18     282.85    1000.03
+AZT6 Tucson            61.56    -324.72    -263.16
+NMHO ESN               33.97      40.76      74.73
+TXMK ESN            30395.96  -32475.93   -2079.97
+TXNB ESN             1027.73      -47.1     980.63
+TXSC ESN             6722.74    1618.83    8341.57
+TXLE JDE             2096.66   -1446.37     650.29
+TXMK JDE               20.81       1.04      21.85
+TXSH JDE              500.67     126.82     627.49
+TXRI MKM RichSpr      189.25      81.93     271.18
+TXSC MRP9000         1968.25     193.28    2161.53
+TXGV SAP             1217.52      78.58     1296.1
+MAAN Andover        18138.69   -2329.11   15809.58
+ALHU Andover          525.76       5.41     531.17
+MALE Lexington       2839.33      56.34    2895.67
+MAMA Sudbury          525.75    -760.23    -234.48
+MAPE Andover         1051.52      31.52    1083.04
+RIPO Portsmouth      4206.08    1692.16    5898.24
+RRFC RRFC            3861.65      90.91    3952.56
+MASU Sudbury          525.76          0     525.76
+MATE Tewksbury        630.96     -298.6     332.36
+NMWS Andover          262.88      29.18     292.06
+MAW1 Waltham          525.75    -278.96     246.79
+
+Waste (amount + fee)
+
+SUBSTR(FACILIT ACCOUNT_SYS_ SUM(AMOUNT)   SUM(FEE)
+-------------- ------------ ----------- ----------
+Andover        Andover          6299.14    6726.77
+Portsmouth     Portsmouth          1853    2587.22
+RRFC           RRFC             1227.72     397.48
+
+Lemmon Ave     JDE              2942.02     476.13
+Richardson     MKM RichSpr      1893.44     306.43
+SC Bldg        ESN              3015.87     488.08
+SC Bldg        MRP9000           627.13      101.5
+Sherman        JDE                 1679     271.73
+
+Tucson         Tucson Drctd     2379.57     570.13
+
+Bulk Gas (service fee to add)
+
+New England invoice -2 add fee 196.84 (RRFC's share)
+Dallas invoice -5 add fee 1399.64
+Tucson invoice -1 add fee 12717.52
+
+</textarea>
+<p>
+<input type="submit">
+</form></body></html>

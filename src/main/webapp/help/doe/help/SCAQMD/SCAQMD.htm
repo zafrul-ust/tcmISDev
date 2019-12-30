@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>SCAQMD</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+<body>
+
+<h1><a name="SCAQMD" id="SCAQMD"></a>SCAQMD</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>SCAQMD</strong> report describes which materials were used at a specific facility. The format of this
+  report is not predetermined and can be altered to include any of the fields included in the list of <strong>Base
+  Fields</strong>.</p>
+<p>The <strong>SCAQMD</strong> report can be accessed from the <strong>Reports</strong> menu. Select
+  <strong>Usage</strong> and then <strong>SCAQMD</strong>. The <strong>SCAQMD</strong> page
+  is launched in a new tab.</p>
+<div class="image"><img src="SCAQMD1.png" height="268" width="835" alt="SCAQMD report menu">
+<div class="caption">Figure 1</div></div>
+
+<p>The first step in creating an <strong>SCAQMD</strong> report is to choose and specify the
+   chemical or chemicals to be reported.</p>
+<ul>
+	<li>To run the report for a chemical list (for example SARA313 or Ozone Depleting Substances) choose
+	    the <strong>List</strong> option and select the chemical list from the drop-down list. 
+	    <ul>
+	    	<li>Use the <strong><a href="#viewlist">View List</a></strong> button to display a complete listing for the selected list.</li>
+	    	<li><em>Neither the drop-down list nor the <strong>View List</strong> button will respond unless 
+	    		 the <strong>List</strong> option button is selected.</em></li>
+	    </ul>
+	</li>
+   <li>To run the report for a single chemical, select the <strong>Single Chemical</strong> option and
+	    enter the CAS number in the <strong>CAS Number</strong> box.
+	    <ul>
+	    	<li>Use the <strong><a href="#CASsearch">CAS Search</a></strong> form, if needed, to locate the exact number. (This 
+	    		 form differs from, but serves the same purpose as, the more common <a href="../Administration/Searches.htm#lookup">Lookup forms</a>.) </li>
+	    	<li><em>The <strong>Search</strong> button will not respond unless the <strong>Single Chemical</strong> 
+	    		 option button is selected.</em></li>
+	    </ul>
+	</li>
+	<li>To run this report for all chemicals, choose the <strong>All</strong> option.</li>
+</ul>
+
+<div class="image"><img src="SCAQMD2.png" height="632" width="816" alt="Ad hoc Usage report page" />
+<div class="caption">Figure 2</div></div>
+
+<p><a id="viewlist">View items included on a selected chemical list</a> by clicking the <strong>View List</strong> button.
+   The Chemical List page will be displayed in a new window listing all chemicals that are included on
+	the selected list.</p>
+<div class="image"><img src="../../images/ViewListChemicals.png" width="496" height="283" alt="ViewListChemicals" />
+<div class="caption">Figure 3</div></div>
+
+<p><a id="CASsearch">Search for a CAS number</a> using the CAS Search form which is similar to a standard 
+	<a href="../Administration/Searches.htm#lookup">Lookup form</a>.</p>
+	<ul>
+		<li>Click the <strong>Search</strong> button to open the form in a child window.</li>
+		<li>Enter the text for which you want to search in the <strong>Search</strong> text box on the form.</li>
+		<li>Click the <strong>Search</strong> button on the form AND tcmIS will display all the CAS items that match 
+			 the specified text in whole or in part.</li>
+		<li>Locate the CAS item you want in the list and click on its row and tcmIS will place the CAS number in the 
+			 <strong>Selected CAS Number</strong> text box.
+			<ul>
+				<li>If you realize you have chosen the wrong CAS item, choose another and tcmIS will replace the original 
+				 	with your new selection.</li>
+				<li>You may clear the selection  and then edit the search text by first clicking on the <strong>Reset</strong>
+				 	button, in order to start over completely.</li>
+			</ul>
+		</li>
+		<li>When the correct number is in the <strong>Selected CAS Number</strong> text box, click the <strong>OK</strong> 
+			 button on the form. tcmIS will move the selected CAS number onto the <strong>Ad Hoc Usage</strong> form.</li>	 
+	</ul>
+<div class="image"><img src="../../images/CASsearch.png" width="933" height="281" alt="CAS Search" />
+<div class="caption">Figure 4 (CAS Search form) and Figure 4A (Completed CAS Search form)</div></div>
+
+<div style="background-color: red;">
+<p>After specifying the chemical(s) for the report, specify a facility, work area(s), dock(s), and
+   delivery point(s) from the corresponding boxes. Specify the time period to report by selecting
+	the <strong>Begin Date</strong> and <strong>End Date</strong> using the date selection calendar.</p>
+<p>If desired, the report can be limited using the two <strong>Part Number</strong> boxes. In the first
+   box you specify whether the search is for an exact match, using <strong>is</strong>, or a
+	partial match, using <strong>contains</strong>. <em>Keep in mind</em> that an exact match is exactly
+	that, so typos must be avoided with <strong>is</strong>. In the second box enter the number to be
+	matched for the <strong>Part Number</strong>.</p>
+<p>The report can also be limited to a specific material category and manufacturer. To report only on
+   chemicals in a specific category, select the category from the <strong>Material Category</strong>
+   list. Use the two <strong>Manufacturer</strong> boxes to identify the manufacturer you want.
+   In the first box specify whether the search is for an exact match, using <strong>is</strong>, or a
+	partial match, using <strong>contains</strong>. <em>Keep in mind</em> that an exact match is exactly
+	that, so typos must be avoided with <strong>is</strong>. In the second box enter the name or text to be
+	matched for the <strong>Manufacturer</strong>.</p>
+<div class="image"><img src="SCAQMD5.png" height="632" width="816" alt="Additional SCAQMD report criteria">
+<div class="caption">Figure 5</div></div>
+
+<p>Select the fields to include in the report from the <strong>Base Fields</strong> box on the left.
+   You may select a field by clicking on it. To select more than one, hold down the CTRL key while
+	selecting. Add the fields to the <strong>Report Fields</strong> box on the right by clicking the
+	right-pointing arrow <img class="small" src="../../images/arrow1.gif" height="19" width="17" alt="Right-pointing arrow">. You can
+   remove fields from the <strong>Report Fields</strong> box by selecting in the <strong>Report
+	Fields</strong> box and clicking the left-pointing arrow icon <img class="small" src="../../images/arrow2.gif"
+	height="18" width="17" alt="Left-pointing arrow">.</p>
+<p>You can move an item in the <strong>Report Fields</strong> box up or down relative to the others by
+   selecting it and clicking the up- <img class="small" src="../../images/uparrow.gif" height="18" width="20" alt="uparrow"> or
+	down-pointing <img class="small" src="../../images/downarrow.gif" height="19" width="18" alt="downarrow"> arrow icons.</p>
+<div class="image"><img src="SCAQMD6.png" height="632" width="816" alt="Base Fields and Report Fields">
+<div class="caption">Figure 6</div></div>
+
+</div>
+
+<p>A description of the base fields is available by clicking the <strong>Description</strong> link above the
+  <strong>Base Fields</strong> box.</p>
+<div class="image"><img src="../../images/BaseFields.png" width="496" height="376" alt="BaseFields" />
+<div class="caption">Figure 7</div></div>
+
+<p>To clear all the report parameters on the current page, click the <strong>Clear Template</strong> 
+	<img class="small" src="../../images/ClearTemplate.png" height="19" width="83" alt="Clear Template" /> button. This is 
+	the same as closing the page and reopening it.</p>
+
+<h2>Running a report, Using Templates</h2>
+<p>Help is available on:</p>
+	<ul>
+		<li><a href="../Administration/TemplateReports.htm#runningareport">Running a report</a></li>
+		<li><a href="../Administration/TemplateReports.htm#saveareport">Saving a report as a template</a></li>
+		<li><a href="../Administration/TemplateReports.htm#getatemplate">Opening a template</a></li>
+		<li><a href="../Administration/TemplateReports.htm#publishareport">Publishing a template for others</a></li>
+		<li><a href="../Administration/TemplateReports.htm#unpublishareport">Unpublishing a report</a></li>
+	</ul>
+
+<div style="background-color: red;">
+<p>A sample <strong>SCAQMD</strong> report is shown below.</p>
+<div class="image"><img src="SCAQMD8.png" height="552" width="548" alt="sample SCAQMD report">
+<div class="caption">Figure 8</div></div>
+
+</div>
+
+</body>
+</html>
+

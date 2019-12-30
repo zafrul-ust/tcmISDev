@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Work Area Stock Turns Report</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="WorkAreaStockTurns" id="WorkAreaStockTurns"></a>Work Area Stock Turns Report</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Work Area Stock Turns Report</strong> page is used to produce a usage report of material over the most recent six-month period with a calculation 
+   of the six-month total usage, average weekly usage, and projection of annual inventory turnover given the established stocking level.
+   The <strong>Work Area Stock Turns Report</strong> page can be accessed by selecting <strong>Inventory</strong> from the <strong>Reports</strong>
+	menu and the selecting <strong>Work Area Stock Turns Report</strong>. The <strong>Work Area Stock Turns Report</strong> page is launched
+	in a new tab.</p>
+<div class="image"><img src="StockTurns1.png" height="280" width="704" alt="Work Area Stock Turns Report menu item" />
+<div class="caption">Figure 1</div></div>
+
+<p>There are six parameters which may be used to describe the Work Area Stock Turns report you want. Usually there is a 
+	default value of <em>All</em> or you may select a specific value; for some lists there may be only a single option:</p>
+<ul>
+   <li><strong>Division</strong> may be chosen from the list.</li>
+   <li><strong>Facility Group</strong> may be chosen from the list.
+   <ul>
+      <li><strong>Facility</strong> may be chosen if a specific Facility Group has been selected, from the list.</li>
+   </ul>
+   </li>
+   <li><strong>Work Area Group</strong> may be chosen from the list.
+   <ul>
+      <li><strong>Work Area</strong> may be chosen if a specific Work Area Group has been selected, from the list.</li>
+   </ul>
+   </li>
+   <li>Select the <strong>Facility with Bin</strong> check box <em>to limit the report</em> to only those facilities which have 
+      stocked Work Areas (or Cabinets).</li>
+</ul>
+<p>When you have made your option choices, click the <strong>Search</strong> button to run the report.</p>
+
+<p>The stock turns numbers are arranged in the right-most columns:</p>
+<ul>
+	<li>The <strong>M1</strong> through <strong>M6</strong> columns display the quantity dispensed from the cabinet in each of the previous six months (from 
+	    oldest to most recent).</li>
+	<li>The <strong>Half-year Total</strong> is simply the sum of the previous six month totals.</li>
+	<li>The <strong>Avg User per Week</strong> is the Half-year Total divided by the 26 weeks in the six months.</li>
+	<li>The <strong>Turns</strong> is an annualized projection based on the <strong>SL</strong> (stocking level). For 
+	    the given SL and at the average user per week, <strong>Turns</strong> is the number of times the inventory 
+	    will be completely replaced.</li>
+</ul>
+<p>Click the <strong>Create Excel File</strong> button to export the results of the report in Excel format.</p>
+<div class="image"><img src="StockTurns2.png" height="500" width="1047" alt="Work Area Stock Turns Report page" />
+<div class="caption">Figure 2: scrolled to right for details</div></div>
+
+<p>A right-click on any record will display a context menu item to Print the report. <em>Please note that the report is wide. 
+   Adjust your print settings to Landscape to fit the printed report to your paper.</em></p>
+<div class="image"><img src="StockTurns3.png" height="500" width="1047" alt="Work Area Stock Turns Print menu item" />
+<div class="caption">Figure 3</div></div>
+
+</body>
+</html>

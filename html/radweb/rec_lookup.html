@@ -1,0 +1,45 @@
+<html><head><title>Look Up Item Receiving Info</title></head>
+
+<body bgcolor="#FFFFFF">
+<center>
+<h2>Look Up Item Receiving Info</h2>
+<p>
+<form action="/cgi-bin/radweb/rec_info_lookup.cgi" method="post">
+Enter an <b>Item Id</b> or <b>Client Part #</b> to see recorded info for
+<select name="bp">
+<option value="Boston Hub" SELECTED>Boston Hub
+<option value="Tucson">Tucson
+<option value="Dallas">Dallas
+<option value="Normandale">Normandale
+<option value="San Antonio">San Antonio
+<option value="Largo">Largo
+<option value="Silicon Valley">Silicon Valley
+<option value="Greenville">Greenville
+<option value="Philadelphia">Philadelphia
+<option value="MSP">MSP
+<option value="Fresno">Fresno
+<option value="Montreal">Montreal
+<option value="Mielec">Mielec
+<option value="Harrisburg">Harrisburg
+<option value="Miami Hub">Miami
+<option value="Whippany Hub">Whippany
+<option value="Crawley Hub">Crawley
+<option value="Leigh Hub">Leigh
+<option value="Los Angeles Hub">Los Angeles
+<option value="Atlanta Hub">Atlanta
+<option value="LM Marietta Hub">LM Marietta
+      <option value="Sacramento Hub">Sacramento
+</select>
+<br>
+<table>
+  <tr>
+    <td align="left">Haas Item ID:</td>
+    <td align="left"><input type="text" name="item_id" size="25"></td>
+  </tr>
+  <tr>
+    <td align="left">Client Part #:</td>
+    <td align="left"><input type="text" name="part" size="25"></td>
+  </tr>
+</table>
+<input type="submit" value="Look Up Info">
+</form></center></body></html>

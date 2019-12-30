@@ -1,0 +1,545 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>US Gov Supplier Shipping</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<h2><font face="Tahoma"><a name="SupplierShipping"></a>U</font><font face="Tahoma">S 
+  Gov Supplier Shipping</font></h2>
+<p><font face="Tahoma">The Department of Defense requires advance notice of incoming 
+  vendor shipments. They want to know what orders are in which boxes and which 
+  pallet those boxes are on before they arrive. Scanning allows for the collection 
+  of shipment ID information and forms associations with the contents. Once all 
+  of the data is collected, the tcmIS <strong>US Gov Supplier Shipping Pages</strong> 
+  are updated and ultimately the data is sent to DoD in the form of an Advanced 
+  Shipment Notice.</font></p>
+<h3><font face="Tahoma"><a name="LabelDef"></a>Label Definitions</font></h3>
+<p><font face="Tahoma"><a name="UnitLabel"></a><strong>Unit Labels</strong> appear 
+  on each individual item being shipped. For example, if 6 cans of lubricant are 
+  being shipped in one box, each can of lubricant should be labeled with a <strong>Unit 
+  Label</strong>.</font></p>
+<p><font face="Tahoma"> A sample <strong>Unit Label</strong> is shown below.</font></p>
+<p><img src="unitlabel.JPG" width="400" height="401"></p>
+<p><font face="Tahoma">If the material being shipped is a drum or cylinder, and 
+  the material is not shipped in a box, <strong>Unit Labels</strong> are not necessary 
+  and <strong>External Labels</strong> are used instead.</font></p>
+<p><img src="2label%20cyl.jpg" width="663" height="1080"></p>
+<p><font face="Tahoma"><strong><a name="ExternalLabel"></a>External Labels</strong> 
+  should appear on each box (also termed Case or External Shipping Container). 
+  They may also be used in place of <strong>Unit Labels</strong> for cylinders 
+  and drums which are not shipped in boxes since the cylinder or drum is itself 
+  a shipping container (does not require to be separately packaged). A sample 
+  <strong>External Label</strong> is shown below.</font></p>
+<p><img src="externallabel.JPG" width="434" height="336"> <img src="box1.JPG" width="400" height="401"> 
+</p>
+<p><font face="Tahoma">An <strong>External ID</strong> appears at the bottom of 
+  the<strong> External Label</strong>. The <strong>External ID</strong> is a unique 
+  bar coded identification number assigned by tcmIS and represents a link to all 
+  of the information on the label.</font></p>
+<p><font face="Tahoma">An<strong> RFID Label</strong> is printed with origin and 
+  contract information. Also printed on the tag is a bar coded representation 
+  of the unique RFID encoded value. Large print identifies the labels as either 
+  <strong>RFID Case Labels</strong> or <strong>RFID Pallet Labels</strong>.</font></p>
+<p><font face="Tahoma"><a name="RFIDCaseLabel"></a>One <strong>RFID Case Label</strong> 
+  should appear on each case. A sample <strong>RFID Case Label</strong> is shown 
+  below.</font></p>
+<p><img src="caselabel.JPG" width="434" height="219"> </p>
+<p><font face="Tahoma"><a name="RFIDPalletLabel"></a>One <strong>RFID Pallet Label</strong> 
+  should appear on each pallet. A sample <strong>RFID Pallet Label</strong> is 
+  shown below.</font></p>
+<p><img src="palletlabel.JPG" width="434" height="220"></p>
+<p><font face="Tahoma"><a name="MSL"></a>One <strong>Military Shipping Label (MSL)</strong>, 
+  should appear on each case. If multiple cases (boxes, cylinders, etc.) are grouped 
+  on a pallet(s), each pallet must also have an <strong>MSL</strong>.</font></p>
+<p><img src="msl.jpg" width="294" height="432"> <img src="box2.JPG" width="437" height="390"></p>
+<h3><font face="Tahoma"><a name="Home"></a>Supplier Shipping Home</font></h3>
+<p><font face="Tahoma">The tcmIS <strong>Supplier Shipping Hom</strong>e page 
+  is:</font> <a href="https://www.tcmis.com/tcmIS/supplier/home.do"><font face="Tahoma">https://www.tcmis.com/tcmIS/supplier/home.do</font></a>. 
+  <font face="Tahoma">Theses pages allow suppliers to create shipments and print 
+  the appropriate labels.</font> <font face="Tahoma">Periodically there may be 
+  information that we want to pass on to our users. This information shows up 
+  under the Bulletin Menu item and is automatically selected and presented to 
+  you when there is information available (selected menu items appear as tabs).</font></p>
+<p><img src="ss1.JPG" width="743" height="548"></p>
+<p><font face="Tahoma">Click <strong>Start tcmIS</strong> to log on to the <strong>Supplier 
+  Shipping Home </strong>page.</font></p>
+<p><font face="Tahoma"><img src="ss2.JPG" width="743" height="548"></font></p>
+<p><font face="Tahoma">Enter your username and password provided by your Haas 
+  tcm contact. Click <strong>Login</strong>. The <strong>Supplier Shipping</strong> 
+  application is started. The menu system shows those Supplier pages that you 
+  have permission to view. Upon selecting any item in the menu system, tcmIS initiates 
+  a new tab and starts the corresponding page in the tab. Note that you may move 
+  freely between tabs and each page will &#8220;remember&#8221; the data on the 
+  page as you last left it. If you &#8220;right click&#8221; your mouse while 
+  pointing at a tab, you may add the tab to the startup procedure which will cause 
+  that tab to automatically initiate when you next login. You may notice that 
+  some tabs have been placed in your startup already.</font></p>
+<p><img src="ss3.JPG" width="913" height="530"></p>
+<h3><strong><font face="Tahoma"><a name="ShipmentSelection"></a>US Gov Shipment 
+  Selection</font></strong></h3>
+<p><font face="Tahoma">Begin with the <strong>US Gov Shipment Selection </strong>page. 
+  This page allows suppliers to view all pending Haas tcm Purchase Orders by supplier 
+  location. Select the <strong>Supplier Parent</strong> and the <strong>Supplier 
+  Location</strong> from the corresponding drop down lists. To see all open Purchase 
+  Orders for the selected supplier and location, simply click <strong>Search.</strong></font></p>
+<p><font face="Tahoma">If the Haas tcm PO number is known, it can be entered in 
+  the <strong>Search </strong>box. You may also search by Item Description, Item 
+  ID, Material Request Number, Ship-to City or State, or Ship to Zip Code.</font></p>
+<p><img src="ss4.JPG" width="906" height="621"></p>
+<p><font face="Tahoma">The supplier should locate the Purchase Order lines which 
+  are to be shipped and enter the required information. </font></p>
+<p><font face="Tahoma">The <strong>Ship Date</strong> should be entered as the 
+  day the material will ship for the supplier's location. The <strong>Delivery 
+  Date</strong> should be entered as the estimated date<strong> </strong>the material 
+  will arrive at the destination. The manufacturer's batch number or lot number 
+  must be entered in the <strong>Lot </strong>column. The <strong>Date of Manufacture</strong> 
+  is not required, but should be entered if known. The <strong>Expiration Date 
+  </strong>must be entered. If the material is not shelf life sensitive, please 
+  enter the word &quot;Indefinite.&quot; The <strong>Qty Shipped</strong> must 
+  be entered as well. Pay close attention to the <strong>Packaging </strong>field 
+  and be sure and enter the quantity shipped based on the unit of measure in this 
+  field. For example, if packaging is drum and the material is a 55 gal drum, 
+  be sure to enter the number of drums shipped and NOT the number of gallons shipped. 
+  It is also necessary to enter the number of <strong>Parts per Box</strong>. 
+  Again, pay close attention to the <strong>Packaging </strong>field. If the material 
+  is packaged in a drum or cylinder, and does not ship in a box, enter a quantity 
+  of 1 in the <strong>Parts Per Box</strong> field. If shipping in multiple boxes 
+  with unequal quantities in each box, click <strong>the Dupl </strong>button. 
+  This will create another line so you can enter different quantities for each 
+  box.</font></p>
+<p><font face="Tahoma"><img src="ss5.JPG" width="856" height="561"></font></p>
+<p><font face="Tahoma">After completing the required information, check the <strong>OK</strong> 
+  box for each line being shipped. Then click <strong>Update Ship Info</strong>.</font></p>
+<h3><font face="Tahoma"><a name="Labeling"></a>US Gov Labeling</font></h3>
+<p><font face="Tahoma">After completing the <strong>Shipment Selection</strong> 
+  page, proceed to the <strong>US Gov Labeling</strong> page to print labels.</font></p>
+<p><font face="Tahoma">Select the <strong>Supplier</strong> and <strong>Supplier 
+  Location</strong> from the corresponding drop-down lists. You may search for 
+  all orders that need to be labeled by selecting <strong>All</strong> from the 
+  <strong>Packing ID</strong> drop-down list. Or choose the date and time when 
+  the Shipment Selection was completed. Click <strong>Search</strong>.</font></p>
+<p><font face="Tahoma">Check the <strong>Print</strong> box for all Purchase Orders 
+  you want to label.</font></p>
+<p><img src="ss6.JPG" width="871" height="560"></p>
+<p><font face="Tahoma"> Click <strong>Print Labels</strong>. <strong>Unit Labels 
+  </strong>and<strong> External Labels</strong> will be printed based on the information 
+  entered in the <strong>Shipment Selection </strong>page. The labels will be 
+  printed in sequence &#8211; namely, one external label followed by the unit 
+  labels that correspond to the quantity on the exte</font><font face="Tahoma">rnal 
+  label. Since these labels match data such as date of manufacturer and expiration 
+  date be sure to keep these together when applying labels and packing boxes.</font></p>
+<p><font face="Tahoma">Check the box labeled <strong>Skip Unit Labels</strong> 
+  if <strong>Unit Labels </strong>do not need to be printed. If you would like 
+  to print <strong>Unit Labels </strong>for an order, uncheck the <strong>Skip 
+  Unit Labels</strong> box and click <strong>Print Labels.</strong></font></p>
+<h3><font face="Tahoma"><a name="Scanning"></a>Scanning Process</font></h3>
+<p><font face="Tahoma">The scanning process associates <strong>External IDs</strong> 
+  to a <strong>RFID Case Label</strong>. A case may contain one or many <strong>External 
+  IDs</strong>. However, all External IDs associated with that Case RFID must 
+  be for the same order.</font></p>
+<p><font face="Tahoma"><img src="box3.JPG" width="400" height="390"></font></p>
+<p><font face="Tahoma">Cases may be shipped individually or they may be further 
+  associated with a<strong> RFID Pallet Label</strong>. A pallet may contain one 
+  or many<strong> RFID Case Labels</strong>. However, all Cases associated with 
+  the pallet must be destined for the same Ultimate DODAAC (shown on the web page).</font></p>
+<p><img src="pallet1.JPG" width="454" height="390"></p>
+<p><font face="Tahoma">Start <strong>tcmIS Scan</strong> on your scanner.</font></p>
+<p><font face="Tahoma">The <strong>Scanning Main Menu</strong> is displayed.</font></p>
+<p><img src="scan1.JPG" width="240" height="320"></p>
+<p><font face="Tahoma">The features available from the <strong>Scanning Main Menu</strong> 
+  are as follows:</font></p>
+<p><font face="Tahoma"><strong>Scan</strong> &#8211; Packing data collection<br>
+  <strong>File Xfer</strong> &#8211; Data upload to tcmIS<br>
+  <strong>Clear</strong> &#8211; Delete data file<br>
+  <strong>Update</strong> &#8211; Receive program and data updates from tcmIS<br>
+  <strong>Exit</strong> &#8211; Return to data terminal operating system. (requires 
+  password)</font></p>
+<h3><font face="Tahoma"><a name="CaseAssociation"></a>Scanning - Case Association</font></h3>
+<p><font face="Tahoma">Choose <strong>Scan</strong> from the<strong> Main Menu</strong> 
+  to start the scan application. </font><font face="Tahoma">From this screen you 
+  can begin to associate <strong>External IDs</strong> with a Case RFID.<br>
+  </font></p>
+<p><font face="Tahoma"><img src="scan2.JPG" width="249" height="330"></font></p>
+<p><font face="Tahoma">You may also:<br>
+  <strong>View Case Contents</strong> &#8211; View a list of <strong>External 
+  IDs</strong> associated with the current <strong> RFID</strong> <strong>Case 
+  Labels</strong> and remove some or all if necessary.<br>
+  <strong>Add Tracking Data</strong> &#8211; You may add a<strong> Delivery Ticket 
+  Number</strong>, a <strong>Tracking Number</strong>, and <strong>Carrier</strong> 
+  name to a case record.<br>
+  <strong>Pallet</strong> &#8211; Switch to <strong>Pallet Association </strong>mode.<br>
+  <strong>Exit</strong> &#8211; Return to the<strong> Main Menu</strong>.</font></p>
+<p><font face="Tahoma">To associate <strong>External IDs</strong> to an <strong>RFID 
+  Case Label</strong> first attach the <strong>RFID Case Label</strong> to the 
+  shipping container (box, cylinder, drum, etc.) and scan the RFID label on the 
+  case to be packed.</font></p>
+<p><font face="Tahoma"><img src="scan3.JPG" width="382" height="144"></font></p>
+<p><font face="Tahoma">The scanned <strong>Case RFID</strong> becomes the current 
+  <strong>Case RFID</strong> and is displayed on the screen.</font></p>
+<p><img src="scan4.JPG" width="251" height="332"></p>
+<p><font face="Tahoma">Scan each of the <strong>External IDs</strong> to be associated 
+  with the current <strong>Case RFID</strong>. </font></p>
+<p><img src="scan5.JPG" width="448" height="300"></p>
+<p><br>
+  <font face="Tahoma">To associate remaining <strong>External IDs</strong> to 
+  another <strong>Case RFID</strong> just scan the new <strong>Case RFID</strong>. 
+  The scanner will recognize the new <strong>Case RFID</strong> and update the 
+  current <strong>Case RFID</strong>. Now scan the <strong>External IDs</strong> 
+  associated with this new <strong>Case RFID</strong>. Repeat these steps until 
+  all <strong>External IDs</strong> have been associated with the appropriate 
+  <strong>Case RFID</strong>. </font></p>
+<h3><font face="Tahoma"><a name="ViewCaseContents"></a>Scanning - Viewing Case 
+  Contents</font></h3>
+<p><font face="Tahoma">Select <strong>View Case Contents</strong> from the <strong>Scanning 
+  Main Menu</strong> to view a list of<strong> External IDs</strong> that have 
+  been associated with the current <strong>Case RFID</strong>.</font></p>
+<p><font face="Tahoma"><img src="scan6.JPG" width="250" height="332"></font></p>
+<p><font face="Tahoma">To un-associate an <strong>External ID</strong> from a 
+  <strong>Case RFID</strong> select the <strong>External ID</strong> and click 
+  the <strong>Remove</strong> button. </font><font face="Tahoma">Click the <strong>Done</strong> 
+  button to return to the <strong>Scanning Main Menu</strong>.</font></p>
+<h3><font face="Tahoma"><a name="AddTrackingData"></a>Scanning - Adding Tracking 
+  Data</font></h3>
+<p><font face="Tahoma">Select<strong> Add Tracking Data</strong> from the<strong> 
+  Scanning Main Menu </strong> to enter the<strong> Delivery Ticket Number</strong>, 
+  a <strong>Tracking Number</strong> and <strong>Carrier</strong> name to the 
+  current <strong>Case RFID</strong> record. </font></p>
+<h3><font face="Tahoma"><img src="scan7.JPG" width="251" height="332"></font></h3>
+<p><font face="Tahoma">The <strong>Delivery Ticket Number</strong> and the<strong> 
+  Tracking Number</strong> can be entered by the keyboard or scanned if available 
+  as a barcode. The <strong>Carrier</strong> is selected from a drop down list. 
+  Haas TCM will issue updates to the list of carriers periodically.</font></p>
+<h3><font face="Tahoma"><a name="SwitchToPalletAssociation"></a>Scanning &#8211; 
+  Switching to Pallet Association Mode</font></h3>
+<p><font face="Tahoma">There are two ways to switch from Case Association to Pallet 
+  Association mode:</font></p>
+<p><font face="Tahoma">The first is to click the <strong>Pallet</strong> button.</font></p>
+<p><font face="Tahoma">The second is to scan a<strong> RFID Pallet Label</strong>. 
+  The scanner can recognize the difference between the <strong>Case RFID Labels</strong> 
+  and<strong> Pallet RFID Labels</strong>. It will switch from Case Association 
+  to Pallet Association mode and the current<strong> Pallet RFID</strong> will 
+  be set to the scanned value. </font></p>
+<p><img src="scan8.JPG" width="251" height="332"></p>
+<p><font face="Tahoma">From the <strong>Case Association</strong> screen click 
+  the <strong>Pallet</strong> button or scan a <strong>Pallet RFID Label</strong>.</font></p>
+<p><font face="Tahoma">From this screen you can begin to associate<strong> Case 
+  RFIDs</strong> with a<strong> Pallet RFID</strong>.</font></p>
+<p><font face="Tahoma">You may also:<br>
+  <strong>View Pallet Contents</strong> &#8211; View a list of <strong>Case RFIDs</strong> 
+  associated with the current<strong> Pallet RFID</strong> and remove some or 
+  all if necessary.<br>
+  <strong>Add Tracking Data</strong> &#8211; You may add a<strong> Delivery Ticket 
+  Numbe</strong>r, a <strong>Tracking Number</strong> and a <strong>Carrier</strong> 
+  name to a pallet record.<br>
+  <strong>Case</strong> &#8211; Switch to <strong>Case Association</strong> mode.<br>
+  <strong>Exit</strong> &#8211; Return to the <strong>Main Menu</strong>.</font> 
+</p>
+<p><font face="Tahoma">If you switched to <strong>Pallet Association</strong> 
+  mode by scanning a <strong>Pallet RFID</strong> the current RFID has already 
+  been set, you can skip this step. </font></p>
+<p><font face="Tahoma">To associate<strong> Case RFIDs</strong> to a <strong>Pallet 
+  RFID</strong> first scan the RFID label on the pallet to be packed.</font></p>
+<p><img src="scan9.JPG" width="384" height="140"></p>
+<p><font face="Tahoma">The scanned <strong>Pallet RFID</strong> becomes the current 
+  <strong>Pallet RFID</strong> and is displayed on the screen.</font></p>
+<p><img src="scan10.JPG" width="250" height="332"></p>
+<p><font face="Tahoma">Scan each of the <strong>Case RFIDs</strong> to be associated 
+  with the current <strong>Pallet RFID</strong>. </font></p>
+<p><img src="scan11.JPG" width="424" height="140"></p>
+<p><font face="Tahoma">To associate remaining <strong>Case IDs</strong> to another<strong> 
+  Pallet RFID</strong> just scan the new <strong>Pallet RFID</strong>. The scanner 
+  will recognize the new <strong>Pallet RFID</strong> and update the current <strong>Pallet 
+  RFID</strong>. Now scan the<strong> Case RFIDs</strong> associated with this 
+  new <strong>Pallet RFID</strong>. Repeat these steps until all<strong> Case 
+  RFIDs</strong> have been associated with the appropriate <strong>Pallet RFID</strong>.</font></p>
+<h3><font face="Tahoma"><a name="ViewPalletContents"></a>Scanning - Viewing Pallet 
+  Contents</font></h3>
+<p><font face="Tahoma">Select <strong>View Pallet Contents</strong> from the <strong>Scanning 
+  Main Menu</strong> to view a list of <strong>Case RFIDs </strong>that have been 
+  associated with the current <strong>Pallet RFID</strong>.</font></p>
+<p><img src="scan12.JPG" width="250" height="331"></p>
+<p><font face="Tahoma">To un-associate a<strong> Case RFID</strong> from a<strong> 
+  Pallet RFID</strong> select the <strong>Case RFID</strong> and click the <strong>Remove</strong> 
+  button.</font></p>
+<p><font face="Tahoma">Click the <strong>Done</strong> button to return to the 
+  <strong>Scanning Main Menu</strong>.</font><br>
+</p>
+<h3><font face="Tahoma"><a name="AddTrackingData"></a>Scanning - Adding Tracking 
+  Data</font></h3>
+<p><font face="Tahoma">Select <strong>Add Tracking Data</strong> from the <strong>Scanning 
+  Main Menu</strong> to enter the delivery ticket number, a tracking number and 
+  carrier name to the current <strong>Pallet RFID</strong> record.</font></p>
+<p><img src="scan13.JPG" width="252" height="332"></p>
+<p><font face="Tahoma">The<strong> Delivery Ticket Number</strong> and the <strong>Tracking 
+  Number</strong> can be entered by the keyboard or scanned if available as a 
+  barcode.</font></p>
+<p><font face="Tahoma">The <strong>Carrier</strong> is selected from a drop down 
+  list. Haas TCM will issue updates to the list of carriers periodically.</font></p>
+<h3><font face="Tahoma"><a name="SwitchToCaseAssociation"></a>Scanning - Switching 
+  to Case Association Mode </font></h3>
+<p><font face="Tahoma">To switch from <strong>Pallet Association</strong> to <strong>Case 
+  Association</strong> mode click the <strong>Case</strong> button.</font></p>
+<p><img src="scan14.JPG" width="252" height="332"></p>
+<h3><font face="Tahoma"><a name="FileTransfer"></a>File Transfer</font></h3>
+<p><font face="Tahoma">Choose<strong> File Xfer</strong> from the <strong>Main 
+  Menu</strong> to start the <strong>File Xfer Application</strong>.</font></p>
+<p><img src="scan15.JPG" width="252" height="332"></p>
+<p><font face="Tahoma">After scanning follow these directions to upload the scanned 
+  data to a PC.</font></p>
+<blockquote>
+  <p><font face="Tahoma">1. Place scanner in cradle.</font></p>
+</blockquote>
+<p><font face="Tahoma"> </font><font face="Tahoma"><img src="scan16.JPG" width="160" height="400"></font></p>
+<blockquote> 
+  <p><font face="Tahoma">2. Start <strong>MCL-Link</strong> on the PC by clicking 
+    the<strong> MCL-Link</strong> icon. </font></p>
+  <p><font face="Tahoma"><img src="mcllink.JPG" width="75" height="75"></font></p>
+  <p><font face="Tahoma">When the <strong>MCL-Link </strong>screen appears continue 
+    to step 3.</font></p>
+  <p><font face="Tahoma"><img src="mcllink2.JPG" width="466" height="325"></font></p>
+  <p><font face="Tahoma">3. Click the <strong>Press Here</strong> button to begin 
+    the file transfer.</font></p>
+  <p><font face="Tahoma"><img src="scan17.JPG" width="250" height="330"></font></p>
+  <p><font face="Tahoma">When the file xfer is complete a success message will 
+    be displayed. The data file will be cleared to prevent sending duplicate data.</font></p>
+  <p><font face="Tahoma">If the file xfer is unsuccessful a failure message will 
+    be displayed. The data file will not be cleared until the xfer is successful.</font><br>
+  </p>
+</blockquote>
+<p> <font face="Tahoma">Press <strong>Cancel</strong> to return to the<strong> 
+  Main Menu</strong>.</font></p>
+<h3><font face="Tahoma"><a name="ClearingScanner"></a>Clearing the Scanner</font></h3>
+<p><font face="Tahoma">Choose <strong>Clear</strong> from the <strong>Scanning 
+  Main Menu</strong> to access the <strong>Clear</strong> function.</font></p>
+<p><font face="Tahoma"><img src="scan18.JPG" width="250" height="330"></font></p>
+<p><font face="Tahoma">Click the <strong>OK</strong> button to clear all scanned 
+  data from the terminal.</font></p>
+<p><font face="Tahoma">Click <strong>Cancel</strong> to return to the <strong>Main 
+  Menu </strong>without clearing the scanned data.</font></p>
+<h3><font face="Tahoma"><a name="UpdateScanner"></a>Updating the Scanner</font></h3>
+<p><font face="Tahoma">Choose <strong>Update </strong>from the <strong>Scanning 
+  Main Menu</strong> to update the scanner.</font></p>
+<p><font face="Tahoma"><img src="scan19.JPG" width="250" height="330"></font></p>
+<blockquote> 
+  <p><font face="Tahoma">1. When an update is necessary, it will arrive via email 
+    with detailed instructions. Please follow all instruction to ensure the update 
+    is installed as intended.</font></p>
+  <p><font face="Tahoma">2. Place scanner in cradle.</font></p>
+  <p><font face="Tahoma"> </font><font face="Tahoma"><img src="scan16.JPG" width="160" height="400"></font></p>
+  <p><font face="Tahoma">3</font><font face="Tahoma">. Start <strong>MCL-Link</strong> 
+    on the PC by clicking the<strong> MCL-Link</strong> icon. </font></p>
+  <p><font face="Tahoma"><img src="mcllink.JPG" width="75" height="75"></font></p>
+  <p><font face="Tahoma">When the <strong>MCL-Link </strong>screen appears continue 
+    to step 3.</font></p>
+  <p><font face="Tahoma"><img src="mcllink2.JPG" width="466" height="325"></font></p>
+  <p><font face="Tahoma">4. Click the<strong> Press Here</strong> button to begin 
+    the update.</font></p>
+  <p><img src="scan20.JPG" width="250" height="330"></p>
+  <p><font face="Tahoma">When the update is complete a success message will be 
+    displayed. </font></p>
+  <p><font face="Tahoma">If the update is unsuccessful a failure message will 
+    be displayed. <br>
+    </font> </p>
+</blockquote>
+<h3><font face="Tahoma"><a name="ScannerUpload"></a>Scanner Upload</font></h3>
+<p><font face="Tahoma">After transferring the file, return to the <strong>Supplier 
+  Shipping</strong> pages. Select the <strong>Scanner Upload</strong> tab.</font></p>
+<p><img src="ss7.JPG" width="836" height="591"></p>
+<p><font face="Tahoma">Click the <strong>Browse </strong>button. Go to C:\scannerdownload 
+  directory and select the shippingcount.csv file. </font><font face="Tahoma">Click 
+  the <strong>Open </strong>button.</font></p>
+<p><font face="Tahoma">Click <strong>Process</strong> to upload the file.</font></p>
+<h3><font face="Tahoma"><a name="PackAndConfirm"></a>Pack &amp; Confirm</font></h3>
+<p><font face="Tahoma">Th</font><font face="Tahoma">e final step is to Pick and 
+  Confirm the Shipment. <strong>Case MSLs, Order Packing Lists, Pallet MSLs, </strong>and 
+  <strong>Mappings</strong> can be printed from this page.</font></p>
+<p><font face="Tahoma">After navigating to the <strong>Pack &amp; Confirm </strong>tab, 
+  select the <strong>Supplier</strong> and<strong> Supplier Location</strong> 
+  from the corresponding drop-down lists and click <strong>Search.</strong> All 
+  of the label associations (Case RFID, Pallet RFID, Delivery Ticket, Tracking 
+  No and Carrier) performed during the scanning process will be shown here. </font></p>
+<p><font face="Tahoma"><em>If your scanner in not operational or you did not have 
+  some of the Delivery Ticket/Tracking Information at the time of scanning, this 
+  information will be blank. It must be entered before tcmIS will allow the shipment 
+  to be confirmed and sent to Haas TCM for submittal of the government ASN.</em></font></p>
+<p><img src="ss8.JPG" width="846" height="577"></p>
+<p><font face="Tahoma">If operating some of this page manually, enter missing<strong> 
+  Case IDs</strong> and <strong>Pallet IDs</strong> for each PO line from the<strong> 
+  Case and Pallet RFID Labels</strong>. Enter your <strong>Delivery Ticket Number</strong>. 
+  This is the supplier's proof of delivery number. If a third party carrier is 
+  transporting the material, enter the <strong>Carrier Tracking Number </strong>and 
+  select the <strong>Carrier</strong> from the drop-down list.</font></p>
+<p><font face="Tahoma">Check the <strong>OK</strong> box and click <strong>Update.</strong></font></p>
+<p><font face="Tahoma">Once all of the data is entered and updated, the required<strong> 
+  MSLs</strong> and <strong>Packing Lists </strong>may be printed by checking 
+  the <strong>OK</strong> box and clicking,<strong> Print Case MSL</strong>, <strong>Print 
+  Order Packing List</strong>,<strong> Print Pallet MSL</strong>, or <strong>Print 
+  Mapping</strong>.</font></p>
+<p><font face="Tahoma">Note that there are two ways this sequence can occur.<br>
+  </font></p>
+<blockquote> 
+  <p><font face="Tahoma"> <strong>Method 1</strong>: Here, it is assumed that 
+    the user will want to pack the pallet as they are associating the<strong> 
+    Case RFID</strong> to the <strong>Pallet RFID</strong>. However, the Case 
+    needs to be labeled with the <strong>Order RFID</strong> and <strong>Packing 
+    List</strong> which cannot be generated until the<strong> External Label/Case 
+    RFID</strong> association is uploaded. Therefore, there needs to be two upload 
+    processes, one after cases are packed and the other after the pallets are 
+    packed. The process is detailed as follows:</font><br>
+  </p>
+  <p><font face="Tahoma">(A) Print and apply the <strong>External Label(s)</strong> 
+    and their corresponding <strong>Unit Label(s)</strong>. </font></p>
+  <p><font face="Tahoma">(B) Apply a<strong> Case RFID</strong> to the shipping 
+    container and associate it with the <strong>External Label(s)</strong>, packing 
+    the shipping container as necessary. </font></p>
+  <p><font face="Tahoma">(C) Upload the case information and print the <strong>Case 
+    MSLs</strong> and <strong>Packing List </strong>for each order processed. 
+    Apply <strong>Case MSLs</strong> and attach <strong>Packing List</strong> 
+    to the case(s) (shipping container(s)) for the order being shipped. </font></p>
+  <p><font face="Tahoma">(D) If shipping pallets, pack the cases on the pallet(s) 
+    associating the <strong>Case RFID</strong> with the<strong> Pallet RFID</strong>. 
+    Once the pallet is packed, upload the scanned pallet information and print 
+    and apply the<strong> Pallet MSL</strong>. </font></p>
+  <p><font face="Tahoma"><strong>Method 2</strong>: Here, it is assumed that all 
+    of the labeling associations can be made before the pallet is packed &#8211; 
+    either by physically associating the cases with the pallet and keeping them 
+    near the pallet but not packed or by performing the association in the office 
+    and keeping the labels segregated and ordered so that all of the packing and 
+    label application occurs at once. This process is modified as follows:</font></p>
+  <p><font face="Tahoma">(A) Print the<strong> External Label(s)</strong> and 
+    their corresponding <strong>Unit Label(s)</strong>. </font></p>
+  <p><font face="Tahoma">(B) Select a<strong> Case RFID Label </strong>for the 
+    shipping container and associate it with the <strong>External Label(s)</strong>.</font></p>
+  <p><font face="Tahoma">(C) Select a <strong>Pallet RFID Label</strong> and associate 
+    it with the <strong>Case RFID Label</strong>. Add the <strong>Delivery Ticket</strong> 
+    and <strong>Tracking Information</strong> as available.</font></p>
+  <p><font face="Tahoma">(D) Upload the information, print the<strong> Case MSL(s)</strong> 
+    and<strong> Packing List</strong> for each order and print the<strong> Pallet 
+    MSL(s)</strong> for the shipment. Pack cases, applying labels and packing 
+    lists according to your associations. Note it is very important that the labels 
+    are applied exactly as the associations.</font></p>
+</blockquote>
+<p><font face="Tahoma">After the shipment is completely packed and labeled, click 
+  <strong>Ship Confirm</strong>. Clicking<strong> Ship Confirm</strong> will generate 
+  and send an <strong>Advance Ship Notice</strong> to the government.</font></p>
+<h3><font face="Tahoma"><a name="Examples"></a>Examples</font></h3>
+<p><font face="Tahoma"><a name="Example1"></a>1. Single Cylinder Order &amp; Shipment:</font></p>
+<blockquote>
+  <p><font face="Tahoma"> A. Select the order from the Shipment Selection Page, 
+    enter data and click the Update Ship Info.<br>
+    B. Check the Print box for the order on the Labeling Page and click the Print 
+    Labels &#8211; only one External Label will print.<br>
+    C. Apply the External Label and a Case RFID to the cylinder.<br>
+    D. Scan the association, enter/scan Delivery Ticket/Tracking Information and 
+    upload (or simply enter the information on the Pack &amp; Confirm page).<br>
+    E. Print the Case MSL and Order Packing List and attach to the cylinder.<br>
+    F. Ship Confirm.</font></p>
+</blockquote>
+<p><font face="Tahoma"><a name="Example2"></a>2. Multiple Cylinders (same Order 
+  &amp; NSN) shipped on a Pallet:</font></p>
+<blockquote>
+  <p><font face="Tahoma">A. Select the order from the Shipment Selection Page, 
+    enter data and click the Update Ship Info.<br>
+    B. Check the Print box for the order on the Labeling Page and click the Print 
+    Labels &#8211; there will be one External Label per cylinder printed (no Unit 
+    Labels).<br>
+    C. Using method 2 above, collect a case RFID for each cylinder and a Pallet 
+    RFID for the shipment. Scan each External ID to its Case RFID and each Case 
+    RFID to its Pallet RFID.<br>
+    D. Upload scanner and print Case MSLs (one will generate for each cylinder 
+    on the order), the Order packing List, and the Pallet MSL.<br>
+    E. Apply an External Label, a Case RFID, and an MSL Label to each cylinder 
+    and attach Packing List. Pack Pallet and apply pallet MSL. <br>
+    F. Ship Confirm.</font></p>
+</blockquote>
+<p><font face="Tahoma"><a name="Example3"></a>3. Multiple Cylinders (same Order 
+  &amp; NSN) shipped on multiple Pallets</font></p>
+<blockquote>
+  <p><font face="Tahoma">A. Select the order from the Shipment Selection Page, 
+    enter data and click the Update Ship Info.<br>
+    B. Check the Print box for the order on the Labeling Page and click the Print 
+    Labels &#8211; there will be one External Label per cylinder printed (no Unit 
+    Labels).<br>
+    C. Using method 2 above, collect a case RFID for each cylinder and the number 
+    of Pallet RFIDs necessary for the shipment. Scan each External ID to its Case 
+    RFID and each Case RFID to its Pallet RFID.<br>
+    D. Upload scanner and print Case MSLs (one will generate for each cylinder 
+    on the order), the Order packing List, and the Pallet MSLs.<br>
+    E. Apply an External Label, a Case RFID, and an MSL Label to each cylinder 
+    and attach Packing List. Pack Pallets and apply pallet MSLs. <br>
+    F. Ship Confirm.</font></p>
+</blockquote>
+<p><font face="Tahoma"><a name="Example4"></a>4. Multiple Cylinders (multiple 
+  orders, multiple NSN, same Ultimate DODAAC) shipped on a Pallet</font></p>
+<blockquote>
+  <p><font face="Tahoma">A. Select the orders from the Shipment Selection Page, 
+    enter data and click the Update Ship Info.<br>
+    B. Check the Print box for the orders on the Labeling Page and click the Print 
+    Labels &#8211; there will be one External Label per cylinder printed (no Unit 
+    Labels).<br>
+    C. Using method 2 above, collect a case RFID for each cylinder and the number 
+    of Pallet RFIDs necessary for the shipment. Scan each External ID to its Case 
+    RFID and each Case RFID to its Pallet RFID.<br>
+    D. Upload scanner and print Case MSLs (one will generate for each cylinder 
+    on each order), an Order packing List for each order, and the Pallet MSLs.<br>
+    E. Apply an External Label, a Case RFID, and an MSL Label to each cylinder 
+    and attach Packing List to one of the cylinders on each order. Pack Pallets 
+    and apply pallet MSLs. Note it is important to pack pallets according to the 
+    associations. You can print the mapping to remind you of your associations. 
+    <br>
+    F. Ship Confirm.</font></p>
+</blockquote>
+<p><font face="Tahoma"><a name="Example5"></a>5. Hardware Order shipped via FedEx</font></p>
+<blockquote>
+  <p><font face="Tahoma">A. Select the order from the Shipment Selection Page, 
+    enter data (be sure to enter the number of that NSN you will pack in a box) 
+    and click the Update Ship Info.<br>
+    B. Check the Print box for the order on the Labeling Page and click the Print 
+    Labels &#8211; there will be one External Label per box and the quantity of 
+    unit labels that will be packed in that box printed.<br>
+    C. Apply an external label and a case RFID label to a box. Apply the unit 
+    labels for each NSN associated with the external label, pack those items in 
+    the box and scan the External ID to its Case RFID. Associate the Delivery 
+    Ticket. Repeat for each box to be shipped for the order.<br>
+    D. Upload scanner and print Case MSLs (one will generate for each box on the 
+    order) and the Order packing List. Attach the appropriate MSL to each box 
+    and attach the packing list to one of the boxes.<br>
+    E. Prepare FedEx paperwork for shipment and enter the FedEx Tracking Number 
+    on the Pack &amp; Ship Confirm Page.<br>
+    F. Ship Confirm.</font></p>
+</blockquote>
+<p><font face="Tahoma"><a name="Example6"></a>6. Multiple Hardware Orders to the 
+  same Ultimate DODAAC shipped via FedEx</font></p>
+<blockquote>
+  <p><font face="Tahoma"> All non-palletized orders to be shipped individually 
+    &#8211; therefore, this scenario is the same as 5.</font></p>
+</blockquote>
+<p><font face="Tahoma"><a name="Example7"></a>7. Multiple Hardware Orders to the 
+  same Ultimate DODAAC shipped on a Pallet via FedEx</font></p>
+<blockquote>
+  <p><font face="Tahoma">A. Select the orders from the Shipment Selection Page, 
+    enter data (be sure to enter the number of that NSN you will pack in a box 
+    for each order) and click the Update Ship Info.<br>
+    B. Check the Print box for the orders on the Labeling Page and click the Print 
+    Labels &#8211; there will be one External Label and the quantity of unit labels 
+    associated with that external label that will be packed in that box printed.<br>
+    C. Apply an external label and a case RFID label to a box. Apply the unit 
+    labels for each NSN associated with the external label, pack those items in 
+    the box and scan the External ID to its Case RFID. Associate the Delivery 
+    Ticket. Repeat for each box to be shipped for each order.<br>
+    D. Assuming the orders fit on one pallet, obtain a Pallet RFID and scan each 
+    Case RFID to the Pallet RFID.<br>
+    E. Upload scanner and print Case MSLs (one will generate for each box on each 
+    order) and the Order packing Lists (one per order). Attach the appropriate 
+    MSL to each box and attach the corresponding packing list to one of the boxes 
+    on each order. Pack the pallet and attach the pallet MSL.<br>
+    F. Prepare FedEx paperwork for shipment and enter the FedEx Tracking Number 
+    on the Pack &amp; Ship Confirm Page.<br>
+    G. Ship Confirm.<br>
+    </font> </p>
+</blockquote>
+<p>&nbsp; </p>
+</body>
+</html>

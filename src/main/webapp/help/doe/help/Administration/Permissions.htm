@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Permissions in tcmIS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+
+<style>
+#OEdeftable, #catalogdeftable, #facilitydeftable, #igdeftable, #workareadeftable, #dockdeftable {
+	clear: both;
+}
+.leftcol {
+	width: 25%; 
+	float: left; 
+	margin: 0 4%;
+}
+.midcol {
+	width: 25%; 
+	float: left; 
+	margin: 0 4% 0 0;
+}
+.rightcol {
+	width: 25%; 
+	float: left;
+}
+</style>
+</head>
+
+<body>
+<h1><a name="Permissions" id="Permissions"></a>Permissions in tcmIS</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p><strong>Permissions</strong> within tcmIS control most of what any user may see and do. A user may be allowed only to view 
+	some pages, to update other pages, and perform some processes but not others, depending on job responsibilities and company hierarchy. 
+	Because different pages and functions affect	and are affected by user &rsquo;level&rsquo; or &rsquo;scope&rsquo; within the organization, 
+	permissions are managed at those different levels. In the sections on this page, definitions of permissions are organized within the 
+	following levels (categories/scopes):</p> 
+	<ul>
+		<li><a href="#OE">Operating Entity</a></li>
+		<li><a href="#catalog">Catalog</a></li>
+		<li><a href="#facility">Facility</a></li>
+		<li><a href="#ig">Inventory Group</a></li>
+		<li><a href="#workarea">Work Area</a></li>
+		<li><a href="#dock">Dock</a></li>
+	</ul>
+<p>You must have administrative permission to add or change user information or permissions in tcmIS. Contact
+	the Technical Center to request administrative permissions. </p>
+
+
+<div id="OEdeftable" style="background-color:yellow;">
+	<h3><a id="OE">Operating Entity</a></h3>			<div class="leftcol">
+			<dl>
+				<dt>acceptInterCompanyMr</dt>
+					<dd>Permits user to accept intercompany MR</dd>
+				<dt>additionalChargeMain </dt>
+					<dd>Permits user to administrate Additional Charge Setup page</dd>
+				<dt>addprinterloc</dt>
+					<dd>Permits user to create a new printer location</dd>
+				<dt>closeBuyOrders</dt>
+					<dd>Permits user to close buy orders</dd>
+				<dt>CreatePriceGroup</dt>
+					<dd>Permits user to create customer price lists</dd>
+				<dt>CustomerDetailAdmin</dt>
+					<dd>Permits user to maintain all distribution customer details including Bill To Address, tax exemption certificates.</dd>
+				<dt>CustomerDetailUpdate</dt>
+					<dd>Permits user to maintain all distribution customer details except Bill To Address</dd>
+				<dt>editShipto</dt>
+					<dd>Permits user to edit ship to address from customer detail screen</dd>
+				<dt>expertReviewer</dt>
+					<dd>Permits user to release MRs that are placed in a expert review.</dd>
+				<dt>financialData</dt>
+					<dd>Permits user to see financialData, currently only applied to receipt cost information on transactions page</dd>
+				<dt>inventoryAdjustment</dt>
+					<dd>Permits user to approve write on/off requests (on Inventory Adjustments page).</dd>
+			</dl>
+		</div>
+		<div class="midcol">
+			<dl>
+				<dt>InvoiceCorrection</dt>
+					<dd>Permits user to submit/approve invoice corrections, print invoices.</dd>
+				<dt>itemDirectSupply</dt>
+					<dd>Permits user to define records for the inventory group to auto-generate transfer request at the item level.</dd>
+				<dt>itemHarmonizedCode</dt>
+					<dd>Permits user to update Harmonized ocdes on ITEM</dd>
+				<dt>MarginException</dt>
+					<dd>Permits user to receive e-mail when margin is outside of limit for inventory group</dd>
+				<dt>mrFinanceApprover</dt>
+					<dd>Permits user to release orders on Finance Hold</dd>
+				<dt>NewCompany</dt>
+					<dd>Permits user to </dd>
+				<dt>NewCustomerApprover</dt>
+					<dd>Permits user to approve credit limit, payment terms, and grace periods for new customers.</dd>
+				<dt>NewPaymentTerms</dt>
+					<dd>Permits user to approve payment terms on a new supplier request (be very carefull to not give this out).</dd>
+				<dt>NewSuppApprover</dt>
+					<dd>Permits user to approve new suppliers in tcmIS. (Typically someone in West Chester Finance department)</dd>
+				<dt>operationsSupport</dt>
+					<dd>Permits user to access the log viewer, some other functionality: only for ops support.</dd>
+			</dl>
+		</div>
+		<div class="rightcol">
+			<dl>
+				<dt>POConfirmationApprover</dt>
+					<dd>Permits user to give finance approval limits</dd>
+				<dt>priceGroupAssignment</dt>
+					<dd>Permits user to assign default price groups to customers, customer entity, ship to, ship to entity.</dd>
+				<dt>shippinginfo</dt>
+					<dd>Permits user to enter DOT Shipping information.</dd>
+				<dt>SPLsupplyPath</dt>
+					<dd>Permits user to change the supply path on the dbuy contract</dd>
+				<dt>supplierItemNotes</dt>
+					<dd>Permits user to enter/update/delete supplier entity item notes.</dd>
+				<dt>supplierPriceList</dt>
+					<dd>Permits user to </dd>
+				<dt>TransManager</dt>
+					<dd>Permits user to release a truckload order for US Gov operations.</dd>
+				<dt>ViewPOHistory</dt>
+					<dd>Permits user to view purchase history for an entity in tcmIS Distribution</dd>
+				<dt>ViewQuotes</dt>
+					<dd>Permits user to view Quotes in tcmIS Distribution.</dd>
+				<dt>ViewSalesOrders</dt>
+					<dd>Permits user to print distribution invoices from Invoice Print page; view MRs (Sales Orders) in tcmIS Distribution.</dd>
+			</dl>
+		</div>
+	</div>
+
+	<div id="catalogdeftable" style="background-color:yellow;">
+   <h3><a id="catalog">Catalog</a></h3>	
+		<div class="leftcol">
+			<dl>
+				<dt>labPersonnel</dt>
+					<dd>Permits user to sign MARS request form on behalf of lab</dd>
+				<dt>catalogAddMSDS</dt>
+					<dd>Permits user to update/maintain MSDS data, approve MSDS for new chem requests</dd>
+			</dl>
+		</div>
+		<div class="midcol"></div>
+		<div class="rightcol"></div>
+</div>
+
+<div id="facilitydeftable">
+   <h3><a id="facility">Facility</a></h3>	
+		<div class="leftcol">
+			<dl>
+				<dt>Acountspayable</dt>
+					<dd>Permits user to approve new Remit To Requests for suppliers</dd>
+				<dt>Admin</dt>
+					<dd>Permits user to be an Admin in tcmIS (web interface) at this level</dd>
+				<dt>Administrator</dt>
+					<dd>Permits user to be a Facility administrator in the Java App</dd>
+				<dt>Alternate Logon</dt>
+					<dd style="background-color: red;">List Approver (The List Approval function must be set up and turned on separately. Contact the Technical Center for assistance.)</dd>
+				<dt>Approval Admin</dt>
+									<dd>List Approver (The List Approval function must be set up and turned on separately. Contact the Technical Center for assistance.)</dd>
+				<dt>BuyOrder</dt>
+					<dd>Permits user to update Buy Page and Create PO; enter new supplier request</dd>
+				<dt>Cabinet Label</dt>
+					<dd>Permits user to print Cabinet Labels, add bins to cabinets, inactivate bins, enter counts on cabinet count page.</dd>
+				<dt>CabinetMgmt</dt>
+					<dd>Permits user to update cabinet set-up, change stocking levels</dd>
+				<dt>catalogAddItemQc</dt>
+					<dd>Permits user to update shelf life, size, storage temp, change item on new chem request</dd>
+				<dt>Catalog Add Notification</dt>
+					<dd style="background-color: red;">Make a report template available to everyone</dd>
+				<dt>changeMrShipTo</dt>
+					<dd>Permits user to change ship to DLA gas orders</dd>
+				<dt>ChargeNumberSetup</dt>
+					<dd>Permits user to add new charge number</dd>
+				<dt>chgCurrency</dt>
+					<dd>Permits user to change currency on a PO</dd>
+				<dt>CostReport</dt>
+					<dd>Permits user to view/create cost report (requires at least one record in user_group_member_application for that company, facility)</dd>
+				<dt>CreateEditWorkArea</dt>
+					<dd>Permits user to add/update work areas</dd>
+				<dt>Create New Chemical</dt>
+					<dd>Enter New Chemical Requests</dd>
+				<dt>Create Report</dt>
+					<dd>View/create/save reports</dd>
+				<dt>CSR</dt>
+					<dd>Permits user to </dd>
+				<dt>CusReturns</dt>
+					<dd>Permits user to perform CMS customer returns. (Distribution CSRs all permitted this.)</dd>
+				<dt>dailyinventoryreport</dt>
+					<dd>Permits user to access the Daily Inventory Report</dd>
+				<dt>DirectedChargeAssignment</dt>
+					<dd>Permits user to assign charge numbers to directed_charge by work area or part</dd>
+				<dt>DotInfo</dt>
+					<dd>Permits user to enter DOT Shipping information.</dd>
+				<dt>editCustomerList Edit Customer List</dt>
+					<dd>Permits user to add/edit customer lists (on List Management page)</dd>
+				<dt>EditMR Edit MR</dt>
+					<dd>Permits user to change Material Request after submitted</dd>
+			</dl>
+		</div>
+		<div class="midcol">
+			<dl>
+				<dt>EditMRQty</dt>
+					<dd>Permits user to change material request quantity after submitted</dd>
+				<dt>EditPrice</dt>
+					<dd>Permits user to edit price on EDI errors</dd>
+				<dt>EditQuantity</dt>
+					<dd>Permits user to edit quantity on EDI errors</dd>
+				<dt>EditShipTo</dt>
+					<dd>Permits user to edit ship to on EDI errors</dd>
+				<dt>Hub Queries</dt>
+					<dd>Permits user to run stored queries on the SQL Reports page</dd>
+				<dt>InventoryGroupMgmt</dt>
+					<dd>Permits user to authorize users to set/change inventory group in Work Area Stock Mgmt</dd>
+				<dt>InventoryPartMgmt</dt>
+					<dd>Permits user to authorize users to set part level, add new part to cabinet</dd>
+				<dt>inventoryReadonly</dt>
+					<dd>Permits user to have read-only access to Logistics Page, print labels</dd>
+				<dt>Issuing</dt>
+					<dd>Permits user to issue inventory from stock using the No PickList Picking page.</dd>
+				<dt>ListApprovalAdmin List Approval Admin</dt>
+					<dd>Permits user to set up List Approval limits, approve approvers. (Requires being a facility Admin).</dd>
+				<dt>manageSecLblInfo</dt>
+					<dd>Permits user to manage secondary label information associated with a material</dd>
+				<dt>msdsDocuments</dt>
+					<dd>Permits user to associate documents to a material.</dd>
+				<dt>msdsDocuments</dt>
+					<dd>Permits user to add/remove MSDS documents for new MSDS page [Lockheed]</dd>
+				<dt>newRemitTo</dt>
+					<dd>Permits user to create a new remit to address for supplier</dd>
+				<dt>newSupplier</dt>
+					<dd>Permits user to enter new supplier requests. (Read-only access to all HGI).</dd>
+				<dt>No MR Approver</dt>
+					<dd style="background-color: red;">Make a report template available to everyone</dd>
+				<dt>NotifyWorkAreaLevelChanged</dt>
+					<dd>Permits user to receive e-mail when part added/inactivated, level changed, in a cabinet</dd>
+				<dt>PaymentTerms</dt>
+					<dd>Permits user to change payment terms on the PO, approve payment terms for new supplier requeasts</dd>
+				<dt>Picking QC</dt>
+					<dd>Permits user to confirm picks on the picking QC page.</dd>
+				<dt>ProjectMgmt</dt>
+					<dd>Permits user to get admin privillages, change project manager</dd>
+				<dt>PublishCompanyTemplate Publish Template to Company</dt>
+					<dd>Permits user to publish Report Templates company wide <span style="color: red;">(How does this relate to the Publish check box?)</span></dd>
+				<dt>Publish Template to Company</dt>
+					<dd>Make a report template available to everyone</dd>
+				<dt>PublishIndividualTemplate Publish Template to Users</dt>
+					<dd>Permits user to publish Report Templates to specific Users <span style="color: red;">(How does this relate to the Publish check box?)</span></dd>
+			</dl>
+		</div>
+		<div class="rightcol">
+			<dl>
+				<dt>Purchasing</dt>
+					<dd>Permits user to update Buy page, create PO</dd>
+				<dt>ReadOnlyPO</dt>
+					<dd>Permits user to have read-only access to POs in other hubs (not access to a hub in user_hub).</dd>
+				<dt>Releaser</dt>
+					<dd>A Releaser (The Releaser function must be set up and turned on separately. Contact the Technical Center for assistance.)</dd>
+				<dt>Repackaging</dt>
+					<dd>Permits user to enter repackaging requests.</dd>
+				<dt>resetInvoiceStatus </dt>
+					<dd>Permits user to reset a voucher that has been Approved to InProgress</dd>
+				<dt>Scanner Functions</dt>
+					<dd>Permits user to </dd>
+				<dt>Safety Label</dt>
+					<dd>Able to print safety labels</dd>
+				<dt>Schedule End</dt>
+					<dd style="background-color: red;">Make a report template available to everyone</dd>
+				<dt>Schedule MM</dt>
+					<dd style="background-color: red;">Make a report template available to everyone</dd>
+				<dt>secLblInfoAdmin</dt>
+					<dd>Permits user to manage types and vv values for secondary label informaiton.</dd>
+				<dt>secondaryLabel</dt>
+					<dd>Permits user to </dd>
+				<dt>ShowonlyOpenInv</dt>
+					<dd>Permits user to show only open invoices on a page as a default</dd>
+				<dt>Sourcing</dt>
+					<dd>Permits user to </dd>
+				<dt>specOverRide</dt>
+					<dd>Permits user to update specs which were assigned by the catalog</dd>
+				<dt>SQL Report</dt>
+					<dd style="background-color: red;">Make a report template available to everyone</dd>
+				<dt>suppliershipping</dt>
+					<dd>Permits user to </dd>
+				<dt>testDefinition</dt>
+					<dd>Permits user to add/edit test definitions from Catalog Report</dd>
+				<dt>updatePrinterPath</dt>
+					<dd>Permits user to update printer paths on the Printer Location page.</dd>
+				<dt>useapprovalstatusupdate</dt>
+					<dd>Permits user to update the approval status of KanBan stuff</dd>
+				<dt>useapprovalupdate</dt>
+					<dd>Permits user to update KanBan quantity, etc.</dd>
+				<dt>VoucherQC</dt>
+					<dd>Permits user to QC a voucher</dd>
+				<dt>Waste</dt>
+					<dd style="background-color: red;">tbd</dd>
+				<dt>Waste Invoice Error</dt>
+					<dd style="background-color: red;">tbd</dd>
+				<dt>Waste Manager</dt>
+					<dd>A facility waste manager</dd>
+				<dt>WA Management</dt>
+					<dd>A Managed Work Area Approver (The Managed Work Area function must be set up and turned on separately. Contact the Technical Center for assistance.)</dd>
+			</dl>
+		</div>
+</div>
+
+<div id="igdeftable" style="background-color:yellow;">
+   <h3><a id="ig">Inventory Group</a></h3>	
+		<div class="leftcol">
+			<dl>
+				<dt>addNewBin</dt>
+					<dd>Permits user to add a new bin at the hub</dd>
+				<dt>approveReconciliation</dt>
+					<dd>Permits user to approve problem receipts on the Reconciliation page</dd>
+				<dt>BuyOrder</dt>
+					<dd>Permits user to update Buy page, grab Order, create PO, enter new supplier request</dd>
+				<dt>BuyOrderChangeSupplyPath</dt>
+					<dd>Permits user to change supply path on a buy order (e.g., change from Dbuy/Wbuy to purchasing)</dd>
+				<dt>BuyOrderNotes</dt>
+					<dd>Permits user to add Buyer Notes (but cannot Create PO or Assign Buys)</dd>
+				<dt>chgFreightAdvice</dt>
+					<dd>Permits user to change Freight advice for Polchem</dd>
+				<dt>custInvReceiving</dt>
+					<dd>Permits user to add/update CITR (Customer Inventory To Receive) Records.</dd>
+				<dt>customerPurchasing</dt>
+					<dd>Permits user to update access to Customer Buy Page and Create PO. (Add inventory_group to user_inventory group)</dd>
+				<dt>customerReturnApproval</dt>
+					<dd>Permits user to approve customer return requests for Distribution.</dd>
+				<dt>DropshipReceiving</dt>
+					<dd>Permits user to </dd>
+				<dt>ExpUpdate</dt>
+					<dd>Permits user to authorize users to Edit Exp Date and Mfg Lot</dd>
+			</dl>
+		</div>
+		<div class="midcol">
+			<dl>
+				<dt>ForceBuy</dt>
+					<dd>Permits user to Force a Buy for an inventory group</dd>
+				<dt>GenerateOrders</dt>
+					<dd>Permits user to create MRs</dd>
+				<dt>Hub ItemCount</dt>
+					<dd>Permits user to enter inventory count on Item Count page.</dd>
+				<dt>Inventory</dt>
+					<dd>Permits user to update on the Logistics page for Non Quality Control items</dd>
+				<dt>inventoryReconciliation</dt>
+					<dd>Permits user to start/update counts on Inventory Reconciliation page</dd>
+				<dt>InvTransfer</dt>
+					<dd>Permits user to initiate a Hub Transfer Request.</dd>
+				<dt>itemConsignment</dt>
+					<dd>Permits user to update quantity used by customer consigned IG, which creates an MR and issues out the usage</dd>
+				<dt>MinMaxChg</dt>
+					<dd>Permits user to change MM levels, stocking types (update Look Ahead days if a member of Purchasing in user_group_member)</dd>
+				<dt>onlynonPickableStatus</dt>
+					<dd>Permits user to place receipts into non-pickable statuses (but not pickable statuses)</dd>
+				<dt>Picking</dt>
+					<dd>Permits user to print picklists.</dd>
+				<dt>PickStatusUpd</dt>
+					<dd>Permits user to allowed to place a recipt in Pickable status (to update Expire Date, MFG_LOT, for Quality control items )</dd>
+			</dl>
+		</div>
+		<div class="rightcol">
+			<dl>
+				<dt>readonlyCustomerPurchasing</dt>
+					<dd>Permits user to have read-only access to Customer Buy page, create PO.  (requires add inventory_group to user_inventory group)</dd>
+				<dt>Receiving</dt>
+					<dd>Permits user to perform Receiving, add receipt documents</dd>
+				<dt>ReceivingQC</dt>
+					<dd>Permits user to perform Receiving QC, delete receipt documents</dd>
+				<dt>releaseOrder</dt>
+					<dd>Permits user to release orders on Quality Hold (should also have ViewSalesOrders).</dd>
+				<dt>shipConfirm</dt>
+					<dd>Permits user to perform Ship Confirm function to complete shipment process.</dd>
+				<dt>ShippingNotice</dt>
+					<dd>Permits user to </dd>
+				<dt>ShippingNotice</dt>
+					<dd>Permits user to </dd>
+				<dt>stealAllocation </dt>
+					<dd>Permits user to steal allocatioons for the inventory group. (Be VERY cautious with this.).</dd>
+				<dt>supplierReturns</dt>
+					<dd>Permits user to return PO to supplier (RMA)</dd>
+				<dt>transferReconciliation</dt>
+					<dd>Permits user to QC a transfer receipt even if it is not received exactly as it was sent. (Will also adjust transactions  at the sending IG)</dd>
+			</dl>
+		</div>
+</div>
+
+<div id="workareadeftable" style="background-color:yellow;">
+   <h3><a id="workarea">Work Area</a></h3>	
+		<div class="leftcol">
+			<dl>
+				<dt>DelayOrderEmail</dt>
+					<dd>Permits user to receive e-mail notifications on Notice of Shipment Delay</dd>
+				<dt>Scan</dt>
+					<dd>Permits user to scan or enter count</dd>
+			</dl>
+		</div>
+		<div class="midcol"></div>
+		<div class="rightcol"></div>
+</div>
+
+<div id="dockdeftable" style="background-color:yellow;">
+   <h3><a id="dock">Dock</a></h3>	
+		<div id="leftcol" style="width: 25%; float: left; margin: 0 4%;">
+			<dl>
+				<dt>DeliveryNotification</dt>
+					<dd>Permits user to receive e-mail notifications on shipment confirmed</dd>
+				<dt>DropshipReceiving</dt>
+					<dd>Permits user to </dd>
+			</dl>
+		</div>
+		<div class="midcol"></div>
+		<div class="rightcol"></div>
+</div>
+
+
+</body>
+</html>

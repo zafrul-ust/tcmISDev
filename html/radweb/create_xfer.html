@@ -1,0 +1,57 @@
+<html><head><title>Create a Haas SCM Transfer</title></head>
+<body bgcolor="#FFFFFF">
+<center>
+<h2>Create a Haas SCM Transfer</h2>
+<p>
+<form action="/cgi-bin/radweb/create_xfer.cgi" method="POST">
+Create a transfer from &nbsp;
+<select name="from">
+<option value="2438">Cambridge Hub
+<option value="2185">Cheltenham Hub
+<option value="2407">Crawley Hub
+<option value="2454">Dubai Hub
+<option value="2406">Istanbul Hub
+<option value="2458">Kilmarnock Hub
+<option value="2423">Leigh Hub
+<option value="2439">Luton Hub
+<option value="2452">Melbourne Hub
+<option value="2456">New Zealand Hub
+<option value="2440">Norfolk Hub
+<option value="2453">Paris Hub
+<option value="2442">Ringwood Hub
+<option value="2455">Rome Hub
+</select>
+<p>
+to &nbsp;
+<select name="to">
+<option value="0">Not Cambridge Hub
+<option value="2438">Cambridge Hub
+<option value="2185">Cheltenham Hub
+<option value="2407">Crawley Hub
+<option value="2454">Dubai Hub
+<option value="2406">Istanbul Hub
+<option value="2458">Kilmarnock Hub
+<option value="2423">Leigh Hub
+<option value="2439">Luton Hub
+<option value="2452">Melbourne Hub
+<option value="2456">New Zealand Hub
+<option value="2440">Norfolk Hub
+<option value="2453">Paris Hub
+<option value="2442">Ringwood Hub
+<option value="2455">Rome Hub
+</select>
+<p>
+for quantity &nbsp;
+<input type="text" name="qty">
+<p>
+of item &nbsp;
+<input name="item" type="text">
+<p>
+Optional shipping reference: &nbsp;
+<input type="text" name="ship">
+<p>
+Optional comments: &nbsp;
+<textarea name="comm"></textarea>
+<p>
+<input type="submit" name="Create Transfer" value="Create Transfer">
+</form></center></body></html>

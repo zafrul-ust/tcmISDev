@@ -1,0 +1,50 @@
+<html><head><title>Boeing JIT Back Orders</title></head>
+<body bgcolor="#FFFFFF">
+<center>
+<h2>Generate a Boeing JIT Back Orders Spreadsheet as HTML</h2>
+<p>
+<form action="/cgi-bin/radadmin/boe_jit_ds.cgi" method="POST">
+Input a supplier ID &nbsp;
+<input type="text" name="supp">
+<p>
+OR
+<p>
+Input an exact supplier description &nbsp;
+<input type="text" name="suppname" size="40">
+<p>
+<i>If Supplier ID is filled in, that is what will be used.</i>
+<p>
+Look for date to deliver between: &nbsp;
+<input type="text" name="sdat" value="mm/dd/yyyy">
+&nbsp; and &nbsp;
+<input type="text" name="edat" value="mm/dd/yyyy">
+<p>
+<i>If a date is null or the letter string "mm/dd/yyyy", the range in that direction will be infinite</i>
+<p>
+<input type="submit" name="Generate" value="Generate">
+</form>
+<hr>
+<p>
+Click below to generate a summary report:
+<form action="/cgi-bin/radadmin/boe_jit_summ.cgi" method="POST">
+<p>
+Input a supplier ID &nbsp;
+<input type="text" name="supp">
+<p>
+OR
+<p>
+Input an exact supplier description &nbsp;
+<input type="text" name="suppname" size="40">
+<p>
+<i>If Supplier ID is filled in, that is what will be used.<br>Both blank means any supplier (a total summary)</i>
+<p>
+Look for date to deliver between: &nbsp;
+<input type="text" name="sdat" value="mm/dd/yyyy">
+&nbsp; and &nbsp;
+<input type="text" name="edat" value="mm/dd/yyyy">
+<p>
+<i>If a date is null or the letter string "mm/dd/yyyy", the range in that direction will be infinite</i>
+<p>
+<input type="submit" name="Summary" value="Summary">
+</form>
+</center></html>

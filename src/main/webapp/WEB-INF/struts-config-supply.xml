@@ -1,0 +1,1269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+    <form-bean name="loginForm"
+               type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="logonId"
+                     type="java.lang.String" />
+      <form-property name="password"
+                     type="java.lang.String" />
+      <form-property name="client"
+                     type="java.lang.String" />
+      <form-property name="companyId"
+                     type="java.lang.String" />
+      <form-property name="requestedPage"
+                     type="java.lang.String" />
+      <form-property name="requestedURLWithParameters"
+                     type="java.lang.String" />
+      <form-property name="submit"
+                     type="java.lang.String" />
+      <form-property name="home"
+                     type="java.lang.String" />
+    </form-bean>
+
+   <form-bean name="buyOrderForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm">
+     <form-property name="companyIdArray" type="java.lang.String[]" />
+     <form-property name="statusArray" type="java.lang.String[]" />
+    </form-bean>
+
+   <form-bean name="poExpeditingForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm">
+     <form-property name="hubIdArray" type="java.lang.String[]" />     
+    </form-bean>
+    
+    <form-bean name="searchPosForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm">
+     <form-property name="branchPlant" type="java.lang.String[]" />     
+    </form-bean>
+    
+     <form-bean name="poDocumentForm"
+               type="com.tcmis.internal.supply.beans.PoDocumentInputForm">
+     </form-bean>
+    
+    <form-bean name="shipmentDocumentForm"
+               type="com.tcmis.internal.supply.beans.ShipmentDocumentInputForm">
+     </form-bean>
+       
+   <form-bean name="genericForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm"/>
+  </form-beans>
+
+   <!-- ========== Global Forward Definitions ============================== -->
+  <global-forwards>
+    <forward name="systemerrorpage"
+             path="/common/systemerror.jsp" module="" />
+    <forward name="genericerrorpage"
+             path="/common/genericerror.jsp" module="" />
+    <forward name="nopermissions"
+             path="/common/nopermissions.jsp" module=""/>
+    <forward name="login"
+             path="/login.jsp" />
+    <forward name="home"
+             path="/home.do" />
+    <forward name="logout"
+             path="/logout.do" />
+    <forward name="showpurchaseorders"
+             path="/showpurchaseorders.do" />
+    <forward name="searchpos"
+             path="/searchposmain.do" />
+    <forward name="printpolist"
+             path="/printpolist.do" />
+    <forward name="printpolistresults"
+    	path="/printpolistresults.do" />
+    <forward name="itemnotes"
+             path="/itemnotes.do" />
+    <forward name="edititemnotes"
+             path="/edititemnotes.do" />
+    <forward name="supplierrequest"
+             path="/supplierrequest.do" />
+    <forward name="buyordersmain"
+             path="/buyordersmain.do" />
+    <forward name="changepassword"
+             path="/changepassword.do" />
+    <forward name="poshiptomain"
+             path="/poshiptomain.do" />
+    <forward name="posuppliermain"
+             path="/posuppliermain.do" />
+    <forward name="pocarriermain"
+             path="/pocarriermain.do" />
+    <forward name="ponotesmain"
+             path="/ponotesmain.do" />
+    <forward name="pocannedcommentsmain"
+             path="/pocannedcommentsmain.do" />
+    <forward name="posuppliercontact"
+             path="/posuppliercontact.do" />
+    <forward name="poemailmain"
+             path="/poemailmain.do" />
+    <forward name="blanketemailmain"
+             path="/blanketemailmain.do" />
+    <forward name="blanketnotesmain"
+             path="/blanketnotesmain.do" />
+    <forward name="poitemsearchmain"
+             path="/poitemsearchmain.do" />
+    <forward name="searchposmain"
+             path="/searchposmain.do" />
+    <forward name="printedpolistmain"
+             path="/printedpolistmain.do" />
+    <forward name="airgasordersubmit"
+             path="/airgasordersubmit.do" />
+    <forward name="airgasstockquery"
+             path="/airgasstockquery.do" />
+    <forward name="poexpeditingmain"
+             path="/poexpeditingmain.do" />
+    <forward name="polineexpeditehistory"
+             path="/polineexpeditehistory.do" />
+    <forward name="changedlashipto"
+             path="/changedlashipto.do" />
+    <forward name="resendxbuy"
+             path="/resendxbuy.do" />
+    <forward name="tcmbuyhistory"
+          	 path="/tcmbuyhistory.do" />  
+    <forward name="supplierposhistory"
+          	 path="/supplierposhistory.do" />  
+    <forward name="vendorcodesearchmain"
+             path="/vendorcodesearchmain.do" />
+    <forward name="newremittoaddress" 
+    		 path="/newremittoaddress.do" /> 
+    <forward name="newremittomain"
+             path="/newremittomain.do" />
+    <forward name="supplierreturnsmain"
+             path="/supplierreturnsmain.do" />   
+    <forward name="showcurrentpaymentterms"
+             path="/showcurrentpaymentterms.do" />
+    <forward name="loadposupplier"
+             path="/loadposupplier.do" />
+    <forward name="getBestDuyContractId"
+             path="/getBestDuyContractId.do" />
+    <forward name="loadChangeSupplierReason"
+             path="/loadposupplier.do" />
+    <forward name="supplieritemnotesmain"
+             path="/supplieritemnotesmain.do" /> 
+    <forward name="showsupplieritemnotes"
+             path="/showsupplieritemnotes.do" />
+    <forward name="newsupplieritemnotes"
+             path="/newsupplieritemnotes.do" />
+    <forward name="showallocations"
+             path="/showallocations.do" />
+    <forward name="mrcancellationmain"
+             path="/mrcancellationmain.do" />
+    <forward name="mrcancellationresults"
+             path="/mrcancellationresults.do" />
+    <forward name="showpodocuments"
+             path="/showpodocuments.do" />
+    <forward name="showaddpodocument"
+             path="/showaddpodocument.do" />
+    <forward name="dbuyconsolidationfreqmain"
+             path="/dbuyconsolidationfreqmain.do" /> 
+    <forward name="selectinventorygroup"
+             path="/selectinventorygroup.do" /> 
+    <forward name="editneedbytolerance"
+             path="/editneedbytolerance.do" />
+        <forward name="checkshelflife"
+             path="/checkshelflife.do" />          
+    <forward name="findbuyer"
+             path="/findbuyer.do" />   
+    <forward name="findpoline"
+             path="/findpoline.do" />        
+    <forward name="findbuyorderpolineqty"
+             path="/findbuyorderpolineqty.do" />     
+    <forward name="createjdepo"
+             path="/createjdepo.do" />
+    <forward name="poexpeditingupload"
+             path="/poexpeditingupload.do" />       
+      <forward name="purchaseorder"
+             path="/purchaseorder.do" />                   
+    <forward name="polinehistory"
+             path="/polinehistory.do" />
+    <forward name="editassociatedprsmain"
+             path="/editassociatedprsmain.do" /> 
+    <forward name="getpaymentterms"
+             path="/getpaymentterms.do" />
+    <forward name="selectinvngroup"
+             path="/selectinvngroup.do" />
+    <forward name="poflowdowncall"
+             path="/poflowdowncall.do" />
+    <forward name="pospeccall"
+             path="/pospeccall.do" />
+    <forward name="pomsdscall"
+             path="/pomsdscall.do" />
+    <forward name="polookaheadcall"
+             path="/polookaheadcall.do" />
+    <forward name="potcmbuyscall"
+             path="/potcmbuyscall.do" />
+    <forward name="poclientbuyscall"
+             path="/poclientbuyscall.do" />
+    <forward name="poassociatedprscall"
+             path="/poassociatedprscall.do" />
+    <forward name="poitemnotescall"
+             path="/poitemnotescall.do" />
+    <forward name="popartnotescall"
+             path="/popartnotescall.do" />
+    <forward name="edisupplierstatusmain"
+             path="/edisupplierstatusmain.do" />
+    <forward name="remittomanagementmain"
+             path="/remittomanagementmain.do" />
+    <forward name="specialchargemanagementmain"
+             path="/specialchargemanagementmain.do" />
+    
+  </global-forwards>
+
+  <action-mappings>
+      <!-- ========== Action Mapping Definitions ============================== -->
+      
+      <action path="/purchaseorder" 
+      	  type="com.tcmis.internal.supply.action.PurchaseOrderAction"
+		  name="genericForm"
+          validate="false"
+	      input="/purchaseordernew.jsp"
+          scope="request">
+       <forward name="success" path="/purchaseordernew.jsp"/>
+       <forward name="reloadPoLineData" path="/reloadpolinegriddata.jsp"/>
+       <forward name="oldPageRedirect" path="/purchorder.jsp"/>
+	</action>     
+      
+    <action path="/editneedbytolerance"
+            type="com.tcmis.internal.supply.action.EditNeedByToleranceAction"
+            name="genericForm"
+            validate="false"
+            input="/editneedbytolerance.jsp"
+            scope="request">
+        <forward name="success" path="/editneedbytolerance.jsp"/>
+   </action>
+
+    <action path="/home"
+            type="com.tcmis.common.admin.action.ShowLoginAction"
+            validate="false"
+            input="/login.jsp"
+            scope="request">
+        <forward name="showlogin" path="/login.jsp"/>
+        <forward name="showindex" path="/index.jsp"/>
+        <forward name="home" path="/index.jsp" />
+        <forward name="redirectToUrl" path="/common/redirectafterlogin.jsp" module="" />
+    </action>
+
+    <action path="/login"
+            type="com.tcmis.common.admin.action.LoginAction"
+            name="loginForm"
+            validate="false"
+            input="/login.jsp"
+            scope="request">
+        <forward name="success" path="/index.jsp"/>
+        <forward name="supplyhome" path="/index.jsp" />
+        <forward name="home" path="/index.jsp" />
+        <forward name="showlogin" path="/login.jsp"/>
+        <forward name="redirectToUrl" path="/common/redirectafterlogin.jsp" module="" />
+    </action>
+
+   <action path="/showpurchaseorders"
+            type="com.tcmis.internal.supply.action.PurchaseOrderPageAction"
+            name="genericForm"
+            validate="false"
+            input="/purchaseorder.jsp"
+            scope="request">
+        <forward name="showpurchaseorders" path="/purchaseorder.jsp"/>
+   </action>
+
+   <action path="/printpolist"
+            type="com.tcmis.internal.supply.action.PrintPoListAction"
+            name="genericForm"
+            validate="false"
+            input="/printpolist.jsp"
+            scope="request">
+        <forward name="showresults" path="/printpolist.jsp"/>
+   </action>
+   
+      <action path="/printpolistresults"
+            type="com.tcmis.internal.supply.action.PrintPoListAction"
+            name="genericForm"
+            validate="false"
+            input="/printpolistresults.jsp"
+            scope="request">
+        <forward name="showresults" path="/printpolistresults.jsp"/>
+   </action>
+   
+      <action path="/searchposmain"
+            type="com.tcmis.internal.supply.action.SearchPurchaseOrderAction"
+            name="searchPosForm"
+            validate="false"
+            input="/searchposmain.jsp"
+            scope="request">
+        <forward name="showresults" path="/searchposmain.jsp"/>
+    </action>
+    <action path="/searchposresults"
+            type="com.tcmis.internal.supply.action.SearchPurchaseOrderAction"
+            name="searchPosForm"
+            validate="false"
+            input="/searchposresults.jsp"
+            scope="request">
+        <forward name="showresults" path="/searchposresults.jsp"/>
+    </action>
+
+   <action path="/itemnotes"
+            type="com.tcmis.internal.supply.action.ItemNotesAction"
+            name="genericForm"
+            validate="false"
+            input="/itemnotes.jsp"
+            scope="request">
+        <forward name="showresults" path="/itemnotes.jsp"/>
+   </action>
+
+   <action path="/edititemnotes"
+            type="com.tcmis.internal.supply.action.EditItemNotesAction"
+            name="genericForm"
+            validate="false"
+            input="/edititemnotes.jsp"
+            scope="request">
+        <forward name="showresults" path="/edititemnotes.jsp"/>
+   </action>
+
+   <action path="/supplierrequest"
+            type="com.tcmis.internal.supply.action.SupplierRequestAction"
+            name="genericForm"
+            validate="false"
+            input="/supplierrequest.jsp"
+            scope="request">
+        <forward name="success" path="/supplierrequest.jsp"/>
+        <forward name="results" path="/supplierrequestresults.jsp"/>
+        <forward name="showrequestdetail" path="/supplierrequestdetail.jsp"/>
+   </action>
+
+   <action path="/supplierrequestupdate"
+            type="com.tcmis.internal.supply.action.SupplierRequestAction"
+            name="genericForm"
+            validate="false"
+            input="/supplierrequestdetail.jsp"
+            scope="request">
+        <forward name="success" path="/supplierrequest.jsp"/>
+        <forward name="showrequestdetail" path="/supplierrequestdetail.jsp"/>
+   </action>
+
+   <action path="/buyordersmain"
+            type="com.tcmis.internal.supply.action.BuyOrdersAction"
+            validate="false"
+            input="/buyordersmain.jsp"
+            scope="request">
+        <forward name="main" path="/buyordersmain.jsp"/>
+   </action>
+
+   <action path="/buyorderssearch"
+            type="com.tcmis.internal.supply.action.BuyOrdersAction"
+            name="buyOrderForm"
+            validate="false"
+            input="/buyorderssearch.jsp"
+            scope="request">
+        <forward name="search" path="/buyorderssearch.jsp"/>
+   </action>
+
+   <action path="/buyordersresults"
+            type="com.tcmis.internal.supply.action.BuyOrdersAction"
+            name="buyOrderForm"
+            validate="false"
+            input="/buyordersresult.jsp"
+            scope="request">
+        <forward name="result" path="/buyordersresult.jsp"/>
+   </action>
+
+	<action path="/surplusinventory"
+            type="com.tcmis.internal.supply.action.SurplusInventoryAction"
+            name="genericForm"
+            validate="false"
+            input="/surplusinventory.jsp"
+            scope="request">
+        <forward name="success" path="/surplusinventory.jsp"/>
+   </action>
+
+   <action path="/logout"
+            type="com.tcmis.common.admin.action.LogoutAction"
+            input="/login.jsp"
+            scope="request">
+    </action>
+
+    <action path="/changepassword"
+            type="com.tcmis.common.admin.action.ChangePasswordAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/changepassword.jsp"
+            scope="request">
+        <forward name="success" path="/common/changepassword.jsp" module=""/>
+    </action>
+
+    <action path="/missingpage"
+            type="com.tcmis.common.admin.action.MissingPageAction"
+            scope="request"
+            unknown="true">
+        <forward name="missingpage" path="/common/missingpage.jsp" module="" />
+    </action>
+    <action path="/poshiptomain"
+            type="com.tcmis.internal.supply.action.POShipToAction"
+            name="genericForm"
+            validate="true"
+            scope="request">
+        <forward name="success" path="/poshiptomain.jsp"/>
+    </action>
+    
+    <action path="/poshiptoresults"
+            type="com.tcmis.internal.supply.action.POShipToAction"
+            name="genericForm"
+            validate="true"
+            input="/poshiptoresults.jsp"
+            scope="request">
+        <forward name="success" path="/poshiptoresults.jsp"/>
+    </action>
+
+    <action path="/posuppliermain"
+            type="com.tcmis.internal.supply.action.POSupplierAction"
+            name="genericForm"
+            validate="true"
+            scope="request">
+        <forward name="success" path="/posuppliermain.jsp"/>
+    </action>
+
+    <action path="/posupplierresults"
+            type="com.tcmis.internal.supply.action.POSupplierAction"
+            name="genericForm"
+            validate="true"
+            input="/posupplierresults.jsp"
+            scope="request">
+        <forward name="success" path="/posupplierresults.jsp"/>
+        <forward name="showrequestdetail" path="/supplierrequestdetail.jsp"/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+
+    <action path="/pocarriermain"
+            type="com.tcmis.internal.supply.action.POCarrierAction"
+            validate="true"
+            input="/pocarriermain.jsp"
+            scope="request">
+        <forward name="success" path="/pocarriermain.jsp"/>
+    </action>
+<!--
+    <action path="/pocarriersearch"
+            type="com.tcmis.internal.supply.action.POCarrierAction"
+            name="genericForm"
+            validate="true"
+            input="/pocarriersearch.jsp"
+            scope="request">
+        <forward name="success" path="/pocarriersearch.jsp"/>
+    </action>
+-->
+    <action path="/pocarrierresults"
+            type="com.tcmis.internal.supply.action.POCarrierAction"
+            name="genericForm"
+            validate="true"
+            input="/pocarrierresults.jsp"
+            scope="request">
+        <forward name="success" path="/pocarrierresults.jsp"/>
+    </action>
+
+    <action path="/ponotesmain"
+            type="com.tcmis.internal.supply.action.PoNotesAction"
+            validate="true"
+            input="/ponotesmain.jsp"
+            scope="request">
+        <forward name="success" path="/ponotesmain.jsp"/>
+    </action>
+
+    <action path="/ponotessearch"
+            type="com.tcmis.internal.supply.action.PoNotesAction"
+            validate="true"
+            input="/ponotessearch.jsp"
+            scope="request">
+        <forward name="success" path="/ponotessearch.jsp"/>
+    </action>
+
+    <action path="/ponotesresults"
+            type="com.tcmis.internal.supply.action.PoNotesAction"
+            name="genericForm"
+            validate="true"
+            input="/ponotesresults.jsp"
+            scope="request">
+        <forward name="success" path="/ponotesresults.jsp"/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+
+    <action path="/pocannedcommentsmain"
+            type="com.tcmis.internal.supply.action.POCannedCommentsAction"
+            name="genericForm"
+            validate="true"
+            input="/pocannedcommentsmain.jsp"
+            scope="request">
+        <forward name="success" path="/pocannedcommentsmain.jsp"/>
+    </action>
+
+    <action path="/pocannedcommentsresults"
+            type="com.tcmis.internal.supply.action.POCannedCommentsAction"
+            name="genericForm"
+            validate="true"
+            input="/pocannedcommentsresults.jsp"
+            scope="request">
+        <forward name="success" path="/pocannedcommentsresults.jsp"/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+
+    <action path="/posuppliercontact"
+            type="com.tcmis.internal.supply.action.POSupplierContactAction"
+            name="genericForm"
+            validate="true"
+            input="/posuppliercontact.jsp"
+            scope="request">
+        <forward name="success" path="/posuppliercontact.jsp"/>
+    </action>
+      
+    <action path="/poemailmain"
+            type="com.tcmis.internal.supply.action.PoEmailAction"
+            validate="true"
+            input="/poemailmain.jsp"
+            scope="request">
+        <forward name="success" path="/poemailmain.jsp"/>
+    </action>
+
+    <action path="/poemailsearch"
+            type="com.tcmis.internal.supply.action.PoEmailAction"
+            validate="true"
+            input="/poemailsearch.jsp"
+            scope="request">
+        <forward name="success" path="/poemailsearch.jsp"/>
+    </action>
+
+    <action path="/poemailresults"
+            type="com.tcmis.internal.supply.action.PoEmailAction"
+            name="genericForm"
+            validate="true"
+            input="/poemailresults.jsp"
+            scope="request">
+        <forward name="success" path="/poemailresults.jsp"/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+    
+
+    <action path="/blanketemailmain"
+            type="com.tcmis.internal.supply.action.BlanketEmailAction"
+            validate="true"
+            input="/blanketemailmain.jsp"
+            scope="request">
+        <forward name="success" path="/blanketemailmain.jsp"/>
+    </action>
+
+    <action path="/blanketemailsearch"
+            type="com.tcmis.internal.supply.action.BlanketEmailAction"
+            validate="true"
+            input="/blanketemailsearch.jsp"
+            scope="request">
+        <forward name="success" path="/blanketemailsearch.jsp"/>
+    </action>
+
+    <action path="/blanketemailresults"
+            type="com.tcmis.internal.supply.action.BlanketEmailAction"
+            name="genericForm"
+            validate="true"
+            input="/blanketemailresults.jsp"
+            scope="request">
+        <forward name="success" path="/blanketemailresults.jsp"/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+
+
+    <action path="/blanketnotesmain"
+            type="com.tcmis.internal.supply.action.BlanketNotesAction"
+            validate="true"
+            input="/blanketnotesmain.jsp"
+            scope="request">
+        <forward name="success" path="/blanketnotesmain.jsp"/>
+    </action>
+
+    <action path="/blanketnotessearch"
+            type="com.tcmis.internal.supply.action.BlanketNotesAction"
+            validate="true"
+            input="/blanketnotessearch.jsp"
+            scope="request">
+        <forward name="success" path="/blanketnotessearch.jsp"/>
+    </action>
+
+    <action path="/blanketnotesresults"
+            type="com.tcmis.internal.supply.action.BlanketNotesAction"
+            name="genericForm"
+            validate="true"
+            input="/blanketnotesresults.jsp"
+            scope="request">
+        <forward name="success" path="/blanketnotesresults.jsp"/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+
+
+    <action path="/poitemsearchmain"
+            type="com.tcmis.internal.supply.action.POItemSearchAction"
+            validate="true"
+            input="/poitemsearchmain.jsp"
+            scope="request">
+        <forward name="success" path="/poitemsearchmain.jsp"/>
+    </action>
+
+    <action path="/poitemsearchresults"
+            type="com.tcmis.internal.supply.action.POItemSearchAction"
+            name="genericForm"
+            validate="true"
+            input="/poitemsearchresults.jsp"
+            scope="request">
+        <forward name="success" path="/poitemsearchresults.jsp"/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+  
+    <action path="/printedpolistmain"
+            type="com.tcmis.internal.supply.action.PrintedPoListAction"
+            validate="true"
+            input="/printedpolistmain.jsp"
+            scope="request">
+        <forward name="success" path="/printedpolistmain.jsp"/>
+    </action>
+
+    <action path="/printedpolistsearch"
+            type="com.tcmis.internal.supply.action.PrintedPoListAction"
+            name="genericForm"
+            validate="true"
+            input="/printedpolistsearch.jsp"
+            scope="request">
+        <forward name="success" path="/printedpolistsearch.jsp"/>
+    </action>
+
+    <action path="/printedpolistresults"
+            type="com.tcmis.internal.supply.action.PrintedPoListAction"
+            name="genericForm"
+            validate="true"
+            input="/printedpolistresults.jsp"
+            scope="request">
+        <forward name="success" path="/printedpolistresults.jsp"/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+
+    <action path="/airgasstockquery"
+            type="com.tcmis.internal.supply.action.XBuyOrderAction"
+            name="genericForm"
+            scope="request">
+    </action>
+
+	<action path="/airgasordersubmit"
+            type="com.tcmis.internal.supply.action.XBuyOrderAction"
+            name="genericForm"
+            scope="request">
+    </action>
+    <action path="/poexpeditingmain"
+            type="com.tcmis.internal.supply.action.PoExpeditingAction"
+            name="poExpeditingForm"
+            validate="false"
+            input="/poexpeditingmain.jsp"
+            scope="request">
+        <forward name="success" path="/poexpeditingmain.jsp"/>
+    </action>
+  
+   <action path="/poexpeditingresults"
+            type="com.tcmis.internal.supply.action.PoExpeditingAction"
+            name="poExpeditingForm"
+            validate="false"
+            input="/poexpeditingresults.jsp"
+            scope="request">
+        <forward name="success" path="/poexpeditingresults.jsp"/>
+   </action>
+
+      <action path="/polineexpeditehistory"
+              type="com.tcmis.internal.supply.action.PoLineExpediteHistoryAction"
+              name="genericForm"
+              validate="false"
+              input="/polineexpeditehistory.jsp"
+              scope="request">              
+          <forward name="success" path="/polineexpeditehistory.jsp"/>
+      </action>
+      
+     <action path="/poexpeditingupload"
+            type="com.tcmis.internal.supply.action.PoExpeditingAction"
+            name="genericForm"
+            validate="false"
+            input="/poexpeditingupload.jsp"
+            scope="request">
+        <forward name="showupload" path="/poexpeditingupload.jsp"/>
+    </action>
+
+      <action path="/changedlashipto"
+            type="com.tcmis.internal.supply.action.ChangeDlaShipToAction" 
+            name="genericForm"
+            validate="false"
+            input="/changedlashipto.jsp"
+            scope="request">
+        <forward name="success" path="/changedlashipto.jsp"/>
+      </action>
+      
+      <action path="/resendxbuy"
+          type="com.tcmis.internal.supply.action.ResendXBuyAction"
+          name="genericForm"
+          validate="false"
+          input="/resendxbuy.jsp"
+          scope="request">
+          <forward name="success" path="/resendxbuy.jsp"/>
+      </action> 
+     
+      <action path="/tcmbuyhistory"
+          type="com.tcmis.internal.supply.action.TcmBuyHistoryAction"
+          name="genericForm"
+          validate="false"
+          input="/tcmbuyhistory.jsp"
+          scope="request">
+          <forward name="success" path="/tcmbuyhistory.jsp"/>
+      </action> 
+      
+      <action path="/supplierposhistory"
+          type="com.tcmis.internal.supply.action.SupplierPosHistoryAction"
+          name="genericForm"
+          validate="false"
+          input="/supplierposhistory.jsp"
+          scope="request">
+          <forward name="success" path="/supplierposhistory.jsp"/>
+      </action>   
+   
+    <action path="/vendorcodesearchmain"
+            type="com.tcmis.internal.supply.action.VendorCodeSearchAction"
+            scope="request">
+        <forward name="success" path="/vendorcodesearchmain.jsp"/>
+    </action>
+
+    <action path="/vendorcodesearchresults"
+            type="com.tcmis.internal.supply.action.VendorCodeSearchAction"
+            name="genericForm"
+            validate="true"
+            input="/vendorcodesearchresults.jsp"
+            scope="request">
+        <forward name="success" path="/vendorcodesearchresults.jsp"/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+      
+    <action path="/newremittomain"
+          type="com.tcmis.internal.supply.action.NewRemitToAction"
+          name="genericForm"
+          validate="true"
+          input="/newremittomain.jsp"
+          scope="request">
+          <forward name="success" path="/newremittomain.jsp"/>
+    </action>
+
+    <action path="/newremittoresults"
+          type="com.tcmis.internal.supply.action.NewRemitToAction"
+          name="genericForm"
+          validate="true"
+          input="/newremittoresults.jsp"
+          scope="request">
+          <forward name="success" path="/newremittoresults.jsp"/>          
+    </action>
+
+    <action path="/newremittoaddress" 
+        type="com.tcmis.internal.supply.action.NewRemitToAddressAction" 
+        name="genericForm" 
+        validate="true" 
+        input="/newremittoaddress.jsp" 
+        scope="request">
+  		<forward name="success" path="/newremittoaddress.jsp" /> 
+  	</action> 
+  	
+  	<action path="/supplierreturnsmain"
+          type="com.tcmis.internal.supply.action.SupplierReturnsAction"
+          name="genericForm"
+          validate="true"
+          input="/supplierreturnsmain.jsp"
+          scope="request">
+          <forward name="success" path="/supplierreturnsmain.jsp"/>
+    </action>
+    
+    <action path="/supplierreturnsresults"
+          type="com.tcmis.internal.supply.action.SupplierReturnsAction"
+          name="genericForm"
+          validate="true"
+          input="/supplierreturnsresults.jsp"
+          scope="request">
+          <forward name="success" path="/supplierreturnsresults.jsp"/>          
+    </action>
+      
+      <action path="/showcurrentpaymentterms"
+          type="com.tcmis.internal.supply.action.POSupplierAction"
+          name="genericForm"
+          validate="false"
+          input="/showcurrentpaymentterms.jsp"
+          scope="request">
+          <forward name="success" path="/showcurrentpaymentterms.jsp"/>
+	 </action>
+
+	 <action path="/loadposupplier"
+            type="com.tcmis.internal.supply.action.LoadPoSupplierAction"
+            name="genericForm"
+            validate="false"
+            input="/../supply/loadposupplier.jsp"
+            scope="request">
+        <forward name="success" path="/supply/loadposupplier.jsp" module=""/>
+	 </action>      
+
+	 <action path="/loadChangeSupplierReason"
+            type="com.tcmis.internal.supply.action.LoadChangeSupplierReasonAction"
+            name="genericForm"
+            validate="false"
+            input="/../supply/selectreason.jsp"
+            scope="request">
+        <forward name="success" path="/supply/selectreason.jsp" module=""/>
+	</action>      
+
+    <action path="/newposuppliercontact" 
+          type="com.tcmis.internal.supply.action.POSupplierContactAction"
+          name="genericForm" 
+          validate="true" 
+          input="/newposuppliercontact.jsp" 
+          scope="request">
+          <forward name="showposuppliercontact" path="/newposuppliercontact.jsp" /> 
+    </action>
+     
+      <action path="/newpoexpediting"
+          type="com.tcmis.internal.supply.action.PoExpeditingAction"
+          name="genericForm"
+          validate="false"
+          input="/newpoexpediting.jsp"
+          scope="request">
+          <forward name="shownewpoexpediting" path="/newpoexpediting.jsp"/>
+      </action> 
+      
+      <action path="/supplieritemnotesmain"
+          type="com.tcmis.internal.supply.action.SupplierItemNotesAction"
+          name="genericForm"
+          validate="false"
+          input="/supplieritemnotesmain.jsp"
+          scope="request">
+          <forward name="success" path="/supplieritemnotesmain.jsp"/>
+    </action>
+    
+    <action path="/supplieritemnotesresults"
+            type="com.tcmis.internal.supply.action.SupplierItemNotesAction"
+            name="genericForm"
+            validate="false"
+            input="/supplieritemnotesresults.jsp"
+            scope="request">
+     <forward name="success" path="/supplieritemnotesresults.jsp"/>
+    </action> 
+    
+    <action path="/showsupplieritemnotes"
+            type="com.tcmis.internal.supply.action.ShowSupplierItemNotesAction"
+            name="genericForm"
+            validate="false"
+            input="/showsupplieritemnotes.jsp"
+            scope="request">
+        <forward name="success" path="/showsupplieritemnotes.jsp"/>
+    </action>
+    
+    <action path="/newsupplieritemnotes"
+            type="com.tcmis.internal.supply.action.SupplierItemNotesAction"
+            name="genericForm"
+            validate="false"
+            input="/newsupplieritemnotes.jsp"
+            scope="request">
+     <forward name="success" path="/newsupplieritemnotes.jsp"/>
+    </action>
+
+    <action path="/allocationsmain"
+          type="com.tcmis.internal.supply.action.AllocationsAction"
+          name="genericForm"
+          validate="true"
+          input="/allocationsmain.jsp"
+          scope="request">
+          <forward name="success" path="/allocationsmain.jsp"/>
+    </action>
+     
+    <action path="/allocationsresults"
+          type="com.tcmis.internal.supply.action.AllocationsAction"
+          name="genericForm"
+          validate="false"
+          input="/allocationsresults.jsp"
+          scope="request">
+          <forward name="success" path="/allocationsresults.jsp"/>          
+    </action>
+
+    <action path="/showallocations"
+          type="com.tcmis.internal.supply.action.AllocationsAction"
+          name="genericForm"
+          validate="true"
+          input="/allocations.jsp"
+          scope="request">
+          <forward name="success" path="/allocations.jsp"/>
+    </action>
+
+    <action path="/mrcancellationmain"
+          type="com.tcmis.internal.supply.action.MRCancellationAction"
+          name="genericForm"
+          validate="true"
+          input="/mrcancellationmain.jsp"
+          scope="request">
+          <forward name="success" path="/mrcancellationmain.jsp"/>
+    </action>
+     
+    <action path="/mrcancellationresults"
+          type="com.tcmis.internal.supply.action.MRCancellationAction"
+          name="genericForm"
+          validate="false"
+          input="/mrcancellationresults.jsp"
+          scope="request">
+          <forward name="success" path="/mrcancellationresults.jsp"/>          
+    </action>
+    
+    <action path="/showpodocuments"
+            type="com.tcmis.internal.supply.action.PoDocumentAction"
+            name="genericForm"
+            validate="false"
+            input="/podocuments.jsp"
+            scope="request">
+        <forward name="showPoDocuments" path="/podocuments.jsp"/>
+    </action>
+
+    <action path="/podocuments"
+            type="com.tcmis.internal.supply.action.PoDocumentAction"
+            name="genericForm"
+            validate="false"
+            input="/podocuments.jsp"
+            scope="request">
+        <forward name="showPoDocuments" path="/podocuments.jsp"/>
+    </action>
+    
+    <action path="/showaddpodocument"
+            type="com.tcmis.internal.supply.action.PoDocumentAction"
+            name="poDocumentForm"
+            validate="false"
+            input="/addpodocument.jsp"
+            scope="request">
+        <forward name="success" path="/addpodocument.jsp"/>
+    </action>
+
+    <action path="/addpodocument"
+            type="com.tcmis.internal.supply.action.PoDocumentAction"
+            name="poDocumentForm"
+            validate="false"
+            input="/addpodocument.jsp"
+            scope="request">
+        <forward name="success" path="/addpodocument.jsp"/>
+    </action>
+    
+     <action path="/dbuyconsolidationfreqmain"
+            type="com.tcmis.internal.supply.action.DBuyConsolidationFreqAction"
+            input="/dbuyconsolidationfreqmain.jsp"
+            name="genericForm"
+            validate="false"
+            scope="request">
+        <forward name="success" path="/dbuyconsolidationfreqmain.jsp"/>
+    </action>
+
+    <action path="/dbuyconsolidationfreqresults"
+            type="com.tcmis.internal.supply.action.DBuyConsolidationFreqAction"
+            name="genericForm"
+            validate="false"
+            input="/dbuyconsolidationfreqresults.jsp"
+            scope="request">
+        <forward name="success" path="/dbuyconsolidationfreqresults.jsp"/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+    
+    <action path="/selectinventorygroup"
+            type="com.tcmis.internal.supply.action.SelectInventoryGroupAction"
+            name="genericForm"
+            validate="false"
+            input="/selectinventorygroup.jsp"
+            scope="request">
+        <forward name="success" path="/selectinventorygroup.jsp"/>
+    </action> 
+    
+    <action path="/showshipmentdocuments"
+            type="com.tcmis.internal.supply.action.DeliveryDocumentAction"
+            name="genericForm"
+            validate="false"
+            input="/shipmentdocuments.jsp"
+            scope="request">
+        <forward name="showShipmentDocuments" path="/shipmentdocuments.jsp"/>
+    </action>
+
+      
+    <action path="/showaddshipmentdocument"
+            type="com.tcmis.internal.supply.action.DeliveryDocumentAction"
+            name="shipmentDocumentForm"
+            validate="false"
+            input="/addshipmentdocument.jsp"
+            scope="request">
+        <forward name="success" path="/addshipmentdocument.jsp"/>
+    </action>
+
+    <action path="/addshipmentdocument"
+            type="com.tcmis.internal.supply.action.DeliveryDocumentAction"
+            name="shipmentDocumentForm"
+            validate="false"
+            input="/addshipmentdocument.jsp"
+            scope="request">
+        <forward name="success" path="/addshipmentdocument.jsp"/>
+    </action>
+    
+    <action path="/checkshelflife"
+            type="com.tcmis.internal.supply.action.PoShelfLifeQuantityCheckAction"
+            name="genericForm"
+            validate="false"
+            input="/pocheckshellifecallback.jsp"
+            scope="request">
+        <forward name="success" path="/pocheckshellifecallback.jsp"/>
+    </action>
+    
+    <action path="/findbuyer"
+            type="com.tcmis.internal.supply.action.FindBuyerAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action> 
+    
+    <action path="/findpoline"
+            type="com.tcmis.internal.supply.action.FindPoLineAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action>               
+    <action path="/locationinventorygroup"
+            type="com.tcmis.internal.supply.action.LocationToIGAction"
+            name="genericForm"
+            validate="true"
+            scope="request">
+        <forward name="success" path="/locationinventorygroup.jsp"/>
+    </action>
+    
+    <action path="/findbuyorderpolineqty"
+            type="com.tcmis.internal.supply.action.FindBuyOrderPOLineQtyAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action> 
+    <action path="/polinehistory"
+              type="com.tcmis.internal.supply.action.PoLineHistoryAction"
+              name="genericForm"
+              validate="false"
+              input="/polinehistory.jsp"
+              scope="request">              
+          <forward name="success" path="/polinehistory.jsp"/>
+      </action>
+      
+    <action path="/editassociatedprsmain"
+            type="com.tcmis.internal.supply.action.EditAssociatedPrsAction"
+            name="genericForm"
+            validate="false"
+            input="/editassociatedprsmain.jsp"
+            scope="request">
+        <forward name="success" path="/editassociatedprsmain.jsp"/>
+    </action>
+    
+    <action path="/createjdepo"
+            type="com.tcmis.internal.jde.supply.action.CreateJdePoAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action>   
+    <action path="/editassociatedprsresults"
+            type="com.tcmis.internal.supply.action.EditAssociatedPrsAction"
+            name="genericForm"
+            validate="false"
+            input="/editassociatedprsresults.jsp"
+            scope="request">
+        <forward name="success" path="/editassociatedprsresults.jsp"/>
+    </action>
+    
+    <action path="/showscheduletcmbuys"
+          type="com.tcmis.internal.supply.action.ShowScheduleTcmBuysAction"
+          name="genericForm"
+          validate="false"
+          input="/showscheduletcmbuys.jsp"
+          scope="request">
+          <forward name="success" path="/showscheduletcmbuys.jsp"/>
+    </action> 
+    
+    <action path="/showlppranges"
+          type="com.tcmis.internal.supply.action.ShowLppRangesAction"
+          name="genericForm"
+          validate="false"
+          input="/showlppranges.jsp"
+          scope="request">
+          <forward name="success" path="/showlppranges.jsp"/>
+    </action> 
+   
+    <action path="/showsuggestedsupplier"
+          type="com.tcmis.internal.supply.action.ShowSuggestedSupplierAction"
+          name="genericForm"
+          validate="false"
+          input="/showsuggestedsupplier.jsp"
+          scope="request">
+          <forward name="success" path="/showsuggestedsupplier.jsp"/>
+    </action> 
+    
+    <action path="/getpaymentterms"
+          type="com.tcmis.internal.supply.action.PoUpdatePaymentTermsAction"
+          name="genericForm"
+          validate="false"
+          input="/purchaseordernew.jsp"
+          scope="request">
+          <forward name="success" path="/purchaseordernew.jsp"/>
+    </action> 
+    
+    <action path="/selectinvngroup"
+            type="com.tcmis.internal.supply.action.SelectInvnGroupAction"
+            name="genericForm"
+            validate="false"
+            input="/selectinvngroup.jsp"
+            scope="request">
+        <forward name="success" path="/selectinvngroup.jsp"/>
+    </action> 
+    
+    <action path="/poflowdowncall"
+            type="com.tcmis.internal.supply.action.PoFlowDownsAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action>
+    <action path="/pospeccall"
+            type="com.tcmis.internal.supply.action.PoSpecAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action>
+    <action path="/pomsdscall"
+            type="com.tcmis.internal.supply.action.PoMsdsAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action>    
+    <action path="/polookaheadcall"
+            type="com.tcmis.internal.supply.action.PoLookAheadAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action>
+    <action path="/potcmbuyscall"
+            type="com.tcmis.internal.supply.action.PoTcmBuysAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action> 
+    <action path="/poclientbuyscall"
+            type="com.tcmis.internal.supply.action.PoClientBuysAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action>     
+    <action path="/poassociatedprscall"
+            type="com.tcmis.internal.supply.action.PoAssociatedPrsAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action>
+    <action path="/poitemnotescall"
+            type="com.tcmis.internal.supply.action.PoItemNotesAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action>
+    <action path="/popartnotescall"
+            type="com.tcmis.internal.supply.action.PoPartNotesAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action>
+    
+	<action path="/edisupplierstatusmain"
+            type="com.tcmis.supplier.dbuy.action.EdiSupplierStatusAction"
+            validate="false"
+            name="genericForm"
+            input="/edisupplierstatusmain.jsp"
+            scope="request">
+        <forward name="success" path="/edisupplierstatusmain.jsp"/>
+	</action>
+
+	<action path="/edisupplierstatusresults"
+            type="com.tcmis.supplier.dbuy.action.EdiSupplierStatusAction"
+            name="genericForm"
+            validate="false"
+            input="/edisupplierstatusresults.jsp"
+            scope="request">
+        <forward name="success" path="/edisupplierstatusresults.jsp"/>
+    </action>
+    
+    <action path="/poapprovalmain"
+          type="com.tcmis.internal.supply.action.PoApprovalAction"
+          name="genericForm"
+          validate="false"
+          input="/poapprovalmain.jsp"
+          scope="request">
+          <forward name="success" path="/poapprovalmain.jsp"/>
+    </action>
+    
+    <action path="/poapprovalresults"
+          type="com.tcmis.internal.supply.action.PoApprovalAction"
+          name="genericForm"
+          validate="false"
+          input="/poapprovalresults.jsp"
+          scope="request">
+          <forward name="success" path="/poapprovalresults.jsp"/>
+    </action> 
+    
+    <action path="/poapprovalreject"
+          type="com.tcmis.internal.supply.action.PoApprovalAction"
+          name="genericForm"
+          validate="false"
+          input="/poapprovalreject.jsp"
+          scope="request">
+          <forward name="success" path="/poapprovalreject.jsp"/>
+    </action>
+   
+    <action path="/remittomanagementmain"
+          type="com.tcmis.internal.supply.action.RemitToManagementAction"
+          name="genericForm"
+          validate="true"
+          input="/remittomanagementmain.jsp"
+          scope="request">
+          <forward name="success" path="/remittomanagementmain.jsp"/>
+    </action>
+
+    <action path="/remittomanagementresults"
+          type="com.tcmis.internal.supply.action.RemitToManagementAction"
+          name="genericForm"
+          validate="true"
+          input="/remittomanagementresults.jsp"
+          scope="request">
+          <forward name="success" path="/remittomanagementresults.jsp"/>          
+    </action>
+   
+    <action path="/specialchargemanagementmain"
+          type="com.tcmis.internal.supply.action.SpecialChargeManagementAction"
+          name="genericForm"
+          validate="true"
+          input="/specialchargemanagementmain.jsp"
+          scope="request">
+          <forward name="success" path="/specialchargemanagementmain.jsp"/>
+    </action>
+
+    <action path="/specialchargemanagementresults"
+          type="com.tcmis.internal.supply.action.SpecialChargeManagementAction"
+          name="genericForm"
+          validate="true"
+          input="/specialchargemanagementresults.jsp"
+          scope="request">
+          <forward name="success" path="/specialchargemanagementresults.jsp"/>          
+    </action>
+<!-- ==================================================================== -->
+<!-- ==================================================================== -->
+  </action-mappings>
+  <!-- ========== Message Resources Definitions =========================== -->
+  <message-resources parameter="com.tcmis.common.resources.CommonResources"
+                     null="false" />
+  <!-- ========== Plug Ins Configuration ================================== -->
+  <!--
+     Add multiple validator resource files by setting the pathnames property
+     with a comma delimitted list of resource files to load.
+    -->
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property value="/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml"
+                  property="pathnames" />
+  </plug-in>
+</struts-config>

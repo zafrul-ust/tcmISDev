@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib PUBLIC
+"-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+"http://java.sun.com/j2ee/dtds/web-jsptablibrary_1_1.dtd">
+
+<taglib>
+    <tlibversion>1.0</tlibversion>
+    <jspversion>1.1</jspversion>
+    <shortname>tcmis</shortname>
+    <info>Utility tags for TcmIS web applications.</info>
+
+    <tag>
+        <name>loggedIn</name>
+        <tagclass>radian.tcmis.common.ui.web.taglib.LoggedInTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+
+        <attribute>
+            <name>indicator</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>forwardPage</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <name>permission</name>
+        <tagclass>radian.tcmis.common.ui.web.taglib.PermissionTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+
+        <attribute>
+            <name>indicator</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>userGroupId</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>facilityId</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>inventoryGroup</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+</taglib>

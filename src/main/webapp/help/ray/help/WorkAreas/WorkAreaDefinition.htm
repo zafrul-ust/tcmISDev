@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Work Area Definition</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="WorkAreaDefinition" id="WorkAreaDefinition"></a>Work Area Definition</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Work Area Definition</strong> page is used to view, manage, and print information about work area bins and parts
+   set up in tcmIS. The <strong>Work Area Definition</strong> page can be accessed from the <strong>Supply Chain</strong>
+	menu. The <strong>Work Area Definition</strong> page is launched in a new tab.</p>
+<div class="image"><img src="WorkAreaDef1.png" height="166" width="835" alt="Work Area Definition menu item" />
+<div class="caption">Figure 1</div></div>
+
+<p>Select the facility for the work area(s) from the <strong>Facility</strong> list. You may
+   choose to narrow the range of work areas by selecting a specific work area group from the <strong>Work Area
+	Group</strong> list.</p>
+<p>Click the <strong>Search</strong> button. The work areas will be displayed in the data grid.</p>
+<div class="image"><img src="WorkAreaDef2.png" height="297" width="734" alt="Work Area Definition page" />
+<div class="caption">Figure 2</div></div>
+
+<p>Each work area has almost two dozen characteristics which can be viewed and managed on the <strong>Work Area
+   Definition</strong> page. For clarity these are described in sections.</p>
+	<ul>
+		<li><strong>Active status</strong>
+			<ul>
+				<li>A work area may be active or inactive. If it is inactive it will not appear on the Work Area list on the 
+					<strong>Catalog</strong> page: no orders can be placed and no parts added. On the 
+					<strong>Work Area Definition</strong> page data grid the first (left-most) column is the 
+				 	<strong>Active</strong> column. If the check box is selected for the line, the work area on that 
+				 	line is active. If the box is cleared, the work area is inactive.</li>
+			</ul>
+		</li>
+		<li><strong>Work Area</strong>
+			<ul>
+				<li>Every work area must have a name (and must belong to a work area group; see below). The name uniquely 
+				 	identifies the work area to distinguish it from all other work areas. The work area name may be edited 
+				 	directly in the text box in the <strong>Work Area</strong> column. </li>
+			</ul>
+		</li>
+		<li><strong>Drop Ship</strong>
+			<ul>
+				<li>If the check box is selected materials are delivered to the work area directly from the manufacturer; 
+					 if it is clear all deliveries will be from an HGI Hub.</li>
+			</ul>
+		</li>
+		<li><strong>Offsite</strong>
+			<ul>
+				<li>If the check box is selected the work area is physically located away from the 
+					facility itself; if it is clear the work area is physically located within the facility.</li>
+			</ul>
+		</li>
+		<li><strong>Work Area Group</strong>
+			<ul>
+				<li>The work area group associates a work area with others with which it is operationally or organizationally 
+				 	tied. The work area group is identified in the <strong>Group</strong> column. 
+				 	<ul>
+				 		<li>To locate or edit a work area group, click on the magnifying glass icon 
+				 			 <img class="small" src="../../images/glass.gif" height="16" width="21"  alt="magnifying glass" /> 
+				 			 in the <strong>Lookup</strong> column right of the <strong>Group</strong> column. The <strong>
+				 			 <a href="#manageworkareagroups">Work Area Groups management form</a></strong> will open in a new window.</li>
+				 		<li>This form is NOT the standard Lookup Form and there is no Search function, but it may be used to add a new 
+				 			 Work Area Group or edit an existing Work Area Group.</li>
+				 	</ul>
+				</li>
+			</ul>
+		</li>
+		<li><strong>Ordering Method</strong>
+			<ul>
+				<li>Ordering method specifies the means by which inventory may be obtained for the work area. It 
+				 	is indicated and edited using the list in the <strong>Ordering Method</strong> column. 
+<!-- commented out for Raytheon at this time				 	There are three choices:   -->
+					Raytheon presently uses only the Manual Ordering method.
+					<ul>
+						<li><em>Manual Ordering</em> indicates the replenishment occurs when a customer places an order using the
+	    					<strong><a href="../Catalog/Catalog.htm">Catalog</a></strong> page.</li>
+<!-- commented out for Raytheon at this time						<li><em>Stock Level Ordering</em> indicates the replenishment occurs when a
+	    					<a href="../ScannerTraining/ScannerTraining.htm#WorkAreaScanning">work area scan</a> indicates that
+	    					additional inventory is needed.</li>
+						<li><em>Manual &amp; Stock Level</em> indicates that both manual and stock level ordering are used for
+	    					obtaining needed inventory.</li>		-->
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li><strong>Pulled Within Days</strong>
+			<ul>
+				<li>The number of days prior to expiry when material should be removed from the work area for 
+			       Stock Level Ordering Work Areas. <!-- commented out for Raytheon When a work area is scanned and a material&rsquo;s expiry date is within 
+                the Pulled Within Days, the scanner  is instructed to remove the material. --></li>
+			</ul>
+		</li>
+<!-- commented out for Raytheon
+		<li><strong>Days Between Scan</strong>
+			<ul>
+				<li>Enter the number of business days that should elapse between successive scans
+			 (e.g., 5 days indicates a weekly scan).</li>
+			</ul>
+		</li>
+-->
+	</ul>
+<p>Changes made on the <strong>Work Area Definition</strong> page are not saved until the <strong>Update</strong> link
+   is clicked.</p>
+<p>Click the <strong>Create Excel</strong> button to export the data in Excel format.</p>
+<div class="image"><img src="WorkAreaDef3.png" height="470" width="734" alt="Work Area Definition page leftmost fields" />
+<div class="caption">Figure 3: leftmost fields</div></div>
+
+	<ul>
+		<li><strong>Location</strong> <em>The Location fields are not in use by Raytheon.</em> Location is a somewhat formal description 
+			of a work area or delivery point, corresponding to plant maps and the like, while delivery point and work area are frequently 
+			colloquial names. The four columns are:
+			<ul>
+				<li><strong>Area</strong>: A physical location at the facility or department.</li>
+				<li><strong>Building</strong>: A building name or number within a facility.</li>
+				<li><strong>Room</strong>: A room name or number within a building.</li>
+				<li><strong>Lookup</strong>: A link to a form to find an Area.</li>
+			</ul>
+		</li>
+		<li><strong>Inventory Group</strong>
+			<ul>
+				<li>Select the Inventory Group, at the HGI Hub which should be the source 
+			 of materials for delivery to the work area from the drop-down list in this column.</li>
+			</ul>
+		</li>
+		<li><strong>Account</strong>[ing] <strong>Sys</strong>[tem]
+			<ul>
+				<li>Raytheon facilities each use only one accounting system so the default here is the correct and only choice.</li>
+			</ul>
+		</li>
+		<li><strong>Dock Name</strong>
+			<ul>
+				<li>Select the Dock Name used for the work area from the drop-down list in this column.</li>
+			</ul>
+		</li>
+		<li><strong>Dock Fixed</strong>
+			<ul>
+				<li>If the check box is selected the dock may not be altered for the work area on an 
+				   MR; if it is clear the dock may be selected fron a list when the MR is created.</li>
+			</ul>
+		</li>
+		<li><strong>Delivery Point Name</strong>
+			<ul>
+				<li>Select the Delivery Point Name used for the work area by clicking
+					 on the magnifying glass icon in this column. tcmIS will open a child window to display the 
+					 <strong>Manage Delivery Point</strong> page to select, edit, and/or create a delivery point record.</li>
+			</ul>
+		</li>
+		<li><strong>Delivery Point Fixed</strong>
+			<ul>
+				<li>If the check box is selected the delivery point may not be altered for the work area when submitting 
+				   an MR; if it is clear the delivery point may be assigned when the MR is created.</li>
+			</ul>
+		</li>
+	</ul>
+<p>Changes made on the <strong>Work Area Definition</strong> page are not saved until the <strong>Update</strong> link
+   is clicked.</p>
+<div class="image"><img src="WorkAreaDef3A.png" height="470" width="734" alt="Work Area Definition middle fields" />
+<div class="caption">Figure 3A: middle fields</div></div>
+
+	<ul>
+		<li><strong>Contact Name</strong>: Enter the name of the contact person for the work area in the text box.</li>
+		<li><strong>Phone</strong>: Enter the telephone number of the contact person for the work area in the text box.</li>
+		<li><strong>Email</strong>: Enter the e-mail address of the contact person for the work area in the text box.</li>
+		<li><strong>Location</strong>: Enter the location of the contact person for the work area in the text box.</li>
+		<li><strong>Customer Work Area ID</strong>: Enter the customer work area ID, if any, of the contact person for the work area in the text box.</li>
+	</ul>
+<p>Changes made on the <strong>Work Area Definition</strong> page are not saved until the <strong>Update</strong> link
+   is clicked.</p>
+<div class="image"><img src="WorkAreaDef3B.png" height="470" width="734" alt="Work Area Definition page rightmost fields" />
+<div class="caption">Figure 3B: rightmost fields</div></div>
+
+<p>In addition to the <strong>Update</strong> link, there are two other links in the upper-left of the data grid:</p>
+	<ul>
+		<li>The <strong>New Work Area</strong> link may be clicked to add a new work area line to the data grid <em>at the 
+		end of the list</em>. You must edit this line to complete the information needed, and click the <strong>Update</strong> 
+		link to save the new record.</li>
+		<li>The <strong>Show Legend</strong> link will cause a small window to open, on top of the current page, to display
+	    	a color key to any shading used to characterize the records in the data grid.</li>
+	</ul>
+<div class="image"><img src="WorkAreaDef4.png" height="470" width="735" alt="New Work Area and Show Legend links" />
+<div class="caption">Figure 4</div></div>
+
+<h3><a id="manageworkareagroups">Work Area Groups form</a></h3>
+<p>The <strong>Work Area Groups form</strong> lists all the existing work area groups to which any
+   particular work area may be assigned. There are three things that can be done on this page.</p>
+<ul>
+	<li><strong>Locate and select</strong> an existing work area group
+		<ul>
+			<li>Select a work area group by clicking the record row;</li>
+			<li>Insert the work area group into the <strong>Work Area Definition</strong> by clicking the <strong>Return Work Area Group</strong> 
+				 link at the top of the form.</li>
+	 		<li>The <strong>Work Area Groups form</strong> will close and the selected group will be inserted into the 
+	 			 <strong>Group</strong> column on the <strong>Work Area Definition</strong> page</li>
+		</ul>
+	</li>
+	<li><strong>Edit</strong> one or more of the existing work area group names.
+		<ul>
+			<li>The work area name may be edited directly in the text box in the <strong>Work Area Group</strong> column.</li>
+		</ul>
+	</li>
+	<li><strong>Create</strong> a new work area group.
+		<ul>
+			<li>Click the <strong>New Work Area Group</strong> link at the upper-left of the page. A blank work area group 
+				 line will be added at the bottom of the list: you may have to scroll down the list to see it.</li>
+			<li>Enter a work area name directly into the text box in the <strong>Work Area Group</strong> column.</li>
+		</ul>
+	</li>
+</ul>
+<p>No changes made on the <strong>Work Area Groups form</strong> are saved until the <strong>Update</strong> link on this page is clicked.</p>	
+<div class="image"><img src="WorkAreaDef5.png" height="213" width="496" alt="Manage Work Area Groups form" />
+<div class="caption">Figure 5</div></div>
+
+<h3><strong>Edit Work Area Directed Charge</strong></h3>
+<p>Selecting the <strong>Edit Work Area Directed Charge</strong> context menu item for any record will open a window to display the 
+	Directed Charge form. This form is used to view or edit the existing directed charge information for the
+	<a href="../WorkAreas/WorkAreaStockMgmt.htm#EditCharge">work area</a> or the
+	<a href="../Catalog/Catalog.htm#EditCharge">part</a>.</p>
+<p>If directed charges have been entered for both a part and the work area, the part directed charge will be used
+   rather than the work area directed charge.</p>
+<div class="image"><img src="WorkAreaDef6.png" height="470" width="734" alt="Edit Work Area Directed Charge context menu item" />
+<div class="caption">Figure 6</div></div>
+
+<p>The Edit Work Area Directed Charge form allows modifications to the default charge distribution 
+	associated with a work area. Enter or choose the appropriate charge numbers in the left column and 
+	the percentage values that are appropriate in the right text column; click the <strong>Submit</strong> link to record 
+	them in tcmIS. <em>This capability</em> is only available to those who have the appropriate responsibility and authority.</p>
+<div class="image"><img src="WorkAreaDef7.png" height="337" width="400" alt="Edit Work Area Directed Charge form" />
+<div class="caption">Figure 7</div></div>
+
+</body>
+</html>

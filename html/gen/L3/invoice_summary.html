@@ -1,0 +1,32 @@
+<html><head><title>Invoice Summary</title></head>
+<body bgcolor="#FFFFFF">
+<center>
+<form action="/cgi-bin/gen/L3/invoice_summary.cgi" method="post">
+<p>
+Show invoice summary for
+<select name="GL">
+  <option value="Greenville">Dallas - Greenville
+  <option value="Waco">Dallas - Waco
+</select>
+<br>
+for time period
+<select size="5" name="period">
+  <option value="116" SELECTED>01/02/03 - 01/27/03
+  <option value="113">11/14/02 - 01/01/03
+  <option value="108">09/05/02 - 11/13/02
+</select>
+<p>
+OR enter an invoice number: &nbsp;
+<input type="text" name="inv">
+<p>
+<input type="hidden" name="bginv" value="null">
+<input type="hidden" name="winv" value="null">
+<input type="hidden" name="linv" value="null">
+<input type="hidden" name="spinv" value="null">
+OR enter an MR number: &nbsp;
+<input type="text" name="rid">
+<br>
+<i>Either (for example) <b>12345</b> for all line items or <b>12345-2</b> for MR 12345 line 2</i>
+<p>
+<input type="submit" value="Show Summary">
+</form></center></body></html>

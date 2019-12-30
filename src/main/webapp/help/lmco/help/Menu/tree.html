@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>JavaScript Tree Menu</title>
+	<meta name="description" content="Free Cross Browser Javascript DHTML Tree Menu Navigation" />
+	<meta name="keywords" content="JavaScript tree menu, DHTML tree menu, client side tree menu, table of contents, site map, web authoring, scripting, freeware, download, shareware, free software, DHTML, Free Tree Menu, site, navigation, html, web, netscape, explorer, IE, opera, DOM, control, cross browser, support, frames, target, download" />
+	<meta name="robots" content="index,follow" />
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<script src="dhtmlxTree/codebase/dhtmlxcommon.js" type="text/javascript"></script>
+	<script src="dhtmlxTree/codebase/dhtmlxtree.js" type="text/javascript"></script>
+	<script src="dhtmlxTree/codebase/ext/dhtmlxtree_dragin.js" type="text/javascript"></script>
+	<script src="dhtmlxTree/codebase/ext/dhtmlxtree_srnd.js" type="text/javascript"></script>
+	<script src="dhtmlxTree/codebase/ext/dhtmlxtree_json.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="dhtmlxTree/codebase/dhtmlxtree.css" />
+</head>
+
+<body style="margin: 0;">
+<p><img src="../../images/help.gif" width="220" height="48" alt="help logo" /></p>
+<p>
+  <script src="tree_items.js" type="text/javascript"></script>
+</p>
+
+<div id="overview_help_tree" style="margin-left: -10px;">
+<script type="text/javascript">
+	<!--//
+    	overViewHelpTree=new dhtmlXTreeObject('overview_help_tree',"100%","100%",0);
+    	overViewHelpTree.setImagePath("dhtmlxTree/codebase/imgs/");
+    	overViewHelpTree.enableCheckBoxes(false);
+    	overViewHelpTree.attachEvent("onClick",onOverViewHelpNodeClick); // Get user data and show page in help doc frame
+    	overViewHelpTree.attachEvent("onMouseIn",onOverViewHelpMouseIn);
+    	overViewHelpTree.loadJSONObject(OVERVIEW_HELP_TREE_ITEMS);
+    	overViewHelpTree.setItemImage2('1', "base.gif","base.gif","base.gif");
+    	overViewHelpTree.openItem('1');
+    	overViewHelpTree.showItemSign('1',0);
+	//-->
+</script>
+</div>
+
+<div id="search" style="text-align: center; font-size: smaller; font-family: calibri, arial, sans-serif, helvetica;">
+	<p><input type="text" id="stext" style="width: 160px;"></p>
+	<p>
+  		<a href="javascript:void(0)" onClick="helpTree.findItem(document.getElementById('stext').value,0,1)">Find</a> |
+  		<a href="javascript:void(0)" onClick="helpTree.findItem(document.getElementById('stext').value)">Find Next</a> |
+  		<a href="javascript:void(0)" onClick="helpTree.findItem(document.getElementById('stext').value,1)">Find Prev</a>
+	</p>
+</div>
+
+<div id="help_tree" style="margin-left: -10px;">
+<script type="text/javascript">
+	<!--//
+		helpTree=new dhtmlXTreeObject('help_tree',"100%","100%",0);
+		helpTree.setImagePath("dhtmlxTree/codebase/imgs/");
+		helpTree.enableCheckBoxes(false);
+		helpTree.attachEvent("onClick",onHelpNodeClick); // Get user data and show page in help doc frame
+		helpTree.attachEvent("onMouseIn",onHelpMouseIn);
+		helpTree.loadJSONObject(HELP_TREE_ITEMS);
+		helpTree.setItemImage2('1', "base.gif","base.gif","base.gif");
+		helpTree.openItem('1');
+		helpTree.showItemSign('1',0);
+	//-->
+</script>
+</div>
+
+</body>
+</html>
+

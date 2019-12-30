@@ -1,0 +1,15 @@
+<html><head><title>Convert MR to Schedule</title></head>
+<body bgcolor="#FFFFFF">
+<center>
+<h2>Convert MR from "Deliver By" to "Schedule"</h2>
+<p>
+<form action="/cgi-bin/radweb/mr_sched_lookup.cgi" method="POST">
+Enter an MR to be converted in MR-Line format (like 1234567-3): &nbsp;
+<input name="mr" type="text">
+<p>
+<i>If you don't know the MR, enter the Client PO number in PO-Line format, like A000064512-00002): &nbsp;
+<input name="po" type="text">
+</i>
+<p>
+<input type="submit" name="Lookup MR" value="Lookup MR">
+</form></center></body></html>

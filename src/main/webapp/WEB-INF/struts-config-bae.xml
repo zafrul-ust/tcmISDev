@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+
+   <form-bean name="genericForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm" />
+
+  </form-beans>
+  <!-- ========== Global Forward Definitions ============================== -->
+  <global-forwards>
+    <forward name="purchaseordersmain"
+             path="/purchaseordersmain.do" />
+    <forward name="purchaserequestsmain"
+             path="/purchaserequestsmain.do" />
+    <forward name="showcatalog"
+             path="/catalog.do" />
+  </global-forwards>
+  <!-- ========== Action Mapping Definitions ============================== -->
+  <action-mappings>
+    <action path="/purchaseordersmain"
+            type="com.tcmis.client.purchasing.action.PurchaseOrdersPageAction"
+            validate="false"
+            input="/client/purchasing/purchaseordersmain.jsp"
+            scope="request">
+        <forward name="success" path="/client/purchasing/purchaseordersmain.jsp" module=""/>
+    </action>
+    <action path="/purchaseorderssearch"
+            type="com.tcmis.client.purchasing.action.PurchaseOrdersPageAction"
+            name="genericForm"
+            validate="false"
+            input="/client/purchasing/purchaseorderssearch.jsp"
+            scope="request">
+        <forward name="success" path="/client/purchasing/purchaseorderssearch.jsp" module=""/>
+    </action>
+    <action path="/purchaseordersresults"
+            type="com.tcmis.client.purchasing.action.PurchaseOrdersPageAction"
+            name="genericForm"
+            validate="false"
+            input="/client/purchasing/purchaseordersresults.jsp"
+            scope="request">
+        <forward name="success" path="/client/purchasing/purchaseordersresults.jsp" module=""/>
+    </action>
+
+    <action path="/purchaserequestsmain"
+            type="com.tcmis.client.purchasing.action.PurchaseRequestsPageAction"
+            validate="false"
+            input="/client/purchasing/purchaserequestsmain.jsp"
+            scope="request">
+        <forward name="success" path="/client/purchasing/purchaserequestsmain.jsp" module=""/>
+    </action>
+    <action path="/purchaserequestssearch"
+            type="com.tcmis.client.purchasing.action.PurchaseRequestsPageAction"
+            name="genericForm"
+            validate="false"
+            input="/client/purchasing/purchaserequestssearch.jsp"
+            scope="request">
+        <forward name="success" path="/client/purchasing/purchaserequestssearch.jsp" module=""/>
+    </action>
+    <action path="/purchaserequestsresults"
+            type="com.tcmis.client.purchasing.action.PurchaseRequestsPageAction"
+            name="genericForm"
+            validate="false"
+            input="/client/purchasing/purchaserequestsresults.jsp"
+            scope="request">
+        <forward name="success" path="/client/purchasing/purchaserequestsresults.jsp" module=""/>
+    </action>
+    <action path="/catalog"
+            type="com.tcmis.client.catalog.action.CatalogAction"
+            name="genericForm"
+            validate="false"
+            input="/catalog.jsp"
+            scope="request">
+        <forward name="success" path="/catalog.jsp"/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+
+  </action-mappings>
+  <!-- ========== Message Resources Definitions =========================== -->
+  <message-resources parameter="com.tcmis.common.resources.CommonResources"
+                     null="false" />
+  <!-- ========== Plug Ins Configuration ================================== -->
+  <!--
+     Add multiple validator resource files by setting the pathnames property
+     with a comma delimitted list of resource files to load.
+    -->
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property value="/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml"
+                  property="pathnames" />
+  </plug-in>
+</struts-config>

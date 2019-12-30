@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en-US">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="expires" content="-1">
+
+<link rel="stylesheet" type="text/css" href="codebase/dhtmlxgrid.css"></link>
+<link rel="stylesheet" type="text/css" href="codebase/dhtmlxgrid_hmenu.css"></link>
+
+<!-- These are for the Grid, uncomment if you are going to use the grid -->
+<!-- These are for the Grid, uncomment if you are going to use the grid -->
+<script type="text/javascript" src="/dhtmlxGrid/codebase/dhtmlxcommon.js"></script>
+<script type="text/javascript" src="/dhtmlxLayout/codebase/dhtmlxlayout.js"></script>
+<script type="text/javascript" src="/dhtmlxWindows/codebase/dhtmlxwindows.js"></script>
+
+<script type="text/javascript" src="/dhtmlxGrid/codebase/dhtmlxgrid.js"></script>
+<script type="text/javascript" src="/dhtmlxGrid/codebase/dhtmlxgridcell.js"></script>
+<script type="text/javascript" src="/dhtmlxGrid/codebase/ext/dhtmlxgrid_rowspan.js"></script>
+<script type="text/javascript" src="/dhtmlxGrid/codebase/ext/dhtmlxgrid_form.js"></script>
+<script type="text/javascript" src="/dhtmlxGrid/codebase/ext/rowspan_cell_patch.js"></script>
+<!--
+<script type="text/javascript" src="codebase/dhtmlxgridcell.js"></script>
+<script type="text/javascript" src="codebase/ext/dhtmlxgrid_srnd.js"></script>
+<script type="text/javascript" src="codebase/ext/dhtmlxgrid_rowspan.js"></script>
+<script type="text/javascript" src="codebase/ext/dhtmlxgrid_json.js"></script>
+-->
+
+
+
+<!-- This is for the YUI, uncomment if you will use this -->
+
+
+<title>
+Transactions
+</title>
+
+<style>
+.red
+{
+    background-color:#FF9999;
+}
+
+div.gridbox table.obj tr.rowselected td{
+background-color: #fff;
+}
+
+</style>
+
+
+<script language="JavaScript" type="text/javascript">
+<!--
+
+//add all the javascript messages here, this for internationalization of client side javascript messages
+var messagesData = new Array();
+messagesData={alert:"Alert",and:"and",
+recordFound:"Records Found",searchDuration:"Search Duration",
+minutes:"minutes",seconds:"seconds",po:"PO",
+shipped:"Shipped",percent:"Percent",
+validvalues:"Please enter valid values for:",submitOnlyOnce:"This form has already been submitted. Please Wait for Results. Thanks!",
+itemInteger:"Item ID must be an integer.",
+haaspo:"Haas PO",
+poline:"PO Line",
+mrnumber:"MR Number",
+dlapriority:"DLA Priority",
+supplierpriority:"Supplier Priority",
+ordertype:"Order Type",
+suppliername:"Supplier Name",
+usgovorderdate:"USGOV Order Date",
+datecreated:"Date Created",
+datesent:"Date Sent",
+dlametricdate:"DLA Metric Date",
+orderqty:"Order Qty",
+status:"Status",
+supplierlocation:"Supplier Location",
+projectedshipdate:"Projected Ship Date",
+actualshipdate:"Actual Ship Date",
+orderage:"Order Age",
+quantityopen:"Quantity Open",
+qtyshipped:"Qty Shipped",
+shipto:"Ship To",
+customerpo:"Customer PO",
+milstrip:"MILSTRIP",
+shiptolocationid:"Ship To Location Id",
+ultimatedodaac:"Ultimate DODAAC",
+nsn:"NSN",
+part:"Part",
+shortname:"Short Name",
+ordercomments:"Order Comments",
+carrier:"Carrier",
+trackingno:"Carrier Tracking No",
+shippedby:"Shipped By",
+deliverycoments:"Delivery Comments"
+};
+
+
+
+var jsonMainData = new Array();
+var jsonMainData = {
+rows:[
+
+{ id:1,"class":"odd_light",
+data:[
+    "899287",    
+    "597621-1", 
+    "IPG1",    
+    "IPG1",      
+    "Commercial",
+    "Shipped",
+    "Goldsboro - NWS34",
+    "27-Feb-2009",
+    "TRACY CA 95304",
+    "SPM4AR07D0100-0355"
+   ]},
+
+{ id:2,"class":"odd_light",
+data:[
+    "899287",    
+    "597621-1", 
+    "IPG2",    
+    "IPG2",      
+    "Commercial",
+    "Not Shipped",
+    "Cheshire - NWS34",
+    "20-Jan-2009",
+    "TRACY CA 95304",
+    "SPM4AR07D0100-0355"
+   ]},
+
+{ id:3,"class":"odd_light",
+data:[
+    "899287",    
+    "597621-1", 
+    "IPG2",    
+    "IPG2",      
+    "Commercial",
+    "Not Shipped",
+    "Cheshire - NWS34",
+    "20-Jan-2009",
+    "TRACY CA 95304",
+    "SPM4AR07D0100-0355"
+   ]},  
+  
+{ id:4,"class":"odd_light",
+data:[
+    "899287",    
+    "597621-1", 
+    "IPG2",    
+    "IPG2",      
+    "Commercial",
+    "Not Shipped",
+    "Cheshire - NWS34",
+    "20-Jan-2009",
+    "TRACY CA 95304",
+    "SPM4AR07D0100-0355"
+   ]} ,
+{ id:5,"class":"red",
+data:[
+    "899287",    
+    "597621-1", 
+    "IPG2",    
+    "IPG2",      
+    "Commercial",
+    "Not Shipped",
+    "Cheshire - NWS34",
+    "20-Jan-2009",
+    "TRACY CA 95304",
+    "SPM4AR07D0100-0355"
+   ]},
+{ id:6,"class":"odd_light",
+data:[
+    "899287",    
+    "597621-1", 
+    "IPG2",    
+    "IPG2",      
+    "Commercial",
+    "Not Shipped",
+    "Cheshire - NWS34",
+    "20-Jan-2009",
+    "TRACY CA 95304",
+    "SPM4AR07D0100-0355"
+   ]},
+{ id:7,"class":"red",
+data:[
+    "899287",    
+    "597621-1", 
+    "IPG2",    
+    "IPG2",      
+    "Commercial",
+    "Not Shipped",
+    "Cheshire - NWS34",
+    "20-Jan-2009",
+    "TRACY CA 95304",
+    "SPM4AR07D0100-0355"
+   ]},
+{ id:8,"class":"odd_light",
+data:[
+    "899287",    
+    "597621-1", 
+    "IPG2",    
+    "IPG2",      
+    "Commercial",
+    "Not Shipped",
+    "Cheshire - NWS34",
+    "20-Jan-2009",
+    "TRACY CA 95304",
+    "SPM4AR07D0100-0355"
+   ]},
+{ id:9,"class":"odd_light",
+data:[
+    "899287",    
+    "597621-1", 
+    "IPG2",    
+    "IPG2",      
+    "Commercial",
+    "Not Shipped",
+    "Cheshire - NWS34",
+    "20-Jan-2009",
+    "TRACY CA 95304",
+    "SPM4AR07D0100-0355"
+   ]},
+{ id:10,"class":"red",
+data:[
+    "899287",    
+    "597621-1", 
+    "IPG2",    
+    "IPG2",      
+    "Commercial",
+    "Not Shipped",
+    "Cheshire - NWS34",
+    "20-Jan-2009",
+    "TRACY CA 95304",
+    "SPM4AR07D0100-0355"
+   ]},
+{ id:11,"class":"odd_light",
+data:[
+    "899287",    
+    "597621-1", 
+    "IPG2",    
+    "IPG2",      
+    "Commercial",
+    "Not Shipped",
+    "Cheshire - NWS34",
+    "20-Jan-2009",
+    "TRACY CA 95304",
+    "SPM4AR07D0100-0355"
+   ]},
+{ id:12,"class":"red",
+data:[
+    "899287",    
+    "597621-1", 
+    "IPG2",    
+    "IPG2",      
+    "Commercial",
+    "Not Shipped",
+    "Cheshire - NWS34",
+    "20-Jan-2009",
+    "TRACY CA 95304",
+    "SPM4AR07D0100-0355"
+   ]}
+]};
+
+var mygrid = null;
+function doInitGrid(){
+mygrid = new dhtmlXGridObject('dlaOrderViewBean');
+mygrid.setImagePath("codebase/imgs/");
+mygrid.setHeader(""+messagesData.haaspo+","+messagesData.mrnumber+","+messagesData.dlapriority+","+messagesData.supplierpriority+","+messagesData.ordertype+","+messagesData.status+","+messagesData.supplierlocation+","+messagesData.projectedshipdate+","+messagesData.shipto+","+messagesData.customerpo+"");
+mygrid.setInitWidths("60,60,60,60,60,60,70,80,100,100");
+//mygrid.setColAlign("left,left,right,left,left,right,left,left,left,left");
+mygrid.setColSorting("str,str,str,str,str,str,str,str,str,str");
+mygrid.setColTypes("ro,ro,ro,ro,ro,ro,ro,ro,ro,ro");
+//mygrid.submitColumns([true,false,false,true,false,false,true,false,false,false]);
+
+mygrid.submitOnlyChanged(false);
+mygrid.setSkin("light");
+//mygrid.setAwaitedRowHeight(30);
+
+dhtmlxEvent(document.body,"mouseleave",function(e){
+  mygrid.stopColResize();
+})
+
+mygrid.init();
+//mygrid.enableRowspan(true);
+
+//mygrid.load("req4623.xml");}
+mygrid.parse(jsonMainData,"json");
+mygrid.setRowspan(1,0,4);
+mygrid.setRowspan(1,1,4);
+mygrid.setRowspan(1,2,4);
+mygrid.setRowspan(1,3,4);
+
+mygrid.setRowspan(8,0,2);
+mygrid.setRowspan(8,1,2);
+mygrid.setRowspan(8,2,2);
+mygrid.setRowspan(8,3,2);
+
+}
+
+function submitData()
+{
+      mygrid.parentFormOnSubmit(); //prepare grid for data sending
+      return true;
+}
+
+// -->
+</script>
+</head>
+
+<body bgcolor="#ffffff" onload="doInitGrid()"> 
+<form name="genericForm" method="post" action="/tcmIS/haas/dlagasordertrackingresults.do" onsubmit="">
+<input name="createXSL" type="button" class="inputBtns" value="Get cell (2,2) value" id="createXSL" onclick="alert(mygrid.cells(2,5).getValue());" />  
+
+<input name="createXSL" type="submit" class="inputBtns" value="Submit Form" id="createXSL" onclick="return submitData()" />  
+
+<div id="dlaOrderViewBean" style="width:100%;height:400px;"></div>
+
+</div>
+</div>
+
+</form>
+</body>
+</html>
+

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+   <form-bean name="genericForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm" />
+<!-- ==================================================================== -->
+<!-- ==================================================================== -->
+  </form-beans>
+  <!-- ========== Global Forward Definitions ============================== -->
+  <global-forwards>
+    <forward name="systemerrorpage"
+             path="/common/systemerror.jsp" module="" />
+    <forward name="genericerrorpage"
+             path="/common/genericerror.jsp" module="" />
+    <forward name="nopermissions"
+             path="/common/nopermissions.jsp" module=""/>
+  </global-forwards>
+  <!-- ========== Action Mapping Definitions ============================== -->
+  <action-mappings>	 
+	<action path="/Echo"
+            type="com.tcmis.ws.pol.action.EchoAction"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+		<forward name="success" path="/common/done.jsp" module=""/>
+    </action>
+	<action path="/PackingGroup"
+            type="com.tcmis.ws.pol.action.PackingGroupAction"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+		<forward name="success" path="/common/done.jsp" module=""/>
+    </action>
+	<action path="/ValidatePalletRFIDRequest"
+            type="com.tcmis.ws.pol.action.ValidatePalletRFIDRequestAction"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+		<forward name="success" path="/common/done.jsp" module=""/>
+    </action>
+	<action path="/QuantityPacked"
+            type="com.tcmis.ws.pol.action.QuantityPackedAction"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+		<forward name="success" path="/common/done.jsp" module=""/>
+    </action>
+	<action path="/PackBox"
+            type="com.tcmis.ws.pol.action.PackBoxAction"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+		<forward name="success" path="/common/done.jsp" module=""/>
+    </action>
+	<action path="/Unpack"
+            type="com.tcmis.ws.pol.action.UnpackAction"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+		<forward name="success" path="/common/done.jsp" module=""/>
+    </action>
+	<action path="/ReprintLabels"
+            type="com.tcmis.ws.pol.action.ReprintLabelsAction"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+		<forward name="success" path="/common/done.jsp" module=""/>
+    </action>
+	<action path="/PackagingCodes"
+            type="com.tcmis.ws.pol.action.PackagingCodesAction"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+		<forward name="success" path="/common/done.jsp" module=""/>
+    </action>
+    
+  </action-mappings>
+  <!-- ========== Message Resources Definitions =========================== -->
+  <message-resources parameter="com.tcmis.common.resources.CommonResources"
+                     null="false" />
+  <!-- ========== Plug Ins Configuration ================================== -->
+  <!--
+     Add multiple validator resource files by setting the pathnames property
+     with a comma delimitted list of resource files to load.
+    -->
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property value="/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml"
+                  property="pathnames" />
+  </plug-in>
+</struts-config>

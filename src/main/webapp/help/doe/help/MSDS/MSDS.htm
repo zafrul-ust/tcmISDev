@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>MSDS Viewer</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="MSDS"></a>MSDS</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>tcmIS MSDS Viewer</strong> page is used to locate and display Material Safety Data Sheets (MSDS). 
+	In addition to viewing the MSDS, this page can be used to view information about a material's chemical composition, 
+	physical properties, and any chemical lists on which the material appears.</p>
+
+<p>The <strong>MSDS Viewer</strong> page can be accessed <em>without logging into tcmIS</em>. 
+	It is displayed by default when the <strong>tcmIS Home page</strong> is accessed.</p>
+<p>The <strong>MSDS Viewer</strong> can also be accessed <em>when logged into tcmIS</em> by 
+	selecting the <strong>MSDS</strong> item on the main menu.</p>
+<p>While these two versions of the page are almost identical in appearance, the differences being the main menu and the 
+	presence or absence of the &rsquo;Logged in&rsquo; notice, there are situations where you have to log in to go further than 
+	simply viewing the MSDS.</p>
+<div class="image"><img src="MSDS1.png" height="631" width="835" alt="MSDS search menu items" />
+<div class="caption">Figure 1</div></div>
+
+<p>The <strong>MSDS Viewer</strong> page can be used to locate MSDS&rsquo;s for any material that exists in tcmIS, even when 
+	the material is in another customer's catalog (although other customer information is, of course, never shown).</p>
+
+<p><a id="msdssearch">To locate an MSDS</a>, use one or more &rsquo;search words&rsquo; in the <strong>Search</strong> text box to specify what you want. 
+	tcmIS will look through name data, description data, and number fields to locate the sought item(s).</p>
+<p>There are three &rsquo;key words&rsquo; that can be used between search words to build more complex queries:</p>
+	<ul>
+		<li>AND</li>
+		<li>OR</li>
+		<li>BUT NOT</li>
+	</ul>
+<p>These key words and the search words can be uppercase or lowercase. For example, &quot;Florida AND oranges BUT NOT
+		navel oranges&quot; would return all Florida oranges that are not navel oranges. </p>
+<p>Click the <strong>Search</strong> button to start the search.</p>
+<p>In the first column of the data grid, the <strong>Material</strong> [ID number] serves as a link to 
+	open a child window that displays the <strong>View MSDS</strong> page.</p>
+<div class="image"><img src="MSDS2.png" height="432" width="835" alt="MSDS search" />
+<div class="caption">Figure 2</div></div>
+
+<p>On the <strong>View MSDS</strong> page</p>
+<ul>
+	<li>The product name is shown in a header area at the top of the page, as is the revision date of the displayed MSDS.
+		<ul>
+			<li>The header area contains two additional links.
+				<ul>
+					<li>A 'broken document image' (<img class="small" src="../../images/brokendoc.jpg" height="24" width="24" alt="broken document icon" />) 
+						 used to <a href="#reportproblem">report a problem</a> with an MSDS.</li>
+					<li>A link to the tcmIS <strong>Help</strong> pages.</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>The left column contains buttons for further information.
+		<ul>
+			<li>Below the buttons the NHFA and HMIS symbols provide at-a-glance safety information.</li>
+		</ul>
+	</li>
+	<li>In the body of the page, to the right, the actual MSDS appears, either as a text document or in an Adobe Acrobat formatted version.</li>
+</ul>
+<div class="image"><img src="MSDS3.png" height="584" width="768" alt="Sample MSDS Information sheet" />
+<div class="caption">Figure 3</div></div>
+
+<p>If there are any previous revisions of the MSDS, they can be viewed by choosing the revision date from the <strong>MSDS Revision 
+	Date</strong> list near the top of the left column.</p>
+<div class="image"><img src="MSDS4.png" height="597" width="768" alt="MSDS revision list" />
+<div class="caption">Figure 4</div></div>
+
+<p>To view chemical composition information, click the <strong>Composition</strong> button. The CAS number, constituent name, lower, upper, and
+  	average percent are displayed. The average percent is calculated using the EPA guideline displayed at the bottom of the screen.</p>
+<div class="image"><img src="MSDS5.png" height="557" width="768" alt="Sample MSDS Composition sheet" />
+<div class="caption">Figure 5</div></div>
+
+<p>To view the physical properties of the material, click the <strong>Properties</strong> button. Information displayed
+  	here may include physical state, specific gravity, flash point, and density.</p>
+<div class="image"><img src="MSDS6.png" height="557" width="768" alt="Sample MSDS Property sheet" />
+<div class="caption">Figure 6</div></div>
+
+<p>To view the chemical lists on which a material appears, click the <strong>Lists</strong> button. tcmIS will 
+	display all the Chemical Lists and specify whether or not the current chemical, or a constituent of the 
+	material, is on each list (Yes or No). If any of the material's constituents appear on a Chemical List, 
+	the sum of the percentages of the constituents on the list is displayed in the rightmost column.</p>
+<p>There are multiple links from this basic display of Chemical Lists.</p>
+ 
+<p>Similarly, clicking a minus sign inside a box will collapse the list of sublists.</p>
+	<ul>
+		<li>A plus sign inside a box indicates the list is comprised of sublists: click the plus sign to expand 
+			 the display to show the sublists.</li>
+		<li>Similarly, clicking a minus sign inside a box will collapse the list of sublists.</li>
+	</ul>   
+<div class="image"><img src="MSDS7.png" height="557" width="768" alt="Chemical List display" />
+<div class="caption">Figure 7</div></div>
+
+<ul>
+	<li>Each name in the <strong>List</strong> column is a link which will open a child window to display another list: 
+		 it includes all the chemicals on the clicked list.</li>
+</ul>
+<div class="image"><img src="MSDS8.png" height="389" width="672" alt="Members of a specific chemical list" />
+<div class="caption">Figure 8</div></div>
+
+<ul>
+	<li>In the <strong>On List</strong> column, the &rsquo;Yes&rsquo; items are also links. Click on one to open a child 
+		 window which displays only those constituents which qualify the chemical for the list. For each such constituent 
+		 the percentage it represents in the listed item is shown.</li>
+</ul>
+<div class="image"><img src="MSDS9.png" height="242" width="672" alt="List and Chemicals summary" />
+<div class="caption">Figure 9</div></div>
+
+<p>If there is a <a id="reportproblem">problem or discrepancy</a> with any MSDS, the issue can easily be reported to the HGI Catalog Team by
+   clicking the 'broken document image' (<img class="small" src="../../images/brokendoc.jpg" height="24" width="24" alt="broken document icon" />) in the upper right of the page.
+	Enter comments that will advise the HGI Catalog Team what action needs to be taken. Please be sure to include
+	your name, telephone number, and e-mail address as contact information in case the HGI Catalog Team has any questions.</p>
+<div class="image"><img src="MSDS10.png" height="645" width="768" alt="MSDS discrepancy report" />
+<div class="caption">Figure 10</div></div>
+
+</body>
+</html>

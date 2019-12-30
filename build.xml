@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="tcmIS">
+	
+	<target name="generate-version-js-file">
+		<echo file="${project.build.directory}/html/js/version.js">tcmisBuildDate="${tcmis.build.timestamp}";
+tcmisSVNrevision="${buildNumber}";
+		</echo>
+	</target>
+	
+	<target name="copy-report-jocl-files">
+		<echo message="Copy ${project.build.directory}/${buildName}/WEB-INF/classes/*.jocl to *_Report.jocl"/>
+		<copy todir="${project.build.directory}" overwrite="true">
+			<fileset dir="${project.build.directory}">
+				<include name="${buildName}/WEB-INF/classes/*.jocl"/>
+			</fileset>
+			<globmapper from="*.jocl" to="*_Report.jocl"/>
+		</copy>
+	</target>
+	
+	<target name="sign-jars">
+		<echo message="Signing LabelPrinter.jar" />
+		<signjar jar="${project.build.directory}/html/labelPrinterJar/LabelPrinter.jar" signedjar="${project.build.directory}/html/labelPrinterJar/LabelPrinter.jar" alias="${keyalias}" storepass="${keystorepass}" keystore="${keystore}" keypass="${keypass}" />
+		<echo message="Signing jbcl3.0.jar" />
+		<signjar jar="${project.build.directory}/html/labelPrinterJar/jbcl3.0.jar" signedjar="${project.build.directory}/html/labelPrinterJar/jbcl3.0.jar" alias="${keyalias}" storepass="${keystorepass}" keystore="${keystore}" keypass="${keypass}" />
+		<echo message="Signing  PDFRenderer-0.9.1.jar" />
+		<signjar jar="${project.build.directory}/html/labelPrinterJar/PDFRenderer-0.9.1.jar" signedjar="${project.build.directory}/html/labelPrinterJar/PDFRenderer-0.9.1.jar" alias="${keyalias}" storepass="${keystorepass}" keystore="${keystore}" keypass="${keypass}" />
+	</target>
+	
+	<target name="create-tarball">
+		<tar destfile="${project.build.directory}/${project.artifactId}-${project.version}.tar" longfile="gnu">
+			<tarfileset dir="html" username="apache" group="tcm_app" filemode="755">
+				<include name="html/**" />
+				<exclude name="html/reports/**" />
+			</tarfileset>
+			<tarfileset dir="${project.build.directory}" username="apache" group="tcm_app" filemode="755">
+				<include name="${project.build.finalName}/**" />
+				<exclude name="${project.build.finalName}/help/**" />
+			</tarfileset>
+			<tarfileset dir="html" username="tomcat" group="tcm_content" filemode="775">
+				<include name="html/reports/**" />
+			</tarfileset>
+		</tar>
+	</target>
+</project>

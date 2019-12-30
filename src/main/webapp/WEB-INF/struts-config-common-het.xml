@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+
+   <form-bean name="genericForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm" />
+  </form-beans>
+  
+  <global-forwards>
+   <forward name="monitorusagemain"
+            path="/monitorusagemain.do" />
+   <forward name="permitmanagementmain"
+            path="/permitmanagementmain.do" />
+   <forward name="usageloggingmain"
+            path="/usageloggingmain.do" />
+   <forward name="cartmanagementmain"
+            path="/cartmanagementmain.do" />
+   <forward name="cartitemsearchmain"
+            path="/cartitemsearchmain.do" />
+   <forward name="areasearch"
+            path="/areasearch.do" />
+   <forward name="buildingsearch"
+            path="/buildingsearch.do" />
+   <forward name="workareasearch"
+            path="/workareasearch.do" />
+   <forward name="containervalidation"
+            path="/containervalidation.do" />
+   <forward name="containerentryotr"
+            path="/containerentryotr.do" />
+   <forward name="substratemanagementmain"
+            path="/substratemanagementmain.do" />
+   <forward name="methodmanagementmain"
+            path="/methodmanagementmain.do" />
+   <forward name="hetcontainerinventorymain"
+            path="/hetcontainerinventorymain.do" />
+   <forward name="hetcontainerentrymain"
+            path="/hetcontainerentrymain.do" />  
+   <forward name="nhpprintlabels"
+            path="/nhpprintlabels.do" /> 
+   <forward name="shipmentreceivingmain"
+            path="/shipmentreceivingmain.do" />        
+   <forward name="alternatecontainersearch"
+            path="/alternatecontainersearch.do" />
+   <forward name="mixturemanagementmain"
+            path="/mixturemanagementmain.do" />
+   <forward name="mixturepermissionmain"
+            path="/mixturepermissionmain.do" />
+<!--   <forward name="getmsdsmfg"
+            path="/getmsdsmfg.do" />   -->
+   <forward name="searchmsdsmfgmain"
+            path="/searchmsdsmfgmain.do" /> 
+   <forward name="hetstatus"
+            path="/hetstatus.do" /> 
+   
+   </global-forwards>   
+    <!-- ========== Action Mapping Definitions ============================== -->
+  <action-mappings>
+   <action path="/monitorusageresults"
+       type="com.tcmis.client.het.action.MonitorUsageAction"
+       name="genericForm"
+       validate="false"
+       input="/../client/het/monitorusageresults.jsp"
+       scope="request">
+	<forward name="success" path="/client/het/monitorusageresults.jsp" module=""/>
+	<forward name="history" path="/client/het/monitorusagehistory.jsp" module=""/>
+    </action>
+    <action path="/monitorusagemain"
+        type="com.tcmis.client.het.action.MonitorUsageAction"
+        name="genericForm"
+        validate="false"
+        input="/../client/het/monitorusagemain.jsp"
+        scope="request">
+    <forward name="success" path="/client/het/monitorusagemain.jsp" module=""/>
+    </action>
+    <action path="/permitmanagementresults"
+       type="com.tcmis.client.het.action.PermitManagementAction"
+       name="genericForm"
+       validate="false"
+       input="/../client/het/permitmanagementresults.jsp"
+       scope="request">
+   <forward name="success" path="/client/het/permitmanagementresults.jsp" module=""/>
+   </action>
+   <action path="/permitmanagementmain"
+       type="com.tcmis.client.het.action.PermitManagementAction"
+       name="genericForm"
+       validate="false"
+       input="/../client/het/permitmanagementmain.jsp"
+       scope="request">
+   <forward name="success" path="/client/het/permitmanagementmain.jsp" module=""/> 
+  </action> 
+   <action path="/usageloggingmain"
+            type="com.tcmis.client.het.action.UsageLoggingAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/usageloggingmain.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/usageloggingmain.jsp" module=""/>
+    </action>
+    <action path="/usageloggingresults"
+            type="com.tcmis.client.het.action.UsageLoggingAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/usageloggingresults.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/usageloggingresults.jsp" module=""/>
+    </action>
+   <action path="/cartmanagementmain"
+            type="com.tcmis.client.het.action.CartManagementAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/cartmanagementmain.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/cartmanagementmain.jsp" module=""/>
+    </action>
+    <action path="/cartmanagementresults"
+            type="com.tcmis.client.het.action.CartManagementAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/cartmanagementresults.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/cartmanagementresults.jsp" module=""/>
+    </action>
+   <action path="/cartitemsearchmain"
+            type="com.tcmis.client.het.action.CartItemSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/cartitemsearchmain.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/cartitemsearchmain.jsp" module=""/>
+    </action>
+    <action path="/cartitemsearchresults"
+            type="com.tcmis.client.het.action.CartItemSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/cartitemsearchresults.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/cartitemsearchresults.jsp" module=""/>
+    </action>	
+	<action path="/areasearch"
+		type="com.tcmis.client.het.action.MethodManagementAction"
+		name="genericForm"
+		validate="false"
+		input="/client/het/areasearchresults.jsp"
+		scope="request">
+		<forward name="success" path="/client/het/areasearchresults.jsp" module=""/>
+	</action>
+	<action path="/buildingsearch"
+		type="com.tcmis.client.het.action.MethodManagementAction"
+		name="genericForm"
+		validate="false"
+		input="/client/het/buildingsearchresults.jsp"
+		scope="request">
+		<forward name="success" path="/client/het/buildingsearchresults.jsp" module=""/>
+	</action>
+	<action path="/workareasearch"
+		type="com.tcmis.client.het.action.MethodManagementAction"
+		name="genericForm"
+		validate="false"
+		input="/client/het/workareasearchresults.jsp"
+		scope="request">
+		<forward name="success" path="/client/het/workareasearchresults.jsp" module=""/>
+	</action>
+     <action path="/containervalidation"
+            type="com.tcmis.client.het.action.ContainerValidationAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/usageloggingresults.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/validationcallback.jsp" module=""/>
+    </action>
+     <action path="/containerentryotr"
+            type="com.tcmis.client.het.action.OtrAjaxAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/hetcontainerentryresults.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/hetcontainerentryajax.jsp" module=""/>
+    </action>
+  <action path="/substratemanagementmain"
+       type="com.tcmis.client.het.action.SubstrateManagementAction"
+       name="genericForm"
+       validate="false"
+       input="/../client/het/substratemanagementmain.jsp"
+       scope="request">
+   <forward name="success" path="/client/het/substratemanagementmain.jsp" module=""/> 
+  </action>
+  <action path="/substratemanagementresults"
+       type="com.tcmis.client.het.action.SubstrateManagementAction"
+       name="genericForm"
+       validate="false"
+       input="/../client/het/substratemanagementresults.jsp"
+       scope="request">
+   	<forward name="success" path="/client/het/substratemanagementresults.jsp" module=""/>
+   </action> 
+   
+   <action path="/methodmanagementmain"
+       type="com.tcmis.client.het.action.MethodManagementAction"
+       name="genericForm"
+       validate="false"
+       input="/../client/het/methodmanagementmain.jsp"
+       scope="request">
+   <forward name="success" path="/client/het/methodmanagementmain.jsp" module=""/> 
+  </action>
+  <action path="/methodmanagementresults"
+       type="com.tcmis.client.het.action.MethodManagementAction"
+       name="genericForm"
+       validate="false"
+       input="/../client/het/methodmanagementresults.jsp"
+       scope="request">
+   	<forward name="success" path="/client/het/methodmanagementresults.jsp" module=""/>
+   </action> 
+         <action path="/hetcontainerinventorymain"
+            type="com.tcmis.client.het.action.HetContainerInventoryAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/hetcontainerinventorymain.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/hetcontainerinventorymain.jsp" module=""/>
+    </action>
+    <action path="/hetcontainerinventoryresults"
+            type="com.tcmis.client.het.action.HetContainerInventoryAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/hetcontainerinventoryresults.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/hetcontainerinventoryresults.jsp" module=""/>
+        <forward name="ajax" path="/client/het/hetcontainerinventoryajax.jsp" module=""/>
+    </action>
+     <action path="/hetcontainerentrymain"
+            type="com.tcmis.client.het.action.ContainerEntryAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/hetcontainerentrymain.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/hetcontainerentrymain.jsp" module=""/>
+    </action>
+     <action path="/hetcontainerentryresults"
+            type="com.tcmis.client.het.action.ContainerEntryAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/hetcontainerentryresults.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/hetcontainerentryresults.jsp" module=""/>
+    </action>
+      <action path="/hetnhpprintlabels"
+            type="com.tcmis.client.het.action.PrintNhpAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/hetnhpprintlabels.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/hetnhpprintlabels.jsp" module=""/>
+        <forward name="print" path="/client/het/hetnhpprintzpl.jsp" module=""/>
+    </action>
+    
+    <action path="/shipmentreceivingmain"
+            type="com.tcmis.client.het.action.ShipmentReceivingAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/shipmentreceivingmain.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/shipmentreceivingmain.jsp" module=""/>
+    </action>
+    <action path="/shipmentreceivingresults"
+            type="com.tcmis.client.het.action.ShipmentReceivingAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/shipmentreceivingresults.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/shipmentreceivingresults.jsp" module=""/>
+    </action>
+	<action path="/alternatecontainersearch"
+		type="com.tcmis.client.het.action.UsageLoggingAction"
+		name="genericForm"
+		validate="false"
+		input="/client/het/usageloggingresults.jsp"
+		scope="request">
+		<forward name="success" path="/client/het/alternatecontainersearchresults.jsp" module=""/>
+	</action>
+	
+    <action path="/mixturemanagementmain"
+            type="com.tcmis.client.het.action.MixtureManagementAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/mixturemanagementmain.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/mixturemanagementmain.jsp" module=""/>
+    </action>
+    <action path="/mixturemanagementresults"
+            type="com.tcmis.client.het.action.MixtureManagementAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/mixturemanagementresults.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/mixturemanagementresults.jsp" module=""/>
+    </action>
+    
+    <action path="/mixturepermissionmain"
+            type="com.tcmis.client.het.action.MixturePermissionAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/mixturepermissionmain.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/mixturepermissionmain.jsp" module=""/>
+    </action>
+    <action path="/mixturepermissionresults"
+            type="com.tcmis.client.het.action.MixturePermissionAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/mixturepermissionresults.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/mixturepermissionresults.jsp" module=""/>
+    </action>
+<!-- 
+    <action path="/getmsdsmfg"
+            type="com.tcmis.client.het.action.GetMsdsMfgAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action>  -->   
+    
+    <action path="/searchmsdsmfgmain"
+            type="com.tcmis.client.het.action.SearchMsdsMfgAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/searchmsdsmfgmain.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/searchmsdsmfgmain.jsp" module=""/>
+    </action>
+    <action path="/searchmsdsmfgresults"
+            type="com.tcmis.client.het.action.SearchMsdsMfgAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/searchmsdsmfgresults.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/searchmsdsmfgresults.jsp" module=""/>
+    </action>
+    <action path="/hetstatus"
+            type="com.tcmis.client.het.action.StatusAction"
+            name="genericForm"
+            validate="false"
+            input="/client/het/statussearchresults.jsp"
+            scope="request">
+        <forward name="success" path="/client/het/statussearchresults.jsp" module=""/>
+    </action>
+
+   </action-mappings>
+    <!-- ========== Message Resources Definitions =========================== -->
+<message-resources parameter="com.tcmis.common.resources.CommonResources"
+                     null="false" />
+  <!-- ========== Plug Ins Configuration ================================== -->
+  <!--
+     Add multiple validator resource files by setting the pathnames property
+     with a comma delimitted list of resource files to load.
+    -->
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property value="/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml"
+                  property="pathnames" />
+  </plug-in>
+</struts-config>

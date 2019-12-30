@@ -1,0 +1,147 @@
+/*- Menu Tabs 6--------------------------- */
+.standardWidth {
+	display:inline-block;
+	*display:inline;
+	zoom:1;
+	vertical-align:top;
+	padding:4px;
+	width:24%;
+}
+
+.quarterWidth {
+	width:24%;
+}
+
+.thirdWidth {
+	width:32%;
+}
+
+.halfWidth {
+	width:48%;
+}
+
+.fullWidth {
+	width:96%;
+}
+
+.column {
+	display:inline-block;
+	*display:inline;
+	zoom:1;
+	vertical-align:top;
+	margin-bottom:20px;
+	margin:2px;
+}
+
+.msdsIndexedField {
+	padding:2px;
+	margin-bottom:5px;
+}
+
+.msdsReadOnlyField {
+	border:none;
+	background:none;
+	width:96%;
+}
+
+.msdsSectionShell {
+	padding:3px;
+}
+
+.msdsReadOnlyArea {
+	border:none;
+	background:none;
+	overflow:auto;
+	width:100%;
+}
+
+.wrapless {
+	white-space:nowrap;
+}
+
+.msdsSectionHeader {
+	font-size:20px;
+	color:dimGray;
+}
+
+.msdsComp {
+	width:100%;
+	height:400px;
+}
+
+.comptab {
+	border:2px white outset;
+	text-align:center;
+	display:inline-block;
+	*display:inline;
+	padding:0 5px;
+	margin-right:-5px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	background-color:#eeeeee;
+	cursor:pointer;
+}
+
+.selectedtab {
+	font-weight:bold;
+	color:white;
+	background-color: gray;
+}
+
+.maxcomEstimate {
+	font-weight:bold;
+	color:red;
+	position:inherit;
+}
+
+.pictogram {
+	height:90px;
+	width:31%;
+	min-width:80px;
+	float:left;
+	position:relative;
+	padding:2px;
+	border:1px solid lightGray;
+}
+
+.pictogram:hover {
+	background-color:white;
+	cursor:pointer;
+}
+
+.visible {
+	visibility: visible;
+}
+
+.invisible {
+	visibility: hidden;
+}
+
+fieldset {
+	border: 2px white groove;
+	height: 100%;
+	overflow-x: hidden;
+}
+
+.msdsInterface {
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	margin-right: auto;
+	margin-left: auto;
+	position:relative;
+}
+
+.msdsContent {
+	
+}
+
+.msdsroundtopright {
+	background: url(/images/rndBoxes/borderTR.gif) no-repeat top right;
+}
+
+.sdsColumnHeader{ 
+	text-align:center;
+	font-size:32px;
+	color:lightgray;
+}

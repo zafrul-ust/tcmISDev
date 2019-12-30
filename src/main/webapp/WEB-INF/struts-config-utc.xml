@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+    <form-bean name="genericForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm">
+    </form-bean>
+
+    <form-bean name="buyOrderForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm">
+     <form-property name="statusCollectionSelect" type="java.lang.String[]" />
+    </form-bean>
+
+  </form-beans>
+  <!-- ========== Global Forward Definitions ============================== -->
+  <global-forwards>
+      <forward name="advancepwacatalogaddrequest"
+               path="/advancepwacatalogaddrequest.do" />
+  </global-forwards>
+  <!-- ========== Action Mapping Definitions ============================== -->
+  <action-mappings>
+
+<!-- ocicatalogmain keep in utc first -->
+   <action path="/ocicatalogmain"
+            type="com.tcmis.client.utc.action.OciCatalogAction"
+            validate="false"
+            input="/../client/catalog/catalogmain.jsp"
+            scope="request">
+        <forward name="success" path="/client/catalog/catalogmain.jsp" module=""/>
+   </action>
+
+   <action path="/advancepwacatalogaddrequest"
+            type="com.tcmis.client.utc.action.AdvancePwaCatalogAddRequestAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+            <forward name="success" path="/advancepwacatalogaddrequest.jsp"/>
+   </action>
+
+  </action-mappings>
+  <!-- ========== Message Resources Definitions =========================== -->
+  <message-resources parameter="com.tcmis.common.resources.CommonResources"
+                     null="false" />
+  <!-- ========== Plug Ins Configuration ================================== -->
+  <!--
+     Add multiple validator resource files by setting the pathnames property
+     with a comma delimitted list of resource files to load.
+    -->
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property value="/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml"
+                  property="pathnames" />
+  </plug-in>
+</struts-config>

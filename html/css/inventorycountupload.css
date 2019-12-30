@@ -1,0 +1,134 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	padding:0px;
+}
+body {
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.filterContainer {
+	float:left;
+	background-color:#797682;
+}
+.resultsContainer {
+	float:left;
+}
+.contentContainer {
+	clear:left;
+}
+.roundcont {
+/*	width:100%;*/
+	color: #000;
+	background:#E5E5E5 url(../images/rndBoxes/borderL.gif) repeat-y left top;
+}
+/*.roundcont p {
+	margin: 0 10px;
+	background-color: #E5E5E5;
+}*/
+.roundright{
+	background: url(../images/rndBoxes/borderR.gif) repeat-y right top;
+}
+.roundtop {
+	background: url(../images/rndBoxes/borderT.gif) repeat-x left top;
+}
+.roundbottom {
+	background: url(../images/rndBoxes/borderB.gif) repeat-x left top;
+}
+.roundtopright {
+	background: url(../images/rndBoxes/borderTR.gif) no-repeat top right;
+}
+.roundbottomright {
+	background: url(../images/rndBoxes/borderBR.gif) no-repeat top right;
+}
+img.corner {
+   width: 15px;
+   height: 15px;
+   border: none;
+   display: block !important;
+}
+.roundContent{
+	padding:0px;
+	margin: 0px 10px 0px 10px;
+background-color: #E5E5E5;
+}
+.boxtop {
+	background: url(../images/filterBox_right.gif) no-repeat top right;
+	margin: 0px;
+	padding: 0px;
+	text-align: right;
+}
+.boxhead {
+
+	margin: 0px;
+
+	font-weight: bold;
+	text-align:right;
+}
+.boxbody {
+	background: url(../images/filterBox_left.gif) no-repeat bottom left;
+	margin: 0;
+	padding: 5px 8px 5px 5px;
+}
+
+.contentArea {
+	clear:both;
+	padding: 5px 8px 5px 5px;
+	width:98%
+}
+
+.contentArea {
+	clear:both;
+	padding: 5px 8px 5px 5px;
+	width:98%
+}
+
+.displayBlock{
+display:block;
+}
+
+.roundContent table
+{
+background-color: #a2a2a2;
+font-family: arial;
+font-size: 10pt;
+}
+
+.roundContent table th
+{
+        font-weight: bold;
+        color: white;
+        background-color: #000066;
+        text-align: center;
+        vertical-align: middle;
+        height:25px;
+}
+
+.white {
+        background-color:  #ffffff;
+        text-align: left;
+        height:25px;
+}
+
+.blue {
+        background-color:  #E6E8FA;
+        text-align: left;
+        height:25px;
+}
+
+
+.fileUpload
+{
+	  font-size: 9pt;
+        font-family: arial;
+	  color: Maroon;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-weight: bold;
+        background-color:  #fff2f2;
+
+}

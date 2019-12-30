@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+
+    <form-bean name="loginForm"
+               type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="logonId"
+                     type="java.lang.String" />
+      <form-property name="password"
+                     type="java.lang.String" />
+      <form-property name="client"
+                     type="java.lang.String" />
+      <form-property name="companyId"
+                     type="java.lang.String" />
+      <form-property name="requestedPage"
+                     type="java.lang.String" />
+      <form-property name="requestedURLWithParameters"
+                     type="java.lang.String" />
+      <form-property name="submit"
+                     type="java.lang.String" />
+      <form-property name="home"
+                     type="java.lang.String" />
+    </form-bean>
+
+   <form-bean name="genericForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm" />
+
+    <form-bean name="excelForm"
+               type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="query"
+                     type="java.lang.String" />
+      <form-property name="comment"
+                     type="java.lang.String" />
+      <form-property name="queryName"
+                     type="java.lang.String" />
+      <form-property name="newQueryName"
+                     type="java.lang.String" />
+      <form-property name="saveQuery"
+                     type="java.lang.String" />
+      <form-property name="viewQuery"
+                     type="java.lang.String" />
+      <form-property name="submit"
+                     type="java.lang.String" />
+    </form-bean>
+    <form-bean name="getViewDetailForm"
+               type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="tableName"
+                     type="java.lang.String" />
+      <form-property name="submit"
+                     type="java.lang.String" />
+    </form-bean>
+
+    <form-bean name="saveQueryForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm"/>
+
+    <form-bean name="deleteQueryForm"
+               type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="companyId"
+                     type="java.lang.String" />
+<!--
+      <form-property name="personnelId"
+                     type="java.lang.String" />
+-->
+      <form-property name="queryName"
+                     type="java.lang.String" />
+      <form-property name="newQueryName"
+                     type="java.lang.String" />
+      <form-property name="queryNameOld"
+                     type="java.lang.String" />
+      <form-property name="query"
+                     type="java.lang.String" />
+      <form-property name="dateSaved"
+                     type="java.lang.String" />
+      <form-property name="submit"
+                     type="java.lang.String" />
+    </form-bean>
+
+    <form-bean name="passwordForm"
+               type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="passwordOld"
+                     type="java.lang.String" />
+      <form-property name="passwordNew"
+                     type="java.lang.String" />
+      <form-property name="passwordCopy"
+                     type="java.lang.String" />
+    </form-bean>
+
+  </form-beans>
+  <!-- ========== Global Forward Definitions ============================== -->
+  <global-forwards>
+    <forward name="genericexcelreport"
+             path="/showgenericreportinput.do" />
+    <forward name="getviewdetail"
+             path="/getviewdetail.do" />
+    <forward name="showgenericreportinput"
+             path="/showgenericreportinput.do" />
+    <forward name="showgenericreporthelp"
+             path="/help.jsp" />
+    <forward name="showsavequery"
+             path="/savequery.jsp" />
+    <forward name="showviewquery"
+             path="/viewquery.jsp" />
+    <forward name="viewquery"
+             path="/viewquery.do" />
+    <forward name="reportrelay"
+             path="/reportrelay.jsp" />
+    <forward name="runexcelreport"
+             path="/runexcelreport.do"
+             redirect="false" />
+    <forward name="showcatalog"
+             path="/catalog.do" />
+    <forward name="label"
+             path="/label.do" />
+    <forward name="pnnlcatalogmain"
+             path="/pnnlcatalogmain.do" />
+    <forward name="showuseapprovalstatus"
+             path="/useapprovalstatus.do" />
+  </global-forwards>
+  <!-- ========== Action Mapping Definitions ============================== -->
+  <action-mappings>
+    <action path="/showlogin"
+            type="com.tcmis.common.admin.action.ShowLoginAction"
+            input="/login.jsp"
+            scope="request">
+        <forward name="showlogin" path="/login.jsp"/>
+        <forward name="showindex" path="/showgenericreportinput.do"/>
+    </action>
+
+    <action path="/reportlogin"
+            name="loginForm"
+            type="com.tcmis.common.admin.action.LoginAction"
+            validate="false"
+            input="/login.jsp"
+            scope="request">
+        <forward name="success" path="/showgenericreportinput.do"/>
+    </action>
+
+    <action path="/runreportrelay"
+            name="excelForm"
+            type="com.tcmis.internal.report.action.RunReportRelayAction"
+            validate="false"
+            input="oracleerror.jsp"
+            scope="request">
+        <forward name="success" path="/reportrelay.jsp"/>
+    </action>
+    <action path="/runexcelreport"
+            type="com.tcmis.internal.report.action.RunExcelReportAction"
+            validate="false"
+            input="/oracleerror.jsp"
+            scope="request"
+            parameter="/temp/">
+        <forward name="viewfile" path="/viewexcel.jsp"/>
+    </action>
+    <action path="/showgenericreportinput"
+            type="com.tcmis.internal.report.action.ShowGenericReportInputAction"
+            name="getViewDetailForm"
+            validate="false"
+            input="/input.jsp"
+            scope="request">
+        <forward name="genericreportinput" path="/excel.jsp"/>
+    </action>
+    <action path="/savequery"
+            name="saveQueryForm"
+            type="com.tcmis.internal.report.action.SaveQueryAction"
+            validate="false"
+            input="/savequery.jsp"
+            scope="request">
+        <forward name="showgenericreportinput" path="/showgenericreportinput.do"/>
+    </action>
+    <action path="/showupdatequery"
+            name="saveQueryForm"
+            type="com.tcmis.internal.report.action.ShowUpdateQueryAction"
+            validate="false"
+            input="/oracleerror.jsp"
+            scope="request">
+        <forward name="showupdatequery" path="/updatequery.jsp"/>
+    </action>
+    <action path="/updatequery"
+            name="saveQueryForm"
+            type="com.tcmis.internal.report.action.UpdateQueryAction"
+            validate="false"
+            input="/updatequery.jsp"
+            scope="request">
+        <forward name="viewquery" path="/viewquery.do"/>
+    </action>
+    <action path="/deletequery"
+            name="deleteQueryForm"
+            type="com.tcmis.internal.report.action.DeleteQueryAction"
+            validate="false"
+            input="/viewquery.jsp"
+            scope="request">
+        <forward name="showgenericreportinput" path="/showgenericreportinput.do"/>
+    </action>
+    <action path="/viewquery"
+            type="com.tcmis.internal.report.action.ViewQueryAction"
+            name="saveQueryForm"
+            validate="false"
+            input="/viewquery.jsp"
+            scope="request">
+    </action>
+    <action path="/ajax"
+            type="com.tcmis.internal.report.action.AjaxAction"
+            name="invoiceForm"
+            validate="false"
+            input="/excel.jsp"
+            scope="request">
+        <forward name="default" path="/excel.jsp"/>
+    </action>
+    <action path="/ajaxsavequery"
+            name="saveQueryForm"
+            type="com.tcmis.internal.report.action.AjaxSaveQueryAction"
+            validate="false"
+            input="/showgenericreportinput.do"
+            scope="request">
+        <forward name="showgenericreportinput" path="/showgenericreportinput.do"/>
+    </action>
+
+<!-- Keep the catalog stuff, overwrite the one in common-catalog -->
+    <action path="/catalog"
+            type="com.tcmis.client.catalog.action.CatalogAction"
+            name="genericForm"
+            validate="false"
+            input="/catalog.jsp"
+            scope="request">
+        <forward name="success" path="/catalog.jsp"/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+
+    <action path="/label"
+            type="com.tcmis.client.raytheon.action.SecondaryLabelAction"
+            name="genericForm"
+            validate="false"
+            input="/secondarylabel.jsp"
+            scope="request">
+        <forward name="success" path="/secondarylabel.jsp"/>
+        <forward name="printlabels" path="/common/printlabels.jsp" module=""/>
+    </action>
+
+	  <action path="/pnnlcatalogmain"
+				  type="com.tcmis.client.doe.action.PnnlCatalogAction"
+			     name="genericForm"
+				  validate="false"
+				  input="/pnnlwelcome.jsp"
+				  scope="request">
+			 <forward name="success" path="/pnnlwelcome.jsp"/>
+		   <forward name="pnnlcatalog" path="/client/catalog/catalogmain.jsp" module=""/>
+	  </action>
+
+     <action path="/showuseapprovalstatus"
+            type="com.tcmis.client.catalog.action.UseApprovalStatusAction"
+            validate="false"
+            input="/useapprovalstatus.jsp"
+            scope="request">
+        <forward name="showresults" path="/useapprovalstatus.jsp"/>
+        <forward name="closewindow" path="/closewindow.jsp"/>
+        <forward name="showUseApprovers" path="/showUseApprovers.jsp"/>
+        <forward name="showajaxresults" path="/useapprovaldetails.jsp"/>
+        <forward name="viewfile" path="/common/viewexcel.jsp" module=""/>
+    </action>
+
+    <action path="/useapprovalstatus"
+            type="com.tcmis.client.catalog.action.UseApprovalStatusAction"
+            name="genericForm"
+            validate="false"
+            input="/useapprovalstatus.jsp"
+            scope="request">
+        <forward name="showresults" path="/useapprovalstatus.jsp"/>
+        <forward name="closewindow" path="/closewindow.jsp"/>
+        <forward name="showUseApprovers" path="/showUseApprovers.jsp"/>
+        <forward name="showajaxresults" path="/useapprovaldetails.jsp"/>
+        <forward name="viewfile" path="/common/viewexcel.jsp" module=""/>
+    </action>
+
+  </action-mappings>
+  <!-- ========== Message Resources Definitions =========================== -->
+  <message-resources parameter="com.tcmis.common.resources.CommonResources"
+                     null="false" />
+  <!-- ========== Plug Ins Configuration ================================== -->
+  <!--
+     Add multiple validator resource files by setting the pathnames property
+     with a comma delimitted list of resource files to load.
+    -->
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property value="/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml"
+                  property="pathnames" />
+  </plug-in>
+</struts-config>

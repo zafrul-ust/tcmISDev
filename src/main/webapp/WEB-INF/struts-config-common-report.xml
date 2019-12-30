@@ -1,0 +1,936 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+    <form-bean name="scannerUploadForm"
+             type="com.tcmis.supplier.shipping.beans.ScannerUploadInputForm">
+    </form-bean>
+
+    <form-bean name="myFileUploadForm"
+             type="com.tcmis.client.report.beans.UploadFileInputBean">
+    </form-bean>
+
+   <form-bean name="genericForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm" />
+
+   <form-bean name="costReportForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm">
+     <form-property name="searchByItemType" type="java.lang.String[]"/>
+	  <form-property name="searchByInvoiceType" type="java.lang.String[]"/>
+	</form-bean>
+
+    <form-bean name="adHocUsageReportForm"
+               type="com.tcmis.client.report.beans.AdHocUsageInputBean"/>
+
+    <form-bean name="adHocWasteReportForm"
+               type="com.tcmis.client.report.beans.AdHocWasteInputBean"/>
+
+    <form-bean name="adHocMaterialMatrixReportForm"
+              type="com.tcmis.client.report.beans.AdHocMaterialMatrixInputBean"> 
+    </form-bean>
+
+    <form-bean name="profileSearchForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm"/>
+
+    <form-bean name="managementOptionSearchForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm"/>
+
+    <form-bean name="chemicalListSearchForm"
+               type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="searchText" type="java.lang.String" />
+    </form-bean>
+
+    <form-bean name="saveTemplateForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm"/>
+
+	 <form-bean name="publishTemplateForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm">
+      <form-property name="userGroupIdArray" type="java.lang.String[]"/>
+		<form-property name="userIdArray" type="java.lang.String[]"/> 
+	 </form-bean>
+
+	 <form-bean name="adHocInventoryReportForm"
+               type="com.tcmis.client.report.beans.AdHocInventoryInputBean">
+               	<form-property name="reportFieldList" type="java.lang.String[]"/> 
+      	 </form-bean>
+               	
+               
+     <form-bean name="inventoryPlanningReportForm"
+               type="com.tcmis.client.report.beans.InventoryPlanningInputBean"/>          
+
+  </form-beans>
+  <!-- ========== Global Forward Definitions ============================== -->
+  <global-forwards>
+     <forward name="receiptdocumentviewermain"
+             path="/receiptdocumentviewermain.do" />
+	 <forward name="costreportmain"
+             path="/costreportmain.do" />
+	 <forward name="costreportsearch"
+             path="/costreportsearch.do" />
+	 <forward name="batchreportviewermain"
+             path="/batchreportviewermain.do" />
+	 <forward name="costreportresultmain"
+             path="/costreportresultmain.do" />
+	 <forward name="ftpbatch"
+             path="/ftpbatch.do" />
+	 <forward name="adhocwastereport"
+             path="/adhocwastereport.do" />
+    <forward name="adhocusagereport"
+             path="/adhocusagereport.do" />
+    <forward name="adhocmaterialmatrixreport"
+             path="/adhocmaterialmatrixreport.do" />
+      <forward name="formattedusagereport"
+             path="/formattedusagereport.do" />
+      <forward name="formattedvocusagereport"
+             path="/formattedvocusagereport.do" />
+      <forward name="formattedmsdsrevisionreport"
+             path="/formattedmsdsrevisionreport.do" />
+      <forward name="clientconsignedinventoryreportmain"
+             path="/clientconsignedinventoryreportmain.do" />
+	   <forward name="reporttemplatemain"
+             path="/reporttemplatemain.do" />
+       <forward name="scanscorereportmain"
+             path="/scanscorereportmain.do" /> 
+      <forward name="listmanagementmain"
+             path="/listmanagementmain.do" /> 
+      <forward name="clientchemlist"
+             path="/clientchemlist.do" /> 
+      <forward name="newlist"
+             path="/newlist.do" />
+      <forward name="showuploadlist"
+             path="/showuploadlist.do" />
+	  <forward name="cabinetturnsmain"
+             path="/cabinetturnsmain.do" />
+	  <forward name="adhocinventoryreport"
+             path="/adhocinventoryreport.do" />
+	  <forward name="movementofmaterial"
+             path="/movementofmaterial.do" />   
+      <forward name="clientchemadd"
+             path="/clientchemadd.do" />
+      <forward name="inventoryplanningreport"
+             path="/inventoryplanningreport.do" />
+      <forward name="reportbasefields"
+             path="/reportbasefields.do" />
+     <forward name="storagearea"
+             path="/storagearea.do" />   
+      <forward name="casnumbersearchmultiselectmain"
+             path="/casnumbersearchmultiselectmain.do" />    
+     <forward name="reportlistfields"
+             path="/reportlistfields.do" /> 
+     <forward name="inventoryimportmain"
+             path="/inventoryimportmain.do" />  
+     <forward name="inventoryadd"
+             path="/inventoryadd.do" />    
+     <forward name="uploadvocetimport"
+             path="/uploadvocetimport.do" />
+     <forward name="adhocusageoriginal"
+             path="/adhocusageoriginal.do" />
+     <forward name="adhocmaterialmatrixoriginal"
+             path="/adhocmaterialmatrixoriginal.do" />
+     <forward name="adhocinventoryoriginal"
+             path="/adhocinventoryoriginal.do" />
+     <forward name="materialcategorysearch"
+             path="/materialcategorysearch.do"/> 
+     <forward name="facilitystockinglevelmain"
+             path="/facilitystockinglevelmain.do" />            
+     <forward name="openmaterialrequestsmain"
+             path="/openmaterialrequestsmain.do" />
+     <forward name="multiselectresults"
+             path="/multiselectresults.do" />                
+     <forward name="materialtransferhistorymain"
+             path="/materialtransferhistorymain.do" />
+     <forward name="materialcategorytemplate"
+             path="/materialcategorytemplate.do" />        
+     <forward name="getlistformatdata"
+             path="/getlistformatdata.do" />
+     <forward name="msdsrevisionreport"
+        	 path="/msdsrevisionreport.do" />
+	 <forward name="singleselectresults"
+	        path="/singleselectresults.do" />
+	 <forward name="customerdetails"
+	        path="/customerDetails.do" />  </global-forwards>
+  <!-- ========== Action Mapping Definitions ============================== -->
+  <action-mappings>
+        <action path="/scanscorereportresults"
+            type="com.tcmis.client.report.action.ScanScoreReportAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/report/scanscorereportresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/report/scanscorereportresults.jsp" module=""/>
+    </action>
+    <action path="/scanscorereportmain"
+            type="com.tcmis.client.report.action.ScanScoreReportAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/report/scanscorereportmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/report/scanscorereportmain.jsp" module=""/>
+    </action>
+    <action path="/receiptdocumentviewermain"
+            type="com.tcmis.client.report.action.ReceiptDocumentViewerAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/report/receiptdocumentviewermain.jsp"
+            scope="request">
+        <forward name="success" path="/common/report/receiptdocumentviewermain.jsp" module="" />
+    </action>
+    <action path="/receiptdocumentviewerresults"
+          type="com.tcmis.client.report.action.ReceiptDocumentViewerAction"
+          name="genericForm"
+          validate="false"
+          scope="request">
+        <forward name="showmrresults" path="/common/report/receiptdocumentmrresults.jsp" module="" />
+        <forward name="showlotresults" path="/common/report/receiptdocumentlotresults.jsp" module="" />
+		<forward name="multiselect" path="/report/multiselectresults.jsp" module=""/>
+     </action>
+
+	 <action path="/costreportmain"
+            type="com.tcmis.client.report.action.CostReportAction"
+            validate="false"
+            input="/../common/report/costreportmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/report/costreportmain.jsp" module=""/>
+    </action>
+    <action path="/costreportsearch"
+            type="com.tcmis.client.report.action.CostReportAction"
+            name="costReportForm"
+            validate="false"
+            input="/../common/report/costreportsearch.jsp"
+            scope="request">
+        <forward name="success" path="/common/report/costreportsearch.jsp" module=""/>
+		  <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+		  <forward name="openTemplate" path="/common/report/costreportsearch.jsp" module=""/>
+		  <forward name="getTemplate" path="/common/report/costreportgettemplate.jsp" module=""/>
+		  <forward name="fileSaved" path="/common/done.jsp" module=""/>
+		  <forward name="clearTemplate" path="/common/report/costreportsearch.jsp" module=""/>
+		  <forward name="showaddcharge" path="/common/report/costreportaddcharge.jsp" module=""/>
+		  <forward name="showSalesTax" path="/common/report/costreportsalestax.jsp" module=""/>
+		  <forward name="htmlReportSuccess" path="/common/report/costreportresultmain.jsp" module=""/>
+	 </action>
+    <action path="/costreportresult"
+            type="com.tcmis.client.report.action.CostReportAction"
+            name="costReportForm"
+            validate="false"
+            input="/../common/report/costreportresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/report/costreportresultmain.jsp" module=""/>
+		  <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+		  <forward name="openTemplate" path="/common/report/costreportsearch.jsp" module=""/>
+		  <forward name="getTemplate" path="/common/report/costreportgettemplate.jsp" module=""/>
+		  <forward name="fileSaved" path="/common/done.jsp" module=""/>
+		  <forward name="clearTemplate" path="/common/report/costreportsearch.jsp" module=""/>
+		  <forward name="showaddcharge" path="/common/report/costreportaddcharge.jsp" module=""/>
+		  <forward name="showSalesTax" path="/common/report/costreportsalestax.jsp" module=""/>
+	 </action>
+
+    <action path="/createinventorychart"
+            type="com.tcmis.client.report.action.CreateInventoryChartAction"
+            validate="false"
+            input="/../common/report/graph.jsp"
+            scope="request">
+        <forward name="success" path="/common/report/graph.jsp" module=""/>
+    </action>
+    <action path="/createleadtimechart"
+            type="com.tcmis.client.report.action.CreateLeadtimeChartAction"
+            validate="false"
+            input="/../common/report/graph.jsp"
+            scope="request">
+        <forward name="success" path="/common/report/graph.jsp" module=""/>
+    </action>
+    <action path="/createmrleadtimechart"
+            type="com.tcmis.client.report.action.CreateMrLeadtimeChartAction"
+            validate="false"
+            input="/../common/report/graph.jsp"
+            scope="request">
+        <forward name="success" path="/common/report/graph.jsp" module=""/>
+    </action>
+    <action path="/createsupplyleadtimechart"
+            type="com.tcmis.client.report.action.CreateSupplyLeadtimeChartAction"
+            validate="false"
+            input="/../common/report/graph.jsp"
+            scope="request">
+        <forward name="success" path="/common/report/graph.jsp" module=""/>
+    </action>
+    <action path="/createissueschart"
+            type="com.tcmis.client.report.action.CreateIssuesChartAction"
+            validate="false"
+            input="/../common/report/graph.jsp"
+            scope="request">
+        <forward name="success" path="/common/report/graph.jsp" module=""/>
+    </action>
+    <action path="/createreceiptschart"
+            type="com.tcmis.client.report.action.CreateReceiptsChartAction"
+            validate="false"
+            input="/../common/report/graph.jsp"
+            scope="request">
+        <forward name="success" path="/common/report/graph.jsp" module=""/>
+    </action>
+
+    <action path="/createdashboardchart"
+            type="com.tcmis.client.report.action.CreateDashboardChartAction"
+            validate="false"
+            input="/common/report/dashboard.jsp"
+            scope="request">
+        <forward name="success" path="/common/report/dashboard.jsp" module=""/>
+    </action>
+    
+  <action path="/batchreportviewermain"
+            type="com.tcmis.client.report.action.BatchReportViewerAction"
+            validate="false"
+            input="/../common/report/batchreportviewermain.jsp"
+            scope="request">
+        <forward name="success" path="/common/report/batchreportviewermain.jsp" module=""/>
+    </action>
+	 <action path="/batchreportviewerresults"
+            type="com.tcmis.client.report.action.BatchReportViewerAction"
+            validate="false"
+		      name="genericForm"
+				input="/../common/report/batchreportviewerresults.jsp"
+            scope="request">
+        <forward name="showresults" path="/common/report/batchreportviewerresults.jsp" module=""/>
+		  <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+	 </action>
+
+   <action path="/viewaddress"
+            type="com.tcmis.client.usgov.action.ViewAddressAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/ordertracking/viewaddress.jsp"
+            scope="request">
+        <forward name="success" path="/common/ordertracking/viewaddress.jsp" module=""/>
+   </action>
+
+    <action path="/costreportresultmain"
+            type="com.tcmis.client.report.action.CostReportResultAction"
+            validate="true"
+            input="/common/report/costreportresultmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/report/costreportresultmain.jsp" module=""/>
+    </action>
+
+    <action path="/costreportresultsearch"
+            type="com.tcmis.client.report.action.CostReportResultAction"
+            name="genericForm"
+            validate="true"
+            input="/common/report/costreportresultsearch.jsp"
+            scope="request">
+        <forward name="showsearch" path="/common/report/costreportresultsearch.jsp" module=""/>
+    </action>
+
+    <action path="/costreportresultresults"
+            type="com.tcmis.client.report.action.CostReportResultAction"
+            name="genericForm"
+            validate="true"
+            input="/common/report/costreportresultresults.jsp"
+            scope="request">
+        <forward name="showresults" path="/common/report/costreportresultresults.jsp" module=""/>
+	 </action>
+
+   <action path="/ftpbatch"
+	          type="com.tcmis.client.common.action.FtpRowDataAction"
+	          name="genericForm"
+	          validate="false"
+	          input="/../common/application/index.jsp"
+	          scope="request">
+	<forward name="error" path="/common/genericerror.jsp" module=""/>
+	<forward name="success" path="/common/empty.jsp" module=""/>
+   </action>
+
+		<action path="/adhocusagereport*"
+				  type="com.tcmis.client.report.action.AdHocUsageReportAction"
+				  name="adHocUsageReportForm"
+				  validate="false"
+				  input="/../report/adhocusagereport.jsp"
+				  scope="request">
+				  <forward name="success" path="/report/adhocusagereport.jsp" module=""/>
+		</action>
+
+		<action path="/adhocwastereport*"
+				  type="com.tcmis.client.report.action.AdHocWasteReportAction"
+				  name="adHocWasteReportForm"
+				  validate="false"
+				  input="/../report/adhocwastereport.jsp"
+				  scope="request">
+				  <forward name="success" path="/report/adhocwastereport.jsp" module=""/>
+		</action>
+
+		<action path="/profilesearch"
+				  type="com.tcmis.client.report.action.ProfileSearchAction"
+				  name="profileSearchForm"
+				  validate="false"
+				  input="/../report/profilesearch.jsp"
+				  scope="request">
+				  <forward name="success" path="/report/profilesearch.jsp" module=""/>
+		</action>
+
+		<action path="/managementoptionsearch"
+				  type="com.tcmis.client.report.action.ManagementOptionSearchAction"
+				  name="managementOptionSearchForm"
+				  validate="false"
+				  input="/../report/managementoptionsearch.jsp"
+				  scope="request">
+				  <forward name="success" path="/report/managementoptionsearch.jsp" module=""/>
+		</action>
+
+		<action path="/adhocmaterialmatrixreport*"
+				  type="com.tcmis.client.report.action.AdHocMaterialMatrixReportAction"
+				  name="adHocMaterialMatrixReportForm"
+				  validate="false"
+				  input="/../report/adhocmaterialmatrixreport.jsp"
+				  scope="request">
+				  <forward name="success" path="/report/adhocmaterialmatrixreport.jsp" module=""/>
+		</action>
+
+		<action path="/savetemplate"
+				  type="com.tcmis.client.report.action.SaveTemplateAction"
+				  name="saveTemplateForm"
+				  input="/../report/savetemplate.jsp"
+				  scope="request">
+				  <forward name="showinput" path="/report/savetemplate.jsp" module=""/>
+		</action>
+
+		<action path="/opentemplate"
+				  type="com.tcmis.client.report.action.OpenTemplateAction"
+				  name="saveTemplateForm"
+				  input="/../report/opentemplate.jsp"
+				  scope="request">
+				  <forward name="success" path="/report/opentemplate.jsp" module=""/>
+		</action>
+
+		<action path="/chemicallistsearch"
+				  type="com.tcmis.client.report.action.ChemicalListSearchAction"
+				  name="chemicalListSearchForm"
+				  validate="false"
+				  input="/../report/chemicallistsearch.jsp"
+				  scope="request">
+				  <forward name="success" path="/report/chemicallistsearch.jsp" module=""/>
+		</action>
+
+		<action path="/chemicalcassearch"
+				  type="com.tcmis.client.report.action.ChemicalCasSearchAction"
+				  name="chemicalListSearchForm"
+				  validate="false"
+				  input="/../report/chemicalcassearch.jsp"
+				  scope="request">
+				  <forward name="success" path="/report/chemicalcassearch.jsp" module=""/>
+		</action>
+
+		<action path="/basefielddescription"
+				  type="com.tcmis.client.report.action.BaseFieldDescriptionAction"
+				  name="genericForm"
+				  validate="false"
+				  input="/../report/basefielddescription.jsp"
+				  scope="request">
+				  <forward name="success" path="/report/basefielddescription.jsp" module=""/>
+		</action>
+
+		<action path="/formattedusagereport"
+					type="com.tcmis.client.report.action.FormattedUsageAction"
+					name="genericForm"
+					validate="false"
+					input="/../report/formattedusagereport.jsp"
+					scope="request">
+					<forward name="success" path="/report/formattedusagereport.jsp" module=""/>
+		 </action>
+
+		 <action path="/formattedvocusagereport"
+					type="com.tcmis.client.report.action.FormattedVocUsageAction"
+					name="genericForm"
+					validate="false"
+					input="/../report/formattedvocusagereport.jsp"
+					scope="request">
+					<forward name="success" path="/report/formattedvocusagereport.jsp" module=""/>
+		 </action>
+
+		 <action path="/formattedmsdsrevisionreport"
+					type="com.tcmis.client.report.action.FormattedMsdsRevisionAction"
+					name="genericForm"
+					validate="false"
+					input="/../report/formattedmsdsrevisionreport.jsp"
+					scope="request">
+					<forward name="success" path="/report/formattedmsdsrevisionreport.jsp" module=""/>
+		 </action>
+		
+		 <action path="/clientconsignedinventoryreportmain"
+	            type="com.tcmis.client.common.action.ClientConsignedInventoryReportAction"
+	            name="genericForm"
+	            validate="false"
+	            input="/../common/report/clientconsignedinventoryreportmain.jsp"
+	            scope="request">
+	        <forward name="success" path="/common/report/clientconsignedinventoryreportmain.jsp" module="" />
+	    </action>
+	    
+	    <action path="/clientconsignedinventoryreportresults"
+	          type="com.tcmis.client.common.action.ClientConsignedInventoryReportAction"
+	          name="genericForm"
+	          validate="false"
+	          input="/../common/report/clientconsignedinventoryreportresults.jsp"
+	          scope="request">
+	        <forward name="success" path="/common/report/clientconsignedinventoryreportresults.jsp" module="" />
+	     </action>
+
+	    <action path="/publishtemplate"
+				  type="com.tcmis.client.report.action.PublishTemplateAction"
+				  name="publishTemplateForm"
+				  input="/../report/publishtemplate.jsp"
+				  scope="request">
+				  <forward name="showinput" path="/report/publishtemplate.jsp" module=""/>
+		</action>
+
+		 <action path="/reporttemplatemain"
+	            type="com.tcmis.client.report.action.ReportTemplateAction"
+	            name="genericForm"
+	            validate="false"
+	            input="/../report/reporttemplatemain.jsp"
+	            scope="request">
+	        <forward name="success" path="/report/reporttemplatemain.jsp" module="" />
+	    </action>
+
+		 <action path="/reporttemplateresults"
+	            type="com.tcmis.client.report.action.ReportTemplateAction"
+	            name="genericForm"
+	            validate="false"
+	            input="/../report/reporttemplateresults.jsp"
+	            scope="request">
+	        <forward name="success" path="/report/reporttemplateresults.jsp" module="" />
+	    </action>
+	    
+	    <action path="/specificlistmanagementsearchresults"
+	            type="com.tcmis.client.report.action.SpecificListManagementAction"
+	            name="genericForm"
+	            validate="false"
+	            input="/common/report/specificlistmanagementsearchresults.jsp"
+	            scope="request">
+	        <forward name="success" path="/common/report/specificlistmanagementsearchresults.jsp" module="" />
+	    </action>
+	    
+	    <action path="/listmanagementmain"
+	            type="com.tcmis.client.report.action.ListManagementAction"
+	            name="genericForm"
+	            validate="false"
+	            input="/common/report/listmanagementmain.jsp"
+	            scope="request">
+	        <forward name="success" path="/common/report/listmanagementmain.jsp" module="" />
+	    </action>
+
+		 <action path="/listmanagementresults"
+	            type="com.tcmis.client.report.action.ListManagementAction"
+	            name="genericForm"
+	            validate="false"
+	            input="/common/report/listmanagementresults.jsp"
+	            scope="request">
+	        <forward name="deletelist" path="/common/report/reportcallback.jsp" module="" />
+	        <forward name="success" path="/common/report/listmanagementresults.jsp" module="" />
+	    </action>
+	    
+	    <action path="/newlist" 
+		        type="com.tcmis.client.report.action.ListManagementAction"
+		        name="genericForm" 
+		        validate="true" 
+		        input="/common/report/newlist.jsp"
+		        scope="request">
+  		  <forward name="shownewlist" path="/common/report/newlist.jsp" module=""/> 
+  		  <forward name="showupdatelist" path="/common/report/uploadlist.jsp" module=""/> 
+  	   </action>
+
+	    <action path="/uploadlist" 
+		        type="com.tcmis.client.report.action.ListManagementAction"
+		        name="scannerUploadForm" 
+		        validate="true" 
+		        input="/common/report/uploadlist.jsp"
+		        scope="request">
+  		  <forward name="uploadlist" path="/common/report/uploadlist.jsp" module=""/> 
+  		  <forward name="showupdatelist" path="/common/report/uploadlist.jsp" module=""/> 
+  	   </action>
+
+	  	<action path="/cabinetturnsmain"
+            type="com.tcmis.client.report.action.CabinetTurnsAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/report/cabinetturnsmain.jsp"
+            scope="request">
+        	<forward name="success" path="/common/report/cabinetturnsmain.jsp" module=""/>
+    	</action>
+    	
+        <action path="/cabinetturnsresults"
+            type="com.tcmis.client.report.action.CabinetTurnsAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/report/cabinetturnsresults.jsp"
+            scope="request">
+        	<forward name="success" path="/common/report/cabinetturnsresults.jsp" module=""/>
+    	</action>
+
+	  	<action path="/adhocinventoryreport*"
+				  type="com.tcmis.client.report.action.AdHocInventoryReportAction"
+				  name="adHocInventoryReportForm"
+				  validate="false"
+				  input="/../report/adhocinventoryreport.jsp"
+				  scope="request">
+				  <forward name="editchemlistload" path="/report/editchemlistmain.jsp" module=""/>
+				  <forward name="editchemlistsearch" path="/report/editchemlistresults.jsp" module=""/>
+				  <forward name="editfieldlistpreselect" path="/report/reportlistfields.jsp" module=""/>
+				  <forward name="multiselect" path="/report/multiselectresults.jsp" module=""/>
+				  <forward name="success" path="/report/adhocinventoryreport.jsp" module=""/>
+		</action>
+		
+		<action path="/multiselectresults"
+            type="com.tcmis.client.report.action.AdHocInventoryReportAction" 
+            name="genericForm"
+            validate="true"
+            input="/../report/multiselectresults.jsp"
+            scope="request">
+	        <forward name="success" path="/report/multiselectresults.jsp" module=""/>
+	   </action>
+		
+	 <action path="/reportlistfields"
+            type="com.tcmis.client.report.action.AdHocInventoryReportAction"
+            name="genericForm"
+            validate="true"
+            input="/../report/reportlistfields.jsp"
+            scope="request">
+	        <forward name="success" path="/report/reportlistfields.jsp" module=""/>
+	   </action>
+
+		<action path="/movementofmaterial"
+            type="com.tcmis.client.report.action.MovementOfMaterialAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/report/movementofmaterial.jsp"
+            scope="request">
+	        <forward name="success" path="/common/report/movementofmaterial.jsp" module=""/>
+	   </action>
+
+	    <action path="/clientchemlist"
+	            type="com.tcmis.client.report.action.ClientChemListAction"
+	            scope="request">
+	        <forward name="success" path="/common/report/clientchemlist.jsp" module="" />
+	    </action>
+
+		 <action path="/clientchemlistresults"
+	            type="com.tcmis.client.report.action.ClientChemListAction"
+	            name="genericForm"
+	            validate="false"
+	            input="/common/report/clientchemlistresults.jsp"
+	            scope="request">
+	        <forward name="success" path="/common/report/clientchemlistresults.jsp" module="" />
+	    </action>
+	    
+	    <action path="/newclientchemlist" 
+		        type="com.tcmis.client.report.action.ClientChemListAction"
+		        name="genericForm" 
+		        validate="true" 
+		        input="/common/report/newlist.jsp"
+		        scope="request">
+  		  <forward name="shownewlist" path="/common/report/newclientchemlist.jsp" module=""/> 
+  		  <forward name="showupdatelist" path="/common/report/uploadclientchemlist.jsp" module=""/> 
+  	   </action>
+
+	    <action path="/uploadclientchemlist" 
+		        type="com.tcmis.client.report.action.ClientChemListUploadAction"
+		        name="scannerUploadForm" 
+		        validate="true" 
+		        input="/common/report/uploadclientchemlist.jsp"
+		        scope="request">
+  		  <forward name="uploadlist" path="/common/report/uploadclientchemlist.jsp" module=""/> 
+  		  <forward name="showupdatelist" path="/common/report/uploadclientchemlist.jsp" module=""/> 
+          <forward name="success" path="/common/report/uploadclientchemlist.jsp" module=""/>
+  	   </action>
+
+  	<action path="/clientchemlistupload"
+          type="com.tcmis.client.report.action.UploadCSVFileAction"
+          name="myFileUploadForm"
+          validate="false"
+          input="/clientchemlistupload.jsp"
+          scope="request">
+          <forward name="success" path="/common/report/clientchemlistupload.jsp" module=""/>
+    </action>
+    
+  	<action path="/clientchemadd"
+          type="com.tcmis.client.report.action.ClientChemAddAction"
+          name="genericForm"
+          validate="false"
+          input="/clientchemadd.jsp"
+          scope="request">
+          <forward name="success" path="/common/report/clientchemadd.jsp" module=""/>
+          <forward name="loaddata" path="/common/report/loaddata.jsp" module=""/>
+    </action>
+    
+    <action path="/inventoryplanningreport"
+          type="com.tcmis.client.report.action.InventoryPlanningReportAction"
+          name="inventoryPlanningReportForm"
+          validate="false"
+          input="/../report/inventoryplanningreport.jsp"
+          scope="request">
+          <forward name="success" path="/report/inventoryplanningreport.jsp" module=""/>
+    </action>
+   
+     <action path="/editchemlistmain"
+          type="com.tcmis.client.report.action.AdHocInventoryReportAction"
+          name="adHocInventoryReportForm"
+          validate="false"
+          input="/../report/editchemlistmain.jsp"
+          scope="request">
+          <forward name="editchemlistsearch" path="/report/editchemlistresults.jsp" module=""/>
+    </action>
+    
+    <action path="/editchemlistresults"
+          type="com.tcmis.client.report.action.AdHocInventoryReportAction"
+          name="adHocInventoryReportForm"
+          validate="false"
+          input="/../report/editchemlistresults.jsp"
+          scope="request">
+          <forward name="editchemlistsearch" path="/report/editchemlistresults.jsp" module=""/>
+    </action>
+   
+    <action path="/reportbasefields"
+          type="com.tcmis.client.report.action.ReportBaseFieldsAction"
+          name="genericForm"
+          validate="false"
+          input="/../report/reportbasefields.jsp"
+          scope="request">
+          <forward name="success" path="/report/reportbasefields.jsp" module=""/>
+    </action>
+
+  	<action path="/storagearea"
+          type="com.tcmis.client.report.action.StorageAreaAction"
+          name="genericForm"
+          validate="false"
+          input="/../report/storagearea.jsp"
+          scope="request">
+          <forward name="success" path="/report/storagearea.jsp" module=""/>
+          <forward name="wastkmgmtcallback" path="/report/wastkmgmtcallback.jsp" module=""/>
+    </action>
+  	 <action path="/casnumbersearchmultiselectmain"
+            type="com.tcmis.internal.catalog.action.CaseNumberSearchAction"
+            name="genericForm"
+            validate="true"
+            input="/../report/casnumbersearchmultiselectmain.jsp"
+            scope="request">
+        <forward name="success" path="/../report/casnumbersearchmultiselectmain.jsp"/>
+        <forward name="newcasnumber" path="/../report/casnumbersearchmultiselectmain.jsp"/>
+    </action>
+
+    <action path="/casnumbersearchmultiselectresults"
+            type="com.tcmis.internal.catalog.action.CaseNumberSearchAction"
+            name="genericForm"
+            validate="true"
+            input="/../report/casnumbersearchmultiselectresults.jsp"
+            scope="request">
+        <forward name="success" path="/../report/casnumbersearchmultiselectresults.jsp"/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+        <forward name="newcasnumber" path="/../catalog/newcasnumber.jsp"/>
+    </action>
+
+	<action path="/inventoryimportmain"
+	            type="com.tcmis.client.report.action.InventoryImportAction"
+	            scope="request">
+	        <forward name="success" path="/common/report/inventoryimportmain.jsp" module="" />
+	</action>
+
+	<action path="/inventoryimportresults"
+	            type="com.tcmis.client.report.action.InventoryImportAction"
+	            name="genericForm"
+	            validate="false"
+	            input="/common/report/inventoryimportresults.jsp"
+	            scope="request">
+	        <forward name="success" path="/common/report/inventoryimportresults.jsp" module="" />
+	 </action>
+
+	 <action path="/uploadinventoryimport" 
+		        type="com.tcmis.client.report.action.InventoryCSVUploadAction"
+		        name="scannerUploadForm" 
+		        validate="true" 
+		        input="/common/report/uploadinventoryimport.jsp"
+		        scope="request">
+  		  <forward name="uploadlist" path="/common/report/uploadinventoryimport.jsp" module=""/> 
+  		  <forward name="showupdatelist" path="/common/report/uploadinventoryimport.jsp" module=""/> 
+          <forward name="success" path="/common/report/uploadinventoryimport.jsp" module=""/>
+  	 </action>
+  	 
+  	 <action path="/inventoryadd"
+          type="com.tcmis.client.report.action.InventoryAddAction"
+          name="genericForm"
+          validate="false"
+          input="/common/report/inventoryadd.jsp"
+          scope="request">
+          <forward name="success" path="/common/report/inventoryadd.jsp" module=""/>
+          <forward name="loaddata" path="/common/report/loaddata.jsp" module=""/>
+     </action>
+     
+     <action path="/uploadvocetimport" 
+		        type="com.tcmis.client.report.action.VocetCSVUploadAction"
+		        name="scannerUploadForm" 
+		        validate="true" 
+		        input="/common/report/uploadvocetimport.jsp"
+		        scope="request">
+  		  <forward name="uploadlist" path="/common/report/uploadvocetimport.jsp" module=""/> 
+  		  <forward name="showupdatelist" path="/common/report/uploadvocetimport.jsp" module=""/> 
+          <forward name="success" path="/common/report/uploadvocetimport.jsp" module=""/>
+  	 </action>
+  	 
+  	 	<action path="/materialcategorysearch"
+				  type="com.tcmis.client.report.action.MaterialCategorySearchAction"
+	              name="genericForm"
+				  validate="false"
+				  input="/../report/materialcategorysearch.jsp"
+				  scope="request">
+				  <forward name="success" path="/report/materialcategorysearch.jsp" module=""/>
+		</action>
+
+     <action path="/adhocusageoriginal*"
+				  type="com.tcmis.client.report.action.AdHocUsageReportOriginalAction"
+				  name="adHocUsageReportForm"
+				  validate="false"
+				  input="/../report/adhocusagereportoriginal.jsp"
+				  scope="request">
+				  <forward name="success" path="/report/adhocusagereportoriginal.jsp" module=""/>
+	 </action>
+
+     <action path="/adhocmaterialmatrixoriginal*"
+				  type="com.tcmis.client.report.action.AdHocMaterialMatrixReportOriginalAction"
+				  name="adHocMaterialMatrixReportForm"
+				  validate="false"
+				  input="/../report/adhocmaterialmatrixreportoriginal.jsp"
+				  scope="request">
+				  <forward name="success" path="/report/adhocmaterialmatrixreportoriginal.jsp" module=""/>
+	 </action>
+
+     <action path="/adhocinventoryoriginal*"
+				  type="com.tcmis.client.report.action.AdHocInventoryReportOriginalAction"
+				  name="adHocInventoryReportForm"
+				  validate="false"
+				  input="/../report/adhocinventoryreportoriginal.jsp"
+				  scope="request">
+				  <forward name="success" path="/report/adhocinventoryreportoriginal.jsp" module=""/>
+	 </action>
+	 
+	 <action path="/facilitystockinglevelmain"
+	            type="com.tcmis.client.report.action.FacilityStockingLevelAction"
+	            name="genericForm"
+	            validate="false"
+	            input="/common/report/facilitystockinglevelmain.jsp"
+	            scope="request">
+	        <forward name="success" path="/common/report/facilitystockinglevelmain.jsp" module="" />
+	</action>
+
+	<action path="/facilitystockinglevelresults"
+	            type="com.tcmis.client.report.action.FacilityStockingLevelAction"
+	            name="genericForm"
+	            validate="false"
+	            input="/common/report/facilitystockinglevelresults.jsp"
+	            scope="request">
+	        <forward name="success" path="/common/report/facilitystockinglevelresults.jsp" module="" />
+	 </action>
+	 
+	  <action path="/openmaterialrequestsmain"
+	            type="com.tcmis.client.report.action.OpenMaterialRequestsAction"
+	            name="genericForm"
+	            validate="false"
+	            input="/common/report/openmaterialrequestsmain.jsp"
+	            scope="request">
+	        <forward name="success" path="/common/report/openmaterialrequestsmain.jsp" module="" />
+	</action>
+
+	<action path="/openmaterialrequestsresults"
+	            type="com.tcmis.client.report.action.OpenMaterialRequestsAction"
+	            name="genericForm"
+	            validate="false"
+	            input="/common/report/openmaterialrequestsresults.jsp"
+	            scope="request">
+	        <forward name="success" path="/common/report/openmaterialrequestsresults.jsp" module="" />
+	 </action>
+	 
+	 <action path="/materialtransferhistorymain"
+            type="com.tcmis.client.report.action.MaterialTransferHistoryAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/report/materialtransferhistorymain.jsp"
+            scope="request">
+        <forward name="success" path="/common/report/materialtransferhistorymain.jsp" module="" />
+    </action>
+    <action path="/materialtransferhistoryresults"
+          type="com.tcmis.client.report.action.MaterialTransferHistoryAction"
+          name="genericForm"
+          validate="false"
+          scope="request">
+        <forward name="success" path="/common/report/materialtransferhistoryresults.jsp" module="" />
+     </action>
+     
+     <action path="/materialcategorytemplate"
+          type="com.tcmis.client.report.action.MaterialCategoryTemplateAction"
+          name="genericForm"
+          validate="false"
+          input="/../report/materialcategorycallback.jsp"
+          scope="request">
+          <forward name="materialcategorycallback" path="/report/materialcategorycallback.jsp" module=""/>
+    </action>
+
+    <action path="/getlistformatdata"
+          type="com.tcmis.client.report.action.ListFormatDataAction"
+          name="genericForm"
+          validate="false"
+          input="/../report/editlistformat.jsp"
+          scope="request">
+          <forward name="success" path="/report/editlistformat.jsp" module=""/>
+    </action>
+    
+    <action path="/getdayofyear"
+        type="com.tcmis.client.report.action.GetDayOfYearAction"
+        name="genericForm"
+        validate="false"
+        scope="request">
+    </action>  
+    
+   <action path="/msdsrevisionreport"
+		type="com.tcmis.client.report.action.MsdsRevisionReportAction"
+		name="genericForm"
+		validate="false"
+		input="/../report/msdsrevisionreport.jsp"
+		scope="request">
+		<forward name="success" path="/report/msdsrevisionreport.jsp" module=""/>
+	</action>
+	
+	<action path="/monthlyvocreport"
+		type="com.tcmis.client.report.action.MonthlyVOCReportAction"
+		name="genericForm"
+		validate="false"
+		input="/../report/monthlyvocreport.jsp"
+		scope="request">
+		<forward name="success" path="/report/monthlyvocreport.jsp" module=""/>
+	</action>
+
+	<action path="/singleselectresults"
+			  type="com.tcmis.client.report.action.SingleSelectAction"
+			  name="genericForm"
+			  validate="true"
+			  input="/../report/singleselectresults.jsp"
+			  scope="request">
+		  <forward name="success" path="/report/singleselectresults.jsp" module=""/>
+	</action>
+	
+        <action path="/customerDetails"
+            type="com.tcmis.internal.report.action.CustomerDetailsAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>  	
+  </action-mappings>
+  <!-- ========== Message Resources Definitions =========================== -->
+  <message-resources parameter="com.tcmis.common.resources.CommonResources"
+                     null="false" />
+  <!-- ========== Plug Ins Configuration ================================== -->
+  <!--
+     Add multiple validator resource files by setting the pathnames property
+     with a comma delimitted list of resource files to load.
+    -->
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property value="/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml"
+                  property="pathnames" />
+  </plug-in>
+</struts-config>

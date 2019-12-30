@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Customer Purchasing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="CustomerPurchasing" id="CustomerPurchasing"></a>Customer Purchasing</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Customer Purchasing</strong> page is used in the process whereby Demo Corp. manages 
+	purchasing and purchase orders while HGI continues to receive, manage, and issue the inventory. 
+	Demo Corp.&rsquo; buyers issue purchase orders and add the PO information to tcmIS. The inventory is 
+	owned by Demo Corp. so there is never any payable for Demo Corp. generated in tcmIS.</p>
+<p>The <strong>Customer Purchasing</strong> page can be accessed from the <strong>Order Management</strong> menu by 
+  	selecting the <strong>Customer Purchasing</strong> menu and then clicking on the <strong>Customer Purchasing</strong> 
+  	sub-menu item. The page is launched in a new tab.</p>
+<div class="image"><img src="CustomerPurchasing1.png" width="835" height="299" alt="Customer Purchasing menu item" />
+<div class="caption">Figure 1</div></div>
+
+<p>The buyer makes the final decisions in creating the needed purchase orders and updates tcmIS information 
+	on the <strong>Customer Purchasing</strong> page, including the addition of the relevant <strong>PO</strong> number.</p>
+<p>Use the <strong>Customer Purchasing</strong> page to identify items that need to be purchased; tcmIS adds items to 
+	the page based on both stocking level (MM) and Material Request (OOR) information. To see <em>only</em> these records, 
+	select the check box labeled <strong>Show only Open Requests</strong>.</p>
+	<ul>
+		<li>Select the Inventory Group from the <strong>Inventory Group</strong> drop-down list, or use the 
+			 default <em>All</em> selection.</li>
+		<li>Select the check box labeled <strong>Show only Open Requests</strong> to limit the data to items for which a PO 
+			 is still needed; leave it unselected to view both Open and Processed records</li>
+		<li>You may search for a specific buy order or group of buy orders by entering some or all of the Demo Corp. 
+			 PO number in the <strong>Search</strong> text box. See <a href="../Administration/Searches.htm">Search 
+			 functions</a> for more information.</li>
+		<li>The records will displayed in ascending order of the <strong>Item ID</strong> as that is presently 
+			 the only option in the <strong>Search By</strong> drop-down-list.</li>
+	</ul>
+<p>Click the <strong>Search</strong> button to display the records.</p>
+<div class="image"><img src="CustomerPurchasing2.png" width="814" height="514" alt="Customer Purchasing open and pending requests" />
+<div class="caption">Figure 2</div></div>
+
+<h3>Open Records</h3>
+<p>To handle Open records</p>
+	<ul>
+		<li>Enter the PO number in the <strong>PO</strong> text box.</li>
+		<li>Modify the quantity, if needed to match the PO, in the <strong>Qty</strong> text box.
+			<ul>
+				<li><em>The quantity entered should be the quantity on the PO <strong>for that buy order</strong>,
+					  not the total quantity for that item on the Demo Corp. PO.</em></li>
+			</ul>
+		</li>
+		<li>The <strong>Promised Date</strong> defaults to today; click on the blue diamond icon 
+			 <img class="small" src="../../images/bluediamond.png" width="6" height="9" alt="blue diamond" /> to open a 
+			 small calendar from which to choose the actual date committed by the supplier, or click the 
+			 <strong>None</strong> button.</li>
+		<li>Identify the supplier in the <strong>Supplier</strong> text box.</li>
+		<li>Select the check box in the <strong>OK</strong> column for each record you want to update.</li>
+		<li>Click the <strong>Process</strong> link at the top of the data grid to mark all checked records 
+			 as completed.</li>
+	</ul>	
+<p>Once the buyer has updated the record it is no longer Open and becomes a <em>customer buy order</em> in tcmIS. 
+	The HGI Hub anticipates the delivery; and processes and inventories the material on arrival; Items are issued 
+	as needed by Demo Corp.. (See, also, the <a href="CustomerBuyOrders.htm">Customer Buy Orders</a> page.)</p>
+<p>Please note that there may be multiple buy orders for the same item. These will be grouped together by default. 
+	Multiple buy orders can be grouped and placed together on the same Demo Corp. PO.</p>
+<p>Click the <strong>Create Excel File</strong> button to export the data in Excel format.</p>
+
+<h3>Processed Records</h3>
+<p>To view details of, or update a processed record, click the <strong>PO</strong> number which is a link. tcmIS will open 
+	a child window and display the record. This form will set the current user as the <strong>Entered By</strong> identification: 
+	if it is not your record, choose the appropriate buyer name, or <em>Any Buyer</em>, from the <strong>Entered By</strong> 
+	drop-down list and click the <strong>Search</strong> button to display the record you want.</p>
+<p>If changes are needed, make them in the appropriate boxes, select the check box in the <strong>OK</strong> column, and 
+click the <strong>Update</strong> link at the top of the data grid.</p>
+<div class="image"><img src="CustomerPurchasing3.png" width="656" height="354" alt="PO detail record" />
+<div class="caption">Figure 3</div></div>
+
+</body>
+</html>

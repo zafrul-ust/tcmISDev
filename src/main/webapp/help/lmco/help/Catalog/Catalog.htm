@@ -1,0 +1,553 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Catalog</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="Catalog" id="Catalog"></a>Catalog</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>See below on <a href="#OrderingMaterials">Ordering Materials - the Shopping Cart</a>
+    - - - on <a href="#ScheduledDeliveries">Scheduled deliveries</a></p>
+<p>See also - - - <a href="../MRAllocation/MRAllocation.htm">MR Allocation Report</a>
+    - - - <a href="../EngineeringEval/EngineeringEval.htm">Engineering Evaluation</a></p>
+
+<p>The <a id="CatalogPage"><strong>Catalog</strong> page</a> provides access to information on items (materials, chemicals) 
+   approved for use in each facility and work area. It is used to create and submit requests (<strong>Material 
+   Requests</strong>) for purchase and delivery of those items.</p>
+<p>The <strong>Catalog</strong> page can be accessed from the <strong>Order Management</strong> menu by selecting
+	<strong>Catalog</strong>. It will be shown in its own tab.</p>
+<div class="image"><img src="Catalog1.png" height="242" width="835" alt="Catalog page menu item" />
+<div class="caption">Figure 1</div></div>
+
+<p>The first step in ordering an item is to locate it in the <strong>Part Catalog</strong>. (The <strong>Item Catalog</strong> 
+   is used for items or parts not yet approved, and for ordering them for evaluation. See 
+   <a href="../EngineeringEval/EngineeringEval.htm">Engineering Evaluation</a>.)</p> 
+<ul>
+	<li>Select the facility where the material will be used from the <strong>Facility</strong> list.</li>
+	<li>Select the work area where the material will be used from the <strong>Work Area</strong> list.</li>
+	<li>Select the Part catalog (Item catalog for evaluations) from the <strong>Search Type</strong> list.</li>
+   <li>Enter details about the desired	material in the <strong>Search</strong> box. Search criteria can include DoE 
+       part number, HGI item ID, packaging, trade name, manufacturer, manufacturer's part number, or material description.</li>
+</ul> 
+<p>The more specific the information entered, the more the search is narrowed. Multiple words as a logical
+   expression can also be used to refine a search (separate words by <strong>and</strong>, <strong>or</strong>,
+	<strong>but not</strong>; for example, prc AND 1750). To search for <em>all</em> chemicals for
+	a specific location, leave the <strong>Search</strong> box blank.</p>
+
+<table style="width: 900px;" summary="catalogindex">
+	<tr>
+		<td>Search Type</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td style="width: 15%; padding-left: 5px;"><strong>Part Catalog</strong>: additional search criteria &gt;&gt;</td>
+		<td>
+		   <ul>
+				<li>Selecting the <strong>Active for selected Facility</strong> option displays only those chemicals
+	    			associated with the selected facility.</li> 
+				<li><em>The <strong>All Catalogs</strong> option is reserved for possible 
+	    			future enhancements.</em></li>
+				<li>Selecting the <strong>Work Area Approved Only</strong> box limits the search to only those chemicals approved
+	    			for use at	the work area.</li>
+				<li><em>The <strong>Active Only</strong> option is reserved for possible future enhancements.</em></li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td style="padding-left: 5px;"><strong>Item Catalog</strong></td>
+		<td>
+			<ul>
+				<li>See <a href="../EngineeringEval/EngineeringEval.htm">Engineering Evaluation</a></li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td style="padding-left: 5px;"><strong>Material Catalog</strong>(Palmdale only)</td>
+		<td>
+			<ul>
+				<li>See <a href="../MaterialCatalog/MaterialCatalog.htm">Material Catalog</a></li>
+			</ul>
+		</td>
+	</tr>
+</table>
+<p>Click the <strong>Search</strong> button.</p>
+<p>If there is no record for the item you need, it may be that it needs to be added to the Part Catalog. Click on the 
+	<strong>New Part</strong> link at the top of the data grid to initiate the 
+	<a href="../CatalogAdd/CatAddReq-QPL.htm#NewPart">New Part process.</a></p>
+<div class="image"><img src="Catalog2.png" height="527" width="835" alt="Parts Catalog page with search results" />
+<div class="caption">Figure 2</div></div>
+
+<h2><a id="PartCatalog">Part catalog</a></h2>
+<p>Once the <strong>Part catalog</strong> items have been displayed, AND YOU HAVE SELECTED A RECORD, there are 
+	a number of actions that you may initiate. <em>For additional actions </em> after selecting a record, click on 
+	the data in either the <strong>Item</strong> or <strong>Component Description</strong> column. You may also obtain 
+	detail information for each item/material. Use the links in the table below for help on each possibility.</p>    
+<div class="image"><img src="Catalog3-3a.png" height="71" width="949" alt="Basic and extended Action links" />
+<div class="caption">Figure 3 (basic set of Action links) and 3a (Expanded set of Action links)</div></div>
+
+<table style="width: 950px;" summary="helpindex">
+	<tr>
+		<th style="width: 14%;">Actions</th>
+		<td style="width: 44%; padding: 0 5px;">Links located above the data grid headers:</td>
+		<td style="width: 42%">
+			<ul>
+				<li><a href="#OrderingMaterials">Add to Cart</a> (Ordering materials)</li>
+				<li><a href="../CatalogAdd/CatAddReq-QPL.htm">Modify QPL</a> (Catalog Add Request)</li>
+				<li><a href="../CatalogAdd/CatAddReq-QPL.htm#NewPart">New Part from: Beginning</a> (Catalog Add Request)</li>
+				<li><a href="../CatalogAdd/CatAddReq-QPL.htm#fromcurrent">[New Part from:] Part</a> (Catalog Add Request)</li>
+				<li><a href="../CatalogAdd/CatAddReq-QPL.htm#WorkAreaApproval">New Work Area Approval</a> (Catalog Add Request)</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th style="width: 14%;">additional Actions</th>
+		<td style="width: 46%; padding: 0 5px;">For these additional action links, click on either the Item 
+				or Component Description column.</td>
+		<td style="width: 40%">
+			<ul>
+				<li><a href="../CatalogAdd/CatAddReq-QPL.htm#fromcurrent">[New Part from:] Item</a> (Catalog Add Request)</li>
+				<li><a href="../CatalogAdd/CatAddReq-QPL.htm#fromcurrent">[New Part from:] Item(modify Pkg)</a> (Catalog Add Request)</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th><a href="#firstmenu">1st context menu</a></th>
+		<td style="padding: 0 5px;">Access the first local context menu with a right-click on a row in any of the 
+			 first five columns of part details (Catalog number, Part number, Description, Type, or Price):</td>
+		<td>
+			<ul>
+				<li><a href="#inventory">Inventory</a></li>
+				<li><a href="#specifications">Specifications</a></li>
+				<li><a href="#comments">Comments</a></li>
+<!-- LMCO does not use Baseline - vhavens 8/7/12				<li><a href="#baseline">Baseline</a></li>		-->
+				<li><a href="#approved">Approved work areas</a></li>
+				<li><a href="#leadtime">Lead time plots</a></li>
+				<li><a href="#qualitysummary">Quality Summary</a></li>
+				<li><a href="#EditCharge">Edit Part Directed Charge</a> <em>This menu item appears for a <br />user only when specifically
+	    			authorized for the work area.</em></li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th><a href="#secondmenu">2nd context menu</a></th>
+		<td style="padding: 0 5px;">Access the second local context menu with a right-click on a row in 
+			 either of the next two columns of part details (Shelf Life or Item):</td>
+		<td>
+			<ul>
+				<li><a href="#secondmenu">Item ID</a></li>
+				<li><a href="#inventorycount">Inventory</a> [count]</li>
+				<li><a href="#secondmenu">Mfg Lit</a> <em>(Manufacturer's literature)</em></li>
+				<li><a href="#secondmenu">Image</a></li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th><a href="#thirdmenu">3rd context menu</a></th>	
+		<td style="padding: 0 5px;">Access the third local context menu with a right-click on a row in any of 
+			 the last six columns of part details (Component Description, Component Packaging, Grade, Manufacturer, 
+			 Mfg [manufacturing], Part No, or Status):</td>
+		<td>
+			<ul>
+				<li><a href="#viewmsds">View MSDS</a></li>
+
+				<li><a href="#synonym">Add/Edit Synonym</a></li>
+				<li><a href="#printsecondary">Print Secondary Label</a></li>
+				<li><a href="#managesecondary">Manage Secondary Label Information</a></li>
+			</ul>
+		</td>
+	</tr>
+</table>
+<h3><a id="OrderingMaterials">Ordering Materials</a></h3>
+<p>To order any item, add it to the shopping cart by:</p>
+	<ul>
+		<li>locating the item in the part catalog;</li>
+		<li>clicking anywhere on the line to select the item (it will then be highlighted with a different background color); and,</li>
+		<li>click the <strong>Add To Cart</strong> link above the data grid.</li>
+	</ul>
+<p>If a <a href="#comments">material with a comment attached</a> to it is selected and the <strong>Add to Cart</strong> 
+	link is clicked the comment will be displayed to notify you.</p>
+	<ul>
+    	<li>If the comment warrants attention, click <strong>Cancel</strong> to stop adding the material to the shopping 
+    		 cart and resolve any issues raised by the comment.</li>
+    	<li>If the comment does not require you to do anything differently, click the <strong>Continue</strong> to add 
+    		 the part to the shopping cart.</li>
+	</ul>
+<p>Locating and adding items to the shopping cart can be repeated until all needed items are in the shopping cart.</p>
+<p><strong><em>Once the first item has been added to the shopping cart, all further additions to that cart must be for delivery to the 
+	same facility but may be for different work areas.</em></strong></p>
+<div class="image"><img src="Catalog4.png" height="534" width="797" alt="Material selected for shopping cart" />
+<div class="caption">Figure 4</div></div>
+
+<p>The item is added to the shopping cart and displayed in the data grid at the upper right of the page. There are 
+	several actions which you can take here to adjust the item on order.</p>
+<ul>
+    <li>The quantity on order can be replacing the number in the <strong>Quantity</strong> text box with the quantity 
+    	  needed. The quantity can also be changed later on the <strong><a href="#MRquantity">Material Request</a></strong> page.</li>
+    <li>The date the material is needed should be provided by clicking in the <strong>Date Needed</strong> text 
+    	 box and selecting a date from the calendar. <em>If you do not provide the date here you will have to provide 
+    	 it on the <strong><a href="#MRdate">Material Request</a></strong> page before you check out.</em></li>
+    <li>If the need for the item is critical, check the <strong>Critical</strong> box at the right end of the row 
+    	 to designate this material request as a critical order. (It will then be highlighted with a different background color.)</li>
+    <li>Enter notes by clicking in the <strong>Notes</strong> column, causing a text box to open, and adding your 
+    	 notes. Click outside of the text box to save the notes.</li>
+</ul>
+<p>An item can be removed from the shopping cart by clicking on the corresponding line (it will then be highlighted with a 
+	different background color) and clicking the <strong>Delete Line</strong> link above shopping cart data grid.</p>
+<div class="image"><img src="Catalog5.png" height="534" width="900" alt="Item added to shopping cart" />
+<div class="caption">Figure 5</div></div>
+
+<div class="image"><img src="../../images/DateSelectorForm.png" height="240" width="189" alt="Date selector form" />
+<div class="caption">Figure 5a: Date selector form</div></div>
+
+<p>When all the needed items have been added to the shopping cart, complete the order by to checking out. Click on the 
+	<strong>Check Out</strong> link in the shopping cart to display the <strong>Material Request</strong> page. One or two things will happen.</p>
+<ul>
+    <li><em>Some organizations have multiple accounting systems. If that is the case the requester will be prompted to specify which accounting system 
+    	  to use. One must be selected from the list that will appear on the form. The selected accounting system will 
+    	  be used for all items in the shopping cart.</em><br />then</li>
+    <li>All items in the Shopping Cart on the Catalog page will be moved to a new Material Request page which will open in a new tab.</li>
+</ul>
+<p>See the <strong><a href="../MaterialRequest/MaterialRequest.htm">Material Request (Orders)</a></strong> page help for a description of functions and features.</p>
+<!-- commented out for development purposes 1/20/12 vh
+<div class="image"><img src="Catalog6.png" height="509" width="835" alt="Select Accounting System form" />
+<div class="caption">Figure 6</div></div>
+
+<h3><a id="OptionalInformation">Material Request page optional information</a></h3>
+
+<p>There is an opportunity on the <strong>Material Request</strong> page to provide additional delivery and user
+   information to indicate the point-of-use for the order. When provided, this information applies to all line items
+	on the request and will appear on the delivery ticket shipped with the material. These fields are flexible and
+	remarks can be tailored to assist the end user once the item is delivered.</p>
+<ul>
+	<li>You may enter the end user's name in the <strong>End User Name</strong> text box.</li>
+	<li>You may enter the end user's department in the <strong>Department</strong> text box.</li>
+	<li>You may enter contact information in the <strong>Contact Info</strong> text box.</li>
+</ul>
+<div class="image"><img src="Catalog7.png" height="534" width="835" alt="Material Request optional delivery information" />
+<div class="caption">Figure 7</div></div>
+
+<ul>
+    <li>The <a id="MRquantity">quantity ordered</a> may be changed on this page by updating the number in the <strong>Qty</strong> column.</li>
+	<li>Checking the <strong>Critical</strong> box notifies the HGI Purchasing Team that this is a Priority 1 buy, indicating
+	    this an order is one in which a late delivery will shut down production or the item's lead-time is long enough to
+		 create a problem with operations.</li>
+	<li>Notes on any item can be added for other information that needs to be communicated to the HGI Purchasing Team. Click
+	    anywhere in the <strong>Notes</strong> column for an item and a small text box is provided where you may
+		 this information. Click outside the small text box and anything you have added will be saved.</li>
+</ul>
+<div class="image"><img src="Catalog8.png" height="516" width="835" alt="Material Request Notes and Critical status" />
+<div class="caption">Figure 8</div></div>
+
+<h3><a id="RequiredInformation">Material Request page required information</a></h3>
+<p>Charge numbers (lower left) and delivery information (lower right) <strong><em>must</em></strong> be provided for each line (item) in the <strong>Material 
+   Request</strong>. Select each line (item) on the order in turn and complete the required information. As each <strong>Line</strong> 
+   is selected, its line number is placed into the heading on the	<strong>Line Item Detail</strong> section. (But, see the <a href="#copyshortcut">Shortcut</a>, below.)</p>
+<ul>
+    <li>Under <strong>Line Item Detail</strong> select the <strong>Scrap/Obsolete</strong> check box if this order should
+	     be filled from material in inventory that has been declared scrap or obsolete.</li>
+    <li>Under <strong>Delivery Instructions</strong> any <strong>need by</strong> date was carried over from the 
+        shopping cart, but it may also be updated on this page.</li>
+    <li>There are two types of <strong><a id="MRdate">need by</a></strong> (&rsquo;Delivery by&rsquo;) dates. Your selection will 
+        inform HGI exactly when to deliver the material.
+    	<ul>
+        	<li><strong>Deliver By</strong> deliveries are those that are needed <em>on or before</em> a specified date. Enter the date in the 
+            	text box to the right of the &rsquo;Delivery by&rsquo; box using the calendar window that will open when you click into the box.</li>
+        	<li><strong>Schedule</strong> deliveries are those that are needed <em>exactly on</em> a specified date or set of dates. Click 
+            	the <strong>Schedule</strong> button that will appear the right of the &rsquo;Delivery by&rsquo; box (see below).</li>
+    	</ul>
+    </li>
+	 <li>Select the dock from the <strong>Dock</strong> list.</li>
+    <li>Select the work area from the <strong>Deliver To</strong> list.</li>
+</ul>
+<h4><a id="copyshortcut">Shortcut</a></h4>
+<p>As stated, each line (item) must be assigned charge numbers and delivery information. But there is a <strong>Copy</strong> button provided to 
+	speed the process. Once you have entered the required information for any one item, you may then click on the <strong>Copy</strong> button and 
+	the identical information will be added to all remaining items in every <em>BLANK</em> field. Items which already have charge numbers and/or 
+	delivery information will not be affected. Once you press the <strong>Copy</strong> button an <strong>Undo</strong> button will be provided 
+	in case you want to remove all copied information. After any Copy you may still manually update any field for any item.</p>
+<div class="image"><img src="Catalog9.png" height="533" width="835" alt="Material Request page" />
+<div class="caption">Figure 9</div></div>
+
+<h3><a id="ScheduledDeliveries">Scheduled Deliveries</a></h3>
+<p>If a delivery needs to be scheduled for a <i>specific</i> date, whether it is a single delivery or multiple deliveries,
+   select <strong>Schedule</strong> from the <strong>Delivery Instructions</strong> box. tcmIS will change the 
+   date text box to a <strong>Schedule</strong> button. Click the <strong>Schedule</strong> button to open a child 
+   window to display the <strong>Delivery Schedule</strong> page.</p>
+<p>On the <strong>Delivery Schedule</strong> page repeated deliveries can be scheduled for specified dates or 
+	on a regularly scheduled (recurrent) basis. See the <a href="DeliverySchedule.htm">Delivery Schedule page</a></p>
+<div class="image"><img src="Catalog10.png" height="531" width="835" alt="Schedule button" />
+<div class="caption">Figure 10</div></div>
+
+<h2><a id="Submitanorder">Submit an order</a></h2>
+<p>The final step in placing an gas order is to submit the order. Before
+   submitting the order, you should review the order for accuracy and completeness.</p>
+<ul>
+	<li>Click the <strong>Save</strong> link to save the material request at draft status if you do not have all of the
+	    required information. Draft orders can be retrieved and completed through the
+		 <strong><a href="../OrderTracking/OrderTracking.htm">Order Tracking</a></strong> page.</li>
+	<li>Click the <strong>Delete</strong> link to delete the entire material request <em>if the MR has not been submitted.</em></li>
+	<li>Click the <strong>Delete Line</strong> link to remove a selected line from a material request.</li>
+	<li>Click the <strong>Return to Cart</strong> link to return to the <strong>Catalog</strong> page if more parts need to
+	    be added to the order.</li>
+	<li>Click the <strong>Print This Page</strong> link to print a copy of the material request.</li>
+</ul>
+
+<p>Click the <strong>Submit</strong> link to complete the process of placing the order.</p>
+<p><em>If the order is for a part that is an <strong>OOR</strong> whose item is currently in stock</em>, tcmIS will prompt 
+	   the requestor to allow the OOR shelf life requirement to be waived to allow the stocked item to be shipped immediately. 
+	   You are informed of the minimum remaining shelf life for the delivered items from stock. Often this material is 
+	   currently owned by your company and may be a lost value if no one accepts the material. If this transaction is 
+	   authorized, tcmIS will attempt to fill the request immediately. There are some occasions where shipping an OOR from 
+	   stock could threaten the ability to ship the stocked item to the Min/Max requirement. In these cases, the order will 
+	   revert to normal OOR processing.</p>
+<p>When a Material Request is submitted, tcmIS will open a child window and generate an 
+	<a href="../MRAllocation/MRAllocation.htm"><strong>MR Allocation Report</strong></a>. 
+	This is a detailed listing of all the items on the submitted MR. </p>
+<div class="image"><img src="Catalog11.png" height="182" width="834" alt="Material Request page action links" />
+<div class="caption">Figure 11</div></div>
+
+<p>Some organizations use the financial approval, use approval, and/or releaser functions of tcmIS. If any of these
+   features are used for the selected facility and work area, the material request may be sent to the designated approver
+	or releaser prior to being released to HGI. Use the <strong>Order Tracking</strong> page to locate an order to
+	view the status.</p>
+<p>When financial approval is needed for an order the approver's contact information is available from the <strong>Material
+   Request</strong> page. Click the <strong>Ext Price</strong> link to see it. The <strong>Finance Approver Information</strong>
+	form will be shown as a window on top of the <strong>Material Request</strong> page.</p>
+<div class="image"><img src="Catalog12.png" height="425" width="668" alt="Material Request page Ext Price link and Approver contact information" />
+<div class="caption">Figure 12</div></div>
+
+end of commented out section 1/20/12 vh -->
+
+<h2><a id="firstmenu">First Context menu</a></h2>
+<div class="image"><img src="Catalog13.png" height="614" width="1001" alt="First context menu" />
+<div class="caption">Figure 13: First context menu</div></div>
+
+<h3><a id="inventory">Inventory</a></h3>
+<p>To find out more about the <em>inventory</em> of the selected material, on the first context menu (above) hover
+   your mouse on the <strong>Inventory</strong> item. The inventory on hand (Part Inventory) at the HGI Hub is displayed. 
+   (Typically only Min/Max items will have on hand inventory.) The current Reorder Point and Stocking Level are also shown. 
+   Hover on the <strong>Item Inventory</strong> menu item to display the <strong>Item</strong> number and actual on hand inventory.</p>
+<p>Click on the displayed <strong>Item</strong> number and actual on hand inventory to display the <strong>Inventory
+   for Part</strong> page.</p>
+<div class="image"><img src="Catalog14.png" height="576" width="997" alt="Item Inventory information menu" />
+<div class="caption">Figure 14</div></div>
+
+<p>tcmIS will open a child window to display the inventory information for the item. This page includes the <strong>Item 
+   Description</strong>; <strong>On Hand Material</strong> including the manufacturer's lot number and expiration date; and, 
+   any items that are on order ("<strong>In Supply Chain</strong>") with an estimated Ready to Ship [date] when available.</p>
+<div class="image"><img src="Catalog15.png" height="318" width="434" alt="Inventory for Part page" />
+<div class="caption">Figure 15</div></div>
+
+<h3><a id="specifications">Specifications</a></h3>
+<p>Specifications associated with a part can be displayed by invoking the <a href="#firstmenu">first context menu</a> 
+	and hovering over the <strong>Specification</strong> menu item. Any specifications associated with the part are 
+	displayed as submenu items.</p> 
+<p>Select the specification menu item you want to view. The most current revision of the specification is displayed 
+	with the specification document shown in PDF format within the page (using the same format as <a href="#viewmsds">viewing 
+	an MSDS</a>; see below). If any other specifications are on record you may view them by selecting one from the 
+	<strong>Spec Available Specs</strong> list in the upper-left corner of the page.</p>
+<p><em>In some cases the specification is &rsquo;dimmed&rsquo; indicating that it exists but is not stored in tcmIS.</em></p>
+<div class="image"><img src="Catalog16.png" height="576" width="997" alt="Specifications menu" />
+<div class="caption">Figure 16</div></div>
+
+<h3><a id="comments">Comments</a></h3>
+<p>Comments associated with a part or work area can be displayed and managed by invoking the <a href="#firstmenu">first 
+	context menu</a>. Hover on the <strong>Comments</strong> item. There are three types of comments that can be added or 
+	edited, each with its own features and purposes.</p>
+<ul>
+	<li>Choose <strong>Cart Comments</strong> to view or add a Cart-specific comment for this facility and work area.
+	The user is notified about this comment every time the part is added to a shopping cart for the facility and work area.
+	This feature can be used to share information about excess chemicals with other users to help encourage efficient
+	use of chemicals. Buyers and HGI personnel will not be shown this comment.</li>
+
+	<li>Choose <strong>Part Work Area Comments</strong> to view or add comments specific to this facility and work area.
+	   These comments are not shown to other facilities or work areas, nor outside DoE.</li>
+
+	<li>Choose <strong>Part Comments</strong> to view or add comments for all users of the <strong>Catalog</strong> page.
+	Part Comments are	printed on the HGI pick list at the warehouse.</li>
+</ul>
+<p>The <strong>Comment</strong>, <strong>Part Work Area Comments</strong>, and <strong>Part Comments</strong> pages
+   differ slightly in appearance and operation (see below). Each opens in a new window to view, add, or edit comments.</p>
+<div class="image"><img src="Catalog17.png" height="576" width="997" alt="Inventory Item Comments submenu" />
+<div class="caption">Figure 17</div></div>
+
+<p>To enter, edit, or delete a <strong>[Cart] Comment</strong>, select the <strong>Cart Comment</strong> context menu item. 
+   Add or edit the text in the <strong>Comment</strong> box. Remove a comment by simply deleting the text in the 
+   <strong>Comment</strong> box. Click <strong>OK</strong> button when you are finished.</p>
+<div class="image"><img src="Catalog18.png" height="174" width="434" alt="[Cart] Comment page" />
+<div class="caption">Figure 18</div></div>
+
+<p>The Cart Comment is displayed when the part is added to the shopping cart. Click the <strong>OK</strong> button to
+   add the part to the shopping cart anyway. Click the <strong>Cancel</strong> button to return to the
+   <strong>Catalog</strong> page without added the part	to the shopping cart. </p>
+<div class="image"><img src="Catalog19.png" height="548" width="835" alt="Cart Comment shown when adding to cart" />
+<div class="caption">Figure 19</div></div>
+
+<p>To enter, edit, or delete a <strong>Part Work Area Comment</strong>, select the <strong>Part Work Area Comment</strong> 
+	context menu item.</p>
+<ul>
+	<li>Create a new comment by selecting the <em>New</em> check box on the last row and entering the comment in the 
+		 <strong>Comments</strong> text box.
+		 	<ul>
+		 		<li>The <strong>Part Work Area Comment</strong> form is largely similar to, but not identical to, the 
+		 		 	<strong>Part Comment</strong> form (below).</li>
+		 	</ul>
+		 </li>
+	<li>To delete a <strong>Part Work Area Comment</strong>, select the <em>Delete</em> check box on the comment row.</li>
+	<li>To edit a <strong>Part Work Area Comment</strong>, delete the existing comment and create the substitute 
+		 comment.</li>
+	<li>You must click on the <strong>Submit Changes</strong> link in order for any additions, changes, or deletions 
+		 to be kept.</li>
+	<li>If you decide NOT to make any further addition, change, or deletion, click the <strong>Close</strong> button to 
+		 close the form and the child window.</li>
+</ul>
+<div class="image"><img src="Catalog20.png" height="289" width="503" alt="Part Work Area Comments page" />
+<div class="caption">Figure 20</div></div>
+
+<p>To enter, edit, or delete a <strong>Part Comment</strong>, select the <strong>Part Comment</strong> 
+	context menu item.</p>
+<ul>
+	<li>Create a new comment by entering text in the first row (it will have the word <strong>New</strong> in the first column), 
+		and entering the comment in the <strong>Comments</strong> text box.
+		 	<ul>
+		 		<li>The <strong>Part Comment</strong> form is largely similar to, but not identical to, the 
+		 		 	<strong>Part Work Area Comment</strong> form (above).</li>
+		 	</ul>
+		 </li>
+	<li>To delete a <strong>Part Comment</strong>, select the check box in the first column on the comment row and click the 
+		<strong>Update</strong> link.</li>
+	<li>To edit a <strong>Part Work Area Comment</strong>, delete the existing comment and create the substitute 
+		 comment.</li>
+	<li>You must click on the <strong>Update</strong> link in order for any additions, changes, or deletions 
+		 to be kept.</li>
+	<li>If you decide NOT to make any further addition, change, or deletion, click the <strong>Close</strong> button to 
+		 close the form and the child window.</li>
+</ul>
+<div class="image"><img src="Catalog21.png" height="253" width="434" alt="Editing and Deleting a Part Comment" />
+<div class="caption">Figure 21</div></div>
+
+<h3><a id="approved">Approved work areas</a></h3>
+<p>A list of approved work areas for a part can be displayed by invoking the <a href="#firstmenu">first context menu</a> 
+	and selecting the <strong>Approved Work Areas</strong> menu item.</p>
+<div class="image"><img src="Catalog22.png" height="576" width="997" alt="Approved Work Areas menu item" />
+<div class="caption">Figure 22</div></div>
+
+<p>All work areas where the part is approved for use are displayed along with any usage restrictions.</p>
+<div class="image"><img src="Catalog23.png" height="230" width="503" alt="Approved Work Areas page" />
+<div class="caption">Figure 23</div></div>
+
+<h3><a id="leadtime">Lead time plots</a></h3>
+<p>Lead time information can be viewed by invoking the <a href="#firstmenu">first context menu</a> and 
+	selecting the <strong>Lead Time Plots</strong> menu item. The median lead time in days is displayed.</p>
+<div class="image"><img src="Catalog24.png" height="576" width="997" alt="Lead Time Plots menu item" />
+<div class="caption">Figure 24</div></div>
+
+<p>Each delivery lead time is graphed as well as the median lead time, tenth percentile, and ninetieth percentile. This lead 
+	time represents the time between order placement in tcmIS and delivery to the requester. </p>
+<div class="image"><img src="Catalog25.png" height="286" width="434" alt="Lead Time graph" />
+<div class="caption">Figure 25</div></div>
+
+<h3><a id="qualitysummary">Quality Summary</a></h3>
+<p>A form to display the quality information on an item can be opened by invoking the <a href="#firstmenu">first context menu</a> 
+	and selecting the <strong>Quality Summary</strong> menu item. The form will be displayed in a child window.</p>
+<div class="image"><img src="Catalog26.png" height="570" width="835" alt="Quality Summary menu item" />
+<div class="caption">Figure 26</div></div>
+
+<p>The Quality Summary form displays product details, product information, specification information, and any purchasing 
+	notes or receiving notes that have been stored for the item.</p>
+<div class="image"><img src="Catalog27.png" height="469" width="656" alt="Quality Summary form" />
+<div class="caption">Figure 27</div></div>
+
+<h3><a id="EditCharge">Part (or Work Area) Directed Charge</a></h3>
+<p>Selecting the <strong>Edit Part Directed Charge</strong> context menu item will open a window
+   to display the Charge Information form. This is used to edit the existing directed charge information for
+   a part (or even a <a href="../WorkAreas/WorkAreaDefinition.htm#EditCharge">work area</a>). It comes in two forms, as illustrated, to 
+   handle both Direct and Indirect charges. Make the needed changes directly on the form.</p> 
+   <ul>
+   	<li>Click the <strong>Remove Charge Numbers</strong> link to delete the existing charge numbers (if 
+   		 any) from the part record for this work area; or,</li>
+   	<li>Enter the percentage values that are appropriate in the right text column. <em>This capability</em> is 
+   		 only available to those who have the appropriate responsibility and authority.</li>
+   	<li><em>If available</em>, use the <strong>PO</strong> box, which may appear as a text box in which to type, or may appear as
+   		 a drop-down list from which to select, to change the PO for the part record for this work area.</li>
+   </ul>
+<p>When done, click on the <strong>Submit</strong> link in the upper-left corner to save the changes: the new information will be used until 
+   any future change is made. If you need simply to delete the existing directed charge, click the <strong>Remove 
+   Charge Numbers</strong> link in the upper-left. The window will close when you click either link.</p>
+<p>If directed charges have been entered for both a part and the work area, the part directed charge will be used
+   rather than the work area directed charge.</p>
+<div class="image"><img src="Catalog28.png" height="379" width="834" alt="Charge Information window - Direct and Indirect charge forms" />
+<div class="caption">Figure28</div></div>
+
+
+<h2><a id="secondmenu">Second context menu</a></h2>
+<p>The second context menu contains these menu items:</p>
+	<ul>
+		<li><strong>Item ID</strong> simply displays, in bold font, the Item ID for the part on the selected row.</li>
+		<li><a href="#inventorycount"><strong>Inventory</strong> [count]</a></li>
+		<li><strong>Mfg Lit</strong> (manufacturer literature): Manufacturer's literature is electronic copies from the manufacturer 
+				about the item that have been stored in tcmIS. <em>If this link is dimmed there is no stored copy.</em></li>
+		<li><strong>Image</strong>s are scanned copies from the manufacturer about the item that have been stored in tcmIS. 
+			 <em>If this link is dimmed there is no stored image.</em></li>
+	</ul>
+<div class="image"><img src="Catalog29.png" height="570" width="835" alt="Second Information context menu" />
+<div class="caption">Figure 29: Second context menu</div></div>
+
+
+<h3><a id="inventorycount">Inventory [count]</a></h3>
+<p>The <a href="#secondmenu">second context menu</a> includes an item for <strong>Inventory</strong> which simply provides 
+	a count of the items in stock. Click on the <strong>Inventory</strong> menu item of the second context menu to open a 
+	child window to display the  <strong>Inventory for Part</strong> form. This is the same form that is displayed by choosing 
+	the <a href="#firstmenu">first context menu</a> <em>Inventory &gt;&gt; Item Inventory &gt;&gt; [number and count]</em> menu item.</p>
+
+<h3><a id="thirdmenu">Third context menu</a></h3>
+<p>The third context menu contains these menu items:</p>
+	<ul>
+		<li><a href="#viewmsds">View MSDS</a></li>
+
+		<li><a href="#synonym">Add/Edit Synonym</a></li>
+		<li><a href="#printsecondary">Print Secondary Label</a></li>
+		<li><a href="#managesecondary">Manage Secondary Label Information</a></li>
+	</ul>
+<div class="image"><img src="Catalog30.png" height="570" width="835" alt="Third Information context menu" />
+<div class="caption">Figure 30: Third context menu</div></div>
+
+<h3><a id="viewmsds">View MSDS</a></h3>	
+<p>The MSDS for an item can be displayed from the <a href="#thirdmenu">third context menu</a> by
+	selecting the <strong>View MSDS</strong> menu item. The <strong>MSDS Information page</strong> is opened in a new window.</p>
+<p>The current version of the MSDS is displayed in PDF format within the page. This tcmIS page is also used to display 
+	<a href="#specifications">Specification</a> information.</p>
+<div class="image"><img src="Catalog31.png" height="514" width="755" alt="View MSDS child window" />
+<div class="caption">Figure 31</div></div>
+
+<h3><a id="synonym">Add/Edit Synonym</a></h3>	
+<p>Selecting the <strong>Add/Edit Synonym</strong> menu item from the <a href="#thirdmenu">third context menu</a> will
+	open a small child window to display the Synonym form. The form will list any &rsquo;synonyms&rsquo; for the item. You 
+	may add, edit, or delete items on for this list simply by making changes in the multi-line text box. You must click the 
+	<strong>Update</strong> link to store the change in tcmIS.</p>
+<div class="image"><img src="../../../doe/help/Catalog/Add-EditSynonym.png" width="376" height="208" alt="Add-EditSynonym" />
+<div class="caption">Figure 32</div></div>
+
+
+<h3><a id="printsecondary">Print Secondary Label</a></h3>	
+<p>Selecting the <strong>Print Secondary Label</strong> menu item from the <a href="#thirdmenu">third context menu</a> will
+	open a small form where you specify the quantity of labels to print; the default number is 1 (one). Once the desired quantity is 
+	specified, click the <strong>OK</strong> button to complete printing the label(s) to the attached Zebra printer.</p>
+<div class="image"><img src="Catalog33.png" height="111" width="398" alt="Print Secondary Label form" />
+<div class="caption">Figure 33</div></div>
+
+<h3><a id="managesecondary">Manage Secondary Label Information</a></h3>	
+<p>Selecting the <strong>Manage Secondary Label</strong> menu item from the <a href="#thirdmenu">third context menu</a> will
+	open a child window to display the Manage Secondary Label Information form.</p>
+<div class="image"><img src="Catalog34.png" height="325" width="736" alt="Manage Secondary Label Information form" />
+<div class="caption">Figure 34</div></div>
+
+</body>
+</html>

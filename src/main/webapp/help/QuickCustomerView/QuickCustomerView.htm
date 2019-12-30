@@ -1,0 +1,191 @@
+<html>
+<head>
+<title>Quick Customer View</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript" src="../../UTC/OrderTracking/textsizer.js">
+
+/***********************************************
+* Document Text Sizer- Copyright 2003 - Taewook Kang.  All rights reserved.
+* Coded by: Taewook Kang (http://www.txkang.com)
+* This notice must stay intact for use
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+<style>
+body{
+	background-color: white;
+	font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+p, li {
+	font-size: 0.8em;
+}
+li li {
+	font-size: 1.0em;
+}
+h4 {
+	font-size: 0.9em;
+	font-weight: bold;
+}
+div p {
+font-size: 1em;
+}
+</style>
+</head>
+
+<body>
+<div align="left">
+<h3><a id="QuickCustomerView" name="QuickCustomerView">Quick Customer View</a></h3>
+  <p><a href="javascript:ts('body',1)">+ Larger Font</a> |  <a href="javascript:ts('body',-1)">+ Smaller Font</a></p>
+</div>
+<p>The <strong>Quick Customer View</strong> page is a convenient way to get a complete overview of Distribution 
+	items in HGI locations, including HGI owned material, client owned material, and consigned material. The 
+	<strong>Quick Customer View</strong> can be accessed in two ways:</p>
+	<ul>
+		<li>From the <strong>Distribution</strong> menu by selecting the <strong>Quick Customer View</strong> menu item. 
+			 It will be opened in a new tab.</li>
+		<li>From the context menu on any record row shown on a <strong>Scratch Pad</strong> or a <strong>Material request</strong> 
+			 select the <strong>Quick Customer View</strong> menu item. It will be displayed in a child window.</li>
+	</ul>
+<p><img src="QuickCustomerView1.png" alt="Quick Customer View menu item" width="835" height="363"></p>
+<h6>Figure 1</h6>
+
+<p>In the upper panel of the <strong>Quick Customer View</strong> tab page there are there are three criteria and two options 
+	for specifying the item for which you want details. (On the child window form since you have started from a specific customer and 
+	item all these choices have already been accounted for: the upper panel displays only the <strong>Inventory Group</strong> and 
+	<strong>Item Desc</strong>[ription] information.)</p>
+	<ul>
+		<li>Select the operating entity from the <strong>Operating Entity</strong> drop-down list.</li>
+		<li>Select the HGI hub from the <strong>Hub</strong> drop-down list.</li>
+		<li>Select the inventory group from the <strong>Inventory Group</strong> drop-down list.</li>
+		<li>You must specify a particular Customer:
+			<ul>
+				<li>begin typing the name and tcmIS will display a drop-down list of matching customers 
+					 (see <a href="../Introduction/Searches.htm#typeahead">Type ahead search</a>); or</li>
+				<li>click on the magnifying glass icon <img src="glass.gif" width="21" height="16" alt="magnifying glass icon" /> 
+			 		 to use the <strong>Customer Lookup</strong> form. See <a href="../Introduction/Searches.htm#lookup">Lookup forms</a> for 
+			 		 general information and see <a href="#customerlookup">below</a> for more details.</li>
+			</ul>
+		  </li>
+		<li>You may use the <strong>within ___ days</strong> text box to limit the search to customers withing a recent period.</li>
+	</ul>  
+<p>Click the <strong>Search</strong> button to display all the items that match the criteria.</p>
+<p><img src="QuickCustomerView2.png" alt="Quick Customer View page" width="835" height="285"></p>
+<h6>Figure 2</h6>
+
+<p>Unlike most pages in tcmIS, the <strong>Quick Customer View</strong> page displays four data grids. Click on any of these data grid 
+	titles to see more information:</p>
+	<ul>
+		<li><strong><a href="#MRhistory">MR History</a></strong> (upper left)</li>
+		<li><strong><a href="#invoice">Invoice</a></strong> (upper right)</li>
+		<li><strong><a href="#quotehistory">Price Quote History</a></strong> (lower left)</li>
+		<li><strong><a href="#contact">Contact</a></strong> (lower right)</li>
+	</ul>
+<p><img src="QuickCustomerView3.png" alt="Quick Customer View page" width="835" height="628"></p>
+<h6>Figure 3</h6>
+
+<h3><a id="customerlookup">Customer Lookup form</a></h3>
+<p>The <strong>Customer Lookup</strong> form includes five different sets of search fields; each be used alone or in combination 
+	with one or more of the others. <em>When combinations are used search results will display only those 
+	items that meet <strong>all</strong> criteria.</em></p>
+<p>The <strong>Customer ID</strong> search allows only exact matching, that is where the entered search value <em>Is</em> exactly the same 
+	as the field value. The remaining four of the five set of searches allows matching on <em>Is</em>, <em>Contains</em>, <em>Starts with</em>, 
+	and <em>Ends with</em>. (See <a href="../Introduction/Searches.htm#searchby">tcmIS Search/Seach by</a> for more details.) The fields are</p>
+	<ul>
+		<li>Customer ID</li>
+		<li>Customer Name</li>
+		<li>Synonym</li>
+		<li>Bill To</li>
+		<li>Ship To</li>
+	</ul>
+<p><img src="QuickCustomerView4.png" alt="Customer Lookup form" width="656" height="372"></p>
+<h6>Figure 4</h6>
+
+<h4><a id="MRhistory">MR History data grid</a></h4>
+<p>In the <strong>MR History</strong> panel use any of the text boxes in the column headers to filter the display and 
+	show only those inventory items matching the text you enter. The match will be made when any or all of what you 
+	enter matches the data in that column, including when you enter text in more than one column .</p>
+	<ul>
+		<li><strong>Inventory Group</strong></li>
+		<li><strong>MR-Line</strong></li>
+		<li><strong>Customer Part</strong></li>
+		<li><strong>Desc</strong>[ription]</li>
+		<li><strong>Customer PO</strong></li>
+	</ul>
+<p><img src="QuickCustomerView5.png" alt="Customer Lookup form" width="547" height="433"></p>
+<h6>Figure 5</h6>
+<p>Right click on any record in the <strong>MR History</strong> panel for a context menu that includes 
+	four menu items.</p>
+	<ul>
+		<li>The <strong>Open</strong> menu item will display the MR for the record in a new tab. See the 
+			 <a href="../OrderEntry/CreateMR.htm">Create MR</a> page help for more details.</li>
+		<li>The <strong>MR Line Allocation</strong> menu item opens a child window to display the MR Allocation report 
+			 for only the selected record. See help for the <a href="../MRAllocation/MRAllocation.htm">MR Allocation Report</a> 
+			 for details.</li>
+		<li>The <strong>Create New Quote</strong> menu item display a new <strong>Quote</strong> page in its own tab, 
+			 with much of the information already filled in based on the existing quote. See the <a href="../OrderEntry/CreateQuote.htm">Quote</a> 
+			 page for details.</li>
+		<li>The <strong>Create New MR</strong> menu item will display a new MR in its own tab, based on the existing MR. See 
+			 the <a href="../OrderEntry/CreateMR.htm">Create MR</a> page help for more details.</li>
+	</ul>
+<p><img src="QuickCustomerView6.png" alt="MR History panel context menu" width="836" height="628"></p>
+<h6>Figure 6</h6>
+
+<h4><a id="quotehistory">Price Quote History data grid</a></h4>
+<p>In the <strong>Price Quote History</strong> panel use the text box in the <strong>Inventory Group</strong> column to filter the display to 
+	 display only those inventory items matching the text you enter.</p>
+<p>Right click on any record in the <strong>Price Quote History</strong> panel for a context menu that includes 
+	three menu items.</p>
+	<ul>
+		<li>The <strong>Open</strong> menu item will display the <strong>Quote</strong> for the record in a new tab. See the 
+			 <a href="../OrderEntry/CreateQuote.htm">Quote</a> page help for more details.</li>
+		<li>The <strong>Create New Quote</strong> menu item display a new <strong>Quote</strong> page in its own tab, 
+			 with much of the information already filled in based on the existing quote. See the <a href="../OrderEntry/CreateQuote.htm">Quote</a> 
+			 page for details.</li>
+		<li>The <strong>Create New MR</strong> menu item will display a new MR in its own tab, based on the existing MR. See 
+			 the <a href="../OrderEntry/CreateMR.htm">Create MR</a> page help for more details.</li>
+	</ul>
+<p><img src="QuickCustomerView6.png" alt="Price Quote History panel context menu" width="835" height="628"></p>
+<h6>Figure 7</h6>
+
+<h4><a id="invoice">Invoice data grid</a></h4>
+<p>In the <strong>Invoice</strong> panel use the text box in the <strong>Customer PO</strong> column to filter the display to 
+	display only those PO&rsquo;s matching the text you enter.</p>
+<p>Right click on any record in the <strong>Invoice</strong> panel for a context menu that includes one menu item.</p>
+	<ul>
+		<li>The <strong>Print Invoice</strong> menu item will send a copy of the selected invoice you your printer.</li>
+	</ul>
+<p><img src="QuickCustomerView8.png" alt="Invoice panel context menu" width="835" height="628"></p>
+<h6>Figure 8</h6>
+
+<h4><a id="contact">Contact data grid</a></h4>
+<p>In the <strong>Contact</strong> panel there is a <strong>New contact</strong> link. Click on it to display 
+	the New Customer Contact form in a child window. To record a new customer contact"</p>
+		<ul>
+			<li>Enter as much information as you have in the various text boxes (<strong>First Name</strong>, <strong>Last Name</strong>, etc.): 
+				 text boxes marked with red asterisks indicate require information;
+				<ul>
+					<li>Notice that there is a <strong>Default Contact</strong> check box at the bottom of the second column of 
+					 	 text boxes. <strong><em>If the new record you are creating is to be the default contact</em></strong>, select this box.</li>
+				 </ul>	 
+			</li>
+			<li>From the <strong>Primary Job Function</strong> drop-down list select the closest match: note that this is also required information;</li>
+			<li>Using the check boxes, select any (and all) <strong>Other Job Functions</strong> that apply;</li>
+		</ul>
+<p>Click the <strong>OK</strong> button to store the new contact information in tcmIS. Click the <strong>Cancel</strong> button to discard the 
+	information and close the form.</p>
+<p><img src="QuickCustomerView9.png" alt="New Customer Contact form" width="576" height="233"></p>
+<h6>Figure 9</h6>
+
+<p>Right click on any record in the <strong>Contact</strong> panel for a context menu that includes 
+	two menu items.</p>
+	<ul>
+		<li>The <strong>Customer Details</strong> menu item will display the <strong>Edit Customer <a href="../CustomerSearch/EditCustomer.htm">Customer Details</a></strong> 
+			 page in a new tab.</li>
+		<li><strong>Email</strong> menu item will use your e-mail software open an e-mail message addressed to the selected contact person.</li>
+	</ul>
+<p><img src="QuickCustomerView10.png" alt="Inventory panel context menu" width="835" height="628"></p>
+<h6>Figure 10</h6>
+
+</body>
+</html>

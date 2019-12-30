@@ -1,0 +1,94 @@
+<html>
+
+<head>
+<title>Order Status</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p>
+<center><h2>Order Status</h2></center>
+<p>
+<form action="/cgi-bin/raybrowse/archaic/order_status.cgi" method="post">
+
+<center>
+Show &nbsp;
+<input type="checkbox" name="minmax_filter" value="X" CHECKED>MaxMin &nbsp;
+<input type="checkbox" name="oor_filter" value="X" CHECKED>OOR &nbsp;
+items for hub &nbsp;
+<select name="bp">
+<option value="2101" SELECTED>Salem
+<option value="2103">Tucson
+<option value="2102">Dallas
+</select>
+<br>
+for facility &nbsp;
+<select name="fac_filter">
+<option value="Any" SELECTED>Any Facility
+<option value="Andover">Andover
+<option value="Quincy">Quincy
+<option value="Waltham">Waltham
+<option value="Huntsville">Huntsville
+<option value="Bedford">Bedford
+<option value="Lexington">Lexington
+<option value="Portsmouth">Portsmouth
+<option value="Tewksbury">Tewksbury
+<option value="Texarkana">Texarkana
+<option value="White Sands">White Sands
+<option value="Sudbury">Sudbury</option>
+<option value="Tucson Rita Road">Tucson Rita Road
+<option value="Tucson Airport">Tucson Airport
+<option value="Camden">Camden
+<option value="Louisville">Louisville
+<option value="NAPI">NAPI
+<option value="Sycamore">Sycamore
+</select>
+<br>
+where the Raytheon Part # contains &nbsp;
+<input type="text" name="part_id">
+<br>
+where the Raytheon Request ID contains &nbsp;
+<input type="text" name="request_id">
+<br>
+where the Raytheon PO contains &nbsp;
+<input type="text" name="raytheon_po">
+<br>
+where the Radian Item ID is &nbsp;
+<input type="text" name="item_id">
+<br>
+where the Sales Order is &nbsp;
+<input type="text" name="sales_order">
+<br>
+including items shipped more than a week ago &nbsp;
+<input type="radio" name="old_flag" value="Y"> Yes &nbsp;
+<input type="radio" name="old_flag" value="N" CHECKED> No &nbsp;
+<p>
+Sort by: <select name="sortby">
+        <option value="raytheon_po">Raytheon PO
+        <option value="request_id">Request ID
+        <option value="date_submitted" SELECTED>Date Submitted to Radian
+        <option value="days_elapsed">Days Elapsed
+        <option value="part_id">Raytheon Part #
+        <option value="quantity">Qty
+        <option value="uom">UOM
+        <option value="delivery_date">Promised Delivery to Raytheon
+        <option value="date_shipped">Date Shipped to Raytheon
+        <option value="unit_price">Unit Price
+        <option value="qty_backorderd">Qty Backordered
+        <option value="on_hand">On Hand
+        <option value="item_type">Item Type
+        <option value="on_order">On Order
+        <option value="order_uom">Order UOM
+        <option value="promised_date">Promised Delivery from Vendor
+        <option value="radian_po">Radian PO
+        <option value="sales_order_id">Sales Order ID
+        <option value="order_type">Order Type
+        <option value="item_id">Item ID
+        <option value="item_desc">Description
+        <option value="location">Location
+        <option value="facility">Facility
+</select>
+<input type="radio" name="up" value="" CHECKED>Ascending
+<input type="radio" name="up" value="desc">Descending
+<input type="submit" value="Resubmit & Sort">
+</body></html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Work Area Management</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="WorkAreaUsage" id="WorkAreaUsage"></a>Work Area Management</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The tcmIS <strong>Work Area Management</strong> page is used to make needed work area modifications 
+   in the use of QPL items. The <strong>Work Area Management</strong> page can be accessed from the 
+   <strong>Order Management</strong> by selecting the <strong>Work Area Management</strong> menu item. 
+   The page is launched in a new tab.</p>
+
+<div class="image"><img src="WorkAreaMgt1.png" height="260" width="709" alt="Work Area Management menu link" />
+<div class="caption">Figure 1</div></div>
+
+<p>Select both the facility which services the work area from the <strong>Facility</strong> list and the
+   work area from the <strong>Work Area</strong> list. You may work on only a single work area at any one time.</p>
+<p>You may further narrow your search for items to manage by:</p>
+<ul>
+	<li>selecting a specific <strong>User Group</strong> from the list;</li>
+	<li>Selecting the check box for <strong>Show Active in Work Area Only</strong> to include only items with a status of Active;</li>
+	<li>entering a specific text to match in the <strong>Keywords</strong> text box; and/or</li>
+	<li>Selecting the check box for <strong>Show Only Parts with Limits</strong> to include only items with specified limits for the work area.</li>
+</ul>
+<p>There is also a <strong>Show Over Limit Approvers</strong> link on the form to display information on who has authority to approve exceptions to limits.</p>
+<p>Click the <strong>Search</strong> button.</p>
+<div class="image"><img src="WorkAreaMgt2.png" height="292" width="812" alt="Work Area Management search form" />
+<div class="caption">Figure 2</div></div>
+
+<p>tcmIS will display all the items in the selected work area meeting your criteria. The data grid is also 
+   color-keyed to clarify the role of the column values. Click on the <strong>Show Legend</strong> link 
+   to display the color legend.</p>
+<p>Click the <strong>Create Excel</strong> link on the page to export the data in Excel format.</p>
+<div class="image"><img src="WorkAreaMgt3.png" height="535" width="899" alt="Work Area Management data grid" />
+<div class="caption">Figure 3</div></div>
+<div class="image"><img src="WorkAreaMgt3a.png" height="164" width="241" alt="Color legend" />
+<div class="caption">Figure 3a</div></div>
+
+<p>Clicking on the <strong>Turn Override Off</strong> link initiates the process to change the status of the Work Area 
+   from Managed to Not Managed. tcmIS will display a small message window requiring confirmation before making the 
+   change. Also, the link itself will be changed to <strong>Turn Override On</strong> to reverse the change if needed.</p>
+<ul>
+	<li>A managed work area is one where someone in authority sets use limits on (some) materials. An order placed beyond the 
+	limit automatically generates notification to the overlimit approver. (Before approval, these show a status of 
+	&rsquo;Pending Use Approval&rsquo; in Order Tracking.</li>
+</ul>   
+<div class="image"><img src="WorkAreaMgt4.png" height="535" width="899" alt="Turn Override Off link" />
+<div class="caption">Figure 4</div></div>
+
+<div class="image"><img src="WorkAreaMgt4a-4b.png" width="746" height="148" alt="Change Override status confirmation windows" />
+<div class="caption">Figure 4a and 4b</div></div>
+
+<p>The two links <strong>Activate All</strong> and <strong>Deactivate All</strong> act on all the records in the data 
+   grid. <em>Notice that it is possible for some items to be Active and some Inactive, as indicated by the check box in 
+   the <strong>Active</strong> column.</em> When one of these links is selected, all items are set to the same status.</p>
+<p>The process includes a small message window requiring confirmation before making the change. The messages explain 
+   briefly the impact of the change.</p>
+<div class="image"><img src="WorkAreaMgt5.png" width="844" height="535" alt="Activate and Deactivate links" />
+<div class="caption">Figure 5</div></div>
+
+<div class="image"><img src="WorkAreaMgt5a-5b.png" width="798" height="183" alt="Change Override status confirmation windows" />
+<div class="caption">Figure 5a: Active All and 5b: Deactivate All</div></div>
+
+<p>Selecting any record both causes it to be highlighted and activates additional information fields in some columns of the 
+   record. This allows you to edit these Work Area Manager Override fields.</p>
+<ul>
+	<li>The <strong>Limit 1</strong> and <strong>Limit 2</strong> columns each contain two editable fields. Those fields are the 
+	    &rsquo;x&rsquo; and &rsquo;y&rsquo; values in the limit rule &rsquo;x [quantity] every y days.</li>
+	<li>The <strong>Process Description</strong> column contains a single large text box where process details may be 
+	    documented.</li>
+	<li>The <strong>Order Quantity</strong> column text box allows you to modify the quantity of the item used in a 
+	    standard order.</li>
+	<li>The <strong>Order Qty Type</strong> column contains a list from which you identify the nature of a standard 
+	    order: Default or Fixed.</li>
+</ul>
+<p>This also allows you to edit these Automated Ordering Information fields.</p>
+<ul>
+	<li><strong>Customer Ship To Code</strong> may be edited in the text box.</li>
+	<li><strong>tcmIS Dock</strong> may be edited using the list.</li>
+	<li><strong>Customer Deliver To</strong> may be edited in the text box.</li>
+	<li><strong>tcmIS Deliver to</strong> may be edited using the list.</li>
+	<li><strong>Barcode Requestor</strong> may be edited by clicking on the ellipsis (three periods) to make a selection.</li>
+</ul>
+<p>Click the <strong>Update</strong> link to save the changes made in any of these fields.</p>
+<div class="image"><img src="WorkAreaMgt6.png" width="899" height="538" alt="Editing managed area item values" />
+<div class="caption">Figure 6</div></div>
+
+<p>A right click on any record will display a context menu item to allow you to print the displayed 
+   list. <em>Only the portion of the list that will fit the paper will be printed.</em> To get 
+   more columns of data change the Print Preferences to a Landscape Orientation.</p>
+<div class="image"><img src="WorkAreaMgt7.png" height="537" width="899" alt="Context menu print item" />
+<div class="caption">Figure 7</div></div>
+
+
+</body>
+</html>

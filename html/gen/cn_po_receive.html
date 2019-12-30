@@ -1,0 +1,284 @@
+<html>
+
+
+<head>
+<title>采购订单的收货列表</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p>
+<center><h2>采购订单的收货列表</h2></center>
+<p>
+<form action="/cgi-bin/radweb/po_receive.cgi" method="post">
+
+<div align="center"><center>
+显示 &nbsp;
+<input type="checkbox" name="print" value="X">已打印 &nbsp;
+<input type="checkbox" name="noprint" value="X" CHECKED>未打印 &nbsp;
+的项目
+<br>
+仓库
+<select name="bp">
+<option value="3000">天津仓库
+</select>
+<br>
+Haas 订单号为 &nbsp;
+<input type="text" name="po_num" value="">
+<br>
+Haas 产品编号为 &nbsp;
+<input type="text" name="item_id" value="">
+<br>
+供应商名称含有 &nbsp;
+<input type="text" name="supp" value="">
+<br>
+订货日期在此之后 &nbsp;
+&nbsp;
+<select name="oamon">
+        <option value="01">一月
+        <option value="02">二月
+        <option value="03">三月
+        <option value="04">四月
+        <option value="05">五月
+        <option value="06">六月
+        <option value="07">七月
+        <option value="08">八月
+        <option value="09">九月
+        <option value="10">十月
+        <option value="11">十一月
+        <option value="12">十二月
+</select>
+&nbsp;
+<select name="oaday">
+        <option value="01">01
+        <option value="02">02
+        <option value="03">03
+        <option value="04">04
+        <option value="05">05
+        <option value="06">06
+        <option value="07">07
+        <option value="08">08
+        <option value="09">09
+        <option value="10">10
+        <option value="11">11
+        <option value="12">12
+        <option value="13">13
+        <option value="14">14
+        <option value="15">15
+        <option value="16">16
+        <option value="17">17
+        <option value="18">18
+        <option value="19">19
+        <option value="20">20
+        <option value="21">21
+        <option value="22">22
+        <option value="23">23
+        <option value="24">24
+        <option value="25">25
+        <option value="26">26
+        <option value="27">27
+        <option value="28">28
+        <option value="29">29
+        <option value="30">30
+        <option value="31">31
+</select>
+&nbsp;
+<select name="oayr">
+        <option value="2013">2013
+        <option value="2014">2014
+        <option value="2015">2015
+        <option value="2016">2016
+        <option value="2017">2017
+</select>
+<br>
+订货日期在此或之前 &nbsp;
+&nbsp;
+<select name="obmon">
+        <option value="01">一月
+        <option value="02">二月
+        <option value="03">三月
+        <option value="04">四月
+        <option value="05">五月
+        <option value="06">六月
+        <option value="07">七月
+        <option value="08">八月
+        <option value="09">九月
+        <option value="10">十月
+        <option value="11">十一月
+        <option value="12">十二月
+</select>
+&nbsp;
+<select name="obday">
+        <option value="01">01
+        <option value="02">02
+        <option value="03">03
+        <option value="04">04
+        <option value="05">05
+        <option value="06">06
+        <option value="07">07
+        <option value="08">08
+        <option value="09">09
+        <option value="10">10
+        <option value="11">11
+        <option value="12">12
+        <option value="13">13
+        <option value="14">14
+        <option value="15">15
+        <option value="16">16
+        <option value="17">17
+        <option value="18">18
+        <option value="19">19
+        <option value="20">20
+        <option value="21">21
+        <option value="22">22
+        <option value="23">23
+        <option value="24">24
+        <option value="25">25
+        <option value="26">26
+        <option value="27">27
+        <option value="28">28
+        <option value="29">29
+        <option value="30">30
+        <option value="31">31
+</select>
+&nbsp;
+<select name="obyr">
+        <option value="2013">2013
+        <option value="2014">2014
+        <option value="2015">2015
+        <option value="2016">2016
+        <option value="2017">2017
+</select>
+<br>
+承诺递送日期在此之后 &nbsp;
+&nbsp;
+<select name="pamon">
+        <option value="01">一月
+        <option value="02">二月
+        <option value="03">三月
+        <option value="04">四月
+        <option value="05">五月
+        <option value="06">六月
+        <option value="07">七月
+        <option value="08">八月
+        <option value="09">九月
+        <option value="10">十月
+        <option value="11">十一月
+        <option value="12">十二月
+</select>
+&nbsp;
+<select name="paday">
+        <option value="01">01
+        <option value="02">02
+        <option value="03">03
+        <option value="04">04
+        <option value="05">05
+        <option value="06">06
+        <option value="07">07
+        <option value="08">08
+        <option value="09">09
+        <option value="10">10
+        <option value="11">11
+        <option value="12">12
+        <option value="13">13
+        <option value="14">14
+        <option value="15">15
+        <option value="16">16
+        <option value="17">17
+        <option value="18">18
+        <option value="19">19
+        <option value="20">20
+        <option value="21">21
+        <option value="22">22
+        <option value="23">23
+        <option value="24">24
+        <option value="25">25
+        <option value="26">26
+        <option value="27">27
+        <option value="28">28
+        <option value="29">29
+        <option value="30">30
+        <option value="31">31
+</select>
+&nbsp;
+<select name="payr">
+        <option value="2013">2013
+        <option value="2014">2014
+        <option value="2015">2015
+        <option value="2016">2016
+        <option value="2017">2017
+</select>
+<br>
+承诺递送日期在此或之前 &nbsp;
+&nbsp;
+<select name="pbmon">
+        <option value="01">一月
+        <option value="02">二月
+        <option value="03">三月
+        <option value="04">四月
+        <option value="05">五月
+        <option value="06">六月
+        <option value="07">七月
+        <option value="08">八月
+        <option value="09">九月
+        <option value="10">十月
+        <option value="11">十一月
+        <option value="12">十二月
+
+</select>
+&nbsp;
+<select name="pbday">
+        <option value="01">01
+        <option value="02">02
+        <option value="03">03
+        <option value="04">04
+        <option value="05">05
+        <option value="06">06
+        <option value="07">07
+        <option value="08">08
+        <option value="09">09
+        <option value="10">10
+        <option value="11">11
+        <option value="12">12
+        <option value="13">13
+        <option value="14">14
+        <option value="15">15
+        <option value="16">16
+        <option value="17">17
+        <option value="18">18
+        <option value="19">19
+        <option value="20">20
+        <option value="21">21
+        <option value="22">22
+        <option value="23">23
+        <option value="24">24
+        <option value="25">25
+        <option value="26">26
+        <option value="27">27
+        <option value="28">28
+        <option value="29">29
+        <option value="30">30
+        <option value="31">31
+</select>
+&nbsp;
+<select name="pbyr">
+        <option value="2013">2013
+        <option value="2014">2014
+        <option value="2015">2015
+        <option value="2016">2016
+        <option value="2017">2017
+</select>
+<p>
+排序标准: <select name="sortby">
+        <option value="item_id">Haas产品编号
+        <option value="po_number">采购订单号
+        <option value="supplier">供应商名称
+</select>
+<input type="radio" name="up" value="">升序
+<input type="radio" name="up" value="desc">降序
+<p>
+<input type="submit" value = "搜索">  
+</form>
+<p>
+<form action="/cgi-bin/radweb/po_rec_mark.cgi" method="post">
+</body></html>

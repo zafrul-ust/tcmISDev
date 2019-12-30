@@ -1,0 +1,333 @@
+<html>
+
+  <head>
+	<script type="text/javascript" src="/js/calendar/calendarval.js"></script>
+    <title>Date Selector</title>
+
+    <script language="JavaScript"><!--
+
+// {{{ y2k()
+
+
+
+function y2k(number)
+
+{
+
+    return (number < 1000) ? number + 1900 : number; 
+
+}
+
+
+
+// }}}
+
+// {{{ _rgb2hex()
+
+
+
+function _rgb2hex(red,green,blue) 
+
+{
+
+    var html_red = red.toString(16).toUpperCase();
+
+    var html_green = green.toString(16).toUpperCase();
+
+    var html_blue = blue.toString(16).toUpperCase();
+
+    if (html_red.length == 1) {
+
+        html_red = "0" + html_red
+
+    }
+
+
+
+    if (html_green.length == 1) {
+
+        html_green = "0" + html_green
+
+    }
+
+
+
+    if (html_blue.length == 1) {
+
+        html_blue = "0" + html_blue
+
+    }
+
+
+
+    return '#' + html_red + html_green + html_blue;
+
+}
+
+ 
+
+// }}}
+
+// {{{ _hex2rgb()
+
+
+
+function _hex2rgb(htmlcode) 
+
+{
+
+    var htmlcode = htmlcode.replace(/#/,'');
+
+    var rgb = new Array();
+
+    rgb["red"] = parseInt(htmlcode.substr(0,2),16);
+
+    rgb["green"] = parseInt(htmlcode.substr(2,2),16);
+
+    rgb["blue"] = parseInt(htmlcode.substr(4,2),16);
+
+    return rgb;
+
+}
+
+ 
+
+// }}}
+
+// {{{ getDarkColor()
+
+
+
+function getDarkColor(htmlcode) 
+
+{
+
+    var decimalcolor = _hex2rgb(htmlcode);
+
+    decimalcolor["red"] = Math.max(0,decimalcolor["red"]-40);
+
+    decimalcolor["green"] = Math.max(0,decimalcolor["green"]-40);
+
+    decimalcolor["blue"] = Math.max(0,decimalcolor["blue"]-40);
+
+    return _rgb2hex(decimalcolor["red"],decimalcolor["green"],decimalcolor["blue"]);
+
+}
+
+
+
+// }}}
+
+
+
+// get the reference to the target element and setup the date
+
+var targetDateField   = window.opener.calendarTarget;
+var targetDateDisplay = window.opener.calendarTargetDisplay;
+
+var dateString = targetDateField.value;
+// Larry note: we will just assumeing one popup at a time....
+var disabledDatesExpression = window.opener.disabledDatesExpression;
+var disabledWeekDays = window.opener.disabledWeekDays;
+var allowIndefinite = window.opener.allowIndefinite;
+
+var calendarFormat  = 'm/d/y';
+var calendarDisplay = 'd-m-y';
+// get the date format
+
+if (typeof(window.opener.calendarFormat) != 'undefined') {
+    calendarFormat = window.opener.calendarFormat;
+}
+
+
+if (typeof(window.opener.calendarStartMonday) == 'undefined') {
+
+    var calendarStartMonday = false;
+
+}
+
+else {
+
+    calendarStartMonday = window.opener.calendarStartMonday ? true : false;
+
+}
+
+
+
+
+// get the calendarColors variable and setup the colors
+
+if (typeof(window.opener.calendarColors) == 'undefined') {
+
+    alert('Please configure the colors by setting the calendarColors array!');
+
+    window.close();
+
+}
+
+
+
+// grab the color settings
+
+var calendarColors = window.opener.calendarColors;
+
+// set defaults for the selected date to be a darker color
+
+if (typeof(calendarColors['dateSelectedBgColor']) == 'undefined') {
+
+    calendarColors['dateSelectedBgColor'] = getDarkColor(calendarColors['dateBgColor']);
+
+}
+
+
+
+if (typeof(calendarColors['dateSelectedColor']) == 'undefined') {
+
+    calendarColors['dateSelectedColor'] = calendarColors['dateColor'];
+
+}
+
+// add your locale setting above
+var pageLocale = 'en_US';
+
+if (typeof(window.opener.pageLocale) != 'undefined') {
+    pageLocale = window.opener.pageLocale;
+}
+
+var displayFormat = "";
+if (typeof(window.opener.displayFormat) != 'undefined') {
+    displayFormat = window.opener.displayFormat;
+}
+
+var names = names_Locale[pageLocale];
+// we have two sunday to accomodate for calendars starting on monday
+var weekdays = weekdays_Locale[pageLocale];
+var days  = days_Locale[pageLocale];
+var none  = none_Locale[pageLocale];
+var indefinite  = indefinite_Locale[pageLocale];
+var month_abbrev  = month_abbrev_Locale_Java[pageLocale];
+
+// set up disable dates.
+function getMonthInd(str) {
+	if( month_abbrev == null ) {
+		for(i=0; i< names.length;i++) {
+			if( names[i].substring(0,3) == str ) {
+				if( i< 9 ) return '0'+(i+1);
+					else 
+				return ''+(i+1);
+			}
+		}
+	}
+	else {
+		for(i=0; i< month_abbrev.length;i++) {
+			if( month_abbrev[i] == str ) {
+				if( i< 9 ) return '0'+(i+1);
+					else 
+				return ''+(i+1);
+			}
+		}
+	}
+	alert('No Month Match');
+	return '';
+}
+
+function getDateStr(str) {
+	if( str == null ) return null;
+	var ind = str.indexOf('/');
+	if( calendarFormat == 'm/d/y' ) 
+		return str.substring(ind+4,ind+8) + str.substring(ind-2,ind) + str.substring(ind+1,ind+3) ;
+	if( calendarFormat == 'd/m/y' ) 
+	    return str.substring(ind+4,ind+8) + str.substring(ind+1,ind+3) + str.substring(ind-2,ind) ;
+	if( calendarFormat == 'd-m-y' ) {
+		var info_array = str.split("-");
+		monthstr = '' + getMonthInd(info_array[1]);
+//		alert(info_array[2] + monthstr + info_array[0]);
+		return info_array[2] + monthstr + info_array[0] ;
+	}
+	return null;
+}
+
+var block_dates = null;
+function addDisabledDates(start, end, bblock_dates) {
+	block_dates = bblock_dates;
+	if (arguments.length==1) { end=start; }
+	start = getDateStr(start);
+	end   = getDateStr(end);
+	if (start==null && end==null) { return; }
+	if (disabledDatesExpression!="") { disabledDatesExpression+= "||"; }
+	if (start==null) { disabledDatesExpression+="(ds<="+end+")"; }
+	else if (end  ==null) { disabledDatesExpression+="(ds>="+start+")"; }
+	else { disabledDatesExpression+="(ds>="+start+"&&ds<="+end+")"; }
+	
+}
+
+function addDisabledDatesExclude(start, end) {
+	if (arguments.length==1) { end=start; }
+	start = getDateStr(start);
+	end   = getDateStr(end);
+	if (start==null && end==null) { return; }
+	if (disabledDatesExpression!="") { disabledDatesExpression+= "||"; }
+	if (start==null) { disabledDatesExpression+="(ds<"+end+")"; }
+	else if (end  ==null) { disabledDatesExpression+="(ds>"+start+")"; }
+	else { disabledDatesExpression+="(ds>"+start+"||ds<"+end+")"; }
+}
+
+addDisabledDates(window.opener.block_after,window.opener.block_before,window.opener.__block_dates);
+addDisabledDatesExclude(window.opener.block_after_exclude,window.opener.block_before_exclude);
+//images
+
+var today = new Date();
+
+if (dateString != '' && dateString != indefinite) {
+	if( calendarFormat == 'd-m-y' )  {/* 3 letter format */
+		info_array = dateString.split("-");
+		today = new Date(info_array[2],getMonthInd(info_array[1]) - 1, info_array[0]);
+	}
+	else if( calendarFormat == 'd/m/y' ) /* date first format */
+		today = new Date(dateString.substring(6,10),dateString.substring(3,5) - 1, dateString.substring(0,2));
+	else /* default */
+		today = new Date(dateString.substring(6,10),dateString.substring(0,2) - 1, dateString.substring(3,5));
+    if ((today == "Invalid Date") || (isNaN(today))) {
+        today = new Date();
+    }
+}
+
+var day   = today.getDate();
+
+var year  = y2k(today.getYear());
+
+var month = today.getMonth();
+
+
+
+var currentDay = day;
+
+var currentYear = year;
+
+var currentMonth = month;
+
+
+
+
+var right_still = "arrows_r_still.gif"
+
+var right_anim = "arrows_r_anim.gif"
+
+var left_still = "arrows_l_still.gif"
+
+var left_anim = "arrows_l_anim.gif"
+
+//-->
+
+    </script>
+
+  </head>
+  <frameset frameborder="0" framespacing="0" ROWS="100%,*">
+
+    <frame scrolling="no" frameborder="0" marginheight="0" marginwidth="0" name="cal" noresize src="calendar_body.html">
+
+  </frameset>
+</html>
+
+
+

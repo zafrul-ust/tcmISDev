@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Catalog Add</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/CatAddRqst.css" type="text/css" /> <!-- to style CatAddRequest page tab illustration -->
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="CatAddReq-Spec" id="CatAddReq-Spec"></a>Catalog Add Request - Spec tab</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Spec</strong> tab on the <strong>Cat Add Req</strong> (Catalog Add Request) page is used to view and
+   manage specifications for the products on the QPL.</p>
+<div style="width: 50em; padding: 0 .5em; margin: 0 2em;" class="messages">
+	<p>Four individual tabs in the lower portion of the <strong>Cat Add Req</strong> page correspond to the basic elements of the Cat Add Req process.</p>
+		<ul id="catadd" class="noPrint">
+			<li><span class="box unselected" style="width: 1.75em;">
+				<span class="corner TL"></span>
+				<span class="corner TR"></span>
+				QPL
+				</span>
+			</li>
+			<li>&nbsp;</li>
+<!-- HMRB not in use for Demo Corp - vhavens - 8/6/12						
+			<li><span class="box unselected" style="width: 1.75em;">
+				<span class="corner TL"></span>
+				<span class="corner TR"></span>
+				HMRB
+				</span>
+			</li>
+			<li>&nbsp;</li>
+-->			
+			<li><span class="box unselected" style="width: 7em;">
+				<span class="corner TL"></span>
+				<span class="corner TR"></span>
+				Use Approval
+				</span>
+			</li>
+			<li>&nbsp;</li>
+			<li><span class="box selected" style="width: 2.5em;">
+				<span class="corner TL"></span>
+				<span class="corner TR"></span>
+				Spec
+				</span>
+			</li>
+			<li>&nbsp;</li>
+			<li><span class="box unselected" style="width: 4.5em;">
+				<span class="corner TL"></span>
+				<span class="corner TR"></span>
+				Flowdown
+				</span>
+			</li>
+		</ul>
+	<ul>
+		<li><strong><a href="CatAddReq-QPL.htm">QPL</a></strong> - the default tab (shown when the page is opened), used to 
+			 view and manage products on or being requested for the QPL.</li>
+<!-- HMRB not in use for Demo Corp - vhavens - 8/6/12						 
+		<li><strong><a href="CatAddReq-HMRB.htm">HMRB</a></strong> - used to view and manage Hazardous Material Review Form
+			information for the products on the QPL.</li> 
+-->			
+		<li><strong><a href="CatAddReq-UseApproval.htm">Use Approval</a></strong> - used to view and manage use permissions on products on
+			the QPL.</li>
+		<li><strong>Spec</strong> - used to view and manage specifications for the products on
+			the QPL.</li>
+		<li><strong><a href="CatAddReq-Flowdown.htm">Flowdown</a></strong> - used to view and manage flowdowns for the products
+			on the QPL.</li>
+	</ul>
+</div>
+<p>Spec is accessed after <a href="CatAddReq.htm">opening the <strong>Cat Add Req</strong> page</a> by clicking on the <strong>Spec</strong> tab.</p>
+
+<p>There may or may not be a Specification associated with the Part.</p>
+	<ul>
+		<li>If there is no yet a Spec associated with the part, there will be three possible actions on the <strong>Spec</strong> tab.
+			<ul>
+				<li><strong>Add Specification</strong> - for which, see below.</li>
+				<li><strong>Add No Specification</strong> will allow you to proceed without adding a Spec.</li>
+				<li><strong>Add Standard Manufacturer Cert</strong> will open a child window to associate the Part with either a CoC or CoA, 
+					 or both.</li>
+			</ul>
+		</li>
+	</ul>
+<div class="image"><img src="CatAddReq-Spec1.png" height="528" width="766" alt="Cat Add Req page Spec tab 3 links" />
+<div class="caption">Figure 1</div></div>
+
+<ul>
+	<li>If there is already any sort of Spec associated with the Part, there will only be an <strong>Add Specification</strong> 
+		 link. Add a Spec to the part by clicking the <strong>Add Specifications </strong>link. The <strong>Add/Edit Specification</strong> 
+		 form will open in a new window.</li>
+</ul>
+<div class="image"><img src="CatAddReq-Spec2.png" height="532" width="759" alt="Cat Add Req page Spec tab 1 link" />
+<div class="caption">Figure 2</div></div>
+
+<p>Although only the specification name and title are required on the <strong>Add/Edit Specification</strong> form, enter 
+	as much information as you have for the specification.</p>
+
+<ul>
+	<li>Enter the specification name in the <strong>Spec</strong> box.</li>
+	<li>Enter any version number in the <strong>Revision</strong> box.</li>
+	<li>Enter any amendment information in the <strong>Amendment</strong> box.</li>
+	<li>Enter the specification title in the <strong>Title</strong> box.</li>
+	<li>Indicate whether a Certificate of Conformance or Certificate of Analysis is required by
+	   checking the COC, COA, or both boxes.</li>
+</ul>
+<p>Click the <strong>Submit</strong> link to add the new spec information to the Catalog Add
+   Request. The <strong>Add/Edit specification</strong> form will close and the spec information
+	be added to a line on the <strong>Spec</strong> tab of the request with a Pending Approval status.</p>
+<p>Repeat this process as many times as needed to add the required specifications.</p>
+<div class="image"><img src="CatAddReq-Spec3.png" height="231" width="356" alt="Add/Edit Specification form" />
+<div class="caption">Figure 3</div></div>
+
+
+<p>To edit a specification while it is Pending Approval, right-click on the line and select the
+   <strong>Edit</strong> menu item. The <strong>Add/Edit Specification</strong> form will open in a new
+	window: make needed changes and click the <strong>Submit</strong> link to update the request.</p>
+<p>To remove a specification while it is Pending Approval, right-click on the line and select the
+   <strong>Delete Line</strong> menu item.</p>
+<div class="image"><img src="CatAddReq-Spec4.png" height="522" width="766" alt="Edit or Delete Specification menu items" />
+<div class="caption">Figure 4</div></div>
+
+
+<p>To upload a copy of the specification, right-click on the line and select the <strong>Upload
+   Specification</strong> menu item. The <strong>Upload File</strong> form will open in a new window.</p>
+<div class="image"><img src="CatAddReq-Spec5.png" height="522" width="766" alt="Upload Specification menu item" />
+<div class="caption">Figure 5</div></div>
+
+
+<p>Click the <strong>Browse</strong> button, locate and select the file on your computer. Click the <strong>Send
+  File</strong> button. The file will be stored in tcmIS and associated with the part record <strong>Modify QPL</strong>
+  request. The <strong>Upload File</strong> form will then be closed.</p>
+<div class="image"><img src="../../images/UploadFile.png" width="416" height="164" alt="Upload File form" />
+<div class="caption">Figure 6</div></div>
+
+<p>If a copy has been uploaded to tcmIS, you can view the spec by right-clicking
+  on the line and selecting the <strong>View Specification</strong> menu item. The file will
+  be opened and displayed in a new window.</p>
+
+<div class="image"><img src="CatAddReq-Spec7.png" height="522" width="766" alt="View specification menu item" />
+<div class="caption">Figure 7</div></div>
+
+<p>See <a href="CatAddReq-QPL.htm#Finalizing">Finalizing a QPL modification request</a></p>
+
+</body>
+</html>

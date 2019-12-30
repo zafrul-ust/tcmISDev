@@ -1,0 +1,777 @@
+
+/*** Start shared *******************************************************************************************************************************/
+
+.ui-body-c, 
+.ui-btn-up-c{
+	border: 1px solid #000000;
+}
+
+.ui-btn-down-c,
+.ui-btn-down-c:visited{
+	text-shadow:none;
+	background: #000000;
+	color: #FFFFFF;
+	font-color: #FFFFFF;
+}
+
+.ui-input-text,
+label.ui-input-text{
+	text-shadow: none;
+	font-weight: 600;
+}
+
+.ui-header .ui-title{
+	font-size: 24px;
+	margin-bottom: 0px;
+}
+
+.ui-header-trx-desc{
+	font-size: 14px;
+	margin-top: 0px;	
+	text-align: center;
+}
+
+.keyPadRow{
+	text-align: center;
+}
+
+.ui-header .ui-btn-inner {
+    font-size: 24px;
+}
+.ui-header {
+    font-size: 24px; 
+}
+
+.ui-datebox-container .ui-title{
+	overflow:visible;
+	white-space:normal;
+}
+
+.waitGifCentered{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-top: -70px;
+    margin-left: -70px;
+}
+
+
+/* Grid block width overides */
+.block66{
+	width: 66% !important;
+}
+
+.block60{
+	width: 60% !important;
+}
+
+.block50{
+	width: 50% !important;
+}
+
+.block40{
+	width: 40% !important;
+}
+
+.block34{
+	width: 34% !important;
+}
+
+.block30{
+	width: 30% !important;
+}
+
+.block20{
+	width: 20% !important;
+}
+
+/*** End shared *******************************************************************************************************************************/
+
+/*** Start Tracking Number page *******************************************************************************************************************************/
+
+html, body, #foo, #bar, #content{
+	height:100%;
+	padding:0px;}
+
+#foo, #bar{}
+
+
+/* use these 3 for scan input box scan button combinations.
+ * Place the elements in a ui-grid-b
+ */
+.scanInputDiv{
+	width: 75% !important;
+	padding-left: 0px !important;
+	padding-right: .5em !important;
+}
+
+.poInputDiv{
+	width: 50% !important;
+	padding-left: 0px !important;
+	padding-right: .5em !important;
+}
+
+#poNumListButton{
+	visibility: hidden;
+}
+
+.scanButtonDiv{
+	width: 25% !important;
+	padding-left: .5em !important;
+	padding-right: 0px !important;
+}
+.scanButtonDiv .ui-btn{
+	margin-top: 26px;
+}
+
+#rcptForm .scanInputDiv{
+	width: 60% !important;
+	padding-left: 0px !important;
+	padding-right: .25em !important;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+#rcptForm .scanButtonDiv{
+	width: 40% !important;
+	padding-left: .25em !important;
+	padding-right: 0px !important;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+
+
+
+#trkNumPage{
+	background-color: lightgray;}
+
+.trkNumForm{
+	width:45%;
+	margin:0px auto;
+}	
+#leftPane{
+	background-color: white;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;}
+
+#leftPane label{
+	font-size: .8em;
+	
+}
+.itemImage{
+	max-height:300px;
+	vertical-align: middle;
+	
+	}
+
+.itemPane{
+	text-align:center;
+	height:80%;
+	line-height: 80%;
+	padding-top: 5%;
+	padding-bottom: 5%;  
+	}
+	
+#itemDesc{
+/*	padding:.5em 2em; */}
+
+.itemText{
+	margin:.1em 2em;
+	font-family:verdana;
+	font-size: .6em;}
+	
+.ui-header{
+	min-height: 3em;}
+	
+#prevButtonBlock{
+	display:block;
+	height:350px;
+	visibility: hidden;
+}
+
+#nextButtonBlock{
+	display:block;
+	height:350px;
+	visibility: hidden;
+}
+
+/*
+#prevButtonBlock button{
+	height:300px;
+	width:100%;
+}
+
+#nextButtonBlock button{
+	height:300px;
+	width:100%;
+}
+*/
+#rightPane2 .ui-btn{
+	height: 300px;
+	width: 80%;
+}
+
+#rightPane2 .ui-btn img{
+	width: 50px;
+}
+
+#rightPane2 .ui-btn-inner{
+	padding-left: 5px;
+	padding-right: 5px;	
+	padding-top:125px;
+/*	position: absolute;
+	top: 50%;
+	margin-top: -30px;
+*/
+}
+
+.newMsdsChkBoxDiv{
+	margin-right:1em;
+	margin-left:1em;	
+}
+
+#getItemBlock{
+	padding-top:15px;
+}
+
+#manualDocumentPopup .ui-btn{
+	margin: 1em 0;	
+}
+
+#hubChooserPopup{
+	max-height: 450px;
+}
+
+#hubListView{
+	overflow: auto;
+	max-height: 350px;
+}
+/*** End Tracking Number page *******************************************************************************************************************************/
+
+
+/*** Start Documents page *******************************************************************************************************************************/
+#manualDocumentPopup{
+	padding:1em;
+}
+
+/*** End Documents page *******************************************************************************************************************************/
+
+/*** Start Receipt View page *******************************************************************************************************************************/
+
+#receiptRow:nth-child(odd){
+	background-color: lightcoral;}
+#receiptRow:nth-child(even){
+	background-color: lightgray;}
+
+.receiptRow{
+	font-size:.7em;	
+}
+
+#receiptButton a {
+	margin:1em 0;
+}
+
+.rcptSeparator{
+	background-color: #0080ff;
+	color: white;
+	text-shadow: none;
+	padding: 5px;
+	font-size: 1em;
+}
+
+.componentSeparator{
+	margin-top: 5px;
+}
+
+.poItemText{
+	border-left: 1px solid #0080ff;
+	border-right: 1px solid #0080ff;
+	padding: 5px;
+}
+
+.msdsHeader{
+	background-color: #0080ff;
+	color: white;
+	text-shadow: none;
+	padding: 5px;
+	font-size: 1em;
+	text-align: center;
+}
+
+.msdsGrid{
+	border-left: 1px solid #0080ff;
+	border-bottom: 1px solid #0080ff;
+	border-right: 1px solid #0080ff;
+}
+
+.msdsGrid .ui-block-a{
+	border-right: 1px solid #0080ff;
+}
+.msdsGrid .ui-block-b{
+	text-align: center;
+}
+
+.msdsHeader .ui-block-a,
+.msdsGrid .ui-block-a{
+	width: 75%;
+	padding: 5px;
+}
+
+.msdsHeader .ui-block-b,
+.msdsGrid .ui-block-b{
+	width: 25%;
+	padding: 5px;
+}
+
+.newMSDSChkBoxDiv{
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+/*** End Receipt View page *******************************************************************************************************************************/
+
+
+/*** Start Receipt Form page *******************************************************************************************************************************/
+
+#rcptForm .ui-block-a,
+#rcptForm .ui-block-b,
+#rcptForm .ui-block-c,
+#rcptForm .ui-block-d{
+	padding: 1em 1em;  }
+	
+
+
+#mvItemQtyDiv .ui-block-a{
+	padding:0px;
+	width:25%;
+	overflow: hidden;
+}
+#mvItemQtyDiv .ui-block-b{
+	width:5%;
+	padding-top:35px;
+	padding-left:5px;
+	overflow: hidden;
+}
+#mvItemQtyDiv .ui-block-c{
+	width:20%;
+	padding:0px;
+	overflow: hidden;
+}
+#mvItemQtyDiv .ui-block-d{
+	width:45%;
+	padding:40px 0px 0px 10px;
+	overflow: hidden;
+	font-size: .8em;
+}
+
+
+
+
+#chkBoxHazComDiv{
+	margin-top:35px;
+}
+
+#chkBox129PDiv{
+	margin-top:35px;
+}
+
+#chkBoxQAReadyDiv{
+	margin-top:35px;
+}
+
+#rcptForm input{
+	length:60%;}
+
+
+#itemImgPopup{
+	max-height: 60%;}
+	
+.itemQtyDiv{}
+
+.itemQtyDiv .ui-block-a{
+	width:25%}
+	
+.itemQtyDiv .ui-block-b{
+	vertical-align: bottom;	
+	width:75%}
+
+.qtyDivShow{
+	display: block;}
+
+.qtyDivHide{
+	display: none;}
+
+.mvItemQtyDiv .ui-block-a{
+	width:15%}
+.mvItemQtyDiv .ui-block-b{
+	vertical-align: bottom;	
+	width:5%}
+.mvItemQtyDiv .ui-block-c{
+	width:15%}
+.mvItemQtyDiv .ui-block-d{
+	width:15%}
+.mvItemQtyDiv .ui-block-e{
+	width:50%}
+	
+#receiptNotesPopup{
+	width:600px;
+	height:300px;}
+
+#chkBox129PDiv{
+}
+
+#receiptNotesButtonDiv{
+}
+
+#receiptImageButtonDiv{
+}
+
+.smallTextButton .ui-btn-text{
+	white-space: normal;
+	font-size: .5em;
+}
+
+#originalRIDScanButton .ui-btn-inner{
+	padding-bottom: 5px;
+	padding-top: 5px;
+	line-height: .8em;
+}
+
+#originalRIDScanButton .ui-btn-text{
+	font-size: .7em;
+	white-space: normal;		
+}
+/*** End Receipt Form page *******************************************************************************************************************************/
+
+
+/*** Start Images page *******************************************************************************************************************************/
+
+#imageListView{
+	width:50%;
+	min-width: 500px;
+	margin: 5em auto;}
+
+#receiptImageViewDiv{	width:70%;
+						height:500px;
+						background-color:gray;
+						text-align: center;}
+
+#receiptImageListDiv{	width:30%;
+						/*height:500px;*/
+						}
+
+#receiptImageTag{
+	display: none;
+	vertical-align: middle;}
+	
+#imageTag{
+	display: none;}
+/*** End Images page *******************************************************************************************************************************/
+
+
+/*** Start Camera page *******************************************************************************************************************************/
+
+									
+#imageDisplayDiv{	width:80%;
+						height:500px;
+						background-color:gray;}
+
+#imageControlDiv{	width:20%;
+						height:500px;}
+
+#cameraControlDiv{
+	height: 100%;
+	display: block;}
+
+#cameraControlDiv a {
+	width:150px;
+	margin: 0px auto;
+}
+
+#imageAcceptDiv{ display: block;}
+
+#imageAcceptDiv a {
+	height:100px;
+	width:150px;
+}
+
+#shutterButton{
+	background-color: black;
+	height:100%;
+}
+#camerOffButton{
+	background-color: black;
+	height:100%;
+}
+#toggleFlashButton{
+	background-color: black;
+	height:100%;
+}
+
+#buttonDivA{
+	position: relative;
+	height: 35%;
+}
+#buttonDivB{
+	position: relative;
+	height: 15%;
+}
+#buttonDivC{
+	position: relative;
+	height: 25%;
+}
+#buttonDivD{
+	position: relative;
+	height: 10%;
+}
+#buttonDivE{
+	position: relative;
+	height:15%;
+}
+/*** End Camera page *******************************************************************************************************************************/
+
+/*** Begin Notes Page ***********************************************************************************************************************************/
+#tabletNotesDiv{
+	text-align: center;
+}
+
+#tabletNotes{
+	width: 90%;
+	height: 400px;
+	border-radius: 15px;
+	padding:15px;
+	vertical-align: middle;
+}
+
+/*** End Notes Page **********************************************************************************************************************************/
+
+.hdrButton{
+	min-width: 100px;	
+}
+
+#binnableTable .receiptIdData{
+	font-weight: bold;	
+	font-size: 18px;
+	text-align: center;
+}
+
+#binnableTable .receiptId, .bin{
+	width: 10%
+}
+
+#binnableTable .hazClass, .invGroup, .lotStatus{
+	width: 15%
+}
+
+#binnableTable {
+    border-collapse: collapse;
+}
+#binnableTable table, th, td {
+    border: 1px solid blue;
+    padding:  5px;
+    text-align: top;
+    vertical-align: top;
+    font-size: 14px;
+}
+#binnableTable th {
+    background: blue;
+    color: white;
+    height: 2em;
+    vertical-align: middle;
+    font-size: 16px;
+}
+
+.available{
+	background-color: rgb(128,128,255) !important;
+	color: #000000 !important;
+	text-shadow: none;
+}
+
+.availableLt{
+	background-color: rgba(128,128,255,.25) !important;
+}
+
+.MinMax{
+	background-color: rgb(128,255,128) !important;
+	color: #000000 !important;
+	text-shadow: none;
+}
+
+.MinMaxLt{
+	background-color: rgba(128,255,128,.25) !important;
+}
+
+.OOR{
+	background-color: rgb(255,128,128) !important;
+	color: #000000 !important;
+	text-shadow: none;
+}
+
+.OORLt{
+	background-color: rgba(255,128,128,.25) !important;
+}
+
+#binnables .ui-block-a{
+	width: 80%;
+}
+
+#binnables .ui-block-b{
+	width: 10%;
+}
+
+#binnables .ui-block-c{
+	width: 10%;
+}
+
+#putAwayPage .ui-block-a,
+#putAwayPage .ui-block-b,
+#putAwayPage .ui-block-c{
+	padding: 15px;
+}
+
+#putAwayPage .ui-title{
+	margin-right: 20%;
+	margin-left: 20%;
+}
+
+
+#putAwayPage hr{
+	margin: 0px;
+}
+
+#putAwayPage .ui-collapsible-content{
+	border: 1px solid #0080ff;
+	background: white;
+}
+/**********************************************************************************************************************************/
+
+/**************************  ReBinning  *******************************************************************************************/
+#reBinPage hr{
+    margin: 0px;
+}
+
+#reBinPage .ui-collapsible-content{
+    border: 1px solid #0080ff;
+    background: white;
+}
+.reBinReceiptForm{
+    width:45%;
+    margin:0px auto;
+}
+
+#reBinImageDiv{  
+	width:100%;
+    height:200px;
+    background-color:gray;
+    text-align: center;
+}
+
+/**************************  ReBinning  ********************************************************************************************/
+
+/**************************  Picking  ********************************************************************************************/
+
+/* Show priority 1 at 320px (20em x 16px) */
+@media screen and (min-width: 20em) {   
+	.pickTable th.ui-table-priority-1,   
+	.pickTable td.ui-table-priority-1 {     
+		display: table-cell;   }
+	}
+/* Manually hidden */
+.pickTable th.ui-table-cell-hidden,
+.pickTable td.ui-table-cell-hidden {  
+	display: none;} 
+	
+/* Manually shown */
+.pickTable th.ui-table-cell-visible,
+.pickTable td.ui-table-cell-visible {   
+	display: table-cell;}
+/*
+.criticalRow{
+	background-color: red;
+}
+
+.hazardousRow{
+	background-color: yellow;
+}
+
+.smPickText{
+	font-size: 1em;
+}
+
+.lgPickText{
+	font-size: 5em;
+}
+
+.footer-padding-fix{
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.columntoggle-btn-fix{
+	margin-right: 5px !important;
+}
+*/
+/**************************  Picking  ********************************************************************************************/
+
+/**************************  Cycle Counting  ********************************************************************************************/
+
+#resultTable .receiptIdData{
+/* 	font-weight: bold;	
+	font-size: 18px; */
+	text-align: center;
+}
+ 
+#resultTable .receiptId, .bin, .room {
+	width: 10%;
+}
+
+#resultTable .countId {
+	display: none;
+}
+
+#resultTable .expectedQuantity {
+	width: 10%;
+	text-align: center;
+}
+
+#resultTable .actualQuantity {
+	width: 10%;
+	text-align: center;
+}
+
+.actualQuantityData {
+	width: 40px;
+	text-align: center;
+}
+
+#resultTable {
+    border-collapse: collapse;
+}
+#resultTable table, th, td {
+    border: 1px solid blue;
+    padding:  5px;
+    text-align: top;
+    vertical-align: top;
+    font-size: 14px;
+}
+#resultTable th {
+    background: blue;
+    color: white;
+    height: 2em;
+    vertical-align: middle;
+    font-size: 16px;
+}
+
+#resultTable tr {
+	color: #000000 ;
+	text-shadow: none;
+}
+
+#resultTable tr:nth-child(even){
+	background-color: rgb(128,128,255);
+}
+
+#resultTable tr:nth-child(odd){
+	background-color: rgba(128,128,255,.25);
+}
+
+/**************************  Cycle Counting   ********************************************************************************************/

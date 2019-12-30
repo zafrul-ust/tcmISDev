@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Cabinet Inventory</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+
+</head>
+
+<body>
+<p class="crumbs">Supply Chain &gt;&gt; Cabinet Inventory &gt;&gt; (<span class="also">also</span> Reports &gt;&gt; Inventory &gt;&gt;)</p>
+<h1><a name="CabinetInventory" id="CabinetInventory"></a>Cabinet Inventory</h1>
+<p><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png"  alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png"  alt="Decrease font size" /></a></p>
+
+<p>The tcmIS <strong>Cabinet Inventory</strong> page is used to view information regarding on hand inventory.
+   It can be accessed from either of two menu selections. </p>
+<ul>
+	<li>The <strong>Cabinet Inventory</strong> page can be accessed from the <strong>Supply Chain</strong> menu.
+	Under <strong>Cabinet Inventory</strong> select the <strong>Cabinet Inventory</strong> menu item.</li>
+	<li>The <strong>Cabinet Inventory</strong> page can be accessed from the <strong>Reports</strong> menu.
+	Under <strong>Inventory</strong> select the <strong>Cabinet Inventory</strong> menu item.</li>
+</ul>
+<p>Using either menu selection, the <strong>Cabinet Inventory</strong> page is launched in a new tab.</p>
+<div class="image"><img src="CabinetInventory1-2.png" alt="Cabinet Inventory menu item" height="717" width="863" />
+<div>Figures 1 and 2</div></div>
+
+<p>The <strong>Work Area Inventory</strong> page allows you to tailor your search for inventory.</p>
+	<ul>
+		<li>Select the hub which services the cabinet(s) from the <strong>Hub</strong> drop-down list.</li>
+		<li>Select the facility which services the work area from the <strong>Facility</strong> drop-down list.</li>
+		<li>Select the work area from the <strong>Work Area</strong> drop-down list.</li>
+		<li>The <strong>Cabinet</strong> selection list will be populated with all active cabinets for the 
+			 selected work area(s). You may select a single cabinet, or select multiple cabinets by holding 
+			 down the CTRL key while clicking each wanted cabinet, or you	may select the default <strong>All</strong> [cabinets].</li>
+	</ul>
+<p>You may provide something to at least partially identify the material you want using the <strong>Search by</strong> 
+	boxes. (Your search may be specified by <strong>Part Number</strong>, <strong>Item Desc</strong>[ription], or 
+	<strong>Item ID</strong>). See <a href="../Introduction/Searches.htm">Search functions</a> for more information.</p>
+<p>You may also tailor the search to locate inventory which is expiring within a specified number of days. Enter the minimum number 
+   of days in the <strong>Expires In</strong> text box and, if wanted, the maximum number of days in the <strong>To ___ days</strong> text 
+   box.</p>
+<p>Select the check box labeled <strong>Show Only Quantity &gt; 0</strong> to see only work area items that currently have
+  stock.</p>
+<p>By default, the search results (inventory items) are sorted and displayed by <em>Cabinet ID</em>. You 
+	may choose instead to sort by <em>Part Number</em> or <em>Item ID</em>: select the desired sort option 
+	from the <strong>Sort By</strong> drop-down list.</p>
+<p>Click the <strong>Search</strong> button. All active items in the selected cabinet(s) are shown. Details of each
+   Receipt ID in the cabinet are displayed including manufacturer lot number, expiration date, last count
+  date, last count quantity, quantity delivered since the last count, total quantity, unit cost, and stocking levels.</p>
+<div class="image"><img src="CabinetInventory3.png" alt="Cabinet Inventory page with search results" height="522" width="990" />
+<div>Figure 3</div></div>
+
+<p>After the search is run, you may sort by any of the columns in the results grid by clicking on the column header. Click the header
+   again to sort in descending order. A small upward- or downward-pointing triangle will appear in the header to indicate the sort.</p>
+<div class="image"><img src="CabinetInventory4.png" height="522" width="990" alt="Cabinet Inventory sorting" />
+<div>Figure 4</div></div>
+
+<p>There are three columns toward the right end of the data grid that provide information about the inventory quantities 
+	<em>in the Cabinet</em>.</p>
+	<ul>
+		<li>The <strong>Last Count Qty</strong> column displays the inventory recorded in the most recent scan.</li>
+		<li>The <strong>Delivered Since Last Count</strong> displays the quantity added subsequent to the most recent scan.</li>
+		<li>The <strong>Total Qty</strong> is the sum of the previous two columns and represents the current inventory (some of which may 
+			 already be consumed and will be accounted for in the next scan.</li>
+	</ul>
+<p>Notice that the expiration date will only be shown on the <strong>Cabinet Inventory</strong> page when the 
+	<a href="../Cabinets/CabinetMgmt.htm#counttype"><strong>Count Type</strong></a> is <em>Receipt ID</em>.</p>
+<p>There is also a context menu available to view the inventory quantity <em>in the HGI Hub</em>. Right-click on a line and select the 
+	<strong>Show Inventory Detail</strong> menu item to display details on inventory of the item at the warehouse. The <strong>Inventory 
+	Details</strong> page will	be displayed in a new window.</p>
+<div class="image"><img src="CabinetInventory5.png" height="522" width="990" alt="Show Inventory Detail context menu item" />
+<div>Figure 5</div></div>
+
+<p>The <strong>Inventory Details</strong> page shows details on the inventory <em>in the HGI Hub</em>. The expiration 
+	date of HGI inventory is always shown on the <strong>Inventory details</strong> page.</p>
+<div class="image"><img src="CabinetInventory6.png" height="269" width="656" alt="Inventory Details page" />
+<div>Figure 6</div></div>
+
+<p>In many cases when you hover the mouse pointer on data cells a tool tip will pop up and display the
+   contents of the cell. This is particularly useful when the data in the cell does not fit the default
+	size of the cell: it allows you to see the entire contents of the cell without having to adjust the
+	width of the column.</p>
+<div class="image"><img src="CabinetInventory7.png" height="522" width="990" alt="sample cell contents display in tool tip" />
+<div>Figure 7</div></div>
+
+<p>Click the <strong>Create Excel</strong> link on the page to export the data in Excel format.</p>
+</body>
+</html>

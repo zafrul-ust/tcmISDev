@@ -1,0 +1,9 @@
+/* Fixes display issue with icon text */
+
+p.ui-li-desc{
+	display:none;
+}
+
+#springboard h2.ui-li-heading{
+	bottom:0%;
+}

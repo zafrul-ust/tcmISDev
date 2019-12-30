@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Work Area Stock Management</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="WorkAreaStockMgmt" id="WorkAreaStockMgmt"></a>Work Area Stock Management</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Work Area Stock Mgmt</strong> page is used to activate and inactivate parts in work areas, set
+   stocking levels, and add parts to work areas in tcmIS. The <strong>Work Area Stock Mgmt</strong> page can be
+	accessed from the <strong>Supply Chain</strong> menu: choose <strong>Work Area Inventory</strong> and select the
+	<strong>Work Area Stock Mgmt</strong> menu item. The <strong>Work Area Stock Mgmt</strong> page is launched
+	in a new tab.</p>
+<div class="image"><img src="WorkAreaStockMgmt1.png" height="236" width="775" alt="Work Area Stock Mgmt menu item" />
+<div class="caption">Figure 1</div></div>
+
+<p>Select the facility where the work areas are located from the <strong>Facility</strong> list. You may
+   choose to narrow the range of work areas by selecting a specific work area group from the <strong>Work Area
+	Group</strong> list. The <strong>Work Area</strong> box will be populated with all active
+	work areas for the facility or the work areas for the chosen work area group.</p>
+<p>Select the specific work area(s) from the <strong>Work Area</strong> list. You may select a single
+   work area, or select multiple work areas by holding down the CTRL key while clicking each	wanted work area
+	in the <strong>Work Area</strong> box, or you may select <strong>All</strong> work areas.</p>
+<p>Select the box labeled <strong>Show Inactive Parts</strong> to INCLUDE parts that have been inactivated. Select the check box
+   in the <strong>Active</strong> column to activate an item. Unselect the check box in the <strong>Active</strong> column to
+  inactivate an item. Click the <strong>Update</strong> link above the data grid to save any changes.</p>
+<p>You may provide something to at least partially identify the material you want using the <strong>Search by</strong> 
+		 boxes. (Your search may be specified by <strong>Part Number</strong> or <strong>Item ID</strong>.) See 
+		 <a href="../Administration/Searches.htm">Search functions</a> for more information.</p>
+<p>Click the <strong>Search</strong> button.</p>
+<p>Click the <strong>Create Excel</strong> button to export the data in Excel format.</p>
+<div class="image"><img src="WorkAreaStockMgmt2.png" height="525" width="775" alt="Work Area Stock Mgmt page and search results" />
+<div class="caption">Figure 2</div></div>
+
+<p>There are two things that can be edited directly on the <strong>Work Area Stock Management</strong> page.</p>
+<ul>
+	<li>The <a id="counttype"><strong>Count Type</strong></a> column identifies the method used for inventory replenishment for the 
+		 item. Choose the	appropriate type from the drop-down list. 
+		 <ul>
+		 	<li><strong>Item ID</strong> indicates that the scan process only the quantity of each item
+			    is entered; the individual containers are not scanned. Checking for and removal of expired material is
+		 		 done by eye.</li>
+		 	<li><strong>Receipt ID</strong> indicates that during the scan process each individual container will be 
+		 		 scanned. This enables the scanner to record the expiration date and, in the case of expired material, 
+		 		 beep loudly to notify the operator to remove the expired material.</li>
+		 	<li><strong>KanBan</strong><!-- indicates that replenishment is done according to a production/use schedule that is 
+		 		 statistically managed.--> <em>This is included for a future enhancement.</em></li>
+		 </ul>	 
+	</li>
+	<li>When the box in the <strong>Active</strong> column is selected, the part is available within tcmIS. Clear the box 
+		 to deactivate an item.</li>
+</ul>
+
+<p>Click the <strong>Update</strong> link above the data grid to save any changes.</p>
+<p>See the help for the <a href="NonmanagedMaterials.htm"><strong>Add Nonmanaged Mat</strong>[eria]<strong>l</strong></a> link. </p>
+<div class="image"><img src="WorkAreaStockMgmt3.png" height="506" width="835" alt="Work Area Stock Management data grid edit options" />
+<div class="caption">Figure 3</div></div>
+
+<p>There are a number of local, or context, menus on the <strong>Work Area Stock Mgmt</strong> page for managing,
+   editing, and getting more information about items.</p>
+	<ul>
+		<li>Right click on any item in a <strong>Work Area</strong> column for a menu to <strong><a href="#AddPart">Add Part</a></strong>,
+    	<strong><a href="WorkAreaLabels.htm">Generate Work Area Label</a></strong>,
+	 	<strong><a href="WorkAreaLabels.htm">Generate Work Area &amp; Part Labels</a></strong>, or
+	 	<strong><a href="#EditCharge">Edit Work Area Directed Charge</a></strong> <em>(menu items appear only when specifically
+	    	authorized for a work area and/or user)</em>.</li>
+	</ul>
+<div class="image"><img src="WorkAreaStockMgmt4.png" height="506" width="835" alt="Add Part, Generate Labels context menu items" />
+<div class="caption">Figure 4</div></div>
+
+<ul>
+	<li>Right click on any item in a Count Type, Active, Catalog, Part Number, RP/SL/RQ, KanBan Reorder Qty, or Lead Time
+		in Days column for a menu to <strong><a href="#SetPartLevel">Set Part Level</a></strong> or <strong><a href="#EditPartCharge">Edit 
+		Part Directed Charge</a></strong> <em>(this last menu item appears only when specifically authorized for a work 
+		area)</em>.</li>
+</ul>
+<div class="image"><img src="WorkAreaStockMgmt5.png" height="506" width="835" alt="Set Part Level context menu item" />
+<div class="caption">Figure 5</div></div>
+
+<!-- commented out until issue of View MSDS is resolved - vh - 20 July 2011
+<ul>
+	<li>Right click on any item in a Item, Description, Container Size, or MSDS column for a menu to <strong>View MSDS</strong>.</li>
+</ul>
+<div class="image"><img src="WorkAreaStockMgmt8.png" height="517" width="835" alt="View MSDS context menu item" />
+<div class="caption">Figure 8: View MSDS menu item</div></div>
+-->
+
+<p>Selecting the <strong><a id="AddPart">Add Part</a></strong> menu item will cause the <strong>Add Part</strong>
+   page to open in a child window. Also, in a situation where the search finds NO records that match your 
+   <strong>Search</strong> criteria, the display grid panel will display a message stating 'No Data Found' 
+   as well as an <strong>Add Part</strong> link.</p> 
+<p>In either case, click on the <strong>Add Part</strong> link to open a child window which displays the <strong>Add Part</strong> form.</p>
+<ul>
+	<li>Select the appropriate Catalog from the <strong>Catalog</strong> drop-down list. (There may be only a single option.)</li>
+	<li>Enter the correct Part Number in the <strong>Part Number</strong> text box. Click on the magnifying glass icon 
+		 <img class="small" src="../../images/glass.gif" width="21" height="16" alt="magnifying glass" /> to open the <strong>Part Number</strong> 
+		 lookup form. (See <a href="../Administration/Searches.htm#lookup">Lookup Forms</a> for more details.)</li>
+	<li>(None of these are required numbers but provide them if you can.)
+		<ul>
+			<li>Enter the minimum quantity to maintain in the work area in the <strong>Reorder Point</strong> text box.</li>
+			<li>Enter the maximum quantity to maintain in the work area in the <strong>Stocking Level</strong> text box.</li>
+			<li>Enter the quantity for a reorder for the work area in the <strong>Reorder Quantity</strong> text box.</li>
+			<li>Enter the quantity for a KanBan reorder in the <strong>KanBan Reorder Qty</strong> text box.</li>
+			<li>If known, enter the number of days which it takes to procure and ship the material in the <strong>Lead
+	    		Time In Days</strong> text box.</li>
+		</ul>
+	</li>
+	<li>The <strong>Count Type</strong> column identifies which base is used for inventory replenishment for an 
+		 item. Choose the	appropriate type from the drop-down list. 
+		 <ul>
+		 	<li><strong>Item ID</strong> indicates that the scan process only the quantity of each item
+			    is entered; the individual containers are not scanned. Checking for and removal of expired material is
+		 		 done by eye.</li>
+		 	<li><strong>Receipt ID</strong> indicates that during the scan process each individual container will be 
+		 		 scanned. This enables the scanner to recognize expired material and beep loudly to notify the operator 
+		 		 to remove the expired material.</li>
+		 	<li><strong>KanBan</strong><!-- indicates that replenishment is done according to a production/use schedule that is 
+		 		 statistically managed. --> <em>This is included for a future enhancement.</em></li>
+		 </ul>	 
+	</li>
+</ul>
+<p>Click the <strong>Add</strong> button to add the part to the Work Area. Use the <strong>Work Area Labels</strong>
+   page to print a new Work Area Baseline report and Bin Labels.</p>
+<div class="image"><img src="WorkAreaStockMgmt6.png" height="325" width="536" alt="Add Part page and Replacement Part search form" />
+<div class="caption">Figure 6</div></div>
+
+<p>Selecting the <strong><a id="SetPartLevel">Set Part Level</a></strong> menu item will cause the
+   <strong>Part Level</strong> page to open for the item on the selected row. There you may:</p>
+<ul>
+	<li>Enter or edit the minimum quantity to maintain in the work area using the <strong>Reorder Point</strong>
+	    text box.</li>
+   <li>Enter or edit the maximum quantity to maintain in the work area using the <strong>Stocking Level</strong>
+	    text box.</li>
+   <li>Enter or edit the reorder quantity to restock the work area using the <strong>Reorder Quantity</strong>
+	    text box.</li>
+   <li>Enter or edit the KanBan reorder quantity to restock the work area in the <strong>KanBan Reorder Qty</strong>
+	    text box. <em>This is included for a future enhancement.</em></li>
+   <li>If known, enter or edit the number of days which it takes to procure and ship the material in the
+	    <strong>Lead Time In Days</strong> text box.</li>
+   <li>Enter or edit any comments in the <strong>Remarks</strong> text box.</li>
+</ul>
+<p>Click the <strong>Update</strong> link at the upper-left of the data grid to save any changes.</p>
+<div class="image"><img src="WorkAreaStockMgmt7.png" height="410" width="588" alt="Set Part Level page" />
+<div class="caption">Figure 7</div></div>
+
+<p>Both the <strong><a id="EditCharge">Edit Work Area Directed Charge</a></strong> menu item and the <strong><a id="EditPartCharge">Edit 
+	Part Directed Charge</a></strong> menu item will open a child window to display the Charge Information form. This form is used to 
+	edit the existing directed charge information for the work area or part. (See also <a href="../Catalog/Catalog.htm#EditCharge">part</a>). 
+	Make the needed changes directly on the form.</p>
+   <ul>
+   	<li>Click the <strong>Remove Charge Numbers</strong> link to delete the existing charge numbers (if 
+   		 any) from the part record for this work area.</li>
+   	<li>Use the <strong>PO</strong> box, which may appear as a text box in which to type, or may appear as
+   		 a drop-down list from which to select, to change the PO for the part record for this work area.</li>
+   </ul>
+<p>When done, click on the <strong>Submit</strong> link in the upper-left corner to save the changes: the new information will be used 
+   until any future change is made.</p>
+<p>If directed charges have been entered for both a part and the work area, the part directed charge will be used
+   rather than the work area directed charge.</p>
+<div class="image"><img src="WorkAreaStockMgmt8.png" height="295" width="400" alt="Directed Charge form" />
+<div class="caption">Figure 8</div></div>
+
+</body>
+</html>

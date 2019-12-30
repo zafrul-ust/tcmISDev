@@ -1,0 +1,28 @@
+<html><head><title>Add DSO</title></head>
+<body bgcolor="#FFFFFF">
+<center><h2>Add Charge #</h2>
+</center>
+<hr>
+<center><form action="/cgi-bin/radweb/add_charge.cgi" method="post">
+Alter Charge # for &nbsp;
+<select name="asys">
+<option value="JDE">JDE
+</select>
+<br>
+(okay, not much choice right now)
+<br>
+<table cellpadding=3 border=3>
+<tr><td align=right>Charge #</td><td><INPUT name="num" type="TEXT" size=6></td></tr> 
+<tr><td><input type="radio" name="type" value="dir" CHECKED>Direct Charge</td><td><input type="radio" name="type" value="ind">Indirect Charge</td></tr> 
+</table> 
+<br>
+<input type="radio" name="act" value="add" CHECKED> Add this Charge #
+<br>
+<input type="radio" name="act" value="del"> Delete this Charge #
+<p>
+<input type="submit">
+</form> 
+</center>
+<hr>
+</body>
+</html> 

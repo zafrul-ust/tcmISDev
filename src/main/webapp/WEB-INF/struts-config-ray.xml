@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+    <form-bean name="loginForm"
+               type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="logonId"
+                     type="java.lang.String" />
+      <form-property name="password"
+                     type="java.lang.String" />
+      <form-property name="client"
+                     type="java.lang.String" />
+      <form-property name="companyId"
+                     type="java.lang.String" />
+      <form-property name="requestedPage"
+                     type="java.lang.String" />
+      <form-property name="requestedURLWithParameters"
+                     type="java.lang.String" />
+      <form-property name="submit"
+                     type="java.lang.String" />
+    </form-bean>
+    <form-bean name="excelForm"
+               type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="query"
+                     type="java.lang.String" />
+      <form-property name="comment"
+                     type="java.lang.String" />
+      <form-property name="saveQuery"
+                     type="java.lang.String" />
+      <form-property name="viewQuery"
+                     type="java.lang.String" />
+      <form-property name="submit"
+                     type="java.lang.String" />
+    </form-bean>
+    <form-bean name="getViewDetailForm"
+               type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="tableName"
+                     type="java.lang.String" />
+      <form-property name="submit"
+                     type="java.lang.String" />
+    </form-bean>
+<!--
+    <form-bean name="saveQueryForm"
+               type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="companyId"
+                     type="java.lang.String" />
+      <form-property name="personnelId"
+                     type="java.lang.String" />
+      <form-property name="queryName"
+                     type="java.lang.String" />
+      <form-property name="queryNameOld"
+                     type="java.lang.String" />
+      <form-property name="query"
+                     type="java.lang.String" />
+      <form-property name="dateSaved"
+                     type="java.lang.String" />
+      <form-property name="submit"
+                     type="java.lang.String" />
+    </form-bean>
+-->
+    <form-bean name="saveQueryForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm"/>
+
+
+    <form-bean name="passwordForm"
+               type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="passwordOld"
+                     type="java.lang.String" />
+      <form-property name="passwordNew"
+                     type="java.lang.String" />
+      <form-property name="passwordCopy"
+                     type="java.lang.String" />
+    </form-bean>
+
+    <form-bean name="genericForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm"/>
+
+  </form-beans>
+  <!-- ========== Global Forward Definitions ============================== -->
+  <global-forwards>
+    <forward name="rayreporthome"
+             path="/showgenericreportinput.do" />
+    <forward name="genericexcelreport"
+             path="/showgenericreportinput.do" />
+    <forward name="getviewdetail"
+             path="/getviewdetail.do" />
+    <forward name="showgenericreportinput"
+             path="/showgenericreportinput.do" />
+    <forward name="showgenericreporthelp"
+             path="/help.jsp" />
+    <forward name="showsavequery"
+             path="/savequery.jsp" />
+    <forward name="showviewquery"
+             path="/viewquery.jsp" />
+    <forward name="viewquery"
+             path="/viewquery.do" />
+    <forward name="reportrelay"
+             path="/reportrelay.jsp" />
+    <forward name="runexcelreport"
+             path="/runexcelreport.do"
+             redirect="false" />
+    <forward name="showcatalog"
+             path="/catalog.do" />
+    <forward name="showuseapprovalstatus"
+             path="/useapprovalstatus.do" />
+    <forward name="label"
+             path="/label.do" />
+    <forward name="showchemicallistsearch"
+             path="/chemicallistsearch.do" />
+    <forward name="showchemicalcassearch"
+             path="/chemicalcassearch.do" />
+    <forward name="tsdfwastereceiving"
+             path="/tsdfwastereceiving.do" />
+    <forward name="tsdfwastereceivingmain"
+             path="/tsdfwastereceivingmain.do" />
+    <forward name="tsdfcontainerreport"
+             path="/tsdfcontainerreport.do" />
+    <forward name="tsdfcontainerreportmain"
+             path="/tsdfcontainerreportmain.do" />
+    <forward name="manifestreport"
+             path="/manifestreport.do" />
+    <forward name="manifestreportmain"
+             path="/manifestreportmain.do" />
+    <forward name="manifestsearch"
+             path="/manifestsearch.do" />
+    <forward name="manifestsearchmain"
+             path="/manifestsearchmain.do" />
+    <forward name="application"
+             path="/application.do" />
+    <forward name="possupload"
+             path="/possupload.do" />
+    <forward name="itemmanagementmain"
+             path="/itemmanagementmain.do" />
+	 <forward name="workareausagemain"
+             path="/workareausagemain.do" /> 
+	<forward name="updateapexpo"
+             path="/updateapexpo.do" /> 
+    <forward name="useapprovalmain"
+             path="/useapprovalmain.do" /> 
+	<forward name="raytheoninactivechargeno"
+             path="/raytheoninactivechargeno.do" />
+             
+  </global-forwards>
+  <!-- ========== Action Mapping Definitions ============================== -->
+  <action-mappings>
+    <!-- Show report options -->
+    <action path="/showlogin"
+            type="com.tcmis.common.admin.action.ShowLoginAction"
+            input="/../common/application/login.jsp"
+            scope="request">
+        <forward name="success" path="/common/application/login.jsp" module="" />
+    </action>
+
+    <action path="/reportlogin"
+            type="com.tcmis.internal.report.action.ShowGenericReportInputAction"
+            name="getViewDetailForm"
+            validate="false"
+            input="/input.jsp"
+            scope="request">
+        <forward name="genericreportinput" path="/showgenericreportinput.do"/>
+    </action>
+
+    <action path="/runreportrelay"
+            name="excelForm"
+            type="com.tcmis.internal.report.action.RunReportRelayAction"
+            validate="false"
+            input="oracleerror.jsp"
+            scope="request">
+        <forward name="success" path="/reportrelay.jsp"/>
+    </action>
+    <action path="/runexcelreport"
+            type="com.tcmis.internal.report.action.RunExcelReportAction"
+            validate="false"
+            input="/oracleerror.jsp"
+            scope="request"
+            parameter="/temp/">
+        <forward name="viewfile" path="/viewexcel.jsp"/>
+    </action>
+    <action path="/showgenericreportinput"
+            type="com.tcmis.internal.report.action.ShowGenericReportInputAction"
+            name="getViewDetailForm"
+            validate="false"
+            input="/input.jsp"
+            scope="request">
+        <forward name="genericreportinput" path="/excel.jsp"/>
+    </action>
+    <action path="/savequery"
+            name="saveQueryForm"
+            type="com.tcmis.internal.report.action.SaveQueryAction"
+            validate="false"
+            input="/savequery.jsp"
+            scope="request">
+        <forward name="showgenericreportinput" path="/showgenericreportinput.do"/>
+    </action>
+    <action path="/showupdatequery"
+            name="saveQueryForm"
+            type="com.tcmis.internal.report.action.ShowUpdateQueryAction"
+            validate="false"
+            input="/oracleerror.jsp"
+            scope="request">
+        <forward name="showupdatequery" path="/updatequery.jsp"/>
+    </action>
+    <action path="/updatequery"
+            name="saveQueryForm"
+            type="com.tcmis.internal.report.action.UpdateQueryAction"
+            validate="false"
+            input="/updatequery.jsp"
+            scope="request">
+        <forward name="viewquery" path="/viewquery.do"/>
+    </action>
+    <action path="/deletequery"
+            name="saveQueryForm"
+            type="com.tcmis.internal.report.action.DeleteQueryAction"
+            validate="false"
+            input="/viewquery.jsp"
+            scope="request">
+        <forward name="showgenericreportinput" path="/showgenericreportinput.do"/>
+    </action>
+    <action path="/viewquery"
+            type="com.tcmis.internal.report.action.ViewQueryAction"
+            name="saveQueryForm"
+            validate="false"
+            input="/viewquery.jsp"
+            scope="request">
+    </action>
+    <action path="/showtiertwo"
+            type="radian.tcmis.internal.report.action.ShowTierTwoAction"
+            name="tiertwoForm"
+            validate="false"
+            input="/tiertwo/index.jsp"
+            scope="request">
+        <forward name="showinput" path="/tiertwo/tiertwostart.jsp"/>
+    </action>
+    <action path="/tiertwo1"
+            type="radian.tcmis.report.action.TierTwoFacilityAction"
+            name="tiertwoForm"
+            validate="false"
+            input="/tiertwo/tiertwostart.jsp"
+            scope="request">
+        <forward name="showinput" path="/tiertwo/tiertwolocation.jsp"/>
+        <forward name="showoption" path="/tiertwo/tiertwooption.jsp"/>
+    </action>
+    <action path="/tiertwo2"
+            type="radian.tcmis.report.action.TierTwoLocationAction"
+            name="tiertwoForm"
+            validate="false"
+            input="/tiertwo/tiertwolocation.jsp"
+            scope="request">
+        <forward name="showinput" path="/tiertwo/tiertwofinish.jsp"/>
+    </action>
+    <action path="/tiertwo3"
+            type="radian.tcmis.report.action.TierTwoRequestAction"
+            name="tiertwoForm"
+            validate="false"
+            input="/tiertwo/tiertwofinish.jsp"
+            scope="request">
+        <forward name="done" path="/tiertwo/requestsubmitted.jsp"/>
+    </action>
+    <action path="/tiertwo2update"
+            type="radian.tcmis.report.action.TierTwoLocationUpdateAction"
+            name="tiertwoForm"
+            validate="false"
+            input="/tiertwo/tiertwolocationupdate.jsp"
+            scope="request">
+        <forward name="showinput" path="/tiertwo/tiertwofinishupdate.jsp"/>
+    </action>
+    <action path="/tiertwo3update"
+            type="radian.tcmis.report.action.TierTwoRequestUpdateAction"
+            name="tiertwoForm"
+            validate="false"
+            input="/tiertwo/tiertwofinishupdate.jsp"
+            scope="request">
+        <forward name="done" path="/tiertwo/requestsubmitted.jsp"/>
+    </action>
+    <action path="/tiertwooption"
+            type="radian.tcmis.report.action.TierTwoOptionAction"
+            name="tiertwoForm"
+            validate="false"
+            input="/tiertwo/tiertwooption.jsp"
+            scope="request">
+        <forward name="viewreport" path="/tiertwo/tiertwostart.jsp"/>
+        <forward name="editreport" path="/tiertwo/tiertwolocationupdate.jsp"/>
+        <forward name="publishreport" path="/tiertwo/publishresult.jsp"/>
+    </action>
+    <action path="/reportpassword"
+            type="com.tcmis.internal.report.action.ReportPasswordAction"
+            name="passwordForm"
+            validate="false"
+            input="/password.jsp"
+            scope="request">
+        <forward name="success" path="/passwordsuccess.jsp"/>
+    </action>
+    <action path="/suppliersummary"
+            type="radian.tcmis.report.action.SupplierSummaryReportAction"
+            name="passwordForm"
+            validate="false"
+            input="/lansing/index.jsp"
+            scope="request">
+        <forward name="success" path="/passwordsuccess.jsp"/>
+    </action>
+    <action path="/supplierdetail"
+            type="radian.tcmis.report.action.SupplierDetailReportAction"
+            name="passwordForm"
+            validate="false"
+            input="/lansing/index.jsp"
+            scope="request">
+        <forward name="success" path="/passwordsuccess.jsp"/>
+    </action>
+    <action path="/suppliertotal"
+            type="radian.tcmis.report.action.SupplierTotalReportAction"
+            name="passwordForm"
+            validate="false"
+            input="/lansing/index.jsp"
+            scope="request">
+        <forward name="success" path="/passwordsuccess.jsp"/>
+    </action>
+    <action path="/lansingmargin"
+            type="radian.tcmis.report.action.LansingMarginReportAction"
+            name="supplierForm"
+            validate="false"
+            input="/lansing/index.jsp"
+            scope="request">
+        <forward name="success" path="/passwordsuccess.jsp"/>
+    </action>
+    <action path="/showlansingmargin"
+            type="radian.tcmis.report.action.ShowLansingReportAction"
+            name="supplierForm"
+            validate="false"
+            input="/lansing/index.jsp"
+            scope="request">
+        <forward name="showinput" path="/lansing/lansingmargin.jsp"/>
+    </action>
+    <action path="/lansingusage"
+            type="radian.tcmis.report.action.LansingUsageReportAction"
+            name="supplierForm"
+            validate="false"
+            input="/lansing/index.jsp"
+            scope="request">
+        <forward name="success" path="/passwordsuccess.jsp"/>
+    </action>
+    <action path="/showlansingusage"
+            type="radian.tcmis.report.action.ShowLansingReportAction"
+            name="supplierForm"
+            validate="false"
+            input="/lansing/index.jsp"
+            scope="request">
+        <forward name="showinput" path="/lansing/lansingusage.jsp"/>
+    </action>
+    <action path="/supplierreportrelay"
+            type="radian.tcmis.report.action.SupplierReportRelayAction"
+            name="supplierForm"
+            validate="false"
+            input="/lansing/index.jsp"
+            scope="request">
+        <forward name="reportrelaytotal" path="/lansing/suppliertotalreportrelay.jsp"/>
+        <forward name="reportrelaytotalreturn" path="/lansing/suppliertotal.jsp"/>
+        <forward name="reportrelaysummary" path="/lansing/suppliersummaryreportrelay.jsp"/>
+        <forward name="reportrelaysummaryreturn" path="/lansing/suppliersummary.jsp"/>
+        <forward name="reportrelaydetail" path="/lansing/supplierdetailreportrelay.jsp"/>
+        <forward name="reportrelaydetailreturn" path="/lansing/supplierdetail.jsp"/>
+        <forward name="reportrelaymargin" path="/lansing/lansingmarginreportrelay.jsp"/>
+        <forward name="reportrelaymarginreturn" path="/lansing/lansingmargin.jsp"/>
+        <forward name="reportrelayusage" path="/lansing/lansingusagereportrelay.jsp"/>
+        <forward name="reportrelayusagereturn" path="/lansing/lansingusage.jsp"/>
+    </action>
+    <action path="/showlansingtotalreport"
+            type="radian.tcmis.report.action.ShowLansingReportAction"
+            name="supplierForm"
+            validate="false"
+            input="/lansing/index.jsp"
+            scope="request">
+        <forward name="showinput" path="/lansing/suppliertotal.jsp"/>
+    </action>
+    <action path="/showlansingsummaryreport"
+            type="radian.tcmis.report.action.ShowLansingReportAction"
+            name="supplierForm"
+            validate="false"
+            input="/lansing/index.jsp"
+            scope="request">
+        <forward name="showinput" path="/lansing/suppliersummary.jsp"/>
+    </action>
+    <action path="/showlansingdetailreport"
+            type="radian.tcmis.report.action.ShowLansingReportAction"
+            name="supplierForm"
+            validate="false"
+            input="/lansing/index.jsp"
+            scope="request">
+        <forward name="showinput" path="/lansing/supplierdetail.jsp"/>
+    </action>
+    <action path="/xcbl"
+            type="com.tcmis.client.raytheon.action.XcblAction"
+            validate="false"
+            input="/common/application/index.jsp"
+            scope="request">
+       <forward name="xcbl" path="/common/done.jsp" module=""/>
+    </action>
+
+    <action path="/catalog"
+            type="com.tcmis.client.catalog.action.CatalogAction"
+            name="genericForm"
+            validate="false"
+            input="/catalog.jsp"
+            scope="request">
+        <forward name="success" path="/catalog.jsp"/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+
+   <action path="/showuseapprovalstatus"
+            type="com.tcmis.client.catalog.action.UseApprovalStatusAction"
+            validate="false"
+            input="/useapprovalstatus.jsp"
+            scope="request">
+        <forward name="showresults" path="/useapprovalstatus.jsp"/>
+        <forward name="closewindow" path="/closewindow.jsp"/>
+        <forward name="showUseApprovers" path="/showUseApprovers.jsp"/>
+        <forward name="showajaxresults" path="/useapprovaldetails.jsp"/>
+        <forward name="viewfile" path="/common/viewexcel.jsp" module=""/>
+    </action>
+
+    <action path="/useapprovalstatus"
+            type="com.tcmis.client.catalog.action.UseApprovalStatusAction"
+            name="genericForm"
+            validate="false"
+            input="/useapprovalstatus.jsp"
+            scope="request">
+        <forward name="showresults" path="/useapprovalstatus.jsp"/>
+        <forward name="closewindow" path="/closewindow.jsp"/>
+        <forward name="showUseApprovers" path="/showUseApprovers.jsp"/>
+        <forward name="showajaxresults" path="/useapprovaldetails.jsp"/>
+        <forward name="viewfile" path="/common/viewexcel.jsp" module=""/>
+    </action>
+
+    <action path="/label"
+            type="com.tcmis.client.raytheon.action.SecondaryLabelAction"
+            name="genericForm"
+            validate="false"
+            input="/secondarylabel.jsp"
+            scope="request">
+        <forward name="success" path="/secondarylabel.jsp"/>
+        <forward name="printlabels" path="/common/printlabels.jsp" module=""/>
+    </action>
+
+    <action path="/tsdfwastereceiving"
+            type="com.tcmis.client.waste.action.TsdfWasteReceivingAction"
+            name="genericForm"
+            validate="false"
+            input="/tsdfwastereceiving.jsp"
+            scope="request">
+        <forward name="success" path="/tsdfwastereceivingraysearch.jsp"/>
+        <forward name="showresults" path="/tsdfwastereceivingrayresults.jsp"/>
+    </action>
+
+    <action path="/tsdfwastereceivingmain"
+            type="com.tcmis.client.waste.action.TsdfWasteReceivingAction"
+            validate="false"
+            input="/tsdfwastereceivingmain.jsp"
+            scope="request">
+        <forward name="success" path="/tsdfwastereceivingmain.jsp"/>
+    </action>
+
+    <action path="/tsdfcontainerreport"
+            type="com.tcmis.client.waste.action.TsdfReportAction"
+            name="genericForm"
+            validate="false"
+            input="/tsdfcontainerreport.jsp"
+            scope="request">
+        <forward name="success" path="/tsdfcontainerreportraysearch.jsp"/>
+        <forward name="showresults" path="/tsdfcontainerreportrayresults.jsp"/>
+    </action>
+
+    <action path="/tsdfcontainerreportmain"
+            type="com.tcmis.client.waste.action.TsdfReportAction"
+            validate="false"
+            input="/tsdfcontainerreportmain.jsp"
+            scope="request">
+        <forward name="success" path="/tsdfcontainerreportmain.jsp"/>
+    </action>
+
+    <action path="/manifestreport"
+            type="com.tcmis.client.waste.action.ManifestReportAction"
+            name="genericForm"
+            validate="false"
+            input="/manifestreport.jsp"
+            scope="request">
+        <forward name="success" path="/manifestreportraysearch.jsp"/>
+        <forward name="showresults" path="/manifestreportrayresults.jsp"/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+
+    <action path="/manifestreportmain"
+            type="com.tcmis.client.waste.action.ManifestReportAction"
+            validate="false"
+            input="/manifestreportmain.jsp"
+            scope="request">
+        <forward name="success" path="/manifestreportmain.jsp"/>
+    </action>
+
+    <action path="/manifestsearch"
+            type="com.tcmis.client.waste.action.ManifestSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/manifestsearch.jsp"
+            scope="request">
+        <forward name="success" path="/manifestsearchraysearch.jsp"/>
+        <forward name="showresults" path="/manifestsearchrayresults.jsp"/>
+    </action>
+
+    <action path="/manifestsearchmain"
+            type="com.tcmis.client.waste.action.ManifestSearchAction"
+            validate="false"
+            input="/manifestsearchmain.jsp"
+            scope="request">
+        <forward name="success" path="/manifestsearchmain.jsp"/>
+    </action>
+
+    <action path="/possupload"
+            type="com.tcmis.client.raytheon.action.PossUploadAction"
+            name="genericForm"
+            validate="true"
+            input="/possupload.jsp"
+            scope="request">
+        <forward name="success" path="/possupload.jsp" />
+    </action>
+
+    <action path="/itemmanagementmain"
+            type="com.tcmis.internal.hub.action.ItemManagementAction"
+            validate="false"
+            input="/common/operations/itemmanagementmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/operations/itemmanagementmain.jsp" module=""/>
+    </action>
+
+    <action path="/itemmanagementsearch"
+            type="com.tcmis.internal.hub.action.ItemManagementAction"
+            name="genericForm"
+            validate="false"
+            input="/common/operations/itemmanagementsearch.jsp"
+            scope="request">
+        <forward name="success" path="/common/operations/itemmanagementsearch.jsp" module=""/>
+    </action>
+
+    <action path="/itemmanagementresults"
+            type="com.tcmis.internal.hub.action.ItemManagementAction"
+            name="genericForm"
+            validate="false"
+            input="/common/operations/itemmanagementresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/operations/itemmanagementresults.jsp" module=""/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+
+	  <!-- ========== to replace materialused and showmate... =========================== -->
+		 <action path="/workareausagemain"
+					type="com.tcmis.client.report.action.MaterialsUsedAction"
+					validate="true"
+					input="/workareausagemain.jsp"
+					scope="request">
+			  <forward name="success" path="/workareausagemain.jsp"/>
+		 </action>
+
+		 <action path="/workareausagesearch"
+					type="com.tcmis.client.report.action.MaterialsUsedAction"
+					name="genericForm"
+					validate="true"
+					input="/workareausagesearch.jsp"
+					scope="request">
+			  <forward name="success" path="/workareausagesearch.jsp"/>
+		 </action>
+
+		 <action path="/workareausageresults"
+					type="com.tcmis.client.report.action.MaterialsUsedAction"
+					name="genericForm"
+					validate="true"
+					input="/workareausageresults.jsp"
+					scope="request">
+			  <forward name="success" path="/workareausageresults.jsp"/>
+			  <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+		 </action>
+
+		 <action path="/updateapexpo"
+	             type="com.tcmis.client.raytheon.action.UpdateApexPOAction"
+					name="genericForm"
+					validate="true"
+					input="/updateapexpo.jsp"
+					scope="request">
+			  <forward name="success" path="/updateapexpo.jsp"/>
+		 </action>
+		 
+		   <action path="/useapprovalmain"
+		            type="com.tcmis.client.catalog.action.UseApprovalStatusAction"
+		            name="genericForm"
+		            validate="false"
+		            input="/useapprovalmain.jsp"
+		            scope="request">
+		        <forward name="success" path="/useapprovalmain.jsp"/>
+		        <forward name="showUseApprovers" path="/showUseApprovers.jsp"/>
+		         <forward name="closewindow" path="/closewindow.jsp"/>
+		    </action>
+		    
+		    <action path="/useapprovalresults"
+		            type="com.tcmis.client.catalog.action.UseApprovalStatusAction"
+		            name="genericForm"
+		            validate="false"
+		            input="/useapprovalresults.jsp"
+		            scope="request">
+		        <forward name="success" path="/useapprovalresults.jsp"/>
+		         <forward name="closewindow" path="/closewindow.jsp"/>
+		    </action>     
+    <action path="/raytheoninactivechargeno"
+          type="com.tcmis.internal.report.action.RaytheonInactiveChargeNoAction"
+          validate="false"
+          input="/rayinactivechargeno.jsp"
+          scope="request">
+          <forward name="success" path="/haas/rayinactivechargeno.jsp" module=""/>
+    </action>     
+    <action path="/rayinactivechargenoresult"
+          type="com.tcmis.internal.report.action.RaytheonInactiveChargeNoAction"
+          name="genericForm"
+          validate="false"
+          input="/rayinactivechargeno.jsp"
+          scope="request">
+          <forward name="success" path="/haas/rayinactivechargenoresults.jsp" module=""/>
+          <forward name="viewfile" path="/common/viewexcel.jsp" module=""/>
+    </action>     
+
+  </action-mappings>
+  <!-- ========== Message Resources Definitions =========================== -->
+  <message-resources parameter="com.tcmis.common.resources.CommonResources"
+                     null="false"/>
+  <!-- ========== Plug Ins Configuration ================================== -->
+  <!--
+     Add multiple validator resource files by setting the pathnames property
+     with a comma delimitted list of resource files to load.
+    -->
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property value="/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml"
+                  property="pathnames" />
+  </plug-in>
+</struts-config>

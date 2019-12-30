@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Deliveries</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="Deliveries" id="Deliveries"></a>Deliveries</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Deliveries</strong> page is used to view information about deliveries from HGI and to access 
+   documentation associated with the delivery such as receiving checklists or supplier packing lists. The 
+   <strong>Deliveries</strong> page can be accessed from the <strong>Reports</strong> menu by selecting 
+   <strong>Deliveries</strong>. The	<strong>Deliveries</strong> page is launched in a new tab.</p>
+<div class="image"><img src="Deliveries1.png" height="229" width="835" alt="Deliveries report menu item" />
+<div class="caption">Figure 1</div></div>
+
+<p>The first two selection criteria for your report allow you to select a facility from the <strong>Facility</strong> 
+   list and a work area from the <strong>Work Area</strong> list. You may also leave either or both 
+   set at the default values.</p>
+<p>The <strong>Delivered Between</strong> text boxes allow you to specify a starting and/or ending date for the 
+   deliveries you want to see reported. Clicking into either text box will cause a small calendar to be displayed 
+   from which you may choose the date you want.</p>
+<p>You must provide something to at least partially identify the material you want using the <strong>Search by</strong> boxes. 
+	See <a href="../Administration/Searches.htm">Search functions</a> for more information.</p>
+<p>Click the <strong>Search</strong> button.</p>
+<p>Once your report is displayed, click the <strong>Create Excel</strong> button on the page to export the data in Excel format.</p>
+<div class="image"><img src="Deliveries2.png" height="314" width="835" alt="Deliveries report specification form" />
+<div class="caption">Figure 2</div></div>
+
+<p>The <strong>Deliveries</strong> report contains a convenient link when there are any actual delivery receipt documents for a record uploaded
+   into tcmIS by the HGI Hub (when the materials were received at the hub). These documents may include receiving checklists,
+	 packing lists, certificates of conformance, or certificates of analysis. To the right of the Receipt number in the first column, a small 
+	 &rsquo;document&rsquo; icon alerts you to the presence of an uploaded document for the record.</p>
+<p>Right click anywhere on the row for the record you want and there will be a <strong>View Receipt Document</strong> menu item.
+	Click on that and a new window will open to display a Receipt Document window. </p>
+<p>In addition, right clicking on any record will provide a context menu item, <strong>Move to Another Work Area</strong>, for the process to transfer 
+   material to another work area. </p>
+<div class="image"><img src="Deliveries3.png" height="519" width="835" alt="View Receipt Document menu item" />
+<div class="caption">Figure 3</div></div>
+
+<p>When you click on the <strong>Move to Another Work Area</strong> menu item, tcmIS will open a child window where you must detail the transfer. 
+   There are two sorts of work area destinations for a transfer.</p>
+<ul>
+   <li>Some work areas have defaults but allow you to override the defaults. These defaults will be in normal type. There will be 
+       multiple record rows to accommodate splitting the transfer among two or more charge numbers. (Even though multiple records are 
+       permitted, often there will be only one for a particular destination.)</li>
+   <li>Other work areas have a default set of charge information (one or more charge number records), set up so you cannot override it. 
+       These records will be in bold type.</li>
+</ul>
+<p>In addition to verifying or updating the charge information, and adding records for split transfers, you must also verify or provide other 
+   information needed for the transfer.</p>
+<ul>
+   <li>You may use the <strong>to Work Area</strong> box to change the work area to which the transfer is to be made.</li>
+   <li>You must use the <strong>Quantity</strong> text box to specify the quantity of the item to be transferred.</li>
+   <li>If needed, use the <strong>Dock</strong> box to specify the dock for the transfer.</li>
+   <li>If needed, use the <strong>Deliver to</strong> text box to specify the location within the work area for the transfer.</li>
+</ul>
+<p>When splitting a transfer between two or more charge numbers, adjust the percentage for each row in the rightmost column so that all 
+   altogether the percentages add to exactly 100.</p>
+<p>When all the transfer information is provided, click on the <strong>Submit</strong> link in the upper-left corner of the window 
+   to complete the transfer process. Before you ever click the <strong>Submit</strong> link, you may abandon the process and disregard 
+   the transfer steps by clicking the <strong>Cancel</strong> link.</p>
+<div class="image"><img src="Deliveries4.png" height="305" width="1122" alt="Move to Another Work Area form" />
+<div class="caption">Figure 4</div></div>
+
+</body>
+</html>

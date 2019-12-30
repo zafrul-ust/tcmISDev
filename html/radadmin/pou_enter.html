@@ -1,0 +1,76 @@
+<html><head><title>POU Time Entry</title></head>
+
+<body bgcolor="#FFFFFF">
+<center>
+<h2>POU Time Entry</h2>
+<form action="/cgi-bin/radadmin/pou_enter.cgi" method="post">
+<table>
+  <tr>
+    <td align="left">Hub:</td>
+    <td align="left"><select name="bp">
+      <option value="Dallas" SELECTED>Dallas
+      <option value="Tucson">Tucson
+      <option value="Salem">Salem
+      <option value="Normandale">Normandale
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td align="left">Client:</td>
+    <td align="left"><select name="client">
+      <option value="Raytheon" SELECTED>Raytheon
+      <option value="DRS">DRS
+      <option value="Seagate">Seagate
+      <option value="Milt Owen">Milt Owen :-)
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td align="left">Client Requester:</td>
+    <td align="left"><input type="text" name="req" size="25"></td>
+  </tr>
+  <tr>
+    <td align="left">Haas Personnel:</td>
+    <td align="left"><input type="text" name="worker" size="25"></td>
+  </tr>
+  <tr>
+    <td align="left">Charge rate:</td>
+    <td align="left"><input type="text" name="rate" value="$50.00" size="10"> per <select name="unit">
+      <option value="hr">hr
+      <option value="day">day</select></td>
+  </tr>
+  <tr>
+    <td align="left">Amount of time:</td>
+    <td align="left"><input type="text" name="hours" size="25"></td>
+  </tr>
+  <tr>
+    <td align="left">Date of Service:</td>
+    <td align="left"><input type="text" name="date" value="01/01/2000" size="25"></td>
+  </tr>
+  <tr>
+    <td align="left">Work Area:</td>
+    <td align="left"><input type="text" name="area" size="25"></td>
+  </tr>
+  <tr>
+    <td align="left">Facility:</td>
+    <td align="left"><select name="fac">
+      <option value="North Bldg">North Bldg
+      <option value="SC Bldg">SC Bldg
+      <option value="Richardson">Richardson
+      <option value="Lewisville">Lewisville
+      <option value="Sherman">Sherman
+      <option value="Spring Creek">Spring Creek
+      <option value="McKinney">McKinney
+      <option value="Lemmon Ave">Lemmon Ave
+      <option value="DRS">DRS
+      <option value="NRM">Normandale
+      <option value="SHAK">Shakopee
+    </select></td>
+  </tr>
+  <tr>
+    <td align="left">Charge Number:</td>
+    <td align="left"><input type="text" name="chnum" size="25"></td>
+  </tr>
+</table>
+<input type="submit" value="Enter Info">
+</form></center></body></html>

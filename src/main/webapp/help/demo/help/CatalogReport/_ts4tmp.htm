@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>tcmIS Catalog Report</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css">
+</head>
+
+<body>
+<h1><a name="CatalogReport" id="CatalogReport"></a>Catalog Report</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+<p>The <strong>Catalog Report</strong> page can be used to create reports of the contents of any catalog to which you have
+   access. The <strong>Catalog Report</strong> page can be accessed from the <strong>Reports</strong> menu by selecting the
+	<strong>Catalog Report</strong> menu item. The <strong>Catalog Report</strong> page is launched in a new tab.</p>
+<p>The <strong>Catalog Report</strong> page is highly similar to the <strong>Catalog</strong> page but does not provide any
+   means to order materials -- it is just a report.</p>
+<div class="image"><img src="CatalogReport1.png" height="299" width="835" alt="Catalog Report menu item" />
+<div class="caption">Figure 1</div></div>
+
+<p>Select the facility for which the catalog reporting is to be done from the <strong>Facility</strong> list. Select
+   the <strong>Facility Approved Only</strong> check box to limit the report to those items in the catalog which are on
+   the QPL (qualified product list) for the selected facility.</p>
+<p>Select the Catalog for your catalog report from the <strong>Catalog</strong> list if that is available and
+   relevant to your report need. Indicate the work area you want: it can be all work areas for which you have authority by
+	selecting My Work Areas from  the <strong>Work Area</strong> list or one specific work area</p>
+<p>Enter details to more narrowly specify the report in the <strong>Search</strong> box. Search criteria can include Demo Corp. part number,
+	HGI item ID, packaging, trade name, manufacturer, manufacturer's part number, or material description.</p>
+<p>Initiate your report by clicking the <strong>Search</strong> button.</p>
+<div class="image"><img src="CatalogReport2.png" height="354" width="820" alt="Catalog Report specification panel" />
+<div class="caption">Figure 2</div></div>
+
+<p>The Catalog report is displayed in a data grid within the same window, below the specification panel. Items are displayed in Part number
+   order.</p>
+<div class="image"><img src="CatalogReport3.png" height="551" width="1025" alt="Catalog Report data grid" />
+<div class="caption">Figure 3</div></div>
+
+<p>Click the <strong>Create Excel</strong> button on the page to export the data in Excel format.</p>
+
+<p>The first four columns in the data grid provide a context menu that provides access to additional
+	information. Right click on any of them in a row for the menu.</p>
+<ul>
+	<li>The first context menu item, 1 in the figure below, is the <strong>Part No.</strong> for the item in the record.</li>
+	<li>The second context menu item, <strong>Comments</strong>, leads to two additional menu items.
+	<ul>
+		<li>Choose <a href="../Catalog/Catalog.htm#Comments"><strong>Part Work Area Comments</strong></a> to access comments on this 
+			 particular item, specific to this facility and work area. These comments are not shown to other facilities or work areas, 
+			 nor outside Demo Corp.
+			 <ul>
+			 	<li>The <strong>Part Worl Area Comments</strong> menu is only available if a specific <strong>Work Area</strong> was specified 
+			 		 in the search criteria.</li>
+			 </ul>					 
+		</li>
+		<li>Choose <a href="../Catalog/Catalog.htm#Comments"><strong>Part Comments</strong></a> to view or add comments for all users of the <strong>Catalog</strong> page.
+	       Part Comments are printed on the HGI pick list at the warehouse.</li>
+	</ul>
+	</li>
+	<li>The <strong>Test Definition</strong> menu item will open a child window and display information on test requirements for the item.</li>
+	<li>Choose <strong>Quality Summary</strong> to open a child window and display the Quality Summary page of information about the item. (See 
+		 example below.)</li>
+</ul>
+<div class="image"><img src="CatalogReport4.png" height="497" width="901" alt="Catalog Report left columns context menu items" />
+<div class="caption">Figure 4</div></div>
+
+<div class="image"><img src="CatalogReport5.png" height="522" width="844" alt="Quality Summary page" />
+<div class="caption">Figure 5</div></div>
+
+<p>The right-side columns in the displayed data provide a context menu to view an MSDS. Right click on any of them in a row
+   for the menu. Click on the <strong><a href="../MSDS/MSDS.htm#viewmsds">View MSDS</a></strong> menu item to see the MSDS 
+   for the item in a new window. <em>The <strong>View MSDS</strong> menu item is only available if tcmIS has a copy of the 
+   MSDS on file.</em></p>
+<div class="image"><img src="CatalogReport6.png" height="492" width="901" alt="Catalog Report right side context menus" />
+<div class="caption">Figure 6</div></div>
+
+</body>
+</html>

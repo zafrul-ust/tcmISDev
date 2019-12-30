@@ -1,0 +1,53 @@
+<html>
+
+
+<head>
+<title>List of Outstanding MRs</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p>
+<center><h2>List of Outstanding MRs</h2></center>
+<p>
+<form action="/cgi-bin/rayedit/mr_list_comp.cgi" method="post">
+
+<div align="center"><center>
+Show items for facility &nbsp;
+<select name="fac_filter">
+<option value="Any" SELECTED>Any Facility
+<option value="Andover">Andover
+<option value="Quincy">Quincy
+<option value="Waltham">Waltham
+<option value="Huntsville">Huntsville
+<option value="Bedford">Bedford
+<option value="Lexington">Lexington
+<option value="Portsmouth">Portsmouth
+<option value="Tewksbury">Tewksbury
+<option value="Texarkana">Texarkana
+<option value="White Sands">White Sands
+<option value="Sudbury">Sudbury
+</select>
+<br>
+where the Request ID contains &nbsp;
+<input type="text" name="request_id">
+<br>
+and the Raytheon Part # contains &nbsp;
+<input type="text" name="part_id">
+<br>
+and the Radian Sales Order ID is &nbsp;
+<input type="text" name="sales_order">
+<p>
+Sort by: <select name="sortby">
+        <option value="request_id">Request ID
+        <option value="date_submitted" SELECTED>Date Submitted to Radian
+        <option value="part_id">Raytheon Part #
+        <option value="sales_order_id">Sales Order ID
+        <option value="facility">Facility
+</select>
+<input type="radio" name="up" value="" CHECKED>Ascending
+<input type="radio" name="up" value="desc">Descending
+<p>
+<input type="submit">
+</center></div>
+</form></body></html>

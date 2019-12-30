@@ -1,0 +1,56 @@
+<html>
+
+<head>
+<title>Enter Additional Charges</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p>
+<center><h2>Enter Additional Charges</h2>
+<form action="/cgi-bin/purch/add_charge.cgi" method="post">
+<b>Item #: &nbsp;</b>
+<input type="text" name="item" size="6">
+<p>
+<b>Additional Charges</b>
+<table>
+  <tr>
+    <td align="right">Shipping</td>
+    <td align="right"><input type="text" name="ship" size="6"></td>
+    <td align="right">Testing</td>
+    <td align="right"><input type="text" name="test" size="6"></td>
+    <td align="right">Minimum Buy</td>
+    <td align="right"><input type="text" name="min" size="6"></td>
+    <td align="right">Miscellanous</td>
+    <td align="right"><input type="text" name="misc" size="6"></td>
+  </tr>
+  <tr>
+    <td align="right">Cylinder Rental</td>
+    <td align="right"><input type="text" name="cyl" size="6"></td>
+    <td align="right">Setup</td>
+    <td align="right"><input type="text" name="set" size="6"></td>
+    <td align="right">Certification</td>
+    <td align="right"><input type="text" name="cert" size="6"></td>
+    <td align="right">Expediting</td>
+    <td align="right"><input type="text" name="exp" size="6"></td>
+  </tr>
+  <tr>
+    <td align="right">Cutting</td>
+    <td align="right"><input type="text" name="cut" size="6"></td>
+    <td align="right">Dry Ice</td>
+    <td align="right"><input type="text" name="dry" size="6"></td>
+    <td align="right">Hazmat</td>
+    <td align="right"><input type="text" name="haz" size="6"></td>
+  </tr>
+  <tr>
+    <td align="right">Packing</td>
+    <td align="right"><input type="text" name="pack" size="6"></td>
+    <td align="right">Environmental</td>
+    <td align="right"><input type="text" name="env" size="6"></td>
+    <td align="right">Regulatory</td>
+    <td align="right"><input type="text" name="reg" size="6"></td>
+  </tr>
+</table>
+<p>
+<input type="Submit" value="Enter Charges">
+</form></center></body></html>

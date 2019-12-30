@@ -1,0 +1,18 @@
+<html><head><title>NBO Builder</title></head>
+<body bgcolor="#CCCCFF">
+<center>
+<form action="/cgi-bin/radadmin/nbo/clone_list.cgi" method="POST">
+Search for string <input type="text" name="str" size="30"> in TCM_PART_VIEW
+<p>
+Search is case-sensitive: <input type="radio" name="case" value="N" CHECKED> NO
+&nbsp; &nbsp; <input type="radio" name="case" value="Y"> Yes
+<p>
+Run this script in environment: &nbsp;
+<select name="env">
+<option value="prod" SELECTED>tcmprod
+<option value="qa2">tcmqa2
+<option value="demo1">tcmdemo1
+</select>
+<p>
+<input type="submit" name="List clones" value="List clones">
+</form></center></body></html>

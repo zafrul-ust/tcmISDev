@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Consignment Processing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" />
+</head>
+
+<body>
+<p class="crumbs">Supply Chain &gt;&gt; Stock Room Operations &gt;&gt; Counting &gt;&gt;</p>
+<h1><a name="ConsignmentProcessing" id="ConsignmentProcessing"></a>Consignment Processing</h1>
+<p><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Consignment Processing</strong> page is used to record items used by inventory group, thereby decrementing 
+	the total inventory and creating a billable usage transaction. The <strong>Consignment Processing</strong> page is accessed 
+	from the <strong>Supply Chain</strong> menu by selecting the <strong>Stock Room Operations</strong> item, then the <strong>Counting</strong> 
+	menu item, and finally the <strong>Consignment Processing</strong> menu item. The page is opened in a new tab.</p>
+<div class="image"><img src="ConsignmentProcessing1.png" height="288" width="870" alt="Consignment Processing menu item" />
+<div>Figure 1</div></div>
+
+<p>On the selection form, specify the inventory you want:</p> 
+	<ul>
+		<li>use the <strong>Operating Entity</strong> drop-down list to select the entity for the search,</li>
+		<li>choose the hub for that entity from the <strong>Hub</strong> drop-down list, and</li>
+		<li>specify the particular <strong>Inventory Group</strong> from that drop-down list.</li>
+  	<li>You may narrow the Inventory search by indicating specific items, receipts, parts, etc., using the three <strong>Search by</strong> 
+		 boxes and one of the following fields. (See <a href="../Administration/Searches.htm">Search functions</a> for more information.)
+		<ul>
+			<li><strong>Item ID</strong>, enter a partial or complete <em>Item ID</em> information in the third text box.</li>
+			<li><strong>Item Desc</strong>[ription], enter a partial or complete <em>item description</em> information in the third text box.</li>
+			<li><strong>Receipt ID</strong>, enter a partial or complete <em>receipt ID</em> information in the third text box.</li>
+			<li><strong>Legacy Receipt ID</strong>, enter a partial or complete <em>legacy receipt ID</em> information in the third text box.</li>
+			<li><strong>Part Number</strong>, enter a partial or complete <em>part number</em> information in the third text box.</li>
+		</ul>
+	</li>
+</ul>
+<p>Click the <strong>Search</strong> button to see the consignment inventory matching the selected criteria, including Item ID, description, 
+	quantity on hand, and unit price.</p>
+<div class="image"><img src="ConsignmentProcessing2.png" height="340" width="870" alt="Consignment Processing search criteria panel" />
+<div>Figure 2</div></div>
+
+<p>When the search is complete, tcmIS will display the records in a data grid in the lower portion of the page. The actual task of 
+	Consignment Processing takes place in the data grid.</p>
+<p>There are several requirements for doing the processing. A single record, or multiple records sharing a single <strong>PO Number</strong>, may 
+	be processed at one time.</p>
+	<ul>
+		<li><em>An item (record) must have a valid price</em> (from the customer&#39;s Price List page) or usage cannot be recorded. (See 
+				<a href="#missingprice">Missing Price</a>, below.)</li>
+		<li>The <strong>PO Number</strong> must be entered in its text box at the upper left of the data grid panel.</li>
+		<li>The quantity used for any item to be processed is entered into the <strong>Used Quantity</strong> text box, <em>and it must normally be no greater than the 
+			 <strong>Quantity On Hand</strong></em>.
+			<ul>
+				<li>It is possible to enter a <strong>Used Quantity</strong> greater that the <strong>Quantity On Hand</strong>. tcmIS will present a 
+					 warning message when this happens. By clicking the <strong>OK</strong> button on the warning message you are taking responsibility for 
+					 the effects of recording usage greater than available quantity. Click the <strong>Cancel</strong> button if the quantity entered was not 
+					 intended.</li>
+			</ul>
+		</li>
+		<li>The date for recorded use must be entered in the <strong>Used Date</strong> input box.
+			<ul>
+				<li><strong><em>The date selected must be within the intended billing period for the usage. </em></strong></li>
+				<li>Clicking into a date input box will cause a small calendar to be displayed from which you may choose the date you want.</li>
+				<li>tcmIS will place the current date into all date input boxes by default but you may change any or all of them.</li>
+				<li>Changing the date in the column header changes the <strong>Used Date</strong> for all records in the data grid.</li>
+			</ul>
+		</li>
+		<li><em>Optionally</em>, you may enter <strong>Customer Reference</strong> information in the text box in that column. <em>Be certain of 
+				your customer&#39;s requirement(s)</em> for this entry.</li>
+		<li>Select the check box in the <strong>OK</strong> column for each record you want processed. Unselected records <strong><em>will not be 
+			 processed</em></strong> even if you have entered data for them.</li>
+	</ul>
+	
+<h3><a id="missingprice">Missing Price</a></h3>
+<p>Having a valid price in the record is absolutely required. If you chose not to add a price, do not attempt to process the item. 
+	Records without a price are highlighted in salmon pink to alert you to the situation.</p> 
+<p>When the price is missing, adding a price to the part in the <strong>Price</strong> text box on the record line will do two things.</p>
+	<ul>
+		<li>First, it will make it possible actually to do the consignment processing for the item. (Without a price it cannot be done, either by 
+			itself or in conjunction with other records.)</li>
+		<li>Second, it will also automatically update the customer&#39;s price list for the part.</li>
+	</ul>
+<p>Adding the price and specifying the <strong>PO Number</strong>, <strong>Used Quantity</strong>, and selecting the <strong>OK</strong> check box must 
+	all be done together. It is not possible to add the price only.</p>
+	
+<p>When all requirements are met, click the <strong>Process</strong> link. tcmIS will take several actions.</p>
+	<ul>
+		<li>The <strong>Quantity On Hand</strong> will be decremented by the amount that had been entered into the <strong>Used Quantity</strong> text box.</li>
+		<li>A billable usage transaction for the selected item(s), in the appropriate billing period, is created.</li>
+		<li>If the <strong>Inventory Type</strong> is <em>MM</em> and the remaining <strong>Quantity On Hand</strong> falls below the minimum, automatic 
+			 replenishment will be triggered.</li>
+		<li>A <strong>Distribution MR</strong> is created and the material is &#39;delivered&#39; (pick, pick QC, and ship confirms) from the consigned 
+			 inventory group to the customer.
+			<ul>
+				<li>These MRs can be viewed on the MR History page after processing on the Consignment Processing page.</li>
+			</ul>	 
+		</li>
+	</ul>
+<p>Click the <strong>Create Excel</strong> button to export the report in Excel format.</p>
+<div class="image"><img src="ConsignmentProcessing3.png" height="497" width="870" alt="Consignment Processing page with data grid of search results" />
+<div>Figure 3</div></div>
+
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>HGI tcmIS Cabinet Definitionss</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" />
+</head>
+
+<body>
+<h1><a name="CabinetDefinition" id="CabinetDefinition"></a>Cabinet Definitions</h1>
+<p><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" style="border-style: none" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" style="border-style: none" /></a></p>
+
+<p>The <strong>Cabinet Definitions</strong> page is used to view
+
+<!-- this section commented out until the HGI Cabinet Definitions page is redone
+, manage, 
+end of commented out section -->
+
+	and print information about Cabinet bins and parts set up in tcmIS. The <strong>Cabinet Definitions</strong> 
+	page can be accessed from the <strong>Supply Chain</strong> menu. Under <strong>Cabinet Inventory</strong>, 
+	select <strong>Cabinet Definitions</strong>. The <strong>Cabinet Definitions</strong> page is launched in a new tab.</p>
+<div class="image"><img src="CabinetDef1.png" height="346" width="835" alt="Cabinet Definitions menu item" />
+<div>Figure 1</div></div>
+
+<p>To work on cabinet defintions,</p>
+<ul>
+	<li>Select the hub from the <strong>Hub</strong> drop-down list.</li>
+	<li>Select the facility from the <strong>Facility</strong> drop-down list.</li>
+	<li>Select the work area from the <strong>Work Area</strong> drop-down list or select the default of <em>All</em>.</li>
+	<li>Select the specific cabinet(s) from the <strong>Cabinet</strong> drop-down list or select the default of <em>All</em>. 
+		To select more than one cabinet, hold down the keyboard CTRL key while clicking those wanted.</li>
+</ul>
+
+<p>Click the <strong>Search</strong> button. The Cabinets will be displayed in the data grid.</p>
+<p>Click the <strong>Create Excel</strong> button to export the data in Excel format.</p>
+<div class="image"><img src="CabinetDef2.png" height="524" width="835" alt="Cabinet Definitions page" />
+<div>Figure 2</div></div>
+
+<!-- this section commented out until the HGI Cabinet Definitions page is redone
+<div style="background-color: red;">
+<p>Each Cabinet has a number of characteristics which can be viewed and managed on the <strong>Cabinet
+   Definition</strong> page.</p>
+<ul>
+	<li><a href="#ActiveStatus">Active status</a></li>
+	<li><a href="#CabinetName">Cabinet name</a></li>
+	<li><a href="#CabinetGroup">Cabinet Group</a></li>
+	<li><a href="#OrderingMethod">Ordering Method</a></li>
+	<li><a href="#InventoryGroup">Inventory Group</a></li>
+	<li><a href="#LocationInformation">Location information</a>
+	<ul>
+		<li>Dock</li>
+		<li>Delivery Point</li>
+		<li>Building</li>
+	</ul>
+	</li>
+	<li><a href="#ContactInformation">Contact Information</a>
+	<ul>
+			<li>Contact name</li>
+			<li>Contact telephone</li>
+			<li>Contact e-mail</li>
+			<li>Contact location</li>
+			<li>Cabinet ID</li>
+	</ul>
+	</li>
+</ul>
+<p>In addition to the <strong>Update</strong> link, there are two other links in the upper-left of the data grid:</p>
+<ul>
+	<li>The <strong>New Cabinet</strong> link may be clicked to add a new Cabinet line to the data grid. You must
+	    edit this line (as described in the sections below) to complete the information needed, and click the
+		 <strong>Update</strong> link to save the new record.</li>
+	<li>The <strong>Show Legend</strong> link will cause a small window to open, on top of the current page, to display
+	    a color key to any shading used to characterize the records in the data grid.</li>
+</ul>
+<div class="image"><img src="CabinetDef3.png" height="428" width="835" alt="Cabinet Definitions page action links" />
+<div>Figure 3</div></div>
+
+<h4><a id="ActiveStatus">Active status</a></h4>
+<p>A Cabinet may be active or inactive. <span style="background-color: yellow;">If it is inactive it cannot place orders or add inventory.</span></p>
+<p>On the <strong>Cabinet Definitions</strong> page data grid the first (left-most) column is the <strong>Active</strong>
+   column. If the check box is selected for the line, the Cabinet on that line is active. If the box is cleared, the
+	Cabinet is inactive.</p>
+<h4>Cabinet <a id="CabinetName">Name</a> and <a id="CabinetGroup">Group</a></h4>
+<p>Every Cabinet must have a name and must belong to a Cabinet group. The name uniquely identifies the Cabinet
+   to distinguish it from all other Cabinets. The group on the other hand, clusters the Cabinet with others with
+	which it is operationally or organizationally associated.</p>
+<p>The Cabinet name may be edited directly in the text box in the <strong>Cabinet</strong> column. </p>
+<p>The Cabinet group is identified in the <strong>Group</strong> column, within the <strong>Cabinet Group</strong>
+   section of columns. To edit the Cabinet group, click on the magnifying glass icon <img src="../../images/glass.gif" 
+   height="16" width="21" alt="magnifying glass icon" /> in the <strong>Lookup</strong> column right of the <strong>Group</strong> column.
+   The <strong>Manage Cabinet Groups</strong> page will open in a new window.</p>
+<p>No changes made on the <strong>Cabinet Definitions</strong> page are saved until the <strong>Update</strong> link
+   is clicked.</p>
+<div class="image"><img src="CabinetDef2.png" height="466" width="857" alt="Cabinet Definitions Status column" />
+<div>Figure 4</div></div>
+
+<p>The <strong>Manage Cabinet Groups</strong> page simply lists all the existing Cabinet groups to which any
+   particular Cabinet may be assigned. There are three things that can be done on this page.</p>
+<ul>
+	<li><strong>Edit</strong> one or more of the existing Cabinet group names. The Cabinet name may be edited
+	    directly in the text box in the <strong>Cabinet Group</strong> column. No changes made on the <strong>Manage
+		 Cabinet Groups</strong> page are saved until the <strong>Update</strong> link on this page is clicked.</li>
+	<li><strong>Create</strong> a new Cabinet group by clicking the <strong>New Cabinet Group</strong> link at the
+	    upper-left of the page. A blank Cabinet group line will be added at the bottom of the list: you may have to
+		 scroll down the list to see it. Enter a Cabinet name directly into the text box in the <strong>Cabinet
+		 Group</strong> column. No changes made on the <strong>Manage Cabinet Groups</strong> page are saved until the
+		 <strong>Update</strong> link on this page is clicked.</li>
+	<li><strong>Assign</strong> a Cabinet group to the Cabinet you selected on the <strong>Cabinet
+	   Definition</strong> page when you clicked the magnifying glass icon <img src="../../images/glass.gif" height="16" 
+	   width="21" alt="magnifying glass icon" />. A new link, <strong>Return Cabinet Group</strong>, will appear at the 
+	   top of the page. Click this link.  The <strong>Manage Cabinet Groups</strong> page will close and the selected 
+	   group will appear in the <strong>Group</strong> column. (Since you will be back on the <strong>Cabinet 
+	   Definition</strong> page, remember, no changes made are saved until the <strong>Update</strong> link is clicked.)</li>
+</ul>
+<div class="image"><img src="CabinetDef5.png" height="322" width="879" alt="Manage Cabinet Group page - 2 versions" />
+<div>Figure 5</div></div>
+
+<h4><a id="OrderingMethod">Ordering Method</a></h4>
+<p>Ordering method specifies the means by which inventory may be obtained for the Cabinet. It is indicated and
+   edited using the list in the <strong>Ordering Method</strong> column. There are three choices:</p>
+<ul>
+	<li><strong>Manual Ordering</strong> indicates the replenishment occurs when a customer places an order using the
+	    <strong><a href="../Catalog/Catalog.htm">Catalog</a></strong> page.</li>
+	<li><strong>Stock Level Ordering</strong> indicates the replenishment occurs when a <span style="red;">
+	    <a href="../ScannerTraining/ScannerTraining.htm#CabinetScanning">Cabinet scan</a> </span>indicates that
+	    additional inventory is needed.</li>
+	<li><strong>Manual &amp; Stock Level</strong> indicates that both manual and stock level ordering are used for
+	    obtaining needed inventory.</li>
+</ul>
+
+<h4><a id="InventoryGroup">Inventory Group</a></h4>
+<p>On the <strong>Cabinet Definitions</strong> page data grid the <strong>Inventory Group</strong> column provides
+   a list from which you may choose the appropriate inventory group for each work group.</p>
+<p>No changes made on the <strong>Cabinet Definitions</strong> page are saved until the <strong>Update</strong> link
+   is clicked.</p>
+<p><em>Not all organizations use inventory groups. If they are not used, the list in the
+   <strong>Inventory Group</strong> column is replaced with a default text group name.</em></p>
+<div class="image"><img src="CabinetDef6.png" height="429" width="816" alt="Cabinet Definitions page Inventory Group column" />
+<div>Figure 6</div></div>
+
+<h4><a id="LocationInformation">Location Information</a></h4>
+<p>On the <strong>Cabinet Definitions</strong> page data grid there are eight columns, in three groups, used to
+   specify location information for the Cabinet:</p>
+<ul>
+	<li><strong>Dock</strong> is the facility location for deliveries.
+	<ul>
+		<li>The <strong>Name</strong> column identifies the actual loading dock where the truck will come to deliver
+		    the orders. One facility could have multiple docks.</li>
+		<li>The <strong>Fixed</strong> column check box, when selected, indicates that there is a single dock which
+		    must be used. If cleared there may be multiple docks and the user selects the dock when creating the
+			 Material Request.</li>
+	</ul>
+	</li>
+	<li><strong>Delivery Point</strong> is the designated location within the facility for final delivery whether
+	    by HGI driver or facility personnel.
+	<ul>
+		<li>The <strong>Name</strong> column identifies the designated location.</li>
+		<li>The <strong>Fixed</strong> column check box, when selected, indicates that there is a single delivery
+		    point which must be used. If cleared there may be multiple delivery points and the user selects the
+			 delivery point when creating the Material Request.</li>
+		<li>The <strong>Lookup</strong> magnifying glass icon <img src="../../images/glass.gif" height="16" width="21" 
+		    alt="magnifying glass icon" /> is used to open the <strong>Manage Delivery Points</strong> page to view 
+		    and manage <a href="#DeliveryPoints">Delivery Points</a> for a Cabinet.</li>
+	</ul>
+	</li>
+	<li><strong>Building</strong> more clearly defines the delivery point.
+	<ul>
+		<li>The <strong>Building</strong> is the specific building of the delivery point.</li>
+		<li>The <strong>Room</strong> is the specific room of the delivery point. </li>
+		<li>The <strong>Lookup</strong> magnifying glass icon <img src="../../images/glass.gif" height="16" 
+		    width="21" alt="magnifying glass icon" /> is used to open the <strong>Manage Building Rooms</strong> 
+		    page to view and manage <a href="#BuildingRooms">buildings and rooms</a> for the delivery point.</li>
+	</ul>
+	</li>
+</ul>
+<p>No changes made on the <strong>Cabinet Definitions</strong> page are saved until the <strong>Update</strong> link
+   is clicked.</p>
+<div class="image"><img src="CabinetDef7.png" height="448" width="835" alt="Cabinet Definitionss page location columns" />
+<div>Figure 7</div></div>
+
+<p>The <strong><a id="DeliveryPoints">Manage Delivery Points</a></strong> page simply lists all the existing delivery points to which any
+   particular Cabinet may be assigned. There are five things that can be done on this page.</p>
+<ul>
+	<li>Activate or deactivate a delivery point by checking or unchecking, respectively, the box in the
+	    <strong>Active</strong> column. <span style="background-color: yellow;">A deactivated (inactive) delivery point cannot be assigned to any Cabinet.</span></li>
+	<li><strong>Edit</strong> one or more of the existing delivery point names. The delivery point name may be edited
+	    directly in the text box in the <strong>Delivery Point</strong> column. No changes made on the <strong>Manage
+		 Delivery Points</strong> page are saved until the <strong>Update</strong> link on this page is clicked.</li>
+	<li><strong>Create</strong> a new delivery point by clicking the <strong>New Delivery Point</strong> link at the
+	    upper-left of the page. A blank delivery point line will be added at the bottom of the list: you may have to
+		 scroll down the list to see it. Enter a delivery point name directly into the text box in the <strong>Delivery
+		 Point</strong> column. No changes made on the <strong>Manage Delivery Points</strong> page are saved until the
+		 <strong>Update</strong> link on this page is clicked.</li>
+	<li>Specify a <strong>Building</strong> and <strong>Room</strong> as the default location for a non-fixed work
+	    area delivery point. Use the magnifying glass icon <img src="../../images/glass.gif" height="16" width="21" 
+	    alt="magnifying glass icon" /> to open the <strong>Manage Building Rooms</strong> page and see 
+	    <a href="#BuildingRooms">default buildings and rooms</a>.</li>
+	<li><strong>Assign</strong> a delivery point to the Cabinet you selected on the <strong>Cabinet Definitions</strong> 
+	    page when you clicked the magnifying glass icon <img src="../../images/glass.gif" height="16" width="21" 
+	    alt="magnifying glass icon" />. A new link, <strong>Return Delivery Point</strong>, will appear at the top 
+	    of the page. Click this link.  The <strong>Manage Delivery Points</strong> page will close and the selected 
+	    delivery point will appear in the <strong>Delivery Point: Name</strong> column. (Since you will be back on 
+	    the <strong>Cabinet Definitions</strong> page,	remember, no changes made are saved until the 
+	    <strong>Update</strong> link is clicked.)</li>
+</ul>
+<div class="image"><img src="CabinetDef8.png" height="171" width="240" alt="Manage Delivery Points page - 2 versions" />
+<div>Figure 8</div></div>
+
+<p>The <strong><a id="BuildingRooms">Manage Building Rooms</a></strong> page simply lists all the existing delivery points to which any
+   particular Cabinet may be assigned. There are four things that can be done on this page.</p>
+<ul>
+	<li><strong>Edit</strong> one or more of the existing buildings and/or rooms. A building or room name may be edited
+	    directly in the text box in the upper <strong>Building</strong> column or the lower <strong>Room</strong>
+		 column on the page. No changes made on the <strong>Manage Building Rooms</strong> page are saved until the
+		 <strong>Update Buildings</strong> link or the <strong>Update Rooms</strong> link on this page is clicked.</li>
+	<li><strong>Create</strong> a new building or room:
+	<ul>
+		<li>Click the <strong>New Building</strong> link at the upper-left of the page. A blank building line will be
+		    added at the bottom of the upper list on the page: you may have to scroll down the list to see it. Enter a
+			 building name directly into the text box in the <strong>Building</strong> column. Click the <strong>Update
+			 Buildings</strong> link to save your change(s).</li>
+		<li>Click the <strong>New Room</strong> link above the lower data grid on the page. <em>This link will not be
+		    available until a Building line is selected in the upper data grid.</em> A blank room line will be
+		    added at the bottom of the lower list on the page: you may have to scroll down the list to see it. Enter a
+			 room name directly into the text box in the <strong>Room</strong> column. Click the <strong>Update
+			 Rooms</strong> link to save your change(s).</li>
+	</ul>
+	</li>
+	<li><strong>Assign</strong> a <strong>Building</strong> and <strong>Room</strong> as the default location for a
+	    non-fixed Cabinet delivery point. Select both a building, in the upper data grid, and a room, in the lower
+		 data grid. A new link, <strong>Return Building/Room</strong>, will appear at the top of the each grid. Click
+		this link.  The <strong>Manage Building Rooms</strong> page will close and the selected building and room will
+		be inserted in the <strong>Building</strong> and <strong>Room</strong> columns. (Since you will be back on the
+		previous page, remember, no changes made are saved until the <strong>Update</strong> link is clicked.)</li>
+</ul>
+<div class="image"><img src="CabinetDef9.png" height="656" width="767" alt="Manage Building Rooms page - 2 versions" />
+<div>Figure 9</div></div>
+
+<h4><a id="ContactInformation">Contact Information</a></h4>
+<p>On the <strong>Cabinet Definitions</strong> page data grid there are five columns used to specify contact
+   information for the Cabinet. Each of them may be edited directly in the text box in their respective columns:</p>
+<ul>
+	<li><strong>Contact Name</strong> identifies the customer employee or position responsible for coordination for the
+	    Cabinet between the customer and HGI. </li>
+	<li><strong>Phone</strong> is the telephone number for the contact person.</li>
+	<li><strong>Email</strong> is the e-mail address for the contact person.</li>
+	<li><strong>Location</strong> is the company location for the contact person.</li>
+	<li><strong>Customer Cabinet ID</strong> is the Cabinet id for the contact person.</li>
+</ul>
+<p>No changes made on the <strong>Cabinet Definitions</strong> page are saved until the <strong>Update</strong> link
+   is clicked.</p>
+<div class="image"><img src="CabinetDef2A.png" height="466" width="857" alt="Cabinet Definitionss page Contact columns" />
+<div>Figure 10</div></div>
+
+<p>Selecting the <strong>Edit Cabinet Directed Charge</strong> menu item will open a window to display the Charge
+   Information form. This form is used to edit the existing directed charge information for the
+	<a href="../Cabinets/CabinetMgmt.htm#EditCharge">Cabinet</a> or the
+	<a href="../Catalog/Catalog.htm#EditCharge">part</a>.</p>
+<p>If directed charges have been entered for both a part and the Cabinet, the part directed charge will be used
+   rather than the Cabinet directed charge.</p>
+<div class="image"><img src="../Catalog/Catalog3A.png" height="379" width="834" alt="Charge Information window - Direct and Indirect charge forms" />
+<div>Figure11</div></div>
+</div>
+
+this is the end of the commented out section -->
+
+
+</body>
+</html>

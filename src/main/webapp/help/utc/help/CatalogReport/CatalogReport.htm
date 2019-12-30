@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Catalog Report</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="CatalogReport" id="CatalogReport"></a>Catalog Report</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Catalog Report</strong> page can be used to create reports of the contents of any catalog to which you have
+   access. The <strong>Catalog Report</strong> page can be accessed from the <strong>Reports</strong> menu by selecting the
+	<strong>Catalog Report</strong> menu item. The <strong>Catalog Report</strong> page is launched in a new tab.</p>
+<p>The <strong>Catalog Report</strong> page is highly similar to the <strong>Catalog</strong> page but does not provide any
+   means to order materials -- it is just a report.</p>
+<div class="image"><img src="CatalogReport1.png" height="225" width="835" alt="Catalog Report menu item" />
+<div class="caption">Figure 1</div></div>
+
+<p>The first step in running the <strong>Catalog Report</strong> identify the facility, catalog, and
+   work area with their respective drop-down selection lists.</p>
+<p>Enter details about the desired material in the <strong>Search</strong> box. Search criteria can 
+	include UTC part number, HGI item ID, packaging, trade name, manufacturer, manufacturer&rsquo;s 
+	part number, or material description. The more specific the information entered, the more the search 
+	is narrowed. Multiple words as a logical expression can also be used to refine a search (separate 
+	words by <strong>and</strong>, <strong>or</strong>, <strong>but not</strong>; for example, prc AND 1750). 
+	To search for <em>all</em> parts/items/chemicals leave the <strong>Search</strong> box blank.</p>
+<p>Select the <strong>Facility Approved Only</strong> check box to limit the report to those items in the catalog which are on
+   the QPL (qualified product list) for the selected facility.</p>
+<p>Initiate the report by clicking the <strong>Search</strong> button.</p>
+<p>The Catalog report is displayed in a data grid within the same window, below the specification panel. Items are displayed in Part number
+   order.</p>
+<p>Click the <strong>Create Excel</strong> button on the page to export the data in Excel format.</p>
+<div class="image"><img src="CatalogReport2.png" height="529" width="725" alt="Catalog Report page" />
+<div class="caption">Figure 2</div></div>
+
+<p>Right click on any of the <em>first four</em> columns in the data grid to display a context menu that provides access to additional
+	information.</p>
+<ul>
+	<li>The first context menu item is the <strong>Part No.</strong> for the item in the record.</li>
+	<li>The second context menu item, <strong>Comments</strong>, leads to two additional menu items.
+		<ul>
+			<li>Choose <a href="../Catalog/Catalog.htm#Comments"><strong>Part Work Area Comments</strong></a> 	to access 
+			 	comments on this particular item, specific to this facility and work area. These comments are not shown 
+			 	to other facilities or work areas, nor outside UTC.</li>
+			<li>Choose <a href="../Catalog/Catalog.htm#Comments"><strong>Part Comments</strong></a> to view or add 
+			 	comments for all users of the <strong>Catalog</strong> page. Part Comments are printed on the HGI pick 
+			 	list at the warehouse.</li>
+			<li>Select the <strong>Test Definition</strong> menu item for viewing or managing 
+				 <strong><a href="../IncomingTest/IncomingTest.htm">Incoming Test</a></strong> (<strong>MARS Request</strong>) details for the record. 
+				 (This is only available for parts or materials for which incoming testing is required.) </li>
+		</ul>
+	</li>
+</ul>
+<div class="image"><img src="CatalogReport3.png" height="473" width="725" alt="Catalog Report left columns context menu items" />
+<div class="caption">Figure 3</div></div>
+
+<p>Right click on any of the <em>last seven</em> columns in the displayed data for a context menu to view the part&rsquo;s MSDS.
+   Click on the <strong>View MSDS</strong> menu item to see the MSDS in a child window. <em>The <strong>View MSDS</strong> 
+   menu item is only available if tcmIS has a copy of the MSDS on file.</em></p>
+<div class="image"><img src="CatalogReport4.png" height="528" width="725" alt="Catalog Report right side context menus" />
+<div class="caption">Figure 4</div></div>
+
+<p>Click on the <strong>View MSDS</strong> menu item to see the MSDS for an item. tcmIS will open a child window and display 
+	the current version of the MSDS. (For more information see the <a href="../MSDS/MSDS.htm">MSDS help</a> page.)</p>
+<div class="image"><img src="CatalogReport5.png" height="584" width="618" alt="MSDS page" />
+<div class="caption">Figure 5</div></div>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<html>
+
+<head>
+<title>Orders Shipped</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p>
+<center><h2>Orders Shipped</h2></center>
+<p>
+<form action="/cgi-bin/radweb/order_shipped.cgi" method="post">
+
+<div align="center"><center>
+Show &nbsp;
+<input type="checkbox" name="yes" value="X">&nbsp; shipped &nbsp;
+<input type="checkbox" name="no" value="X" CHECKED>&nbsp; not shipped &nbsp;
+<br>
+where Raytheon Part # contains &nbsp;
+<input type="text" name="raypn" value="">
+<br>
+and the (old or new) Raytheon PO contains &nbsp;
+<input type="text" name="po_str" value="">
+<br>
+and Radian Item ID is &nbsp;
+<input type="text" name="item_id" value="">
+<br>
+and Sales Order ID is &nbsp;
+<input type="text" name="sales_order" value="">
+<br>
+and the item description contains &nbsp;
+<input type="text" name="descript" value="">
+<br>
+and the item is to be shipped from &nbsp;
+<select name="ship_hub">
+<option value="2101" SELECTED>Salem
+<option value="2103">Tucson
+<option value="2102">Dallas
+</select>
+<br>
+to the facility &nbsp;
+<select name="ship_fac">
+<option value="Any">Any Facility</option>
+<option value="Andover">Andover</option>
+<option value="Quincy">Quincy</option>
+<option value="Waltham">Waltham</option>
+<option value="Huntsville">Huntsville</option>
+<option value="Bedford">Bedford</option>
+<option value="Lexington">Lexington</option>
+<option value="Portsmouth">Portsmouth</option>
+<option value="Tewksbury">Tewksbury</option>
+<option value="Texarkana">Texarkana</option>
+<option value="White Sands">White Sands</option>
+<option value="Sudbury">Sudbury</option>
+<option value="Tucson Rita Road">Tucson Rita Road</option>
+<option value="Tucson Airport">Tucson Airport</option>
+<option value="Camden">Camden</option>
+<option value="Louisville">Louisville</option>
+<option value="NAPI">NAPI</option>
+<option value="Sycamore">Sycamore</option>
+</select>
+<br>
+Sort by: <select name="sortby">
+        <option value="raytheon_po">Raytheon PO
+        <option value="request_id">Request ID
+        <option value="part_id">Raytheon Part #
+        <option value="quantity">Qty
+        <option value="uom">UOM
+        <option value="radian_po">Radian PO
+        <option value="sales_order_id" SELECTED>Sales Order ID
+        <option value="item_id">Item ID
+        <option value="item_desc">Description
+        <option value="facility">Facility
+</select>
+<input type="radio" name="up" value="" CHECKED>Ascending
+<input type="radio" name="up" value="desc">Descending
+<input type="submit" value="Resubmit & Sort">
+</form>
+</body></html>

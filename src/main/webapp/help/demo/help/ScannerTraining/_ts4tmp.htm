@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Scanner Training</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" lang="en" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+<style type="text/css">
+	th {
+	font-size: 0.75em;
+	border: none;
+	}
+td {
+	border: none;
+	}
+
+</style>
+</head>
+
+<body>
+<h1><a name="ScannerTraining" id="ScannerTraining"></a>Scanning Overview</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+   <a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<h2>Scanning process overview</h2>
+<p>See, also, <a href="ScanningTips.htm">Scanning Tips</a>.</p>
+<ul>
+	<li><a href="#scanner">Barcode scanners</a> are used to inventory (count) items/parts.</li>
+	<li>Each <a href="#workarealabel">Work Area</a> and Bin is identified with a unique barcode label as is <a href="#partlabel">each item</a>.</li>
+	<li>A list of work area and part IDs are <a href="#load">loaded into barcode scanners</a> from tcmIS.</li>
+	<li>After <a href="#partquantity">counting</a>, the barcode scanner is used to <a href="#submit">upload the inventory data</a> to tcmIS.</li>
+	<li>tcmIS calculates replenishment requirements.</li>
+	<li>tcmIS creates material requests as required.</li>
+</ul>
+
+<h3>Scanning fundamentals</h3>
+
+<h4><a id="workarealabel">Work Area ID Label</a></h4>
+<p>Each work area is identified by a work area ID Label. The label is typically located near the work area baseline document.</p>
+<div class="image"><img src="Scanner1.png" height="173" width="351" alt="Work Area ID Labels" />
+<div class="caption">Figure 1</div></div>
+
+<h4><a id="partlabel">Part ID Label</a></h4>
+<p>Generally chemicals are stored in flammables storage cabinets, segregated on shelves by bins or shelf dividers. Each
+   shelf divider or bin has a Part ID Label.</p>
+<div class="image"><img src="Scanner2.png" height="174" width="402" alt="Bin ID Labels" />
+<div class="caption">Figure 2</div></div>
+
+<h5>Part ID Label: Alternate Placement</h5>
+<p>In a flammables cabinet, when the material is too large for a shelf it may be placed in the bottom of the cabinet.  Part ID
+   labels for these materials may be on the lower lip of the cabinet opening or inside the cabinet doors.</p>
+<div class="image"><img src="Scanner3.png" height="183" width="294" alt="Bin ID alternate placement" />
+<div class="caption">Figure 3</div></div>
+
+<h4><a id="receiptlabel">Receipt ID Label</a></h4>
+<p>Each unit (part, item, bin, container) is labeled with a barcoded HGI Receipt Id label. These labels are used to group 
+	things by Receipt ID in order to get an accurate count.</p>
+<div class="image"><img src="Scanner4.png" height="74" width="294" alt="Bin ID Labels" />
+<div class="caption">Figure 4</div></div>
+
+<h4>The <a id="scanner">Scanner</a>: MC9000 Series Portable Data Terminal (PDT)</h4>
+<ul>
+	<li>Integrated 2D bar code scanner (scans 1D and 2D barcodes)</li>
+	<li>53 key alpha-numeric keypad</li>
+	<li>Touch screen data entry</li>
+	<li>Microsoft Mobile operating system</li>
+	<li>Environmentally sealed against dust and rain</li>
+	<li>Will withstand multiple drops from 6' to concrete</li>
+</ul>
+<div class="image"><img src="Scanner5.png" height="212" width="301" alt="Hand scanner and keyboard detail" />
+<div class="caption">Figure 5</div></div>
+
+<h4>The Scanner keypad (Figure 4) and useful key combinations</h4>
+<p>The red power button is at the upper right of the keypad - hold for 5 seconds to reboot.</p>
+<p>The yellow scan button - can be used instead of the trigger to scan.</p>
+<p>The blue 'function' key is used in combination with other keys to accomplish certain tasks (notice the small symbols
+   above and right of the letter keys):</p>
+<div class="image"><img src="Scanner6.png" height="252" width="621" alt="Key combinations" />
+<div class="caption">Figure 6</div></div>
+
+<h3>Starting TCMScan</h3>
+<p>To begin, click Start in the upper left corner on the Windows Mobile Today touch-sensitive screen.</p>
+<ul>
+	<li>If TCMScan is listed on the Start menu select it.</li>
+	<li>If TCMScan is not displayed on the Start menu select the Programs menu item and then select the TCMScan icon from
+	    the Programs screen.</li>
+</ul>
+<div class="image"><img src="Scanner7.png" height="282" width="457" alt="Start menu and Program screen" />
+<div class="caption">Figure 7: Start menu and Program screen</div></div>
+
+<h4>Logging into the Scanner</h4>
+<p><em>Note: The scanner must be in the cradle to log in.</em></p>
+	<ul>
+		<li>Enter your tcmIS login ID in the <strong>User ID box</strong>.</li>
+		<li>Enter your tcmIS password in the <strong>Password box</strong>.</li>
+		<li>Select your company from the <strong>Company</strong> list. (Most users have only one choice here.)</li>
+		<li>Press the <strong>Login</strong> button on the screen to complete your log in.</li>
+	</ul>
+<p>When you are successful you will see the <strong>Main Page</strong> as illustrated below on the right.</p> 
+	<ul>
+		<li>If you unintentionally log out you can login again <em>with the identical User ID and password</em> 
+		 	without returning the scanner to the cradle.</li>
+	</ul>
+<p>On the <strong>Main Page</strong> you will see:</p>
+	<ul>
+		<li>Three buttons, for the three major scanning activities:
+			<ul>
+				<li>Click the <strong><a href="#load">Load</a></strong> button to display the Work Area loading screen.</li>
+				<li>Click the <strong><a href="#scan">Scan</a></strong> button to display the Work Area scanning screen.</li>
+				<li>Click the <strong><a href="#submit">Submit</a></strong> button to display the Send Scans screen.</li>
+			</ul>
+		</li>
+		<li>A <strong><a href="#mainmenu">Menu</a></strong> link to display the main menu.</li>
+		<li>Information
+			<ul>
+				<li>The currently logged in user name.</li>
+				<li>The date and time the work area data was last loaded.</li>
+			</ul>
+		</li>
+	</ul>
+<p>Clicking the <strong>Exit</strong> button on the <strong>Log in</strong> page cancels your log in and exits the TCMScan 
+	application.</p> 
+<p><em>Whether you <strong>Exit</strong> or not, the login &lsquo;session&rsquo; expires after 12 hours. It is a &lsquo;silent&rsquo; 
+	exit: there is no notification and the scanner will continue to read bar code labels. <strong>But, it will not upload or download data 
+	to or from tcmIS</strong> until you log in again</em>.</p>
+<div class="image"><img src="Scanner8-8A.png" height="202" width="398" alt="Log in page and Main page" />
+<div class="caption">Figures 8 and 8A</div></div>
+
+<h4>Main Screen: <a id="mainmenu">Menu link</a></h4>
+<p>Click the <strong>Menu</strong> link in the lower left corner for the following options:</p>
+<ul>
+	<li><strong>Scan Mgr</strong> - displays the <strong><a href="#scanmanager">Scan Manager</a></strong> screen.
+	</li>
+	<li><strong>Scan Viewer</strong> - used to review the count data before submitting to tcmIS.</li>
+	<li><strong><a href="#export">Export</a></strong> - used to export the count data for use outside tcmIS.</li>
+	<li><strong>Setup</strong> - displays the Set Up screen which has four functions.
+		<ul>
+			<li><strong><a href="#focus">Focus</a></strong></li>
+			<li><strong><a href="#beep">Beep</a></strong></li>
+			<li><strong><a href="#timeout">Timeout</a></strong></li>
+			<li><strong><a href="#expiration">Expiration</a></strong></li>
+		</ul>
+	</li>
+	<li><strong>Connection Test</strong> - a utility to perform a series of tests to verify that the 
+		 scanner and host pc have a functional connection to tcmIS. </li>
+	<li><strong>Log Off</strong> - logs off the current user and returns to the login screen.</li>
+	<li><strong>Exit</strong> - exits TCMScan.</li>
+	<li><strong>Help</strong> - displays the TCMScan Help pages.</li>
+</ul>
+<div class="image"><img src="Scanner9.png" height="258" width="194" alt="Main page menu items" />
+<div class="caption">Figure 9</div></div>
+
+<div class="messages">
+<h4>Login Error Messages</h4>
+<p>If you receive an error, please read through the following troubleshooting suggestions.</p>
+<p><strong>Username or password is wrong.</strong></p>
+<ul>
+	<li>Select Retry.</li>
+	<li>Re-enter your user data and try again.</li>
+</ul>
+<p>Make sure that the</p>
+<ul>
+	<li>Scanner is in the cradle.</li>
+	<li>Cradle has power.</li>
+	<li>Cables are connected between cradle and PC.</li>
+</ul>
+<p>Contact the Helpdesk if the problem continues.</p>
+</div>
+
+<h4><a id="load">Loading Work Areas</a></h4>
+<p><em>Note: The scanner must be in the cradle to load work area information.</em></p>
+<p>On the <strong>Main page</strong> (Figure 8A, above), click the <strong>Load</strong> button.</p>
+<p>The facilities list will display all of the facilities that the user has permission to scan.  Most users will see only
+   one facility.</p>
+<p>Select your facility.</p>
+<ul>
+	<li>Select the check box, or</li>
+	<li>Use the up and down arrow keys. Press the space key when your facility is highlighted.</li>
+</ul>
+<p>Click the <strong>Load</strong> button and the work area information will be updated from tcmIS.</p>
+<p>When the data load is finished a confirmation message is displayed; select &lsquo;<strong>OK</strong>&rsquo; 
+	to return to the main screen.</p>
+<p>It is not necessary to Load the scanner before every scan activity but it should be done at least once a 
+	day to keep the data current.</p>
+<p>Selecting the <strong>Cancel</strong> button will return to the main screen without loading work areas.</p>
+<div class="image"><img src="Scanner10-10A.png" height="215" width="366" alt="Select facilities page, Load confirmation" />
+<div class="caption">Figures 10 and 10A</div></div>
+
+<h3><a id="scan">Replenishment Scanning</a></h3>
+<p>Taking Inventory is organized in a hierarchy. At the highest level is the work area, 
+	often a physical cabinet. Every work area includes one or more sections, often a 
+	shelf divider or bin. Sections contain material (parts, items) to be counted.</p>
+<p>In scanning, when an item is scanned, TCMScan will select the needed counting method:</p> 
+	<ul>
+		<li><a href="#kanban">Kanban</a> style; </li>
+		<li>counted <a href="#byitem">by item</a>; or,</li>
+		<li>counted <a href="#byreceipt">by receipt</a>.</li>
+	</ul>
+<p>The scanner will display the appropriate count type prompts for each item when it is scanned.</p>
+	
+<h4>Starting the Work Area Scan</h4>
+<p>On the <strong>Main page</strong> (Figure 7, right image), click the <strong>Scan</strong> button. The scanner will be
+   readied to scan a work area.</p>
+<p>Scan the work area label, using the scanner as shown, or enter the work area ID using the scanner keypad.</p>
+<ul>
+	<li>If the work area ID is entered on the keypad you must press enter on the keypad or the <strong>Next</strong> button on the screen
+	   to continue.</li>
+</ul>
+<div class="image"><img src="Scanner11.png" height="268" width="438" alt="Work Area scanning" />
+<div class="caption">Figure 11</div></div>
+
+<div class="messages">
+<h4>Work Area Error Messages</h4>
+<p>If you receive an error, please read through the following troubleshooting suggestions.</p>
+<p><strong>Invalid Label.</strong></p>
+<ul>
+	<li>Caused when the label scanned is not a work area ID label.</li>
+	<li>Rescan the work area label to continue.</li>
+</ul>
+<p><strong>No data for this work area has been loaded.</strong></p>
+<ul>
+	<li>Caused when the wrong facility was chosen when performing the Load Work Areas step.
+	<ul>
+		<li>Exit the scanning screen, and perform the Load Work Areas step again this time choosing the correct facility.</li>
+	</ul>
+	</li>
+	<li><em>If this error continues after loading the correct facility contact the Helpdesk</em>.</li>
+</ul>
+<p><strong>You must scan a work area before scanning a part.</strong></p>
+<ul>
+	<li>Caused when the scanner is expecting a work area ID label but a part ID label is scanned instead.</li>
+	<li>Scan or rescan the work area label to continue.</li>
+</ul>
+</div>
+
+<h4>Entering a Part ID</h4>
+<p>After you enter the work area and the <strong>Next</strong> button the scanning screen is presented. The primary purpose is to enter the Part
+   ID information for each item.</p>
+<p>Scan the part label, using the scanner as shown, or enter the ID using the scanner keypad.</p>
+<ul>
+	<li>Click the <strong>Next</strong> button to advance to the quantity prompt.</li>
+	<li>Click the <strong>Back</strong> button to return to the work area prompt.</li>
+</ul>
+<p>The lower portion of the screen displays information about the scan process and two links:</p>
+<ul>
+	<li>The current work area ID.</li>
+	<li>The ID of the last Part scanned.</li>
+	<li>The quantity of the last Part scanned.</li>
+	<li>Click the <strong>Exit</strong> button to return to the main screen.</li>
+	<li>Click the 'keyboard' icon to display the TCMScan Help pages.</li>
+</ul>
+<div class="image"><img src="Scanner12.png" height="324" width="580" alt="Bin scanning" />
+<div class="caption">Figure 12</div></div>
+
+<div class="messages">
+<h4>Part ID Error Messages</h4>
+<p>If you receive an error, please read through the following troubleshooting suggestions.</p>
+<p><strong>Invalid Label.</strong></p>
+<ul>
+	<li>Caused when the label scanned is not a part ID label.</li>
+	<li>Rescan the part label to continue.</li>
+</ul>
+<p><strong>This part has been made inactivate.</strong></p>
+<ul>
+	<li>Caused when the part has been made inactivate in tcmIS.</li>
+	<li>Do not count this part, it may have material that is being used up but it cannot be replenished because of its
+	    inactive status.</li>
+</ul>
+<p><strong>This part has not been configured for this work area.</strong></p>
+<ul>
+	<li>Caused when a part has been moved to a different work area without being relabeled.</li>
+	<li>The first 8 characters of the part ID represent the work area ID.</li>
+	<li>Return the part to its proper work area, or</li>
+	<li>Verify the tcmIS record is updated with the proper work area ID and replace the part ID label.</li>
+</ul>
+<p><strong>This part has not been configured.</strong></p>
+<ul>
+	<li>Caused when the work area ID scanned does not match any of the data loaded on the scanner.</li>
+	<li>If the part was configured after the scanner was loaded last, reload the scanner and try again.</li>
+</ul>
+</div>
+
+<h4>Entering the <a id="partquantity">part quantity</a></h4>
+<p>Count the items and enter the quantity using the keypad.</p>
+<p><em>Note in the illustration: 3 items; 3 key on scanner keypad; value of 3 entered into the <strong>Quantity</strong> text box.</em></p>
+<p>Press the Enter key on the keypad or the <strong>Next</strong> button on the screen.</p>
+<p>When all of the containers in the part location have been counted, scan the next Work Area or Part 
+	label to advance to the appropriate screen. When scanning is completed select the <strong>Exit</strong> to 
+	return to the Main screen.</p>
+<div class="image"><img src="Scanner13.png" height="189" width="644" alt="Bin scanning activity" />
+<div class="caption">Figure 13</div></div>
+
+<h3>Counting methods</h3>
+<h4><a id="kanban">Kanban counting method</a></h4>
+<p><strong>KanBan</strong> is a counting method that is a variant on MinMax where the reorder point is 1 &ldquo;bin&rdquo; 
+	and the maximum is 2 bins. Each &ldquo;bin&rdquo; contains a part-specific quantity which is specified as part of the 
+	catalog process.</p>
+<p>The counting responsibility is to <em>identify how many bins are needed</em>.</p>
+	<ul>
+		<li>If the bin quantity on hand is 0, 2 bins are needed: select 2.</li>
+		<li>If the bin quantity on hand is 1, 1 bin is needed: select 1.</li> 
+		<li>If the bin quantity on hand is 2, no replenishment is required: select 0.</li>
+	</ul>
+<p>TCMScan will advance to the next prompt as soon as a quantity is selected.</p>
+<div class="image"><img src="Scanner14.png" height="186" width="139" alt="Kanban counting method" />
+<div class="caption">Figure 14</div></div>
+
+<h4><a id="byitem">Item counting method</a></h4>
+<p><strong>Item Counting</strong> is exactly what it says. The counting responsibility is to <em>identify how many items 
+	are on hand</em>.</p>
+<p>Count the number of containers in the part location. Enter the count in the quantity box, then select next.</p>
+<p>Occasionally a part location will be configured for more than one item. An example would be a part location 
+	that is configured for an item that is active as well as an obsolete item that has not yet been depleted. 
+	In these cases it is important to count each item separately.</p>
+	<ul>
+		<li>Every container is labeled with a tcmIS <a href="#byreceipt">receipt ID label</a>. Use the Item ID on 
+			 the receipt label to group the containers by item for counting.</li> 
+		<li>Select the Item ID from the dropdown list, enter the quantity count for that item, select the <strong>Apply Qty</strong> button 
+			 to update the Item Quantity grid.</li>
+		<li>Do this for each different Item ID in this part location.</li>	 
+		<li>After all items have been entered select Next to advance.</li>
+	</ul>
+<div class="image"><img src="Scanner15-15A.png" height="183" width="287" alt="Item counting method" />
+<div class="caption">Figures 15 and 15A</div></div>
+
+<h4><a id="byreceipt">Receipt counting method</a></h4>
+<p>Each container bin or item is labeled with a barcoded HGI Receipt Id label. When scanner prompt instructs 
+	&lsquo;Scan or enter Container Label&rsquo; get the information from this Receipt ID label.</p>
+<div class="image"><img src="Scanner4.png" height="74" width="294" alt="Item counting method" />
+<div class="caption">Figure 16</div></div>
+
+<p>Scan the barcode. If the barcode will not scan use the keypad to enter the Receipt ID printed 
+	on the label. Enter the entire Receipt ID <strong><em>including any leading zeros</em></strong>.</p>
+<div class="image"><img src="Scanner17.png" height="248" width="564" alt="Item counting method" />
+<div class="caption">Figure 17</div></div>
+
+<p>If there are no containers to scan at the part location select the <strong>Empty Part</strong> button.</p>
+<p>The quantity defaults to &lsquo;1&rsquo; but can be edited to count multiple containers of the same receipt 
+	ID. Select the <strong>Next</strong> button to advance to the Scan Container Label screen or scan the next container label 
+	to advance directly to the next Enter Quantity screen. Repeat for each container in the part location.</p>
+<p>The status area at the bottom left of the screen will be updated with the current Work Area, Part ID, and 
+	Receipt ID. The accumulated Part and Receipt counts are also displayed.</p>
+<div class="image"><img src="Scanner18-18A.png" height="246" width="380" alt="Item counting method" />
+<div class="caption">Figures 18 and 18A</div></div>
+
+<h3><a id="submit">Submitting Scans to tcmIS</a></h3>
+<p><em>Note: The scanner must be in the cradle to submit scan data to tcmIS.</em></p>
+<p>On the <strong>Main page</strong> (Figure 7, right image), click the <strong>Submit</strong> button. The scanner will be
+   readied to send scans.</p>
+<p>Click the <strong>Send Scans</strong> button to send the inventory information to tcmIS.</p>
+<p>The <strong>Cancel</strong> button will return the screen to the <strong>Main</strong> page.</p>
+<div class="image"><img src="Scanner19.png" height="186" width="139" alt="Submitting scans to tcmIS" />
+<div class="caption">Figure 19</div></div>
+
+<h4><a id="scanmanager">Scan Manager</a></h4>
+<p>After the scanning, inventory, and uploading is complete, empty the scanner in preparation for the next set of scans.</p>
+<p>On the <strong>Main page main menu</strong> (Figure 7A), click the <strong>Scan Mgr</strong> menu item  to display the
+   <strong>Scan Manager</strong> page. All scan sessions stored on the scanner will be displayed,
+	grouped by user, on the scan manager screen.</p>
+<p>Choose one or more scan sessions by selecting the corresponding check boxes. Scans can also be selected by using the up
+   and down arrow keys to highlight the desired scan and then pressing the space key.</p>
+<ul>
+	<li>Pressing the <strong>Delete</strong> button on the screen will deleted any selected scans.</li>
+	<li>Pressing the <strong>Delete All</strong> button on the screen will delete all scans.</li>
+	<li>Pressing the <strong>Done</strong> button will display the Main Screen.</li>
+</ul>
+<div class="image"><img src="Scanner20.png" height="216" width="162" alt="Scan Manager" />
+<div class="caption">Figure 20</div></div>
+
+<h4><strong><a id="focus">Focus</a></strong></h4>
+<p>The setup screen is opened by selecting <strong>Setup</strong> from the main <strong>Menu</strong>. 
+	The Focus Setting defaults to Auto. Auto focus is actually the rapid switching between near and far 
+	focus. When the focus is set to Auto the switching can be heard as a fluttering sound whenever the 
+	decode trigger is pulled. If you have trouble scanning barcodes try the other focus modes to see if they work better. </p>
+<div class="image"><img src="Scanner21.png" height="184" width="139" alt="Setup Focus screen" />
+<div class="caption">Figure 21</div></div>
+
+<h4><strong><a id="beep">Beep</a></strong></h4>
+<p>The default beep setting is Soft. When set to Soft, the beep volume can be adjusted with the volume 
+	keys. If the beep is difficult to hear try the Loud setting. When set to Loud, the beep is 
+	significantly louder and is not adjustable. </p>
+<div class="image"><img src="Scanner22.png" height="182" width="169" alt="Setup Beep screen" />
+<div class="caption">Figure 22</div></div>
+
+
+<h4><strong><a id="timeout">Timeout</a></strong></h4>
+<p>The default timeout setting is 4000mS (4 seconds). If you have timeout errors while receiving 
+	or sending data to tcmIS increase this setting. The <strong>Set</strong> button tests the time it takes to 
+	receive a reply from tcmIS and sets the timeout value for 1.5 times that amount.</p>
+<div class="image"><img src="Scanner23.png" height="186" width="174" alt="Setup Timeout screen" />
+<div class="caption">Figure 23</div></div>
+
+<h4><strong><a id="expiration">Expiration Threshold</a></strong></h4>
+<p><em>Note: This feature is only available when the receipt label uses a 2D barcode which includes 
+	the expiration date</em>.</p> 
+<p>The expiration threshold sets the number of days prior to expiration that 
+	the scanner will notify the user of the pending expiration. The notification occurs when 
+	today&rsquo;s date is greater than the expiration date minus the Expiration Threshold.</p>
+<table style="border: none;">
+	<tr>
+		<td>Example: </td>
+		<td style="text-align: right;">Today = </td>
+		<td>April 10, 2012</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td style="text-align: right;">Expiration date = </td>
+		<td>April 20, 2012</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td style="text-align: right;">Expiration Threshold = </td>
+		<td>14 days</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td style="text-align: right;">April 20 – 14 days = </td>
+		<td>April 6</td>
+	</tr>
+</table>
+<p>If the item is scanned after April 6 the scanner will notify the operator that the material will 
+	expire soon. If the Warning option is chosen the operator can choose to count the item. If the 
+	Error option is chosen the scanner will not count the item.</p>
+<div class="image"><img src="Scanner24.png" height="186" width="174" alt="Setup Expiration screen" />
+<div class="caption">Figure 24</div></div>
+
+<p>The Expiration Threshold setting works together with the ‘Pulled Within Days’ Work Area setting in tcmIS 
+	as set on the <strong><a href="../WorkAreas/WorkAreaDefinition.htm">Work Area Definition</a></strong> page. 
+	<strong>Pulled Within Days</strong> is the number of days before an item expires within which it is to be 
+	removed from the work area; the scanner will not count the item as being still in inventory during this period. 
+	If this setting is greater than or equal to the Expiration Threshold, the Expiration Threshold has no effect.</p>
+<div class="image"><img src="Scanner25.png" height="193" width="744" alt="Pulled Within Days parameter" />
+<div class="caption">Figure 25</div></div>
+
+<h4><strong><a id="export">Export the data count</a></strong></h4>
+<p>The Main <strong>Menu</strong> includes an <strong>Export</strong> item to create a file of count data that can 
+	be used outside of tcmIS. The files are plain text in CSV (comma separated values) format. There are two options:</p>
+	<ul>
+		<li><strong>Current</strong>: The current data is saved as scandata.csv. It contains the Part ID, Cabinet ID, 
+			 Company, Count Type, Quantity, Receipt ID or Item ID, Scan DateTime, User ID, and Logon ID fields. </li>
+		<li><strong>History</strong>: The history is saved as scanhistory.csv. It contains all the fields in scandata.csv 
+			 as well as Submitted DateTime for all scans submitted in the previous 14 days.</li>
+	</ul>
+<div class="image"><img src="Scanner26.png" height="186" width="139" alt="Pulled Within Days parameter" />
+<div class="caption">Figure 26</div></div>
+
+</body>
+</html>

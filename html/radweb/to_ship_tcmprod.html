@@ -1,0 +1,103 @@
+<html>
+
+<head>
+<title>Items to be Shipped</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p>
+<center><h2>Items to be Shipped</h2></center>
+<p>
+<form action="/cgi-bin/radweb/to_ship_tcmprod.cgi" method="post">
+
+<center>
+Show &nbsp;
+<input type="checkbox" name="minmax_filter" value="X" CHECKED>MaxMin &nbsp;
+<input type="checkbox" name="oor_filter" value="X" CHECKED>OOR &nbsp;
+items at hub &nbsp;
+<select name="hub_filter">
+<option value="2101" SELECTED>Salem
+<option value="2103">Tucson
+<option value="2102">Dallas
+</select>
+<br>
+ for facility &nbsp;
+<select name="fac_filter">
+<option value="Any" SELECTED>Any Facility
+<option value="Andover">Andover
+<option value="Quincy">Quincy
+<option value="Waltham">Waltham
+<option value="Huntsville">Huntsville
+<option value="Bedford">Bedford
+<option value="Lexington">Lexington
+<option value="Portsmouth">Portsmouth
+<option value="Tewksbury">Tewksbury
+<option value="Texarkana">Texarkana
+<option value="White Sands">White Sands
+<option value="Sudbury">Sudbury</option>
+<option value="Tucson Rita Road">Tucson Rita Road</option>
+<option value="Tucson Airport">Tucson Airport</option>
+<option value="Camden">Camden</option>
+<option value="Louisville">Louisville</option>
+<option value="NAPI">NAPI</option>
+<option value="Sycamore">Sycamore</option>
+</select>
+<br>
+for company &nbsp;
+<select name="company">
+<option value="Any">Any
+<option value="Raytheon">Raytheon
+<option value="DRS">DRS
+</select>
+<br>
+where the Raytheon Part # contains &nbsp;
+<input type="text" name="part_id">
+<br>
+where the Raytheon Request ID contains &nbsp;
+<input type="text" name="request_id">
+<br>
+where the Raytheon PO contains &nbsp;
+<input type="text" name="raytheon_po">
+<br>
+where the Radian Item ID is &nbsp;
+<input type="text" name="item_id">
+<br>
+where the Sales Order is &nbsp;
+<input type="text" name="sales_order">
+<br>
+where a pick slip &nbsp;
+<input type="checkbox" name="pick" value="X" CHECKED>has &nbsp;
+<input type="checkbox" name="nopick" value="X" CHECKED>has not &nbsp;
+been printed
+<p>
+Sort by: <select name="sortby">
+        <option value="raytheon_po">Raytheon PO
+        <option value="request_id">Request ID
+        <option value="date_submitted" SELECTED>Date Submitted to Radian
+        <option value="days_elapsed">Days Elapsed
+        <option value="part_id">Raytheon Part #
+        <option value="quantity">Qty
+        <option value="uom">UOM
+        <option value="delivery_date">Promised Delivery to Raytheon
+        <option value="required_datetime">Need Date
+        <option value="date_shipped">Date Shipped to Raytheon
+        <option value="unit_price">Unit Price
+        <option value="qty_backorderd">Qty Backordered
+        <option value="on_hand">On Hand
+        <option value="item_type">Item Type
+        <option value="on_order">On Order
+        <option value="order_uom">Order UOM
+        <option value="promised_date">Promised Delivery from Vendor
+        <option value="radian_po">Radian PO
+        <option value="sales_order">Sales Order ID
+        <option value="order_type">Order Type
+        <option value="item_id">Item ID
+        <option value="item_desc">Description
+        <option value="location">Location
+        <option value="facility">Facility
+</select>
+<input type="radio" name="up" value="" CHECKED>Ascending
+<input type="radio" name="up" value="desc">Descending
+<input type="submit" value="Resubmit & Sort">
+</body></html>

@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tablet Receiving</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="/tablet/css/jquery.mobile-1.3.2.min.css" />
+    <link rel="stylesheet" href="/tablet/css/jqm-icon-pack-fa.css" />
+	<link rel="stylesheet" href="/tablet/css/jqm-datebox.css" /> 
+	<link rel="stylesheet" href="/tablet/css/tcmISTablet2.css"/>
+	<link rel="stylesheet" href="/tablet/css/ET1imager.css"/>
+    <link rel="stylesheet" href="/tablet/css/tabletTheme.css"/>  
+    
+	<script type="text/javascript" src="jquery/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="jquery/underscore-min.js"></script>	
+
+
+	<script src="js/tabletUtil.js"></script>
+	<script src="js/responseObj.js"></script>
+	<script src="js/receiptObj.js"></script>  
+	<script src="js/itemObj.js"></script>
+	<script src="js/poLineObj.js"></script>
+	<script src="js/inboundShipmentObj.js"></script>
+	<script src="js/inboundShipmentDetailObj.js"></script>
+	<script src="js/itemImageObj.js"></script>
+	<script src="js/ET1imager.js"></script>
+	<script src="js/scanner.js"></script>
+    <script src="js/canned notes.js"></script>
+    <script src="js/altInput.js"></script>
+	<script src="js/tcmISTablet2.js"></script>
+	
+	 <script type="text/javascript">
+        $(document).bind("mobileinit", function() {  
+	        $.mobile.defaultPageTransition = 'none';  
+			$.mobile.defaultDialogTransition = 'none';  
+			$.mobile.ajaxEnabled = false;  
+			$.mobile.pushStateEnabled = false;  
+			}
+		);  
+     </script>
+     
+     <!-- this line must come after the mobileInit binding -->
+     <script type="text/javascript" src="jquery/jquery.mobile-1.3.2.min.js"></script>
+     <!-- and these have to follow jQuery mobile -->
+     <script type="text/javascript" src="jquery/jqm-datebox.core.js"></script>
+     <script type="text/javascript" src="jquery/jqm-datebox.mode.datebox.js"></script>
+     <script type="text/javascript" src="jquery/jqm-datebox.mode.calbox.js"></script>
+     <script type="text/javascript" src="jquery/jquery.mobile.datebox.i18n.js"></script>
+	
+	<script type="text/javascript" >
+	
+		$(document).ready(function(){
+			$("#trkNum").on('change', function(){newInboundShipment(this.value);});			
+			$("#carrierInput").on('change', function(){inboundShipment.getExistingInboundShipment();});	
+			$("#trxTypeListView li").click(function(e){trxTypeListClick(e);});
+            $("#poNumScanButton").on("click", function(e){poNumberEntry("scanner");});
+			$("#poNum").on("change", function(e){validateTrxNum(e);});
+            $("#poNum").on("click", function(){if(inboundShipment.details.length > 0){
+                                                    $("#incomingShipmentPoList").popup("open");
+                                                }
+                                                else{
+                                                    poNumberEntry("keyboard", $("#incomingTrxType").val(), $("#trkNumPage [for=poNum]").html());
+                                                }
+                                            });
+            $("#trkNumPageNextBtn").on("click", function(e){trkNumPageValidate();});
+            $("#addNewPoButton").on("click", function(e){$('#incomingShipmentPoList').popup('close');
+            											 poNumberEntry("keyboard", $("#incomingTrxType").val(), $("#trkNumPage [for=poNum]").html());});          
+
+			$("[data-hdrType]").on('pageshow',function(event,ui){updateHeader(event);});
+			$('#documentsPage').on('pagebeforehide',function(event,ui){disableScanner();});
+            $("#documentsPageNextButton").on("click", function(e){addDocumentDone();});
+            $("#itemImage").click(function(e){showExistingReceipts();});
+            $("#binInput").on("click", function(){altAlphaInput('Enter the Bin ID', 'receiptFormPage', 'binInput');});
+            $("#binInput").on("change", function(e){receiptFormBinValidation(currentItem().poLines[0].hubId, $(e.currentTarget).val());});
+
+			$("#receiptFormDoneBtn").click(function(e){if(!$(e.currentTarget).data("clicked")){
+                                                            debug("click true");
+                                                            $(e.currentTarget).data("clicked", true);
+                                                            addReceiptData();
+                                                            }
+                                                        else{
+                                                            debug("click false");
+                                                        }			    
+			                                         });
+
+            $("#receiptFormCnxBtn").click(function(){$("#receiptFormCnxPopup").popup('open');});
+            $("#receiptFormCnxYesButton").click(function(){cancelReceiptForm();});
+            $("#receiptFormCnxNoButton").click(function(){$("#receiptFormCnxPopup").popup('close');});
+			$("#receiptIdInput").on('change', function(){verifyReceiptIdIsNew(this.value);});			
+            $("#cannedNotes li").on("click",  function(e){addCannedNotes(e);});
+            $("#poLineInput").click(function(e){showPoLineChooser();});
+
+//  lot number chooser disabled until I can come up with a practical display method
+//  currently lot list is much longer than the page, the list does not scroll
+//  independently of the page so it's pretty ugly 
+//            $("#lotNumberInput").click(function(e){showLotNumberChooser();});
+//            $("#lotNumberPopupInput").on("keyup", function(e){lotNumberChooserFilter(e);});
+			
+			$("#receiptViewDoneButton").on("click", function(e){resetApp(e);})
+            $("#receiptViewAddReceiptButton").on("click", function(e){reUseReceiptForm(true);})
+
+            $("#addImageButton").on("click", function(){$('#imageTypePopup').popup('open');});
+            $("#deleteImageButton").on("click", function(){$('#imageDeleteConfirmPopup').popup('open');});
+			$("#imageView").on("pagebeforeshow", function(){imageViewPrep();});
+            $("#imageDeleteYesButton").on("click", function(){receiptImageList.deleteImage();});
+            $("#imageDeleteNoButton").on("click", function(){$("#imageDeleteConfirmPopup").popup("close");});
+			$("#cameraOnButton").click(function(e){cameraOn();});
+			$("#cameraOffButton").click(function(e){cameraOff();});
+			$("#toggleFlashButton").click(function(e){flashControl("ON");});
+			$("#imageAcceptButton").click(function(e){onImageAccept();});
+			$("#imageRejectButton").click(function(e){onImageReject();});
+			$("#shutterButton").on("click", function(e){$("#shutterButton").off("click");
+			                                         doCapture();});
+//			$("#loginButton").click(function(e){logIn();});
+            $("#notesPage").on("pagebeforeshow", function(){if(isMotorola()){sip.automatic();}});
+            $("#notesPage").on("pageafterclose", function(){if(isMotorola()){sip.manual();}});
+            $("#cannedNotesPopupCloseButton").on("click", function(){$("#cannedNotesPopup").popup("close");});
+            $("#notesPageDoneButton").on("click", function(e){  var notesTarget = $("#notesPageReturnNotesTo").val();
+                                                                var notesDestination = $("#notesPageReturnTo").val(); 
+                                                                $(notesTarget).val($("#tabletNotes").val());
+                                                                document.forms["tabletNotesPageForm"].reset();
+                                                                $("#tableNotesPageForm [type = 'hidden']").val("");
+                                                                $.mobile.changePage(notesDestination);
+                                                            })      
+            $("#hazComConfirmYesButton").on("click", function(){$("#chkBoxHazCom").prop("checked", "checked");
+                                                                $("#hazComLabelWarning").popup("close");
+                                                                addReceiptData();});            
+            $("#hazComConfirmNoButton").on("click", function(){$("#chkBoxHazCom").attr("data-confirmed", "true");
+                                                                $("#hazComLabelWarning").popup("close");
+                                                                addReceiptData();});
+            $("#chkBoxGHS").on("click", function(){if(this.checked) {clearGHSCheckboxes();}});   
+            $("#GHSConfirmYesButton").on("click", function(){$("#chkBoxGHS").prop("checked", "checked");
+            													$("#chkBoxGHS").attr("data-confirmed","true");
+            													$("#GHSLabelWarning").popup("close");
+            													addReceiptData();});
+			$("#GHSConfirmNoButton").on("click", function(){$("#GHSLabelWarning").popup("close");	
+            													$("#GHSLabelChecklist").popup("open");});  
+			$("#GHSLabelSubmitButton").on("click", function(){$("#GHSLabelChecklist").popup("close");
+																$("#chkBoxGHS").attr("data-confirmed", "true");
+																addReceiptData();});            
+			$("#GHSLabelCancelButton").on("click", function(){$("#chkBoxGHS").attr("data-confirmed", "false");
+																$("#GHSLabelChecklist").popup("close");});
+			$("#chkboxGHSProductName").on("click", function(e){if($(e.currentTarget).is(':checked')){
+		                											$("#hiddenGHSProductName").val(false);
+												            	}
+													            else{
+													            	$("#hiddenGHSProductName").val(true);
+													            }});			
+			$("#chkboxGHSSignalWord").on("click", function(e){if($(e.currentTarget).is(':checked')){
+																	$("#hiddenGHSSignalWord").val(false);
+													            }
+													            else{
+													            	$("#hiddenGHSSignalWord").val(true);
+													            }});
+			$("#chkboxGHSPictogram").on("click", function(e){if($(e.currentTarget).is(':checked')){
+																	$("#hiddenGHSPictogram").val(false);
+													            }
+													            else{
+													            	$("#hiddenGHSPictogram").val(true);
+													            }});
+			$("#chkboxGHSHazardStatement").on("click", function(e){if($(e.currentTarget).is(':checked')){
+																	$("#hiddenGHSHazardStatement").val(false);
+													            }
+													            else{
+													            	$("#hiddenGHSHazardStatement").val(true);
+													            }});
+			$("#chkboxGHSPrecautionaryStatement").on("click", function(e){if($(e.currentTarget).is(':checked')){
+																	$("#hiddenGHSPrecautionaryStatement").val(false);
+													            }
+													            else{
+													            	$("#hiddenGHSPrecautionaryStatement").val(true);
+													            }});
+			$("#chkboxGHSSupplierIdentification").on("click", function(e){if($(e.currentTarget).is(':checked')){
+																	$("#hiddenGHSSupplierIdentification").val(false);
+													            }
+													            else{
+													            	$("#hiddenGHSSupplierIdentification").val(true);
+													            }});
+            $("#newMsdsChkBox").on("click", function(e){if($(e.currentTarget).is(':checked')){
+                                                            currentItem().newMsdsRevReceivedFlag = "Y";
+                                                        }
+                                                        else{
+                                                            currentItem().newMsdsRevReceivedFlag = "N";
+                                                        }});
+            $("#cameraPage").on("pagebeforehide", function(){cameraOff();});
+            
+// required to make popup non dissmissable see stackoverflow.com 12246181
+            $(window).on('popupbeforeposition', 'div:jqmData(role="popup")', function() {
+                    var notDismissible = $(this).jqmData('dismissible') === false;
+                    if (notDismissible) {
+                      $('.ui-popup-screen').off();
+                    }
+            });
+
+            carriersListPopupPrep();
+	        getCarrierList();
+			localizeLabels();
+			localizeMessages();
+		});
+
+        if(isMotorola()){
+            sip.manual();
+        }
+
+        $(window).unload(function(){if(isMotorola()){ sip.automatic();}})    
+    
+
+        
+	</script>
+	<meta http-equiv="cache-control" content="max-age=0" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="expires" content="0" />
+	<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+	<meta http-equiv="pragma" content="no-cache" />
+</head>
+<body>
+
+<!-- **************************************************************************************************************************************** -->
+
+
+<!-- Start of Receiving page (Tracking Number) page -->
+<div data-role="page" id="trkNumPage" data-theme="b">
+	<div data-role="header">
+<!--		<button data-role="button" data-mini="false" id="loginButton">Login</button>  -->
+<!--		<a href="#receiptFormPage" data-role="button" data-mini="false">Receipt Form</a> -->
+<!--        <a href="#documentsPage" data-role="button" data-mini="false">Docs Page</a> --> 
+<!--		<button data-mini="false" id="chkBrowser">Check Browser</button>  -->
+       
+        <a href="index.html" data-role="button" data-ajax="false"><span id="label_home1">Home</span></a>
+		<h1><span id="tablet_inboundshipmentreceiving">Inbound Shipment Receiving</span></h1>
+		<button data-role="button" class="ui-btn-right" data-mini="false" id="trkNumPageNextBtn"><span id="label_next1">Next</span></button>
+<!--		<META HTTP-Equiv="ReloadButton" Content="Visibility:Visible"> -->
+	</div><!-- /header -->
+
+	<div data-role="content" id="content">
+<!--		<div class="ui-grid-a">
+			<div id="leftPane" class="ui-block-a">  -->
+				<form id="trkNumForm" class="trkNumForm ui-content" onsubmit="return false;">			
+					<div class="ui-grid-a">
+    					<div class="ui-block-a scanInputDiv">
+        					
+        					<label for="trkNum"><span id="label_trackingnumber">Tracking Number</span></label>
+        					<input type="text" id="trkNum" data-clear-btn="true" readonly="readonly"></input>
+    					</div>
+    					<div class="ui-block-b scanButtonDiv">
+        					
+        					<button data-role="button" id="trkNumScanButton" class="scanButton"><span id="tablet_scan1">Scan</span></button>
+                        </div>
+					</div>
+
+					<label for="carrierInput"><span id="label_carrier">Carrier</span></label>
+					<input type="text" id="carrierInput" onclick="carrierListOpen()" readonly="readonly"></input>
+<!--					<a href="#" data-role='button' id='searchShipments'>Search Shipments</a>  -->
+
+					<label for="rcvDate"><span id="tablet_receiveddate">Received Date</span></label>
+ 					<input type="date" id="rcvDate" name="rcvDate" data-role="datebox" 
+					       data-options='{"mode": "datebox", 
+					       "useFocus":true, 
+					       "beforeToday":"true", 
+					       "minDays":60,
+					       "overrideTitleDateDialogLabel": "Received", 
+					       "transition":"none"}'></input>
+
+					<label for="incomingTrxType"><span id="tablet_transactiontype">Transaction Type</span></label>					
+					<input type="text" id="incomingTrxType" onclick="trxTypeListOpen()" value="Purchase Order" readonly="readonly"></input>
+					<div class="ui-grid-b">
+				        <div class="ui-block-a poInputDiv">
+
+        					<label for="poNum"><span id="transactionTypeInputLabel">Purchase Order</span></label>
+        					<input type="text" id="poNum" readonly="readonly"></input>
+			            </div>
+			            <div class="ui-block-b scanButtonDiv">
+                            <button type="button"  data-role="button" id="poNumScanButton" class="scanButton"><span id="tablet_scan2">Scan</span></button>
+<!--                            <button type="button"  data-role="button" onclick="enableScanner('onPoNumScan(%json)','Scan PO Number',$('#trkNumPageScanPopup'));"
+                                                                        class="scanButton">Scan</button>
+-->			            </div>
+                        <div class="ui-block-c scanButtonDiv">
+<!--                            <button type="button"  data-role="button"  id="poNumListButton" class="scanButton">List</button>  -->
+                        </div>
+		            </div>
+
+		            <button data-role="button" id="countAndConditionNotesButton"><span id="tablet_countconditionnotes">Count and Condition Notes</span></button>
+		            <input type="hidden" id="countAndConditionNotes" name="countAndConditionNotes" />
+				</form>
+<!--		</div>
+        </div> -->
+	</div><!-- /content -->
+
+	<!-- /footer -->
+	
+    <div data-role="popup" id="carriersList" data-position-to="window" data-dismissible="false">
+
+        <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right"><span id="label_close1">Close</span></a> 
+        <div id="alphaLinks" style="text-align: center;">
+        </div>
+        <div id="carrierLinks" style="text-align: center;">
+        </div>
+	</div>
+<!--
+    <div data-role="popup" id="trkNumPageScanPopup" class="ui-content">
+        <h2></h2>
+        <button onclick="disableScanner($('#trkNumPageScanPopup'));">Cancel</button>
+    </div>
+-->	
+	<div data-role="popup" id="trxTypeList" class="ui-content" data-dismissible="false">
+		<ul data-role="listview" data-inset="true" id="trxTypeListView">
+		
+			<li data-label="PO Number" id="trxTypeListPO">Purchase Order</li>
+            <li data-label="TR Number" id="trxTypeListTransfer">Transfer Request</li>
+            <li data-label="Customer PO" id="trxTypeListCustomerPO">Customer Owned Inventory</li>
+            <li data-label="RMA Number" id="trxTypeListRMA">RMA</li>
+			
+		</ul>	
+	</div>
+	<div data-role="popup" id="incomingShipmentPoList" class="ui-content" data-dismissible="false">
+
+		<h3><span id="tablet_selecttransaction">Select an existing transaction</span></h3>
+		<ul data-role="listview" data-inset="true" id="incomingShipmentPoListView">
+		</ul>	
+
+        <button type="button" id="addNewPoButton"><span id="tablet_addnewtransaction">Add New Transaction</span></button>
+	</div>
+<!--
+    <div data-role="popup" data-dismissible="false" id="trackingNumScanPopup" class="ui-content">
+        <h2></h2>
+        <button onclick="disableScanner($('#trackingNumScanPopup'));">Cancel</button>
+    </div>
+    <div data-role="popup" id="scanpoNumScanPopup" class="ui-content" data-dismissible="false">
+        <h2>Scan a PO Number</h2>
+        <button onclick="hidePoNumScanPopup();">Cancel</button>
+    </div>
+-->
+</div>
+<!-- End of Receiving page (Tracking Number) page -->
+
+<!-- **************************************************************************************************************************************** -->
+
+<!-- Start of Documents page -->
+
+<div data-role="page" id="documentsPage" data-theme="b" data-hdrType="trkNum">
+
+	<div data-role="header">
+		
+		<h1><span id="tablet_inboundshipmentdocs">Inbound Shipment Documents</span></h1>
+		<a href="#trkNumPage" data-role="button" data-mini="false"><span id="label_back1">Back</span></a>
+        <button data-role="button" data-mini="false" id="documentsPageNextButton"><span id="label_next2">Next</span></button>
+	</div> 
+	<!-- /header -->
+
+	<div data-role="content">
+
+		<p style="text-align:center;"><span id="tablet_pleasescandocument">Please scan each document to be associated with this tracking number.</span></p>
+		<div style="width:30%;margin:0 auto;display:block;overflow:hidden;">
+			<ul data-role="listview" data-inset="true" id="documentList">
+
+			    <li><button type="button" data-role="button" data-icon="plus" data-persist="true" id="addDocumentButton"><span id="tablet_adddocuments">Add Documents</span></button></li>
+			</ul>
+		</div>
+
+	</div> 
+	<!-- /content -->
+
+	<div data-role="footer" data-position="fixed">
+	</div>
+	<!-- /footer -->
+	
+
+    <div data-role="popup" id="documentsPageScanPopup" class="ui-content">
+        <h2></h2>
+
+        <button type="button" data-role="button" onclick='disableScanner($("#documentsPageScanPopup"));'><span id="tablet_done1">Done</span></button>
+    </div>
+
+	<div data-role="popup" id="manualDocumentPopup">
+
+			<label for="manualDocumentInput"><span id="tablet_enterdocumentid">Enter document ID</span></label>
+			<input type="text" id="manualDocumentInput"></input>
+
+			<button data-role="button" onclick="insertManualDocument();"><span id="tablet_adddocument">Add Document</span></button>
+			<button data-role="button" onclick="insertManualDocumentCnx();"><span id="tablet_done2">Done</span></button>
+	</div>
+
+</div> 
+<!-- End of Documents page -->
+
+<!-- **************************************************************************************************************************************** -->
+
+<!-- Start of Item View page -->
+<div data-role="page" id="itemViewPage" data-theme="b" data-hdrType="poNum">
+	<div data-role="header">
+        <div data-role="controlgroup" data-type="horizontal" class="ui-btn-left">
+
+            <a href="#documentsPage" data-role="button" data-mini="false"><span id="label_back2">Back</span></a>
+            <a href="#trkNumPage" data-role="button" data-mini="false"><span id="label_home2">Home</span></a>
+        </div>        
+
+        <button data-role="button" data-mini="false" class="ui-btn-right" onclick="$('#itemImage').trigger('click');"><span id="label_next3">Next</span></button>
+		<h1><span id="tablet_receivingitems">Receiving Items</span></h1>
+	</div><!-- /header -->
+
+	<div data-role="content" >
+		<div class="ui-grid-a">
+			<div id="rightPane2" class="ui-block-a">
+				<div class="ui-grid-b" style="height:350px;">
+					<div class="ui-block-a" id="prevButtonBlock" style="width:15%">
+						<button data-role="button" id="prevButton" data-theme="a" onclick="itemImageReverse()"><img src="images/arrowl.png"/></button>
+					</div>				
+					<div class="ui-block-b" style="width:70%">
+						<div class="itemPane" id="itemView">
+							<img src="" class="itemImage" id="itemImage">
+						</div>	
+					</div>
+					<div class="ui-block-c" id="nextButtonBlock" style="width:15%">
+						<button data-role="button" id="nextButton" data-theme="a" onclick="itemImageAdvance()"><img src="images/arrowr.png"/></button>
+					</div>				
+				</div>
+			</div>
+			<div class="ui-block-b">
+				<div id="itemText" class="itemText">
+				</div>
+				<!-- div class="newMsdsChkBoxDiv">
+				    <label for="newMsdsChkBox"><span id="tablet_newmsdsrevisionreceived">A newer MSDS revision was received with this item.</span></label>
+				    <input type="checkbox" id="newMsdsChkBox"/>
+				</div-->				
+			</div>
+		</div>
+	</div><!-- /content -->
+
+</div>
+<!-- End of Item View page -->
+
+<!-- **************************************************************************************************************************************** -->
+<!-- Start of flowdown page -->
+<div data-role="page" id="flowdownPage" data-theme="b" data-hdrType="poNum">
+	<div data-role="header">
+		<div data-role="controlgroup" data-type="horizontal" class="ui-btn-left">
+			<a href="#itemViewPage" data-role="button" data-mini="false"><span id="label_back4">Back</span></a>
+			<a href="#trkNumPage" data-role="button" data-mini="false"><span id="label_home4">Home</span></a>
+		</div>        
+
+		<button data-role="button" data-mini="false" class="ui-btn-right" onclick="$.mobile.changePage('#receiptFormPage');"><span id="label_next4">Next</span></button>
+		<h1><span id="label_flowdowns">Flowdowns</span></h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<div id="errorMessagesArea" style="display: none"></div>
+		<div id="flowdowns" class="ui-content binTable"></div>
+	</div>
+
+	<!-- /content -->
+
+	<!-- /footer -->
+</div>
+<!-- /page -->
+
+<!-- **************************************************************************************************************************************** -->
+
+<!-- Start of Receipts View page -->
+<div data-role="page" id="receiptView" data-theme="b" data-hdrType="poNum">
+
+	<div data-role="header" data-position="fixed" id="receiptViewHeader">
+
+		<button data-role="button" data-mini="false" type="button" id="receiptViewAddReceiptButton"><span id="tablet_addreceipt">Add Receipt</span></button>
+		<button data-role="button" data-mini="false" type="button" id="receiptViewDoneButton"><span id="tablet_done3">Done</span></button>
+		<h1><span id="graphs_label_receipts1">Receipts</span></h1>
+	</div><!-- /header -->
+
+	<div data-role="content" id="receiptViewContent">
+	</div><!-- /content -->
+<!--
+<div data-role="footer" data-position="fixed" id="receiptViewFooter">
+		<a href="#itemImgPopup" class="ui-button-left" data-mini="false" data-rel="popup" data-position-to="window">Show Image</a>
+		<a href="#itemDtlPopup" class="ui-button-right" data-mini="false" data-rel="popup" data-position-to="window">Show Details</a>
+		<a href="#receiptFormPage" data-role="button" data-mini="false" >Add Receipt</a>
+</div> -->
+	<!-- /footer -->
+</div>
+<!-- End of Receipts View page -->
+
+<!-- **************************************************************************************************************************************** -->
+
+<!-- Start of Receipt Form page -->
+<div data-role="page" id="receiptFormPage" data-theme="b" data-hdrType="poNum">
+
+	<div data-role="header" data-position="fixed" id="rcptsHdr">
+
+		<a href="#" data-role="button" data-mini="false" id="receiptFormCnxBtn"><span id="label_cancel1">Cancel</span></a>
+		<h1><span id="graphs_label_receipts2">Receipts</span></h1>
+		<a href="#" data-role="button" data-mini="false" id="receiptFormDoneBtn"><span id="label_save">Save</span></a>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		
+		<form id="rcptForm" name="rcptForm" onsubmit="return false">
+			<div class="ui-grid-b" id="outerGrid">
+				<div class="ui-block-a">
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a scanInputDiv">
+        					<label for="receiptIdInput"><span id="label_receiptid">Receipt ID</span>:</label>
+        					<input type="text" id="receiptIdInput" name="receiptIdInput"/>
+					   </div>
+                        <div class="ui-block-b scanButtonDiv">
+                            <button type="button" onclick="enableScanner('onReceiptIdScan(%json)','Scan Receipt ID','receiptFormPage');"><span id="tablet_scancaps1">SCAN</span></button>
+                        </div>
+					</div>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a scanInputDiv">
+
+        					<label for="poLineInput"><span id="tablet_purchaseorderline">Purchase Order Line</span>:</label> 								
+        					<input type="text" id="poLineInput" name="poLineInput" readonly/>
+                       </div>
+                        <div class="ui-block-b scanButtonDiv">
+
+                            <button type="button" id="originalRIDScanButton"><span id="tablet_origrid">ORIG RID</span></button>
+                        </div>
+                    </div>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a scanInputDiv">
+
+                            <label for="binInput"><span id="label_bin">Bin</span>:</label>                               
+                            <input type="text" id="binInput" name="binInput" readonly="readonly"></input>
+                       </div>
+                        <div class="ui-block-b scanButtonDiv">
+
+                            <button type="button" onclick="enableScanner('onBinIdScan(%json)','Scan Bin ID','receiptFormPage');"><span id="tablet_scancaps2">SCAN</span></button>
+                        </div>
+                    </div>
+				</div>
+				<div class="ui-block-b">
+
+                    <label for="DOM" data-role="none"><span id="label_dateofmanufacture">Date of Manufacture</span></label>
+                    <input type="date" id="DOM" name="DOM" data-role="datebox" 
+                           data-options='{"mode": "datebox", 
+                           "useFocus":true, 
+                           "beforeToday":true,
+                           "overrideTitleDateDialogLabel":"DOM",
+                           "transition":"none"}'></input>
+
+                    <label for="DOS"><span id="tablet_mfgdateofshipment">Mfg Date of Shipment</span></label>
+                    <input type="date" id="DOS" name="DOS" data-role="datebox" 
+                           data-options='{"mode": "datebox", 
+                           "useFocus":true, 
+                           "beforeToday":"true",
+                           "overrideTitleDateDialogLabel":"DOS", 
+                           "transition":"none"}'></input>
+
+                    <label for="ASSD"><span id="tablet_actualsupplier">Actual Supplier DOS</span></label>
+                    <input type="date" id="ASSD" name="ASSD" data-role="datebox" 
+                           data-options='{"mode": "datebox", 
+                           "useFocus":true, 
+                           "beforeToday":"true",
+                           "overrideTitleDateDialogLabel":"ASSD", 
+                           "transition":"none"}'></input>
+                </div>
+                <div class="ui-block-c">
+                    <div id="chkBoxHazComDiv">
+
+                        <label for="chkBoxHazCom"><span id="tablet_hazcomlabeling">HazCom Labeling</span></label>                        
+                        <input type="checkbox" data-inline="true" id="chkBoxHazCom" data-confirmed="false" name="chkBoxHazCom"></input>
+                    </div>
+                    <div id="chkBox129PDiv">
+
+                        <label for="chkBox129P"><span id="tablet_129plabeled">129P Labeled</span></label>                        
+                        <input type="checkbox" data-inline="true" id="chkBox129P" name="chkBox129P"></input>
+                    </div>
+<!--
+                    <div id="chkBoxQAReadyDiv">
+                        <label for="chkBoxQAReady">Ready for QA</label>                        
+                        <input type="checkbox" data-inline="true" id="chkBoxQAReady" name="chkBoxQAReady"></input>
+                    </div>
+-->
+					<div id="chkBoxGHSDiv" style="display: none;">
+                        <label for="chkBoxGHS"><span id="tablet_GHSlabeling">GHS Label Requirements</span></label>                        
+                        <input type="checkbox" data-inline="true" id="chkBoxGHS" data-confirmed="false" name="chkBoxGHS"></input>
+                    </div>
+                </div>
+            </div>
+<!--            <div class="ui-grid-b" id="componentFormData">  -->
+            <div id="componentFormData">
+            </div>
+
+            <input type="hidden" id="hiddenPoLineIndex" name="hiddenPoLineIndex" value="0"/>            
+			<input type="hidden" id="hiddenReceiptNotes" name="hiddenReceiptNotes" />
+            <input type="hidden" id="hiddenInternalReceiptNotes" name="hiddenInternalReceiptNotes" />
+            <input type="hidden" id="hiddenDocType" name="hiddenDocType" />
+            <input type="hidden" id="hiddenCurrentComponent" name="hiddenCurrentComponent" />
+            <input type="hidden" id="hiddenReceiptListIndex" name="hiddenReceiptListIndex" />
+            <input type="hidden" id="hiddenTransactionType" name="hiddenTransactionType" />
+            <input type="hidden" id="hiddenDocNum" name="hiddenDocNum" />
+            <input type="hidden" id="hiddenCompanyId" name="hiddenCompanyId" />
+            <input type="hidden" id="hiddenDefinedShelfLifeItem" name="hiddenDefinedShelfLifeItem" />
+            <input type="hidden" id="hiddenDefinedShelfLifeBasis" name="hiddenDefinedShelfLifeBasis" />
+            
+            <input type="hidden" id="hiddenGHSProductName" name="hiddenGHSProductName" value="true"/>
+            <input type="hidden" id="hiddenGHSSignalWord" name="hiddenGHSSignalWord" value="true"/>
+            <input type="hidden" id="hiddenGHSPictogram" name="hiddenGHSPictogram" value="true"/>
+            <input type="hidden" id="hiddenGHSHazardStatement" name="hiddenGHSHazardStatement" value="true"/>
+            <input type="hidden" id="hiddenGHSPrecautionaryStatement" name="hiddenGHSPrecautionaryStatement" value="true"/>
+            <input type="hidden" id="hiddenGHSSupplierIdentification" name="hiddenGHSSupplierIdentification" value="true"/>
+		</form>
+	
+		<div data-role="popup" id="itemImgPopup" class="ui-content">
+
+			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right"><span id="label_close2">Close</span></a>
+			<img src=""></img>
+		</div>
+		<div data-role="popup" id="itemDtlPopup" class="ui-content">
+
+			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right"><span id="label_close3">Close</span></a>
+            <div id="itemDtlPopupContent"></div>	      
+		</div>
+
+        <div data-role="popup" id="poLineChooserPopup" class="ui-content">
+
+            <h2 id="poLineChooserHeader"><span id="tablet_selectpoline">Select Purchase Order Line</span></h2>
+                <ul data-role="listview" id="lineList" data-inset="true">
+                </ul>                           
+        </div>
+
+        <div data-role="popup" id="hazComLabelWarning" class="ui-content" data-dismissable="false" data-overlay-theme="a">
+
+            <p><span id="tablet_itemlabelingrequirements">Does this item's labeling meet HAZCOM requirements?</span></p>
+            <div style="text-align: center">
+
+                <button type="button" data-role="button" data-inline="true" id="hazComConfirmYesButton"><span id="tablet_yes">YES</span></button>
+                <button type="button" data-role="button" data-inline="true" id="hazComConfirmNoButton"><span id="tablet_no">NO</span></button>
+            </div>
+        </div>
+        
+        <div data-role="popup" id="GHSLabelWarning" class="ui-content" data-dismissable="false" data-overlay-theme="a">
+
+            <p><span id="tablet_GHSlabelingrequirements">Does this item meet GHS labelling requirements? (Name, Supplier Info, Signal Word, Pictogram, Precautionary and Hazard Statements)</span></p>
+            <div style="text-align: center">
+
+                <button type="button" data-role="button" data-inline="true" id="GHSConfirmYesButton"><span id="tablet_GHSyes">YES</span></button>
+                <button type="button" data-role="button" data-inline="true" id="GHSConfirmNoButton"><span id="tablet_GHSno">NO</span></button>
+            </div>
+        </div>
+
+		<div data-role="popup" id="GHSLabelChecklist" class="ui-content" data-dismissable="false" data-overlay-theme="a">
+            <p><span id="tablet_GHSlabelingchecklist">GHS Label Checklist</span></p>
+            <div style="text-align: center">
+            	<div class="ui-field-contain">
+  					<fieldset data-role="controlgroup">
+      						<input type="checkbox" name="chkboxGHSProductName" id="chkboxGHSProductName">
+	      					<label for="chkboxGHSProductName">Missing Product Identifier</label>
+	 
+	      					<input type="checkbox" name="chkboxGHSSignalWord" id="chkboxGHSSignalWord" >
+	      					<label for="chkboxGHSSignalWord">Missing Signal Word (Danger or Warning)</label>
+	 
+	      					<input type="checkbox" name="chkboxGHSPictogram" id="chkboxGHSPictogram">
+	      					<label for="chkboxGHSPictogram">Missing Pictograms</label>
+	 
+	      					<input type="checkbox" name="chkboxGHSHazardStatement" id="chkboxGHSHazardStatement">
+	      					<label for="chkboxGHSHazardStatement">Missing Hazard Statements</label>
+	      					
+	      					<input type="checkbox" name="chkboxGHSPrecautionaryStatement" id="chkboxGHSPrecautionaryStatement">
+	      					<label for="chkboxGHSPrecautionaryStatement">Missing Precautionary Statements</label>
+	      					
+	      					<input type="checkbox" name="chkboxGHSSupplierIdentification" id="chkboxGHSSupplierIdentification">
+	      					<label for="chkboxGHSSupplierIdentification">Missing Supplier Name, Address and Phone Number</label>
+	    			</fieldset>
+	    			
+	    			<button type="button" data-role="button" data-inline="true" id="GHSLabelSubmitButton"><span id="tablet_GHSLabelSubmit">Submit</span></button>
+                	<button type="button" data-role="button" data-inline="true" id="GHSLabelCancelButton"><span id="tablet_GHSLabelCancel">Cancel</span></button>
+				</div>
+            </div>
+        </div>
+
+        <div data-role="popup" id="receiptFormCnxPopup" class="ui-content" data-dismissable="false" data-overlay-theme="a">
+            <p>Cancel this receipt?</p>
+            <div style="text-align: center">
+                <button type="button" data-role="button" data-inline="true" id="receiptFormCnxYesButton">YES</button>
+                <button type="button" data-role="button" data-inline="true" id="receiptFormCnxNoButton">NO</button>
+            </div>
+        </div>
+<!--
+        <div data-role="popup" id="lotNumberChooserPopup" class="ui-content">
+            <input type="text" id="lotNumberPopupInput"/>
+            <p>Enter the Lot Number</p>
+            <button data-role="button" id="lotNumberChooserPopupButton" >Continue</button>
+            <p>Or select one from this list</p>
+            <ul data-role="listview" id="lotList" data-inset="true" data-filter-reveal="true">
+            </ul>
+        </div>
+-->	
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed">
+        <div class="ui-grid-d">
+            <div class="ui-block-a">
+
+        		<a href="#itemImgPopup" data-role="button" data-rel="popup" data-mini="false" data-position-to="window"><span id="tablet_showitemimage">Show Item Image</span></a>
+            </div>
+            <div class="ui-block-b">
+
+        		<a href="#itemDtlPopup" data-role="button" data-rel="popup" data-mini="false" data-position-to="window"><span id="tablet_showitemdetail">Show Item Details</span></a>
+            </div>
+            <div class="ui-block-c">
+
+                <button data-role="button" data-mini="false" type="button" id="internalNotesButton"><span id="tablet_internalnotes">Internal Notes</span></button>
+            </div>
+            <div class="ui-block-d">
+
+                <button data-role="button" data-mini="false" type="button" id="receiptNotesButton"><span id="tablet_notes1">Notes</span></button>
+            </div>
+            <div class="ui-block-e">
+
+                <a href="#imageView" data-mini="false" data-role="button"><span id="tablet_receiptimages">Receipt Images</span></a>
+            </div>
+        </div>
+	</div>
+	<!-- /footer -->
+</div>
+<!-- End of Receipt Form page -->
+
+<!-- **************************************************************************************************************************************** -->
+
+<!-- Start of Images page -->
+<div data-role="page" id="imageView" data-theme="b" data-hdrType="poNum">
+
+	<div data-role="header" data-fixed="true">
+
+		<a href="#receiptFormPage" data-role="button" data-mini="false"><span id="tablet_done4">Done</span></a>
+		<h1><span id="label_images">Images</span></h1>
+
+	</div><!-- /header -->
+
+	<div data-role="content">
+        <div class="ui-grid-a">
+            <div class="ui-block-a" id="receiptImageViewDiv">
+                <img id="receiptImageTag" src="" height="100%" ></img>
+            </div>
+            <div class="ui-block-b" id="receiptImageListDiv">
+
+                <button id="addImageButton" data-icon="plus"><span id="tablet_addimage">Add Image</span></button>
+           		<div>
+               		<ul id="receiptImageListView" data-role="listview" data-inset="true">
+               		</ul>	
+                </div>
+
+                <button id="deleteImageButton" data-icon="delete"><span id="label_deleteimage">Delete Image</span></button>
+            </div>
+        </div>
+	
+	</div><!-- /content -->
+
+    <div data-role="popup" id="imageTypePopup" class="ui-content">
+
+        <h2><span id="tablet_selectimagetype">Select an Image Type</span></h2>
+        <ul data-role="listview" id="imageTypeList" data-inset="true"></ul>                           
+    </div>
+    <div data-role="popup" id="imageDeleteConfirmPopup" class="ui-content">
+
+        <h2><span id="tablet_deletethisimage">Delete this image?</span></h2>
+        <button data-role="button" id="imageDeleteYesButton"><span id="label_delete">Delete</span></button>
+        <button data-role="button" id="imageDeleteNoButton"><span id="label_cancel2">Cancel</span></button>
+    </div>
+
+</div>
+<!-- End of Images page -->
+
+<!-- **************************************************************************************************************************************** -->
+
+<!-- Start of Camera page -->
+<div data-role="page" id="cameraPage" data-theme="b" data-hdrType="poNum">
+
+	<div data-role="header">
+
+		<h1><span id="tablet_pagetitle">Page Title</span></h1>
+		<a href="#" data-rel="back" data-mini="false"><span id="label_back3">Back</span></a>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<div class="ui-grid-a">
+			<div class="ui-block-a" id="imageDisplayDiv">
+				<img id="imageTag" src="" height="100%" ></img>
+			</div>		
+			<div class="ui-block-b" id="imageControlDiv">
+				<div id="cameraControlDiv">
+				    <div id="buttonDivA">
+
+    					<a href="#" data-role="button" id="shutterButton"><span id="tablet_shutter">Shutter</span></a>
+				    </div>
+				    <div id="buttonDivB"></div>
+				    <div id="buttonDivC">
+
+    					<a href="#" data-role="button" id="toggleFlashButton"><span id="tablet_flashon">Flash On</span></a>
+				    </div>
+				    <div id="buttonDivD"></div>
+				    <div id="buttonDivE">
+
+    					<a href="#" data-role="button" id="cameraOffButton"><span id="label_cancel3">Cancel</span></a>
+				    </div>
+				</div>
+				<div id="imageAcceptDiv">
+
+					<a href="#" data-role="button" data-icon="ok" id="imageAcceptButton"><span id="tablet_accept">Accept</span></a>
+					<a href="#" data-role="button" data-icon="delete" id="imageRejectButton"><span id="label_reject">Reject</span></a>
+				</div>				
+			</div>
+		</div>	
+	</div><!-- /content -->
+
+	<div data-role="footer">
+	</div><!-- /footer -->
+</div>
+<!-- End of Camera page -->
+
+<!-- **************************************************************************************************************************************** -->
+
+<!-- Begin notes page -->
+<div data-role="page" id="notesPage" data-theme="b">
+
+    <div data-role="header">
+
+        <h1 id="notesPageTitle"><span id="tablet_notes2">Notes</span></h1>
+        <button data-role="button" data-mini="false" id="notesPageDoneButton"><span id="tablet_done5">Done</span></button>
+        <a href="#cannedNotesPopup" data-role="button" data-rel="popup" data-mini="false" data-position-to="window"><span id="tablet_commonnotes">Common Notes</span></a>
+    </div><!-- /header -->
+
+    <div data-role="content">
+        <form name="tabletNotesPageForm">
+            <input type="hidden" id="notesPageReturnTo" />
+            <input type="hidden" id="notesPageReturnNotesTo" />
+            <div id="tabletNotesDiv">
+                <textarea id="tabletNotes" data-role="none"></textarea>
+            </div>
+
+        </form>
+    </div><!-- /content -->
+    <div data-role="popup" id="cannedNotesPopup" class="ui-content">
+        <ul id="cannedNotes" name="cannedNotes" data-role="listview" data-inset="true">
+
+            <li data-string="External Damage"><span id="tablet_externaldamage">External Damage</span></li>
+            <li data-string="Hidden Damage"><span id="tablet_hiddendamage">Hidden Damage</span></li>
+            <li data-string="Leaking"><span id="tablet_leaking">Leaking</span></li>
+            <li data-string="Wrong Package Size"><span id="tablet_wrongpackagesize">Wrong Package Size</span></li>
+            <li data-string="Labeled Incorrectly"><span id="tablet_labeledincorrectly">Labeled Incorrectly</span></li>
+            <li data-string="Missing Documents"><span id="tablet_missingdocuments">Missing Documents</span></li>
+            <li data-string="Damaged During Receipt"><span id="tablet_damagedduringreceipt">Damaged During Receipt</span></li>
+            <li data-string="Lot # is a Date Code"><span id="tablet_lotdatecode">Lot # is a Date Code</span></li>
+        </ul>
+
+        <button data-role="button" type="button" id="cannedNotesPopupCloseButton"><span id="label_close4">Close</span></button>
+    </div>
+
+</div>
+<!-- End Notes page -->
+
+<!-- ************************************************************************************************************************************* -->
+
+<!-- Page Template copy but do not delete -->
+<div data-role="page" id="template" data-theme="b">
+
+	<div data-role="header">
+		<h1>Page Title</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<p>Page content goes here.</p>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div>
+<!-- End page template -->
+
+</body>
+</html>
+
+

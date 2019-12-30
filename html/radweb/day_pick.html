@@ -1,0 +1,18 @@
+<html><head><title>Picks for Hub X on Day Y</title></head>
+<body><center>
+<form action="/cgi-bin/radweb/day_pick.cgi" method="POST">
+<select name="hub">
+<option value="2101">Salem Hub
+</select>
+<p>
+Picklist print date in mm/dd/yyyy format: &nbsp;
+<input type="text" name="day" value="mm/dd/yyyy">
+<p>
+<input type="radio" name="type" value="HTML">Print HTML Table
+&nbsp; &nbsp; &nbsp;
+<input type="radio" name="type" value="csv">Download CSV
+<p>
+<input type="checkbox" name="qc" value="Y"> &nbsp; Show QC'd picks
+<p>
+<input type="submit" name="X" value="Lookup Picklist Qty">
+</form></center></body></html>

@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+
+    <form-bean name="fileUploadForm"
+             type="com.tcmis.internal.catalog.beans.FileUploadForm">
+    </form-bean>
+
+   <form-bean name="genericForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm" />
+  
+  <form-bean name="itemConsolidationForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm">
+     <form-property name="consolidationStatusChkbxArray" type="java.lang.String[]"/>
+   </form-bean>
+   
+  </form-beans>
+  <!-- ========== Global Forward Definitions ============================== -->
+  <global-forwards>
+    <forward name="manufacturersearchmain"
+             path="/manufacturersearchmain.do" />
+    <forward name="materialsearchmain"
+             path="/materialsearchmain.do" />
+    <forward name="casnumbersearchmain"
+             path="/casnumbersearchmain.do" />
+    <forward name="itemsearchmain"
+             path="/itemsearchmain.do" />
+    <forward name="originalrequestmain"
+             path="/originalrequestmain.do" />             
+    <forward name="fileupload"
+             path="/fileupload.do" />
+    <forward name="itemsharmonizedcodemain"
+             path="/itemsharmonizedcodemain.do" />
+    <forward name="partnotesmain"
+             path="/partnotesmain.do" />  
+    <forward name="catalogaddqcmain"
+             path="/catalogaddqcmain.do" />
+    <forward name="newrevisiondate"
+             path="/newrevisiondate.do" />   
+	<forward name="msdsauthorsearch"
+             path="/msdsauthorsearch.do" />        
+    <forward name="materialconsolidation"
+             path="/materialconsolidation.do" />
+    <forward name="itemconsolidationmain"
+             path="/itemconsolidationmain.do" />    
+    <forward name="itempartsearchmain"
+             path="/itempartsearchmain.do" />    
+    <forward name="speclookupmain"
+             path="/speclookupmain.do" />
+    <forward name="catalogspecqc.do"
+                   path="/catalogspecqc.do" />
+    <forward name="/contactlog"
+             path="/contactlog.do"/>
+    <forward name="contactlogdocumentview"
+             path="/contactlogdocumentview.do"/>
+    <forward name="contactlogdocumentupload"
+             path="/contactlogdocumentupload.do"/>
+	<forward name="customermsdsqueuemain"
+             path="/customermsdsqueuemain.do" />
+    <forward name="docViewer"
+             path="/docViewer.do"/>
+    <forward name="msdsindexingmain"
+      		 path="/msdsindexingmain.do" />
+    <forward name="msdsindexingresults"
+      		 path="/msdsindexingresults.do" />
+    <forward name="msdsindexingcomsdsdetail"
+    		 path="/msdsindexingcomsdsdetail.do" />
+   	<forward name="itemsequencegenerator"
+   			 path="/itemsequencegenerator.do" />
+   	<forward name="catalogitemqcdetails"
+   			 path="/catalogitemqcdetails.do" />
+   	<forward name="hmirsmgmtmain"
+   			 path="/hmirsmgmtmain.do" />
+   	<forward name="addusertoemaillistmain"
+   			 path="/addusertoemaillistmain.do" />
+    <forward name="mfrnotificationmgmtmain"
+             path="/mfrnotificationmgmtmain.do" />
+    <forward name="mfrnotificationmain"
+             path="/mfrnotificationmain.do" />
+    <forward name="mfrnotificationdocviewer"
+             path="/mfrnotificationdocviewer.do" />
+    <forward name="problemqueuereason"
+             path="/problemqueuereason.do" />
+    <forward name="sdsauthoringselectionmain"
+             path="/sdsauthoringselectionmain.do" />
+    <forward name="catalogaddvendorqueuemain"
+             path="/catalogaddvendorqueuemain.do" />
+    <forward name="vendorcontactlogmain"
+             path="/vendorcontactlogmain.do" />
+    <forward name="newmsdsauthor"
+             path="/newmsdsauthor.do"/>
+	<forward name="catalogsuppliermain"
+             path="/catalogsuppliermain.do" />
+	<forward name="newvendorassignment"
+             path="/newvendorassignment.do" />
+    <forward name="getsdsfromsequence"
+             path="/getsdsfromsequence.do" />
+    <forward name="itemstoragesearchmain"
+             path="/itemstoragesearchmain.do" />
+  </global-forwards>
+  <!-- ========== Action Mapping Definitions ============================== -->
+  <action-mappings>
+<!-- ============================================================ -->
+    <action path="/manufacturersearchmain"
+            type="com.tcmis.internal.catalog.action.ManufacturerSearchAction"
+            name="genericForm"
+            validate="true"
+            input="/manufacturersearchmain.jsp"
+            scope="request">
+        <forward name="success" path="/catalog/manufacturersearchmain.jsp" module=""/>
+    </action>
+
+    <action path="/manufacturersearchresults"
+            type="com.tcmis.internal.catalog.action.ManufacturerSearchAction"
+            name="genericForm"
+            validate="true"
+            input="/manufacturersearchresults.jsp"
+            scope="request">
+        <forward name="success" path="/catalog/manufacturersearchresults.jsp" module=""/>
+        <forward name="newmanufacturer" path="/catalog/newmanufacturer.jsp" module=""/>
+    </action>
+
+<!-- ============================================================ -->
+
+    <action path="/materialsearchmain"
+            type="com.tcmis.internal.catalog.action.MaterialSearchAction"
+            name="genericForm"
+            validate="true"
+            input="/materialsearchmain.jsp"
+            scope="request">
+        <forward name="success" path="/catalog/materialsearchmain.jsp" module=""/>
+        <forward name="newmaterial" path="/catalog/newmaterial.jsp" module=""/>
+    </action>
+
+    <action path="/materialsearchresults"
+            type="com.tcmis.internal.catalog.action.MaterialSearchAction"
+            name="genericForm"
+            validate="true"
+            input="/materialsearchresults.jsp"
+            scope="request">
+        <forward name="success" path="/catalog/materialsearchresults.jsp" module=""/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+        <forward name="newmaterial" path="/catalog/newmaterial.jsp" module=""/>
+    </action>
+
+<!-- ============================================================ -->
+
+    <action path="/casnumbersearchmain"
+            type="com.tcmis.internal.catalog.action.CaseNumberSearchAction"
+            validate="true"
+            input="/casnumbersearchmain.jsp"
+            scope="request">
+        <forward name="success" path="/catalog/casnumbersearchmain.jsp" module=""/>
+        <forward name="newcasnumber" path="/catalog/newcasnumber.jsp" module=""/>
+    </action>
+
+    <action path="/casnumbersearchresults"
+            type="com.tcmis.internal.catalog.action.CaseNumberSearchAction"
+            name="genericForm"
+            validate="true"
+            input="/casnumbersearchresults.jsp"
+            scope="request">
+        <forward name="success" path="/catalog/casnumbersearchresults.jsp" module=""/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+        <forward name="newcasnumber" path="/catalog/newcasnumber.jsp" module=""/>
+    </action>
+
+<!-- ============================================================ -->
+
+    <action path="/itemsearchmain"
+            type="com.tcmis.internal.catalog.action.ItemSearchAction"
+            validate="true"
+            input="/itemsearchmain.jsp"
+            scope="request">
+        <forward name="success" path="/itemsearchmain.jsp"/>
+    </action>
+
+    <action path="/itemsearchresults"
+            type="com.tcmis.internal.catalog.action.ItemSearchAction"
+            name="genericForm"
+            validate="true"
+            input="/itemsearchresults.jsp"
+            scope="request">
+        <forward name="success" path="/itemsearchresults.jsp"/>
+    </action>
+
+    <action path="/originalrequestmain"
+            type="com.tcmis.internal.catalog.action.OriginalRequestAction"
+            validate="true"
+            input="/originalrequestmain.jsp"
+            scope="request">
+        <forward name="success" path="/originalrequestmain.jsp"/>
+    </action>
+
+    <action path="/originalrequestheader"
+            type="com.tcmis.internal.catalog.action.OriginalRequestAction"
+            name="genericForm"
+            validate="true"
+            input="/originalrequestheader.jsp"
+            scope="request">
+        <forward name="success" path="/originalrequestheader.jsp"/>
+    </action>
+
+    <action path="/originalrequestresults"
+            type="com.tcmis.internal.catalog.action.OriginalRequestAction"
+            name="genericForm"
+            validate="true"
+            input="/originalrequestresults.jsp"
+            scope="request">
+        <forward name="success" path="/originalrequestresults.jsp"/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>    
+    <action path="/fileupload"
+            type="com.tcmis.internal.catalog.action.FileUploadAction"
+            name="fileUploadForm"
+            validate="false"
+            input="/fileupload.jsp"
+            scope="request">
+        <forward name="showinput" path="/catalog/fileupload.jsp" module=""/>
+   </action>
+    
+    <action path="/itemsharmonizedcodemain"
+            type="com.tcmis.internal.catalog.action.ItemsHarmonizedCodeAction"
+            validate="true"
+            input="/itemshoronizedcodemain.jsp"
+            scope="request">
+        <forward name="success" path="/itemsharmonizedcodemain.jsp"/>
+    </action>
+
+    <action path="/itemsharmonizedcoderesults"
+            type="com.tcmis.internal.catalog.action.ItemsHarmonizedCodeAction"
+            name="genericForm"
+            validate="true"
+            input="/itemsharmonizedcoderesults.jsp"
+            scope="request">
+        <forward name="success" path="/itemsharmonizedcoderesults.jsp"/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+
+
+	<action path="/partnotesmain"
+            type="com.tcmis.client.catalog.action.PartNotesAction"
+            scope="request">
+        <forward name="success" path="/catalog/partnotesmain.jsp" module=""/>
+    </action>
+
+    <action path="/partnotessearch"
+            type="com.tcmis.client.catalog.action.PartNotesAction"
+            name="genericForm"
+            scope="request">
+        <forward name="success" path="/catalog/partnotessearch.jsp" module=""/>
+    </action>
+<!-- original -->
+    <action path="/partnotesresults"
+            type="com.tcmis.client.catalog.action.PartNotesAction"
+            name="genericForm"
+            input="/../catalog/partnotesresults.jsp"
+            scope="request">
+        <forward name="success" path="/catalog/partnotesresults.jsp" module=""/>
+    </action>
+
+<!-- ============================================================ -->    
+    <action path="/catalogaddqcmain"
+            type="com.tcmis.internal.catalog.action.CatalogAddQcAction"
+            name="genericForm"
+            validate="false"
+            input="/catalogaddqcmain.jsp"
+            scope="request">
+        <forward name="success" path="/catalogaddqcmain.jsp"/>
+        <forward name="getcatalog" path="/catalogaddqcmain.jsp"/>
+    </action> 
+    <action path="/catalogaddqcresults"
+            type="com.tcmis.internal.catalog.action.CatalogAddQcAction"
+            name="genericForm"
+            validate="false"
+            input="/catalogaddqcresults.jsp"
+            scope="request">
+        <forward name="success" path="/catalogaddqcresults.jsp"/>
+        <forward name="workQueueResults" path="/catalogaddvendorqueueresults.jsp"/>
+        <forward name="pendingAssignResults" path="/cataddqcpendassnresults.jsp"/>
+        <forward name="commentPopup" path="/common/commentpopup.jsp" module=""/>
+   </action>
+    	
+    <action path="/testrequestcreatedefinition"
+    		type="com.tcmis.internal.catalog.action.TestDefinitionAction"
+    		name="genericForm"
+    		validate="false"
+    		input="/testrequestcreatedefinition.jsp"
+    		scope="request">
+    	<forward name="success" path="/testrequestcreatedefinition.jsp"/>
+    </action>
+
+<!-- ============================================================ -->    
+
+	<action path="/newrevisiondate"
+            type="com.tcmis.internal.catalog.action.NewRevisionDateAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+        <forward name="success" path="/newrevisiondate.jsp"/>
+        <forward name="newmsdsauthor" path="/catalog/newmsdsauthor.jsp" module=""/>
+    </action>  
+
+	<action path="/msdsauthorsearch" 
+            type="com.tcmis.internal.catalog.action.MsdsAuthorSearchAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action> 
+    
+    <!-- ============================================================ --> 
+    
+    <action path="/materialconsolidation"
+            type="com.tcmis.internal.catalog.action.MaterialConsolidationAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+        <forward name="success" path="/materialconsolidation.jsp"/>
+    </action> 
+    
+    <action path="/itemconsolidationmain"
+            type="com.tcmis.internal.catalog.action.ItemConsolidationAction"
+            name="itemConsolidationForm"
+            validate="true"
+            input="/itemconsolidationmain.jsp"
+            scope="request">
+        <forward name="success" path="/itemconsolidationmain.jsp"/>
+    </action> 
+
+   <action path="/itemconsolidationresults"
+            type="com.tcmis.internal.catalog.action.ItemConsolidationAction"
+            name="itemConsolidationForm"
+            validate="true"
+            input="/itemconsolidationresults.jsp"
+            scope="request">
+        <forward name="success" path="/itemconsolidationresults.jsp"/>
+   </action>
+
+    <!-- ============================================================ --> 
+       
+   <action path="/itempartsearchmain"
+            type="com.tcmis.internal.catalog.action.ItemPartSearchAction"
+            name="genericForm"
+            validate="true"
+            input="/itempartsearchmain.jsp"
+            scope="request">
+        <forward name="success" path="/itempartsearchmain.jsp"/>
+    </action>
+
+    <action path="/itempartsearchresults"
+            type="com.tcmis.internal.catalog.action.ItemPartSearchAction"
+            name="genericForm"
+            validate="true"
+            input="/itempartsearchresults.jsp"
+            scope="request">
+        <forward name="success" path="/itempartsearchresults.jsp"/>
+    </action>
+    
+    <!-- ============================================================ --> 
+       
+   <action path="/speclookupmain"
+            type="com.tcmis.internal.catalog.action.SpecLookupAction"
+            name="genericForm"
+            validate="true"
+            input="/speclookupmain.jsp"
+            scope="request">
+        <forward name="success" path="/speclookupmain.jsp"/>
+    </action>
+
+    <action path="/speclookupresults"
+            type="com.tcmis.internal.catalog.action.SpecLookupAction"
+            name="genericForm"
+            validate="true"
+            input="/speclookupresults.jsp"
+            scope="request">
+        <forward name="success" path="/speclookupresults.jsp"/>
+    </action>
+    
+    <action path="/docViewer"
+            type="com.tcmis.client.common.action.DocViewerAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+        <forward name="itarviewer" path="/common/itardocviewer.jsp" module=""/>
+    </action>
+
+    <action path="/catalogspecqc"
+            type="com.tcmis.internal.catalog.action.CatalogSpecQcAction"
+            name="genericForm"
+            validate="true"
+            input="/catalogspecqc.jsp"
+            scope="request">
+       <forward name="success" path="/catalogspecqc.jsp"/>
+    </action>
+    
+    <action path="/contactlog"
+            type="com.tcmis.internal.catalog.action.ContactLogAction"
+            name="genericForm"
+            validate="true"
+            input="/contactlog.jsp"
+            scope="request">
+       <forward name="success" path="/contactlog.jsp"/>
+       <forward name="msdsRevisionSelect" path="/msdsrevisionselect.jsp"/>
+    </action>
+    
+    <action path="/contactlogdocumentview"
+            type="com.tcmis.internal.catalog.action.ContactLogDocumentAction"
+            name="genericForm"
+            validate="true"
+            input="/contactlogdocumentview.jsp"
+            scope="request">
+       <forward name="success" path="/catalog/contactlogdocumentview.jsp" module=""/>
+    </action>
+    
+    <action path="/contactlogdocumentupload"
+            type="com.tcmis.internal.catalog.action.ContactLogDocumentAction"
+            name="genericForm"
+            validate="true"
+            input="/contactlogdocumentupload.jsp"
+            scope="request">
+       <forward name="success" path="/catalog/contactlogdocumentupload.jsp" module=""/>
+    </action>
+
+	<action path="/customermsdsqueuemain"
+            type="com.tcmis.internal.catalog.action.CustomerMsdsQueueAction"
+            name="genericForm"
+            validate="true"
+            input="/customermsdsqueuemain.jsp"
+            scope="request">
+        <forward name="success" path="/customermsdsqueuemain.jsp"/>
+    </action>
+
+    <action path="/customermsdsqueueresults"
+            type="com.tcmis.internal.catalog.action.CustomerMsdsQueueAction"
+            name="genericForm"
+            validate="true"
+            input="/customermsdsqueueresults.jsp"
+            scope="request">
+        <forward name="success" path="/customermsdsqueueresults.jsp"/>
+    </action>
+    
+    <action path="/msdsindexingmain"
+    		type="com.tcmis.client.common.action.MsdsIndexingAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+        <forward name="success" path="/client/catalog/msdsindexingmain.jsp" module=""/>
+        <forward name="qcoriginal" path="/catalog/qualitycheckoriginal.jsp" module=""/>
+    </action>
+    
+    <action path="/msdsindexingresults"
+    		type="com.tcmis.client.common.action.MsdsIndexingAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+        <forward name="success" path="/client/catalog/msdsindexingresults.jsp" module=""/>
+    </action>
+    
+    <action path="/msdsindexingcomsdsdetail"
+    		type="com.tcmis.client.common.action.MsdsIndexingAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+        <forward name="success" path="/client/catalog/msdsindexingcomsdsdetail.jsp" module=""/>
+    </action>
+    
+    <action path="/msdsindexingcomponent"
+    		type="com.tcmis.client.common.action.MsdsIndexingAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+        <forward name="success" path="/client/catalog/msdsindexingcomponent.jsp" module=""/>
+    </action>
+    
+    <action path="/msdsindexingsearch"
+    		type="com.tcmis.client.common.action.MsdsIndexingAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+        <forward name="success" path="/client/catalog/msdsindexingsearch.jsp" module=""/>
+    </action>
+    
+    <action path="/itemsequencegenerator"
+    		type="com.tcmis.internal.catalog.action.ItemSequenceGeneratorAction"
+    		name="genericForm"
+    		validate="false"
+    		scope="request">
+    	<forward name="success" path="/catalog/itemsequencegenerator.jsp" module=""/>
+    </action>
+    
+    <action path="/catalogitemqcdetails"
+    		type="com.tcmis.internal.catalog.action.CatalogItemDetailQcAction"
+    		name="genericForm"
+    		validate="false"
+    		scope="request">
+    	<forward name="success" path="/catalog/catalogitemqcdetails.jsp" module=""/>
+    	<forward name="qcoriginal" path="/catalog/qualitycheckoriginal.jsp" module=""/>
+    </action>
+
+    <action path="/itemmatcher"
+    		type="com.tcmis.internal.catalog.action.ItemMatcherAction"
+    		name="genericForm"
+    		validate="false"
+    		scope="request">
+    	<forward name="success" path="/catalog/itemmatcher.jsp" module=""/>
+    </action>
+    
+    <action path="/nsnitemsearchmain"
+    		type="com.tcmis.internal.catalog.action.NsnItemSearchAction"
+    		name="genericForm"
+    		validate="false"
+    		scope="request">
+    	<forward name="success" path="/nsnitemsearchmain.jsp"/>
+    </action>
+    
+    <action path="/nsnitemsearchresults"
+    		type="com.tcmis.internal.catalog.action.NsnItemSearchAction"
+    		name="genericForm"
+    		validate="false"
+    		scope="request">
+    	<forward name="success" path="/nsnitemsearchresults.jsp"/>
+    </action>
+    
+    <action path="/hmirsmgmtmain"
+    		type="com.tcmis.internal.catalog.action.HmirsMgmtAction"
+    		name="genericForm"
+    		validate="false"
+    		input="/hmirsmgmtmain.jsp"
+    		scope="request">
+    	<forward name="success" path="/hmirsmgmtmain.jsp" />
+    </action>
+    
+    <action path="/hmirsmgmtresults"
+    		type="com.tcmis.internal.catalog.action.HmirsMgmtAction"
+    		name="genericForm"
+    		validate="false"
+    		input="/hmirsmgmtresults.jsp"
+    		scope="request">
+    	<forward name="success" path="/hmirsmgmtresults.jsp"/>
+    </action>
+    
+    <action path="/mfrnotificationmgmtmain"
+    		type="com.tcmis.internal.catalog.action.MfrNotificationMgmtAction"
+    		name="genericForm"
+    		validate="false"
+    		input="/mfrnotificationmgmtmain.jsp"
+    		scope="request">
+    	<forward name="success" path="/mfrnotificationmgmtmain.jsp"/>
+    	<forward name="categoryLookup" path="/mfrnotificationcategory.jsp"/>
+    </action>
+    
+     <action path="/mfrnotificationmgmtresults"
+    		type="com.tcmis.internal.catalog.action.MfrNotificationMgmtAction"
+    		name="genericForm"
+    		validate="false"
+    		input="/mfrnotificationmgmtresults.jsp"
+    		scope="request">
+    	<forward name="success" path="/mfrnotificationmgmtresults.jsp"/>
+    </action>
+    
+    <action path="/mfrnotificationmain"
+    		type="com.tcmis.internal.catalog.action.MfrNotificationAction"
+    		name="genericForm"
+    		validate="false"
+    		input="/mfrnotificationmain.jsp"
+    		scope="request">
+    	<forward name="success" path="/mfrnotificationmain.jsp"/>
+    	<forward name="selectMaterial" path="/itemnotificationtable.jsp"/>
+    	<forward name="loadMfr" path="/mfraffectednotification.jsp"/>
+    	<forward name="loadMaterials" path="/materialnotificationtable.jsp"/>
+    </action>
+    
+    <action path="/mfrnotificationdocviewer"
+            type="com.tcmis.internal.catalog.action.MfrNotificationDocumentAction"
+            name="genericForm"
+            validate="false"
+            input="/mfrnotificationdocviewer.jsp"
+            scope="request">
+        <forward name="success" path="/mfrnotificationdocviewer.jsp"/>
+    </action>
+    
+    <action path="/mfrnotificationdocumentupload"
+            type="com.tcmis.internal.catalog.action.MfrNotificationDocumentAction"
+            name="genericForm"
+            validate="false"
+            input="/mfrnotificationdocumentupload.jsp"
+            scope="request">
+        <forward name="success" path="/mfrnotificationdocumentupload.jsp"/>
+    </action>
+    
+    <action path="/addusertoemaillistmain"
+    		type="com.tcmis.internal.catalog.action.AddUserToEmailListAction"
+    		validate="false"
+    		input="/addusertoemaillistmain.jsp"
+    		scope="request">
+    	<forward name="success" path="/addusertoemaillistmain.jsp" />
+    </action>
+    
+    <action path="/addusertoemaillistresults"
+    		type="com.tcmis.internal.catalog.action.AddUserToEmailListAction"
+    		name="genericForm"
+    		validate="false"
+    		input="/addusertoemaillistresults.jsp"
+    		scope="request">
+    	<forward name="success" path="/addusertoemaillistresults.jsp"/>
+    </action>
+    
+    <action path="/problemqueuereason"
+    		type="com.tcmis.internal.catalog.action.ProblemQueueReasonAction"
+    		name="genericForm"
+    		validate="false"
+    		input="/problemqueuereason.jsp"
+    		scope="request">
+    	<forward name="success" path="/catalog/problemqueuereason.jsp" module=""/>
+    	<forward name="history" path="/catalog/problemqueuehistory.jsp" module=""/>
+    </action>
+    
+    <action path="/sdsauthoringselectionmain"
+    		type="com.tcmis.internal.catalog.action.SdsAuthoringSelectionAction"
+    		name="genericForm"
+    		validate="false"
+    		input="/sdsauthoringselectionmain.jsp"
+    		scope="request">
+    	<forward name="success" path="/catalog/sdsauthoringselectionmain.jsp" module=""/>
+    </action>
+    
+    <action path="/catalogaddvendorqueuemain"
+            type="com.tcmis.internal.catalog.action.CatalogAddVendorQueueAction"
+            name="genericForm"
+            validate="false"
+            input="/catalogaddvendorqueuemain.jsp"
+            scope="request">
+        <forward name="success" path="/catalog/catalogaddvendorqueuemain.jsp" module=""/>
+    </action>
+    
+    <action path="/catalogaddvendorqueueresults"
+            type="com.tcmis.internal.catalog.action.CatalogAddVendorQueueAction"
+            name="genericForm"
+            validate="false"
+            input="/catalogaddvendorqueueresults.jsp"
+            scope="request">
+        <forward name="success" path="/catalog/catalogaddvendorqueueresults.jsp" module=""/>
+   </action>
+
+   <action path="/catalogaddvendorqueuedetails"
+            type="com.tcmis.internal.catalog.action.CatalogAddVendorQueueDetailsAction"
+            name="genericForm"
+            validate="false"
+            input="/catalogaddvendorqueuedetails.jsp"
+            scope="request">
+        <forward name="success" path="/catalogaddvendorqueuedetails.jsp"/>
+        <forward name="workQueueResults" path="/catalogaddvendorqueueresults.jsp"/>
+   </action>
+   
+   <action path="/vendorcontactlogmain"
+            type="com.tcmis.internal.catalog.action.VendorContactLogAction"
+            name="genericForm"
+            validate="false"
+            input="/vendorcontactlogmain.jsp"
+            scope="request">
+        <forward name="success" path="/catalog/vendorcontactlogmain.jsp" module=""/>
+        <forward name="viewDocuments" path="/catalog/contactlogdocumentview.jsp" module=""/>
+   </action>
+   
+   <action path="/vendorcontactlogresults"
+            type="com.tcmis.internal.catalog.action.VendorContactLogAction"
+            name="genericForm"
+            validate="false"
+            input="/vendorcontactlogresults.jsp"
+            scope="request">
+        <forward name="success" path="/catalog/vendorcontactlogresults.jsp" module=""/>
+   </action>
+   
+    <action path="/newmsdsauthor"
+            type="com.tcmis.internal.catalog.action.NewRevisionDateAction"
+            name="genericForm"
+            validate="false"
+            input="/newmsdsauthor.jsp"
+            scope="request">
+        <forward name="success" path="/catalog/newmsdsauthor.jsp" module=""/>
+   </action>
+    
+    <action path="/catalogsuppliermain"
+            type="com.tcmis.internal.catalog.action.CatalogSupplierAction"
+            validate="true"
+            input="/suppliermain.jsp"
+            scope="request">
+        <forward name="success" path="/catalog/catalogsuppliermain.jsp" module=""/>
+    </action>
+    
+    <action path="/catalogsupplierresults"
+            type="com.tcmis.internal.catalog.action.CatalogSupplierAction"
+            name="genericForm"
+            validate="true"
+            input="/catalogsupplierresults.jsp"
+            scope="request">
+        <forward name="success" path="/catalog/catalogsupplierresults.jsp" module=""/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+    
+    <action path="/newvendorassignment" 
+        type="com.tcmis.internal.catalog.action.NewVendorAssignmentAction" 
+        name="genericForm" 
+        validate="true" 
+        input="/newitem.jsp" 
+        scope="request">
+  		<forward name="success" path="/catalog/newvendorassignment.jsp" module=""/> 
+  		<forward name="getItemDesc" path="/getitemdesc.jsp" /> 
+  	</action>
+
+    <action path="/newtask"
+          type="com.tcmis.internal.catalog.action.NewTaskAction"
+          name="genericForm"
+          validate="false"
+          input="/newtaskmain.jsp"
+          scope="request">
+          <forward name="success" path="/catalog/newtaskmain.jsp" module=""/>      
+    </action>
+      
+    <action path="/newtaskresults"
+          type="com.tcmis.internal.catalog.action.NewTaskAction"
+          name="genericForm"
+          validate="false"
+          input="/newresults.jsp"
+          scope="request">
+          <forward name="success" path="/catalog/newtaskresults.jsp" module=""/>
+    </action> 
+
+    <action path="/taskitemsearch"
+            type="com.tcmis.internal.catalog.action.TaskItemSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/supplierplitemsearch.jsp"
+            scope="request">
+        <forward name="success" path="/catalog/taskitemsearch.jsp" module=""/>
+    </action>
+    
+    <action path="/taskitemsearchresults"
+            type="com.tcmis.internal.catalog.action.TaskItemSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/supplierplitemresults.jsp"
+            scope="request">
+        <forward name="success" path="/catalog/taskitemsearchresults.jsp" module=""/>
+    </action>
+
+    <action path="/getsdsfromsequence"
+              type="com.tcmis.internal.catalog.action.GetSdsFromSequenceAction"
+              name="genericForm"
+              validate="false"
+              scope="request">
+          <forward name="success" path="/catalog/sdsnumberfromsequence.jsp" module=""/>
+    </action>
+
+    <action path="/itemstoragesearchmain"
+              type="com.tcmis.internal.catalog.action.ItemStorageSearchAction"
+              name="genericForm"
+              validate="false"
+              scope="request">
+          <forward name="success" path="/catalog/itemstoragesearchmain.jsp" module=""/>
+    </action>
+
+    <action path="/itemstoragesearchresults"
+              type="com.tcmis.internal.catalog.action.ItemStorageSearchAction"
+              name="genericForm"
+              validate="false"
+              scope="request">
+          <forward name="success" path="/catalog/itemstoragesearchresults.jsp" module=""/>
+    </action>
+
+  </action-mappings>
+  <!-- ========== Message Resources Definitions =========================== -->
+  <message-resources parameter="com.tcmis.common.resources.CommonResources"
+                     null="false" />
+  <!-- ========== Plug Ins Configuration ================================== -->
+  <!--
+     Add multiple validator resource files by setting the pathnames property
+     with a comma delimitted list of resource files to load.
+    -->
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property value="/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml"
+                  property="pathnames" />
+  </plug-in>
+</struts-config>

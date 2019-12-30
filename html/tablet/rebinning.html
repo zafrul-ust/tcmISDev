@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--<%@ page contentType="text/html;charset=UTF-8" language="java"%>-->
+
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="/css/haasMenu.css" />
+    <link rel="stylesheet" href="/tablet/css/grid-listview.css" />
+    <link rel="stylesheet" href="/tablet/css/jquery.mobile-1.3.2.min.css" />
+    <link rel="stylesheet" href="/tablet/css/tcmISTablet2.css" />
+    <link rel="stylesheet" href="/tablet/css/tabletTheme.css" />
+
+    <script src="/tablet/jquery/jquery-1.9.1.min.js"></script>
+    <script src="/tablet/jquery/underscore-min.js"></script>
+    <script src="/tablet/js/tabletUtil.js"></script>
+    <script src="/tablet/js/responseObj.js"></script>
+    <script src="/tablet/js/altInput.js"></script>
+    <script type="text/javascript" src="/tablet/js/scanner.js"></script>
+    <script type="text/javascript" src="/tablet/js/rebinning.js"></script>
+    
+    <script type="text/javascript">
+        $(document).bind("mobileinit", function() {
+       	   $.mobile.defaultPageTransition = 'none';  
+           $.mobile.defaultDialogTransition = 'none';  
+           $.mobile.ajaxEnabled = false;  
+           $.mobile.pushStateEnabled = false;           
+        });
+    </script>
+    
+    <!-- this line must come after the mobileInit binding -->
+    <script type="text/javascript" src="jquery/jquery.mobile-1.3.2.min.js"></script>
+    
+    <title>ReBinning</title> 
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            localizeLabels();
+        	localizeMessageList();
+
+            $("#reBinSaveButton").on('click', function(e) {
+                reBinSave();
+            });         
+            $("#reBinBackButton").on('click', function(e) {
+            	postReBinCleanup(); 
+            }); 
+            $("#reBinReceiptId").on("change",function(e){
+                loadReceiptIdData($(e.currentTarget).val());
+            });
+        });
+        
+        if(isMotorola()){
+            sip.manual();
+        }
+
+        $(window).unload(function(){if(isMotorola()){ sip.automatic();}})    
+    
+
+    </script>
+</head>
+
+<body id="pageBody">
+    
+    <!-- Start of first page -->
+    <div data-role="page" id="reBinReceiptPage" data-theme="b" >
+        <div data-role="header">
+            <a href="index.html" dat-role="button" data-ajax="false" class="hdrButton"><span id="label_home">Home</span></a>
+            <h1 id="title"><span id="tablet_rebinning">Re-Binning</span></h1>            
+        </div>
+        <!-- /header -->
+        <div data-role="content" id="content">
+            <div id="errorMessagesArea" style="display: none"></div>            
+				<form name="reBinReceiptForm"  class="reBinReceiptForm ui-content" id="reBinReceiptForm">
+              	  <div class="ui-grid-a">
+                     <div class="ui-block-a scanInputDiv">        
+                        <label for="reBinReceiptId"><span id="tablet_scanreceipt">Scan the Receipt ID label</span></label>
+                        <input type="text" id="reBinReceiptId" data-clear-btn="true" readonly="readonly"/>
+                    </div>
+                    <div class="ui-block-b scanButtonDiv">
+                        <button class="scanButton" type="button" data-role="button" id="reBinReceiptIdScanButton" data-theme="a"><span id="tablet_scan1">Scan</span></button>
+                    </div>			             
+		       </div>
+            </form>  
+        </div>
+        <!-- /content -->
+
+        <!-- /footer -->
+    </div>
+    <!-- /page -->
+
+    <!-- Start of second page -->                    
+    <div data-role="page" id="reBinPage" data-theme="b" data-hdrType="receipt">
+        <div data-role="header">
+            <!--<a href="#reBinReceiptPage" data-role="button" data-ajax="false"><span id="label_back">Back</span></a>-->
+            <button type='button' id='reBinBackButton'><span id="label_back">Back</span></button>
+            <h1><span id="tablet_rebin">Re Binning</span></h1>
+            <button type='button' id='reBinSaveButton'><span id="label_save">Save</span></button>
+        </div>
+        <!-- /header -->
+        <div data-role="content" class="ui-content">
+            <form name="reBinForm" id="reBinForm">                
+                <div class="ui-grid-a">
+                    <div class="ui-block-a block34">
+                        <div data-role="collapsible-set">
+                            <div data-role="collapsible" data-collapsed="false" data-theme="a">
+                                <h3><span id="tablet_rebinningsummary">Re Binning Summary</span></h3>
+                                <p id="rebinningDataCollapsible"></p>
+                            </div>
+                            <div data-role="collapsible" data-theme="a">
+                                <h3><span id="label_image">Image</span></h3>
+                                <div class="reBinImageDiv" id="reBinImageDiv">                                    
+                                    <img class="reBinImage" id="reBinImage" height="100%" width="100%"/>
+                                </div>
+                            </div>
+                            <!-- <div data-role="collapsible" data-theme="a">
+                                <h3><span id="tablet_transactiondata">Transaction Data</span></h3>
+                                <p id="transactionDataCollapsible"></p>
+                            </div>
+                            <div data-role="collapsible" data-theme="a">
+                                <h3><span id="tablet_receiptdata">Receipt Data</span></h3>
+                                <p id="receiptDataCollapsible"></p>
+                            </div> -->
+                            <div data-role="collapsible" data-theme="a">
+                                <h3><span id="label_itemdata">Item Data</span></h3>
+                                <p id="itemDataCollapsible"></p>
+                            </div>
+                            <!-- <div data-role="collapsible" data-theme="a">
+                                <h3><span id="tablet_shipmentdata">Shipment Data</span></h3>
+                                <p id="shipmentDataCollapsible"></p>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="ui-block-b block66">
+	                    <div id="receiptDetailsDiv" class="ui-content">
+	                        <div id='multiBinSwitchDiv'>
+	                            <label for="multiBinSwitch" class="ui-checkbox-on ui-btn ui-btn-up-a ui-btn-corner-all ui-fullsize ui-btn-icon-left" 
+	                               data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" 
+	                               data-icon="checkbox-on" data-theme="a" data-mini="false">
+    	                            <span id="tablet_allpartsstored"> All parts are stored in the same bin </span>
+	                            </label> 
+	                            <input type='checkbox' id='multiBinSwitch' data-theme='a' checked='checked'>
+	                            </div>
+	                        </hr>
+	                        <div class="reBinBinDiv" class="ui-content"></div>
+	                    </div>
+	                </div>
+                </div>
+            </form>
+        </div>            
+        <!-- /content -->
+
+        <!-- /footer -->
+    </div>
+    <!-- /page -->
+        
+</body>
+</html>

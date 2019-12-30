@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>List Management page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="ListManagement" id="ListManagement"></a>List Management</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>List Management Report</strong> page is used to create and manage list of chemicals.
+   The <strong>List Management Report</strong> page can be accessed from the <strong>Administration</strong> menu by selecting the
+   <strong>List Management</strong> menu item. The <strong>List Management Report</strong> page is launched in a new tab.</p>
+<div class="image"><img src="ListMgt1.png" height="184" width="835" alt="List Management menu item" />
+<div class="caption">Figure 1</div></div>
+
+<p>To manage an existing list, locate the list name using the <strong><a href="../Administration/Searches.htm#search">Search</a></strong> 
+	box. Click on the <strong>Search</strong> button to cause tcmIS to display a data grid of the matching lists. The
+   data grid includes the list name and description as well as up to three thresholds (for list inclusion) and their parameters.</p>
+<p>Click the <strong>Create Excel</strong> button on the page to export the data in Excel format.</p>
+<div class="image"><img src="ListMgt2.png" height="480" width="866" alt="List Management tab with search form and data grid" />
+<div class="caption">Figure 2</div></div>
+
+<p>To create a new list there are two options.</p>
+	<ul>
+		<li>Use the <strong>Upload List</strong> button on the upper panel of the page. tcmIS will open an <strong>Upload List</strong> 
+			 form.
+			<ul>
+			 	<li>Use the <strong>Upload List</strong> form to locate and upload an Excel file containing the list information to 
+			 		 import. Click the <strong>Process</strong> button once the file is completely uploaded to incorporate 
+			 		 that list information into tcmIS.</li>
+			 	<li>Click the <strong>Example</strong> button to download an Excel file which displays the needed format for the 
+			 		 information to be imported properly.</li>
+			 </ul>	 
+		</li>
+	</ul>
+<div class="image"><img src="../../images/UploadList.png" width="376" height="169" alt="Upload List form" />
+<div class="caption">Figure 3</div></div>
+
+<p>The second option is to insert a new List directly into the data grid. Creating a new list consists of two steps: 
+	creating the list and populating the list.</p>
+	<ul>
+		<li>Click the <strong>New</strong> button on the <strong>List Management</strong> page, to the right of the 
+			 <strong>List</strong> box. tcmIS will add a new row to the bottom of the data grid where you may enter all the 
+			 available information.
+			<ul>
+				<li>Provide a <strong>Name</strong> and <strong>Description</strong> in those text input boxes (required information).</li>
+				<li>Enter other information using the text boxes and selection lists in the remaining columns.</li>
+			</ul>	 
+		</li>
+		<li>Click the <strong>Update</strong> link to save the list or close the <strong>List Management</strong> tab to disregard 
+			 what you've started.</li>
+		<li>The list is only a <em>name</em> until you actually add specific chemicals to it. See the next section for details.</li>
+ 	</ul>
+<div class="image"><img src="ListMgt4.png" height="480" width="866" alt="List Management new record row" />
+<div class="caption">Figure 4</div></div>
+
+<p>After a list is created, by importing or creating it directly, to add a chemical to a list, right click on the 
+	row and select the <strong>Manage List</strong> menu item from the context menu. tcmIS will open a child window 
+	to display a <strong>List Management</strong> form.</p>
+	<ul>
+		<li>The context menu <strong>Manage List</strong> menu item is shown on most or all records on the 
+			 <strong>List Management</strong> tab. <strong><em>Except for those lists you have created</em></strong>, 
+			 selecting this link simply displays the list of chemicals on the list. Editing is not allowed.</li>
+	</ul>
+<p>On the context menu, select the <strong>Delete Line</strong> menu item to discard the new list if you conclude you 
+	do not want to keep it in tcmIS.</p>
+<div class="image"><img src="ListMgt5.png" height="480" width="866" alt="List Management tab context menu" />
+<div class="caption">Figure 5</div></div>
+
+<p><em>Until at least one item is added to the list no records can be displayed.</em> The only possible actions 
+	are to click the <strong>Add</strong> link or to close the child window.</p>
+<p>Click the <strong>Add</strong> link to add an item to the list. tcmIS will open another child window to display 
+	the <strong>CAS Search</strong> form which may be used to locate the specific item to be added to the List.</p>
+<div class="image"><img src="ListMgt6.png" height="169" width="950" alt="List Management form" />
+<div class="caption">Figure 6</div></div>
+
+<p>The CAS Search is a standard <a href="../Administration/Searches.htm#searchby">three-box text search</a>. You may 
+	search on <em>CAS Number</em>, <em>EC Number</em>, or <em>Preferred Number</em>. Locate the item you want to 
+	add to the list and select the record. The <strong>Return Selected CAS Number: [number]</strong> link can be 
+	clicked to add the item to the list.</p>
+<p>tcmIS will close the child window.</p>
+<div class="image"><img src="ListMgt7-7A.png" height="353" width="908" alt="Chemical search form and data grid" />
+<div class="caption">Figures 7 and 7A</div></div>
+
+<p>Continue using the <strong>Add</strong> link until all the needed items are added to the List. When you have added 
+	the last needed item, click the <strong>Update</strong> link at the upper-left of the data grid.</p>
+<p>tcmIS will redisplay the child window along with a superimposed caution that the actual data base update will be 
+	made over night. Close that notice window.</p>
+<p>To remove a chemical from a list, notice that tcmIS has added a check box in the <strong>Delete</strong> column for 
+	every row. Select that check box and again click the <strong>Update</strong> link to remove any items that should 
+	not be on the list.</p>
+<p>Close the child window to be returned to the <strong>List Management</strong> tab. The <strong>List</strong> is now 
+	&lsquo;populated&rsquo;.</p>	
+<div class="image"><img src="ListMgt8.png" height="263" width="673" alt="List Add/Delete form" />
+<div class="caption">Figure 8</div></div>
+
+</body>
+</html>

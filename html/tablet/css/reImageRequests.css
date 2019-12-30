@@ -1,0 +1,173 @@
+/*** Start shared *******************************************************************************************************************************/
+html,body,#content {
+	height: 100%;
+	padding: 0px;
+}
+
+#reImageRequestQueue {
+	background-color: lightgray;
+}
+
+.ui-header {
+	min-height: 3em;
+}
+
+.ui-body-c,.ui-btn-up-c {
+	border: 1px solid #000000;
+}
+
+.ui-btn-down-c,.ui-btn-down-c:visited {
+	text-shadow: none;
+	background: #000000;
+	color: #FFFFFF;
+	font-color: #FFFFFF;
+}
+
+.ui-input-text,label.ui-input-text {
+	text-shadow: none;
+	font-weight: 600;
+}
+
+.ui-header .ui-title {
+	font-size: 24px;
+	margin-bottom: 0px;
+}
+
+.ui-header-trx-desc {
+	font-size: 14px;
+	margin-top: 0px;
+	text-align: center;
+}
+
+.keyPadRow {
+	text-align: center;
+}
+
+.ui-header .ui-btn-inner {
+	font-size: 24px;
+}
+
+.ui-header {
+	font-size: 24px;
+}
+
+.ui-datebox-container .ui-title {
+	overflow: visible;
+	white-space: normal;
+}
+
+.waitGifCentered {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-top: -70px;
+	margin-left: -70px;
+}
+
+.buttonOn {
+	
+}
+
+.buttonOff {
+	color: black;
+}
+
+/*** End shared *******************************************************************************************************************************/
+
+/*** Start Images page *******************************************************************************************************************************/
+#reImageImageListView {
+	width: 50%;
+	min-width: 500px;
+	margin: 5em auto;
+}
+
+#reImageImageViewDiv {
+	width: 70%;
+	height: 500px;
+	background-color: gray;
+	text-align: center;
+}
+
+#reImageImageListDiv {
+	width: 30%;
+	height: 500px;
+}
+
+#reImageImageTag {
+	display: none;
+	vertical-align: middle;
+}
+
+/*** End Images page *******************************************************************************************************************************/
+
+/*** Start Camera page *******************************************************************************************************************************/
+#reImageDisplayDiv {
+	width: 80%;
+	height: 500px;
+	background-color: gray;
+}
+
+#reImageControlDiv {
+	width: 20%;
+	height: 500px;
+}
+
+#reImageCameraControlDiv {
+	height: 100%;
+	display: block;
+}
+
+#reImageCameraControlDiv a {
+	width: 150px;
+	margin: 0px auto;
+}
+
+#reImageAcceptDiv {
+	display: block;
+}
+
+#reImageAcceptDiv a {
+	height: 100px;
+	width: 150px;
+}
+
+#reImageShutterButton {
+	background-color: black;
+	height: 100%;
+}
+
+#reImageCameraOffButton {
+	background-color: black;
+	height: 100%;
+}
+
+#reImageToggleFlashButton {
+	background-color: black;
+	height: 100%;
+}
+
+#reImageButtonDivA {
+	position: relative;
+	height: 35%;
+}
+
+#reImageButtonDivB {
+	position: relative;
+	height: 15%;
+}
+
+#reImageButtonDivC {
+	position: relative;
+	height: 25%;
+}
+
+#reImageButtonDivD {
+	position: relative;
+	height: 10%;
+}
+
+#reImageButtonDivE {
+	position: relative;
+	height: 15%;
+}
+/*** End Camera page *******************************************************************************************************************************/

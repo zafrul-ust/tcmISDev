@@ -1,0 +1,110 @@
+<html><head><title></title>
+<script language="JavaScript">
+
+var val = "#VAL#";
+var ch = #CH#;
+var mc = "/cgi-bin/gen/msds.cgi?id=#ID##SPEC#&date=";
+var sc = "/cgi-bin/gen/store.cgi?id=#ID##SPEC#&date=";
+var ac = "/cgi-bin/gen/air.cgi?id=#ID##SPEC#&date=";
+var lc = "/cgi-bin/gen/land.cgi?id=#ID##SPEC#&date=";
+var pc = "/cgi-bin/gen/prop.cgi?id=#ID##SPEC#&date=";
+var cc = "/cgi-bin/gen/comp.cgi?id=#ID##SPEC#&date=";
+var spc = "/cgi-bin/gen/spec.cgi?id=#ID##SPEC#&date=";
+var mt = "/cgi-bin/gen/stripside2.cgi?act=msds&id=#ID##SPEC#&date=";
+var mcot = "/cgi-bin/gen/stripside2.cgi?act=msds&rel=comp&id=#ID##SPEC#&date=";
+var mfit = "/cgi-bin/gen/stripside2.cgi?act=msds&rel=fa&id=#ID##SPEC#&date=";
+var st = "/cgi-bin/gen/stripside2.cgi?act=store&id=#ID##SPEC#&date=";
+var at = "/cgi-bin/gen/stripside2.cgi?act=air&id=#ID##SPEC#&date=";
+var lt = "/cgi-bin/gen/stripside2.cgi?act=land&id=#ID##SPEC#&date=";
+var pt = "/cgi-bin/gen/stripside2.cgi?act=prop&id=#ID##SPEC#&date=";
+var ct = "/cgi-bin/gen/stripside2.cgi?act=comp&id=#ID##SPEC#&date=";
+var spt = "/cgi-bin/gen/stripside2.cgi?act=spec&id=#ID##SPEC#&date=";
+
+function pop(i) {
+    var loc = "";
+    var tloc = "";
+    var rel = "";
+    if (i == 0) {
+#MG#	loc = mc;
+#MG#	tloc = mt;
+    } else if (i ==1) {
+#MG##NG#	loc = mc;
+#MG##NG#	tloc = mcot;
+#MG##NG#	rel = "#COMP";
+    } else if (i ==2) {
+#MG##NG#	loc = mc;
+#MG##NG#	tloc = mfit;
+#MG##NG#	rel = "#FA";
+    } else if (i ==3) {
+#HG#	loc = sc;
+#HG#	tloc = st;
+    } else if (i ==4) {
+#AG#	loc = ac;
+#AG#	tloc = at;
+    } else if (i ==5) {
+#LG#	loc = lc;
+#LG#	tloc = lt;
+    } else if (i ==6) {
+#PG#	loc = pc;
+#PG#	tloc = pt;
+    } else if (i ==7) {
+#CG#	loc = cc;
+#CG#	tloc = ct;
+    } else if (i ==8) {
+#SG#	loc = spc;
+#SG#	tloc = spt;
+    }
+  if (loc != "") {
+    ch = i;
+    if (rel != "") {
+      parent.data.location = loc + val + rel
+    } else {
+      parent.data.location = loc + val
+    }
+    this.location = tloc + val
+  }
+}
+function set(i) {
+    val = i + " "
+    this.pop(ch)
+}
+</script>
+</head>
+<body bgcolor="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF">
+<form>
+#DATES#
+</form>
+<a href="javascript:pop(0)"><img src="#M#"></a>
+#NHIDE#<br><a href="javascript:pop(1)"><img src="#MCO#"></a>#ENHIDE#
+#NHIDE#<br><a href="javascript:pop(2)"><img src="#MFI#"></a>#ENHIDE#
+#SHIDE#<br><a href="javascript:pop(3)"><img src="#S#"></a>#ESHIDE#
+#AHIDE#<br><a href="javascript:pop(4)"><img src="#A#"></a>#EAHIDE#
+#LHIDE#<br><a href="javascript:pop(5)"><img src="#L#"></a>#ELHIDE#
+#PHIDE#<br><a href="javascript:pop(6)"><img src="#P#"></a>#EPHIDE#
+#CHIDE#<br><a href="javascript:pop(7)"><img src="#C#"></a>#ECHIDE#
+#SPHIDE#<br><a href="javascript:pop(8)"><img src="#SP#"></a>#ESPHIDE#
+<p>
+<center>
+<table border="1" cellspacing="0">
+    <tr>
+        <td width="25" bgcolor="#0000FF"><font color="#FFFFFF"
+        size="3"><strong>&nbsp;H</strong></font></td>
+        <td width="20" align="center">#HEAL#</td>
+    </tr>
+    <tr>
+        <td width="25" bgcolor="#FF0000"><font color="#FFFFFF"
+        size="3"><strong>&nbsp;F</strong></font></td>
+        <td width="20" align="center">#FLAM#</td>
+    </tr>
+    <tr>
+        <td width="25" bgcolor="#FFFF00"><font size="3">&nbsp;<strong>R</strong></font></td>
+        <td width="20" align="center">#REACT#</td>
+    </tr>
+    <tr>
+        <td width="25"><font size="3">&nbsp;<strong>S</strong></font></td>
+        <td width="20" align="center">#HAZ#</td>
+    </tr>
+</table>
+</center>
+</body></html>
+

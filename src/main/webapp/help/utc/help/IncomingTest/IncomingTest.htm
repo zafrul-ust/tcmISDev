@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>MARS Request/Incoming Testing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="IncomingTesting" id="IncomingTesting"></a>MARS Request/Incoming Testing</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>A <strong>MARS Request</strong> for <strong>Incoming Testing</strong> becomes a required part of the Receiving process when a 
+	Part is added to the Catalog <em>AND</em> the <strong>Incoming Testing</strong> checkbox is selected. That selection is recorded 
+	in tcmIS.</p>
+<p>After a part is approved through the <a href="../CatalogAdd/CatAddReq.htm">Catalog Add Request</a> process, it is possible 
+	to assign one or more tests selected from those available in tcmIS. These tests are performed whenever needed for newly 
+	Received items or for recertification.</p>
+<p><em>If a part is not originally requested with <strong>Incoming Testing</strong> selected, please get in touch with the HGI 
+	Catalog team if Incoming Testing is needed.</em></p>
+<div class="image"><img src="IncomingTest1.png" height="532" width="835" alt="CatAddReq page Incoming Testing check box" />
+<div class="caption">Figure 1</div></div>
+
+<p>Select the <strong>Test Definition</strong> menu item (the third item on the context menu on the left half of a Catalog Report data grid) 
+	to access test records.  tcmIS will open a child window displaying the <strong>Test Definition</strong> form. (See also, 
+	<a href="../CatalogReport/CatalogReport.htm">Catalog Report</a>.)</p> 
+<div class="image"><img src="IncomingTest2.png" width="725" height="476" alt="Catalog Report left columns context menu items" />
+<div class="caption">Figure 2</div></div>
+
+<p>The <strong>Test Definition</strong> form displays a record for each test for the part. On this form you may</p>
+	<ul>
+		<li>Click the <strong>Add row</strong> link to insert an empty record in which to record another test.
+			<ul>
+				<li>On the new row in the first column, select the additional test from the drop-down list.
+					<ul>
+						<li>Optionally, you may:</li>
+						<li>enter a value in the <strong>Unsuccessful Tests for Skip</strong> column;</li>
+						<li>Select the check box for <strong>Test Allowed Skip</strong>; and/or</li>
+						<li>Specify the <strong>Test Type</strong> in the text input box of that column.</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>Click the <strong>Delete</strong> link to remove a record.</li>
+		<li>Click the <strong>Edit Test</strong> link while a record is selected to open the <strong>Add/Edit [test] Type</strong> form 
+			 to view and manage all the tests defined in tcmIS.</li>
+		<li>Click the <strong>Update</strong> link to record any additions or changes. They are not permanent until this is done.</li>
+	</ul>
+<div class="image"><img src="IncomingTest3.png" height="344" width="655" alt="Test Definition form" />
+<div class="caption">Figure 3</div></div>
+
+<p>The <strong>Add/Edit [test] Type</strong> form displays a record for each test defined in tcmIS. On this form you may</p>
+	<ul>
+		<li>Click the <strong>Add</strong> link to insert an empty record in which to record a new test.
+			<ul>
+				<li>On the new row in the first column, provide a <strong>Short Name</strong> for the test.</li>
+				<li>Click into the <strong>Description</strong> column to open a drop-down, multi-line text input box 
+					 and enter the description of the test.</li>
+				<li>Click into the <strong>Test Criteria</strong> column to open a drop-down, multi-line text input box 
+					 and enter criteria for the test.</li>
+			</ul>
+		</li>
+		<li>Click the <strong>Delete</strong> link to remove an empty or new record. (This link is not available unless a new record 
+			 is currently selected.)</li>
+		<li>Click the <strong>Update</strong> link to record any changes. Changes are not permanent until this is done.</li>
+	</ul>
+<div class="image"><img src="IncomingTest4.png" height="288" width="680" alt="Add/Edit [test] Type form" />
+<div class="caption">Figure 4</div></div>
+
+</body>
+</html>

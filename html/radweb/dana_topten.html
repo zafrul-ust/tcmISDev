@@ -1,0 +1,37 @@
+<html><head><title>Dana Top Ten Report</title></head>
+<body bgcolor="#FFFFFF">
+<center>
+<h2>Dana Top Ten Report</h2>
+<p>
+<form action="/cgi-bin/radweb/dana_topten.cgi" method="POST">
+Generate a report for date range &nbsp;
+<input type="text" name="sdat" value="mm/dd/yyyy">
+&nbsp; to &nbsp;
+<input type="text" name="edat" value="mm/dd/yyyy">
+<p>
+for inventory group &nbsp;
+<select name="ig">
+<option name="Columbia">Columbia
+<option name="Danville">Danville
+<option name="Ft. Wayne">Ft. Wayne
+<option name="Ft. Wayne Tool">Ft. Wayne Tool
+<option name="Glasgow">Glasgow
+<option name="Gordonsville">Gordonsville
+<option name="Henderson">Henderson
+<option name="Humboldt">Humboldt
+<option name="Lima">Lima
+<option name="Louisville">Louisville
+<option name="Lugoff">Lugoff
+<option name="Marion">Marion
+<option name="Maumee">Maumee
+<option name="Paris Bldg 10">Paris Bldg 10
+<option name="Paris Bldg 18">Paris Bldg 18
+<option name="Paris Bldg 26">Paris Bldg 26
+<option name="Paris Bldg 7">Paris Bldg 7
+<option name="Pottstown">Pottstown
+<option name="Sterling">Sterling
+</select>
+<p>
+<input type="submit" name="Generate" value="Generate">
+</form></center></body></html>
+

@@ -1,0 +1,51 @@
+<html><head><title>SDR Tracking</title></head>
+<body bgcolor="#FFFFFF">
+<center>
+<h2>SDR Tracking Lookup or Entry</h2>
+<p>
+<form action="/cgi-bin/purch/sdr_list.cgi" method="POST">
+Look up an SDR Tracking incident for NSN &nbsp;
+<input type="text" name="nsn" value="">
+<p>
+Or the Document Number contains this string: &nbsp;
+<input type="text" name = "doc" value="">
+<p>
+Or enter the Web SDR Number: &nbsp;
+<input type="text" name="wsdr" value="">
+<p>
+Or look up all incidents for the hub: &nbsp;
+<select name="hub">
+<option value="0">Any Hub
+<option value="2101">Boston Hub
+<option value="2102">Dallas
+<option value="2107">San Antonio
+<option value="2118">Decatur Hub
+<option value="2119">Fresno Hub
+<option value="2156">Greenville Hub
+<option value="2165">Philadelphia Hub
+<option value="2187">St Louis Hub
+<option value="2202">DropShip
+<option value="2404">Harrisburg Hub
+</select>
+<p>
+Or look up all incidents of type: &nbsp;
+<select name="type">
+<option value="0">Any type 
+<option value="Damaged during transit">Damaged during transit
+<option value="Duplicate SDR">Duplicate SDR
+<option value="Incorrect Address">Incorrect Address
+<option value="Incorrect item shipped">Incorrect item shipped
+<option value="Lost during transit">Lost during transit
+<option value="Missing/Incorrect Docs">Missing/Incorrect Documentation
+<option value="No action required">No action required
+<option value="Overage/Return">Overage/Return
+<option value="POD & BOL/CONUS">POD & BOL/CONUS
+<option value="POD & BOL/OCONUS">POD & BOL/OCONUS
+<option value="Shortage/Reshipped">Shortage/Reshipped
+</select>
+<p>
+Or forget the whole thing and check here to just enter a new incident: &nbsp;
+<input name="new" type="checkbox" value="new">
+<p>
+<input type="submit" name="Proceed" value="Proceed">
+</center></body></html>

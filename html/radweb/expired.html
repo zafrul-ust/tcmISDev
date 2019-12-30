@@ -1,0 +1,23 @@
+<html><head><title>Expired Inventory</title></head>
+
+<body bgcolor="#FFFFFF">
+<h2><center>Expired Inventory</center></h2>
+<center>
+<form action="/cgi-bin/radweb/expired.cgi" method="post">
+<table>
+  <tr>
+    <td>Show <input type="radio" name="bp" value="Salem" CHECKED>Salem &nbsp;<input type="radio" name="bp" value="Tucson">Tucson &nbsp;<input type="radio" name="bp" value="Dallas">Dallas &nbsp; items that </td>
+    <td><input type="checkbox" name="old" value="Y" CHECKED>have expired </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="checkbox" name="new" value="Y" CHECKED> will expire in &nbsp;
+<input type="text" name="days" value="0" size="3"> &nbsp;
+days</td>
+  </tr>
+</table>
+<p>
+<input type="submit" value="Show Expired Items">
+</form>
+<p>
+</body></html>

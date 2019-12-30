@@ -1,0 +1,26 @@
+<html><head><title>DLA Gas Cert Lookup</title></head>
+<body bgcolor="#FFFFFF">
+<center>
+<h2>DLA Gas Cert Lookup</h2>
+<p>
+<form action="/cgi-bin/radweb/dla_gas_cert_lookup.cgi" method="POST">
+Look for the certifications by NSN: &nbsp;
+<input type="text" name="nsn">
+<p>
+and/or by Bulk Lot Number: &nbsp;
+<input type="text" name="lot">
+<p>
+and/or by Supplier: &nbsp;
+<input type="text" name="supp">
+<p>
+Show Phase One testing: &nbsp;
+<input type="checkbox" name="p1" value="p1" CHECKED>
+<br>
+Show Phase Two testing: &nbsp;
+<input type="checkbox" name="p2" value="p2" CHECKED>
+<br>
+Show Phase Three testing: &nbsp;
+<input type="checkbox" name="p3" value="p3" CHECKED>
+<p>
+<input type="submit" name="Search" value="Search">
+</form></center></body></html>

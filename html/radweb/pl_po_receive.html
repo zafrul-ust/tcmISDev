@@ -1,0 +1,295 @@
+<html>
+
+
+<head>
+<title>List of Outstanding POs</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p>
+<center><h2>List of Outstanding POs</h2></center>
+<p>
+<form action="/cgi-bin/radweb/pl_po_receive.cgi" method="post">
+
+<div align="center"><center>
+Show items which &nbsp;
+<input type="checkbox" name="print" value="X">have &nbsp;
+<input type="checkbox" name="noprint" value="X" CHECKED>have not &nbsp;
+been printed previously
+<br>
+for
+<select name="bp">
+<option value="2101">Salem
+<option value="2103">Tucson
+<option value="2102">Dallas
+<option value="2106">Normandale
+<option value="2114">Largo
+<option value="2116">Puerto Rico
+<option value="2117">El Segundo
+<option value="2118">Decatur
+<option value="2119">Fresno
+<option value="2156">Greenville
+<option value="2165">Philadelphia
+<option value="2196">Montreal
+<option value="2403" SELECTED>Mielec
+</select>
+<br>
+where the Haas PO is &nbsp;
+<input type="text" name="po_num" value="">
+<br>
+and the Haas Item ID is &nbsp;
+<input type="text" name="item_id" value="">
+<br>
+and the Supplier contains &nbsp;
+<input type="text" name="supp" value="">
+<br>
+and the Order Date is after &nbsp;
+&nbsp;
+<select name="oamon">
+        <option value="01">Jan
+        <option value="02">Feb
+        <option value="03">Mar
+        <option value="04">Apr
+        <option value="05">May
+        <option value="06">Jun
+        <option value="07">Jul
+        <option value="08">Aug
+        <option value="09">Sep
+        <option value="10">Oct
+        <option value="11">Nov
+        <option value="12">Dec
+</select>
+&nbsp;
+<select name="oaday">
+        <option value="01">01
+        <option value="02">02
+        <option value="03">03
+        <option value="04">04
+        <option value="05">05
+        <option value="06">06
+        <option value="07">07
+        <option value="08">08
+        <option value="09">09
+        <option value="10">10
+        <option value="11">11
+        <option value="12">12
+        <option value="13">13
+        <option value="14">14
+        <option value="15">15
+        <option value="16">16
+        <option value="17">17
+        <option value="18">18
+        <option value="19">19
+        <option value="20">20
+        <option value="21">21
+        <option value="22">22
+        <option value="23">23
+        <option value="24">24
+        <option value="25">25
+        <option value="26">26
+        <option value="27">27
+        <option value="28">28
+        <option value="29">29
+        <option value="30">30
+        <option value="31">31
+</select>
+&nbsp;
+<select name="oayr">
+        <option value="2015">2015
+        <option value="2016">2016
+        <option value="2017">2017
+        <option value="2018">2018
+        <option value="2019">2019
+</select>
+<br>
+and the Order Date is on or before &nbsp;
+&nbsp;
+<select name="obmon">
+        <option value="01">Jan
+        <option value="02">Feb
+        <option value="03">Mar
+        <option value="04">Apr
+        <option value="05">May
+        <option value="06">Jun
+        <option value="07">Jul
+        <option value="08">Aug
+        <option value="09">Sep
+        <option value="10">Oct
+        <option value="11">Nov
+        <option value="12" SELECTED>Dec
+</select>
+&nbsp;
+<select name="obday">
+        <option value="01">01
+        <option value="02">02
+        <option value="03">03
+        <option value="04">04
+        <option value="05">05
+        <option value="06">06
+        <option value="07">07
+        <option value="08">08
+        <option value="09">09
+        <option value="10">10
+        <option value="11">11
+        <option value="12">12
+        <option value="13">13
+        <option value="14">14
+        <option value="15">15
+        <option value="16">16
+        <option value="17">17
+        <option value="18">18
+        <option value="19">19
+        <option value="20">20
+        <option value="21">21
+        <option value="22">22
+        <option value="23">23
+        <option value="24">24
+        <option value="25">25
+        <option value="26">26
+        <option value="27">27
+        <option value="28">28
+        <option value="29">29
+        <option value="30">30
+        <option value="31" SELECTED>31
+</select>
+&nbsp;
+<select name="obyr">
+        <option value="2015">2015
+        <option value="2016">2016
+        <option value="2017">2017
+        <option value="2018">2018
+        <option value="2019" SELECTED>2019
+</select>
+<br>
+and the Promised Date is after &nbsp;
+&nbsp;
+<select name="pamon">
+        <option value="01">Jan
+        <option value="02">Feb
+        <option value="03">Mar
+        <option value="04">Apr
+        <option value="05">May
+        <option value="06">Jun
+        <option value="07">Jul
+        <option value="08">Aug
+        <option value="09">Sep
+        <option value="10">Oct
+        <option value="11">Nov
+        <option value="12">Dec
+</select>
+&nbsp;
+<select name="paday">
+        <option value="01">01
+        <option value="02">02
+        <option value="03">03
+        <option value="04">04
+        <option value="05">05
+        <option value="06">06
+        <option value="07">07
+        <option value="08">08
+        <option value="09">09
+        <option value="10">10
+        <option value="11">11
+        <option value="12">12
+        <option value="13">13
+        <option value="14">14
+        <option value="15">15
+        <option value="16">16
+        <option value="17">17
+        <option value="18">18
+        <option value="19">19
+        <option value="20">20
+        <option value="21">21
+        <option value="22">22
+        <option value="23">23
+        <option value="24">24
+        <option value="25">25
+        <option value="26">26
+        <option value="27">27
+        <option value="28">28
+        <option value="29">29
+        <option value="30">30
+        <option value="31">31
+</select>
+&nbsp;
+<select name="payr">
+        <option value="2015">2015
+        <option value="2016">2016
+        <option value="2017">2017
+        <option value="2018">2018
+        <option value="2019">2019
+</select>
+<br>
+and the Promised Date is on or before &nbsp;
+&nbsp;
+<select name="pbmon">
+        <option value="01">Jan
+        <option value="02">Feb
+        <option value="03">Mar
+        <option value="04">Apr
+        <option value="05">May
+        <option value="06">Jun
+        <option value="07">Jul
+        <option value="08">Aug
+        <option value="09">Sep
+        <option value="10">Oct
+        <option value="11">Nov
+        <option value="12" SELECTED>Dec
+</select>
+&nbsp;
+<select name="pbday">
+        <option value="01">01
+        <option value="02">02
+        <option value="03">03
+        <option value="04">04
+        <option value="05">05
+        <option value="06">06
+        <option value="07">07
+        <option value="08">08
+        <option value="09">09
+        <option value="10">10
+        <option value="11">11
+        <option value="12">12
+        <option value="13">13
+        <option value="14">14
+        <option value="15">15
+        <option value="16">16
+        <option value="17">17
+        <option value="18">18
+        <option value="19">19
+        <option value="20">20
+        <option value="21">21
+        <option value="22">22
+        <option value="23">23
+        <option value="24">24
+        <option value="25">25
+        <option value="26">26
+        <option value="27">27
+        <option value="28">28
+        <option value="29">29
+        <option value="30">30
+        <option value="31" SELECTED>31
+</select>
+&nbsp;
+<select name="pbyr">
+        <option value="2015">2015
+        <option value="2016">2016
+        <option value="2017">2017
+        <option value="2018">2018
+        <option value="2019" SELECTED>2019
+</select>
+<p>
+Sort by: <select name="sortby">
+        <option value="item_id">Item ID
+        <option value="po_number">PO Number
+        <option value="supplier">Supplier
+</select>
+<input type="radio" name="up" value="">Ascending
+<input type="radio" name="up" value="desc">Descending
+<p>
+<input type="submit">
+</form>
+<p>
+<form action="/cgi-bin/radweb/po_rec_mark.cgi" method="post">
+</body></html>

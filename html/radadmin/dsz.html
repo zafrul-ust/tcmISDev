@@ -1,0 +1,84 @@
+<html><head><title>Doc State Zero</title></head>
+<body bgcolor="#FFFFFF">
+<center>
+<form action="/cgi-bin/radadmin/dsz_lookup.cgi" method="POST">
+<h2>Doc State Zero</h2>
+<p>
+Include any of the following errors:
+<p>
+Note: If an issue has multiple errors and one is a type you've checked, it will appear in the result set.
+<p>
+<table>
+<tr>
+<td><input type="checkbox" name="MR not in RLI or SFA or HIO. " value="Y" > </td>
+<td>MR not in RLI or SFA or HIO. 
+<td><input type="checkbox" name=" Brazil Issue - Not billable" value="Y" ></td>
+<td> Brazil Issue - Not billable</td>
+<td><input type="checkbox" name="no invoice group established. " value="Y" > </td>
+<td>no invoice group established. </td>
+<td><input type="checkbox" name="receipt has not been vouchered. " value="Y" > </td>
+<td>receipt has not been vouchered. </td>
+</tr>
+<tr>
+<td><input type="checkbox" name="DO Number is null on Seagate MR. " value="Y" > </td>
+<td>DO Number is null on Seagate MR. </td>
+<td><input type="checkbox" name="CC Number is null on Seagate MR. " value="Y" CHECKED> </td>
+<td>CC Number is null on Seagate MR. </td>
+<td><input type="checkbox" name="856 not returned for this issue. " value="Y" > </td>
+<td>856 not returned for this issue. </td>
+<td><input type="checkbox" name="Quantity issued exceeds MR quantity. " value="Y" CHECKED> </td>
+<td>Quantity issued exceeds MR quantity. </td>
+</tr>
+<tr>
+<td><input type="checkbox" name="Country code is null. " value="Y" > </td>
+<td>Country code is null. </td>
+<td><input type="checkbox" name="State Abbreviation is null. " value="Y" > </td>
+<td>State Abbreviation is null. </td>
+<td><input type="checkbox" name="CT_Petroleum_Tax not decided. " value="Y" CHECKED> </td>
+<td>CT_Petroleum_Tax not decided. </td>
+<td><input type="checkbox" name="charge_number.sales_tax_id not defined. " value="Y" > </td>
+<td>charge_number.sales_tax_id not defined. </td>
+</tr>
+<tr>
+<td><input type="checkbox" name="fac_part_taxable.sales_tax_id not defined. " value="Y" > </td>
+<td>fac_part_taxable.sales_tax_id not defined. </td>
+<td><input type="checkbox" name="fac_account_sys_po.sales_tax_id not defined. " value="Y" > </td>
+<td>fac_account_sys_po.sales_tax_id not defined. </td>
+<td><input type="checkbox" name="Date_delivered is null. " value="Y" CHECKED> </td>
+<td>Date_delivered is null. </td>
+<td><input type="checkbox" name="Price QC failed. " value="Y" > </td>
+<td>Price QC failed. </td>
+</tr>
+<tr>
+<td><input type="checkbox" name="PWA Company Code is null. " value="Y" CHECKED> </td>
+<td>PWA Company Code is null. </td>
+<td><input type="checkbox" name="Receipt.qc_date is null. " value="Y" CHECKED> </td>
+<td>Receipt.qc_date is null. </td>
+<td><input type="checkbox" name="Invalid PO line, item on receipt. " value="Y" CHECKED> </td>
+<td>Invalid PO line, item on receipt. </td>
+<td><input type="checkbox" name="Quantity received exceeds PO quantity. " value="Y" CHECKED> </td>
+<td>Quantity received exceeds PO quantity. </td>
+</tr>
+<tr>
+<td><input type="checkbox" name="Issued quantity exceeds received quantity. " value="Y" CHECKED> </td>
+<td>Issued quantity exceeds received quantity. </td>
+<td><input type="checkbox" name="Quantity is null or zero " value="Y" CHECKED> </td>
+<td>Quantity is null or zero </td>
+<td><input type="checkbox" name="Issue of customer_owned_material with no return_pr_number and no established_unit_price. " value="Y" CHECKED> </td>
+<td>Issue of customer_owned_material with no return_pr_number and no established_unit_price. </td>
+<td><input type="checkbox" name="No cost transfer on customer owned inventory issues for SauerDanfoss. " value="Y" CHECKED> </td>
+<td>No cost transfer on customer owned inventory issues for SauerDanfoss. </td>
+</tr>
+<tr>
+<td><input type="checkbox" name="Original MR already credited.  Do not recurse to credit return of customer-owned material. " value="Y" CHECKED> </td>
+<td>Original MR already credited.  Do not recurse to credit return of customer-owned material. </td>
+<td><input type="checkbox" name="Do not create sales order for this issue as quantity is 0" value="Y" CHECKED> </td>
+<td>Do not create sales order for this issue as quantity is 0</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<p>
+<input type="submit" name="Go" value="Go">

@@ -1,0 +1,440 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Raytheon tcmIS Catalog Additions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css">
+</head>
+
+<body>
+<h1><a name="CatAddReq-QPL" id="CatAddReq-QPL"></a>Catalog Addition Requests - QPL tab</h1>
+<p><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" style="border-style: none" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" style="border-style: none" /></a></p>
+
+<p>The <strong>QPL</strong> tab on the <strong>Cat Add Req</strong> (Catalog Addition Request) page is used to
+   request and manage additions or changes to the qualified products list (QPL) in tcmIS.</p>
+<p>QPL is shown by default upon <a href="CatAddReq.htm">opening the <strong>Cat Add Req</strong> page</a> or
+   by clicking on the <strong>QPL</strong> tab when the page is open.</p>
+
+<p>As you can see there are four individual tabs in the lower portion of the <strong>Cat Add Req</strong> page which display
+   different sets of information. The tab in use (active) at any time is shown with white lettering on a dark background; the
+	inactive tabs are shown with dark lettering on a light background.</p>
+<ul>
+	<li><strong>QPL</strong> - the default tab shown when the page is first loaded, used to view and manage products on
+	     or being requested for the QPL.</li>
+	<li><strong><a href="CatAddReq-UseApproval.htm">Use Approval</a></strong> - used to view and manage use permissions on products on
+	     the QPL.</li>
+	<li><strong><a href="CatAddReq-Spec.htm">Spec</a></strong> - used to view and manage specifications for the products on
+	     the QPL.</li>
+	<li><strong><a href="CatAddReq-Flowdown.htm">Flowdown</a></strong> - used to view and manage flowdowns for the products
+	     on the QPL.</li>
+<!--	<li><strong><a href="CatAddReq-HMRF.htm">HMRF</a></strong> - used to view and manage Hazardous Material Review Form
+	     information for the products on the QPL.</li> -->
+</ul>
+<div class="image"><img src="CatAddReq-QPL1.png" height="518" width="709" alt="Cat Add Req page" />
+<div>Figure 1</div>
+</div>
+
+<p>When the Cat Add Req page is opened it will be 'set up' to handle the type of Catalog Addition that you selected on the
+   <strong>Catalog</strong> page, the link that you selected. All four possibilities are listed here.</p>
+<ul>
+	<li><a href="#ModifyQPL"><strong>Modify QPL</strong></a> - request an item be added to, or <a href="#fadeout">removed from</a>, the list of products
+	    (qualified products list) assigned to a part number.</li>
+	<li><a href="#NewPart"><strong>New Part</strong></a> - request a new part number when the material or product for the part is not yet in tcmIS.</li>
+	<li><a href="#fromcurrent"><strong>New Part from current Part</strong></a> - request a new part number based on a part number which already exists in tcmIS.</li>
+	<li><a href="#WorkAreaApproval"><strong>New Work Area Approval</strong></a> - request an approval or restriction on use of a part for a specific work
+	    area or set of work areas.</li>
+</ul>
+
+<h2><a id="ModifyQPL">Modify QPL</a></h2>
+<p>The first type of Catalog Addition is the Modify QPL. There are three ways to modify the QPL. </p>
+	 <ul>
+	 	<li><strong><a href="#AddItem">Add Item</a></strong> is used to request a material or product already in tcmIS be added.</li>
+		<li><strong><a href="#NewPackaging">New Packaging</a></strong> is used to request a different size Package of a material or
+		    product already in tcmIS be added.</li>
+		<li><strong><a href="#NewMaterial">New Material</a></strong> is used to identify and request a new material or
+		    product for the QPL.</li>
+	 </ul>
+
+<h3><a id="AddItem">Add Item</a></h3>
+<p>To add an additional product or material to the QPL, on the <strong>Cat Add Req</strong> page (Figure 1) click the
+   <strong>Add Item</strong> link immediately below the <strong>QPL</strong> tab. The <strong>Search Global Item</strong>
+	page will open in a new window.</p>
+<div class="image"><img src="CatAddReq2.png" height="212" width="729" alt="Search Global Item form" />
+<div>Figure 2</div>
+</div>
+
+<p>Use the <strong>Search Global Item</strong> page to locate the product you want to add to the QPL. Enter
+   information about the product in the <strong>Search Text</strong> box and click the <strong>Search</strong> button.
+	(Only the <strong>New Material</strong> link is displayed until you select an item line in the data grid.)</p>
+<div class="image"><img src="CatAddReq3.png" height="405" width="729" alt="Search Global Item data grid" />
+<div>Figure 3</div>
+</div>
+
+<p>If you find the exact product, select it by clicking anywhere on the line. Click the <strong>Add Item</strong> link at the
+	top left of the data grid to close the form (and window). The product will be added as a line on the QPL tab of the
+	<strong>Cat Add Req</strong> page with a status of 'Pending Approval'.</p>
+<p><em>Don't be confused by the fact that the term</em> <strong>Add Item</strong> <em>is used for the link on
+	both this <strong>Search Global Item</strong> page and the preceding <strong>Cat Add Req</strong> page</em>.</p>
+<p>If you do not find the product you want, you may have to add it as a <strong><a href="#NewPackaging">New Packaging</a></strong> or
+   <strong><a href="#NewMaterial">New Material</a></strong> to modify the QPL.</p>
+<p>See <a href="#Finalizing">Finalizing a QPL modification request</a></p>
+<div class="image"><img src="CatAddReq4.png" height="405" width="729" alt="Search Global Item with product selected" />
+<div>Figure 4</div>
+</div>
+
+<h3><a id="NewPackaging">New Packaging</a></h3>
+<p>If the product is found but a different size is desired, highlight the item by clicking anywhere on the line and click
+   the <strong>New Packaging</strong> link. The <strong>Edit Item Info</strong> page will be opened in a new window to allow
+	you to specify details about the new packaging.</p>
+<div class="image"><img src="CatAddReq5.png" height="405" width="729" alt="New Packaging link" />
+<div>Figure 5</div>
+</div>
+
+<p>Since you are working on an existing product or material and requesting only a different packaging for the QPL, most
+   of the information is already shown on the form.</p>
+<ul>
+	<li>If known, enter the <strong>Shipping Weight</strong> and select the <strong>Units</strong> from the drop-down list.</li>
+	<li>Enter the number of units in the <strong># Per Comp</strong> box. (The default is 1 which is already there. Change it
+	    if necessary.)</li>
+	<li>Enter the Package size in the <strong>Size</strong> box and select the unit of measure from the <strong>Unit</strong>
+	    drop-down list. The number of units should be the smallest individual Package that can be purchased. For drums, pails,
+		 rolls, cans, etc., this is typically 1.</li>
+</ul>
+<p>Select the package style by clicking the magnifying glass icon <img src="../../images/glass.gif" height="16" width="21" alt="magnifying glass" /> 
+   to the right of the <strong>Package Style</strong> text box to open the <strong>Search</strong> form. It will be opened in a
+	new window.</p>
+<div class="image"><img src="CatAddReq6.png" height="527" width="729" alt="Edit Item Info for new packaging" />
+<div>Figure 6</div>
+</div>
+
+<p>Enter the desired package style in the <strong><a id="SearchForm">Search</a></strong> box and click the
+   <strong>Search</strong> button. When you select the desired package style by clicking a line the <strong>Return Selected
+	Package Style</strong> link above the data grid will appear. Click it and the Search form window will close.
+	The selected information will	be populated on the <strong>Edit Item Info</strong> page.</p>
+<div class="image"><img src="CatAddReq7.png" height="388" width="409" alt="Package Style Search form" />
+<div>Figure 7</div>
+</div>
+
+<p>If the product or material has only this one component, click the <strong>Submit</strong> link at the top left of the page
+   to close the form (and window). The product in the new packaging configuration will be added as a line on the QPL tab of the
+	<strong>Cat Add Req</strong> page with a status of 'Pending Approval'.</p>
+<p>If there is more than a single component, please look at the information on <strong><a href="#Kits">Kits</a></strong>.</p>
+<p>See <a href="#Finalizing">Finalizing a QPL modification request</a></p>
+<div class="image"><img src="CatAddReq8.png" height="496" width="729" alt="Submitting an Edit Item Info form" />
+<div>Figure 8</div>
+</div>
+
+<h3><a id="NewMaterial">New Material</a></h3>
+<p>If the product or material you want cannot be located with the <strong>Search Global Item</strong> form, click the
+   <strong>New Material</strong> link to define a new product. The <strong>Edit Item Info</strong> form will open in a new
+	window. Complete the fields as described below. Required fields are marked with an asterisk (*).</p>
+<ul>
+	<li>If known, enter the <strong>Shipping Weight</strong> and select the <strong>Units</strong> from the drop-down list.</li>
+	<li>Enter the name of the product in the <strong>Material Description</strong> box. Include all necessary information to
+	    procure the product including color, type, etc.</li>
+	<li>Enter any information regarding the grade of the material in the <strong>Grade</strong> box.</li>
+	<li>If the material has a specific size not described in the previous fields, enter it in the <strong>Dimension</strong>
+	    box. For example, a roll of film may have a length, width, and thickness.</li>
+</ul>
+<p>Select the manufacturer by clicking the  magnifying glass icon <img src="../../images/glass.gif" height="16" width="21" alt="magnifying glass" /> to the right of the
+   <strong>Manufacturer</strong> text box to open the <strong>Manufacturer Search</strong> form. It will be opened in a
+	new window.</p>
+<div class="image"><img src="CatAddReq9.png" height="546" width="729" alt="blank Edit Item Info form for a new material" />
+<div>Figure 9</div>
+</div>
+
+<p>Enter the name of the product manufacturer in the <strong>Search</strong>  box and click the <strong>Search</strong>
+   button. When you select a manufacturer by clicking a line the <strong>Return Selected Manufacturer</strong> link
+	above the data grid will appear. Click that link and the Search form window will close. The selected information will
+	be populated on the <strong>Edit Item Info</strong> page.</p>
+<p>If the manufacturer name is not found in the list, close the <strong>Manufacturer Search</strong> form and resume work on
+   the <strong>Edit Item Info</strong> page.</p>
+<div class="image"><img src="CatAddReq10.png" height="407" width="409" alt="Manufacturer search form" />
+<div>Figure 10</div>
+</div>
+
+<ul>
+	<li>If not supplied from the <strong>Manufacturer Search</strong> form, type the name of the manufacturer in the
+	    <strong>Manufacturer</strong> box.</li>
+	<li>Enter the product name in the <strong>Manufacturer's Trade name</strong> box. Be sure you use the name as it appears
+	    on the MSDS.</li>
+	<li>If known, enter the Manufacturers Part Number in the <strong>Manufacturers Part Number</strong> box.</li>
+	<li>Enter the number of units in the <strong># Per Comp</strong> box. (The default is 1 which is already there. Change it
+	    if necessary.)</li>
+	<li>Enter the Package size in the <strong>Size</strong> box and select the unit of measure from the <strong>Unit</strong>
+	    drop-down list. The number of units should be the smallest individual Package that can be purchased. For drums, pails,
+		 rolls, cans, etc., this is typically 1.</li>
+</ul>
+<p>If the product or material has only this one component, click the <strong>Submit</strong> link at the top left of the page
+   to close the form (and window). The product in the new material configuration will be added as a line on the QPL tab of the
+	<strong>Cat Add Req</strong> page with a status of 'Pending Approval'.</p>
+<p>If there is more than a single component, please look at the information on <strong><a href="#Kits">Kits</a></strong>.</p>
+<p>See <a href="#Finalizing">Finalizing a QPL modification request</a></p>
+<div class="image"><img src="CatAddReq11.png" height="546" width="729" alt="New Material Edit Item Info form" />
+<div>Figure 11</div>
+</div>
+
+<p>When a Catalog Addition Request is for a New Material and is still in a status of Pending Approval, it can be edited and 
+   additional information can be provided. To edit the record for any addition request, select the line in the data grid and 
+   right-click for a context menu.</p>
+<ul>
+	<li>Select <a href="#SuggestedSupplier"><strong>Add Suggested Supplier</strong></a> to open a small form to provide details for a prospective supplier.</li>
+	<li>Select the <strong>Edit Item Info</strong> menu item for the <strong>Edit Item Info</strong> form where edits of 
+	    item details may be made.</li>
+	<li>For a form to upload one or more MSDS sheets for the item select:
+		<ul>
+			<li>the <strong>Upload MSDS</strong> menu item when working with a single item;</li>
+			<li>the <strong>Upload all MSDS(s) for Item</strong> menu item when working with a Kit.</li>
+		</ul>
+	</li>
+	<li>To open a child window which to view existing MSDS select:
+	    <ul>
+	       <li>the <strong>View MSDS</strong> menu item when working with a single item;</li>	
+	       <li>the <strong>View Component MSDS</strong> menu item when working with a Kit</li>	
+	    </ul>
+	</li>
+</ul>
+<div class="image"><img src="CatAddReq12.png" height="518" width="709" alt="Edit Item contest menu" />
+<div>Figure 12</div>
+</div>
+
+<p>On the <strong>Edit Item Info</strong> form you may edit any of the item definition information. When all needed edits
+   have been made click the <strong>Submit</strong> link in the upper left of the form. The page will be closed and the
+	edited information will be stored in tcmIS for approval.</p>
+<div class="image"><img src="CatAddReq13.png" height="546" width="729" alt="Edit Item Info form for editing" />
+<div>Figure 13</div>
+</div>
+
+<h3><a id="Kits">Kits</a></h3>
+<p>If a product has more than one component (or a kit) right-click on the Component tab and select Add Component. A new tab
+   will be created for the additional component of the kit. This may be repeated for each needed component of the product.</p>
+<p>Except for the first component tab, any component tab can be deleted by selecting the <strong>Remove Component</strong> 
+   menu item.</p>
+<p>Complete the fields for each component. Those fields marked with an asterisk (*) are required but supply all the information
+   possible.</p>
+<p>When all components have been added and identified, click the <strong>Submit</strong> link at the top left of the page
+   to close the form (and window). The product, with all components stored in tcmIS, will be added as a line on the QPL tab
+	of the <strong>Cat Add Req</strong> page with a status of 'Pending Approval'.</p>
+<p><em>Once a new item has been submitted</em> you cannot add additional components to the item although you can edit 
+   any of the originally submitted components of the item.</p>
+<div class="image"><img src="CatAddReq14.png" height="220" width="851" alt="Edit Item Info form with additional component tab" />
+<div>Figure 14</div>
+</div>
+
+<h2><a id="Finalizing">Finalizing a QPL modification request</a></h2>
+<p>When you have completed work on all four tabs of the <strong>Cat Add Req</strong> page and your requested addition is in
+   the Pending Approval status, you are ready to complete the request. If you need to because the page or screen is not wide
+	enough, adjust the data grid with the bottom 'slider bar' control to see the rightmost column.</p>
+<p><em>If you a finalizing a <strong>New Part</strong> or a <strong>New Part from current part</strong></em> then </p>
+<ul>
+	<li>Check the box for <strong>Incoming Testing</strong> if that is required for the part.</li>
+	<li>Leave the <strong>Yes</strong> radio button selected under the <strong>Time and Temp Sensitive</strong> label if 
+	    the product or material is time sensitive or temperature sensitive. Otherwise click on the <strong>No</strong> 
+	    radio button.</li>
+</ul>
+
+<p>For all Catalog Add Requests</p>
+<ul>
+	<li>Enter your company's MSDS number in the <strong>Customer MSDS No</strong> box on the product line in the data grid.</li>
+	<li>If the product or material is time sensitive, there will be input boxes for shelf life information on the product line of the data grid.
+		<ul>
+			<li>Click in the <strong>Shelf Life Unit</strong> text box to cause the drop-down list to appear; select the appropriate 
+			    unit/measure.</li>
+			<li>Unless the shelf life is <strong>Mfg Recommended</strong> or <strong>Indefinite</strong>, enter the number of units in 
+			    the <strong>Shelf Life</strong> text entry box.</li>
+		</ul>
+	</li>
+	<li>If the product or material is temperature sensitive, click into the <strong>Storage Temp</strong> text box to cause 
+	    the drop-down list to appear; select the appropriate temperature range.</li>
+</ul>
+<div class="image" style="background-color:red; "><img src="tbd - CatAddReq15.png" height="512" width="817" alt="Adding MSDS, Time, Temperature information" />
+<div>Figure 15</div>
+</div>
+
+<p>To add a suggested supplier, select the <a id="SuggestedSupplier"><strong>Add Suggested Supplier</strong></a> menu item from 
+   the context menu. The <strong>Add Suggested Supplier</strong> form will be opened in a new window.</p>
+<p>Enter any information you have regarding the supplier on the form. When done, click the <strong>Submit</strong> link
+   in the upper-left corner of the form. The information will be stored in tcmIS for this product line and the
+	form/window will be closed.</p>
+<p>Repeat these steps for each product added to the QPL.</p>
+<div class="image"><img src="CatAddReq16.png" height="232" width="409" alt="Add Suggested Supplier form" />
+<div>Figure 16</div>
+</div>
+
+<p>When done, click the <strong>Submit</strong> link in the upper-left corner of the <strong>Cap Add Req</strong> form. The
+   information will be stored in tcmIS.</p>
+<p>Alternatively, </p>
+<ul>
+	<li>Click the <strong>Save</strong> link to save the request as a draft. You may return to and complete it later but it
+	    will not be reviewed nor approved until it is submitted.</li>
+	<li>Click the <strong>Delete</strong> link to discard the request completely. None of the information entered will be saved.</li>
+</ul>
+
+<p>Based on your company's approval policy and process, the appropriate approvers are notified by e-mail to log in to tcmIS,
+   review the request and approve or reject. When all the approvals are made the product is made available for use for the
+	part number. A singe rejection means the request is denied and the product is not added to the catalog.</p>
+
+<p>The status of the request can be tracked with the <strong><a href="CatalogAddTracking.htm">Catalog Add
+   Tracking</a></strong> page.</p>
+
+<h3>View or Upload an MSDS</h3>
+<p>On an existing product, you may view the MSDS by right-clicking on the item record (except the values for Status and Item). To open a child window which to view existing MSDS on the context menu select:</p>
+<ul>
+	 <li>the <strong>View MSDS</strong> menu item when working with a single item;</li>	
+	 <li>the <strong>View Component MSDS</strong> menu item when working with a Kit</li>	
+</ul>
+<p><em>The <strong>View MSDS</strong> or <strong>View Component MSDS</strong> menu item is only available
+	if tcmIS has a copy of the MSDS on file.</em> Otherwise, it may be present but is dimmed.</p>
+
+<p>On either an existing product, or a new material, where there is no MSDS stored in tcmIS, you may upload a copy of the MSDS to tcmIS.
+   Right-click anywhere on the item record (except the values for Status and Item) where you want to add an MSDS. To open the <strong>Upload File</strong> form, on the context menu select:</p>
+<ul>
+	<li>the <strong>Upload MSDS</strong> menu item when working with a single item;</li>
+	<li>the <strong>Upload all MSDS(s) for Item</strong> menu item when working with a Kit.</li>
+</ul>
+	
+<p>On the form, click the <strong>Browse</strong> button, locate and select the MSDS file on your computer. Click the <strong>Send
+  File</strong> button. The file will be stored in tcmIS and associated with the item record <strong>Modify QPL</strong>
+  request. The <strong>Upload File</strong> form will then be closed.</p>
+<div class="image"><img src="CatAddReq-Flowdown6.png" height="165" width="409" alt="Upload File form" />
+<div>Figure 17</div>
+</div>
+
+<h2><a id="fadeout">Removing a QPL Item</a></h2>
+<p>To request inactivation of an approved product from the QPL, right-click on the Status or Item (number) and select the
+   <strong>Fadeout from QPL</strong> menu item. If approved, this will place the item in draw down status. Any material
+	still in the warehouse will be delivered until stock is depleted. When depleted, the item will become obsolete.</p>
+<p>To reverse the fadeout request before it is approved, right-click on the Status or Item (number) and select the
+   <strong>Remove Fadeout Request</strong> menu item.</p>
+<div class="image"><img src="CatAddReq18.png" height="512" width="1076" alt="Fadeout from QPL menu item and Remove Fadeout Request menu item" />
+<div>Figure 18</div>
+</div>
+
+<p>To remove a product in pending approval status, right-click on the Status or Item (number) and select the <strong>Delete
+   Line</strong> menu item.</p>
+<div class="image"><img src="CatAddReq19.png" height="544" width="828" alt="Delete Line menu item" />
+<div>Figure 19</div>
+</div>
+
+<h2><a id="NewPart">New Part</a></h2>
+<p>The <strong>New Part</strong> link is used request a new part number for the catalog. A search may show 'No Data' or the 
+   needed part is not listed in the data grid.</p> 
+<p>Click the <strong>New Part</strong> link on the <strong>Catalog</strong> page to	initiate the process to create a new 
+   part number record. The <strong>Cat Add Req</strong> page will be opened in a new tab to allow you to create the part 
+   number request.</p>
+<div class="image"><img src="CatAddReq20.png" height="416" width="828" alt="Catalog search returns no matching part" />
+<div>Figure 20</div>
+</div>
+
+<p>Before you can specify the particular products and materials that are to be associated with the new part, you must specify
+   information about the part itself on the <strong>Cat Add Req</strong> form.</p>
+<ul>
+	<li>Provide a part number in the <strong>Part No</strong> box. Be sure the part number you use does not duplicate an
+	    existing part number, and that it conforms to your company's standards for a part number.</li>
+	<li>Select the stocking method for the part from the <strong>Stocked</strong> drop-down list.
+	<ul>
+		<li>Select <strong>MM</strong> if the material should be stocked in the warehouse.</li>
+		<li>Select <strong>OOR</strong> if the material should be Order on Request, or a non-stocked item.</li>
+	</ul>
+	</li>
+	<li>If this part is replacing a previously cataloged part, enter that part number in the <strong>Replaces Part
+	    No</strong> box. Search for and select the replaced part number by clicking the  magnifying glass icon <img src="../../images/glass.gif"
+		height="16" width="21" alt="magnifying glass" /> to the right of the <strong>Replaces Part No</strong> text box 
+		to open the <a href="#ReplacedPartSearch"><strong>Replaced Part Search</strong></a> form in a new window.</li>
+	<li>Enter a description of the material as it should appear in the catalog in the <strong>Description</strong> box.</li>
+	<li>If appropriate, provide instructions for recertification of an item in stock using the <strong>Recert Instructions</strong> multi-line text box.
+	<ul>
+		<li>Explicitly state the maximum number of recertifications that can be done for the part in the <strong># Recert Allowed</strong> text box.</li>
+	</ul>
+	</li>
+	<li>If incoming testing is required for the part, check the box for <strong>Incoming Testing</strong> to record that.</li>
+	<li>Using the <strong>Time and Temp Sensitive</strong> radio buttons indicate if the material is time and/or temperature 
+	   sensitive.</li>
+</ul>
+
+<p>You may save the new part record, or submit it, using the <strong>Save</strong> or <strong>Submit</strong> link in the
+   upper-left of the page. But the request is not finished until you add one or more products or materials to the QPL (see
+	<strong><a href="#ModifyQPL">Modify QPL</a></strong>), provide any needed information on the other tabs
+	(<strong><a href="CatAddReq-UseApproval.htm">Use Approval</a></strong>, <strong><a href="CatAddReq-Spec.htm">Spec</a></strong>,
+	<strong><a href="CatAddReq-Flowdown.htm">Flowdown</a></strong>, <strong><a href="CatAddReq-HMRF.htm">HMRF</a></strong>)
+	and <a href="CatAddReq-APL.htm#Finalizing">Finalize the request</a>.</p>
+<div class="image"><img src="CatAddReq21.png" height="486" width="828" alt="Catalog Addition Request for a new part number record" />
+<div>Figure 21</div>
+</div>
+
+<p>Use the <strong><a id="ReplacedPartSearch">Replaced Part Search</a></strong> form to locate and select the part
+   number record that you want to replace.</p>
+<ul>
+	<li>With the <strong>Search</strong> box and <strong>Search</strong> button, locate the old part number.</li>
+	<li>When you locate the desired part and click anywhere on the line the <strong>Return Selected Part</strong> link will be
+       displayed above the data grid. Click on that link to place the part number onto the <strong>Cat Add Req</strong> page.</li>
+</ul>
+<div class="image"><img src="CatAddReq22.png" height="380" width="529" alt="Replaced Part Search form" />
+<div>Figure 22</div>
+</div>
+
+<h2><a id="fromcurrent">New Part from current Part</a></h2>
+<p>The <strong>New Part from current Part</strong> link is used request a new part number for the catalog but based on
+   information for an existing part. If, after searching, the needed part is not found in the Catalog but a similar
+	part is, select the similar part and click the <strong>New Part from current Part</strong> link on the
+	<strong>Catalog</strong> page to initiate the process to create a new part number record.</p>
+<p>The <strong>Cat Add Req</strong> page will be opened in a new tab to allow you to create the part number request but much
+   of the needed information is copied from the existing part you had selected.</p>
+<div class="image"><img src="CatAddReq23.png" height="548" width="828" alt="QPL item for a current part" />
+<div>Figure 23</div>
+</div>
+
+<p>As with a <strong>New Part</strong>, you must specify information about the part itself on the <strong>Cat Add
+   Req</strong> form. The difference is that the selected product or material is already added to the <strong>QPL</strong>
+	tab. In addition, information on the <strong><a href="CatAddReq-UseApproval.htm">Use Approval</a></strong>,
+	<strong><a href="CatAddReq-Spec.htm">Spec</a></strong>, and <strong><a href="CatAddReq-Flowdown.htm">Flowdown</a></strong>
+	tabs is included but is in a status of Pending Approval (even though for the existing part they may already be approved.)</p>
+<ul>
+	<li>Provide a part number in the <strong>Part No</strong> box. Be sure the part number you use does not duplicate an
+	    existing part number, and that it conforms to your company's standards for a part number.</li>
+	<li>Select the stocking method for the part from the <strong>Stocked</strong> drop-down list.
+	<ul>
+		<li>Select <strong>MM</strong> if the material should be stocked in the warehouse.</li>
+		<li>Select <strong>OOR</strong> if the material should be Order on Request, or a non-stocked item.</li>
+	</ul>
+	</li>
+	<li>If this part is replacing a previously cataloged part, enter that part number in the <strong>Replaces Part
+	    No</strong> box. Search for and select the replaced part number by clicking the  magnifying glass icon <img src="../../images/glass.gif"
+		height="16" width="21" alt="magnifying glass" /> to the right of the <strong>Replaces Part No</strong> text box 
+		to open the <strong>Replaced Part Search</strong> form. It will be opened in a new window. (See under 
+		<strong>New Part</strong>, <a href="#ReplacedPartSearch">Replaced Part Search</a>.)</li>
+	<li>Enter a description of the material as it should appear in the catalog in the <strong>Description</strong> box.</li>
+	<li>If appropriate, provide instructions for recertification of an item in stock using the <strong>Recert Instructions</strong> multi-line text box.
+	<ul>
+		<li>Explicitly state the maximum number of recertifications that can be done for the part in the <strong># Recert Allowed</strong> text box.</li>
+	</ul>
+	</li>
+	<li>If incoming testing is required for the part, check the box for <strong>Incoming Testing</strong> to record that.</li>
+	<li>Using the <strong>Time and Temp Sensitive</strong> radio buttons indicate if the material is time and/or temperature 
+	    sensitive.</li>
+</ul>
+<p>You may add more items to the QPL as needed.</p>
+<p>See, also, <a href="CatAddReq-APL.htm#Finalizing">Finalizing a QPL modification request</a></p>
+<div class="image"><img src="CatAddReq24.png" height="548" width="828" alt="Catalog Addition Request for a new part from an existing part" />
+<div>Figure 24</div>
+</div>
+
+<h2><a id="WorkAreaApproval">New Work Area Approval</a></h2>
+
+<p>To request approval of an existing part number for the selected Work Area, select a part by clicking on the line and
+   click the <strong>New Work Area Approval</strong> link. The <strong>Cat Add Req</strong> page will open in a new tab.</p>
+<div class="image"><img src="CatAddReq25.png" height="486" width="828" alt="New Work Area Approval for a product" />
+<div>Figure 25</div>
+</div>
+
+<p>The <strong>Cat Add Req</strong> page will open with the <strong>QPL</strong> tab active. In order to request the work
+   area approval, click on the <strong>Use Approval</strong> tab. See <strong><a href="CatAddReq-UseApproval.htm">Use
+	Approval</a></strong>.</p>
+<div class="image"><img src="CatAddReq26.png" height="486" width="828" alt="Cat Add Req page Use Approval tab" />
+<div>Figure 26</div>
+</div>
+
+</body>
+</html>

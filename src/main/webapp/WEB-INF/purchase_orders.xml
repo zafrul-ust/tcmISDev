@@ -1,0 +1,139 @@
+<table name="edi_order_error_view" lineBreak="10">
+  <field>
+     <name>reset_header</name>
+     <header>Reset</header>
+     <style></style>
+     <format>checkbox_input</format>
+     <logic>reset_sel</logic>
+     <code>checkall(this,'ordstat','%d','reset_header');</code>
+  </field>
+  <field>
+     <name>date_issued</name>
+     <header>Order Received</header>
+     <style></style>
+     <format>db_date</format>
+  </field>
+  <field>
+     <name>customer_po_no</name>
+     <header>PO</header>
+     <style>l</style>
+     <format>hidden_input</format>
+  </field>
+  <field>
+     <name>customer_po_line_no_trim</name>
+     <header>Line</header>
+     <style></style>
+  </field>
+  <field>
+     <name>cat_part_no_on_order</name>
+     <header>Part Num</header>
+     <style></style>
+  </field>
+  <field>
+     <name>manufacturer_part_num</name>
+     <header>Mfg Part Num</header>
+     <style></style>
+  </field>
+  <field>
+     <name>ordered_qty</name>
+     <header>Quantity</header>
+     <style>r</style>
+  </field>
+  <field>
+     <name>ordered_uom</name>
+     <header>UOM</header>
+     <style>l</style>
+  </field>
+  <field>
+     <name>unit_price_on_order</name>
+     <header>Unit Price</header>
+     <style>r</style>
+  </field>
+  <field>
+     <name>shipto_party_id</name>
+     <header>Ship To</header>
+     <style></style>
+     <format>dropdown_input</format>
+  </field>
+  <field>
+     <name>requested_delivery_date</name>
+     <header>Need Date</header>
+     <style></style>
+     <format>db_date</format>
+  </field>
+  <field>
+     <name>buyer_name_on_po</name>
+     <header>Requestor</header>
+     <style>l</style>
+  </field>
+  <field>
+     <name>current_order_status</name>
+     <header>Status</header>
+     <style></style>
+  </field>
+  <field>
+     <name>error_detail</name>
+     <header>Error(s)</header>
+     <style>red</style>
+     <format>x</format>
+  </field>
+  <field>
+     <name>catalog_uos</name>
+     <header>TCM UOS</header>
+     <style></style>
+  </field>
+  <field>
+     <name>mr_qty</name>
+     <header>MR Qty</header>
+     <style></style>
+  </field>
+  <field>
+     <name>packaging</name>
+     <header>TCM Packaging</header>
+     <style></style>
+  </field>
+  <field>
+     <name>transaction_type</name>
+     <header>Order Type</header>
+     <style></style>
+  </field>
+  <field>
+     <name>change_sub_type_code</name>
+     <header>Change Code</header>
+     <style></style>
+  </field>
+  <field>
+     <name>company_id</name>
+     <header>Company</header>
+     <style></style>
+     <format>hidden_input</format>
+  </field>
+  <field>
+     <name>transaction_type</name>
+     <header>EDI ID</header>
+     <style>l</style>
+     <format>hidden_input</format>
+     <visible>NO</visible>
+  </field>
+  <field>
+     <name>line_sequence</name>
+     <header>Line Seq.</header>
+     <style>l</style>
+     <format>hidden_input</format>
+     <visible>NO</visible>
+  </field>
+  <field>
+     <name>change_order_sequence</name>
+     <header>Chg. Seq.</header>
+     <style>l</style>
+     <format>hidden_input</format>
+     <visible>NO</visible>
+  </field>
+  <field>
+     <name>customer_po_line_no</name>
+     <header>Line</header>
+     <style></style>
+     <format>hidden_input</format>
+     <visible>NO</visible>
+  </field>
+</table>

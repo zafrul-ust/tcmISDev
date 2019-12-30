@@ -1,0 +1,54 @@
+<html>
+
+
+<head>
+<title>List of Outstanding POs</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p>
+<center><h2>List of Outstanding POs</h2></center>
+<p>
+<form action="/cgi-bin/radweb/po_receive_nodate.cgi" method="post">
+
+<div align="center"><center>
+Show items which &nbsp;
+<input type="checkbox" name="print" value="X">have &nbsp;
+<input type="checkbox" name="noprint" value="X" CHECKED>have not &nbsp;
+been printed previously
+<br>
+for
+<select name="bp">
+<option value="2101" SELECTED>Salem
+<option value="2103">Tucson
+<option value="2102">Dallas
+<option value="2114">Largo
+<option value="2118">Decatur
+<option value="2119">Fresno
+<option value="2156">Greenville
+<option value="2404">Harrisburg
+</select>
+<br>
+where the Radian PO is &nbsp;
+<input type="text" name="po_num" value="">
+<br>
+and the Radian Item ID is &nbsp;
+<input type="text" name="item_id" value="">
+<br>
+and the Supplier contains &nbsp;
+<input type="text" name="supp" value="">
+<p>
+Sort by: <select name="sortby">
+        <option value="item_id">Item ID
+        <option value="po_number">PO Number
+        <option value="supplier">Supplier
+</select>
+<input type="radio" name="up" value="">Ascending
+<input type="radio" name="up" value="desc">Descending
+<p>
+<input type="submit">
+</form>
+<p>
+<form action="/cgi-bin/radweb/po_rec_mark.cgi" method="post">
+</body></html>

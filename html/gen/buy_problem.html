@@ -1,0 +1,31 @@
+<html>
+
+<head>
+<title>Problem Buy Orders</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p>
+<center><h2>Problem Buy Orders</h2>
+<p>
+<form action="/cgi-bin/gen/buy_prob.cgi" method="post">
+Show items for assigned quoter where the Raytheon Part # contains &nbsp;
+<input type="text" name="part_id" value="">
+<br>(blank means any Raytheon part #)
+<br>
+where the Radian Item ID is &nbsp;
+<input type="text" name="item_id" value="">
+<br>(blank means any Item ID)
+<br>
+where the Sales Order ID is &nbsp;
+<input type="text" name="so" value="">
+<br>(blank means any Sales Order ID)
+<p>
+Show orders where there &nbsp;
+<input type="checkbox" name="stale">is &nbsp;
+<input type="checkbox" name="fresh" CHECKED>is not &nbsp;
+an answer from Raytheon
+<p>
+<input type="submit" value="Submit & Sort">
+</form></center></body></html>

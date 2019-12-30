@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Haas TCM Min Max Levels</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript" src="textsizer.js">
+
+/***********************************************
+* Document Text Sizer- Copyright 2003 - Taewook Kang.  All rights reserved.
+* Coded by: Taewook Kang (http://www.txkang.com)
+* This notice must stay intact for use
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+</head>
+
+<body>
+<h3><font face="Tahoma"> <a name="MinMaxLevels" id="MinMaxLevels"></a>Min Max 
+  Levels</font></h3>
+<p><a href="javascript:ts('body',1)"><font face="tahoma">+ Larger Font</font></a><font face="tahoma"> 
+  | <a
+href="javascript:ts('body',-1)">+ Smaller Font</a> </font></p>
+<p><font face="Tahoma" size="-1">The <strong>Min Max Levels </strong>page is used 
+  to set and change the stocking type, reorder point, and maximum stocking levels 
+  for Haas TCM items. The <strong>Min Max Levels </strong>page can be accessed 
+  from the <strong>Supply Chain </strong> menu by selecting <strong>Stock Room 
+  Inventory </strong>and the choosing <strong>Inventory</strong>. Then select 
+  <strong>Min Max Levels.</strong> The <strong>Min Max Levels </strong>page is 
+  displayed in a new tab.<br>
+  </font></p>
+<p><font size="-1" face="Tahoma"><img src="MinMaxLevels1.gif" width="850" height="493"></font></p>
+<h6><font face="Tahoma">Figure 1</font></h6>
+<p><font face="Tahoma" size="-1">Select the hub for which Min Max levels are to 
+  be changed from the <b>Hub </b>drop-down list. Select Item ID or Part Number 
+  from the drop down box and enter an Item ID or Part Number in the corresponding 
+  text box. If desired, you may also select an Inventory Group. Click <b>Search</b>.</font></p>
+<p><img src="MinMaxLevels3.gif" width="850" height="484"></p>
+<h6><font face="Tahoma">Figure 2</font></h6>
+<p><font face="Tahoma" size="-1">Details regarding previous changes to stocking 
+  types or levels can be displayed by right-clicking on any line and selecting<b> 
+  Show History.</b></font></p>
+<p><font size="-1" face="Tahoma"><img src="MinMaxLevels4.gif" width="850" height="484"></font></p>
+<h6><font face="Tahoma">Figure 3</font></h6>
+<p><font size="-1" face="Tahoma">Details regarding previous changes to stocking 
+  types and levels for the selected Part Number and Inventory Group are displayed.</font></p>
+<p><font face="Tahoma"><img src="MinMaxLevels5.gif" width="850" height="344"></font></p>
+<h6><font face="Tahoma">Figure 4</font></h6>
+<p><font face="Tahoma" size="-1">To change the stocking type for a Part Number, 
+  select the new stocking type from the <b>Stocking Method</b> drop-down list 
+  on the <strong>Min Max Levels </strong>page. </font></p>
+<p><font face="Tahoma" size="-1">Selecting <b>OOR</b> indicates that the part 
+  is not to be stocked at the hub, but should be ordered only when requested by 
+  the customer. </font><font face="Tahoma" size="-1">For OORs, the <b>Reorder 
+  Point</b> and <b>Stocking Level </b> should be zero. </font></p>
+<p><font face="Tahoma" size="-1">Selecting <b>MM</b> indicates that the part should 
+  be stocked at the hub. The <b>Stocking Level </b>represents the maximum quantity 
+  that will be kept in stock at any time. The <b>Reorder Point </b>is the point 
+  at which a Buy Order is generated to replenish the stock back to the <b>Stocking 
+  Level</b>. For MMs, the <b>Reorder Point</b> and <b>Stocking Level</b> should 
+  be non-zero. The <b>Reorder Point</b> should be less than the <b>Stocking Level</b>. 
+  </font></p>
+<p><font face="Tahoma" size="-1">Selecting <b>exitMM</b> indicates the part was 
+  stocked at the hub, but should be converted to an <b>OOR </b>when the remaining 
+  stock is depleted. Changing a MM<strong> </strong>to an OOR will automatically 
+  change the status to <strong>exitMM</strong> until all stock on hand or on order 
+  has been depleted. After all inventory is depleted, the stocking type will automatically 
+  be changed to OOR<strong>.</strong></font></p>
+<p><font size="-1" face="Tahoma">Selecting <strong>virtualMM</strong> indicates 
+  that the part is stocked at a Virtual Hub or supplier stocking location. <strong>VirtualMM</strong> 
+  materials are treated as OORs<strong>. </strong>This stocking level indicates 
+  to customers that material is not available in the warehouse, but is stocked 
+  at another location.</font></p>
+<p><font face="Tahoma" size="-1">To change the <b>Reorder Point</b>, <b>Stoc</b><strong>king 
+  Level</strong>, <strong>Reorder Quantity</strong> or <b>Look Ahead Days</b>, 
+  enter a new number in the corresponding text box and enter an explanation of 
+  the change in the <b>Remarks</b> text box. </font></p>
+<p><font size="-1" face="Tahoma">You may designate a material as a direct delivery 
+  or drops ship material by checking the box in the column labeled <strong>Drop 
+  Ship. </strong>Designating a material as Drop Ship results in direct delivery 
+  of all purchases of the material for the selected Inventory Group. The material 
+  will not be shipped to the Hub and all quality and labeling procedures will 
+  be foregone.</font></p>
+<p><font size="-1" face="Tahoma">For all lines updated, check the box in the column 
+  labeled <strong>OK. </strong>Click the <strong>Update </strong>link above the 
+  data grid to save changes for all lines selected.</font></p>
+<p><font size="-1" face="Tahoma"><img src="MinMaxLevels6.gif" width="850" height="484"></font></p>
+<h6><font face="Tahoma">Figure 5</font></h6>
+<p><font size="-1" face="Tahoma">For Counting Inventory Groups, you may update 
+  the Receipt Processing Method and Billing Method as well. </font></p>
+<p><font size="-1" face="Tahoma">The Receipt Processing Method controls when material 
+  in invoiced to the customer. Select <em>Customer Owned </em>if the material 
+  should be invoiced on receipt and stored in inventory as owned by the customer. 
+  Select <em>Haas TCM<strong> </strong>owned</em> if the material should be invoiced 
+  when it is counted missing and stored in inventory as owned by Haas. Select 
+  <em>Issue On Receipt</em> if the material should be invoiced on receipt and 
+  should not be stored in inventory.</font></p>
+<p><font size="-1" face="Tahoma">The Billing Method indicates whether a material 
+  should be invoiced to the customer or not. If the material is a contract or 
+  CPU item and should not be invoiced to the customer, select<em> Not Billed</em>. 
+  If the material is a Pass Through item and should be invoiced to the customer, 
+  select <em>Pass Through</em>.</font></p>
+<p><font size="-1" face="Tahoma">Select the proper values from the <strong>Receipt 
+  Processing Method</strong> and <strong>Billing Method</strong> drop-down lists.</font></p>
+<p><font size="-1" face="Tahoma">For all lines updated, check the box in the column 
+  labeled <strong>OK. </strong>Click the <strong>Update </strong>link above the 
+  data grid to save changes for all lines selected.</font></p>
+<p><img src="MinMaxLevels7.gif" width="850" height="484"></p>
+<h6><font face="Tahoma">Figure 6</font></h6>
+</body>
+</html>

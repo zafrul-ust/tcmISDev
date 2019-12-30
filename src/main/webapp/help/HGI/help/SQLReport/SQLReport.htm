@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>HGI tcmIS SQL Report</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" />
+</head>
+
+<body>
+<h1><a name="SQLReport" id="SQLReport"></a>SQL Report</h1>
+<p><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" style="border-style: none" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" style="border-style: none" /></a></p>
+
+<p>The <strong>SQL Report</strong> page is used to run stored SQL database queries against the 
+	tcmIS database. It is not necessary to have strong SQL skills in order to run reports on this 
+	page. The <strong>SQL Report</strong> page is accessed from the <strong>Reports</strong> menu 
+	by selecting the <strong>SQL Report</strong> menu item. The page is launched in a new tab.</p>
+<div class="image"><img src="SQLReport1.png" width="760" height="268" alt="SQL Report menu item" />
+<div>Figure 1</div></div>
+
+<p>Enter a properly formed SQL query in the <strong>Query</strong> multiline text box. Either select 
+	one of the queries in the <strong>Saved Queries</strong> list box or type it directly. (See 
+	<a href="#SQLHelp">SQL Help</a>.) In either case you may edit the query if needed, for instance to 
+	change the date range.</p>
+<ul>
+	<li>Click the <strong>Run Query</strong> button to execute the query. tcmIS will run the query and 
+		produce an Excel file with the results.</li>
+	<li>You may save a query for future use. Entering a name in the <strong>Query Name</strong> box and 
+		click the <strong>Save Query</strong> button.</li>
+	<li>You may delete a query from the <strong>Saved Queries</strong> list. Select the query and click 
+		the <strong>Delete saved query</strong> button.</li>
+</ul>	
+<div class="image"><img src="SQLReport2.gif" width="680" height="638" alt="SQL Report form" />
+<div>Figure 2</div></div>
+
+<p><a name="SQLHelp" id="SQLHelp">Help</a> is available. Click on the <strong>Help</strong> link. tcmIS will open a 
+	child window to display very basic information on proper SQL syntax.</p>
+<div class="image"><img src="SQLReport3.png" width="864" height="336" alt="Basic SQL syntax help" />
+<div>Figure 3</div></div>
+
+<p>Creating or editing a SQL query requires that you use the exact table and field names for the database. 
+	To view the tables available scroll through the <strong>Table</strong> list box. Select a table and 
+	tcmIS will display the fields (&#39;columns&#39;) for that table in the lower right corner of the page.</p>
+<div class="image"><img src="SQLReport4.gif" width="680" height="638" alt="Table and field names" />
+<div>Figure 4</div></div>
+
+</body>
+</html>

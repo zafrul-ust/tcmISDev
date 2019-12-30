@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="expires" content="-1">
+<link rel="shortcut icon" href="https://www.tcmis.com/images/buttons/tcmIS.ico"></link>
+<script type="text/javascript" src="/js/common/formchek.js"></script>
+<script type="text/javascript" src="/js/common/commonutil.js"></script>
+<script type="text/javascript" src="/js/common/searchiframeresize.js"></script>
+
+</head>
+
+<body bgcolor="#ffffff" onload="setSearchFrameSize();document.getElementById('startSearchTime').value = (new Date()).getTime();">
+<div class="interface" id="searchMainPage">
+
+<div class="contentArea">
+
+<!-- Search Option Begins -->
+<table id="searchMaskTable" width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td>
+<div class="roundcont filterContainer">
+ <div class="roundright">
+   <div class="roundtop">
+     <div class="roundtopright"> <img src="/images/rndBoxes/borderTL_filter.gif" alt="" width="15" height="10" class="corner_filter" style="display: none" /></div>
+   </div>
+   <div class="roundContent">
+    <!-- Insert all the search option within this div -->
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tableSearch">
+      <tr><td></td></tr>
+    </table>
+   <!-- End search options -->
+   </div>
+   <div class="roundbottom">
+     <div class="roundbottomright"> <img src="/images/rndBoxes/borderBL.gif" alt="" width="15" height="15" class="corner" style="display: none" /> </div>
+   </div>
+ </div>
+</div>
+</td></tr>
+</table>
+<!-- Search Option Ends -->
+
+
+<!-- Error Messages Begins -->
+<!-- Build this section only if there is an error message to display.
+     For the search section, we show the error messages within its frame
+-->
+<div class="spacerY">&nbsp;
+<div id="errorMessagesArea" class="errorMessages">
+</div>
+</div>
+</div> <!-- close of contentArea -->
+<div id="hiddenElements" style="display: none;">
+<input name="startSearchTime" id="startSearchTime" type="hidden" value="" />
+
+</div>
+<!-- Hidden elements end -->
+
+</div> <!-- close of interface -->
+</body>
+</html-el:html>

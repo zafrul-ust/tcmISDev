@@ -1,0 +1,194 @@
+<html>
+<head>
+<title>Quick Item View</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript" src="../../UTC/OrderTracking/textsizer.js">
+
+/***********************************************
+* Document Text Sizer- Copyright 2003 - Taewook Kang.  All rights reserved.
+* Coded by: Taewook Kang (http://www.txkang.com)
+* This notice must stay intact for use
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+<style>
+body{
+	background-color: white;
+	font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+p, li {
+	font-size: 0.8em;
+}
+li li {
+	font-size: 1.0em;
+}
+h4 {
+	font-size: 0.9em;
+	font-weight: bold;
+}
+div p {
+font-size: 1em;
+}
+</style>
+</head>
+<body>
+<div align="left">
+<h4><a id="QuickItemView" name="QuickItemView">Quick Item View</a></h4>
+  <p><a href="javascript:ts('body',1)">+ Larger Font</a> |  <a href="javascript:ts('body',-1)">+ Smaller Font</a></p>
+</div>
+<p>The <strong>Quick Item View</strong> page is a convenient way to get a complete overview of Distribution 
+	items in HGI locations, including HGI owned material, client owned material, and consigned material. The 
+	<strong>Quick Item View</strong> can be accessed in two ways:</p>
+	<ul>
+		<li>From the <strong>Distribution</strong> menu by selecting the <strong>Quick Item View</strong> menu item. 
+			 It will be opened in a new tab.</li>
+		<li>From the context menu on any record row shown on a <strong>Scratch Pad</strong> or a <strong>Material request</strong> 
+			 select the <strong>Quick Item View</strong> menu item. It will be displayed in a child window.</li>
+	</ul>
+<p><img src="QuickItemView1.png" alt="Quick Item View menu item" width="945" height="349"></p>
+<h6>Figure 1</h6>
+<p><img src="QuickItemView1A.png" alt="SP/MR Quick Item View context menu item" width="834" height="476"></p>
+<h6>Figure 1A</h6>
+
+<p>In the upper panel of the <strong>Quick Item View</strong> tab page there are there are three criteria and two options 
+	for specifying the item for which you want details. (On the child window form since you have started from a specific customer and 
+	item all these choices have already been accounted for: the upper panel displays only the <strong>Inventory Group</strong> and 
+	<strong>Item Desc</strong>[ription] information.)</p>
+	<ul>
+		<li>Select the operating entity from the <strong>Operating Entity</strong> drop-down list.</li>
+		<li>Select the HGI hub from the <strong>Hub</strong> drop-down list.</li>
+		<li>Select the inventory group from the <strong>Inventory Group</strong> drop-down list.</li>
+		<li>You must specify a particular part for the search.
+			<ul>
+				<li>If you know the exact part number you may use that in the <strong>Item</strong> text box.</li>
+				<li>Otherwise, click on the magnifying glass icon <img src="../../images/glass.gif" width="21" height="16" alt="magnifying glass icon" /> 
+					 to use the <strong>Item Search</strong> form in a child window and locate the item. See <a href="#itemlookup">below</a> and see 
+					 <a href="../Introduction/Searches.htm#serchby">tcmIS Search/Seach by</a> for more details.</li>
+			</ul>
+		</li>
+		<li>You may use the <strong>Customer</strong> information to limit the search to details for a single customer:
+			<ul>
+				<li>begin typing the name and tcmIS will display a drop-down list of matching customers 
+					 (see <a href="../Introduction/Searches.htm#typeahead">Type ahead search</a>); or</li>
+				<li>click on the magnifying glass icon <img src="glass.gif" width="21" height="16" alt="magnifying glass icon" /> 
+			 		 to use the <strong>Customer Lookup</strong> form. See <a href="../Introduction/Searches.htm#lookup">Lookup forms</a> for 
+			 		 general information and see <a href="../QuickCustomerView/QuickCustomerView.htm#customerlookup">Quick Customer View</a> 
+			 		 for more details.</li>
+			 	<li>Click on the adjacent <strong>Clear</strong> button to remove that selection from the search. If no Customer is specified, 
+			 		 the search will look for all Customers.</li>
+			</ul>
+		</li>
+	</ul>  
+<p>Click the <strong>Search</strong> button to display all the items that match the criteria.</p>
+<p><img src="QuickItemView2.png" alt="Quick Item View page" width="835" height="313"></p>
+<h6>Figure 2</h6>
+
+<p>Unlike most pages in tcmIS, the <strong>Quick Customer View</strong> page displays four data grids. Click on any of these data grid 
+	titles to see more information:</p>
+	<ul>
+		<li><strong><a href="#MRhistory">MR History</a></strong> (upper left)</li>
+		<li><strong><a href="#POhistory">PO History</a></strong> (upper right)</li>
+		<li><strong><a href="#quotehistory">Price Quote History</a></strong> (lower left)</li>
+		<li><strong><a href="#inventory">Inventory</a></strong> (lower right)</li>
+	</ul>
+<p><img src="QuickItemView3.png" alt="Quick Item View page" width="835" height="628"></p>
+<h6>Figure 3</h6>
+
+<h4><a id="itemlookup">Item Search form</a></h4>
+<p>The <strong>Item Search</strong> (lookup) form includes six different sets of search fields; each be used alone or in combination 
+	with one or more of the others. <em>When combinations are used search results will display only those 
+	items that meet <strong>all</strong> criteria.</em></p>
+<p>Each of the six set of searches allows matching on <em>Contains</em>, <em>Is</em>, <em>Starts with</em>, and <em>Ends with</em>. (See 
+	<a href="../Introduction/Searches.htm#searchby">tcmIS Search/Seach by</a> for more details.) The fields are</p>
+	<ul>
+		<li>Part Number</li>
+		<li>Part Description</li>
+		<li>Specification</li>
+		<li>Customer Part Number</li>
+		<li>Text</li>
+		<li>Synonym</li>
+	</ul>
+<p><img src="QuickItemView4.png" alt="Item Search form" width="736" height="304"></p>
+<h6>Figure 4</h6>
+
+<h4><a id="MRhistory">MR History data grid</a></h4>
+<p>In the <strong>MR History</strong> panel use any of the text boxes in the column headers to filter the display and 
+	show only those inventory items matching the text you enter. The match will be made when any or all of what you 
+	enter matches the data in that column, including when you enter text in more than one column .</p>
+	<ul>
+		<li><strong>Inventory Group</strong></li>
+		<li><strong>MR-Line</strong></li>
+		<li><strong>Customer Part</strong></li>
+		<li><strong>Desc</strong>[ription]</li>
+		<li><strong>Customer PO</strong></li>
+	</ul>
+<p><img src="QuickItemView5.png" alt="MR History filtered display" width="486" height="470"></p>
+<h6>Figure 5</h6>
+
+<p>Right click on any record in the <strong>MR History</strong> panel for a context menu that includes 
+	four menu items.</p>
+	<ul>
+		<li>The <strong>Open</strong> menu item will display the MR for the record in a new tab. See the 
+			 <a href="../OrderEntry/CreateMR.htm">Create MR</a> page help for more details.</li>
+		<li>The <strong>MR Line Allocation</strong> menu item opens a child window to display the MR Allocation report 
+			 for only the selected record. See help for the <a href="../MRAllocation/MRAllocation.htm">MR Allocation Report</a> 
+			 for details.</li>
+		<li>The <strong>Create New Quote</strong> menu item display a new <strong>Quote</strong> page in its own tab, 
+			 with much of the information already filled in based on the existing quote. See the <a href="../OrderEntry/CreateQuote.htm">Quote</a> 
+			 page for details.</li>
+		<li>The <strong>Create New MR</strong> menu item will display a new MR in its own tab, based on the existing MR. See 
+			 the <a href="../OrderEntry/CreateMR.htm">Create MR</a> page help for more details.</li>
+	</ul>
+<p><img src="QuickItemView6.png" alt="MR History panel context menu" width="835" height="628"></p>
+<h6>Figure 6</h6>
+
+<h4><a id="quotehistory">Price Quote History data grid</a></h4>
+<p>In the <strong>Price Quote History</strong> panel use the text box in the <strong>Inventory Group</strong> column to filter the display to 
+	 display only those inventory items matching the text you enter.</p>
+<p>Right click on any record in the <strong>Price Quote History</strong> panel for a context menu that includes 
+	three menu items.</p>
+	<ul>
+		<li>The <strong>Open</strong> menu item will display the <strong>Quote</strong> for the record in a new tab. See the 
+			 <a href="../OrderEntry/CreateQuote.htm">Quote</a> page help for more details.</li>
+		<li>The <strong>Create New Quote</strong> menu item display a new <strong>Quote</strong> page in its own tab, 
+			 with much of the information already filled in based on the existing quote. See the <a href="../OrderEntry/CreateQuote.htm">Quote</a> 
+			 page for details.</li>
+		<li>The <strong>Create New MR</strong> menu item will display a new MR in its own tab, based on the existing MR. See 
+			 the <a href="../OrderEntry/CreateMR.htm">Create MR</a> page help for more details.</li>
+	</ul>
+<p><img src="QuickItemView7.png" alt="Price Quote History panel context menu" width="835" height="675"></p>
+<h6>Figure 7</h6>
+
+<h4><a id="POhistory">PO History data grid</a></h4>
+<p>In the <strong>PO History</strong> panel use the text box in the <strong>Supplier</strong> column to filter the display to 
+	show only those suppliers matching the text you enter.</p>
+<p>Also in the <strong>PO History</strong> panel, there is a <strong>Show Current Sourcing Information</strong> link. 
+	Click on it  to display item sourcing information in a child window.</p>
+<p><img src="QuickItemView8-8a.png" alt="Quick Item View Current Sourcing Information" width="835" height="529"></p>
+<h6>Figure 8-8a: left and right sides of Current Sourcing Information data grid</h6>
+
+<p>Right click on any record in the <strong>PO History</strong> panel for a context menu that includes 
+	one menu item.</p>
+	<ul>
+		<li>The <strong>Open</strong> menu item will display the <strong>Purchase Order</strong> for the record in a new tab. See the 
+			 <a href="../Purchasing/PurchaseOrders.htm">Purchase Orders</a> page help for more details.</li>
+	</ul>
+<p><img src="QuickItemView9.png" alt="PO History panel context menu" width="835" height="675"></p>
+<h6>Figure 9</h6>
+
+<h4><a id="inventory">Inventory data grid</a></h4>
+<p>In the <strong>Inventory panel</strong> use the text box in the <strong>Inventory Group</strong> column to filter the display to 
+	show only those inventory groups matching the text you enter.</p>
+<p>Right click on any record in the <strong>Inventory</strong> panel for a context menu that includes 
+	one menu item.</p>
+	<ul>
+		<li>The <strong>Show Details</strong> menu item will open a child window to displays the 
+			 <strong>Item Activity for InvGrp: [inventory group]</strong> for the record. See the 
+			 <a href="../ItemLookup/ItemLookup.htm#showitemactivity">Item Lookup</a> page help for more details.</li>
+	</ul>
+<p><img src="QuickItemView10.png" alt="Inventory panel context menu" width="835" height="675"></p>
+<h6>Figure 10</h6>
+
+</body>
+</html>

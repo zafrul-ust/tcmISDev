@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Ad Hoc Material Matrix</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+<body>
+<h1><a name="matrix"></a>Ad Hoc Material Matrix</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Ad Hoc Material Matrix</strong> report describes which materials were used at a specific
+   facility much like the <strong><a href="../AdHocUsage/AdHocUsage.htm">Ad Hoc Usage</a></strong>
+	report. In addition, the <strong>Ad Hoc Material Matrix</strong> report lists which materials used
+	at the specified facility appear on selected chemical lists. The content of this report is not
+	predetermined and can be altered to include any of the fields included in the list of <strong>Base
+	Fields</strong> as well as any of the lists in the <strong>Chemical Lists</strong> box. </p>
+<p>The <strong>Ad Hoc Material Matrix</strong> report can be accessed from the <strong>Report</strong> menu.
+	Select <strong>Reports</strong>, <strong>Usage</strong>, and then <strong>Ad Hoc Material Matrix</strong>. The <strong>Ad Hoc Material
+	Matrix</strong> page is launched in a new tab.</p>
+<div class="image"><img src="MaterialMatrix1.png" height="292" width="835" alt="Ad Hoc Material Matrix menu item" />
+<div class="caption">Figure 1</div></div>
+
+<p>There are three areas on the Ad Hoc Material Matrix report page to specify the report you need:</p>
+<ul>
+	<li>Identifying the context (Facility, Work Area, Parts, (optionally, Dates), format)</li>
+	<li>Identifying the specifics (Chemicals, Fields)</li>
+	<li>Selecting the action (Clear template, Open template, Save template, Run Report)</li>
+</ul>
+<h2>Identifying the context</h2>
+<ul>
+	<li>Choose the facility from the <strong>Facility</strong> list.</li>
+	<li>Choose the work area from the <strong>Work Area</strong> list.</li>
+	<li>Select the <strong>Part</strong> using the option buttons.
+		<ul>
+			<li>To report on one or more specific parts, select the <strong>Part Number</strong> option button
+				<ul>
+					<li>In the box specify whether the report is for an exact match, using
+			    		<strong>is</strong>, or a partial match, using <strong>contains</strong>.</li>
+					<li>In the text box enter the number fully or partially to match in the report.</li>
+				</ul>
+	   	</li>
+			<li>To report on all parts used during a specific time period, select the <strong>All
+	    		Parts Used</strong> option button and enter the begin and end dates in the <strong>Begin
+		 		Date</strong> and <strong>End Date</strong> boxes using the date selection calendar.</li>
+			<li>To report on all approved parts, choose the <strong>All Parts Approved</strong> option button.</li>
+		</ul>
+	</li>
+	<li>There is one final option in this section and it does not deal with context, it provides a formatting option 
+		 for the report: the <strong>List Format</strong> drop-down list. It provides three options for presentation of
+		 the quantity of a reported material an item. Only a single option may be selected at any time.
+			<ul>
+			 	<li>The <em>Yes</em> option format the report to show only the word &rsquo;Yes&rsquo; for each material 
+			 		 found in each item shown on the report.</li>
+			 	<li>The <em>xx.x%</em> option will format the presence of each material as a percentage to one decimal place.</li>
+			 	<li>The <em>xx.x E -y%</em> option will format the presence of each material as a percentage in scientific 
+			 		 notation and can be used for reports on materials which are present in extremely small concentrations..</li>
+			</ul>	 
+	</li>
+</ul>
+<div class="image"><img src="MaterialMatrix2.png" height="606" width="828" alt="Ad Hoc Material Matrix page" />
+<div class="caption">Figure 2</div></div>
+
+<h2>Identifying the specific chemicals and fields</h2>
+<p>Select the chemical list (or lists) to include in the report from the <strong>Chemical Lists</strong>
+   box on the left by clicking on it (or them). To select more than one, hold down the CTRL key while
+	selecting. Add the list(s) to the <strong>Report Lists</strong> box on the right by clicking the
+	right-pointing arrow icon <img class="small" src="../../images/arrow1.gif" height="19" width="17" alt="Right-pointing arrow" />. You can
+   remove lists from the <strong>Report List</strong> by selecting in the <strong>Report List</strong> box and
+   clicking the left-pointing arrow icon <img class="small" src="../../images/arrow2.gif" height="18" width="17" alt="Left-pointing arrow" />.</p>
+<p>You can move an item in the <strong>Report Lists</strong> box up or down relative to the others by
+   selecting it and clicking the up- <img class="small" src="../../images/uparrow.gif" height="18" width="20" alt="uparrow" /> or
+	down-pointing <img class="small" src="../../images/downarrow.gif" height="19" width="18" alt="downarrow" /> arrow icons.</p>
+<div class="image"><img src="MaterialMatrix3.png" height="574" width="828" alt="Chemical List and Report Lists" />
+<div class="caption">Figure 3</div></div>
+
+<p>Select the fields to include in the report from the <strong>Base Fields</strong> box on the left.
+   You may select a field by clicking on it. To select more than one, hold down the CTRL key while
+	selecting. Add the fields to the <strong>Report Fields</strong> box on the right by clicking the
+	right-pointing arrow <img class="small" src="../../images/arrow1.gif" height="19" width="17" alt="Right-pointing arrow" />. You can
+   remove fields from the <strong>Report Fields</strong> box by selecting in the <strong>Report
+	Fields</strong> box and clicking the left-pointing arrow icon <img class="small" src="../../images/arrow2.gif"
+	height="18" width="17" alt="Left-pointing arrow" />.</p>
+<p>You can move an item in the <strong>Report Fields</strong> box up or down relative to the others by
+   selecting it and clicking the up- <img class="small" src="../../images/uparrow.gif" height="18" width="20" alt="uparrow" /> or
+	down-pointing <img class="small" src="../../images/downarrow.gif" height="19" width="18" alt="downarrow" /> arrow icons.</p>
+<div class="image"><img src="MaterialMatrix4.png" height="574" width="828" alt="Base Fields and Report Fields" />
+<div class="caption">Figure 4</div></div>
+
+<p>A description of the base fields is available by clicking the <strong>Description</strong> link above the
+   <strong>Base Fields</strong> box. The description will open in a new window. Close the window when you
+	finished with it.</p>
+<div class="image"><img src="../../images/BaseFields.png" width="496" height="376" alt="Base Fields" />
+<div class="caption">Figure 5</div></div>
+
+<p>To clear all the report parameters on the current page, click the <strong>Clear Template</strong> 
+	<img class="small" src="../../images/ClearTemplate.png" height="19" width="83" alt="Clear Template" /> button. This is 
+	the same as closing the page and reopening it.</p>
+
+<h2>Running a report, Using Templates</h2>
+<p>Help is available on:</p>
+	<ul>
+		<li><a href="../Administration/TemplateReports.htm#runningareport">Running a report</a></li>
+		<li><a href="../Administration/TemplateReports.htm#saveareport">Saving a report as a template</a></li>
+		<li><a href="../Administration/TemplateReports.htm#getatemplate">Opening a template</a></li>
+		<li><a href="../Administration/TemplateReports.htm#publishareport">Publishing a template for others</a></li>
+		<li><a href="../Administration/TemplateReports.htm#unpublishareport">Unpublishing a report</a></li>
+	</ul>
+
+<p>A sample <strong>Ad Hoc Material Matrix</strong> report is shown below.</p>
+<div class="image"><img src="MaterialMatrix6.png" height="464" width="537" alt="Sample Ad hoc Material Matrix report" />
+<div class="caption">Figure 6</div></div>
+
+</body>
+</html>
+

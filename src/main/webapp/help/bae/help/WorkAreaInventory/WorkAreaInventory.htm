@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Work Area Inventory</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="WorkAreaInventory" id="WorkAreaInventory"></a>Work Area Inventory</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The tcmIS <strong>Work Area Inventory</strong> page is used to view information regarding on hand inventory.
+   It can be accessed from either of two menu selections. </p>
+<ul>
+	<li>The <strong>Work Area Inventory</strong> page can be accessed from the <strong>Supply Chain</strong> menu.
+	Under <strong>Work Area Inventory</strong> select the <strong>Work Area Inventory</strong> menu item.</li>
+	<li>The <strong>Work Area Inventory</strong> page can be accessed from the <strong>Reports</strong> menu.
+	Under <strong>Inventory</strong> select the <strong>Work Area Inventory</strong> menu item.</li>
+</ul>
+<p>Using either menu selection, the <strong>Work Area Inventory</strong> page is launched in a new tab.</p>
+
+<div class="image"><img src="WorkAreaInventory1-2.png" height="518" width="703" alt="Work Area Inventory menu links" />
+<div class="caption">Figures 1 and 2</div></div>
+
+<p>The <strong>Work Area Inventory</strong> page allows you to tailor your search for inventory.
+   Select the facility which services the work area from the <strong>Facility</strong> list. Select the work
+   area group from the <strong>Work Area Group</strong> list. The <strong>Work Area</strong> box will be populated with
+	all active work areas for the selected group. You may	select a single work area, or select multiple work areas
+	by holding down the CTRL key while clicking each wanted work area in the <strong>Work Area</strong> box, or you
+	may select <strong>All</strong> work areas.</p>
+<p>By default, the search results (inventory items) are sorted and displayed by Part Number. You may choose to sort by Part
+   Number or Item ID: select the desired sort option from the <strong>Sort By</strong> list.</p>
+<p>You may provide something to at least partially identify the material you want using the <strong>Search by</strong> 
+		 boxes. (Your search may be specified by <strong>Part Number</strong>, <strong>Item Desc</strong>[ription], or 
+		 <strong>Item ID</strong>). See <a href="../Administration/Searches.htm">Search functions</a> for more information.</p>
+<p>You may also tailor the search to locate inventory which is expiring within a specified number of days. Enter the minimum number 
+   of days in the <strong>Expires In</strong> text box and, if wanted, the maximum number of days in the <strong>To ___ days</strong> text 
+   box.</p>
+<p>Select the check box labeled <strong>Show Only Quantity &gt; 0</strong> to see only work area items that currently have
+  stock.</p>
+<p>Click the <strong>Search</strong> button to start the search.</p>
+<div class="image"><img src="WorkAreaInventory3.png" height="482" width="758" alt="Work Area Inventory page with search results" />
+<div class="caption">Figure 3</div></div>
+
+<p>After the search is run, you may sort by any of the columns in the results grid by clicking on the column header. Click the header
+   again to sort in descending order. A small upward- or downward-pointing triangle will appear in the header to indicate the sort.</p>
+<div class="image"><img src="WorkAreaInventory4.png" height="482" width="758" alt="Work Area Inventory sorting" />
+<div class="caption">Figure 4</div></div>
+
+<p>There are three columns on the right end of the data grid that provide information about the inventory quantities <em>in the Work 
+	Area</em>.</p>
+	<ul>
+		<li>The <strong>Last Count Qty</strong> column displays the inventory recorded in the most recent scan.</li>
+		<li>The <strong>Delivered Since Last Count</strong> displays the quantity added subsequent to the most recent scan.</li>
+		<li>The <strong>Total Qty</strong> is the sum of the previous two columns and represents the current inventory (some of which may 
+			 already be consumed and will be accounted for in the next scan.</li>
+	</ul>
+<p>Notice that the expiration date will only be shown on the <strong>Work Area Inventory</strong> page when the 
+	<a href="../WorkAreas/WorkAreaStockMgmt.htm#counttype"><strong>Count Type</strong></a> is <em>Receipt ID</em>.</p>
+<p>There is also a context menu available to view the inventory quantity <em>in the HGI Hub</em>. Right-click on a line and select the 
+	<strong>Show Inventory Detail</strong> menu item to display details on inventory of the item at the warehouse. The <strong>Inventory 
+	Details</strong> page will	be displayed in a new window.</p>
+<div class="image"><img src="WorkAreaInventory5.png" height="508" width="944" alt="Show Inventory Detail context menu item" />
+<div class="caption">Figure 5</div></div>
+
+<p>The <strong>Inventory Details</strong> page shows details on the inventory with sections for <strong>Item Description</strong>, 
+	<strong>On Hand Material</strong>, and material &rsquo;on the way&rsquo; (<strong>In Supply Chain</strong>).</p>
+<p>The expiration date of HGI inventory is always shown on the <strong>Inventory details</strong> page.</p>
+<div class="image"><img src="WorkAreaInventory6.png" height="321" width="496" alt="Inventory Details page" />
+<div class="caption">Figure 6</div></div>
+
+<p>In many cases when you hover the mouse pointer on data cells a tool tip will pop up and display the
+   contents of the cell. This is particularly useful when the data in the cell does not fit the default
+	size of the cell: it allows you to see the entire contents of the cell without having to adjust the
+	width of the column.</p>
+<div class="image"><img src="WorkAreaInventory7.png" height="482" width="758" alt="sample cell contents display in tool tip" />
+<div class="caption">Figure 7</div></div>
+
+<p>Click the <strong>Create Excel</strong> link on the page to export the data in Excel format.</p>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<html><head><title>Request Price Quote</title></head>
+<body bgcolor="#FFFFFF">
+<center>
+<h1>Request Price Quote</h1>
+<form action="/cgi-bin/purch/rpq.cgi" method="POST">
+Request a price quote for Item ID &nbsp;
+<input type="text" name="item" size="8">
+<p>
+for hub &nbsp;
+<select name="bp">
+  <option value="2101">Salem
+  <option value="2102">Dallas
+  <option value="2103">Tucson
+  <option value="2104">Goleta
+  <option value="2106">Normandale
+  <option value="2107">San Antonio
+  <option value="2108">SD- Ames
+  <option value="2109">SD- Freeport
+  <option value="2110">SD- La Salle
+  <option value="2111">SD- Lawrence
+  <option value="2112">SD- West Branch
+  <option value="2114">Largo
+  <option value="2115">Waterfront (Pgh)
+  <option value="2116">Puerto Rico
+  <option value="2117">El Segundo
+  <option value="2118">Decatur
+  <option value="2119">Silicon Valley
+  <option value="2122">DANA Hub
+  <option value="2123">DANA CAN Hub
+  <option value="2199">Kent Hub
+  <option value="2202">Drop Ship
+  <option value="2408">Warner Robins
+  <option value="2428">Los Angeles
+  <option value="2463">Atlanta
+  <option value="2471">Sacramento
+</select>
+<p>
+for end-user's facility (if known) &nbsp;
+<select name="fac">
+  <option value="Default">Take Default
+  <option value="APD Shop">APD Shop
+  <option value="Andover">Andover
+  <option value="Bedford">Bedford
+  <option value="Camden">Camden
+  <option value="DRS">DRS
+  <option value="Eglin AFB (FL)">Eglin AFB (FL)
+  <option value="El Segundo">El Segundo
+  <option value="Forest">Forest
+  <option value="FR-A">Fremont Bldg A
+  <option value="C">Fremont Bldg C
+  <option value="Garland">Garland
+  <option value="Goleta EW">Goleta EW
+  <option value="Goleta Rio/SBRS">Goleta Rio/SBRS
+  <option value="Greenville">Greenville
+  <option value="Holloman AFB (NM)">Holloman AFB (NM)
+  <option value="Holloman AFB">Holloman AFB
+  <option value="Huntsville">Huntsville
+  <option value="Intracom">Intracom
+  <option value="Johnson City">Johnson City
+  <option value="Keyport">Keyport
+  <option value="Lemmon Ave">Lemmon Ave
+  <option value="Largo">Largo
+  <option value="Lewisville">Lewisville
+  <option value="Lexington">Lexington
+  <option value="LONGMONT">Longmont Bldg 389 Disc Drive
+  <option value="Louisville">Louisville
+  <option value="Love Field">Love Field
+  <option value="Marlboro">Marlboro
+  <option value="McAlester">McAlester
+  <option value="McKinney">McKinney
+  <option value="Melbourne">Melbourne
+  <option value="1">Milpitas Bldg 1
+  <option value="8">Milpitas Bldg 8
+  <option value="8A">Milpitas Bldg 8A
+  <option value="NAPI">NAPI
+  <option value="Nashua">Nashua
+  <option value="Norfolk">Norfolk
+  <option value="North Bldg">North Bldg
+  <option value="Pelham">Pelham
+  <option value="Portsmouth">Portsmouth
+  <option value="Pt. Mugu NAWC (CA)">Pt. Mugu NAWC (CA)
+  <option value="Quincy">Quincy
+  <option value="RRFC">RRFC
+  <option value="ReyWest">ReyWest
+  <option value="Richardson">Richardson
+  <option value="San Antonio">San Antonio
+  <option value="SC Bldg">SC Bldg
+  <option value="Sherman">Sherman
+  <option value="Spring Creek">Spring Creek
+  <option value="Sudbury">Sudbury
+  <option value="Sycamore">Sycamore
+  <option value="Tewksbury">Tewksbury
+  <option value="Texarkana">Texarkana
+  <option value="Tucson Airport">Tucson Airport
+  <option value="Tucson Rita Road">Tucson Rita Road
+  <option value="Waco">Waco
+  <option value="Waltham Labs">Waltham Labs
+  <option value="Waltham">Waltham
+  <option value="Waterview">Waterview
+  <option value="Weymouth">Weymouth
+  <option value="White Sands LC-35 South">White Sands LC-35 South
+  <option value="White Sands LC-38">White Sands LC-38
+  <option value="HSD WL-Facilities">HSD WL-Facilities
+  <option value="HSD WL-Mech Ops">HSD WL-Mech Ops
+  <option value="HSD WL-Repair Ops">HSD WL-Repair Ops
+  <option value="HSD WL-Space & Sea">HSD WL-Space & Sea
+  <option value="HSD- Farmington">HSD- Farmington
+  <option value="HSD- Puerto Rico">HSD- Puerto Rico
+  <option value="HSD- Rockford Plant 1">HSD- Rockford Plant 1
+  <option value="HSD- Rockford Plant 6">HSD- Rockford Plant 6
+  <option value="PWA- North Berwick">PWA- North Berwick
+  <option value="SLAC - BSD">SLAC - BSD
+  <option value="SLAC - DIR">SLAC - DIR
+  <option value="SLAC - ES&H">SLAC - ES&H
+  <option value="SLAC - LCLS">SLAC - LCLS
+  <option value="SLAC - RES">SLAC - RES
+  <option value="SLAC - SSRL">SLAC - SSRL
+  <option value="SLAC - TECH">SLAC - TECH
+  <option value="Accessories (C)"> Accessories (C)
+  <option value="Aircraft (A)"> Aircraft (A)
+  <option value="Central Services (Y)"> Central Services (Y)
+  <option value="Elta (E)"> Elta (E)
+  <option value="Engineering Center (J)"> Engineering Center (J)
+  <option value="Engines (B)"> Engines (B)
+  <option value="Golan Industries (T)"> Golan Industries (T)
+  <option value="Lahav (N)"> Lahav (N)
+  <option value="Malam (H)"> Malam (H)
+  <option value="Malat(U)"> Malat(U)
+  <option value="Mata (M)"> Mata (M)
+  <option value="Production (L)"> Production (L)
+  <option value="Ramta (R)"> Ramta (R)
+  <option value="Shahal (S)"> Shahal (S)
+  <option value="Tamam/ Mabat (F)"> Tamam/ Mabat (F)
+</select>
+<br>
+<i>Will default to Andover, North Bldg, Tucson Airport, NRM, Largo, WATERFRONT, HSD- Puerto Rico, El Segundo, or Dallas Love<br>
+for hubs Salem, Dallas, Tucson, Normandale, Largo, Waterfront (Pgh), Puerto Rico, El Segundo, and DropShip</i>
+<p>
+for company &nbsp;
+<select name="comp">
+  <option value="RAYTHEON">Raytheon
+  <option value="DRS">DRS
+  <option value="SWA">Southwest Airlines
+  <option value="SEAGATE">Seagate
+  <option value="BAE">BAE
+  <option value="UTC">UTC
+  <option value="EMBRAER">Embraer
+  <option value="DANA">Dana
+  <option value="LOCKHEED">Lockheed
+  <option value="DOE">DOE (SLAC)
+  <option value="BOEING">ULA
+  <option value="BOEING_CO">Boeing
+  <option value="MILLER">Miller
+  <option value="IAI">IAI
+  <option value="GD">GD
+</select>
+<p>
+<input type="submit" name="Request Quote" value="Request Quote">
+</form></center></body></html>

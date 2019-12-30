@@ -1,0 +1,101 @@
+div.gridbox{
+	overflow:hidden;
+}
+div.gridbox table.hdr td {
+	font-family:arial;
+	font-size:12px;
+  color: black;
+	border: 1px solid;
+	border-color : white Gray Gray white;
+	text-align: center;
+	margin:0px;
+	padding:5px 0px 5px 0px ;
+	font-weight:normal;
+       overflow:hidden;
+	}
+
+div.gridbox table.obj td {
+	border: 1px solid;
+	border-color : white Gray Gray white;
+	font-family:Arial;
+	font-size:12px;
+       overflow:hidden;
+    padding-top:0px;
+    padding-bottom:0px;
+	}
+
+div.gridbox table.row20px tr  td{
+    height:20px;
+    font-size: 10px;
+    white-space: nowrap;
+    padding:0px;
+}
+div.gridbox table.row30px tr  td{
+    height:30px;
+    font-size: 10px;
+    white-space: nowrap;
+    padding:0px;
+}
+
+div.gridbox table.row60px tr  td{
+    height:60px;
+    font-size: 10px;
+    white-space: nowrap;
+    padding:0px;
+}
+
+div.gridbox .objbox {
+	background-color:white;
+
+	}
+div.gridbox table.obj td span.space, div.gridbox table.obj td img.space{
+	width:18px;
+	}
+div.gridbox table.obj tr.rowselected td.cellselected, div.gridbox table.obj td.cellselected {
+	background-color:#d9d9ff;
+	color:black;
+	}
+div.gridbox table.obj tr.rowselected td{
+	background-color:#acacff;
+	color:black;
+	}
+
+div.gridbox table.obj td.editable{
+        color:green;
+    }
+
+.dragSpanDiv{ 	font-size : 12px; 	border: 1px gray solid; background-color:white; }
+.dhx_combo_select{
+    font-family:arial;
+    font-size:12px;
+    border:1px solid;
+    border-color:black silver silver black;
+    background-color:white;
+    overflow:hidden;
+    cursor:default;
+    position:absolute;
+    height:auto;
+}
+.dhx_combo_edit{
+    width:100%;
+    border:0px;
+    padding:0px;
+    margin:0px;
+    font:12px arial;
+    overflow:hidden;
+}
+
+.even{
+    background-color:#ffffff;
+    font-size: 10px;
+}
+.uneven{
+    background-color:#f5f5ff;
+	 font-size: 10px;
+}
+
+div.mroCell {
+    font-size: 10px;
+    padding:0px 3px 0px 3px ;
+    vertical-align:top;
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Order Tracking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" />
+</head>
+
+<body>
+<h1><a name="OrderTracking" id="OrderTracking"></a>Order Tracking</h1>
+<p><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+   <a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Order Tracking</strong> page allows you to determine the status of an Order (aka, Material Request or MR) in tcmIS. The
+   <strong>Order Tracking</strong> page also provides a menu item to send a question to HGI about an order.</p>
+<p>The <strong>Order Tracking</strong> page is accessed from the <strong>Order Tracking</strong> menu by clicking on the
+	 <strong>Order Tracking</strong> menu item. The <strong>Order Tracking</strong> page is launched in a new tab.</p>
+<div class="image"><img src="OrderTracking1.png" height="218" width="739" alt="Order Tracking menu item" />
+<div>Figure 1</div></div>
+
+<p>The <strong>Order Tracking</strong> page allows you to tailor your search for requested materials and view their status.
+   You must choose the customer for your search from the <strong>Customer</strong> list. You may narrow your search to items 
+   shipped to a specific location by selecting it from the <strong>Ship To</strong> list, or leave that at the default of 
+   <em>All</em> locations.</p>
+<ul>
+	<li>Using the <strong>Status</strong> selection box, you may choose to search for <em>All</em> orders, leave the default of 
+		 <em>Open</em> orders, or request only <em>Complete</em>[d] orders.</li>
+   <li>To locate orders from a specific time period, use the two fields labeled <strong>Order Date: From...To</strong>. Each time you place 
+   	 your mouse cursor in one of these fields, the <a href="#dateselector"><strong>Date Selector form</strong></a> is displayed. You may 
+   	 choose a date for <strong>From</strong>, <strong>To</strong>, or both.
+		<ul>
+			<li>Choose each date by clicking the date on the calendar. The dates selected will appear on the <strong>Order Tracking</strong> page.</li>
+			<li>For a specific date: enter the same date in both fields.</li>
+			<li>For a date range: enter the earliest date in the left field and the latest date in the right field.</li>
+		</ul>
+	</li>
+   <li>To locate orders based on the promised ship date, use the two fields labeled <strong>Promised Ship Date: From...To</strong>. Each time you place 
+   	 your mouse cursor in one of these fields, the <a href="#dateselector"><strong>Date Selector form</strong></a> is displayed. You may 
+   	 choose a date for <strong>From</strong>, <strong>To</strong>, or both.
+		<ul>
+			<li>Choose each date by clicking the date on the calendar. The dates selected will appear on the <strong>Order Tracking</strong> page.</li>
+			<li>For a specific date: enter the same date in both fields.</li>
+			<li>For a date range: enter the earliest date in the left field and the latest date in the right field.</li>
+		</ul>
+	</li>
+	<li>You may provide something to at least partially identify the material you want using the <strong>Search</strong> 
+	    boxes by providing partial or full text for the <em>MR</em> (material Request number), the <em>Catalog Item</em> [number], the 
+		 <em>Customer PO</em> (which is the default selection), or the <em>Customer Part Number</em>. See 
+		 <a href="../Administration/Searches.htm">Search functions</a> for more information.</li>
+</ul>
+<p>Click the <strong>Search</strong> button to begin the search. tcmIS will display the records it finds in a data grid 
+	in the lower panel of the <strong>Order Tracking</strong> page.</p>
+
+<div class="image"><img src="OrderTracking2.png" height="380" width="739" alt="Order Tracking page search parameters" />
+<div>Figure 2</div></div>
+
+<h3><a id="dateselector">Date Selector form</a></h3>
+<div class="image"><img src="../../images/DateSelectorForm.png" height="240" width="189" alt="DateSelectorForm" />
+<div>Figure 3</div></div>
+
+<p>Click on the <strong>Show Legend</strong> link in the upper left of the data grid to see a small form which
+   provides a key to the colors used to highlight the status of some lines.</p>
+<div class="image"><img src="OrderTracking4.png" height="143" width="319" alt="Order Tracking page with data grid" />
+<div>Figure 4</div></div>
+
+<p>The data grid contains a single record on each row/line with values for the record in the named columns. This is a rather wide 
+	grid so it will be necessary to scroll to the right to see information that does not fit on the initial display. Use the 
+	scroll bar near the bottom of the panel to move your &#39;view&#39; of the data left and right as needed.</p>
+<p>Right click in any column of any record and two things will happen.</p>
+	<ul>
+		<li>The record row will be &#39;selected&#39;: this is visually indicated by the background of the row changing to a 
+			 light purple color.</li>
+		<li>A small &#39;context menu&#39; will be displayed: this menu allows you to choose one of three actions.</li>
+		<li>A left click on a record will also select and highlight it but will not display the context menu.</li>
+	</ul>
+<div class="image"><img src="OrderTracking5.png" height="557" width="917" alt="Order Tracking page with MR menu items" />
+<div>Figure 5</div></div>
+
+<p>On the context menu, selecting the <strong>Order Status</strong> menu item will open a child window and display an 
+	<strong>Order Status</strong> form. There will be a record for every line in the order. (If there is only a single line 
+	on the order, the <strong>Order Status</strong> form and the <strong>Order Line Status</strong> form (see below) will 
+	display the same information.)</p>
+<p>In addition to reading the information on this form, there are four actions you can take.</p>
+	<ul>
+		<li>Click on the name of the CSR, displayed as a link, in the upper left corner, to display a small window that will 
+			 appear superimposed on the form showing information about the CSR.</li>
+		<li>Some columns may be too narrow to display all their data: hover your mouse on any of these columns and the data will be 
+			 displayed in a small box known as a &#39;tool tip&#39;.</li>
+		<li>Right click on any data in the left half of the form for a context menu item to <strong>Print</strong> the record.</li>
+		<li>Right click on data at the right end of a record for a context menu to
+			<ul>
+				<li><strong>Display Certs</strong> will open another child window to display any scanned OEM Certificates for the shipment 
+					 (<em>this menu item is displayed only if OEM Certificates were scanned in during the receiving process</em>);</li>
+				<li><strong>Display MSDS</strong> will open another child window to display a stored MSDS for the material 
+					 (<em>if this item is not active, the <strong>Request MSDS</strong> item will be available</em>);</li>
+				<li><strong>Request MSDS</strong> will send an email to the CSR and the HGI Catalog Team requesting the MSDS be entered 
+					 into the Portal (<em>this item is not available if <strong>Display MSDS</strong> is active</em>);</li>
+				<li><strong>Display Packing List</strong> will open another child window to display the packing list for the shipment
+					 (<em>this menu item is displayed only if the MR is ship confirmed</em>);</span></li>
+				<li><strong>Display Invoice</strong> will open another child window to display the invoice for the shipment 
+					 (<em>this menu item is displayed only if your user account has permissions to view invoices</em>).</li>
+			</ul>
+		</li>
+	</ul>
+<div class="image"><img src="OrderTracking6.png" height="242" width="816" alt="Order Status form" />
+<div>Figure 6</div></div>
+
+<p>On the context menu, selecting the <strong>Order Line Status</strong> menu item will open a child window and display a 
+	<strong>Line Order Status</strong> form. There will only be a record for the particular item from the order selected on 
+	the <strong>Order Tracking</strong> page.</p>
+<p>In addition to reading the information on this form, there are four actions you can take.</p>
+	<ul>
+		<li>Click on the name of the CSR, displayed as a link, in the upper left corner, to display a small window that will 
+			 appear superimposed on the form showing information about the CSR.</li>
+		<li>Some columns may be too narrow to display all their data: hover your mouse on any of these columns and the data will be 
+			 displayed in a small box known as a &#39;tool tip&#39;.</li>
+		<li>Right click on any data in the left half of the form for a context menu item to <strong>Print</strong> the record.</li>
+		<li>Right click on data at the right end of a record for a context menu to
+			<ul>
+				<li><strong>Display Certs</strong> will open another child window to display any scanned OEM Certificates for the material 
+					 (<em>this menu item is displayed only if OEM Certificates were scanned in during the receiving process</em>);</li>
+				<li><strong>Display MSDS</strong> will open another child window to display a stored MSDS for the material 
+					 (<em>if this item is not active, the <strong>Request MSDS</strong> item will be available</em>);</li>
+				<li><strong>Request MSDS</strong> will send an email to the CSR and the HGI Catalog Team requesting the MSDS be entered 
+					 into the Portal (<em>this item is not available if <strong>Display MSDS</strong> is active.</em>);</li>
+				<li><strong>Display Packing List</strong> will open another child window to display the packing list for the order line 
+					 (<em>this menu item is displayed only if the MR is ship confirmed</em>);</li>
+				<li><strong>Display Invoice</strong> will open another child window to display the invoice for the order line 
+					 (<em>this menu item is displayed only if your user account has permissions to view invoices</em>).</li>
+			</ul>
+		</li>
+	</ul>
+<div class="image"><img src="OrderTracking7.png" height="242" width="816" alt="Order Line Status form" />
+<div>Figure 7</div></div>
+
+<p>On the context menu, selecting the <strong>Contact Us Concerning This Order</strong> menu item will open a child window and display 
+	a <strong>Contact</strong> form. Complete this form:
+	<ul>
+		<li>Select your topic from the <strong>Subject</strong> list: <em>Request Delivery Confirmation</em>, <em>Expedite Order</em>, or 
+			 <em>Other</em>.</li>
+		<li>Enter details about your situation, if applicable, in the large text box.</li>
+		<li>Click the <strong>Submit</strong> button to send the inquiry about the record to HGI.</li>
+	</ul>	
+<div class="image"><img src="OrderTracking8.png" height="321" width="416" alt="Contact form" />
+<div>Figure 8</div></div>
+
+  </body>
+</html>

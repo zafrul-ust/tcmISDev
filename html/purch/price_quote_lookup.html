@@ -1,0 +1,29 @@
+<html>
+
+<head>
+<title>Price Quote History</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p>
+<center><h2>Price Quote History</h2>
+<p>
+<form action="/cgi-bin/purch/pqlookup.cgi" method="post">
+Show quote history for Radian Item ID &nbsp;
+<input type="text" name="item_id" value="">
+<br>(blank means any Item ID)
+<p>
+or any item where a quote was from &nbsp;
+<input type="text" name="supp" value="">
+<br>(blank means any supplier)
+<p>
+Sort by: &nbsp;
+<select name="sortby">
+        <option value="item_id">Radian Item ID
+        <option value="item_desc">Description
+</select>
+<input type="radio" name="up" value="" CHECKED>Ascending
+<input type="radio" name="up" value="desc">Descending
+<input type="submit" value="Submit & Sort">
+</form></center></body></html>

@@ -1,0 +1,491 @@
+<html><head><title></title>
+<script language="JavaScript">
+version = 0;
+browserName = navigator.appName;
+browserVer = parseInt(navigator.appVersion);
+
+if (browserName == "Netscape" && browserVer >= 3) {
+        version = 3;
+}
+else if (browserName == "Netscape" && browserVer == 2) {
+        version = 2;
+}
+else if (browserName == "Microsoft Internet Explorer" && browserVer >= 3) {
+        version = 1;
+}
+
+var val = "01/22/1997"
+var ch = #CH#;
+var jdx = #J#;
+var jmax = #JM#;
+var mgrey = "#MGREY#";
+#HJH#var hgrey = "#HGREY#";
+#CJH#var cgrey = "#CGREY#";
+#PJH#var pgrey = "#PGREY#";
+#LJH#var lgrey = "#LGREY#";
+#SJH#var sgrey = "#SGREY#";
+#AJH#var agrey = "#AGREY#";
+#DARRAY#
+var m = "/images/buttons/msds/1msds.gif";
+#NJH#var mco = "/images/buttons/msds/1mscomp.gif";
+#NJH#var mfi = "/images/buttons/msds/1msfirst.gif";
+#HJH#var s = "/images/buttons/sandh/1sandh.gif";
+#AJH#var a = "/images/buttons/air/1shpair.gif";
+#LJH#var l = "/images/buttons/land/1shplnd.gif"; 
+#PJH#var p = "/images/buttons/prop/1prop.gif";
+#CJH#var c = "/images/buttons/comp/1comp.gif";
+#SJH#var sp = "/images/buttons/spec/1spec.gif";
+var m2 = "/images/buttons/msds/2msds.gif";
+#NJH#var mco2 = "/images/buttons/msds/2mscomp.gif";
+#NJH#var mfi2 = "/images/buttons/msds/2msfirst.gif";
+#HJH#var s2 = "/images/buttons/sandh/2sandh.gif";
+#AJH#var a2 = "/images/buttons/air/2shpair.gif";
+#LJH#var l2 = "/images/buttons/land/2shplnd.gif";
+#PJH#var p2 = "/images/buttons/prop/2prop.gif";
+#CJH#var c2 = "/images/buttons/comp/2comp.gif";
+#SJH#var sp2 = "/images/buttons/spec/2spec.gif";
+var mb = "/images/buttons/msds/lrgmsds.gif";
+#NJH#var mcob = "/images/buttons/msds/lrgmscomp.gif";
+#NJH#var mfib = "/images/buttons/msds/lrgmsfirst.gif";
+#HJH#var sb = "/images/buttons/sandh/lrgsandh.gif";
+#AJH#var ab = "/images/buttons/air/lrgshpair.gif";
+#LJH#var lb = "/images/buttons/land/lrgshplnd.gif";
+#PJH#var pb = "/images/buttons/prop/lrgprop.gif";
+#CJH#var cb = "/images/buttons/comp/lrgcomp.gif";
+#SJH#var spb = "/images/buttons/spec/lrgspec.gif";
+var mg = "/images/buttons/msds/msdsgry.gif";
+#NJH#var mcog = "/images/buttons/msds/mscompgry.gif";
+#NJH#var mfig = "/images/buttons/msds/msfirstgry.gif";
+#HJH#var sg = "/images/buttons/sandh/sandhgry.gif";
+#AJH#var ag = "/images/buttons/air/shpairgry.gif";
+#LJH#var lg = "/images/buttons/land/shplndgry.gif";
+#PJH#var pg = "/images/buttons/prop/propgry.gif";
+#CJH#var cg = "/images/buttons/comp/compgry.gif";
+#SJH#var spg = "/images/buttons/spec/specgry.gif";
+var mc = "/cgi-bin/gen/msds.cgi?id=#ID##SPEC#&date=";
+#HJH#var sc = "/cgi-bin/gen/store.cgi?id=#ID##SPEC#&date=";
+#AJH#var ac = "/cgi-bin/gen/air.cgi?id=#ID##SPEC#&date=";
+#LJH#var lc = "/cgi-bin/gen/land.cgi?id=#ID##SPEC#&date=";
+#PJH#var pc = "/cgi-bin/gen/prop.cgi?id=#ID##SPEC#&date=";
+#CJH#var cc = "/cgi-bin/gen/comp.cgi?id=#ID##SPEC#&date=";
+#SJH#var spc = "/cgi-bin/gen/spec.cgi?id=#ID##SPEC#&date=";
+
+if (version == 3) {
+    defalt = new Array(9);
+    hilight = new Array(9);
+    selected = new Array(9);
+    greyout = new Array(9);
+    defalt[1] = new Image(110,46);
+    defalt[2] = new Image(110,46);
+    defalt[3] = new Image(110,46);
+    defalt[4] = new Image(110,46);
+    defalt[5] = new Image(110,46);
+    defalt[6] = new Image(110,46);
+    defalt[7] = new Image(110,46);
+    defalt[8] = new Image(110,46);
+    defalt[9] = new Image(110,46);
+    hilight[1] = new Image(110,46);
+    hilight[2] = new Image(110,46);
+    hilight[3] = new Image(110,46);
+    hilight[4] = new Image(110,46);
+    hilight[5] = new Image(110,46);
+    hilight[6] = new Image(110,46);
+    hilight[7] = new Image(110,46);
+    hilight[8] = new Image(110,46);
+    hilight[9] = new Image(110,46);
+    greyout[1] = new Image(110,46);
+    greyout[2] = new Image(110,46);
+    greyout[3] = new Image(110,46);
+    greyout[4] = new Image(110,46);
+    greyout[5] = new Image(110,46);
+    greyout[6] = new Image(110,46);
+    greyout[7] = new Image(110,46);
+    greyout[8] = new Image(110,46);
+    greyout[9] = new Image(110,46);
+    selected[1] = new Image(110,46);
+    selected[2] = new Image(110,46);
+    selected[3] = new Image(110,46);
+    selected[4] = new Image(110,46);
+    selected[5] = new Image(110,46);
+    selected[6] = new Image(110,46);
+    selected[7] = new Image(110,46);
+    selected[8] = new Image(110,46);
+    selected[9] = new Image(110,46);
+    defalt[1].src = m;
+#NJH#    defalt[2].src = mco;
+#NJH#    defalt[3].src = mfi;
+#HJH#    defalt[4].src = s;
+#AJH#    defalt[5].src = a;
+#LJH#    defalt[6].src = l;
+#PJH#    defalt[7].src = p;
+#CJH#    defalt[8].src = c;
+#SJH#    defalt[9].src = sp;
+    hilight[1].src = m2;
+#NJH#    hilight[2].src = mco2;
+#NJH#    hilight[3].src = mfi2;
+#HJH#    hilight[4].src = s2;
+#AJH#    hilight[5].src = a2;
+#LJH#    hilight[6].src = l2;
+#PJH#    hilight[7].src = p2;
+#CJH#    hilight[8].src = c2;
+#SJH#    hilight[9].src = sp2;
+    greyout[1].src = mg;
+#NJH#    greyout[2].src = mcog;
+#NJH#    greyout[3].src = mfig;
+#HJH#    greyout[4].src = sg;
+#AJH#    greyout[5].src = ag;
+#LJH#    greyout[6].src = lg;
+#PJH#    greyout[7].src = pg;
+#CJH#    greyout[8].src = cg;
+#SJH#    greyout[9].src = spg;
+    selected[1].src = mb;
+#NJH#    selected[2].src = mcob;
+#NJH#    selected[3].src = mfib;
+#HJH#    selected[4].src = sb;
+#AJH#    selected[5].src = ab;
+#LJH#    selected[6].src = lb;
+#PJH#    selected[7].src = pb;
+#CJH#    selected[8].src = cb;
+#SJH#    selected[9].src = spb;
+}
+
+function getOver(i) {
+  if (version == 3) {
+    tmp = "";
+    if (i == 0 && mgrey.substring(jdx,jdx+1) == 1) {
+	tmp = m2;
+#NJH#    } else if (i == 1 && mgrey.substring(jdx,jdx+1) == 1) {
+#NJH#	tmp = mco2;
+#NJH#    } else if (i == 2 && mgrey.substring(jdx,jdx+1) == 1) {
+#NJH#	tmp = mfi2;
+#HJH# } else if (i == 3 && hgrey.substring(jdx,jdx+1) == 1) {
+#HJH#	tmp = s2;
+#AJH# } else if (i == 4 && agrey.substring(jdx,jdx+1) == 1) {
+#AJH#	tmp = a2;
+#LJH# } else if (i == 5 && lgrey.substring(jdx,jdx+1) == 1) {
+#LJH#	tmp = l2;
+#PJH# } else if (i == 6 && pgrey.substring(jdx,jdx+1) == 1) {
+#PJH#	tmp = p2;
+#CJH# } else if (i == 7 && cgrey.substring(jdx,jdx+1) == 1) {
+#CJH#	tmp = c2;
+#SJH# } else if (i == 8 && sgrey.substring(jdx,jdx+1) == 1) {
+#SJH#	tmp = sp2;
+    }
+    if (ch != i && tmp != "") {
+	document.images[i].src = tmp
+    }
+  }
+}
+function getOut(i) {
+  if (version == 3) {
+    tmp = "";
+    if (i == 0 && mgrey.substring(jdx,jdx+1) == 1) {
+	tmp = m;
+#NJH#    } else if (i == 1 && mgrey.substring(jdx,jdx+1) == 1) {
+#NJH#	tmp = mco;
+#NJH#    } else if (i == 2 && mgrey.substring(jdx,jdx+1) == 1) {
+#NJH#	tmp = mfi;
+#HJH# } else if (i == 3 && hgrey.substring(jdx,jdx+1) == 1) {
+#HJH#	tmp = s;
+#AJH# } else if (i == 4 && agrey.substring(jdx,jdx+1) == 1) {
+#AJH#	tmp = a;
+#LJH# } else if (i == 5 && lgrey.substring(jdx,jdx+1) == 1) {
+#LJH#	tmp = l;
+#PJH# } else if (i == 6 && pgrey.substring(jdx,jdx+1) == 1) {
+#PJH#	tmp = p;
+#CJH# } else if (i == 7 && cgrey.substring(jdx,jdx+1) == 1) {
+#CJH#	tmp = c;
+#SJH# } else if (i == 8 && sgrey.substring(jdx,jdx+1) == 1) {
+#SJH#	tmp = sp;
+    }
+    if (ch != i && tmp != "") {
+	document.images[i].src = tmp
+    }
+  }
+}
+function dchange(i) {
+    if (version == 3) {
+      if (mgrey.substring(jdx,jdx+1) == 0) {
+	document.images[0].src = mg;
+      } else {
+	if (i == 0) {
+	  document.images[0].src = mb;
+	  loc = mc;
+	} else {
+	  document.images[0].src = m;
+	}
+      }
+#NJBH#      if (mgrey.substring(jdx,jdx+1) == 0) {
+	document.images[1].src = mcog;
+      } else {
+	if (i == 1) {
+	  document.images[1].src = mcob;
+	  loc = mc;
+	} else {
+	  document.images[1].src = mco;
+	}
+      }
+    if (mgrey.substring(jdx,jdx+1) == 0) {
+	document.images[2].src = mfig;
+      } else {
+	if (i == 2) {
+	  document.images[2].src = mfib;
+	  loc = mc;
+	} else {
+	  document.images[2].src = mfi;
+	}
+      }
+#NJBEH1#
+#HJBH#      if (hgrey.substring(jdx,jdx+1) == 0) {
+	document.images[3].src = sg;
+      } else {
+	if (i == 3) {
+	  document.images[3].src = sb;
+	  loc = sc;
+	} else {
+	  document.images[3].src = s;
+	}
+      }
+#HJBEH1#
+#AJBH# if (agrey.substring(jdx,jdx+1) == 0) {
+	document.images[4].src = ag;
+      } else {
+	if (i == 4) {
+	  document.images[4].src = ab;
+	  loc = ac;
+	} else {
+	  document.images[4].src = a;
+	}
+      }
+#AJBEH1#
+#LJBH# if (lgrey.substring(jdx,jdx+1) == 0) {
+	document.images[5].src = lg;
+      } else {
+	if (i == 5) {
+	  document.images[5].src = lb;
+	  loc = lc;
+	} else {
+	  document.images[5].src = l;
+	}
+      }
+#LJBEH1#
+#PJBH# if (pgrey.substring(jdx,jdx+1) == 0) {
+	document.images[6].src = pg;
+      } else {
+	if (i == 6) {
+	  document.images[6].src = pb;
+	  loc = pc;
+	} else {
+	  document.images[6].src = p;
+	}
+      }
+#PJBEH1#
+#CJBH# if (cgrey.substring(jdx,jdx+1) == 0) {
+	document.images[7].src = cg;
+      } else {
+	if (i == 7) {
+	  document.images[7].src = cb;
+	  loc = cc;
+	} else {
+	  document.images[7].src = c;
+	}
+      }
+#CJBEH1#
+#SJBH# if (sgrey.substring(jdx,jdx+1) == 0) {
+	document.images[8].src = spg;
+      } else {
+	if (i == 8) {
+	  document.images[8].src = spb;
+	  loc = spc;
+	} else {
+	  document.images[8].src = sp;
+	}
+      }
+#SJBEH1#
+    }
+    parent.data.location = loc + val
+}
+
+function change(i) {
+    tmp = "";
+    if (ch == 0) {
+      if (mgrey.substring(jdx,jdx+1) == 1) {
+	tmp = m;
+	sv = mb;
+      }
+#NJBH#    } else if (ch ==1) {
+      if (mgrey.substring(jdx,jdx+1) == 1) {
+	tmp = mco;
+	sv = mcob;
+      }
+    } else if (ch ==2) {
+      if (mgrey.substring(jdx,jdx+1) == 1) {
+	tmp = mfi;
+	sv = mfib;
+      }
+#NJBEH2#
+#HJBH# } else if (ch ==3) {
+      if (hgrey.substring(jdx,jdx+1) == 1) {
+	tmp = s;
+	sv = sb;
+      }
+#HJBEH2#
+#AJBH# } else if (ch ==4) {
+      if (agrey.substring(jdx,jdx+1) == 1) {
+	tmp = a;
+	sv = ab;
+      }
+#AJBEH2#
+#LJBH# } else if (ch ==5) {
+      if (lgrey.substring(jdx,jdx+1) == 1) {
+	tmp = l;
+	sv = lb;
+      }
+#LJBEH2#
+#PJBH# } else if (ch ==6) {
+      if (pgrey.substring(jdx,jdx+1) == 1) {
+	tmp = p;
+	sv = pb;
+      }
+#PJBEH2#
+#CJBH# } else if (ch ==7) {
+      if (cgrey.substring(jdx,jdx+1) == 1) {
+	tmp = c;
+	sv = cb;
+      }
+#CJBEH2#
+#SJBH# } else if (ch ==8) {
+      if (sgrey.substring(jdx,jdx+1) == 1) {
+	tmp = sp;
+	sv = spb;
+      }
+#SJBEH2#
+    }
+  if (version == 3 && tmp != "") {
+    document.images[ch].src = tmp
+  }
+    tmp = "";
+    loc = "";
+    rel = "";
+    if (i == 0) {
+      if (mgrey.substring(jdx,jdx+1) == 1) {
+	tmp = mb;
+	loc = mc;
+      }
+#NJBH#    } else if (i ==1) {
+      if (mgrey.substring(jdx,jdx+1) == 1) {
+	tmp = mcob;
+	loc = mc;
+	rel = "#COMP";
+      }
+    } else if (i ==2) {
+      if (mgrey.substring(jdx,jdx+1) == 1) {
+	tmp = mfib;
+	loc = mc;
+	rel = "#FA";
+      }
+#NJBEH3#
+#HJBH# } else if (i ==3) {
+      if (hgrey.substring(jdx,jdx+1) == 1) {
+	tmp = sb;
+	loc = sc;
+      }
+#HJBEH3#
+#AJBH# } else if (i ==4) {
+      if (agrey.substring(jdx,jdx+1) == 1) {
+	tmp = ab;
+	loc = ac;
+      }
+#AJBEH3#
+#LJBH# } else if (i ==5) {
+      if (lgrey.substring(jdx,jdx+1) == 1) {
+	tmp = lb;
+	loc = lc;
+      }
+#LJBEH3#
+#PJBH# } else if (i ==6) {
+      if (pgrey.substring(jdx,jdx+1) == 1) {
+	tmp = pb;
+	loc = pc;
+      }
+#PJBEH3#
+#CJBH# } else if (i ==7) {
+      if (cgrey.substring(jdx,jdx+1) == 1) {
+	tmp = cb;
+	loc = cc;
+      }
+#CJBEH3#
+#SJBH# } else if (i ==8) {
+      if (sgrey.substring(jdx,jdx+1) == 1) {
+	tmp = spb;
+	loc = spc;
+      }
+#SJBEH3#
+    }
+  if (version == 3 && tmp != "") {
+    document.images[i].src = tmp
+  }
+  if (loc != "") {
+    ch = i;
+    parent.data.location = loc + val + rel
+  } else {
+    document.images[ch].src = sv;
+  }
+}
+function set(i) {
+    val = i + " "
+    for (j=0;j<jmax;j++) {
+	if (dArray[j] == i) {
+	    jdx = j;
+	}
+    }
+    this.dchange(ch)
+}
+function get(s) {
+    parent.location = s + "&date=" + val
+}
+function init() {
+  if (document.forms[0].elements[jdx]) {
+    val = document.forms[0].elements[jdx].value;
+  }
+}
+</script>
+</head>
+<body bgcolor="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" onLoad="init()">
+<form>
+#DATES#
+</form>
+<a onMouseOver="getOver(0)" onMouseOut="getOut(0)" href="javascript:change(0)"><img src="#M#"></a>
+#NHIDE#<br><a onMouseOver="getOver(1)" onMouseOut="getOut(1)" href="javascript:change(1)"><img src="#MCO#"></a>#ENHIDE#
+#NHIDE#<br><a onMouseOver="getOver(2)" onMouseOut="getOut(2)" href="javascript:change(2)"><img src="#MFI#"></a>#ENHIDE#
+#SHIDE#<br><a onMouseOver="getOver(3)" onMouseOut="getOut(3)" href="javascript:change(3)"><img src="#S#"></a>#ESHIDE#
+#AHIDE#<br><a onMouseOver="getOver(4)" onMouseOut="getOut(4)" href="javascript:change(4)"><img src="#A#"></a>#EAHIDE#
+#LHIDE#<br><a onMouseOver="getOver(5)" onMouseOut="getOut(5)" href="javascript:change(5)"><img src="#L#"></a>#ELHIDE#
+#PHIDE#<br><a onMouseOver="getOver(6)" onMouseOut="getOut(6)" href="javascript:change(6)"><img src="#P#"></a>#EPHIDE#
+#CHIDE#<br><a onMouseOver="getOver(7)" onMouseOut="getOut(7)" href="javascript:change(7)"><img src="#C#"></a>#ECHIDE#
+#SPHIDE#<br><a onMouseOver="getOver(8)" onMouseOut="getOut(8)" href="javascript:change(8)"><img src="#SP#"></a>#ESPHIDE#
+<p>
+<center>
+<table border="1" cellspacing="0">
+    <tr>
+        <td width="25" bgcolor="#0000FF"><font color="#FFFFFF"
+        size="3"><strong>&nbsp;H</strong></font></td>
+        <td width="20" align="center">#HEAL#</td>
+    </tr>
+    <tr>
+        <td width="25" bgcolor="#FF0000"><font color="#FFFFFF"
+        size="3"><strong>&nbsp;F</strong></font></td>
+        <td width="20" align="center">#FLAM#</td>
+    </tr>
+    <tr>
+        <td width="25" bgcolor="#FFFF00"><font size="3">&nbsp;<strong>R</strong></font></td>
+        <td width="20" align="center">#REACT#</td>
+    </tr>
+    <tr>
+        <td width="25"><font size="3">&nbsp;<strong>S</strong></font></td>
+        <td width="20" align="center">#HAZ#</td>
+    </tr>
+</table>
+</center>
+</body></html>
+

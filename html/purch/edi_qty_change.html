@@ -1,0 +1,21 @@
+<html><head><title>EDI Qty Change requests</title></head>
+<body bgcolor="#FFFFFF">
+<center>
+<h2>EDI Qty Change requests</h2>
+<p>
+<form action="/cgi-bin/purch/edi_lookup.cgi" method="POST">
+Look for change orders for company: &nbsp;
+<select name="comp">
+<option value="SWA">SWA
+<option value="IAI">IAI
+<option value="MILLER">MILLER
+</select>
+<p>
+Look for customer PO <input type="text" name="cust_po" size="30">
+<p>
+Or look for Haas MR <input type="text" name="mr" size="10">
+<p>
+Or look for the MR assigned to Haas PO <input type="text" name="po" size="10">
+<p>
+<input type="submit" name="Lookup Change Requests" value="Lookup Change Requests">
+</center></body></html>

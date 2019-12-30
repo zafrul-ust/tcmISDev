@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Search functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="Searches" id="Searches"></a>Search functions</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>Frequently in tcmIS when looking for information you want to narrow your search to locate more specifically (and quickly) 
+	the information you want.	This is often done using a specialized search mechanism.</p>
+<p>There are several sorts of searches in tcmIS; they usually fall into one of four types:</p>
+	<ul>
+		<li><a href="#lookup">Lookup forms</a> - specialized forms for looking up data, usually when you are trying to fill out another 
+			 form. These are almost always invoked by clicking on a small magnifying glass icon 
+			 <img class="small" src="../../images/glass.gif" width="21" height="16" alt="magnifying glass" />.</li>
+		<li><a href="#typeahead">Type ahead searches</a> have replaced some lookup forms. As text is entered into a text input box, tcmIS 
+			 presents a drop-down list that displays any valid values that match that text.</li>
+		<li><a href="#search">Single box text searches</a> - a single text entry box, usually preceded by the word &rsquo;Search&rsquo;, 
+			 used to match specific text (letters and/or numbers).</li>
+		<li><a href="#searchby">Three-box text searches</a> - usually labeled as &rsquo;Search By&rsquo;, this search allows you to indicate 
+			 the field you want searched, the text for the search, and the physical location of the text in 
+			 the field.</li>
+	</ul>
+<h3><a id="searchby"><strong>Search [By]</strong></a></h3>
+<p>A Search or Search By frequently uses three input boxes (<a href="#search">sometimes only one</a>):</p>
+	<ul>
+		<li>In the first box select the basis for the search: usually you will select the type of information (data field) such as 
+			 <strong>MR-Line</strong>, <strong>Part Number</strong>, <strong>Part Desc</strong>[ription], or <strong>Item</strong>, but
+			 the possibilities will vary depending on the page or report. Choose the field you want from the drop-down list.</li>
+		<li>In the second box choose the type of search. Sometimes there are only two (contains and is) rather than four.
+			 <ul>
+				<li><strong>contains</strong>, for a partial match: see <a href="#partial">using the &rsquo;contains&rsquo; selection</a>;</li>
+				<li><strong>starts with</strong>, for an exact match of the beginning: see <a href="#starts">using the &rsquo;starts with&rsquo; selection</a>;</li>
+				<li><strong>ends with</strong>, for an exact match of the ending: see <a href="#ends">using the &rsquo;ends with&rsquo; selection</a>; or</li>
+			 	<li><strong>is</strong>, for an exact match: see <a href="#exact">using the &rsquo;is&rsquo; selection</a>. <em>Keep in mind</em> 
+			 	    that an exact match is exactly that, so typos must particularly be avoided with <strong>is</strong>.</li>
+			 </ul>
+	   </li>
+		<li>In the third box enter the number or text you want fully or partially to match in the search.</li>
+	</ul>
+<p>Once you have selected all the criteria for the search, click the <strong>Search</strong> button. tcmIS will do the search and 
+	display the matching records in a grid below the search form, or print a message that there is no matching data.</p>
+<div class="image"><img src="Searches1.png" height="363" width="835" alt="Typical three-input box search by set" />
+<div class="caption">Figure 1</div></div>
+
+<h2><a id="partial">Search contains</a></h2>
+<p>A partial match (<strong>contains</strong>) looks for the text you enter anywhere in the field you selected. The record
+   will be displayed if your text is a match at the beginning, at the end, or anywhere within the field value. In general a
+	Contains search will return the largest possible number of records.</p>
+<div class="image"><img src="Searches2.png" height="404" width="651" alt="Search results for contains" />
+<div class="caption">Figure 2</div></div>
+
+<h2><a id="starts">Search starts with</a></h2>
+<p><strong>Starts with</strong> is a combination of a partial match and an exact match. The partial is the 'beginning' of the
+   field value and the exact is that the beginning must be identical to the text you enter. If you enter three characters the
+	search will find all those records where the field you selected begins with those three characters. If you were to select
+	twenty characters, the search would find only records where the field selected begins with those twenty characters.</p>
+<div class="image"><img src="Searches3.png" height="436" width="760" alt="Search result for begins with" />
+<div class="caption">Figure 3</div></div>
+
+<h2><a id="ends">Search ends with</a></h2>
+<p><strong>Ends with</strong> is another combination of partial match and exact match. In this case the matching records are
+   those that end with whatever text you enter in the field you select.</p>
+<div class="image"><img src="Searches4.png" height="436" width="760" alt="Search result for ends with" />
+<div class="caption">Figure 4</div></div>
+
+<h2><a id="exact">Search exact match</a></h2>
+<p>An exact match (<strong>is</strong>) search will find only those records that are character-for-character identical to the
+   text you enter in the field you select.</p>
+<div class="image"><img src="Searches5.png" height="436" width="760" alt="Successful search result for is" />
+<div class="caption">Figure 5</div></div>
+
+<ul>
+   <li>Even an unseen space at the end or the beginning will be enough to cause the search to 'miss' the record you want.</li>
+   <li>Entering a text that is shorter than the value in the field you want will always result in no records being found.</li>      
+   <li>Entering a text that doesn't exist in any record (for the specified field) will result in no records being found.</li>
+</ul>
+
+<div class="image"><img src="Searches6.png" height="436" width="760" alt="No data found search result" />
+<div class="caption">Figure 6</div></div>
+
+<h2><a id="search">Single search input box</a></h2>
+<p>In some cases a page or report may be set up to search a set of data fields, seeking a <a href="#partial">&rsquo;contains&rsquo;</a> 
+	match in <em>any</em> of the fields in the set, for whatever text or digits are entered in the input box. (The exact set of 
+	fields will vary depending on the purpose of the page or report.)</p>
+<p>In a few cases the single search input box uses the <a href="#exact">&rsquo;is&rsquo;</a> search and will not return a record if there is only 
+	a partial match. Normally this is indicated in the help section for the form or page.</p>	
+<div class="image"><img src="Searches7.png" height="436" width="760" alt="Single search input box" />
+<div class="caption">Figure 7</div></div>
+
+<h2><a id="lookup">Lookup forms</a></h2>
+<p>A Lookup form is used for finding particular data when filling out another form. Lookup forms are almost always invoked 
+	by clicking on a small magnifying glass icon <img class="small" src="../../images/glass.gif" width="21" height="16" alt="magnifying glass" />.
+	tcmIS produces a child window to display the form, with a single <strong>Search</strong> input text box. Enter the 
+	search text and click the <strong>Search</strong> button.</p>
+<p>tcmIS will display the records that it finds, in the lower portion of the Lookup form child window. Click on the 
+	row that has the record you want. (It will then be highlighted by a contrasting background color.) In the upper portion 
+	of the form a link will appear that facilitates using the selected record for the primary form. Click on this link: the child 
+	window will close and the data you had chosen will be inserted in to the primary form.</p>
+<div class="image"><img src="Searches8.png" height="364" width="736" alt="Lookup form" />
+<div class="caption">Figure 8</div></div>
+
+<h2><a id="typeahead">Type ahead search</a></h2>
+<p>A Type ahead search is used for finding particular data when filling out a form. As the desired text is entered into the 
+	text box, tcmIS presents a drop-down list of valid values that match the entered text. As more text is entered the possible 
+	matching values decrease. When the desired value is visible, click it on the drop-down list and it will be placed into 
+	the text box.</p>
+<p>This technique replaces lookup forms in some situations.</p>
+<div class="image"><img src="Searches9.png" height="529" width="736" alt="example Type ahead search" />
+<div class="caption">Figure 9</div></div>
+
+</body>
+</html>

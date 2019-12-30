@@ -1,0 +1,141 @@
+/*- Menu Tabs 6--------------------------- */
+#appTabs {
+	float:left;
+	width:100%;
+	min-width: 780px;
+	background: #c7c7c7;
+	line-height:normal;
+	padding:0px 0px 1px 0;
+}
+
+#appTabs ul {
+	margin:0;
+	padding:4px 1px 0 8px;
+	list-style:none;
+}
+
+#appTabs li {
+	display:inline;
+	margin:0;
+	padding:0;
+}
+
+#newChemTabs {
+	float:left;
+	width:100%;
+	min-width: 780px;
+	background: #FFFFFF;
+	line-height:normal;
+	padding:0px 0px 1px 0;
+}
+
+#newChemTabs ul {
+	margin:0;
+	padding:4px 1px 0 8px;
+	list-style:none;
+}
+
+#newChemTabs li {
+	display:inline;
+	margin:0;
+	padding:0;
+}
+
+.haasTabs {
+	width:100%;
+	min-width: 780px;
+	background: #FFFFFF;
+	line-height:normal;
+	padding:0px 0px 1px 0;
+}
+
+.haasTabs ul {
+	margin:0;
+	padding:4px 1px 0 8px;
+	list-style:none;
+}
+
+.haasTabs li {
+	display:inline;
+	margin:0;
+	padding:0;
+}
+
+.selectedTab {
+	float:left;
+	background:url("/images/tabgrayleft1.gif") no-repeat left top;
+	margin:0;
+	padding:0 0 0 4px;
+	/*background-position:0% -25px;*/
+	text-decoration:none;
+	cursor: pointer;
+	white-space:nowrap;
+	/*background:#808080;*/
+}
+
+.selectedTab a {
+	text-decoration:none;
+	cursor: pointer;
+	white-space:nowrap;
+}
+
+.selectedSpanTab {
+	float:left;
+	display:block;
+	background:url("/images/tabgrayright.gif") no-repeat right top;
+	padding:2px 10px 2px 0;
+	color:#ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	/*background-position:100% -25px;*/
+	cursor: pointer;
+	white-space:nowrap;
+	/*background:#808080;*/
+}
+
+.tabLeftSide {
+	float:left;
+	background:url("/images/tableft5w3.gif") no-repeat left top;
+	margin:0;
+	padding:0 0 0 4px;
+	text-decoration:none;
+	cursor: pointer;
+	white-space:nowrap;
+}
+
+.tabLeftSide a {
+	text-decoration:none;
+	cursor: pointer;
+	white-space:nowrap;
+}
+
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+.tabLeftSide a span {
+	float:none;
+}
+/* End IE5-Mac hack */
+.tabLeftSide a:hover span {
+	color:#FFF;
+}
+
+.tabRightSide {
+	float:left;
+	display:block;
+	background:url("/images/tabright5w3.gif") no-repeat right top;
+	padding:2px 10px 2px 0;
+	color:#000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	cursor: pointer;
+	white-space:nowrap;
+}
+
+.iconImage {
+	border: none;
+	padding:0 3px 0 0;
+}
+
+img {
+	border: none;
+}

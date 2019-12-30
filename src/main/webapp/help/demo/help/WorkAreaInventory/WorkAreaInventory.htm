@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Work Area Inventory</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" />
+</head>
+
+<body>
+<h1><a name="WorkAreaInventory" id="WorkAreaInventory"></a>Work Area Inventory</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The tcmIS <strong>Work Area Inventory</strong> page is used to view information regarding on hand inventory in cabinets.
+   It can be accessed from either of two menu selections. </p>
+<ul>
+	<li>The <strong>Work Area Inventory</strong> page can be accessed from the <strong>Supply Chain</strong> menu.
+	Under <strong>Work Area Inventory</strong> select the <strong>Work Area Inventory</strong> menu item.</li>
+	<li>The <strong>Work Area Inventory</strong> page can be accessed from the <strong>Reports</strong> menu.
+	Under <strong>Inventory</strong> select the <strong>Work Area Inventory</strong> menu item.</li>
+</ul>
+<p>Using either menu selection, the <strong>Work Area Inventory</strong> page is launched in a new tab.</p>
+
+<div class="image"><img src="WorkAreaInventory1-2.png" height="589" width="834" alt="Work Area Inventory menu link" />
+<div class="caption">Figures 1 and 2</div></div>
+
+<p>Select the facility where the work areas are located from the <strong>Facility</strong> list. </p>
+	<ul>
+		<li>You may keep the default <em>All</em> in the <strong>Work Area Group</strong> list or choose to narrow 
+			 the range of work areas by selecting a specific work area group. 
+			 <ul>
+			 	<li>The <strong>Work Area</strong> box will be populated with all active work areas for 
+			 		 the facility or the work areas for the chosen work area group.</li>
+			 </ul>
+		</li>
+		<li>Select the specific work area(s) from the <strong>Work Area</strong> list. You may keep the default 
+			 <em>All</em>, or select a single work area, or select multiple work areas by holding down the CTRL 
+			 key while clicking each wanted work area.</li>
+  		<li>You may narrow the range of the search with the three <strong><a href="../Administration/Searches.htm#searchby">Search by</a></strong> 
+  			 	boxes, using one of the listed fields:
+			<ul>
+				<li>[Customer] <strong>Part Number</strong></li>
+				<li>[HGI] <strong>Item Description</strong></li>
+				<li>[HGI] <strong>Item ID</strong></li>
+			</ul>
+		</li>
+	</ul>		
+<p>You can use the <strong>Work Area Inventory</strong> page to locate materials in the work areas which are expiring soon.
+   Enter the number of days in the <strong>Expires In</strong> and <strong>To</strong> boxes. You may enter a minimum 
+   number of days before expiration, or a maximum, or both.</p>
+<p>Select the check box labeled <strong>Show Only Quantity &gt; 0</strong> to see only work area items that currently have
+  stock.</p>
+<p>Click the <strong>Search</strong> button. All active items in the selected work areas will be shown. Details of
+	each Receipt ID in the work area are displayed including manufacturer lot number, expiration date, last count
+	date, last count quantity, quantity delivered since the last count, total quantity, unit cost, and stocking levels.</p>
+<div class="image"><img src="WorkAreaInventory3.png" height="497" width="835" alt="Work Area Inventory page with search results" />
+<div class="caption">Figure 3</div></div>
+
+<p>By default, the search results (inventory items) are sorted and displayed by Work Area. You may also sort by Part
+   Number or Item ID. Select the desired sort option from the <strong>Sort By</strong> list.</p>
+<p>You may also sort by any of the columns in the results grid by clicking on the column header. Click the header
+   again to sort in descending order.</p>
+<div class="image"><img src="WorkAreaInventory3.png" height="497" width="835" alt="Work Area Inventory sorting" />
+<div class="caption">Figure 4</div></div>
+
+<p>Right-click on any line and select the <strong>Show Inventory Detail</strong> menu item to display details on
+   inventory of the item at the warehouse that serves the work area. The <strong>Inventory Details</strong> page will
+	be displayed in a new window.</p>
+<div class="image"><img src="WorkAreaInventory5.png" height="497" width="835" alt="Show Inventory Detail context menu item" />
+<div class="caption">Figure 5</div></div>
+
+<p>The <strong>Inventory Details</strong> page shows details on the inventory at the warehouse including quantity,
+   status, manufacturer lot number, and expiration date.</p>
+<div class="image"><img src="../StockedInventory/StockedInventory4.png" height="306" width="656" alt="Inventory for Part page" />
+<div class="caption">Figure 6</div></div>
+
+<p>In many cases when you hover the mouse pointer on data cells a tool tip will pop up and display the
+   contents of the cell. This is particularly useful when the data in the cell does not fit the default
+	size of the cell: it allows you to see the entire contents of the cell without having to adjust the
+	width of the column.</p>
+<div class="image"><img src="WorkAreaInventory7.png" height="473" width="835" alt="sample cell contents display in tool tip" />
+<div class="caption">Figure 7</div></div>
+
+<p>Click the <strong>Create Excel</strong> link on the page to export the data in Excel format.</p>
+</body>
+</html>

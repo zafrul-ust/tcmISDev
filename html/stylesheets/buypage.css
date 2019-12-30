@@ -1,0 +1,150 @@
+/*Not really white a sligh ting of something */
+
+TD.pink {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #ff0fff;
+        text-align: center;
+}
+
+TD.pinkl {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #ff0fff;
+        text-align: left;
+}
+
+TD.pinkr {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #ff0fff;
+        text-align: right;
+}
+
+TD.red {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #FF9999;
+        text-align: center;
+}
+
+TD.redl {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #FF9999;
+        text-align: left;
+}
+
+TD.redr {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #FF9999;
+        text-align: right;
+}
+
+/*Back Ground Color is red*/
+TD.error {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ff3c3c;
+        text-align: center;
+}
+TD.errorl {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ff3c3c;
+        text-align: left;
+}
+TD.errorr {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ff3c3c;
+        text-align: right;
+}
+
+TD.yellow {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #FFFF99;
+        text-align: center;
+}
+
+TD.yellowl {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #FFFF99;
+        text-align: left;
+}
+
+TD.yellowr {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #FFFF99;
+        text-align: right;
+}
+
+TD.green {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #99FF99;
+        text-align: center;
+}
+
+TD.greenl {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #99FF99;
+        text-align: left;
+}
+
+TD.greenr {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #99FF99;
+        text-align: right;
+}
+
+TD.purple {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #9999FF;
+        text-align: center;
+}
+
+TD.purplel {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #9999FF;
+        text-align: left;
+}
+
+TD.purpler {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #9999FF;
+        text-align: right;
+}
+
+TD.black {
+        font-family: arial;
+        font-size: 9pt;
+	  color: #FFFFFF;
+        background-color:  #535353;
+        text-align: center;
+}
+
+TD.blackl {
+        font-family: arial;
+        font-size: 9pt;
+	  color: #FFFFFF;
+        background-color:  #535353;
+        text-align: left;
+}
+
+TD.blackr {
+        font-family: arial;
+        font-size: 9pt;
+	  color: #FFFFFF;
+        background-color:  #535353;
+        text-align: right;
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>HGI tcmIS Cabinet Management</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" />
+</head>
+
+<body>
+<h1><a name="CabinetMgmt" id="CabinetMgmt"></a>Cabinet Management</h1>
+<p><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" style="border-style: none" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" style="border-style: none" /></a></p>
+
+<p>The <strong>Cabinet Management</strong> page is used in tcmIS to activate and inactivate parts in Cabinets, set
+   stocking levels, and add parts to Cabinets. The <strong>Cabinet Management</strong> page can be
+	accessed from the <strong>Supply Chain</strong> menu: choose <strong>Cabinet Inventory</strong> and select the
+	<strong>Cabinet Management</strong> menu item. The <strong>Cabinet Management</strong> page is launched
+	in a new tab.</p>
+<div class="image"><img src="CabinetMgmt1.png" height="347" width="824" alt="Cabinet Mgmt menu item" />
+<div>Figure 1</div></div>
+
+<p>To view cabinet inventory records,</p>
+<ul>
+	<li>Select the hub from the <strong>Hub</strong> drop-down list.</li>
+	<li>Select the facility from the <strong>Facility</strong> drop-down list.</li>
+	<li>Select the work area from the <strong>Work Area</strong> drop-down list or select the default of <em>All</em>.</li>
+	<li>Select the specific cabinet(s) from the <strong>Cabinet</strong> drop-down list or select the default of <em>All</em>. 
+		To select more than one cabinet, hold down the keyboard CTRL key while clicking those wanted.</li>
+</ul>
+<p>You may display all cabinet inventory of a customer or you may narrow the search by providing additional description 
+	of the item(s) you want using the <strong>Search by</strong> boxes:</p>
+	<ul>
+		<li>In the first box select the basis for the search: <strong>Part Number</strong>, or <strong>Item ID</strong>.</li>
+		<li>In the second box choose the type of search:
+			 <ul>
+				<li><strong>contains</strong>, for a partial match;</li>
+			 	<li><strong>is</strong>, for an exact match. <em>Keep in mind</em> 
+			 	    that an exact match is exactly that, so typos must particularly be avoided with <strong>is</strong>.</li>
+			 </ul>
+	   </li>
+		<li>In the third box enter the number you want fully or partially to match in the search.</li>
+	</ul>
+<p>Click the <strong>Search</strong> button.</p>
+<div class="image"><img src="CabinetMgmt2.png" height="492" width="824" alt="Cabinet Mgmt page and search results" />
+<div>Figure 2: Part Number contain 123</div></div>
+
+<p>There are two management functions you can perform on the <strong>Cabinet Management</strong> page directly.</p>
+<ul>
+	<li>Clear the check box in the <strong>Active</strong> column to de-activate an item. Select the check box to
+	 	 activate an item.</li>
+	<li>The <strong>Count Type</strong> column identifies which base is used for inventory replenishment for an 
+		 item. Choose the	appropriate type from the drop-down list. 
+		 <ul>
+		 	<li><strong>Item ID</strong> indicates that the scan process only the quantity of each item
+			    is entered; the individual containers are not scanned. Checking for and removal of expired material is
+		 		 done by eye.</li>
+		 	<li><strong>Receipt ID</strong> indicates that during the scan process each individual container will be 
+		 		 scanned. This enables the scanner to recognize expired material and beep loudly to notify the operator 
+		 		 to remove the expired material.</li>
+		 </ul>	 
+	</li>
+</ul>
+<p> Click the <strong>Update</strong> link above the data grid to save any changes.</p>
+<p>Click the <strong>Create Excel</strong> button to export the data in Excel format.</p>
+<div class="image"><img src="CabinetMgmt3.png" height="492" width="824" alt="Cabinet Management functions" />
+<div>Figure 3: Part Number contain 123</div></div>
+
+<p>Beginning on the <strong>Cabinet Management</strong> page you may create a new bin record. Right-click on any 
+	of the first three columns <em>(Work Area, Cabinet, or Bin)</em> to open a context menu with a <strong>Create New Bin</strong> 
+	menu item. Clicking it will cause tcmIS to open a child window to display the <strong>Cabinet Bin</strong> form.</p>
+<p>When a search returns no records, along with the <em>No Data</em>, a <strong>Create New Bin</strong> link is available 
+	that opens the same form.</p>
+<div class="image"><img src="CabinetMgmt4.png" height="492" width="824" alt="Create New Bin menu item" />
+<div>Figure 4</div></div>
+<div class="image"><img src="CabinetMgmt4A.png" height="362" width="824" alt="Create New Bin link" />
+<div>Figure 4A</div></div>
+
+<p>Since you have begun from a search for a specific Cabinet, the Cabinet Bin form starts with this information. To 
+	actually create the bin, provide the additional information on the form.</p>
+<ul>
+	<li>Select the appropriate Catalog from the <strong>Catalog</strong> dro-down list.</li>
+	<li>Provide a name, following any company guidelines or naming conventions, in the <strong>Bin Name</strong> text box.</li>
+	<li>Enter the correct Part Number in the <strong>Part Number</strong>text box.</li>
+	<li>Enter values in the <strong>Reorder Point</strong> text box, the <strong>Stocking Level</strong> text box, and 
+		 the <strong>Lead Time in Days</strong> text box.</li>
+<li>The <strong>Count Type</strong> column identifies which base is used for inventory replenishment for an 
+		 item. Choose the	appropriate type from the drop-down list. 
+		 <ul>
+		 	<li><strong>Item ID</strong> indicates that the scan process only the quantity of each item
+			    is entered; the individual containers are not scanned. Checking for and removal of expired material is
+		 		 done by eye.</li>
+		 	<li><strong>Receipt ID</strong> indicates that during the scan process each individual container will be 
+		 		 scanned. This enables the scanner to recognize expired material and beep loudly to notify the operator 
+		 		 to remove the expired material.</li>
+		 </ul>	 
+	</li>
+</ul>
+<p>Click the <strong>Add</strong> button to save the information and create the new bin record. Click the
+	<strong>Cancel</strong> button to discard the record before it is finalized.</p>	
+<div class="image"><img src="CabinetMgmt5.png" height="304" width="314" alt="Cabinet Bin form" />
+<div>Figure 5</div></div>
+
+<p>Also beginning on the <strong>Cabinet Management</strong> page you may open a form to set or change bin levels. 
+	Right-click on any of the next six columns <em>(Active, Catalog, Part Number, RP/SL, Lead Time In Days, or 
+	Item</em> to open a context menu with a <strong>Set Bin Level</strong> menu item. Clicking it will cause tcmIS 
+	to open a child window to display the <strong>Bin Level</strong> form.</p>
+<div class="image"><img src="CabinetMgmt6.png" height="492" width="824" alt="Add Part, Generate Labels context menu items" />
+<div>Figure 6: Add Part and Generate Labels menu items</div></div>
+
+<p>On the <strong>Bin Level</strong> form you may enter or change values in the <strong>Reorder Point</strong> 
+	text box, the <strong>Stocking Level</strong> text box, and the <strong>Lead Time in Days</strong> text box. You 
+	may also enter information into the <strong>Remarks</strong> text box to explain the numbers.</p>
+<p> Click the <strong>Update</strong> link above the data grid to save any changes.</p>
+<p>Any previous changes, including Remarks, will be displayed in the <strong>Change Histor</strong> data grid 
+	below the Item data grid.</p>
+<div class="image"><img src="CabinetMgmt7.png" height="343" width="736" alt="Ben Level form" />
+<div>Figure 7</div></div>
+
+</body>
+</html>

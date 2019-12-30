@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+  <form-beans>
+   	<form-bean name="genericForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm" />
+    <form-bean name="loginForm"
+               type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="logonId"
+                     type="java.lang.String" />
+      <form-property name="password"
+                     type="java.lang.String" />
+      <form-property name="client"
+                     type="java.lang.String" />
+      <form-property name="companyId"
+                     type="java.lang.String" />
+      <form-property name="requestedPage"
+                     type="java.lang.String" />
+      <form-property name="requestedURLWithParameters"
+                     type="java.lang.String" />
+      <form-property name="submit"
+                     type="java.lang.String" />
+    </form-bean>
+  </form-beans>
+  <global-forwards>
+    <forward name="home"
+             path="/home.do" />
+    <forward name="login"
+             path="/common/application/login.jsp" module="" />
+    <forward name="logout"
+             path="/logout.do" />
+    <forward name="SAMLPostConsumer"
+             path="/SAMLPostConsumer.do" />
+    <forward name="SAMLMetadata"
+             path="/SAMLMetadata.do" />
+    <forward name="SAMLSSO"
+             path="/SAMLSSO.do" />
+    <forward name="application"
+             path="/application.do"/>
+    <forward name="systemerrorpage"
+             path="/common/systemerror.jsp" module="" />
+    <forward name="genericerrorpage"
+             path="/common/genericerror.jsp" module="" />
+    <forward name="nopermissions"
+             path="/common/nopermissions.jsp" module=""/>
+    <forward name="noitarpermissions"
+             path="/common/noitarpermissions.jsp" module=""/>
+  </global-forwards>
+
+  <action-mappings>
+      <action path="/login"
+            type="com.tcmis.common.admin.action.LoginAction"
+            name="loginForm"
+            validate="false"
+            input="/../common/application/login.jsp"
+            scope="request">
+        <forward name="success" path="/common/application/index.jsp" module="" redirect="true"/>
+        <forward name="redirectToUrl" path="/common/redirectafterlogin.jsp" module="" />
+    </action>
+
+    <action path="/home"
+            type="com.tcmis.common.admin.action.ShowHomeAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/application/index.jsp"
+            scope="request">
+        <forward name="home" path="/common/application/index.jsp" module="" />
+        <forward name="redirectToUrl" path="/common/redirectafterlogin.jsp" module=""/>
+    </action>
+    
+	<action path="/SAMLPostConsumer"
+		type="com.tcmis.ws.authentication.action.SAMLPostConsumerAction"
+		name="genericForm"
+		validate="false"
+		input="/error.jsp"
+		scope="request">
+        <forward name="home" path="/common/application/index.jsp" module="" />
+        <forward name="redirectToUrl" path="/common/redirectafterlogin.jsp" module="" />        
+        <forward name="ssoError" path="/common/SSOError.jsp" module="" />        
+        <forward name="accessDenied" path="/common/403error.jsp" module="" />        
+	</action>
+    
+	<action path="/SAMLMetadata"
+		type="com.tcmis.ws.authentication.action.SAMLMetadataAction"
+		name="genericForm"
+		validate="false"
+		input="/error.jsp"
+		scope="request">
+        <forward name="home" path="/common/application/index.jsp" module="" />
+        <forward name="redirectToUrl" path="/common/redirectafterlogin.jsp" module="" />        
+        <forward name="ssoError" path="/common/SSOError.jsp" module="" />        
+	</action>
+		    
+	<action path="/SAMLSSO"
+		type="com.tcmis.ws.authentication.action.SAMLSSOAction"
+		name="genericForm"
+		validate="false"
+		input="/error.jsp"
+		scope="request">
+        <forward name="home" path="/common/application/index.jsp" module="" />
+        <forward name="redirectToUrl" path="/common/redirectafterlogin.jsp" module="" />        
+        <forward name="ssoError" path="/common/SSOError.jsp" module="" />        
+	</action>
+	
+   <action path="/application"
+           name="genericForm"
+           type="com.tcmis.common.admin.action.ShowApplicationAction"
+           validate="false"
+           input="/../common/application/application.jsp"
+           scope="request">
+       <forward name="success" path="/common/application/application.jsp" module=""/>
+       <forward name="login" path="/common/application/login.jsp" module="" />
+       <forward name="done" path="/common/done.jsp" module="" />
+       <forward name="redirectToUrl" path="/common/redirectafterlogin.jsp" module="" />               
+   </action>
+
+   <action path="/applicationhome"
+           name="genericForm"
+           type="com.tcmis.common.admin.action.ApplicationHomeAction"
+           validate="false"
+           input="/../common/application/applicationhome.jsp"
+           scope="request">
+       <forward name="success" path="/common/application/applicationhome.jsp" module=""/>
+       <forward name="redirectToUrl" path="/common/redirectafterlogin.jsp" module="" />        
+   </action>
+
+   <action path="/logout"
+            type="com.tcmis.common.admin.action.LogoutAction"
+            input="/../common/application/login.jsp"
+            scope="request">
+        <forward name="redirectToUrl" path="/common/redirectafterlogin.jsp" module="" />
+   </action>
+
+   <action path="/missingpage"
+            type="com.tcmis.common.admin.action.MissingPageAction"
+            scope="request"
+            unknown="true">
+        <forward name="missingpage" path="/common/missingpage.jsp" module="" />
+   </action>
+   
+   <action path="/helpline"
+           name="genericForm"
+           type="com.tcmis.common.admin.action.HelplineAction"
+           validate="false"
+           input="/../common/application/helplinehome.jsp"
+           scope="request">
+       <forward name="success" path="/common/application/helplinehome.jsp" module=""/>
+   </action>
+   
+  </action-mappings>
+
+  <message-resources parameter="com.tcmis.common.resources.CommonResources"/>
+</struts-config>

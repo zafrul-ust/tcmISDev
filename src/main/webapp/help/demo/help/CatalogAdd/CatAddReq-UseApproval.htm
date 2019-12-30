@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Catalog Add</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/CatAddRqst.css" type="text/css" /> <!-- to style CatAddRequest page tab illustration -->
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="CatAddReq-Use" id="CatAddReq-Use"></a>Catalog Add Request - Use Approval tab</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Use Approval</strong> tab on the <strong>Cat Add Req</strong> (Catalog Add Request) page is used to
+   view and manage use permissions on parts (part number records). <!-- HMRB not in use for Demo Corp - vhavens - 8/6/12
+   <em>While the Use Approval tab is visible at all times</em>, it is not accessible until and unless at least one 
+   <a href="CatAddReq-HMRB.htm">Approval Code</a> has been added to the <strong>HMRB</strong> tab. --></p>
+<div style="width: 50em; padding: 0 .5em; margin: 0 2em;" class="messages">
+	<p>Four individual tabs in the lower portion of the <strong>Cat Add Req</strong> page correspond to the basic elements of the Cat Add Req process.</p>
+		<ul id="catadd" class="noPrint">
+			<li><span class="box unselected" style="width: 1.75em;">
+				<span class="corner TL"></span>
+				<span class="corner TR"></span>
+				QPL
+				</span>
+			</li>
+			<li>&nbsp;</li>
+<!-- HMRB not in use for Demo Corp - vhavens - 8/6/12						
+			<li><span class="box unselected" style="width: 1.75em;">
+				<span class="corner TL"></span>
+				<span class="corner TR"></span>
+				HMRB
+				</span>
+			</li>
+			<li>&nbsp;</li>
+-->			
+			<li><span class="box selected" style="width: 8em;">
+				<span class="corner TL"></span>
+				<span class="corner TR"></span>
+				Use Approval
+				</span>
+			</li>
+			<li>&nbsp;</li>
+			<li><span class="box unselected" style="width: 2.5em;">
+				<span class="corner TL"></span>
+				<span class="corner TR"></span>
+				Spec
+				</span>
+			</li>
+			<li>&nbsp;</li>
+			<li><span class="box unselected" style="width: 4.5em;">
+				<span class="corner TL"></span>
+				<span class="corner TR"></span>
+				Flowdown
+				</span>
+			</li>
+		</ul>
+	<ul>
+		<li><strong><a href="CatAddReq-QPL.htm">QPL</a></strong> - the default tab (shown when the page is opened), used to 
+			 view and manage products on or being requested for the QPL.</li>
+<!-- HMRB not in use for Demo Corp - vhavens - 8/6/12							
+			<li><strong><a href="CatAddReq-HMRB.htm">HMRB</a></strong> - used to view and manage Hazardous Material Review Form
+				information for the products on the QPL.</li> 
+-->				
+		<li><strong>Use Approval</strong> - used to view and manage use permissions on products on
+			the QPL.</li>
+		<li><strong><a href="CatAddReq-Spec.htm">Spec</a></strong> - used to view and manage specifications for the products on
+			the QPL.</li>
+		<li><strong><a href="CatAddReq-Flowdown.htm">Flowdown</a></strong> - used to view and manage flowdowns for the products
+			on the QPL.</li>
+	</ul>
+</div>
+	<ul>
+		<li>A request for a Use Approval on an existing part cannot be combined with any other request.</li>
+		<li>The Use Approvals for a part apply equally to all the products and materials on the QPL for the part.</li>
+	</ul>
+<p>Use Approval is accessed after <a href="CatAddReq.htm">opening the <strong>Cat Add Req</strong> page</a> by clicking on the <strong>Use Approval</strong> 
+   tab. The <strong>Use Approval</strong> tab lists the Work Areas for which the part number is approved (or disapproved).</p>
+<div class="image"><img src="CatAddReq-Use1.png" height="564" width="766" alt="Cat Add Req page Use Approval tab" />
+<div class="caption">Figure 1</div></div>
+
+<p>To add approval or disapproval for one or more work areas, click the <strong>Add Work Area</strong> link at the upper
+   left of the tab area. The <strong>Add/Edit Use Approval</strong> form will open in a new window. On the form:</p>
+<ul>
+	<li>Specify the work area, or set of work areas, for which you want to set approval status in the <strong>Work
+	    Area</strong> list.</li>
+	<li>Specify the inventory group, or set of groups, in the <strong>Inventory Group</strong> list.</li>
+	<li>Set the status in the <strong>Request Status</strong> list. The default status is 'Approved' but you may
+	    choose Unapproved to disallow use of a material if needed.</li>
+	<li>Enter a description of how the material is used in the <strong>Use and Process Desc</strong>[ription] text box.
+	    This is a required field.</li>
+	<li>Select a user group if the material should be ordered only by specific users or leave it at <em>Approved to all
+	    users</em> in the <strong>User Group</strong> list.</li>
+	<li>Enter the estimated annual usage in the <strong>Estimated Annual Usage</strong> box.</li>
+	<li>To limit usage of the material, enter any use limits in the <strong>Restriction 1</strong> and <strong>Restriction
+	    2</strong> boxes as (quantity) per (number) (days or months). </li>
+	<li>Click the <strong>Submit</strong> link in the upper left of the form to initiate the approval status request.</li>
+</ul>
+<div class="image"><img src="CatAddReq-Use2.png" height="325" width="504" alt="Add/Edit Use Approval form" />
+<div class="caption">Figure 2</div></div>
+
+<p>The form will be closed and the Use Approval will be added to the <strong>Cat Add Req - Use Approval</strong> tab as
+   part of the current request.</p>
+<p>Repeat this process as many times as needed to add the necessary use approval records.</p>
+<p>See <a href="CatAddReq-QPL.htm#Finalizing">Finalizing a QPL modification request</a></p>
+<div class="image"><img src="CatAddReq-Use3.png" height="564" width="766" alt="Use Approval request added to Cat Add Req form" />
+<div class="caption">Figure 3</div></div>
+
+<p>The newly added use approval line can be edited or deleted before the QPL modification is finalized. Right click on the
+   new line to access a context menu. Select the <strong>Edit</strong> menu item to reopen the <strong>Add/Edit Use
+	Approval</strong> and make and submit changes. To remove the line completely, select the <strong>Delete Line</strong>
+	menu item.</p>
+<p>You may also edit using the drop-down lists in two fields:</p>
+   <ul>
+   	<li>In the <strong>Request Status</strong> list chose desired status.</li>
+   	<li>In the <strong>Inventory Group</strong> list chose the desired group Only one may be available.</li>
+   </ul>
+<div class="image"><img src="CatAddReq-Use4.png" height="564" width="766" alt="Use Approval edit context menu" />
+<div class="caption">Figure 4</div></div>
+<div class="image"><img src="CatAddReq-Use5.png" height="564" width="766" alt="Use Approval edit box" />
+<div class="caption">Figure 5</div></div>
+
+
+</body>
+</html>

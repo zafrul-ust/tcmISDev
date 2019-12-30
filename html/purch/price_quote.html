@@ -1,0 +1,200 @@
+<html>
+
+<head>
+<title>Items Needing Price Quotes</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p>
+<center><h2>Items Needing Price Quotes</h2>
+<p>
+<form action="/cgi-bin/purch/pqlist.cgi" method="post">
+Show items for assigned quoter &nbsp;
+<select name="quoter">
+<option value="Any" SELECTED>Any Buyer
+<option value="21709">Christine Abbey
+<option value="9905">James Abraham
+<option value="6269">Don Ainsworth
+<option value="1928">Sally Albachten
+<option value="8714">Toni Anderson
+<option value="12516">Eric Brady
+<option value="23230">Vicki Brennan
+<option value="3149">Mirella Brownell
+<option value="3059">CW Bruner
+<option value="21080">Roger Cox
+<option value="5967">Deborah Davidson
+<option value="26841">Diana Dea
+<option value="22859">William Dunbar
+<option value="10296">Amy Dykes
+<option value="11003">Robert Dykes
+<option value="6667">Jose Estrada
+<option value="991">Harley Fisk
+<option value="25892">Samantha Fluck
+<option value="15503">Erica Graves
+<option value="4793">Neil Hanson
+<option value="9675">Cindy Hughes
+<option value="7029">Cheryl Kaufman
+<option value="4220">Steve Koyner
+<option value="15583">Jason Kuch
+<option value="15057">Aimee Lang
+<option value="2782">Patrick Roach
+<option value="4521">Shawn Roberts
+<option value="17065">Robert Roloff
+<option value="15734">Sunshine Sadler
+<option value="1395">Tanya Sanchez
+<option value="14586">Sandra Sashkin
+<option value="13129">Ralph Seyers
+<option value="86652">Michael Shires
+<option value="15733">Nancy Starnes
+<option value="29480">Scott Stone
+<option value="8783">Dustin Sultenfuss
+<option value="14238">Jacqueline Tuttle
+<option value="12798">Bethany Ward
+<option value="34001">Kelly Wechsler
+<option value="19313">Kathy Whaley
+<option value="86233">Barbara Williams
+<option value="15110">Kenna Woodall
+<option value="None">No quoter assigned
+</select>
+<br>
+where the client Part # contains &nbsp;
+<input type="text" name="part_id" value="">
+<br>(blank means any client part #)
+<br>
+where the Haas Item ID is &nbsp;
+<input type="text" name="item_id" value="">
+<br>(blank means any Item ID)
+<p>
+where the Manufacturer contains &nbsp;
+<input type="text" name="mfg" value="">
+<br>(blank means any Manufacturer)
+<p>
+where the Branch Plant (Hub) is &nbsp;
+<select name="hub">
+<option value="Any">Any BP
+<option value="2101">2101 Salem
+<option value="2102">2102 Dallas
+<option value="2103">2103 Phoenix
+<option value="2104">2104 Goleta Rio
+<option value="2106">2106 Normandale
+<option value="2107">2107 San Antonio
+<option value="2108">2108 Ames
+<option value="2109">2109 Freeport
+<option value="2110">2110 La Salle
+<option value="2111">2111 Lawrence
+<option value="2114">2114 Largo
+<option value="2115">2115 Waterfront
+<option value="2116">2116 Puerto Rico
+<option value="2117">2117 El Segundo
+<option value="2118">2118 Decatur
+<option value="2119">2119 Silicon Valley
+<option value="2122">2122 DANA Hub
+<option value="2123">2123 DANA CAN Hub
+<option value="2124">2124 Israel Hub
+<option value="2125">2125 Arvin Meritor
+<option value="2126">2126 GEMA
+<option value="2127">2127 DCX Etobicoke
+<option value="2128">2128 PGE DCPP
+<option value="2129">2129 DCX Fenton
+<option value="2130">2130 Parkside Warehouse
+<option value="2131">2131 DCX NAP
+<option value="2132">2132 DCX SHAP
+<option value="2133">2133 DCX WAP
+<option value="2134">2134 DCX DAP
+<option value="2135">2135 SD- Easley
+<option value="2136">2136 PWA- MT
+<option value="2137">2137 GM Livonia
+<option value="2138">2138 IAI Lod
+<option value="2139">2139 Aurora
+<option value="2140">2140 Mogi
+<option value="2141">2141 PWA EH
+<option value="2142">2142 Gravatai
+<option value="2143">2143 Oshawa
+<option value="2144">2144 GM Wilmington
+<option value="2145">2145 GM Bedford
+<option value="2146">2146 GM Moraine
+<option value="2147">2147 Charles City
+<option value="2148">2148 Fort Dodge
+<option value="2149">2149 Volvo New River
+<option value="2150">2150 Torino
+<option value="2151">2151 Brugherio
+<option value="2152">2152 GM Flint
+<option value="2153">2153 Timken Walhalla
+<option value="2154">2154 Luserna
+<option value="2155">2155 North Berwick
+<option value="2156">2156 Greenville
+<option value="2157">2157 Albion
+<option value="2158">2158 Bloomingburg
+<option value="2159">2159 Hartley
+<option value="2160">2160 Linden
+<option value="2161">2161 Welcome
+<option value="2162">2162 GM Fort Wayne
+<option value="2163">2163 Singapore
+<option value="2164">2164 Lafayette
+<option value="2165">2165 Philadelphia
+<option value="2166">2166 MSP
+<option value="2166">2166 MSP
+<option value="2167">2167 DCX Jefferson North Hub
+<option value="2168">2168 NRG Huntley Hub
+<option value="2169">2169 NRG Indian River Hub
+<option value="2170">2170 NRG Middletown Hub
+<option value="2171">2171 NRG Norwalk Harbor Hub
+<option value="2172">2172 NRG Somerset Hub
+<option value="2173">2173 NRG Vienna Hub
+<option value="2174">2174 NRG Arthur Kill Hub
+<option value="2175">2175 NRG Oswego Harbor Hub
+<option value="2176">2176 NRG Montville Hub
+<option value="2177">2177 NRG Louisiana Hub
+<option value="2178">2178 NRG El Segundo Hub
+<option value="2179">2179 NRG Dunkirk Hub
+<option value="2180">2180 NRG Devon Hub
+<option value="2181">2181 NRG Cabrillo Hub
+<option value="2182">2182 NRG Long Beach Hub
+<option value="2183">2183 Belvidere Hub
+<option value="2184">2184 Toledo Hub
+<option value="2185">2185 Cheltenham Hub
+<option value="2186">2186 Bad Neustadt Hub
+<option value="2187">2187 St Louis Hub
+<option value="2188">2188 Ludwigsburg Hub
+<option value="2189">2189 Leipzig Hub
+<option value="2190">2190 Oberstenfeld Hub
+<option value="2191">2191 Detroit Diesel Hub
+<option value="2192">2192 Dyersville Hub
+<option value="2193">2193 Albert City Hub
+<option value="2194">2194 Central City Hub
+<option value="2195">2195 Marion Hub
+<option value="2196">2196 Montreal Hub
+<option value="2197">2197 Windsor Hub
+<option value="2198">2198 Tallassee Hub
+<option value="2199">2199 Kent Hub
+<option value="2201">2201 Salem GD
+<option value="2202">2202 DropShip
+<option value="2203">2203 DropShip Canada
+<option value="2204">2204 DropShip TCMPROC
+<option value="2205">2205 DropShip Microtecnica
+<option value="2206">2206 DropShip DCX
+<option value="2207">2207 DropShip DLA
+<option value="2209">2209 DropShip Malaysia
+<option value="2301">2301 Rinchem MN
+<option value="2302">2302 CAL
+<option value="2408">2408 Warner Robins
+<option value="2428">2428 Los Angeles
+<option value="2463">2463 Atlanta
+<option value="2471">2471 Sacramento
+</select>
+<br>(blank means any Item ID)
+<p>
+Sort by: &nbsp;
+<select name="sortby">
+        <option value="priority">Priority 
+        <option value="item_id">Haas Item ID
+        <option value="item_desc">Description
+        <option value="facility_part_id">Client Part #
+<!--        <option value="hub">Hub/Catalog
+-->
+</select>
+<input type="radio" name="up" value="" CHECKED>Ascending
+<input type="radio" name="up" value="desc">Descending
+<input type="submit" value="Submit & Sort">
+</form></center></body></html>

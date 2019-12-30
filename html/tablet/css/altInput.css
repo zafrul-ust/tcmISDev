@@ -1,0 +1,12 @@
+
+.keyPadLowerRow,
+.keyPadLowerNumRow,
+.keyPadUpperRow,
+.keyPadUpperNumRow{
+	display : block;
+	text-align : center;
+}
+
+.keyPadRowHide{
+	display : none;
+}

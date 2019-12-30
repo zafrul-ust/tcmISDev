@@ -1,0 +1,39 @@
+<html><head><title>GM Consignment Report</title></head>
+<body bgcolor="#FFFFFF">
+<center>
+<h2>GM Consignment Report</h2>
+<form action="/cgi-bin/radweb/gm_csgn.cgi" method="POST">
+Generate report for month: &nbsp;
+<select name="mo">
+<option value="1">January
+<option value="2">February
+<option value="3">March
+<option value="4">April
+<option value="5">May
+<option value="6">June
+<option value="7">July
+<option value="8">August
+<option value="9">September
+<option value="10">October
+<option value="11">November
+<option value="12">December
+</select> &nbsp;
+<select name="yr">
+<option value="2007">2007
+<option value="2008">2008
+<option value="2009">2009
+<option value="2010">2010
+<option value="2011">2011
+</select>
+<p>
+for GM site:
+<select name="site">
+<option value="2145">Bedford
+<option value="2137">Livonia
+<option value="2146" SELECTED>Moraine
+<option value="2143">Oshawa
+<option value="2144">Wilmington
+</select>
+<p>
+<input name="Generate Report" value="Generate Report" type="submit">
+</center></body></html>

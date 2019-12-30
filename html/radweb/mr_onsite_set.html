@@ -1,0 +1,24 @@
+<html><head><title>Change MR to point to On-Site Inventory Group</title></head>
+<body bgcolor="#EEEEEE">
+<center>
+<h2>Change MR to point to On-Site Inventory Group</h2>
+<p>
+<form action="/cgi-bin/radweb/mr_onsite_list.cgi" method="POST">
+Look up open MRs for the Hub/Onsite pair: &nbsp;
+<select name="hub">
+<option value="LM Marietta">LM Marietta
+<option value="BAE Austin">BAE Austin
+<option value="LM Troy">LM Troy
+<option value="LM Greenville">LM Greenville
+</select>
+<p>
+where the part number contains &nbsp;
+<input type="text" name="part"> <br>
+<i>(blank means any part number)</i>
+<p>
+and the MR number is &nbsp;
+<input type="text" name="mr"> <br>
+<i>(blank means any MR number)</i>
+<p>
+<input type="submit" name="Lookup" value="Lookup">
+</form></center></body></html>

@@ -1,0 +1,41 @@
+^FX*************************************************************************************^FS
+^FX**  Template Name: Supp_Warning_200_LM                                               ^FS 
+^FX**  Description: Suplenmental warning label, 4"x 4"                                  ^FS
+^FX**  Usage: LM Palmdale                                                               ^FS
+^FX**  DPI: 200                                                                         ^FS
+^FX**  Comments: Text block is 26 lines * 75 chars = 1950 chars for MSDS text           ^FS
+^FX**                                                                                   ^FS
+^FX**  Includes the contents of SM_GRFX.ZPL                                             ^FS
+^FX**                                                                                   ^FS
+^FX**  Symbols are 100 dots x 100 dots, .5in x .5in @ 200dpi                            ^FS
+^FX**  CORROSIV.GRF = Corrosive  (test tube dripping into hand)                         ^FS
+^FX**  FLAM.GRF = Flammable  (flames)                                                   ^FS
+^FX**  POISON.GRF = Poison  (skull and crossed bones)                                   ^FS
+^FX**  O2.GRF = Oxidizer  (flaming 0)                                                   ^FS
+^FX**  WARNING.GRF = Warning (exclamation point)                                        ^FS
+^FX**  DIAMOND.GRF = Empty NFPA Fire Diamond                                            ^FS
+^FX**                                                                                   ^FS
+^FX**  To position text in diamond:                                                     ^FS
+^FX**  Use font A0N,25 and add the following to the diamond position                    ^FS 
+^FX**  Top = +42, +17                                                                   ^FS
+^FX**  Right = +67, +41                                                                 ^FS
+^FX**  Bottom = +42, +65                                                                ^FS
+^FX**  Left = +17, +41                                                                  ^FS
+^FX**                                                                                   ^FS
+^FX**  Change History: Created 3/23/2011 SSS                                            ^FS
+^FX**  Change History: Updated 8/26/2014 SSS                                            ^FS
+^FX*************************************************************************************^FS
+
+^XA
+^CI27
+^DF00003^FS
+^LH10,10
+^FO0,0^A0N,60^FDSDS^FS
+^FO120,0^A0N,60^FN10^FS
+^FO0,50^A0N,30^FDMFG:^FS
+^FO80,50^A0N,30^FN11^FS
+^FO0,75^A0N,30^FDTradename:^FS
+^FO160,75^A0N,30^FB650,3,,L,^FN12^FS
+^FO0,180^A0N,28^FB630,22,,L,^FN13^FS
+^FO0,800^GB800,1,1,B,0
+^XZ

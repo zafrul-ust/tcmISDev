@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>HGI tcmIS New Supplier Request</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" />
+<style type="text/css">
+.row {
+	width: 95em;
+	float: none;
+	padding-top: 0.5em;
+}
+
+.column {
+	width: 35em;
+	padding-right: 1em;
+	float: left;
+}
+
+.column a.tip {
+	text-decoration: none;
+	color: #666666;
+	cursor: help;
+}
+.column ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.column ul > li {
+/*	background: url(../../images/checkbox.png) no-repeat left -20px; */
+	padding: 0 0 0 0.5em;
+	margin: 0;
+	line-height: 1.5em;
+	list-style: none;
+}
+
+.column li li {
+	padding: 0 0 0 0.25em;
+	margin: 0;
+	list-style: disc; 
+}
+a.tip {
+	position: relative;
+	border-bottom: 1px dotted #000000;
+	font-size: 85%; /* this is just for IE */
+}
+
+a.tip span {
+	display: none;
+	position: absolute;
+	top: -20px;
+	left: 150px;
+	width: 25em;
+	padding: 5px; 
+	z-index: 100;
+	background: #6495ed;
+	color: #fff;
+	text-decoration: none;
+	line-height: 1.15em;
+	-moz-border-radius: 5px; /* this works only in camino/firefox */
+	-webkit-border-radius: 5px; /* this is just for Safari */
+}
+
+a:hover.tip {
+	font-size: 85%; /* this is just for IE */
+}
+
+a:hover.tip span {
+	display: block;
+}
+.tip:hover img {
+	border: 0; 
+	margin: -10px 0 0 -25px;
+	float: left; 
+	position: absolute;
+}
+ /* stop the float */
+br.clear
+  {
+    clear: left;
+  }		
+</style>
+
+</head>
+
+<body>
+<h1><a name="NewSupplierRequest" id="NewSupplierRequest"></a>New Supplier Request</h1>
+<p><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" style="border-style: none" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" style="border-style: none" /></a></p>
+
+<p>The <strong>New Supplier Request</strong> page is used to initiate new supplier records. The 
+	<strong>New Supplier Request</strong> page is accessed by clicking on the <strong>New</strong> link 
+	on the <strong>New/Modify Supplier Requests</strong> page. The <strong>New Supplier Request</strong> 
+	page is launched in a new tab.</p>
+
+<p>The <strong>New Supplier Request</strong> may also be accessed by clicking on the <strong>New Supplier</strong> 
+	button on the <strong>Supplier Search</strong> page.</p>
+<p><em>Use the <strong>Supplier Search</strong> page to determine if the supplier already exists in tcmIS 
+   before requesting a new supplier record.</em></p>
+<p>A new supplier record is not completed until all required information is provided and it has been
+   reviewed and approved by new supplier approvers.</p>
+
+<div class="image"><img src="NewModifySupplier2.png" alt="New button on New/Modify Supplier Requests page" width="835" height="290" />
+<div>Figure 1</div></div>
+
+<div class="image"><img src="NewSupplierRequest1A.png" alt="New Supplier button on Supplier Search page" width="835" height="289" />
+<div>Figure 1A</div></div>
+
+<p><em>The <strong>New Supplier Request</strong> form is quite long. In the figures below is has been broken 
+	into sections for easier reference.</em></p>
+<p>Required fields are denoted by an asterisk and information must be supplied for each of them. It is advisable 
+	to provide other information insofar as possible.</p>
+<p>The top of the form provides three action links and two address sections. All the information in the address 
+	sections is required.</p>
+<ul>
+
+	<li>The <strong>Save</strong> link is used to preserve a newly created request before it is ready for submission
+		 and approval. Once a request is Saved it will be stored with a <strong>Draft</strong> status until it is 
+		 completed and submitted.</li>
+	<li>The <strong>Submit</strong> link is used after the form is complete to submit the request for review by the new 
+		 supplier approvers.</li>
+	<li>The <strong>Delete</strong> link is used to discard a request that has not been submitted.</li>
+
+</ul>
+<p>Both address sections include the same required information (except the supplier name information is not 
+	repeated.) Begin with the <strong>Country</strong> drop-down list so that the <strong>State/Province</strong> 
+	drop-down list has the appropriate items.</p>	 
+<p><em>If all the information in the <strong>Submit To</strong> section is the same as that provided in the 
+	<strong>Address</strong> section</em>, simply select the <strong>Same As Above</strong> check box to copy the 
+	information. Otherwise complete all the required fields.</p>
+
+<div class="image"><img src="NewSupplier2.png" alt="New Supplier form - top" width="834" height="482" />
+<div>Figure 2</div></div>
+
+<p>The next two sections call for contact and business information.</p>
+<ul>
+	<li>Although the <strong>Federal Tax ID</strong> is not denoted with an asterisk, it is a required field. For suppliers 
+		outside the U.S., use this field to enter the VAT number.
+		<ul>
+			<li>In some cases the Federal Tax ID is the supplier&#39;s personal Social Security Number. In this
+				 case, select the check box to the left of <strong>SSN</strong>.</li>
+
+		</ul>
+		</li>
+	<li>The <strong>State Tax ID</strong> is optional but should be completed for suppliers in the U.S. if the number is 
+		available from the supplier.</li>
+	<li>Select the <strong>Type of Purchase</strong> from the drop-down list. This is typically <em>Chemical</em>. 
+		 Other options include <em>Waste</em>, <em>Gas</em>, <em>Computer Hardware</em>, and <em>Other</em>.</li>
+
+	<li>Select the supplier's <strong>Qualification Level</strong> from the drop-down list. New 
+       suppliers should be set to <em>New</em>. If the customer has directed HGI to purchase from this 
+       supplier select <em>Customer Directed-New</em>.</li>
+</ul>
+<div class="image"><img src="NewSupplier3.png" alt="New Supplier form - 3rd and 4th sections" width="834" height="312" />
+<div>Figure 3</div></div>
+
+<p>The next two sections are small tables used to provided payment terms and payment terms exceptions. Both tables 
+	originally have no information. To add information to either table, as appropriate, click the <strong>Add Line</strong> 
+	link at the top of the table. tcmIS will insert a new line in the table where you may:</p>
+
+<ul>
+	<li>Choose the <strong>Operating Entity</strong> for which this supplier will be used from the drop-down list 
+		 that appears when you click into the text box.</li>
+	<li><em><strong>For Exceptions only</strong></em> select the <strong>Inventory Group</strong> to which the 
+			exception applies from the drop-down list that appears when you click into the text box.</li>
+	<li>Select the <strong>Payment Terms</strong> the supplier has extended to the selecting Operating Entity 
+		 from the drop-down list that appears when you click into the text box.
+		 <ul>
+
+		 	<li>If the payment terms needed are not listed, contact the Technical Center.</li>
+		 </ul>
+		 </li>
+</ul>
+<p>To remove a row click anywhere on the line and click the <strong>Remove Line</strong> link.</p>	
+<div class="image"><img src="NewSupplier4.png" alt="New Supplier form Payment Terms" width="835" height="395" />
+<div>Figure 4</div></div>
+
+<p>If the supplier has issued HGI an account number, enter it in the <strong>Haas Account Number</strong> 
+	box.</p>	
+<div class="image"><img src="NewSupplier5.png" alt="New Supplier form Accounting Info" width="835" height="159" />
+<div>Figure 5</div></div>
+
+<p>The <strong>Misc</strong>[ellaneous] section has several functions.</p>
+<div style="float: none;">
+<ul>
+	<li>If this supplier replaces a previous supplier due to a name change, enter the old name in the 
+		 <strong>Former Supplier Name</strong> text box.</li>
+
+	<li>Enter any <strong>notes</strong> directed to new supplier approvers that should be included based on your 
+		 team&#39;s specific work processes.</li>
+	<li>Use the set of check boxes to indicate which of the various classifications apply to the 
+		 supplier. (Mouse over any classification for more information.)
+
+		<div class="row">
+			<div class="column">
+				<ul>
+		 			<li>
+						<a class="tip" id="SB"><strong>Small Business</strong>
+
+						<span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						A Small Business is one that is privately owned and operated, with a small 
+						number of employees and relatively low volume of sales. Fewer than 100 employees. (rule of thumb)</span></a>
+						<a style="text-decoration: underline; color:blue; font-size: 85%;" href="http://www.sba.gov/content/small-business-size-regulations">See also the U.S. Small Business Administration for details</a>.
+					</li>
+		 			<li><a class="tip" id="mbe"><strong>Minority Business</strong>
+						<span>
+						 	<img src="../../images/Info.png" alt="Information" height="24" width="24" />
+							 An American term: a business which is at least 51% owned, operated, and controlled on a daily basis by 
+							 one or more (in combination) American citizens of the following ethnic minority classifications:<br />
+             				 1. African-American<br />
+             				 2. Asian-American (includes West Asian Americans (India etc.) and East Asian Americans( Japan Korea etc.)<br />
+             				 3. Hispanic-American - not of the Iberian peninsula<br />
+             				 4. Native American including Aleuts</span>
+					  </a> 
+					</li>
+		 			<li><a class="tip" id="sdb"><strong>Disadvantaged Business</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 At least 51% owned by one or more socially and economically disadvantaged individual or, in the case of 
+						 any publicly owned business of which 51% of the stock is owned by such individuals; and whose management 
+						 and daily business operations are controlled by one or more of such individuals. The following individuals 
+          	 		are considered socially and economically disadvantaged: American Indians/Native Americans, 
+          	 		Asian Pacific/Indian-Americans, Black/African-Americans, Hispanic-Americans.</span>
+						 </a> 
+					</li>
+		 			<li><a class="tip" id="iso9001"><strong>ISO 9001 Certified</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 The International Standard for Quality Management Systems (QMS). It provides a set of principles that ensure a 
+						 common sense approach to the management of business activities to consistently achieve customer satisfaction.</span>
+						 </a> 
+					</li>
+		 			<li><a class="tip" id="as9120"><strong>AS 9120 Certified</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 This is the Standard requirements for a Quality Management System based on AS 9100 which adds 100+ additional 
+						 requirements that are specific to distributors who carry aircraft components like fasteners, electronics, gaskets, 
+						 etc. It helps ensure that they handle the materials properly and track the part from OEM to customer. AS9120 was 
+						 developed for pass-through distributors of aerospace items and addresses chain of custody, traceability, control and availability of records.</span>
+						 </a> 
+					</li>
+		 			<li><a class="tip" id="hub-local"><strong>HUB with Local Certified</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 TBD</span>
+						 </a> 
+					</li>
+		 			<li><a class="tip" id="mbe-local"><strong>MBE with Local Certified</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 TBD</span>
+						 </a> 
+					</li>
+		 			<li><a class="tip" id="wbe-local"><strong>WBE with Local Certified</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 TBD</span>
+						 </a> 
+					</li>
+		 			<li><a class="tip" id="sdb-sba"><strong>SDB with SBA Certified</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 TBD</span>
+						 </a> 
+					</li>
+		 			<li><a class="tip" id="sba8a"><strong>Category 8A With SBA Certified</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 At least 51% owned by one or more U.S. citizen(s) of a socially and economically disadvantaged group that 
+						 is certified as an SBA8(a) business. The 8(a) Business Development Program, administered by the Small 
+						 Business Administration (SBA). A business certified by the SBA as an 8(a) firm automatically qualifies for SDB (see below).</span>
+						 </a> 
+					</li>
+		 			<li><a class="tip" id="hub-sba"><strong>Hub With SBA Certified</strong>
+						 <span>
+						 	<img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 	A business formed for the purpose of making a profit in which at least 51 percent of the business is owned, operated, 
+						 	and controlled by one or more who are economically disadvantaged and who have been historically underutilized because 
+						 	of their identification as members of these groups:<br /> 
+								 1. Black Americans: includes all persons having origins of Black racial groups of Africa;<br />
+			 					 2. Hispanic-Americans: includes all person of Mexican, Puerto Rican, Cuban, Central or South America, or 
+			 		 					other Spanish/Portuguese culture or origin, regardless of race;<br />
+			 					 3. Asian-/Pacific-Americans: includes persons whose origins are from Japan, China, Taiwan, Korea, Vietnam, Laos, 
+			 		 					Cambodia, the Philippines, Samoa, Guam, the U.S. Territories of the Pacific, or the Northern Marianas; and 
+			 		 					Subcontinent Asian-Americans which includes persons who origins are from India, Pakistan, Bangladesh, 
+			 		 					Sri Lanka, Bhutan, or Nepal;<br />
+			   				 4. Native Americans: includes persons who are American Indians, Eskimos, Aleuts, or Native Hawaiians; and<br />
+			   				 5. American Women: includes women of any ethnicity, except those specified above.
+						 </span>
+						</a> 
+					</li>
+		 			<li><a class="tip" id="education"><strong>Educational Institution</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 An institution dedicated to education</span>
+
+						 </a> 
+					</li>
+				</ul>
+			</div>
+
+			<div class="column">
+				<ul>
+		 			<li><a class="tip" id="mbe-black"><strong>MBE Black American</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 Operated by United States citizens and legal resident aliens whose origins are in any of the Black racial groups of Africa.</span></a>
+					</li>
+					<li><a class="tip" id="mbe-hispanic"><strong>MBE Hispanic American</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 Operated by United States citizens and legal resident aliens whose origins are in Mexico, Puerto Rico, Spain, Portugal, 
+						 Central or South America.</span>
+						 </a> 
+					</li>
+		 			<li><a class="tip" id="mbe-pacific"><strong>MBE Asian Pacific American</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 Operated by United States citizens and legal resident aliens whose origins are in Japan, China, Korea, Taiwan, Cambodia, 
+						 Laos, Vietnam, the Philippines, Samoa, Guam, the US Trust Territories of the Pacific Islands, and the Northern Marianas Islands.</span>
+						 </a> 
+					</li>
+		 			<li><a class="tip" id="as9100"><strong>AS 9100 Certified</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 The quality management system (QMS) standard specific to the aerospace industry.</span>
+						 </a> 
+					</li>
+		 			<li><a class="tip" id="mbe-native"><strong>MBE Native American</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 Operated by United States citizens and legal resident aliens whose origins are in any of the original peoples 
+						 of North America, i.e., American Indians, Eskimos, Aleuts, and native Hawaiians.</span>
+						 </a> 
+					</li>
+		 			<li><a class="tip" id="mbe-asian"><strong>MBE Asian Indian American</strong>
+
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 Operated by United States citizens and legal resident aliens whose origins are in India, Pakistan, or Bangladesh.</span>
+						 </a> 
+					</li>
+		 			<li><a class="tip" id="mbe-other"><strong>MBE Other</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 TBD</span>
+						 </a> 
+					</li>
+		 			<li><a class="tip" id="womanowned"><strong>Woman Owned</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 At least 51% owned by one or more women; and management and daily business operations are controlled by one 
+						 or more women who own the business.</span>
+						 </a> 
+					</li>
+		 			<li><a class="tip" id="vietnamver"><strong>Vietnam Veteran Owned</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 TBD</span>
+						 </a> 
+					</li>
+		 			<li><a class="tip" id="disabledvet"><strong>Disabled Veteran Owned</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 Owned and controlled by one or more disabled veterans. Owned and controlled means:<br /> 
+						  1. A sole proprietorship owned by a disabled veteran; or a partnership or corporation of which 51% of the stock or partnership interests are owned by one or more disabled veterans;<br />
+			 			  2. Management and daily business operations are controlled by one or more disabled veterans;<br />
+			 			  3. A sole proprietorship, corporation, or partnership with its home office located in the United States, which is not a branch or subsidiary of a foreign corporation, firm or other foreign based business.	 
+						 </span>
+						</a> 
+					</li>
+		 			<li><a class="tip" id="nonprofit"><strong>Non Profit Organization</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 A nonprofit organization is one that has committed legally not to distribute any net earnings (profits) to individuals with 
+				 		 control over it such as members, officers, directors, or trustees. It may pay them for services rendered and goods provided.</span>
+						 </a> 
+					</li>
+		 			<li><a class="tip" id="debarred"><strong>DEBARRED</strong>
+						 <span><img src="../../images/Info.png" alt="Information" height="24" width="24" />
+						 Prevented from doing business by law or regulation.</span>
+						 </a> 
+					</li>
+				</ul>
+			</div>		
+		</div>
+
+	 </li>	
+</ul>
+</div>
+
+<br class="clear" />
+  
+<p>Key to acronyms and terms</p>
+<ul style="list-style: none">
+	<li>SBA - Small Business Administration</li>
+	<li>SDB - Small Disadvantaged Business</li>
+	<li>MBE - Minority Business Enterprise</li>
+
+	<li>HUB - Historically Underutilized Business</li>
+</ul>
+<p>After all required information has been completed, click the <strong>Submit</strong> link at the top of the page. A new supplier request notification will 
+	be e-mailed to two approvers asking them to review the supplier request. See <a href="NewModifySupplierRequest.htm#ReviewSupplierRequest">Review/Approve/Reject 
+	Supplier Request</a>" for details.</p>
+<div class="image"><img src="NewSupplier6.png" alt="" width="835" height="519" />
+<div>Figure 6</div></div>
+
+</body>
+</html>

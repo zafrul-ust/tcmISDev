@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>Haas TCM EDI Order Status</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript" src="textsizer.js">
+
+/***********************************************
+* Document Text Sizer- Copyright 2003 - Taewook Kang.  All rights reserved.
+* Coded by: Taewook Kang (http://www.txkang.com)
+* This notice must stay intact for use
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+</head>
+
+<body bgcolor="#FFFFFF">
+<h3><font face="Tahoma"><a name="EDIOrderStatus" id="EDIOrderStatus"></a>EDI Order 
+  Status</font></h3>
+<p><a href="javascript:ts('body',1)"><font face="tahoma">+ Larger Font</font></a><font face="tahoma"> 
+  | <a
+href="javascript:ts('body',-1)">+ Smaller Font</a> </font></p>
+<p><font face="Tahoma" size="-1"> The <strong>EDI Order Status</strong> page is 
+  used to view orders sent to tcmIS electronically, which are not able to be processed 
+  and are therefore stuck in error status. Electronic Data Interchange, or EDI, 
+  refers to the structured transmission of orders from our customers to Haas TCM 
+  via electronic means. It is used to transfer electronic documents from one computer 
+  system to another. The <strong>EDI Order Status </strong>page can be accessed 
+  from the <strong>Supply Chain </strong>Menu. Under <strong>Purchasing</strong>, 
+  select <strong>EDI Order Status. </strong>The page is launched in a new tab.</font></p>
+<p><img src="EDI1.gif" width="850" height="506"></p>
+<h6><font face="Tahoma">Figure 1</font></h6>
+<p><font size="-1" face="tahoma">Select a customer from the <strong>Company</strong> 
+  drop-down box and click <strong>Find</strong> to display all EDI orders currently 
+  stuck in error status. You may sort by any of the columns displayed by clicking 
+  on the column name.</font></p>
+<p><img src="EDI9.gif" width="850" height="336"></p>
+<h6><font face="Tahoma">Figure 2</font></h6>
+<p><font size="-1" face="tahoma">If you have the correct permissions, you may 
+  resolve the error by changing the quantity, the unit of measure, or the ship 
+  to location on the order. Figure 2 shows the <strong>EDI Order Status </strong>page 
+  where the user has view only permission. Figure 3 shows the <strong>EDI Order 
+  Status </strong>page<strong> </strong>where the user has both permission to 
+  change the ship to location and permission to change the order quantity and 
+  unit of measure. Contact the Technical Center to request permissions.</font></p>
+<p><font size="-1" face="tahoma">Check to box in the <strong>Reset </strong>column 
+  for all lines where the error has been corrected and click the <strong>Reset 
+  Status </strong>link above the data grid. TcmIS will try to process the order 
+  again. Check the <strong>EDI Order Status </strong> page later to see if the 
+  error was resolved.</font></p>
+<p><font size="-1" face="tahoma">Verify with the customer that this change is 
+  acceptable prior to resetting the order. Contact the Catalog Team or the Technical 
+  Center if unsure how to resolve the error.</font></p>
+<p><img src="EDI2.gif" width="850" height="596"></p>
+<h6><font face="Tahoma">Figure 3</font></h6>
+<p><font size="-1" face="Tahoma">You may locate specific order on the <strong>EDI 
+  Order Status</strong> page by using the Search feature. You may search by customer 
+  PO number by selecting Customer PO from the drop-down list and entering the 
+  customer PO number in the text box. Click the <strong>Search </strong>button.</font></p>
+<p><img src="EDI3.gif" width="850" height="376"></p>
+<h6><font face="Tahoma">Figure 4</font></h6>
+<p><font size="-1" face="Tahoma">You may search by customer part number by selecting 
+  Part Number from the drop-down list and entering the customer part number in 
+  the text box. Click the <strong>Search </strong>button.</font></p>
+<p><font face="Tahoma"><img src="EDI4.gif" width="850" height="391"></font></p>
+<h6><font face="Tahoma">Figure 5</font></h6>
+<p><font size="-1" face="Tahoma">You may search by manufacturer part number by 
+  selecting Mfr. Part Number from the drop-down list and entering the manufacturer 
+  part number in the text box. Click the <strong>Search </strong>button.</font></p>
+<p><img src="EDI5.gif" width="850" height="391"></p>
+<h6><font face="Tahoma">Figure 6</font></h6>
+<p><font size="-1" face="Tahoma">You may search by error category by selecting 
+  Error from the drop-down list and entering the error message in the text box. 
+  Click the <strong>Search </strong>button.</font></p>
+<p><img src="EDI6.gif" width="1036" height="686"></p>
+<h6><font face="Tahoma">Figure 7</font></h6>
+<p><font size="-1" face="Tahoma">You may search by ship to location by selecting 
+  Ship To from the drop-down list and entering the ship To ID in the text box. 
+  Click the <strong>Search </strong>button.</font></p>
+<p><font face="Tahoma"><img src="EDI7.gif" width="850" height="563"></font></p>
+<h6><font face="Tahoma">Figure 8</font></h6>
+<p><font size="-1" face="Tahoma">For some customers, You may search by customer 
+  facility by selecting Facility ID from the drop-down list and entering the customer 
+  facility name in the text box. Click the <strong>Search </strong>button.</font></p>
+<p><font face="Tahoma"><img src="EDI8.gif" width="850" height="572"></font></p>
+<h6><font face="Tahoma">Figure 9</font></h6>
+<p><font size="-1" face="Tahoma">There are many different error categories. A 
+  short explanation of the most common and possible solutions is below</font></p>
+<p><font size="-1" face="tahoma">ITEM QTY NOT INTEGER- The customer has orders 
+  in a unit of measure and quantity that does not equal a full container. Adjust 
+  the quantity on the order or enter a new chemical add request for a new packing 
+  size. </font></p>
+<p><font size="-1" face="tahoma">UNK PART NUMBER - The customer part number on 
+  the order does not exist in tcmIS. This could be because Haas has multiple items 
+  defined for the same customer part number. In this case, click the <strong>Multiple 
+  </strong>link in the <strong>Part Num</strong> column and select the correct 
+  item. Or submit a catalog add request to add the new material to the catalog.</font></p>
+<p><font size="-1" face="tahoma">UOS MISMATCH - The customer's unit of measure 
+  on the order does not exist in tcmIS as a valid UOM for the customer part number 
+  being ordered. Select a valid UOM (it may be necessary to change the quantity 
+  on the order). or contact the Catalog Team to add a new UOM and conversion factor.</font></p>
+<p><font size="-1" face="tahoma">BAD SHIPTO - The ship to location sent on the 
+  order does not exist in tcmIS. Either select a valid ship to location and reset 
+  the order or contact the Technical Center to add a new ship to location.</font></p>
+</body>
+</html>

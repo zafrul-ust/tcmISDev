@@ -1,0 +1,36 @@
+<!--
+		TCM_OPS Connection Pool
+-->
+<object class="org.apache.commons.dbcp.PoolableConnectionFactory"
+	xmlns="http://apache.org/xml/xmlns/jakarta/commons/jocl">
+	<!-- The connection factory -->
+	<object class="org.apache.commons.dbcp.DriverManagerConnectionFactory">
+		<!-- The URL -->
+		<string value="jdbc:oracle:thin:@dbprod.tcmis.com:1521:tcmprod" />
+		<!-- The username -->
+		<string value="GEMA" />
+		<!-- The password -->
+		<string value="chrysl3r" />
+		</object>
+	<!-- The connection pool -->
+	<object class="org.apache.commons.pool.impl.GenericObjectPool">
+		<object class="org.apache.commons.pool.PoolableObjectFactory" null="true" />
+                  <int value="1"/> <!-- max active -->
+                  <byte value="2"/> <!-- when exhausted action, 0 = fail, 1 = block, 2 = grow -->
+                  <long value="2000"/> <!-- max wait -->
+                  <int value="0"/> <!-- max idle -->
+                  <boolean value="false"/> <!-- test on borrow -->
+                  <boolean value="false"/> <!-- test on return -->
+                  <long value="300000"/> <!-- time between eviction runs -->
+                  <int value="1"/> <!-- number of connections to test per eviction run -->
+                  <long value="60000"/> <!-- min evictable idle time -->
+                  <boolean value="true"/> <!-- test while idle -->
+		</object>
+	<object class="org.apache.commons.pool.KeyedObjectPoolFactory" null="true" />
+	<!-- validation query -->
+	<string value="select * from dual" />
+	<!-- READ ONLY -->
+	<boolean value="false" />
+	<!-- Autocommit -->
+	<boolean value="true" />
+	</object>

@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+  <form-beans>
+   	<form-bean name="genericForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm" />
+  </form-beans>
+  <global-forwards>
+   	<forward name="resetpassword"
+             path="/resetpassword.do" />
+   	<forward name="changepassword"
+             path="/changepassword.do" />
+    <forward name="searchpersonnelmain"
+             path="/searchpersonnelmain.do" />           
+    <forward name="userprofilemain"
+             path="/userprofilemain.do" />
+    <forward name="startuppages"
+             path="/startuppages.do" />
+    <forward name="companypermissionsmain"
+             path="/companypermissionsmain.do" />
+    <forward name="pagepermissionmain"
+             path="/pagepermissionmain.do" />
+    <forward name="facilitypermissionmain"
+             path="/facilitypermissionmain.do" />
+    <forward name="facilitylocalepermissionmain"
+             path="/facilitylocalepermissionmain.do" />
+    <forward name="editfacilitypermissionmain"
+             path="/editfacilitypermissionmain.do" />
+    <forward name="workareapermissionmain"
+             path="/workareapermissionmain.do" />
+    <forward name="dockpermissionmain"
+             path="/dockpermissionmain.do" />
+    <forward name="financialapprovermain"
+             path="/financialapprovermain.do" />
+    <forward name="usergrouppermissionmain"
+             path="/usergrouppermissionmain.do" />
+    <forward name="createnewusergroup"
+             path="/createnewusergroup.do" />
+    <forward name="wastelocpermissionmain"
+             path="/wastelocpermissionmain.do" />
+    <forward name="hubpermsmain"
+             path="/hubpermsmain.do" />
+    <forward name="invgrouppermissionsmain"
+             path="/invgrouppermissionsmain.do" />
+    <forward name="listapprovalpermissionmain"
+             path="/listapprovalpermissionmain.do" />
+	<forward name="editfacilitylistapproval"
+             path="/editfacilitylistapproval.do" />	  
+	<forward name="opspermission"
+             path="/opspermission.do" /> 
+	<forward name="hubpermission"
+             path="/hubpermission.do" /> 
+	<forward name="igpermission"
+             path="/igpermission.do" /> 
+    <forward name="operationspermissionmain"
+             path="/operationspermissionmain.do" />
+    <forward name="entitypermissionmain"
+             path="/entitypermissionmain.do" />
+    <forward name="catalogaddapproverpermissionmain"
+             path="/catalogaddapproverpermissionmain.do" />
+    <forward name="getbrowserlocalecode"
+             path="/getbrowserlocalecode.do" />
+	<forward name="companydefusergrouppermissionmain"
+             path="/companydefusergrouppermissionmain.do" />
+    <forward name="showfacilitypermissions"
+             path="/showfacilitypermissions.do" />
+    <forward name="showcompanypermissions"
+             path="/showcompanypermissions.do" />      
+    <forward name="printtestlabels"
+             path="/printtestlabels.do" />  
+    <forward name="chargenumbermanagementmain"
+             path="/chargenumbermanagementmain.do" />  
+    <forward name="helpdeskticket"
+             path="/helpdeskticket.do" />
+    <forward name="createnewuser"
+             path="/createnewuser.do" />
+    <forward name="poapprovermain"
+             path="/poapprovermain.do" /> 
+  </global-forwards>
+
+  <action-mappings>
+    <action path="/resetpassword"
+            type="com.tcmis.common.admin.action.ResetPasswordAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/resetpassword.jsp"
+            scope="request">
+        <forward name="success" path="/common/resetpassword.jsp" module=""/>
+    </action>
+
+    <action path="/changepassword"
+            type="com.tcmis.common.admin.action.ChangePasswordAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/changepassword.jsp"
+            scope="request">
+        <forward name="success" path="/common/changepassword.jsp" module=""/>
+    </action>
+    
+	<action path="/searchpersonnelmain"
+            type="com.tcmis.common.admin.action.SearchPersonnelAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/searchpersonnelmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/searchpersonnelmain.jsp" module=""/>
+    </action>
+    <action path="/searchpersonnelresults"
+            type="com.tcmis.common.admin.action.SearchPersonnelAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/searchpersonnelresults.jsp"
+            scope="request">
+        <forward name="showresults" path="/common/searchpersonnelresults.jsp" module=""/>
+    </action>    
+
+    <action path="/userprofilemain"
+            type="com.tcmis.common.admin.action.UserProfileAction"
+            validate="true"
+            input="/../common/admin/userprofilemain.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/userprofilemain.jsp" module=""/>
+    </action>
+    <action path="/userprofilesearch"
+            type="com.tcmis.common.admin.action.UserProfileAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/admin/userprofilesearch.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/userprofilesearch.jsp" module=""/>
+        <forward name="showResult" path="/common/admin/userprofileresults.jsp" module=""/>
+	</action>
+	<action path="/printtestlabels"
+            type="com.tcmis.common.admin.action.PrintTestLabelsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/printtestlabels.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/printtestlabels.jsp" module=""/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+    <action path="/startuppages"
+            type="com.tcmis.common.admin.action.StartupPagesAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/startuppages.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/startuppages.jsp" module=""/>
+    </action>
+    
+    <action path="/companypermissionsmain"
+            type="com.tcmis.common.admin.action.CompanyPagesAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/companypermissionsmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/companypermissionsmain.jsp" module=""/>
+    </action>
+
+    <action path="/companypermissionsresults"
+            type="com.tcmis.common.admin.action.CompanyPagesAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/companypermissionsresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/companypermissionsresults.jsp" module=""/>
+    </action>
+
+    <action path="/pagepermissionmain"
+            type="com.tcmis.common.admin.action.PagePermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/pagepermissionmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/pagepermissionmain.jsp" module=""/>
+    </action>
+
+    <action path="/pagepermissionresults"
+            type="com.tcmis.common.admin.action.PagePermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/pagepermissionresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/pagepermissionresults.jsp" module=""/>
+    </action>
+    <action path="/pagepermissionsearch"
+            type="com.tcmis.common.admin.action.PagePermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/pagepermissionsearch.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/pagepermissionsearch.jsp" module=""/>
+    </action>
+
+    <action path="/editfacilitypermissionmain"
+            type="com.tcmis.common.admin.action.FacilityPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/editfacilitypermissionsmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/editfacilitypermissionsmain.jsp" module=""/>
+        <forward name="showResult" path="/common/admin/editfacilitypermissionsresults.jsp" module=""/>
+    </action>
+    
+    <action path="/facilitypermissionresults"
+            type="com.tcmis.common.admin.action.FacilityPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/facilitypermissionresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/facilitypermissionresults.jsp" module=""/>
+    </action>
+    <action path="/facilitypermissionmain"
+            type="com.tcmis.common.admin.action.FacilityPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/facilitypermissionmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/facilitypermissionmain.jsp" module=""/>
+    </action>
+    <action path="/facilitylocalepermissionresults"
+            type="com.tcmis.common.admin.action.FacilityLocalePermissionAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/facilitylocalepermissionresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/facilitylocalepermissionresults.jsp" module=""/>
+    </action>
+    <action path="/facilitylocalepermissionmain"
+            type="com.tcmis.common.admin.action.FacilityLocalePermissionAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/facilitylocalepermissionmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/facilitylocalepermissionmain.jsp" module=""/>
+    </action>
+    <action path="/workareapermissionmain"
+            type="com.tcmis.common.admin.action.WorkareaPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/workareapermissionmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/workareapermissionmain.jsp" module=""/>
+    </action>
+
+    <action path="/workareapermissionresults"
+            type="com.tcmis.common.admin.action.WorkareaPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/workareapermissionresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/workareapermissionresults.jsp" module=""/>
+    </action>
+
+    <action path="/workareapermissionsearch"
+            type="com.tcmis.common.admin.action.WorkareaPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/workareapermissionsearch.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/workareapermissionsearch.jsp" module=""/>
+    </action>
+
+    <action path="/dockpermissionmain"
+            type="com.tcmis.common.admin.action.DockPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/facilitydockpermsmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/facilitydockpermsmain.jsp" module=""/>
+    </action>
+
+    <action path="/dockpermissionresults"
+            type="com.tcmis.common.admin.action.DockPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/facilitydockpermsresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/facilitydockpermsresults.jsp" module=""/>
+    </action>
+
+    <action path="/dockpermissionsearch"
+            type="com.tcmis.common.admin.action.DockPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/facilitydockpermssearch.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/facilitydockpermssearch.jsp" module=""/>
+    </action>
+
+    <action path="/financialapprovermain"
+            type="com.tcmis.common.admin.action.FinancialApproverAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/financialapprovermain.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/financialapprovermain.jsp" module=""/>
+    </action>
+
+    <action path="/financialapproverresults"
+            type="com.tcmis.common.admin.action.FinancialApproverAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/financialapproverresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/financialapproverresults.jsp" module=""/>
+        <forward name="edit" path="/common/admin/approverinformation.jsp" module=""/>
+        <forward name="add" path="/common/admin/approverinformation.jsp" module=""/>
+        <forward name="altapprover" path="/common/admin/altapprover.jsp" module=""/>
+    </action>
+
+    <action path="/financialapproversearch"
+            type="com.tcmis.common.admin.action.FinancialApproverAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/financialapproversearch.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/financialapproversearch.jsp" module=""/>
+    </action>
+
+    <action path="/usergrouppermissionmain"
+            type="com.tcmis.common.admin.action.UsergroupPermissionsAction"
+            validate="true"
+            name="genericForm"
+            input="/../common/admin/usergrouppermsmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/usergrouppermsmain.jsp" module=""/>
+    </action>
+
+    <action path="/usergrouppermissionresults"
+            type="com.tcmis.common.admin.action.UsergroupPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/usergrouppermsresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/usergrouppermsresults.jsp" module=""/>
+        <forward name="successtree" path="/common/admin/usergrouppermissiontreeresults.jsp" module=""/>
+    </action>
+
+    <action path="/usergrouppermissionsearch"
+            type="com.tcmis.common.admin.action.UsergroupPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/usergrouppermssearch.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/usergrouppermssearch.jsp" module=""/>
+    </action>
+      
+    <action path="/createnewusergroup"
+            type="com.tcmis.common.admin.action.CreateNewUserGroupAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/admin/createnewusergroup.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/createnewusergroup.jsp" module=""/>
+    </action>
+
+    <action path="/wastelocpermissionmain"
+            type="com.tcmis.common.admin.action.WasteLocPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/facilitywastelocpermsmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/facilitywastelocpermsmain.jsp" module=""/>
+    </action>
+
+    <action path="/wastelocpermissionresults"
+            type="com.tcmis.common.admin.action.WasteLocPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/facilitywastelocpermsresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/facilitywastelocpermsresults.jsp" module=""/>
+    </action>
+
+    <action path="/wastelocationpermissionsearch"
+            type="com.tcmis.common.admin.action.WasteLocPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/facilitywastelocpermssearch.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/facilitywastelocpermssearch.jsp" module=""/>
+    </action>
+
+    <action path="/hubpermsmain"
+            type="com.tcmis.common.admin.action.HubsPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/hubpermsmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/hubpermsmain.jsp" module=""/>
+    </action>
+
+    <action path="/hubpermsresults"
+            type="com.tcmis.common.admin.action.HubsPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/hubpermsresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/hubpermsresults.jsp" module=""/>
+    </action>
+
+    <action path="/hubpermssearch"
+            type="com.tcmis.common.admin.action.HubsPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/hubpermssearch.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/hubpermssearch.jsp" module=""/>
+    </action>
+
+    <action path="/invgrouppermissionsmain"
+            type="com.tcmis.common.admin.action.InvgroupPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/invgrouppermsmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/invgrouppermsmain.jsp" module=""/>
+    </action>
+
+    <action path="/invgrouppermissionsresults"
+            type="com.tcmis.common.admin.action.InvgroupPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/invgrouppermsresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/invgrouppermsresults.jsp" module=""/>
+    </action>
+
+    <action path="/invgrouppermissionssearch"
+            type="com.tcmis.common.admin.action.InvgroupPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/invgrouppermssearch.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/invgrouppermssearch.jsp" module=""/>
+    </action>
+
+    <action path="/userpage" name="genericForm"
+    	type="com.tcmis.common.admin.action.UserPageAction"
+    	validate="false" 
+    	scope="request">
+    	<forward name="done" path="/common/done.jsp" module="" />
+    </action>
+
+   <action path="/listapprovalpermissionmain"
+            type="com.tcmis.common.admin.action.ListApprovalPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/listapprovalpermsmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/listapprovalpermsmain.jsp" module=""/>
+    </action>
+
+    <action path="/listapprovalpermissionresults"
+            type="com.tcmis.common.admin.action.ListApprovalPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/listapprovalpermsresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/listapprovalpermsresults.jsp" module=""/>
+        <forward name="successtree" path="/common/admin/listapprovalpermissiontreeresults.jsp" module=""/>
+    </action>
+
+    <action path="/listapprovalpermissionsearch"
+            type="com.tcmis.common.admin.action.ListApprovalPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/listapprovalpermssearch.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/listapprovalpermssearch.jsp" module=""/>
+    </action>
+
+    <action path="/editfacilitylistapproval"
+            type="com.tcmis.common.admin.action.EditFacilityListApprovalAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/editfacilitylistapproval.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/editfacilitylistapproval.jsp" module=""/>
+    </action>
+
+    <action path="/opspermission"
+    	type="com.tcmis.common.admin.action.OpsPermissionAction"
+    	name="genericForm" validate="true" input="/../common/admin/opspermission.jsp"
+    	scope="request">
+    	<forward name="success" path="/admin/opspermission.jsp" module="/common"/>
+    </action>
+
+    <action path="/hubpermission"
+    	type="com.tcmis.common.admin.action.HubPermissionAction"
+    	name="genericForm" validate="true" input="/../common/admin/hubpermission.jsp"
+    	scope="request">
+    	<forward name="success" path="/admin/hubpermission.jsp" module="/common"/>
+    </action>
+
+    <action path="/igpermission"
+    	type="com.tcmis.common.admin.action.IgPermissionAction"
+    	name="genericForm" validate="true" input="/../common/admin/igpermission.jsp"
+    	scope="request">
+    	<forward name="success" path="/admin/igpermission.jsp" module="/common"/>
+    </action>
+    
+    <action path="/igpermissionmain"
+            type="com.tcmis.common.admin.action.IgPermissionAction"
+            validate="true"
+            name="genericForm"
+            input="/igpermissionmain.jsp"
+            scope="request">
+        <forward name="success" path="/admin/igpermissionmain.jsp" module="/common"/>
+    </action>
+   
+    <action path="/igpermissionresults"
+            type="com.tcmis.common.admin.action.IgPermissionAction"
+            name="genericForm"
+            validate="true"
+            input="/igpermissionresults.jsp"
+            scope="request">
+        <forward name="success" path="/admin/igpermissionresults.jsp" module="/common"/>
+    </action>
+
+    <action path="/operationspermissionmain"
+            type="com.tcmis.common.admin.action.OperationsPermissionAction"
+            validate="true"
+            name="genericForm"
+            input="/operationspermissionmain.jsp"
+            scope="request">
+        <forward name="success" path="/admin/operationspermissionmain.jsp" module="/common"/>
+    </action>
+   
+    <action path="/operationspermissionresults"
+            type="com.tcmis.common.admin.action.OperationsPermissionAction"
+            name="genericForm"
+            validate="true"
+            input="/operationspermissionresults.jsp"
+            scope="request">
+        <forward name="success" path="/admin/operationspermissionresults.jsp" module="/common"/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+        <forward name="legend" path="/admin/permissionlegend.jsp" module="/common"/>
+    </action>
+    
+    <action path="/entitypermissionmain"
+            type="com.tcmis.common.admin.action.EntityPermissionAction"
+            validate="true"
+            name="genericForm"
+            input="/entitypermissionmain.jsp"
+            scope="request">
+        <forward name="success" path="/admin/entitypermissionmain.jsp" module="/common"/>
+    </action>
+   
+    <action path="/entitypermissionresults"
+            type="com.tcmis.common.admin.action.EntityPermissionAction"
+            name="genericForm"
+            validate="true"
+            input="/entityresults.jsp"
+            scope="request">
+        <forward name="success" path="/admin/entitypermissionresults.jsp" module="/common"/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+        <forward name="legend" path="/admin/permissionlegend.jsp" module="/common"/>
+    </action>
+
+    <action path="/catalogaddapproverpermissionmain"
+            type="com.tcmis.common.admin.action.CatalogAddApproverPermissionAction"
+            validate="true"
+            input="/catalogaddapproverpermissionmain.jsp"
+            scope="request">
+        <forward name="success" path="/admin/catalogaddapproverpermissionmain.jsp" module="/common"/>
+    </action>
+
+    <action path="/catalogaddapproverpermissionresults"
+            type="com.tcmis.common.admin.action.CatalogAddApproverPermissionAction"
+            name="genericForm"
+            validate="true"
+            input="/catalogaddapproverpermissionresults.jsp"
+            scope="request">
+        <forward name="success" path="/admin/catalogaddapproverpermissionresults.jsp" module="/common"/>
+    </action>
+
+    <action path="/getbrowserlocalecode"
+            type="com.tcmis.common.admin.action.GetBrowserLocaleCodeAction"
+		      name="genericForm"
+				validate="true"
+            input="/getbrowserlocalecode.jsp"
+            scope="request">
+        <forward name="success" path="/admin/getbrowserlocalecode.jsp" module="/common"/>
+    </action>
+<!-- Larry Note: we will change it to grid later. -->
+    <action path="/cabinetpermissionmain"
+            type="com.tcmis.common.admin.action.CabinetPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/cabinetpermissionmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/cabinetpermissionmain.jsp" module=""/>
+    </action>
+
+    <action path="/cabinetpermissionresults"
+            type="com.tcmis.common.admin.action.CabinetPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/cabinetpermissionresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/cabinetpermissionresults.jsp" module=""/>
+    </action>
+
+    <action path="/cabinetpermissionsearch"
+            type="com.tcmis.common.admin.action.CabinetPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/cabinetpermissionsearch.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/cabinetpermissionsearch.jsp" module=""/>
+    </action>
+
+	 <action path="/companydefusergrouppermissionmain"
+            type="com.tcmis.common.admin.action.CoDefUserGroupPermissionAction"
+            validate="true"
+            name="genericForm"
+            input="/../common/admin/companydefusergrouppermsmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/companydefusergrouppermsmain.jsp" module=""/>
+    </action>
+
+    <action path="/companydefusergrouppermissionresults"
+            type="com.tcmis.common.admin.action.CoDefUserGroupPermissionAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/companydefusergrouppermsresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/companydefusergrouppermsresults.jsp" module=""/>
+        <forward name="successtree" path="/common/admin/companydefusergrouppermissiontreeresults.jsp" module=""/>
+    </action>
+    
+     <action path="/showfacilitypermissions"
+            type="com.tcmis.common.admin.action.FacilityPermissionsAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/showfacilitypermissions.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/showfacilitypermissions.jsp" module=""/>
+    </action>
+    
+     <action path="/showcompanypermissions"
+            type="com.tcmis.common.admin.action.CompanyPagesAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/companypermissions.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/companypermissions.jsp" module=""/>
+    </action>
+       
+    <action path="/getpersonneldata"
+            type="com.tcmis.common.admin.action.GetPersonnelAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action>
+    
+    <action path="/lookuplogonid"
+            type="com.tcmis.common.admin.action.LookupLogonIdAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action>
+    
+     <action path="/chargenumbermanagementmain"
+            type="com.tcmis.common.admin.action.ChargeNumberManagementAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/chargenumbermanagementmain.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/chargenumbermanagementmain.jsp" module=""/>
+    </action>  
+    
+     <action path="/chargenumbermanagementresults"
+            type="com.tcmis.common.admin.action.ChargeNumberManagementAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/chargenumbermanagementresults.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/chargenumbermanagementresults.jsp" module=""/>
+        <forward name="userprofilecallback" path="/common/admin/userprofilecallback.jsp" module=""/>
+    </action>
+
+    <action path="/helpdeskticket"
+            type="com.tcmis.common.admin.action.HelpdeskTicketAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/helpdeskticket.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/helpdeskticket.jsp" module="" />
+    </action>
+      
+    <action path="/createnewuser"
+            type="com.tcmis.common.admin.action.CreateNewUserAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/admin/createnewuser.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/createnewuser.jsp" module=""/>
+    </action>
+    
+    <action path="/poapprovermain"
+            type="com.tcmis.common.admin.action.POApproverAction"
+            name="genericForm"
+            validate="true"
+            input="/../common/admin/poapprovermain.jsp"
+            scope="request">
+        <forward name="success" path="/common/admin/poapprovermain.jsp" module="" />
+    </action>
+    
+  </action-mappings>
+
+  <message-resources parameter="com.tcmis.common.resources.CommonResources"/>
+</struts-config>

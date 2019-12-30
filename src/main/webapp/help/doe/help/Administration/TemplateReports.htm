@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Template Report Functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+<body>
+
+<h1><a name="templatefunctions" id="templatefunctions"></a>Template Report functions</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>There are four to six buttons, a pair of option buttons, and a text box across the bottom of the page 
+   which are used to manage (clear, save, recall, manage publication, and run) a report.</p>
+<div class="image"><img src="TemplateReports1.png" width="919" height="46" alt="Template Reports buttons" />
+<div class="caption">Figure 1</div></div>
+
+<h2><a id="runareport">Running a report</a></h2>
+<ul>
+	<li>There are two ways to run, or generate, a report: interactively or batch.
+		<ul>
+			<li>An Interactive report is produced on your own computer. Select the <strong>Interactive</strong>
+		    	option button. A small window (illustration below) will open with the options to <strong>Save</strong>
+			 	the report on your workstation or to <strong>Open</strong> the report in your own copy of
+			 	Microsoft Excel.</li>
+			<li>A Batch report is produced on a tcmIS server. Select the <strong>Batch</strong> option
+		    	button and enter a name in the <strong>Report Name</strong> box. An e-mail will be sent to
+			 	you when the report is ready.</li>
+			<li>When all report parameters have been specified and you have chosen where to produce the
+		    	report, click the <strong>Generate Report</strong> <img class="small" src="../../images/GenerateReport.png" height="19" width="83" 
+		   	alt="Generate Report" /> button to run the report. It will be produced in Microsoft Excel format.</li>
+		</ul>
+	</li>
+</ul>
+<div class="image"><img src="TemplateReports2.png" height="206" width="289" alt="Save or Open Excel report window" />
+<div class="caption">Figure 2</div></div>
+
+<h2><a id="saveareport">Saving a report</a></h2>
+<ul>
+	<li>The <strong>Save Template</strong> button <img class="small" src="../../images/SaveTemplate.png" height="17" width="83" alt="Save Template" /> 
+		 is used to save a report as a template for later use. Click that button and tcmIS will 
+   	 open a child window to display one of two small forms to enter a name and description for the template (report) 
+   	 or update an existing template.</li> 
+   <li>After providing (or editing) the name and description, click the <strong>Save</strong> link to finish saving 
+   	 the template and/or changes.</li>
+	<li><em>Once a template has been Saved the </em><a href="#publishareport"><strong>Publish Template</strong></a> 
+		 <img class="small" src="../../images/PublishTemplate.png" height="17" width="81" alt="Publish Template" /> <em>button 
+		 is added to the bottom of the report form</em></li>
+</ul>
+<div class="image"><img src="TemplateReports3-3A.png" height="316" width="1008" alt="Save Template form" />
+<div class="caption">Figures 3 and 3A</div></div>
+
+<h2><a id="getatemplate">Opening a template (saved report)</a></h2>
+<ul>
+	<li>To use previously saved report settings (a "template"), retrieve it by clicking the <strong>Open Template</strong> 
+	    <img class="small" src="../../images/OpenTemplate.png" height="19" width="83" alt="Open Template" /> button. Select the template 
+		 you want from the list. Click the <strong>Open</strong> button to retrieve the template.</li>
+	<li>Click the <strong>Delete</strong> button to permanently delete a selected template.</li>
+	<li><em>When a saved template (report) is opened, tcmIS will display it in a new tab. If it had not previously been 
+	    shown, the </em><strong>Unpublish Template</strong> 
+	    <img class="small" src="../../images/UnpublishTemplate.png" width="83" height="19" alt="Unpublish Template" /> <em>button will 
+	    now be available (in addition to the previously added <strong>Publish Template</strong> button)</em>.</li>
+</ul>
+<p>Once a saved report (template) has been opened you may make any changes you like and <a href="#runareport">run the report</a> 
+	or <a href="#saveareport">save</a> the changed report with a new template name. For information on modifying and running 
+	a report, see the help on the report on which the template is based: <a href="../CostReport/CostReport.htm">Cost Report</a>, 
+	<a href="../MaterialMatrix/MaterialMatrix.htm">Ad Hoc Material Matrix</a>, or <a href="../AdHocUsage/AdHocUsage.htm">Ad Hoc Usage</a>.</p>
+<div class="image"><img src="TemplateReports4.png" height="123" width="507" alt="Open Template form" />
+<div class="caption">Figure 4</div></div>
+
+<h2><a id="publishareport">Publishing a template</a></h2>
+<p><em>Publishing Templates is permissions based. Contact your Facility Admin to request the needed permission if the publish 
+   buttons don't appear.</em> </p>
+<p>Click on the <strong>Publish Template</strong> 
+	<img class="small" src="../../images/PublishTemplate.png" width="81" height="17" alt="PublishTemplate" /> button and tcmIS will open a 
+	child window to display the <strong>Publish Template</strong> form. This form is used to specify to whom access (the meaning, here, 
+	of &rsquo;Publish&rsquo;) is granted to open and run the report.</p>
+<ul>
+	<li>It is possible to &rsquo;mix and match&rsquo; access by entering user access for more than a single category, e.g., 
+		 (individual) Users plus one or more User Groups. But if the <strong>Company</strong> option is selected it is 
+		 not necessary and not possible to add individuals or groups.</li>
+	<li>To grant permission to one or more particular users, click the magnifying glass icon <img class="small" src="../../images/glass.gif" height="16" width="21" 
+		 alt="magnifying glass" /> next to the	<strong>User</strong> text box to open the <strong>User</strong> Lookup form. 
+		 See <a href="../Administration/Searches.htm#lookup">Lookup forms</a> for further information.</li>
+	<li>Specify one or more user groups by selecting the <strong>User Group</strong> check box and selecting the
+		user group name of anyone to whom you want to grant access. <em>Some organizations do not use User Groups; in 
+		this case the <strong>User Group</strong> selection will not be shown.</em></li>
+	<li>You may specify the entire company by selecting the <strong>Company</strong> check box.</li>
+	<li>Click the <strong>Publish Template</strong> link to save the list of those with access.</li>
+</ul>
+<div class="image"><img src="TemplateReports5.png" height="220" width="838" alt="Publish Template form" />
+<div class="caption">Figure 5 and 5A</div></div>
+
+<p>When the publish process is complete, tcmIS will display a small message window stating success.</p>
+<div class="image"><img src="TemplateReports6.png" height="102" width="182" alt="Publish Template success notice" />
+<div class="caption">Figure 6</div></div>
+
+<h2><a id="unpublishareport">Unpublishing a template</a></h2>
+<p>Click on the <strong>Unpublish Template</strong> <img class="small" src="../../images/UnpublishTemplate.png" width="83" height="19" 
+	alt="Unpublish Template" /> button to open a child window which will allow you to remove access from a user account. 
+	Removing access is done using the <strong>Publish Template</strong> form, which has a slightly different appearance for unpublishing.</p>
+<ul>
+   <li>It is possible to remove your own access to a published template. Simply select the check box for <strong>
+   	 Remove this template from my view.</strong></li>
+   <li>To remove access for another user account, select the check box for <strong>User</strong> and select the user name 
+   	 or names you want removed from access.</li>
+</ul>
+<p>When you have specified all those you want removed, click on the <strong>Unpublish Template</strong> link in 
+   the upper left corner of the <strong>Publish Template</strong> form. When the unpublish process is complete, 
+   tcmIS will display a small message window stating success.</p>
+<div class="image"><img src="TemplateReports7.png" height="199" width="689" alt="Unpublish template and success notice" />
+<div class="caption">Figure 7 and 7a</div></div>
+
+</body>
+</html>
+

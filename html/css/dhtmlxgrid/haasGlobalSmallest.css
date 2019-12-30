@@ -1,0 +1,872 @@
+/**
+* tcmIS template
+* @version 1.0
+* @copyright (C) 2006 by HASS - All rights reserved!
+*/
+/* #################### MISC SETTINGS #################### */
+body {
+	margin: 0px 0px 0px 0px;
+	height: 100%; /*Nawaz 05-03-07 - needed to make the height 100% to make the yui pop-ups work. if it is not 100% they would not be draggable*/
+}
+body,td,th {
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8px;
+}
+.interface{
+		height: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		/*min-width: 780px;*/ /*For the iframes thing to work*/
+/* _width: expression(((document.body.clientWidth)) < 790? "790px": ((document.body.clientWidth)) > 1050? "1050px": "auto" );
+	width: expression(((document.body.clientWidth)) < 782? "780px": ((document.body.clientWidth)) > 1200? "1200px": "auto");*/
+		/*border: 1px solid #717076;*/  /*-Nawaz had to remove this as the border at the bottom does not go to bottom in mozilla*/
+}
+/*
+.alignRight{
+	text-align: right;
+	float: right;
+	margin: 0px;
+	padding: 8px 10px 0px 0px;
+	white-space:nowrap;
+}
+.alignLeft{
+	text-align: left;
+	float: left;
+	white-space:nowrap;
+}
+*/
+.spacerX{
+margin:0;
+padding: 0 0 0 10px;
+float:left;
+}
+.spacerY{
+margin:0;
+padding:0;
+clear:both;
+}
+
+/* ###################### CONTENT AREA ###################### */
+.contentArea {
+	clear:both;
+	margin:	0px;
+	padding: 4px;
+	/*height: 450px;*//*Nawaz - This is for the bottom line in Mozilla, when I have the footer fixed this will be taken care of*/
+   /*white-space:nowrap;*/ /*Nawaz - I want content to wrap in mozilla*/
+}
+/* ###################### ROUNDED CONTAINER BLOCK ###################### */
+.filterContainer {
+	float:left;
+	background-color:#797682;
+}
+.resultsContainer {
+	float:left;
+}
+.contentContainer {
+	clear:both;
+}
+.roundcont {
+	color: #000;
+	background:#E5E5E5 url(/images/rndBoxes/borderL.gif) repeat-y left top;
+}
+.roundright{
+	background: url(/images/rndBoxes/borderR.gif) repeat-y right top;
+}
+.roundtop {
+	background: url(/images/rndBoxes/borderT.gif) repeat-x left top;
+}
+.roundbottom {
+clear:left;
+	background: url(/images/rndBoxes/borderB.gif) repeat-x left top;
+}
+.roundtopright {
+	background: url(/images/rndBoxes/borderTR.gif) no-repeat top right;
+position: relative;
+}
+.roundbottomright {
+	background: url(/images/rndBoxes/borderBR.gif) no-repeat top right;
+}
+.roundtop_filter {
+	background: url(/images/rndBoxes/borderT_filter.gif) repeat-x left top;
+}
+.roundtopright_filter {
+	background: url(/images/rndBoxes/borderTR_filter.gif) no-repeat top right;
+}
+img.corner {
+margin:0;
+padding:0;
+   width: 15px;
+   height: 15px;
+   border: none;
+   display: block !important;
+}
+img.corner_filter {
+margin:0;
+padding:0;
+   width: 15px;
+   height: 10px;
+   border: none;
+   display: block !important;
+}
+.roundContent{
+	padding:0px;
+	margin: 0px 10px 0px 10px;
+	background-color: #E5E5E5;
+}
+.boxhead {
+	margin: 0px;
+	padding:0 0 5px 0;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	text-align:left;
+position: relative;
+}
+.boxhead a{
+  color:#0000FF;
+	text-decoration:none;
+}
+.boxhead a:hover{
+	color:#0000FF;
+	text-decoration:underline;
+}
+
+/* ############ use this class for javascript tree ########## */
+/* the style of the text label in ygTextNode for YUI */
+/* can't use this at the moment becuase of unexpected behavior when clicked
+.ygtvlabel, .ygtvlabel:link, .ygtvlabel:visited, .ygtvlabel:hover {
+	margin-left:2px;
+	text-decoration: none;
+   background-color: white; /* workaround for IE font smoothing bug /
+	padding:0 0 5px 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	text-align:left;
+	color:#000000;
+}
+*/
+
+.treeClass {
+	margin: 0px;
+	padding:0 0 5px 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	text-align:left;
+	color:black;
+position: relative;
+}
+
+.treeClass a{
+  color:black;
+	text-decoration:none;
+}
+
+/* ###################### FILTER BLOCK ###################### */
+.filterBlock {
+	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 8px;
+}
+.filterBlock2 td {
+	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 8px;
+}
+.selectBox {
+	font-size: 8px;
+	color: #505151;
+	background-color: #FDFAF0;
+}
+.inputBox {
+   font-family: Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	color: #505151;
+	background-color: #FDFAF0;
+}
+.radioBtns {
+	color: #505151;
+	background-color: #E5E5E5;
+}
+.inputBtns{
+	width:100px;
+	height:20px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	margin:0px;
+	padding:0px 0px 4px 0px;
+	border:0px;
+	color: #FFF;
+	background-color: #E5E5E5;
+	background-image: url(/images/inputBtn.gif);
+	background-repeat: no-repeat;
+	cursor:pointer;
+}
+.inputBtnsOver{
+	background-image: url(/images/inputBtn_over.gif);
+	background-repeat: no-repeat;
+}
+.filterForm{
+margin:0;
+padding:0;
+}
+.dataContent {
+	clear:both;
+	margin:	0px;
+	padding: 4px;
+}
+/* ###################### TABLES ###################### */
+.tableResults{
+clear:both;
+	border: 1px solid #797682;
+	background-color: #ffffff; /*Nawaz- Changed color*/
+/*Nawaz - To make the cellpadding 0px*/
+   padding:0px 0px 0px 0px ;
+   margin:0px;
+   border-collapse: collapse;
+   border-spacing: 0;
+position: relative;
+}
+.tableResults th, .tableResults td{
+	margin: 0px;
+	padding: 4px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #797583;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #797583;
+}
+.tableResults th{
+   color: #ffffff;
+   background-color: #000066; /*Nawaz - changed colors and removed the gif*/
+	background-repeat: repeat-x;
+}
+.tableResults .cellLeft{
+	text-align:left;
+}
+.tableResults tr.alt{
+background-color: #f5f5ff;
+}
+
+/*Nawaz 08-20-07 to color TDs*/
+.tableResults td.alt{
+background-color: #f5f5ff;
+}
+
+/*Nawaz - 08-20-07 for selected TD rows*/
+.tableResults td.selectedalt{
+ background-color: #acacff;
+}
+
+/*Nawaz - 08-20-07 for selected TD rows*/
+.tableResults td.selected{
+ background-color: #acacff;
+}
+
+/*Nawaz - 10-03-06 for selected rows*/
+.tableResults tr.selectedalt{
+ background-color: #acacff;
+}
+
+/*Nawaz - 10-03-06 for selected rows*/
+.tableResults tr.selected{
+ background-color: #acacff;
+}
+
+/*Nawaz 06-05-07 to make text color white. Used when the background is black*/
+.tableResults tr.black td {
+   color: #ffffff;
+   background-color: #727272;
+}
+
+.tableResults tr.yellow {
+        background-color:  #FFFF99;
+}
+
+.tableResults td a{
+}
+/* ###################### MESSAGE STATUS BLOCK ###################### */
+.messageBar {
+clear:both;
+/*Nawaz - Removed this As it is not working correclty*/
+/*	background-image: url(/images/messageBar_tile.gif);
+	background-repeat: repeat-x;
+	height: 17px;*/
+}
+
+/* ###################### Search Option TABLE - Nawaz ###################### */
+.tableSearch th, .tableSearch td{
+ padding:0px 3px 0px 3px ;
+ height:25px;
+}
+
+/* ###################### Login TABLE - Nawaz ###################### */
+.tableLogin th, .tableLogin td {
+ padding:0px 3px 0px 3px ;
+ height:20px;
+}
+
+/*Home page message table */
+.tableMessage{
+clear:both;
+	border: 1px solid #797682;
+	background-color: #ffffff;
+/*Nawaz - To make the cellpadding 0px*/
+   padding:0px 0px 0px 0px ;
+   margin:0px;
+   border-collapse: collapse;
+   border-spacing: 0;
+position: relative;
+}
+
+/* ###################### No Data Found TABLE - Nawaz ###################### */
+.tableNoData {
+ padding:0px 3px 0px 3px ;
+ height:25px;
+}
+
+/*Nawaz- Options to make sure there is no padding in the navigation bar*/
+.topNavigation table {
+ padding:0px 0px 0px 0px ;
+ border: 0px;
+ margin:0px;
+ border-collapse: collapse;
+ border-spacing: 0;
+}
+
+/*Nawaz - Use these for the bold labels in search criteria*/
+.optionTitleBold{
+	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 8px;
+}
+
+.optionTitle {
+	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 8px;
+}
+
+.optionTitleBoldRight{
+	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 8px;
+	text-align: right;
+}
+
+.optionTitleRight {
+	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 8px;
+	text-align: right;
+}
+
+.optionTitleBoldLeft{
+	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 8px;
+	text-align: left;
+}
+
+.optionTitleLeft {
+	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 8px;
+	text-align: left;
+}
+
+.optionTitleBoldCenter{
+	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 8px;
+	text-align: center;
+}
+
+.optionTitleCenter {
+	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 8px;
+	text-align: center;
+}
+
+.topNavigation a{
+ font-weight: bold;
+}
+
+/*By Nawaz - These are to support older pages, can be removed when all pages are moved over*/
+.topNavigation a:active  { color: #4a4aff}
+.topNavigation a:link    { color: #FFFFFF}
+.topNavigation a:visited { color: #FFFF66}
+
+/*By Nawaz - These are to support older pages, can be removed when all pages are moved over*/
+.headingl
+{
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-size: 14px;
+color: white;
+background-color: #000066;
+text-align: left;
+vertical-align: middle;
+}
+
+/*By Nawaz - These are to support older pages, can be removed when all pages are moved over*/
+.headingr
+{
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-size: 14px;
+color: white;
+background-color: #000066;
+text-align: right;
+vertical-align: middle;
+}
+
+/*Nawaz - Colors for the different statuses 10-07-06*/
+.red
+{
+        background-color:  #FF9999;
+}
+
+.error
+{
+        background-color:  #FF7070;
+}
+
+.green {
+        background-color:  #d5ffea;
+}
+
+.yellow {
+        background-color:  #FFFF99;
+}
+
+.black {
+        background-color:  #727272;
+        color: #ffffff;
+}
+
+.pink {
+        background-color:  #ff0fff;
+}
+
+.orange {
+        background-color:  #ff8000;
+}
+
+.blue {
+		background-color:#00CCFF;
+}
+
+.lightblue {
+       background-color: #f5f5ff;
+}
+
+.lightgray {
+        background-color:  #BEBEBE;
+}
+
+.purple {
+        background-color:  #9999FF;
+}
+
+/*Nawaz- for aligning text inside a td or so 10-07-06*/
+
+.alignRight {
+text-align: right;
+}
+
+.alignLeft {
+text-align: left;
+}
+
+.alignCenter {
+text-align: center;
+}
+
+/*Nawaz 10-11-06, class for error messages*/
+.errorMessages {
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-size: 8px;
+color: #ff0000;
+text-align:left;
+vertical-align: middle;
+}
+
+/*Nawaz 11-25-06, class for success messages*/
+.successMessages {
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-size: 8px;
+color: #000000;
+text-align:left;
+vertical-align: middle;
+}
+
+/*Nawaz 11-01-06, class for button which are small and which don't need the wider*/
+.smallBtns{
+	height:20px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	margin:0px;
+	padding:0px 0px 4px 0px;
+	/*border:0px;*/
+	color: #FFF;
+	background-color: #3f3f3f;
+	cursor:pointer;
+}
+
+.smallBtnsOver{
+	background-color: #800000;
+}
+
+/*Nawaz 02-22-07, Just the background*/
+.backGroundContent{
+	padding:0px;
+	margin: 0px 0px 0px 0px;
+	background-color: #E5E5E5;
+}
+
+/*Nawaz 03-23-07 class for lookup button*/
+.lookupBtn{
+        width:24px;
+        height:22px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 8px;
+        margin:0px;
+        padding:0px 0px 2px 0px;
+        /*border:0px;*/
+        color: #FFF;
+        background-color: #fcfcfc;
+        background-image: url(/images/newsearch.gif);
+        background-repeat: no-repeat;
+        cursor:pointer;
+}
+
+/*Nawaz 03-23-07 class for lookup button*/
+.lookupBtnOver{
+        background-image: url(/images/newsearch.gif);
+        background-repeat: no-repeat;
+        background-color: #800000;
+}
+
+/*Nawaz 03-19-07, no height for br*/
+.brNoHeight{
+font-size: 0px;
+line-height: 0; /*--- adjust as needed*/
+}
+
+/*Nawaz 04-07-07 - to avoid the padding that IE inserts*/
+form {
+ margin: 0;
+ padding: 0;
+}
+
+/*Nawaz 04-25-07 - for the link to the date pop-up.*/
+.datePopUpLink {
+  color:#0000ff;
+  cursor:pointer;
+  text-decoration:underline;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	text-align:left;
+}
+
+/*Nawaz 04-26-07 use this for Legends*/
+.legendText{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 8px;
+height:30px;
+}
+
+/*Nawaz - 05-02-07 for selected red rows*/
+.tableResults tr.selectedred {
+        background-color: #EF6A6A;
+}
+
+/*Nawaz - 05-02-07 for selected green rows*/
+.tableResults tr.selectedgreen {
+        background-color:  #A5D9C6;
+}
+
+/*Nawaz - 05-02-07 for selected yellow rows*/
+.tableResults tr.selectedyellow {
+        background-color:  #F4F062;
+}
+
+/*Nawaz - 05-02-07 for selected black rows*/
+.tableResults tr.selectedblack {
+        background-color:  #535353;
+}
+
+/*Nawaz - 05-02-07 for selected black rows*/
+.tableResults tr.selectedblack td {
+        background-color:  #535353;
+        color: #ffffff;
+}
+
+/*Nawaz - 05-02-07 for selected pink rows*/
+.tableResults tr.selectedpink {
+        background-color:  #EA1188;
+}
+
+/*Nawaz - 05-02-07 for selected orange rows*/
+.tableResults tr.selectedorange {
+        background-color:  #F86A11;
+}
+
+.tableResults tr.selectedpurple {
+        background-color:  #9999FF;
+}
+
+/*Nawaz - To make text invisible 01-09-08*/
+.invisiblered
+{
+        color:  #FF9999;
+}
+
+.invisible {
+        color:  #ffffff;
+
+}
+
+.invisiblealt {
+        color:  #f5f5ff;
+
+}
+
+.invisibleerror
+{
+        color:  #FF7070;
+}
+
+.invisiblegreen {
+        color:  #d5ffea;
+}
+
+.invisibleyellow {
+       color:  #FFFF99;
+}
+
+.invisibleblack {
+        color:  #727272;
+        color: #ffffff;
+}
+
+.invisiblepink {
+        color:  #ff0fff;
+}
+
+.invisibleorange {
+        color:  #ff8000;
+}
+
+.invisiblelightblue {
+       background-color: #f5f5ff;
+}
+
+.invisiblelightgray {
+        color:  #BEBEBE;
+}
+
+.invisiblepurple {
+        color:  #9999FF;
+}
+
+/*07-01-08 This is to make the input elemet gray, used on readonly input fields.*/
+.invGreyInputText{
+	  font-size: 8px;
+    font-family: arial;
+    /*color: Maroon;*/
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    background-color:  #E5E5E5;
+    border: 0px
+}
+
+/*11-12-08 Use this to make the input text element invisible for white*/
+.invInputText{
+	  font-size: 8px;
+    font-family: arial;
+    /*color: Maroon;*/
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    background-color:  #FFFFFF;
+    border: 0px
+}
+/*11-12-08 Use this to make the input text element invisible for alt/light blue*/
+.invAltInputText{
+	  font-size: 8px;
+    font-family: arial;
+    /*color: Maroon;*/
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    background-color:  #f5f5ff;
+    border: 0px
+}
+
+.pointer{      
+        cursor:pointer;
+}
+
+.listButton{      
+        background-image: url(/images/buttons/text_list_bullets.png);
+        background-repeat: no-repeat;
+        color: #FFF;
+        background-color: #fcfcfc;
+        height:21px;
+        width:21px;
+		margin:0px;
+		padding:0px 0px 4px 0px;
+		/*border:0px;*/
+		color: #FFF;
+}
+
+.listButtonOvr {
+	background-image: url(/images/buttons/text_list_bullets.png);
+	color: #800000;
+	background-color: #800000;
+	cursor:pointer;
+	background-repeat: no-repeat;
+}
+
+.modal {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: #000000;
+	opacity:0.5;
+	filter:alpha(opacity=50);
+	position: absolute;
+	z-index: 100;
+	display: none;
+}
+
+.modal-closer {
+	cursor: pointer;
+	font: xx-large Tahoma, Geneva, sans-serif;
+	top: 0px;
+	right: 0px;
+	position: absolute;
+	background-color: #000000;
+	color: lightgray;
+	border: 0px;
+	padding: 0 15px 5px 15px;
+	width: auto;
+	*width: 50px;
+}
+
+.modal-display {
+	width: 100%;
+	z-index: 101;
+	position:absolute;
+	display: none;
+	text-align: center;
+	top: 20px;
+}
+
+.modal-content {
+    width: 30%;
+	top: 0;
+	left: 0;
+	z-index: 101;
+	position:absolute;
+    margin: 10% 35%;
+    padding: 0 10px 2px 0;
+    background-color: #e5e5e5;
+    border: 1px solid gray;
+	display: none;
+}
+
+.loading-dot {
+	font-family: Consolas;
+	font-size: 24px;
+	position: absolute;
+	bottom:0;
+	color:white;
+}
+
+.modal-loader {
+	top: 0;
+	left: 0;
+	position:fixed;
+	z-index: 101;
+    margin: 10% 35%;
+    text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+    width: 30%;
+    display: none;
+    color:white;
+}
+
+.modal-text {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	margin: 5px 10px 10px 10px;
+}
+
+/* Modal Header */
+.modal-header {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+    background-color: #0067a7;
+    font-weight: bold;
+	color: #e5e5e5;
+    border-bottom: 1px solid gray;
+	padding: 2px 0 2px 10px;
+	margin: 0 -10px 0 0;
+    width: 100%; /* Could be more or less, depending on screen size */
+}
+
+.error {
+	background-color: #bd1e24;
+}
+
+.warning {
+	color: black;
+	background-color: #e97600;
+}
+
+.success {
+	background-color: #007256;
+}
+
+.modalBtns{
+	height:20px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	border:1px solid lightgray;
+	color: #FFF;
+	background-color: #3f3f3f;
+	cursor:pointer;
+}
+
+.modalBtns:hover,
+.modalBtns:focus{
+	background-color: #800000;
+}
+
+.interstitial {
+	background-image: url("/images/rel_interstitial_loading.gif");
+	background-position:center;
+	background-repeat: no-repeat;
+}

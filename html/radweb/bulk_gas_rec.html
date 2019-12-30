@@ -1,0 +1,58 @@
+<html><head><title>Bulk Gas Receiving</title></head>
+<body bgcolor="#FFFFFF">
+<center>
+<form action="/cgi-bin/radweb/bulk_gas_rec.cgi" method="post">
+<table width="90%">
+  <tr>
+    <td align="left" width="20%"><img src="/images/logo_s.gif" border="1" align="left"></td>
+    <td align="left" width="20%"><b><i>tcm</i>IS<br>Bulk Gas Receiving</b></td>
+    <td align="center" width="40%">Customer: &nbsp;
+	<select name="cust">
+	    <option value="ack">Select a Customer
+	    <option value="ray">Raytheon
+	    <option value="drs">DRS
+	    <option value="sea">Seagate
+	    <option value="any">Any Customer
+	</select><br>
+    Gas Supplier: &nbsp;
+	<select name="supp">
+	    <option value="ack">Select a Gas Supplier 
+            <option value="210482">Air Liquide
+            <option value="204859">Air Products
+            <option value="212923">Praxair Tucson
+            <option value="217633">Praxair NE
+            <option value="218090">B.O.C.
+	    <option value="any">Any Supplier
+	</select><br>
+    Hub: &nbsp;
+	<select name="hub">
+	    <option value="ack">Select a Hub
+	    <option value="2101">Salem
+	    <option value="2102">Dallas
+	    <option value="2103">Tucson
+	    <option value="2106">Normandale
+	    <option value="any">Any Hub
+	</select><br></td>
+    <td align="center" width="20%"><input type="submit" value="Search" name="Search"></td>
+  </tr>
+</table>
+<p>
+<table border="1">
+  <tr bgcolor="#000042">
+    <th><font color="#FFFFFF" face="Arial" size="2">OK</font></th>
+    <th><font color="#FFFFFF" face="Arial" size="2">Supplier</font></th>
+    <th><font color="#FFFFFF" face="Arial" size="2">Hub</font></th>
+    <th><font color="#FFFFFF" face="Arial" size="2">PO</font></th>
+    <th><font color="#FFFFFF" face="Arial" size="2">PO Line</font></th>
+    <th><font color="#FFFFFF" face="Arial" size="2">Description</font></th>
+    <th><font color="#FFFFFF" face="Arial" size="2">Customer</font></th>
+    <th><font color="#FFFFFF" face="Arial" size="2">Facility</font></th>
+    <th><font color="#FFFFFF" face="Arial" size="2">Work Area</font></th>
+    <th><font color="#FFFFFF" face="Arial" size="2">Ticket</font></th>
+    <th><font color="#FFFFFF" face="Arial" size="2">Rec Date</font></th>
+    <th><font color="#FFFFFF" face="Arial" size="2">Qty/Volume</font></th>
+    <th><font color="#FFFFFF" face="Arial" size="2">Units</font></th>
+    <th><font color="#FFFFFF" face="Arial" size="2">Rate</font></th>
+    <th><font color="#FFFFFF" face="Arial" size="2">Rate Unit</font></th>
+  </font></tr>
+</table></body></html>

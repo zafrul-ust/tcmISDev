@@ -1,0 +1,902 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+
+   <form-bean name="genericForm"
+               type="org.apache.struts.validator.LazyValidatorActionForm" />
+               
+   <form-bean name="reconciliationForm"
+              type="org.apache.struts.validator.LazyValidatorActionForm">
+         <form-property name="inventoryGroup" type="java.lang.String[]"/>         
+   </form-bean>
+   
+   <form-bean name="receiptDocumentForm"
+               type="com.tcmis.internal.hub.beans.ReceiptDocumentInputForm">
+   </form-bean>
+   
+   <form-bean name="hubBinForm"
+               type="org.apache.struts.validator.DynaValidatorForm">
+      <form-property name="branchPlant"
+                     type="java.lang.String" />
+      <form-property name="bin"
+                     type="java.lang.String" />
+      <form-property name="autoIssue"
+                     type="java.lang.String" />
+      <form-property name="onSite"
+                     type="java.lang.String" />
+      <form-property name="status"
+                     type="java.lang.String" />
+      <form-property name="room"
+                     type="java.lang.String" />
+      <form-property name="submitAdd"
+                     type="java.lang.String" />
+      <form-property name="addBinToItemBinCollection"
+                     type="java.lang.String" />    
+      <form-property name="uAction"
+                     type="java.lang.String" />    
+      <form-property name="receiptId"
+                     type="java.lang.String" />     
+   </form-bean>
+
+  </form-beans>
+  <!-- ========== Global Forward Definitions ============================== -->
+  <global-forwards>
+  	<!-- config/distribution -->
+  	
+  	<forward name="receiptspec"
+         path="/receiptspec.do" /> 
+    <forward name="addspecsmain"
+         path="/addspecsmain.do" />   
+    <forward name="modifyspecdetail"
+         path="/modifyspecdetail.do" />
+    <forward name="newdetail"
+         path="/newdetail.do" />
+   	<forward name="customerlookupsearchmain"
+         path="/customerlookupsearchmain.do" />  
+  
+  	<!-- config/hub -->
+  	
+	<forward name="receivingqcmain"
+         path="/receivingqcmain.do" />
+    <forward name="transfertransactions"
+         path="/transfertransactions.do" />
+    <forward name="showchemreceivedreceiptsmain"
+         path="/showchemreceivedreceiptsmain.do" />
+    <forward name="shownonchemicalreceivedreceipts"
+         path="/shownonchemicalreceivedreceipts.do" />
+    <forward name="showaddhubbin"
+         path="/showaddhubbin.do" />
+    <forward name="showhubbin"
+         path="/showhubbin.do" />
+    <forward name="showreceivedreceipts"
+         path="/showreceivedreceipts.do" />
+    <forward name="showaddreceiptdocument"
+         path="/showaddreceiptdocument.do" />
+    <forward name="showreversereceipt"
+         path="/showreversereceipt.do" /> 
+    <forward name="receivingqcchecklist"
+         path="/receivingqcchecklist.do" /> 
+    <forward name="speccall"
+         path="/speccall.do"/>
+    <forward name="assocprcall"
+         path="/assocprcall.do"/>
+    <forward name="msdscall"
+         path="/msdscall.do"/>
+    <forward name="flowdowncall"
+         path="/flowdowncall.do"/>
+    <forward name="catalogrqccall"
+         path="/catalogrqccall.do"/>
+    <forward name="labelhistorycall"
+         path="/labelhistorycall.do"/>
+    <forward name="receivingqclabels"
+         path="/receivingqclabels.do" />   
+    <forward name="unitlabelpartnumber"
+         path="/unitlabelpartnumber.do" />                
+    <forward name="pickingqcmain"
+         path="/pickingqcmain.do" />
+    <forward name="showreceiving"
+         path="/showreceiving.do" />
+    <forward name="shipmenthistorymain"
+         path="/shipmenthistorymain.do" />
+    <forward name="binstoscanmain"
+         path="/binstoscanmain.do" />
+    <forward name="shipconfirmmain"
+         path="/shipconfirmmain.do" />
+	<forward name="confirmshipment"
+         path="/confirmshipment.do" />
+    <forward name="picklistpickingmain"
+        path="/picklistpickingmain.do" />
+    <forward name="openpicklistmain"
+         path="/openpicklistmain.do" />
+    <forward name="picklistreprintmain"
+        path="/picklistreprintmain.do" />
+    <forward name="shippinginfo"
+        path="/shippinginfo.do" />
+    <forward name="showreceiptdocuments"
+         path="/receiptdocuments.do" />
+    <forward name="reconciliationmain"
+        path="/reconciliationmain.do" />
+    <forward name="binlabelsmain"
+         path="/binlabelsmain.do" />
+    <forward name="logisticsmain"
+         path="/logisticsmain.do" /> 
+    <forward name="updatereceiptnotes"
+         path="/updatereceiptnotes.do" />
+    <forward name="previoustransactions"
+         path="/previoustransactions.do" />
+    <forward name="writeonrequest"
+         path="/writeonrequest.do" />  
+    <forward name="terminalstatusrootcause"
+         path="/terminalstatusrootcause.do" />
+    <forward name="receivingitemsearchmain"
+         path="/receivingitemsearchmain.do" />  
+    <forward name="showlogisticsbin"
+         path="/showlogisticsbin.do" />     
+    <forward name="printbaglabels"
+         path="/printbaglabels.do " />
+    <forward name="showprintpackinglist"
+         path="/showprintpackinglist.do" />    
+    <forward name="printpackinglist"
+         path="/printpackinglist.do" />                 
+     
+    <forward name="printcontainerlabels"
+         path="/printcontainerlabels.do" /> 
+   	<forward name="printbinlabels"
+         path="/printbinlabels.do" />
+    <forward name="printreceiptboxlabels"
+         path="/printreceiptboxlabels.do" />
+    <forward name="printerchoice"
+         path="/printerchoice.do" />
+         
+	<!-- config/supply -->
+	
+	<forward name="edititemnotes"
+         path="/edititemnotes.do" />
+
+  </global-forwards>
+  <!-- ========== Action Mapping Definitions ============================== -->
+  <action-mappings>
+  	 <!-- distribution -->
+  	
+  	 <action path="/receiptspec"
+          type="com.tcmis.internal.distribution.action.ReceiptSpecAction"
+          name="genericForm"
+          validate="false"
+          input="/distribution/receiptspec.jsp"
+          scope="request">
+          <forward name="success" path="/distribution/receiptspec.jsp" module=""/>      
+     </action>  
+     
+     <action path="/addspecsmain"
+          type="com.tcmis.internal.distribution.action.AddSpecsAction"
+          name="genericForm"
+          validate="false"
+          input="/distribution/addspecsmain.jsp"
+          scope="request">
+        <forward name="success" path="/distribution/addspecsmain.jsp" module=""/> 
+        <forward name="getjsonspecid" path="/distribution/getnewspecid.jsp" module=""/>           
+    </action>
+      
+    <action path="/addspecsresults"
+          type="com.tcmis.internal.distribution.action.AddSpecsAction"
+          name="genericForm"
+          validate="false"
+          input="/distribution/addspecsresults.jsp"
+          scope="request">
+        <forward name="success" path="/distribution/addspecsresults.jsp" module=""/>
+    </action> 
+
+    <action path="/newspecs"
+          type="com.tcmis.internal.distribution.action.AddSpecsAction"
+          name="genericForm"
+          validate="true"
+          input="/distribution/newspecs.jsp"
+          scope="request">
+        <forward name="shownewspecs" path="/distribution/newspecs.jsp" module=""/>
+        <forward name="getspecdetails" path="/distribution/getspecdetails.jsp" module=""/>      
+    </action> 
+    
+    <action path="/modifyspecdetail"
+              type="com.tcmis.internal.distribution.action.ModifySpecDetailAction"
+              name="genericForm"
+              validate="false"
+              input="/distribution/modifyspecdetail.jsp"
+              scope="request">              
+          <forward name="success" path="/distribution/modifyspecdetail.jsp" module=""/>
+    </action>
+	
+	<action path="/newdetail"
+              type="com.tcmis.internal.distribution.action.NewDetailAction"
+              name="genericForm"
+              validate="false"
+              input="/distribution/newdetail.jsp"
+              scope="request">              
+          <forward name="success" path="/distribution/newdetail.jsp" module=""/>      
+    </action>
+    
+     <action path="/customerlookupsearchmain"
+          type="com.tcmis.internal.distribution.action.CustomerLookupSearchAction"
+          name="genericForm"
+          validate="false"
+          input="/distribution/customerlookupsearchmain.jsp"
+          scope="request">
+          <forward name="success" path="/distribution/customerlookupsearchmain.jsp" module=""/>
+      </action>
+      
+      <action path="/customerlookupsearchresults"
+          type="com.tcmis.internal.distribution.action.CustomerLookupSearchAction"
+          name="genericForm"
+          validate="false"
+          input="/distribution/customerlookupsearchresults.jsp"
+          scope="request">
+          <forward name="success" path="/distribution/customerlookupsearchresults.jsp" module=""/>
+      </action>
+    
+     <!-- hub -->
+  
+     <action path="/receivingqcmain"
+            type="com.tcmis.internal.hub.action.ReceivingQcAction1"
+             name="genericForm"
+            validate="true"
+            input="/hub/receivingqcmain.jsp"
+            scope="request">
+        <forward name="success" path="/hub/receivingqcmain.jsp" module=""/>
+    </action>
+    
+    <action path="/receivingqcresults"
+            type="com.tcmis.internal.hub.action.ReceivingQcAction1"
+            name="genericForm"
+            validate="true"
+            input="/hub/receivingqcresults.jsp"
+            scope="request">
+        <forward name="showchemical" path="/hub/receivingqcresults.jsp" module=""/>
+        <forward name="shownonchemical" path="/hub/nonchemicalreceivingqcresults.jsp" module=""/>
+        <forward name="loaddata" path="/hub/logisticsbinsdata.jsp" module=""/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+    
+    <action path="/transfertransactions"
+            type="com.tcmis.internal.hub.action.TransferTransactionsAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+        <forward name="showresults" path="/hub/transfertransactions.jsp" module=""/>
+   </action>
+   
+    <action path="/showreceiving"
+            type="com.tcmis.internal.hub.action.ReceivingAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/receiving.jsp"
+            scope="request">
+        <forward name="showinput" path="/hub/receiving.jsp" module=""/>
+    </action>
+    <action path="/receiving"
+            type="com.tcmis.internal.hub.action.ReceivingAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/receiving.jsp"
+            scope="request">
+        <forward name="showinput" path="/hub/receiving.jsp" module=""/>
+        <forward name="checkjsonvalidreceiptid" path="/hub/checkjsonvalidreceiptid.jsp" module=""/>
+        <forward name="showchemical" path="/hub/receiving.jsp" module=""/>
+        <forward name="shownonchemical" path="/hub/nonchemicalreceiving.jsp" module=""/>
+    </action>
+    
+     <action path="/showchemreceivedreceiptsmain"
+            type="com.tcmis.internal.hub.action.ChemicalReceivedReceiptsAction"
+            validate="false"
+            input="/hub/chemreceivedreceiptsmain.jsp"
+            scope="request">
+        <forward name="success" path="/hub/chemreceivedreceiptsmain.jsp" module=""/>
+    </action>
+
+    <action path="/showchemreceivedreceiptssearch"
+            type="com.tcmis.internal.hub.action.ChemicalReceivedReceiptsAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/chemreceivedreceiptssearch.jsp"
+            scope="request">
+        <forward name="success" path="/hub/chemreceivedreceiptssearch.jsp" module=""/>
+    </action>
+
+    <action path="/showchemreceivedreceiptsresults"
+            type="com.tcmis.internal.hub.action.ChemicalReceivedReceiptsAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/chemreceivedreceiptsresults.jsp"
+            scope="request">
+        <forward name="success" path="/hub/chemreceivedreceiptsresults.jsp" module=""/>
+        <forward name="showdropshipreceivedreceipts" path="/hub/dropshiprecreceiptsresults.jsp" module=""/>
+    </action>
+    
+    <action path="/shownonchemicalreceivedreceipts"
+            type="com.tcmis.internal.hub.action.NonChemicalReceivedReceiptsAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/nonchemicalreceivedreceipts.jsp"
+            scope="request">
+        <forward name="shownonchemicalreceivedreceipts" path="/hub/nonchemicalreceivedreceipts.jsp"  module=""/>
+    </action>
+    
+    <action path="/showaddhubbin"
+            type="com.tcmis.internal.hub.action.HubBinAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/addhubbin.jsp"
+            scope="request">
+        <forward name="showresults" path="/hub/addhubbin.jsp" module=""/>
+    </action>
+
+    <action path="/addhubbin"
+            type="com.tcmis.internal.hub.action.HubBinAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/addhubbin.jsp"
+            scope="request">
+        <forward name="showresults" path="/hub/addhubbin.jsp" module=""/>
+    </action>
+    
+    <action path="/addnewroom"
+           type="com.tcmis.internal.hub.action.HubBinAction"
+           name="genericForm"
+           validate="true"
+           input="/hub/addnewroom.jsp"
+           scope="request">
+       <forward name="shownewroom" path="/hub/addnewroom.jsp" module=""/>      
+    </action>
+    
+    <action path="/showhubbin"
+            type="com.tcmis.internal.hub.action.HubBinAction"
+            name="hubBinForm"
+            validate="false"
+            input="/hub/hubbins.jsp"
+            scope="request">
+        <forward name="showresults" path="/hub/hubbins.jsp" module=""/>
+    </action>
+    
+    <action path="/showreceivedreceipts"
+            type="com.tcmis.internal.hub.action.ReceivingHistoryAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/showreceivedreceipts.jsp"
+            scope="request">
+        <forward name="showreceivedreceipts" path="/hub/showreceivedreceipts.jsp" module=""/>
+        <forward name="showapprovedreceipts" path="/hub/showapprovedreceipts.jsp" module=""/>
+   </action>
+   
+   <action path="/showaddreceiptdocument"
+            type="com.tcmis.internal.hub.action.ReceiptDocumentAction"
+            name="receiptDocumentForm"
+            validate="false"
+            input="/hub/addreceiptdocument.jsp"
+            scope="request">
+        <forward name="success" path="/hub/addreceiptdocument.jsp" module=""/>
+    </action>
+
+    <action path="/addreceiptdocument"
+            type="com.tcmis.internal.hub.action.ReceiptDocumentAction"
+            name="receiptDocumentForm"
+            validate="false"
+            input="/hub/addreceiptdocument.jsp"
+            scope="request">
+        <forward name="success" path="/hub/addreceiptdocument.jsp" module=""/>
+    </action>
+    
+     <action path="/showreversereceipt"
+            type="com.tcmis.internal.hub.action.ReverseReceiptAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/reverseReceipt.jsp"
+            scope="request">
+        <forward name="showinput" path="/hub/reverseReceipt.jsp" module=""/>
+        <forward name="showresults" path="/hub/reverseReceipt.jsp" module=""/>
+    </action>
+    
+    <action path="/receivingqcchecklist"
+            type="com.tcmis.internal.hub.action.ReceivingQcCheckListAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/receivingqcchecklist.jsp"
+            scope="request">
+     <forward name="success" path="/hub/receivingqcchecklist.jsp" module=""/>
+    </action> 
+    
+    <action path="/speccall"
+            type="com.tcmis.internal.hub.action.SpecAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action>
+    
+    <action path="/assocprcall"
+            type="com.tcmis.internal.hub.action.AssocPrsAction"
+            name="genericForm"
+            validate="false"
+            scope="request">     
+    </action> 
+    
+     <action path="/msdscall"
+            type="com.tcmis.internal.hub.action.MsdsAction"
+            name="genericForm"
+            validate="false"
+            scope="request">     
+    </action> 
+        
+     <action path="/flowdowncall"
+            type="com.tcmis.internal.hub.action.FlowDownsAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action>
+    
+     <action path="/catalogrqccall"
+            type="com.tcmis.internal.hub.action.CatalogRQCAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action>
+    
+   <action path="/labelhistorycall"
+            type="com.tcmis.internal.hub.action.LabelHistoryAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+    </action>
+    
+    <action path="/receivingqclabels"
+            type="com.tcmis.internal.hub.action.ReceivingQcLabelAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/receivingqclabels.jsp"
+            scope="request">
+        <forward name="showinput" path="/hub/receivingqclabels.jsp" module=""/>
+        <forward name="showResult" path="/hub/receivingqclabels.jsp" module=""/>
+        <forward name="pagenotavailable" path="/common/pageunderconstruction.jsp" module=""/>
+        <forward name="printerchoice" path="/common/misc/printerchoice.jsp" module=""/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+   
+    <action path="/unitlabelpartnumber"
+            type="com.tcmis.internal.print.action.UnitLabelPartNumberAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/unitlabelpartnumber.jsp"
+            scope="request">
+        <forward name="sucess" path="/hub/unitlabelpartnumber.jsp" module=""/>
+   </action>
+   
+    <action path="/pickingqcmain"
+            type="com.tcmis.internal.hub.action.PickingQcAction"
+            validate="false"
+            input="/hub/pickingqcmain.jsp"
+            scope="request">
+        <forward name="success" path="/hub/pickingqcmain.jsp" module=""/>
+        <forward name="poppicklist" path="/hub/populatepickingqcpicklist.jsp" module=""/>
+        <forward name="printbol" path="/hub/printbols.jsp" module=""/>
+        <forward name="printexitlabels" path="/hub/printexitlabels.jsp" module=""/>
+   </action>
+   
+   <action path="/pickingqcconfirm"
+            type="com.tcmis.internal.hub.action.PickingQcAction"
+            name="genericForm"
+            validate="true"
+            input="/hub/pickingqcresults.jsp"
+            scope="request">
+        <forward name="success" path="/hub/pickingqcresults.jsp" module=""/>
+    </action>
+
+    <action path="/pickingqcresults"
+            type="com.tcmis.internal.hub.action.PickingQcAction"
+            name="genericForm"
+            validate="true"
+            input="/hub/pickingqcresults.jsp"
+            scope="request">
+        <forward name="success" path="/hub/pickingqcresults.jsp" module=""/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+        <forward name="printbol" path="/hub/printbols.jsp" module=""/>
+    </action>    
+    
+    <action path="/picklistpickingmain"
+            type="com.tcmis.internal.hub.action.PicklistPickingAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/picklistpickingmain.jsp"
+            scope="request">
+       <forward name="success" path="/hub/picklistpickingmain.jsp" module=""/>     
+   </action>
+      
+   <action path="/picklistpickingresults"
+           type="com.tcmis.internal.hub.action.PicklistPickingAction"
+           name="genericForm"
+           validate="false"
+           input="/hub/picklistpickingresults.jsp"
+           scope="request">
+      <forward name="success" path="/hub/picklistpickingresults.jsp" module=""/>      
+   </action>  
+   
+   <action path="/picklistreprintmain"
+            type="com.tcmis.internal.hub.action.PicklistReprintAction"
+            validate="false"
+            input="/hub/picklistreprintmain.jsp" 
+            scope="request">
+        <forward name="success" path="/hub/picklistreprintmain.jsp" module=""/>
+   </action>
+
+   <action path="/picklistreprintresults"
+            type="com.tcmis.internal.hub.action.PicklistReprintAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/picklistreprintresults.jsp"
+            scope="request">
+        <forward name="success" path="/hub/picklistreprintresults.jsp" module=""/>
+        <forward name="printbol" path="/hub/printbols.jsp" module=""/>
+   </action>
+   
+  <action path="/openpicklistmain"
+            type="com.tcmis.internal.hub.action.OpenPicklistAction"
+            validate="false"
+            input="/hub/openpicklistmain.jsp"
+            scope="request">
+        <forward name="success" path="/hub/openpicklistmain.jsp" module=""/>
+   </action>
+
+   <action path="/openpicklistsearch"
+            type="com.tcmis.internal.hub.action.OpenPicklistAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/openpicklistsearch.jsp"
+            scope="request">
+        <forward name="success" path="/hub/openpicklistsearch.jsp" module=""/>
+   </action>
+   
+       <action path="/shippinginfo"
+            type="com.tcmis.internal.hub.action.ShippingInfoAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/shippinginfo.jsp"
+            scope="request">
+        <forward name="success" path="/hub/shippinginfo.jsp" module=""/>
+   </action> 
+   
+   <action path="/showreceiptdocuments"
+            type="com.tcmis.internal.hub.action.ReceiptDocumentAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/receiptdocuments.jsp"
+            scope="request">
+        <forward name="showDocuments" path="/hub/receiptdocuments.jsp" module=""/>
+    </action>
+    
+     <action path="/reversepick"
+            type="com.tcmis.internal.hub.action.ReversePickingAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/reversepick.jsp"
+            scope="request">
+        <forward name="success" path="/hub/reversepick.jsp" module=""/>
+   </action>
+
+    <action path="/receiptdocuments"
+            type="com.tcmis.internal.hub.action.ReceiptDocumentAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/receiptdocuments.jsp"
+            scope="request">
+        <forward name="showDocuments" path="/hub/receiptdocuments.jsp" module=""/>
+    </action>
+ 
+ 	<action path="/shipconfirmmain"
+            type="com.tcmis.internal.hub.action.ShipConfirmAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/shipconfirm.jsp"
+            scope="request">
+        <forward name="success" path="/hub/shipconfirm.jsp" module=""/>
+        <forward name="confirmshipment" path="/hub/confirmshipment.jsp" module=""/>
+        <forward name="printpl" path="/hub/showprintpackinglist.jsp" module=""/>
+   </action>
+
+   <action path="/shipconfirmresults"
+            type="com.tcmis.internal.hub.action.ShipConfirmAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/shipconfirmresults.jsp"
+            scope="request">
+        <forward name="success" path="/hub/shipconfirmresults.jsp" module=""/>
+        <forward name="confirmshipment" path="/hub/confirmshipment.jsp" module=""/>
+        <forward name="printbol" path="/hub/printbols.jsp" module=""/>
+        <forward name="printpl" path="/hub/showprintpackinglist.jsp" module=""/>
+    </action>
+
+   <action path="/confirmshipment"
+            type="com.tcmis.internal.hub.action.ShipConfirmAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/confirmshipment.jsp"
+            scope="request">
+        <forward name="confirmshipment" path="/hub/confirmshipment.jsp" module=""/>
+   </action>
+    
+        <action path="/binstoscanmain"
+            type="com.tcmis.internal.hub.action.BinsToScanAction"
+            validate="true"
+            input="/hub/binstoscanmain.jsp"
+            scope="request">
+        <forward name="success" path="/hub/binstoscanmain.jsp" module=""/>
+    </action>
+
+    <action path="/binstoscansearch"
+            type="com.tcmis.internal.hub.action.BinsToScanAction"
+            name="genericForm"
+            validate="true"
+            input="/hub/binstoscansearch.jsp"
+            scope="request">
+        <forward name="success" path="/hub/binstoscansearch.jsp" module=""/>
+    </action>
+
+    <action path="/binstoscanresults"
+            type="com.tcmis.internal.hub.action.BinsToScanAction"
+            name="genericForm"
+            validate="true"
+            input="/hub/binstoscanresults.jsp"
+            scope="request">
+        <forward name="success" path="/hub/binstoscanresults.jsp" module=""/>
+    </action>
+    
+    <action path="/shipmenthistorymain"
+            type="com.tcmis.internal.hub.action.ShipmentHistoryAction"
+            scope="request">
+        <forward name="success" path="/hub/shipmenthistorymain.jsp" module=""/>
+    </action>
+
+    <action path="/shipmenthistorysearch"
+            type="com.tcmis.internal.hub.action.ShipmentHistoryAction"
+            name="genericForm"
+            scope="request">
+        <forward name="success" path="/hub/shipmenthistorysearch.jsp" module=""/>
+    </action>
+
+    <action path="/shipmenthistoryresults"
+            type="com.tcmis.internal.hub.action.ShipmentHistoryAction"
+            name="genericForm"
+            scope="request">
+        <forward name="success" path="/hub/shipmenthistoryresults.jsp" module=""/>
+    </action>
+    
+    <action path="/reconciliationmain"
+            type="com.tcmis.internal.hub.action.ReconciliationAction"
+            name="reconciliationForm"
+            validate="false"
+            input="/hub/reconciliationmain.jsp"
+            scope="request">
+        <forward name="success" path="/hub/reconciliationmain.jsp" module=""/>
+        <forward name="getjsonobj" path="/hub/populatecountdate.jsp" module=""/>        
+   </action>
+
+   <action path="/reconciliationresults"
+            type="com.tcmis.internal.hub.action.ReconciliationAction"
+            name="reconciliationForm"
+            validate="false"
+            input="/hub/reconciliationresults.jsp"
+            scope="request">
+        <forward name="success" path="/hub/reconciliationresults.jsp" module=""/>
+   </action>
+   
+   <action path="/binlabelsmain"
+            type="com.tcmis.internal.hub.action.BinLabelsAction"
+            name="genericForm"
+            validate="true"
+            input="/hub/binlabelsmain.jsp"
+            scope="request">
+        <forward name="success" path="/hub/binlabelsmain.jsp" module=""/>
+    </action>
+
+    <action path="/binlabelsresults"
+            type="com.tcmis.internal.hub.action.BinLabelsAction"
+            name="genericForm"
+            validate="true"
+            input="/hub/binlabelsresults.jsp"
+            scope="request">
+        <forward name="success" path="/hub/binlabelsresults.jsp" module=""/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+   
+   <action path="/logisticsmain"
+            type="com.tcmis.internal.hub.action.LogisticsAction"
+            scope="request">
+        <forward name="success" path="/hub/logisticsmain.jsp" module=""/>
+    </action>
+
+    <action path="/logisticsresults"
+            type="com.tcmis.internal.hub.action.LogisticsAction"
+            name="genericForm"
+            scope="request">
+        <forward name="success" path="/hub/logisticsresults.jsp" module=""/>
+        <forward name="loaddata" path="/hub/logisticsbinsdata.jsp" module=""/>
+    </action>
+    
+    <action path="/updatereceiptnotes"
+            type="com.tcmis.internal.hub.action.UpdateReceiptNotesAction"
+            name="genericForm"
+            validate="false"
+            input="/hubupdateReceiptNotes.jsp"
+            scope="request">
+        <forward name="showresults" path="/hub/updateReceiptNotes.jsp" module=""/>
+    </action>
+    
+    <action path="/previoustransactions"
+            type="com.tcmis.internal.hub.action.TransactionAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+        <forward name="showresults" path="/hub/prevtransactions.jsp" module=""/>
+   </action>
+    
+    <action path="/splitreceipt"
+            type="com.tcmis.internal.hub.action.SplitReceiptAction"
+            name="genericForm"
+            scope="request">
+        <forward name="success" path="/hub/splitreceipt.jsp" module=""/>
+    </action>
+    
+     <action path="/writeonrequest"
+      	type="com.tcmis.internal.hub.action.WriteOnRequestAction"
+      	name="genericForm"
+      	validate="true"
+      	input="/hub/newcarrier.jsp"
+      	scope="request">
+      <forward name="success" path="/hub/writeonrequest.jsp" module=""/>      
+  	</action>    
+  
+    <action path="/terminalstatusrootcause"
+            type="com.tcmis.internal.hub.action.TerminalStatusRootCauseAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/terminalstatusrootcause.jsp"
+            scope="request">
+        <forward name="showinput" path="/hub/terminalstatusrootcause.jsp" module=""/>
+        <forward name="showResult" path="/hub/terminalstatusrootcause.jsp" module=""/>
+    </action>
+    
+     <action path="/receivingitemsearchmain"
+            type="com.tcmis.internal.hub.action.ReceivingItemAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/receivingitemsearchmain.jsp"
+            scope="request">
+        <forward name="success" path="/hub/receivingitemsearchmain.jsp" module=""/>
+    </action>
+    
+     <action path="/showlogisticsbin"
+            type="com.tcmis.internal.hub.action.HubBinAction"
+            name="hubBinForm"
+            validate="false"
+            input="/hub/logisticsbins.jsp"
+            scope="request">
+        <forward name="showresults" path="/hub/logisticsbins.jsp" module=""/>
+    </action>
+    
+    <action path="/addCountDate"
+          type="com.tcmis.internal.hub.action.ReconciliationAction"
+          name="genericForm"
+          validate="false"
+          input="/hub/newreconciliationcount.jsp"
+          scope="request">          
+       <forward name="showdatecount" path="/hub/newreconciliationcount.jsp" module=""/>        
+   </action>
+    
+    
+    <action path="/printcontainerlabels"
+            type="com.tcmis.internal.hub.action.ReceiptLabelAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/chemicalreceivedreceipts.jsp"
+            scope="request">
+        <forward name="error" path="/hub/chemicalreceivedreceipts.jsp"/>
+        <forward name="printerchoice" path="/common/misc/printerchoice.jsp" module=""/>
+        <forward name="pagenotavailable" path="/common/pageunderconstruction.jsp" module=""/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+
+    <action path="/printbinlabels"
+            type="com.tcmis.internal.hub.action.ReceiptLabelAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/chemicalreceivedreceipts.jsp"
+            scope="request">
+        <forward name="error" path="/hub/chemicalreceivedreceipts.jsp"/>
+        <forward name="printerchoice" path="/common/misc/printerchoice.jsp" module=""/>
+        <forward name="pagenotavailable" path="/common/pageunderconstruction.jsp" module=""/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+
+    <action path="/printreceiptboxlabels"
+            type="com.tcmis.internal.hub.action.ReceiptBoxLabelAction"
+            name="genericForm"
+            validate="false"
+            input="/hub/receiptboxlabels.jsp"
+            scope="request">
+        <forward name="showinput" path="/hub/receiptboxlabels.jsp" module=""/>
+        <forward name="pagenotavailable" path="/common/pageunderconstruction.jsp" module=""/>
+        <forward name="error" path="/hub/receiptboxlabels.jsp"  module=""/>
+        <forward name="printerchoice" path="/common/misc/printerchoice.jsp" module=""/>
+        <forward name="viewfile" path="/common/viewfile.jsp" module=""/>
+    </action>
+
+    <action path="/printerchoice"
+            type="com.tcmis.internal.hub.action.PrinterChoiceAction"
+            name="genericForm"
+            validate="false"
+            input="/../common/misc/printerchoice.jsp"
+            scope="request">
+      <forward name="systemerrorpage" path="/common/systemerror.jsp" module="" />
+    </action>
+    
+    <action path="/printbaglabels"
+            type="com.tcmis.internal.print.action.BagLabelAction"
+            name="genericForm"
+            validate="false"
+            scope="request">
+        <forward name="printerchoice" path="/common/misc/printerchoice.jsp" module=""/> 
+        <forward name="viewfile" path="/common/viewexcel.jsp" module=""/>
+        <forward name="error" path="/common/genericerror.jsp" module="" />
+    </action>
+    
+    <action path="/showprintpackinglist"
+            type="com.tcmis.internal.hub.action.ShipConfirmAction"
+            validate="false"
+            name="genericForm"
+            input="/hub/showprintpackinglist.jsp"
+            scope="request">
+        <forward name="printpl" path="/hub/showprintpackinglist.jsp" module=""/>
+   </action>
+   
+   <action path="/printpackinglist"
+            type="com.tcmis.internal.hub.action.PrintPackingListAction"
+            validate="false"
+            input="/hub/shipmenthistory.jsp"
+            scope="request">
+        <forward name="success" path="/hub/shipmenthistory.jsp" module=""/>
+        <forward name="viewfile" path="/common/viewexcel.jsp" module=""/>
+    </action>
+   
+   <action path="/printconsolidatedbol"
+            type="com.tcmis.internal.hub.action.PrintConsolidatedBolAction"
+            validate="false"
+            input="/hub/shipmenthistory.jsp"
+            scope="request">
+        <forward name="success" path="/hub/shipmenthistory.jsp" module=""/>
+        <forward name="viewfile" path="/common/viewexcel.jsp" module=""/>
+    </action>
+    
+    
+    <!-- supply -->
+    
+    <action path="/edititemnotes"
+            type="com.tcmis.internal.supply.action.EditItemNotesAction"
+            name="genericForm"
+            validate="false"
+            input="/supply/edititemnotes.jsp"
+            scope="request">
+        <forward name="showresults" path="/supply/edititemnotes.jsp" module=""/>
+   </action>
+    
+  </action-mappings>
+  <!-- ========== Message Resources Definitions =========================== -->
+  <message-resources parameter="com.tcmis.common.resources.CommonResources"
+                     null="false" />
+  <!-- ========== Plug Ins Configuration ================================== -->
+  <!--
+     Add multiple validator resource files by setting the pathnames property
+     with a comma delimitted list of resource files to load.
+    -->
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property value="/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml"
+                  property="pathnames" />
+  </plug-in>
+</struts-config>

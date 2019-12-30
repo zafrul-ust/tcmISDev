@@ -1,0 +1,1372 @@
+/*Nawaz 04-07-07 - to avoid the padding that IE inserts*/
+form {
+ margin: 0;
+ padding: 0;
+}
+
+/* ###################### TABLES ###################### */
+.tableResults{
+clear:both;
+	border: 1px solid #797682;
+	background-color: #ffffff; /*Nawaz- Changed color*/
+/*Nawaz - To make the cellpadding 0px*/
+   padding:0px 0px 0px 0px ;
+   margin:0px;
+   border-collapse: collapse;
+   border-spacing: 0;
+position: relative;
+}
+.tableResults th, .tableResults td{
+	margin: 0px;
+	padding: 4px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #797583;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #797583;
+}
+.tableResults th{
+   color: #ffffff;
+   background-color: #000066; /*Nawaz - changed colors and removed the gif*/
+	background-repeat: repeat-x;
+}
+.tableResults .cellLeft{
+	text-align:left;
+}
+.tableResults tr.alt{
+background-color: #f5f5ff;
+}
+
+/*Nawaz - 10-03-06 for selected rows*/
+.tableResults tr.selectedalt{
+ background-color: #acacff;
+}
+
+/*Nawaz - 10-03-06 for selected rows*/
+.tableResults tr.selected{
+ background-color: #acacff;
+}
+
+.tableResults td a{
+}
+
+/*This has a margin on the lfet*/
+INPUT.LEFTSPACEBUTTON
+{
+	font-size: 9pt;
+   font-family: arial;
+	color: Maroon;
+   margin-top: 0px;
+   margin-bottom: 0px;
+   font-weight: bold;
+   background-color:  #fff2f2;
+}
+
+
+INPUT.LEFTSPACEHOVER
+{
+	  font-size: 9pt;
+     font-family: arial;
+	  color: Black;
+     margin-top: 0px;
+     margin-bottom: 0px;
+     margin-left: 5px;
+     cursor:pointer;
+     font-weight: bold;
+     background-color: ffd5d5; /*#f1e0ef; */
+}
+
+
+hr {
+border: 0;
+color: #a2a2a2;
+background-color: #a2a2a2;
+height: 1px;
+width: 100%;
+text-align: left;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 0px;
+}
+
+/* This are colors same as defined for the TD elements, but can be used outside the TD*/
+
+.invisiblewhite {
+        font-family: arial;
+        font-size: 8pt;
+        color:  #ffffff;
+        text-align: center;
+}
+
+.invisibleblue {
+        font-family: arial;
+        font-size: 8pt;
+        color:  #E6E8FA;
+        text-align: center;
+}
+
+.invisibleerror
+{
+        font-family: arial;
+        font-size: 8pt;
+        color:  #ff3c3c;
+        text-align: center;
+}
+
+.invisiblered
+{
+        font-family: arial;
+        font-size: 8pt;
+        color:  #FF9999;
+        text-align: center;
+}
+
+.invisiblegreen {
+        font-family: arial;
+        font-size: 8pt;
+        color:  #d5ffea;
+        text-align: center;
+}
+
+.invisibleyellow {
+        font-family: arial;
+        font-size: 8pt;
+        color:  #FFFF99;
+        text-align: center;
+}
+
+.invisibleblack {
+        font-family: arial;
+        font-size: 8pt;
+        color:  #535353;
+        text-align: center;
+}
+
+.invisiblepink {
+        font-family: arial;
+        font-size: 8pt;
+        color:  #ff0fff;
+        text-align: center;
+}
+
+.invisibleorange {
+        font-family: arial;
+        font-size: 8pt;
+        color:  #ff8000;
+        text-align: center;
+}
+
+.white {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ffffff;
+        text-align: center;
+}
+
+.blue {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #E6E8FA;
+        text-align: center;
+}
+
+.error
+{
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ff3c3c;
+        text-align: center;
+}
+
+.red
+{
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #E68A8A;
+        text-align: center;
+}
+
+.selectedred
+{
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #EF6A6A;
+        text-align: center;
+}
+
+.green {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #d5ffea;
+        text-align: center;
+}
+
+
+.selectedgreen {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #A5D9C6;
+        text-align: center;
+}
+
+.yellow {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #FFFF99;
+        text-align: center;
+}
+
+.selectedyellow {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #F4F062;
+        text-align: center;
+}
+
+
+.black {
+        font-family: arial;
+        font-size: 8pt;
+	  color: #FFFFFF;
+        background-color:  #535353;
+        text-align: center;
+}
+
+.pink {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ff0fff;
+        text-align: center;
+}
+
+.selectedpink {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #EA1188;
+        text-align: center;
+}
+
+
+.orange {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ff8000;
+        text-align: center;
+}
+
+.selectedorange {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #F86A11;
+        text-align: center;
+}
+
+
+.pagetitle {
+        font-family: "Georgia",serif;
+        font-size: 16pt;
+        color: black;
+        background-color: white;
+        text-align: right;
+        vertical-align: middle;
+}
+
+TABLE.newmoveup
+{
+        font-family: arial;
+        font-size: 10pt;
+}
+
+.newscroll_column350
+{
+position: relative;
+height: 230;
+overflow: scroll;
+overflow-x: hidden;
+scrollbar-face-color:#5151ff;
+scrollbar-shadow-color: #000000;
+scrollbar-highlight-color: #000000;
+scrollbar-3dlight-color: #c0c0c0;
+scrollbar-darkshadow-color: #c0c0c0;
+scrollbar-track-color: #c0c0c0;
+scrollbar-arrow-color: black;
+}
+
+.newscroll_column550
+{
+position: relative;
+height: 500;
+overflow: scroll;
+overflow-x: hidden;
+scrollbar-face-color:#5151ff;
+scrollbar-shadow-color: #000000;
+scrollbar-highlight-color: #000000;
+scrollbar-3dlight-color: #c0c0c0;
+scrollbar-darkshadow-color: #c0c0c0;
+scrollbar-track-color: #c0c0c0;
+scrollbar-arrow-color: black;
+}
+
+INPUT.INVISIBLEDETYELLOW
+{
+        font-size: 8pt;
+        font-family: arial;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        background-color:  #ffff00;
+        border: 1px
+}
+
+TD.orange {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ff8000;
+        text-align: center;
+}
+TD.orangel {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ff8000;
+        text-align: left;
+}
+
+TD.oranger {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ff8000;
+        text-align: right;
+}
+
+/*Back Ground Color is light pink*/
+TD.pink {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ff0fff;
+        text-align: center;
+}
+
+TD.pinkl {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ff0fff;
+        text-align: left;
+}
+
+TD.pinkr {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ff0fff;
+        text-align: right;
+}
+
+TD.yellow {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ffff00;
+        text-align: center;
+}
+TD.yellowl {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ffff00;
+        text-align: left;
+}
+
+TD.yellowr {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ffff00;
+        text-align: right;
+}
+
+TD.green8 {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #d5ffea;
+        text-align: center;
+}
+TD.green8l {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #d5ffea;
+        text-align: left;
+}
+
+TD.green8r {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #d5ffea;
+        text-align: right;
+}
+
+.dgreen {
+        font-family: arial;
+        font-weight: bold;
+        font-size: 8pt;
+        color: white;
+        background-color: #004000;
+        text-align: center;
+        vertical-align: middle;
+}
+.dgreenl{
+        font-family: arial;
+        font-weight: bold;
+        font-size: 8pt;
+        color: white;
+        background-color: #004000;
+        text-align: left;
+        vertical-align: middle;
+}
+
+.dgreenr {
+        font-family: arial;
+        font-weight: bold;
+        font-size: 8pt;
+        color: white;
+        background-color: #004000;
+        text-align: right;
+        vertical-align: middle;
+}
+
+
+.scroll_column150
+{
+  position: relative;
+  height: 150;
+  overflow: auto;
+scrollbar-face-color:#5151ff;
+scrollbar-shadow-color: #000000;
+scrollbar-highlight-color: #000000;
+scrollbar-3dlight-color: #c0c0c0;
+scrollbar-darkshadow-color: #c0c0c0;
+scrollbar-track-color: #c0c0c0;
+scrollbar-arrow-color: black;
+}
+
+INPUT.INVALIDTEXT
+{
+	  font-size: 10pt;
+        font-family: arial;
+        color: #000000;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        background-color:  #ff9797 /*#ff5555;*/ /*#FFF8E5;*/
+
+}
+
+INPUT.INVINVALIDTEXT
+{
+	  font-size: 10pt;
+        font-family: arial;
+        color: #000000;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        background-color:  #ff9797; /*#FFF8E5;*/
+	  border: 1px
+
+}
+.white {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ffffff;
+	  /* cursor:pointer;*/
+        text-align: center;
+}
+
+.blue {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #E6E8FA;
+        /*cursor:pointer;*/
+        text-align: center;
+}
+
+.whitenocur {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ffffff;
+	  text-align: center;
+}
+
+.bluenocur {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #E6E8FA;
+        text-align: center;
+}
+
+.displaynone {
+display: none;
+}
+
+.texareaannounce
+{
+font-family: arial;
+font-size: 10pt
+text-color: Maroon;
+background-color:  #e1f2ed; /*#FFF8E5;*/
+}
+
+.ScrollBars
+{
+scrollbar-face-color:#5151ff;
+scrollbar-shadow-color: #000000;
+scrollbar-highlight-color: #000000;
+scrollbar-3dlight-color: #c0c0c0;
+scrollbar-darkshadow-color: #c0c0c0;
+scrollbar-track-color: #c0c0c0;
+scrollbar-arrow-color: black;
+
+}
+
+.scroll_table
+{
+  position: relative;
+  height: 350;
+  overflow: auto;
+}
+
+
+/* Default style for links */
+a:active  { color: #0000CC}
+a:hover   { color: #CC0033}
+a:link    { color: #0000ff}
+a:visited { color: #ae5eff}
+
+/* This is for the whole body when we would not define any tags with clasess*/
+BODY
+{
+        font-family: arial;
+        background-color: #ffffff;
+        font-size: 8pt;
+        margin-top: 5px;
+        margin-left: 5px;
+}
+
+/* For TEXTAREA formatted tags  */
+TEXTAREA
+{
+ font-size: 10pt;
+ font-family: arial;
+ color: Maroon;
+ background-color:  #e1f2ed; /*#FFF8E5;*/
+ border: 3px
+}
+
+.columnar
+{
+  border-width: thin;
+  border-style: solid;
+  border-color: #937353;
+  border-collapse: collapse;
+}
+
+.scroll_column
+{
+  position: relative;
+  height: 300;
+  overflow: auto;
+}
+
+.scroll_column350
+{
+  position: relative;
+  height: 270;
+  overflow: auto;
+
+scrollbar-face-color:#5151ff;
+scrollbar-shadow-color: #000000;
+scrollbar-highlight-color: #000000;
+scrollbar-3dlight-color: #c0c0c0;
+scrollbar-darkshadow-color: #c0c0c0;
+scrollbar-track-color: #c0c0c0;
+scrollbar-arrow-color: black;
+
+}
+
+.scroll_column250
+{
+  position: relative;
+  height: 270;
+  overflow: auto;
+
+scrollbar-face-color:#5151ff;
+scrollbar-shadow-color: #000000;
+scrollbar-highlight-color: #000000;
+scrollbar-3dlight-color: #c0c0c0;
+scrollbar-darkshadow-color: #c0c0c0;
+scrollbar-track-color: #c0c0c0;
+scrollbar-arrow-color: black;
+
+}
+
+
+/* For PRE formatted tags  */
+PRE
+{
+        font-size: 10pt;
+        font-family: arial;
+        color: Maroon;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 6px;
+        background-color: #efece2 /*faf0e6*/ /*#FFF8E5;*/
+}
+
+/*This is or the SELECT input element When used inside the details section of a page.*/
+SELECT
+{
+	  font-size: 8pt;
+        font-family: arial;
+        color: Maroon;
+        margin-top: 0px;
+        margin-bottom: 4px;
+        margin-left: 0px;
+        background-color:  #efece2; /*#FFF8E5;*/
+}
+
+TEXT
+{
+	  font-size: 8pt;
+        font-family: arial;
+        color: Maroon;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        background-color:  #efece2; /*#FFF8E5;*/
+	  size : 10;
+}
+
+/*This is for the select input element when used as the header or selection criteria for searching something*/
+SELECT.HEADER
+{
+	  font-size: 10pt;
+        font-family: arial;
+        color: Maroon;
+        margin-top: 0px;
+        margin-bottom: 3px;
+        margin-left: 3px;
+        background-color:  #efece2; /*#FFF8E5;*/
+}
+
+/*This applyes to all Input elements used in the header of the page*/
+INPUT.HEADER
+{
+	  font-size: 10pt;
+        font-family: arial;
+        color: Maroon;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 3px;
+        background-color:  #efece2; /*#FFF8E5;*/
+
+}
+
+/*This applyes to all Input elements used in the details of the page*/
+INPUT.DETAILS
+{
+	  font-size: 8pt;
+        font-family: arial;
+        color: Maroon;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+	  background-color:  #efece2; /*#FFF8E5;*/
+	  size : 10;
+}
+/*This applyes to Input type Buttom,submit,reset elements used in the header of the page*/
+INPUT.SUBMIT
+{
+	  font-size: 9pt;
+        font-family: arial;
+	  color: Maroon;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-weight: bold;
+        background-color:  #fff2f2;
+
+}
+/*This applyes to Input type Buttom,submit,reset When the mouse is over the Input button elements used in the header of the page*/
+INPUT.SUBMITHOVER
+{
+	  font-size: 9pt;
+        font-family: arial;
+	  color: Black;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        cursor:pointer;
+        font-weight: bold;
+        background-color: ffd5d5; /*#f1e0ef; */
+}
+/*This applyes to Input type Buttom,submit,reset  elements used in the details of the page*/
+INPUT.SUBMITDET
+{
+	  font-size: 8pt;
+        font-family: arial;
+	  color: Maroon;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        background-color:  #fff2f2;
+
+}
+/*This applyes to Input type Buttom,submit,reset When the mouse is over the Button elements used in the details of the page*/
+INPUT.SUBMITHOVERDET
+{
+	  font-size: 8pt;
+        font-family: arial;
+	  color: Black;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        cursor:pointer;
+        background-color:  ffd5d5; /*#f1e0ef;*/
+}
+
+/*This applies to input elements which you want to make invisible to the user*/
+INPUT.INVISIBLEHEADBLUE
+{
+	  font-size: 10pt;
+        font-family: arial;
+        /*color: Maroon;*/
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        background-color:  #E6E8FA;
+        border: 1px
+}
+
+/*This applies to input elements which you want to make invisible to the user*/
+INPUT.INVISIBLEHEADWHITE
+{
+	  font-size: 10pt;
+        font-family: arial;
+        /*color: Maroon;*/
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        background-color:  #ffffff;
+        border: 1px
+}
+
+/*This applies to input elements which you want to make invisible to the user*/
+INPUT.INVISIBLEHEADYELLOW
+{
+	  font-size: 10pt;
+        font-family: arial;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        background-color:  #FFFF99;
+        border: 1px
+}
+
+/*This applyes to BUTTON element on the whole the page. Using Input type button is better*/
+
+BUTTON
+{
+	  font-size: 8pt;
+        font-family: arial;
+        color: Maroon;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        background-color:  #fff2f2; /*#FFF8E5;*/
+}
+
+/*This is the default TABLE style*/
+TABLE
+{
+        font-size: 10pt;
+        font-family: arial;
+}
+
+/*This is the TABLE style to move the bottom margin up by 12px*/
+
+TABLE.moveup
+{
+        font-family: arial;
+        margin-top: 12px;
+        margin-bottom: -12px;
+        font-size: 10pt;
+}
+/*This is the TABLE style to move the bottom margin up by 15px*/
+
+TABLE.moveupmore
+{
+        font-family: arial;
+        margin-top: 12px;
+        margin-bottom: -15px;
+        font-size: 10pt;
+}
+
+/*This is the default style for any headers in the table*/
+th
+{
+        font-family: arial;
+        font-weight: bold;
+        font-size: 8pt;
+        color: white;
+        background-color: #000066;
+        text-align: center;
+        vertical-align: middle;
+}
+
+TD.thheading
+{
+font-family: arial;
+font-weight: bold;
+font-size: 8pt;
+color: white;
+background-color: #000066;
+text-align: left;
+vertical-align: middle;
+}
+
+TD.thheading3
+{
+font-family: arial;
+font-weight: bold;
+font-size: 8pt;
+color: white;
+background-color: #3333CC;
+text-align: left;
+vertical-align: middle;
+}
+
+/*This is the style for TD element when used before a header input element. eg. for the words Hub: before the Hub select element*/
+
+TD.heading
+{
+font-family: arial;
+font-weight: bold;
+font-size: 11pt;
+color: white;
+background-color: #000066;
+text-align: left;
+vertical-align: middle;
+}
+
+TD.headingr
+{
+font-family: arial;
+font-weight: bold;
+font-size: 11pt;
+color: white;
+background-color: #000066;
+text-align: right;
+vertical-align: middle;
+}
+
+
+TD.heading2
+{
+font-family: arial;
+font-weight: bold;
+font-size: 9pt;
+color: white;
+background-color: #000066;
+text-align: left;
+vertical-align: middle;
+}
+
+TD.headingr2
+{
+font-family: arial;
+font-weight: bold;
+font-size: 9pt;
+color: white;
+background-color: #000066;
+text-align: right;
+vertical-align: middle;
+}
+
+TD.heading3
+{
+font-family: arial;
+font-weight: bold;
+font-size: 11pt;
+color: white;
+background-color: #3333CC;
+text-align: left;
+vertical-align: middle;
+}
+
+TD.headingr3
+{
+font-family: arial;
+font-weight: bold;
+font-size: 11pt;
+color: white;
+background-color: #3333CC;
+text-align: right;
+vertical-align: middle;
+}
+
+A.tbar:active {
+    color: #ffffff
+}
+
+A.tbar:hover {
+    color: #ffffcc
+}
+
+A.tbar:link {
+    color: #ffffff
+}
+
+A.tbar:visited {
+    color: #ffffff
+}
+/* Next set of definitions are of TD elements all with smal variations in text allignment and color*/
+
+/* The next three are the same with different text alignments l for left r for right*/
+/*Back Ground Color is light white*/
+TD.white {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ffffff;
+        text-align: center;
+}
+TD.whitel {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ffffff;
+        text-align: left;
+}
+TD.whiter {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ffffff;
+        text-align: right;
+}
+
+/*Back Ground Color is light red*/
+/*Use this when you want to show a line with something went wrong it it on update*/
+TD.red {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #FF9999;
+        text-align: center;
+}
+TD.redl {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #FF9999;
+        text-align: left;
+}
+TD.redr {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #FF9999;
+        text-align: right;
+}
+
+/* The next three are the same with different text alignments l for left r for right*/
+/*Back Ground Color is light blue*/
+TD.blue {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #E6E8FA;
+        text-align: center;
+}
+TD.bluel {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #E6E8FA;
+        text-align: left;
+}
+TD.bluer {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #E6E8FA;
+        text-align: right;
+}
+
+
+/* The next three are the same with different text alignments l for left r for right*/
+/*Back Ground Color is light greenish I use it for line to say totals at the bottom of the table*/
+
+TD.green {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #d5ffea;
+        text-align: center;
+}
+TD.greenl {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #d5ffea;
+        text-align: left;
+}
+
+TD.greenr {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #d5ffea;
+        text-align: right;
+}
+
+
+/* This TD has a text size larger than the others*/
+TD.whitell {
+        font-family: arial;
+        font-size: 10pt;
+        background-color:  #ffffff;
+        text-align: left;
+}
+TD.bluell {
+        font-family: arial;
+        font-size: 10pt;
+        background-color:  #E6E8FA;
+        text-align: left;
+}
+TD.greenll {
+        font-family: arial;
+        font-size: 10pt;
+        background-color:  #d5ffea;
+        text-align: left;
+}
+
+
+/* This TD has a text size larger than the others and Bold*/
+TD.whiteb {
+        font-family: arial;
+        font-size: 10pt;
+        font-weight: bold;
+        background-color:  #ffffff;
+}
+TD.blueb {
+        font-family: arial;
+        font-size: 10pt;
+        font-weight: bold;
+        background-color:  #E6E8FA;
+}
+TD.greenb {
+        font-family: arial;
+        font-size: 10pt;
+        font-weight: bold;
+        background-color:  #d5ffea;
+}
+
+/*Back Ground Color is red*/
+TD.error {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ff3c3c;
+        text-align: center;
+}
+TD.errorl {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ff3c3c;
+        text-align: left;
+}
+TD.errorr {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #ff3c3c;
+        text-align: right;
+}
+
+/* This is a TD with size 10 but not bold and not background color */
+TD.announce
+{
+font-family: arial;
+font-size: 10pt
+}
+
+/* This id the default style for TD
+TD
+{
+font-family: arial;
+font-size: 10pt
+}
+*/
+
+/* This id the default style for P */
+P
+{
+font-family: arial;
+font-size: 12pt
+}
+
+
+/*These I am using in only one page they are very specific*/
+.plain
+{
+  background-color: #89B8A5;
+  cursor:pointer;
+  border-style: solid;
+  border-width: 2;
+  border-color: #89B8A5;
+  padding: 3 5 3 5;
+  font-family: verdana;
+  font-weight: bold;
+}
+
+.selected
+{
+  background-color: #89B8A5;
+  cursor:pointer;
+  border-style: solid;
+  border-width: 2;
+  border-color: #89B8A5;
+  padding: 3 5 3 5;
+  font-family: verdana;
+  font-weight: bold;
+  color: black;
+  text-decoration: underline;
+}
+
+.tab_tab
+{
+       cursor:pointer;
+       color: black;
+       background: #E6E8FA;
+}
+.tab_nomatID
+{
+       cursor:pointer;
+       color: black;
+       background: #fc0303;
+}
+.tab_nomatID_selected
+{
+       cursor:pointer;
+       color: white;
+       background: #000066;
+}
+
+.tab_selected_tab
+{
+       cursor:pointer;
+       color: white;
+       background: #000066;
+}
+.tab_buffer
+{
+
+}
+.tab
+{
+       cursor:pointer;
+       color: blue;
+       background: #000066;
+}
+
+
+.hover
+{
+  background-color: #89B8A5;
+  cursor:pointer;
+  border-style: outset;
+  border-width: 2;
+  padding: 3 5 3 5;
+  font-family: verdana;
+  font-weight: bold;
+}
+
+
+.menuh {
+       BORDER-COLOR : #FFFF99 ;
+       cursor:pointer;
+       Border-Left : #FFFF99 ;
+       Border-Top : #FFFF99 ;
+       color: blue;
+       background: #b9bfee;
+       }
+.menu  {
+       }
+.home  {
+        cursor:pointer;
+       }
+
+.menulinks
+{
+text-decoration:none;
+}
+
+input.buttonBlue
+{
+ background-color:#E6E8FA;
+ color:blue;
+ cursor:pointer;
+ text-decoration:underline;
+ border: 1px
+}
+
+input.buttonWhite
+{
+ background-color:#FFFFFF;
+ color:blue;
+ cursor:pointer;
+ text-decoration:underline;
+ border: 1px
+}
+
+.menuh1 {
+       background: #b9bfee;
+		font-weight: bold;
+       }
+.menu1 {
+
+       }
+
+/* The next three are the same with different text alignments l for left r for right*/
+/*Back Ground Color is light gray though it is called blue*/
+TD.invblue {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #eaeaea;
+        text-align: center;
+}
+
+TD.invbluel {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #eaeaea;
+        text-align: left;
+}
+
+TD.invbluer {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #eaeaea;
+        text-align: right;
+}
+
+/*Not really white a sligh ting of something */
+TD.invwhite {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #eeeeee;
+        text-align: center;
+}
+
+TD.invwhitel {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #eeeeee;
+        text-align: left;
+}
+
+TD.invwhiter {
+        font-family: arial;
+        font-size: 8pt;
+        background-color:  #eeeeee;
+        text-align: right;
+}
+
+
+TD.Inwhite {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #ffffff;
+        text-align: center;
+}
+TD.selectedInwhite {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #acacff;
+        text-align: center;
+}
+
+TD.Inblue {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #E6E8FA;
+        text-align: center;
+}
+
+
+TD.selectedInblue {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #acacff;
+        text-align: center;
+}
+
+TD.Inwhitel {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #ffffff;
+        text-align: left;
+}
+TD.Inbluel {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #E6E8FA;
+        text-align: left;
+}
+
+TD.Inwhiter {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #ffffff;
+        text-align: right;
+}
+TD.Inbluer {
+        font-family: arial;
+        font-size: 9pt;
+        background-color:  #E6E8FA;
+        text-align: right;
+}
+
+.black {
+        font-family: arial;
+        font-size: 9pt;
+	  color: #a4a4a4;
+        background-color: #000000;
+        text-align: center;
+}
+
+TD.blackl {
+        font-family: arial;
+        font-size: 9pt;
+	  color: #FFFFFF;
+        background-color:  #535353;
+        text-align: left;
+}
+
+TD.blackr {
+        font-family: arial;
+        font-size: 9pt;
+	  color: #FFFFFF;
+        background-color:  #535353;
+        text-align: right;
+}
+
+
+
+/*This applyes to Input type Buttom,submit,reset this is invisible */
+/*07-26-02*/
+INPUT.SUBMITW
+{
+	  color: white;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        background-color:  #ffffff;
+	    border: 1px
+}
+
+/*Nawaz - 05-29-07 for client navigation links*/
+.clientnavigation{
+	background-color: #000066;
+  padding:0px 0px 0px 0px ;
+  margin:0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #ffffff;
+}
+
+/*Nawaz - 05-29-07 for client navigation links*/
+.clientnavigation th, .clientnavigation td{
+	color: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+}

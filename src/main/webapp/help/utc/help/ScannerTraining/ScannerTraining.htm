@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Scanner Training</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="ScannerTraining" id="ScannerTraining"></a>Work Area Scanning Overview</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+   <a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<h2>Scanning process overview</h2>
+<p>See, also, <a href="ScanningTips.htm">Scanning Tips</a>.</p>
+<ul>
+	<li>Barcode scanners are used to inventory the chemicals.</li>
+	<li>Each Work Area and Bin is identified with a unique barcode label.</li>
+	<li>A list of work area and part IDs are loaded into barcode scanners from tcmIS.</li>
+	<li>After counting, the barcode scanner is used to upload the inventory data to tcmIS.</li>
+	<li>tcmIS calculates replenishment requirements.</li>
+	<li>tcmIS creates material requests as required.</li>
+</ul>
+
+<h4>Work Area ID Label</h4>
+<p>Each work area is identified by a work area ID Label. The label is typically located near the work area baseline document.</p>
+<div class="image"><img src="Scanner1.png" height="173" width="351" alt="Work Area ID Labels" />
+<div class="caption">Figure 1</div></div>
+
+<h4>Part ID Label</h4>
+<p>Generally chemicals are stored in flammables storage cabinets, segregated on shelves by bins or shelf dividers. Each
+   shelf divider or bin has a Part ID Label.</p>
+<div class="image"><img src="Scanner2.png" height="174" width="402" alt="Bin ID Labels" />
+<div class="caption">Figure 2</div></div>
+
+<h4>Part ID Label: Alternate Placement</h4>
+<p>In a flammables cabinet, when the material is too large for a shelf it may be placed in the bottom of the cabinet.  Part ID
+   labels for these materials may be on the lower lip of the cabinet opening or inside the cabinet doors.</p>
+<div class="image"><img src="Scanner3.png" height="183" width="294" alt="Bin ID alternate placement" />
+<div class="caption">Figure 3</div></div>
+
+<h4>The Scanner: MC9000 Series Portable Data Terminal (PDT)</h4>
+<ul>
+	<li>Integrated 2D bar code scanner (scans 1D and 2D barcodes)</li>
+	<li>53 key alpha-numeric keypad</li>
+	<li>Touch screen data entry</li>
+	<li>Microsoft Mobile operating system</li>
+	<li>Environmentally sealed against dust and rain</li>
+	<li>Will withstand multiple drops from 6' to concrete</li>
+</ul>
+<div class="image"><img src="Scanner4.png" height="212" width="301" alt="Hand scanner and keyboard detail" />
+<div class="caption">Figure 4</div></div>
+
+<h4>The Scanner keypad (Figure 4) and useful key combinations</h4>
+<p>The red power button is at the upper right of the keypad - hold for 5 seconds to reboot.</p>
+<p>The yellow scan button - can be used instead of the trigger to scan.</p>
+<p>The blue 'function' key is used in combination with other keys to accomplish certain tasks (notice the small symbols
+   above and right of the letter keys):</p>
+<div class="image"><img src="Scanner5.png" height="252" width="621" alt="Key combinations" />
+<div class="caption">Figure 5</div></div>
+
+<h4>Starting TCMScan</h4>
+<p>To begin, click Start in the upper left corner on the Windows Mobile Today touch-sensitive screen.</p>
+<ul>
+	<li>If TCMScan is listed on the Start menu select it.</li>
+	<li>If TCMScan is not displayed on the Start menu select the Programs menu item and then select the TCMScan icon from
+	    the Programs screen.</li>
+</ul>
+<div class="image"><img src="Scanner6.png" height="282" width="457" alt="Start menu and Program screen" />
+<div class="caption">Figure 6: Start menu and Program screen</div></div>
+
+<h4>Logging into the Scanner</h4>
+<p><em>Note: The scanner must be in the cradle to log in.</em></p>
+<p>Enter your tcmIS login ID in the <strong>User ID box</strong>.</p>
+<p>Enter your tcmIS password in the <strong>Password box</strong>.</p>
+<p>Select your company from the <strong>Company</strong> list. (Most users have only one choice here.)</p>
+<p>Press the <strong>Login</strong> button on the screen to complete your log in.</p>
+<p>When you are successful you will see the <strong>Main Page</strong> as illustrated below. In addition to the three function
+   buttons (see below) notice the information and links at the	bottom of the Main page:</p>
+<ul>
+	<li>Information
+	<ul>
+		<li>The currently logged in user name.</li>
+		<li>The date and time the work area data was last loaded.</li>
+	</ul>
+	</li>
+	<li>Links
+	<ul>
+		<li>Click the <strong>Menu</strong> link to display the main menu</li>
+		<li>Click the <strong>Load</strong> button to display the Work Area loading screen.</li>
+		<li>Click the <strong>Scan</strong> button to display the Work Area scanning screen.</li>
+		<li>Click the <strong>Submit</strong> button to display the Send Scans screen.</li>
+	</ul>
+	</li>
+</ul>
+<p>Clicking the <strong>Exit</strong> button on the <strong>Log in</strong> page also cancels your log in and exits the TCMScan application.</p>
+<div class="image"><img src="Scanner7.png" height="202" width="398" alt="Log in page and Main page" />
+<div class="caption">Figure 7</div></div>
+
+<h4>Main Screen: main menu</h4>
+<p>The main menu in the lower left corner offers the following options:</p>
+<ul>
+	<li><strong>Scan Mgr</strong> - displays the Scan Manager screen.</li>
+	<li><strong>Setup</strong> - displays the Set Up screen.</li>
+	<li><strong>Log Off</strong> - logs off the current user and returns to the login screen.</li>
+	<li><strong>Exit</strong> - exits TCMScan.</li>
+	<li><strong>Help</strong> - displays the TCMScan Help pages.</li>
+</ul>
+<div class="image"><img src="Scanner8.png" height="257" width="193" alt="Main page menu items" />
+<div class="caption">Figure 8</div></div>
+
+<div class="messages">
+<h4>Login Error Messages</h4>
+<p>If you receive an error, please read through the following troubleshooting suggestions.</p>
+<p><strong>Username or password is wrong.</strong></p>
+<ul>
+	<li>Select Retry.</li>
+	<li>Re-enter your user data and try again.</li>
+</ul>
+<p>Make sure that the</p>
+<ul>
+	<li>Scanner is in the cradle.</li>
+	<li>Cradle has power.</li>
+	<li>Cables are connected between cradle and PC.</li>
+</ul>
+<p>Contact the Helpdesk if the problem continues.</p>
+</div>
+
+<h4>Loading Work Areas</h4>
+<p><em>Note: The scanner must be in the cradle to load work area information.</em></p>
+<p>On the <strong>Main page</strong> (Figure 7, right image), click the <strong>Load</strong> button.</p>
+<p>The facilities list will display all of the facilities that the user has permission to scan.  Most users will see only
+   one facility.</p>
+<p>Select your facility.</p>
+<ul>
+	<li>Select the check box, or</li>
+	<li>Use the up and down arrow keys. Press the space key when your facility is highlighted.</li>
+</ul>
+<p>Click the <strong>Load</strong> button and the work area information will be updated from tcmIS.</p>
+<p>Selecting the <strong>Cancel</strong> button will return to the main screen without loading work areas.</p>
+<div class="image"><img src="Scanner9.png" height="215" width="162" alt="Select facilities page" />
+<div class="caption">Figure 9</div></div>
+
+<h4><a id="WorkAreaScanning">Starting the Work Area Scan</a></h4>
+<p>On the <strong>Main page</strong> (Figure 7, right image), click the <strong>Scan</strong> button. The scanner will be
+   readied to scan a work area.</p>
+<p>Scan the work area label, using the scanner as shown, or enter the work area ID using the scanner keypad.</p>
+<ul>
+	<li>If the work area ID is entered on the keypad you must press enter on the keypad or the Next button on the screen
+	   to continue.</li>
+</ul>
+<div class="image"><img src="Scanner10.png" height="268" width="438" alt="Work Area scanning" />
+<div class="caption">Figure 10</div></div>
+
+<div class="messages">
+<h4>Work Area Error Messages</h4>
+<p>If you receive an error, please read through the following troubleshooting suggestions.</p>
+<p><strong>Invalid Label.</strong></p>
+<ul>
+	<li>Caused when the label scanned is not a work area ID label.</li>
+	<li>Rescan the work area label to continue.</li>
+</ul>
+<p><strong>No data for this work area has been loaded.</strong></p>
+<ul>
+	<li>Caused when the wrong facility was chosen when performing the Load Work Areas step.
+	<ul>
+		<li>Exit the scanning screen, and perform the Load Work Areas step again this time choosing the correct facility.</li>
+	</ul>
+	</li>
+	<li><em>If this error continues after loading the correct facility contact the Helpdesk</em>.</li>
+</ul>
+<p><strong>You must scan a work area before scanning a part.</strong></p>
+<ul>
+	<li>Caused when the scanner is expecting a work area ID label but a part ID label is scanned instead.</li>
+	<li>Scan or rescan the work area label to continue.</li>
+</ul>
+</div>
+
+<h4>Entering a Part ID</h4>
+<p>After you enter the work area and the Next button the scanning screen is presented. The primary purpose is to enter the Part
+   ID information for each item.</p>
+<p>Scan the part label, using the scanner as shown, or enter the ID using the scanner keypad.</p>
+<ul>
+	<li>Click the <strong>Next</strong> button to advance to the quantity prompt.</li>
+	<li>Click the <strong>Back</strong> button to return to the work area prompt.</li>
+</ul>
+<p>The lower portion of the screen displays information about the scan process and two links:</p>
+<ul>
+	<li>The current work area ID.</li>
+	<li>The ID of the last Part scanned.</li>
+	<li>The quantity of the last Part scanned.</li>
+	<li>Click the <strong>Exit</strong> button to return to the main screen.</li>
+	<li>Click the 'keyboard' icon to display the TCMScan Help pages.</li>
+</ul>
+<div class="image"><img src="Scanner11.png" height="324" width="580" alt="Bin scanning" />
+<div class="caption">Figure 11</div></div>
+
+<div class="messages">
+<h4>Part ID Error Messages</h4>
+<p>If you receive an error, please read through the following troubleshooting suggestions.</p>
+<p><strong>Invalid Label.</strong></p>
+<ul>
+	<li>Caused when the label scanned is not a part ID label.</li>
+	<li>Rescan the part label to continue.</li>
+</ul>
+<p><strong>This part has been inactivated.</strong></p>
+<ul>
+	<li>Caused when the part has been inactivated in tcmIS.</li>
+	<li>Do not count this part, it may have material that is being used up but it cannot be replenished because of its
+	    inactive status.</li>
+</ul>
+<p><strong>This part has not been configured for this work area.</strong></p>
+<ul>
+	<li>Caused when a part has been moved to a different work area without being relabeled.</li>
+	<li>The first 8 characters of the part ID represent the work area ID.</li>
+	<li>Return the part to its proper work area, or</li>
+	<li>Verify the tcmIS record is updated with the proper work area ID and replace the part ID label.</li>
+</ul>
+<p><strong>This part has not been configured.</strong></p>
+<ul>
+	<li>Caused when the work area ID scanned does not match any of the data loaded on the scanner.</li>
+	<li>If the part was configured after the scanner was loaded last, reload the scanner and try again.</li>
+</ul>
+</div>
+
+<h4>Entering the part quantity</h4>
+<p>Count the items and enter the quantity using the keypad.</p>
+<p><em>Note in the illustration: 3 items; 3 key on scanner keypad; value of 3 entered into the <strong>Quantity</strong> text box.</em></p>
+<p>Press the Enter key on the keypad or the Next button on the screen.</p>
+<p>When the work area count is complete, click on the <strong>Exit</strong> link at the bottom of the
+   screen to return to the Main page before proceeding to the next work area or submitting scans to tcmIS.</p>
+<div class="image"><img src="Scanner12.png" height="189" width="644" alt="Bin scanning activity" />
+<div class="caption">Figure 12</div></div>
+
+<h4>Submitting Scans to tcmIS</h4>
+<p><em>Note: The scanner must be in the cradle to submit scan data to tcmIS.</em></p>
+<p>On the <strong>Main page</strong> (Figure 7, right image), click the <strong>Submit</strong> button. The scanner will be
+   readied to send scans.</p>
+<p>Click the <strong>Send Scans</strong> button to send the inventory information to tcmIS.</p>
+<p>The <strong>Cancel</strong> button will return the screen to the <strong>Main</strong> page.</p>
+<div class="image"><img src="Scanner13.png" height="186" width="139" alt="Submitting scans to tcmIS" />
+<div class="caption">Figure 13</div></div>
+
+<h4>Scan Manager</h4>
+<p>After the scanning, inventory, and uploading is complete, empty the scanner in preparation for the next set of scans.</p>
+<p>On the <strong>Main page main menu</strong> (Figure 7A), click the <strong>Scan Mgr</strong> menu item  to display the
+   <strong>Scan Manager</strong> page. All scan sessions stored on the scanner will be displayed,
+	grouped by user, on the scan manager screen.</p>
+<p>Choose one or more scan sessions by selecting the corresponding check boxes. Scans can also be selected by using the up
+   and down arrow keys to highlight the desired scan and then pressing the space key.</p>
+<ul>
+	<li>Pressing the <strong>Delete</strong> button on the screen will deleted any selected scans.</li>
+	<li>Pressing the <strong>Delete All</strong> button on the screen will delete all scans.</li>
+	<li>Pressing the <strong>Done</strong> button will display the Main Screen.</li>
+</ul>
+<div class="image"><img src="Scanner14.png" height="216" width="162" alt="Scan Manager" />
+<div class="caption">Figure 14</div></div>
+
+</body>
+</html>

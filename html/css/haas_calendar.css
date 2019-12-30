@@ -1,0 +1,100 @@
+.HCALcpYearNavigation,
+.HCALcpMonthNavigation
+    {
+       background-color:#6677DD;
+       text-align:center;
+       vertical-align:center;
+       text-decoration:none;
+       color:#FFFFFF;
+       font-weight:bold;
+    }
+.HCALcpDayColumnHeader,
+.HCALcpYearNavigation,
+.HCALcpMonthNavigation,
+.HCALcpCurrentMonthDate,
+.HCALcpCurrentMonthDateDisabled,
+.HCALcpOtherMonthDate,
+.HCALcpOtherMonthDateDisabled,
+.HCALcpCurrentDate,
+.HCALcpCurrentDateDisabled,
+.HCALcpTodayText,
+.HCALcpTodayTextDisabled,
+.HCALcpText
+    {
+       font-family:arial;
+       font-size:8pt;
+    }
+TD.HCALcpDayColumnHeader
+    {
+       text-align:right;
+       border:solid thin #6677DD;
+       border-width:0 0 1 0;
+    }
+.HCALcpCurrentMonthDate,
+.HCALcpOtherMonthDate,
+.HCALcpCurrentDate
+    {
+       text-align:right;
+       text-decoration:none;
+    }
+.HCALcpCurrentMonthDateDisabled,
+.HCALcpOtherMonthDateDisabled,
+.HCALcpCurrentDateDisabled
+    {
+       color:#D0D0D0;
+       text-align:right;
+       text-decoration:line-through;
+    }
+.HCALcpCurrentMonthDate
+    {
+      color:#6677DD;
+      font-weight:bold;
+    }
+.HCALcpCurrentDate
+    {
+       color: #FFFFFF;
+       font-weight:bold;
+    }
+.HCALcpOtherMonthDate
+    {
+       color:#808080;
+    }
+TD.HCALcpCurrentDate
+    {
+       color:#FF0000;                        
+       background-color: #6677DD;
+       border-width:1;
+       border:solid thin #000000;
+    }
+TD.HCALcpCurrentDateDisabled
+    {
+       border-width:1;
+       border:solid thin #FFAAAA;
+    }
+TD.HCALcpTodayText,
+TD.HCALcpTodayTextDisabled
+    {
+       border:solid thin #6677DD;
+       border-width:1 0 0 0;
+    }
+A.HCALcpTodayText,
+SPAN.HCALcpTodayTextDisabled
+    {
+       height:20px;
+    }
+A.HCALcpTodayText
+    {
+       color:#6677DD;
+      font-weight:bold;
+    }
+SPAN.HCALcpTodayTextDisabled
+    {
+       color:#D0D0D0;
+    }
+.HCALcpBorder
+    {
+       border:solid thin #6677DD;
+    }
+A.HCALcpMonthNavigation {
+   color:#FFFFFF
+}

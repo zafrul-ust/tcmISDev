@@ -1,0 +1,36 @@
+<html><head><title>JIT Back Orders</title></head>
+<body bgcolor="#FFFFFF">
+<center>
+<h2>Generate a JIT Back Orders Spreadsheet as HTML</h2>
+<p>
+<form action="/cgi-bin/radadmin/gkn_jit.cgi" method="POST">
+Input a supplier ID &nbsp;
+<input type="text" name="supp">
+<p>
+OR
+<p>
+Input an exact supplier description &nbsp;
+<input type="text" name="suppname" size="40">
+<p>
+<i>If Supplier ID is filled in, that is what will be used.</i>
+<p>
+<input type="submit" name="Generate" value="Generate">
+</form>
+<hr>
+<p>
+Click below to generate a summary report:
+<form action="/cgi-bin/radadmin/gkn_jit_summ.cgi" method="POST">
+<p>
+Input a supplier ID &nbsp;
+<input type="text" name="supp">
+<p>
+OR
+<p>
+Input an exact supplier description &nbsp;
+<input type="text" name="suppname" size="40">
+<p>
+<i>If Supplier ID is filled in, that is what will be used.<br>Both blank means any supplier (a total summary)</i>
+<br>
+<input type="submit" name="Summary" value="Summary">
+</form>
+</center></html>

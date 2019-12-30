@@ -1,0 +1,22 @@
+<html><head><title>DBuy Populator</title></head>
+<body bgcolor="#EEEEEE">
+<form action="/cgi-bin/gen/dbuy_pop.cgi" method="POST">
+Default buyer name: <input type="text" name="buyer">
+<br>
+Supplier number (like "206211", not "EIS"): <input type="text" name="supp">
+<br>
+Default state for supplier: <input type="text" size="2" name="st" value="TX">
+<br>
+Contact person name: <input type="text" name="contact">
+<br>
+Contact person phone: <input type="text" name="phn">
+<br>
+Terms: <input type="text" name="term">
+<p>
+Past item list in the box below:
+<p>
+<textarea name="items" rows="40">
+</textarea>
+<p>
+<input type="submit" name="Build" value="Build">
+</form></body></html>

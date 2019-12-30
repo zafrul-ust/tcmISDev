@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+<form-validation>
+	<global>
+		<constant>
+			<constant-name>phone</constant-name>
+			<constant-value>^\(?(\d{3})\)?[-| ]?(\d{3})[-| ]?(\d{4})$</constant-value>
+		</constant>
+		<constant>
+			<constant-name>zip</constant-name>
+			<constant-value>^\d{5}\d*$</constant-value>
+		</constant>
+	</global>
+	<formset>
+		<constant>
+			<constant-name>zip</constant-name>
+			<constant-value>^\d{5}(-\d{4})?$</constant-value>
+		</constant>
+		<constant>
+			<constant-name>query</constant-name>
+			<constant-value>^[\s\r]*[sS][eE][lL][eE][cC][tT][\w\W]*$</constant-value>
+		</constant>
+		<constant>
+			<constant-name>year</constant-name>
+			<constant-value>^[12][09]\d\d$</constant-value>
+		</constant>
+		<constant>
+			<constant-name>dbn</constant-name>
+			<constant-value>^\d\d-\d\d\d-\d\d\d\d$</constant-value>
+		</constant>
+		<form name="loginForm">
+			<field property="logonId" depends="required">
+				<arg0 key="login.label.logonid"/>
+			</field>
+			<field property="password" depends="required">
+				<arg0 key="login.label.password"/>
+			</field>
+		</form>
+		<form name="excelForm">
+			<field property="query" depends="required, mask">
+				<arg0 key="excel.label.query"/>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${query}</var-value>
+				</var>
+			</field>
+		</form>
+
+		<form name="saveQueryForm">
+			<field property="queryName" depends="required">
+				<arg0 key="viewquery.label.queryname"/>
+			</field>
+		</form>
+		<form name="passwordForm">
+			<field property="passwordOld" depends="required">
+				<arg0 key="password.label.passwordold"/>
+			</field>
+			<field property="passwordNew" depends="required">
+				<arg0 key="password.label.passwordnew"/>
+			</field>
+			<field property="passwordCopy" depends="required">
+				<arg0 key="password.label.passwordcopy"/>
+			</field>
+		</form>
+                <form name="tiertwoForm">
+			<field property="dateSigned" depends="date">
+				<arg0 key="tiertwo.label.datesigned"/>
+				<var>
+					<var-name>datePatternStrict</var-name>
+					<var-value>MM/dd/yyyy</var-value>
+				</var>
+			</field>
+                        <field property="dunAndBradstreetNumber" depends="mask">
+				<arg0 key="tiertwo.label.dunandbradnumber"/>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${dbn}</var-value>
+				</var>
+			</field>
+                </form>
+		<form name="invoiceForm">
+			<field property="client" depends="required">
+				<arg0 key="invoice.label.client"/>
+			</field>
+			<field property="invoicePeriod" depends="required,integer">
+				<arg0 key="invoice.label.invoiceperiod"/>
+			</field>
+		</form>
+	</formset>
+</form-validation>

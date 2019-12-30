@@ -1,0 +1,73 @@
+<html>
+
+<head>
+<title>Mark Orders as Critical</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p>
+<center><h2>Mark Orders as Critical</h2></center>
+<p>
+<form action="/cgi-bin/radweb/mark_crit.cgi" method="post">
+
+<center>
+Show &nbsp;
+<input type="checkbox" name="minmax_filter" value="X" CHECKED>MaxMin &nbsp;
+<input type="checkbox" name="oor_filter" value="X" CHECKED>OOR &nbsp;
+items for facility &nbsp;
+<select name="fac_filter">
+<option value="Any" SELECTED>Any Facility
+<option value="Andover">Andover
+<option value="Quincy">Quincy
+<option value="Waltham">Waltham
+<option value="Huntsville">Huntsville
+<option value="Bedford">Bedford
+<option value="Lexington">Lexington
+<option value="Portsmouth">Portsmouth
+<option value="Tewksbury">Tewksbury
+<option value="Texarkana">Texarkana
+<option value="White Sands">White Sands
+<option value="Sudbury">Sudbury</option>
+<option value="Tucson Rita Road">Tucson Rita Road
+<option value="Tucson Airport">Tucson Airport
+<option value="Camden">Camden
+<option value="Louisville">Louisville
+<option value="NAPI">NAPI
+<option value="Sycamore">Sycamore
+</select>
+<br>
+where the Raytheon Part # contains &nbsp;
+<input type="text" name="part_id">
+<br>
+where the Raytheon Request ID contains &nbsp;
+<input type="text" name="request_id">
+<br>
+where the Raytheon PO contains &nbsp;
+<input type="text" name="raytheon_po">
+<br>
+where the Radian Item ID is &nbsp;
+<input type="text" name="item_id">
+<br>
+where the Sales Order is &nbsp;
+<input type="text" name="sales_order">
+<br>
+<p>
+Sort by: <select name="sortby">
+        <option value="raytheon_po">Raytheon PO
+        <option value="request_id">Request ID
+        <option value="date_submitted" SELECTED>Date Submitted to Radian
+        <option value="part_id">Raytheon Part #
+        <option value="delivery_date">Promised Delivery to Raytheon
+        <option value="promised_date">Promised Delivery from Vendor
+        <option value="radian_po">Radian PO
+        <option value="sales_order_id">Sales Order ID
+        <option value="item_id">Item ID
+        <option value="item_desc">Description
+        <option value="location">Location
+        <option value="facility">Facility
+</select>
+<input type="radio" name="up" value="" CHECKED>Ascending
+<input type="radio" name="up" value="desc">Descending
+<input type="submit" value="Resubmit & Sort">
+</body></html>

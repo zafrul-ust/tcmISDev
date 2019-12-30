@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Order Tracking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="OrderTracking" id="OrderTracking"></a>Order Tracking</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+   <a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Order Tracking</strong> page provides information about and status of MR&rsquo;s (Material Requests = Orders) in tcmIS. 
+	It is accessed from the <strong>Order Management</strong> menu. Select the
+	 <strong>Order Tracking</strong> menu item. The <strong>Order Tracking</strong> page is launched in a new tab.</p>
+	<ul>
+		<li>For viewing and approving MR&rsquo;s&mdash;see help for the <a href="../MaterialRequest/MaterialRequest.htm">MR</a> page.</li>
+		<li>For seeing details of individual MR-Lines&mdash;see help for the <a href="../MRAllocation/MRAllocation.htm">MR-Line Allocation</a> form.</li>
+	</ul>
+<div class="image"><img src="OrderTracking1.png" height="267" width="835" alt="Order Tracking menu item" />
+<div class="caption">Figure 1</div></div>
+
+<p>The <strong>Order Tracking</strong> page provides numerous selection criteria to support locating the desired MR&rsquo;s. Some criteria must 
+	be specified but many are optional.</p>
+	<ul>
+		<li>If you have a choice you must specify the company for your search from the <strong>Company</strong> drop-down list;</li>
+		<li>Choose a specific <strong>Facility</strong> from the drop-down list or keep the default <em>My Facilities</em> choice.</li>
+		<li>Choose a <strong>Work Area</strong> from the drop-down list or leave it set at the default <em>My Work Groups</em>.</li>
+		<li>You may want to or need to provide something to at least partially identify the order you want using the <strong>Search by</strong> 
+			boxes. (Your search may be specified by <strong>User PO</strong> [number], <strong>PO</strong>[number]<strong>-Line</strong> [number], 
+			<strong>Part #</strong>, <strong>Part Desc</strong>[ription], <strong>Material Request No</strong>, or <strong>Item ID</strong>). See 
+			<a href="../Administration/Searches.htm">Search functions</a> for more information on search methods.</li>
+	</ul>
+	<ul>
+		<li>The <strong>Requestor</strong> box can be used to limit the search to requests by a specific individual.
+			<ul>
+				<li><em>The default Requestor is the logged in user: you.</em></li>
+				<li>Clear the <strong>Requestor</strong> box to see requests regardless of who placed the order.</li>
+      		<li>Enter the name of the person who placed the request in the <strong>Requester</strong> box to see only those
+		    		requests. Start typing and tcmIS will display up to ten names that match your entry. 
+		    		(See <a href="../Administration/Searches.htm#typeahead">Type ahead searches</a>.)</li>
+				<li>By default the <strong>Active Only</strong> check box is selected to limit the type-ahead search to actiave accounts; to 
+				 	include deactivated accounts, unselect that check box.</li>
+			</ul>
+		</li>
+		<li>Checking the <strong>Orders needing my Approval</strong> box limits the search to only those requests needing
+			the current user's approval.</li>
+		<li>Checking the <strong>Critical Only</strong> box limits the search to only those requests that are currently
+			marked critical.</li>
+	</ul>
+	<ul>
+		<li>A search must be specified by the state of the request in the order process by selecting one of the four option buttons.
+			<ul>
+				<li>To find requests with any status, select the <strong>Any</strong> option.
+					<ul>
+						<li>You will be required to provide some <strong>Search by</strong> detail (described above) with this option.</li>
+					</ul>
+				</li>
+				<li>To find requests that were saved, but not yet submitted, on the <strong> Material Request</strong> page,
+		    		select the <strong>Draft</strong> option.</li>
+				<li>To find requests that are pending financial approval or pending cancellation, select the <strong>Pending</strong>
+		    		option.</li>
+				<li>To find requests that have been submitted but not yet delivered, select the <strong>Open</strong> option.</li>
+			</ul>
+		</li>
+		<li>A search may be specified based on some past activity
+			<ul>
+				<li>To find those requests that were released to HGI in the past select the <strong>Released within __ days</strong>
+		    		option and enter the number of days in the past in the text box.</li>
+				<li>To find those requests that were delivered in the past select the <strong>Fully Delivered within __ days</strong>
+		    		option and enter the number of days in the past in the text box.</li>
+				<li>To find those requests that were canceled or rejected in the past select the <strong>Canceled
+		    		within __ days</strong> option and enter the number of days in the past in the text box.</li>
+			</ul>
+		</li>
+	</ul>
+<p>Click the <strong>Search</strong> button to display the records. Click the <strong>Create Excel</strong> button to export the 
+	displayed data in Excel format. Click on the <strong>Show Legend</strong> link (at the top of the data grid) to view a key
+	to the background coloring of records.</p>
+<div class="image"><img src="OrderTracking2.png" height="431" width="835" alt="Order Tracking page search parameters" />
+<div class="caption">Figure 2</div></div>
+
+<p>To view or work on an MR, right click the record line and select the context menu item. tcmIS will display the needed page or form. 
+	The context menu items available depend on the <strong>Status</strong> and <strong>Type</strong> of the order.</p>
+	<ul>
+		<li>Select <strong>MR Allocation</strong> to view the MR Allocation report for the entire order, including the selected record, or 
+			 select <strong>MR Line Allocation</strong> to view the MR Allocation report for only the selected record. See help for the 
+			 <a href="../MRAllocation/MRAllocation.htm">MR Allocation Report</a> for details.</li>
+		<li>If the line has a <strong>Type</strong> of <em>SCH</em> select the <strong>MR Line Schedule</strong> item to display the 
+			 <strong>Delivery Schedule</strong> page (for the line) in a child window. There you may view the delivery schedule or edit future
+			 scheduled deliveries. See the <a href="../Catalog/DeliverySchedule.htm">Delivery Schedule page</a> help for details.</li>
+		<li>Select <strong>View/Approve MR</strong> to open the <strong>Material Request</strong>. See the help for the 
+			 <a href="../MaterialRequest/MaterialRequest.htm">MR page</a>.</li>
+		<li>Select <strong>Approval Detail</strong> to cause tcmIS to display a form which lists those responsible for approvals, superimposed on the 
+			 <strong>Order Tracking</strong> page. (See figure below.)</li>
+	</ul>
+<div class="image"><img src="OrderTracking3.png" height="444" width="835" alt="Order Tracking page with context menu items" />
+<div class="caption">Figure 3</div></div>
+<div class="image"><img src="OrderTracking4.png" height="444" width="835" alt="Approval Detail form" />
+<div class="caption">Figure 4: Approval Detail form</div></div>
+
+<p>The initial display of the Order Tracking page usually displays only about half of the detail columns. Use the slider bar at the bottom of 
+	data grid to display columns on the right side of the data grid.</p>
+<div class="image"><img src="OrderTracking5.png" height="444" width="835" alt="MR Line Schedule menu item" />
+<div class="caption">Figure 5</div></div>
+
+  </body>
+</html>

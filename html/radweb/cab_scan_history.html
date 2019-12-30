@@ -1,0 +1,24 @@
+<html><head><title>Look up cabinet scan history</title></head>
+<body><center>
+<h2>Build cabinet list</h2>
+<p>
+<form action="/cgi-bin/radweb/cab_scan_list.cgi" method="POST">
+Pick a hub: &nbsp;
+<select name="hub">
+<option value="2101">Salem Hub
+<option value="2103">Phoenix Hub
+<option value="2107">San Antonio
+<option value="2116">HSD- Puerto Rico Hub
+<option value="2118">Decatur Hub
+<option value="2185">Cheltenham Hub
+<option value="2198">Tallassee Hub
+<option value="2421">Whippany Hub
+</select>
+<p>
+where the cabinet_name includes the string: &nbsp;
+<input type="text" name="cab">
+<br>
+(leave blank for entire list of every cabinet)
+<p>
+<input type="submit" name="X" value="Pick Hub">
+</form></center></body></html>

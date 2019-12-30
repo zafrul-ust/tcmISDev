@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<!-- ========== Form Bean Definitions =================================== -->
+	<form-beans>
+		<form-bean name="genericForm" type="org.apache.struts.validator.LazyValidatorActionForm" />
+	</form-beans>
+  	<!-- ========== Global Forward Definitions ============================== -->
+	<global-forwards>
+		<forward name="systemerrorpage"
+             		path="/common/systemerror.jsp" module="" />
+		<forward name="genericerrorpage"
+			path="/common/genericerror.jsp" module="" />
+		<forward name="nopermissions"
+			path="/common/nopermissions.jsp" module=""/>
+		<forward name="empty"
+			path="/common/empty.jsp" module=""/>
+	</global-forwards>
+  	<!-- ========== Action Mapping Definitions ============================== -->
+  	<action-mappings>	 
+
+        <action path="/scannerGetCompanies"
+            type="com.tcmis.ws.scanner.action.CompanySearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        
+        <action path="/scannerGetUsers"
+            type="com.tcmis.ws.scanner.action.UserSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        
+        <action path="/scannerGetContainers"
+            type="com.tcmis.ws.scanner.action.ContainerSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+            <action path="/scannerGetReceipts"
+            type="com.tcmis.ws.scanner.action.ReceiptSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+            <action path="/scannerGetBinItems"
+            type="com.tcmis.ws.scanner.action.BinItemSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetFacilities"
+            type="com.tcmis.ws.scanner.action.FacilitySearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerIsFacilityActive"
+            type="com.tcmis.ws.scanner.action.VerifyFacilityActiveAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerAuthenticateUser"
+            type="com.tcmis.ws.scanner.action.AuthenticateUserAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerConfirmDelivery"
+            type="com.tcmis.ws.scanner.action.NexGenDeliveryConfirmationAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>    
+        <action path="/scannerDeliveryPutAway"
+            type="com.tcmis.ws.scanner.action.NexGenPutAwayAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>            
+        <action path="/scannerUploadCount"
+            type="com.tcmis.ws.scanner.action.NexGenScanUploadAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetHubs"
+            type="com.tcmis.ws.scanner.action.HubSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetHubBins"
+            type="com.tcmis.ws.scanner.action.HubBinSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetInventoryGroups"
+            type="com.tcmis.ws.scanner.action.InventoryGroupSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>                
+        <action path="/scannerGetReceivingUsers"
+            type="com.tcmis.ws.scanner.action.ReceivingUserSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetCarriers"
+            type="com.tcmis.ws.scanner.action.CarrierSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetReceiptIds"
+            type="com.tcmis.ws.scanner.action.ReceiptIdSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetInboundPOs"
+            type="com.tcmis.ws.scanner.action.InboundPOSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetInboundTransfers"
+            type="com.tcmis.ws.scanner.action.InboundTransferSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetInboundCITRs"
+            type="com.tcmis.ws.scanner.action.InboundCITRSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetInboundReturns"
+            type="com.tcmis.ws.scanner.action.InboundRMASearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetParts"
+            type="com.tcmis.ws.scanner.action.PartSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetCatalogParts"
+            type="com.tcmis.ws.scanner.action.CatalogPartSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerReceiveShipment"
+            type="com.tcmis.ws.scanner.action.ReceiveShipmentAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerUploadReceiptImage"
+            type="com.tcmis.ws.scanner.action.UploadReceiptImageAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerUploadImage"
+            type="com.tcmis.ws.scanner.action.UploadImageAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerBinReceipts"
+            type="com.tcmis.ws.scanner.action.BinReceiptsAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>   
+        <action path="/scannerGetInventoryGroupOverrides"
+            type="com.tcmis.ws.scanner.action.ComponentInventoryGroupSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action> 
+		<action path="/scannerGetCompanyUsers"
+            type="com.tcmis.ws.scanner.action.CompanyUserSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetPickableUnits"
+        	type="com.tcmis.ws.scanner.action.PickableUnitsSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetPickingGroups"
+        	type="com.tcmis.ws.scanner.action.PickingGroupSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerUpdatePickingUnitState"
+        	type="com.tcmis.ws.scanner.action.PickingUnitStateUpdateAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerUploadPPSImage"
+        	type="com.tcmis.ws.scanner.action.PPSImageUploadAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerPickComplete"
+        	type="com.tcmis.ws.scanner.action.PickCompleteAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerRejectPick"
+        	type="com.tcmis.ws.scanner.action.PickRejectAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetHubPrinters"
+        	type="com.tcmis.ws.scanner.action.HubPrinterSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerPrint"
+        	type="com.tcmis.ws.scanner.action.ScannerPrintAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetCylinderLocations"
+        	type="com.tcmis.ws.scanner.action.CylinderLocationSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetCylinders"
+        	type="com.tcmis.ws.scanner.action.CylinderSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetCylinderManufacturers"
+        	type="com.tcmis.ws.scanner.action.CylinderManufacturerSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerUploadCylinderImage"
+        	type="com.tcmis.ws.scanner.action.CylinderImageUploadAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetCylinderRefurbcategories"
+        	type="com.tcmis.ws.scanner.action.CylinderRefurbCategorySearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerRefurbCylinders"
+        	type="com.tcmis.ws.scanner.action.CylinderRefurbAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerTrackCylinders"
+        	type="com.tcmis.ws.scanner.action.CylinderTrackingAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetSuppliers"
+        	type="com.tcmis.ws.scanner.action.SupplierSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetSupplierLocations"
+        	type="com.tcmis.ws.scanner.action.SupplierLocationSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerGetShippers"
+            type="com.tcmis.ws.scanner.action.ShipperSearchAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>                        
+        <action path="/scannerPrepareShipment"
+            type="com.tcmis.ws.scanner.action.PrepareShipmentAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>
+        <action path="/scannerUpdateShipment"
+            type="com.tcmis.ws.scanner.action.UpdateShipmentAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>  
+        <action path="/scannerShipmentAddPick"
+            type="com.tcmis.ws.scanner.action.ShipmentAddPickAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>  
+        <action path="/scannerUpdatePickInfo"
+            type="com.tcmis.ws.scanner.action.PickUpdateAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>  
+        <action path="/scannerShipmentDepartureScan"
+            type="com.tcmis.ws.scanner.action.ShipmentDepartureScanAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+        </action>  
+  	</action-mappings>
+  <!-- ========== Message Resources Definitions =========================== -->
+  <message-resources parameter="com.tcmis.common.resources.CommonResources"
+                     null="false" />
+  <!-- ========== Plug Ins Configuration ================================== -->
+  <!--
+     Add multiple validator resource files by setting the pathnames property
+     with a comma delimitted list of resource files to load.
+    -->
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property value="/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml"
+                  property="pathnames" />
+  </plug-in>
+</struts-config>

@@ -1,0 +1,119 @@
+<html>
+
+<head>
+<title>Items Needing Price Quotes</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p>
+<center><h2>Items Needing Price Quotes</h2>
+<p>
+<form action="/cgi-bin/purch/pqlist2.cgi" method="post">
+Show items for assigned quoter &nbsp;
+<select name="quoter">
+<option value="Any" SELECTED>Any Buyer</option>
+<option value="19313">Kathy Buckler</option>
+<option value="85909">Mark Baletka</option>
+<option value="19288">Ken Yancey</option>
+<option value="85655">Ben Mills</option>
+<!-- removed Perry 8/15/01 dsc
+<option value="Ford">Perry Ford</option>
+-->
+<option value="18789">Penny Phillips-Powers</option>
+<!-- removed Terry and Don 8/15/01 dsc
+removed Mary, Bob, Lynne, Vicki 6/6/02 swb
+<option value="Sherman">Don Sherman</option>
+<option value="Nicholson">Terry Nicholson</option>
+<option value="Williams">Lynne Williams</option>
+<option value="Tolan">Vicki Tolan</option>
+<option value="Arnett">Mary Arnett</option>
+<option value="Moore">Bob Moore</option>
+<option value="5282">Marita Drude</option>
+<option value="3990">Sean Villasana</option>
+<option value="3800">Christine Longval</option>
+<option value="1929">Priscilla Delaney</option>
+<option value="3060">Rick Rennells</option>
+-->
+<option value="85805">JoAnne Collins</option>
+<option value="86652">Michael Shires</option>
+<option value="388">Jonathan Luppens</option>
+<option value="354">Evelyn Sadler</option>
+<option value="991">Harley Fisk</option>
+<option value="1395">Tanya Sanchez</option>
+<option value="3059">CW Bruner</option>
+<option value="1928">Sally Albachten</option>
+<option value="2782">Pat Roach</option>
+<option value="3149">Mirella Brownell</option>
+<option value="4020">Rachel Jackson
+<option value="4521">Shawn Roberts
+<option value="4220">Steve Koyner
+<option value="4793">Neil Hanson
+<option value="7116">Don Dicey
+<option value="6791">Paul Garrett
+<option value="2837">Melinda Blackburn
+<option value="86233">Barbara Williams
+<option value="5967">Deborah Davidson</option>
+<option value="8714">Toni Anderson</option>
+<option value="6667">Jose Estrada</option>
+<option value="8815">Jenny Watson</option>
+<option value="7222">Melissa Bolton</option>
+<option value="8076">Matt Hale</option>
+<option value="9905">James Abraham</option>
+<option value="6269">Don Ainsworth</option>
+<option value="None">No quoter assigned
+</select>
+<br>
+where the client Part # contains &nbsp;
+<input type="text" name="part_id" value="">
+<br>(blank means any client part #)
+<br>
+where the Haas Item ID is &nbsp;
+<input type="text" name="item_id" value="">
+<br>(blank means any Item ID)
+<p>
+where the Manufacturer contains &nbsp;
+<input type="text" name="mfg" value="">
+<br>(blank means any Manufacturer)
+<p>
+where the Branch Plant (Hub) is &nbsp;
+<select name="hub">
+<option value="Any">Any BP
+<option value="2101">2101 Salem
+<option value="2102">2102 Dallas
+<option value="2103">2103 Phoenix
+<option value="2104">2104 Goleta Rio
+<option value="2106">2106 Normandale
+<option value="2107">2107 San Antonio
+<option value="2108">2108 Ames
+<option value="2109">2109 Freeport
+<option value="2110">2110 La Salle
+<option value="2111">2111 Lawrence
+<option value="2114">2114 Largo
+<option value="2115">2115 Waterfront
+<option value="2116">2116 Puerto Rico
+<option value="2117">2117 El Segundo
+<option value="2118">2118 Decatur
+<option value="2119">2119 Silicon Valley
+<option value="2122">2122 DANA Hub
+<option value="2123">2123 DANA CAN Hub
+<option value="2124">2124 Israel Hub
+<option value="2202">2202 DropShip
+<option value="2301">2301 Rinchem MN
+<option value="2302">2302 CAL
+</select>
+<br>(blank means any Item ID)
+<p>
+Sort by: &nbsp;
+<select name="sortby">
+        <option value="priority">Priority 
+        <option value="item_id">Haas Item ID
+        <option value="item_desc">Description
+        <option value="facility_part_id">Raytheon Part #
+<!--        <option value="hub">Hub/Catalog
+-->
+</select>
+<input type="radio" name="up" value="" CHECKED>Ascending
+<input type="radio" name="up" value="desc">Descending
+<input type="submit" value="Submit & Sort">
+</form></center></body></html>

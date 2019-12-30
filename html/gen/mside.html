@@ -1,0 +1,172 @@
+<html><head><title></title>
+<script language="JavaScript">
+version = 0;
+browserName = navigator.appName;
+browserVer = parseInt(navigator.appVersion);
+
+if (browserName == "Netscape" && browserVer >= 3) {
+        version = 3;
+}
+else if (browserName == "Netscape" && browserVer == 2) {
+        version = 2;
+}
+else if (browserName == "Microsoft Internet Explorer" && browserVer >= 3) {
+        version = 1;
+}
+
+var val = "01/22/1997"
+var ch = #CH#;
+var m = "/java/buttons/msds/1msds.gif";
+var s = "/java/buttons/sandh/1sandh.gif";
+var p = "/java/buttons/prop/1prop.gif";
+var c = "/java/buttons/comp/1comp.gif";
+var sp = "/java/buttons/spec/1spec.gif";
+var m2 = "/java/buttons/msds/2msds.gif";
+var s2 = "/java/buttons/sandh/2sandh.gif";
+var p2 = "/java/buttons/prop/2prop.gif";
+var c2 = "/java/buttons/comp/2comp.gif";
+var sp2 = "/java/buttons/spec/2spec.gif";
+var mb = "/java/buttons/msds/lrgmsds.gif";
+var sb = "/java/buttons/sandh/lrgsandh.gif";
+var pb = "/java/buttons/prop/lrgprop.gif";
+var cb = "/java/buttons/comp/lrgcomp.gif";
+var spb = "/java/buttons/spec/lrgspec.gif";
+var mc = "/cgi-bin/java/msds.cgi?id=#ID##SPEC#&date=";
+var sc = "/cgi-bin/java/store.cgi?id=#ID##SPEC#&date=";
+var pc = "/cgi-bin/java/prop.cgi?id=#ID##SPEC#&date=";
+var cc = "/cgi-bin/java/comp.cgi?id=#ID##SPEC#&date=";
+var spc = "/cgi-bin/java/spec.cgi?id=#ID##SPEC#&date=";
+
+if (version == 3) {
+    defalt = new Array(5);
+    hilight = new Array(5);
+    selected = new Array(5);
+    defalt[1] = new Image(156,40);
+    defalt[2] = new Image(156,40);
+    defalt[3] = new Image(156,40);
+    defalt[4] = new Image(156,40);
+    defalt[5] = new Image(156,40);
+    hilight[1] = new Image(156,40);
+    hilight[2] = new Image(156,40);
+    hilight[3] = new Image(156,40);
+    hilight[4] = new Image(156,40);
+    hilight[5] = new Image(156,40);
+    selected[1] = new Image(156,40);
+    selected[2] = new Image(156,40);
+    selected[3] = new Image(156,40);
+    selected[4] = new Image(156,40);
+    selected[5] = new Image(156,40);
+    defalt[1].src = m;
+    defalt[2].src = s;
+    defalt[3].src = p;
+    defalt[4].src = c;
+    defalt[5].src = sp;
+    hilight[1].src = m2;
+    hilight[2].src = s2;
+    hilight[3].src = p2;
+    hilight[4].src = c2;
+    hilight[5].src = sp2;
+    selected[1].src = mb;
+    selected[2].src = sb;
+    selected[3].src = pb;
+    selected[4].src = cb;
+    selected[5].src = spb;
+}
+
+function getOver(i) {
+  if (version == 3) {
+    if (i == 0) {
+	tmp = m2;
+    } else if (i ==1) {
+	tmp = s2;
+    } else if (i ==2) {
+	tmp = p2;
+    } else if (i ==3) {
+	tmp = c2;
+    } else if (i ==4) {
+	tmp = sp2;
+    }
+    if (ch != i) {
+	document.images[i].src = tmp
+    }
+  }
+}
+function getOut(i) {
+  if (version == 3) {
+    if (i == 0) {
+	tmp = m;
+    } else if (i ==1) {
+	tmp = s;
+    } else if (i ==2) {
+	tmp = p;
+    } else if (i ==3) {
+	tmp = c;
+    } else if (i ==4) {
+	tmp = sp;
+    }
+    if (ch != i) {
+	document.images[i].src = tmp
+    }
+  }
+}
+function change(i) {
+    if (ch == 0) {
+	tmp = m;
+    } else if (ch ==1) {
+	tmp = s;
+    } else if (ch ==2) {
+	tmp = p;
+    } else if (ch ==3) {
+	tmp = c;
+    } else if (ch ==4) {
+	tmp = sp;
+    }
+  if (version == 3) {
+    document.images[ch].src = tmp
+  }
+    if (i == 0) {
+	tmp = mb;
+	loc = mc;
+    } else if (i ==1) {
+	tmp = sb;
+	loc = sc;
+    } else if (i ==2) {
+	tmp = pb;
+	loc = pc;
+    } else if (i ==3) {
+	tmp = cb;
+	loc = cc;
+    } else if (i ==4) {
+	tmp = spb;
+	loc = spc;
+    }
+  if (version == 3) {
+    document.images[i].src = tmp
+  }
+    ch = i;
+    parent.data.location = loc + val
+}
+function set(i) {
+    val = i + " "
+    this.change(ch)
+}
+function get(s) {
+    parent.location = s + "&date=" + val
+}
+function init() {
+  if (document.forms[0].elements[0]) {
+    val = document.forms[0].elements[0].value;
+  }
+}
+</script>
+</head>
+<body bgcolor="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" onLoad="init()">
+<form>
+#DATES#
+</form>
+<a onMouseOver="getOver(0)" onMouseOut="getOut(0)" href="javascript:change(0)"><img src="#M#"></a><br>
+<a onMouseOver="getOver(1)" onMouseOut="getOut(1)" href="javascript:change(1)"><img src="#S#"></a><br>
+<a onMouseOver="getOver(2)" onMouseOut="getOut(2)" href="javascript:change(2)"><img src="#P#"></a><br>
+<a onMouseOver="getOver(3)" onMouseOut="getOut(3)" href="javascript:change(3)"><img src="#C#"></a>
+#HIDE#<a onMouseOver="getOver(4)" onMouseOut="getOut(4)" href="javascript:change(4)"><img src="#SP#"></a>#EHIDE#
+</body></html>

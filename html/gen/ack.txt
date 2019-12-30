@@ -1,0 +1,310 @@
+SQL> desc temp_expedite_swb
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ BRANCH_PLANT                                       VARCHAR2(12)
+ ITEM_ID                                   NOT NULL NUMBER(8)
+ QTY_OPEN                                  NOT NULL NUMBER(15)
+ UOM                                       NOT NULL CHAR(2)
+ ORDER_DATE                                         DATE
+ PROMISED_DATE                                      DATE
+ QTY_RECEIVED                              NOT NULL NUMBER(15)
+ DATE_RECEIVED                                      DATE
+ PO_NUMBER                                 NOT NULL NUMBER(8)
+ BUYER                                              CHAR(40)
+ SUPPLIER                                           CHAR(40)
+ ITEM_DESCRIPTION                                   CHAR(60)
+
+SQL> desc part
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PART_ID                                   NOT NULL NUMBER(38)
+ MATERIAL_ID                                        NUMBER(38)
+ ITEM_ID                                   NOT NULL NUMBER(38)
+ GRADE                                              VARCHAR2(30)
+ PKG_STYLE                                 NOT NULL VARCHAR2(30)
+ PART_SIZE                                 NOT NULL NUMBER
+ SIZE_UNIT                                 NOT NULL VARCHAR2(30)
+ SHELF_LIFE                                         NUMBER
+ SHELF_LIFE_UNIT                                    VARCHAR2(30)
+ TECH_SPEC                                          VARCHAR2(30)
+ REMARK                                             VARCHAR2(80)
+ AIRCRAFT                                           VARCHAR2(10)
+ MFG_PART_NO                                        VARCHAR2(30)
+ PACKING_INSTR_CODE                                 VARCHAR2(8)
+ STORAGE_TEMP                                       VARCHAR2(30)
+ PART_DESC                                          VARCHAR2(100)
+ SHELF_LIFE_REFERENCE                               VARCHAR2(2)
+ NET_WT_UNIT                                        VARCHAR2(30)
+ NET_WT                                             NUMBER
+ CASE_QTY                                           NUMBER(38)
+ DIMENSION                                          VARCHAR2(40)
+ RECERT                                             CHAR(1)
+ STOCKING_TYPE                                      CHAR(1)
+ SIZE_VERIFIED                                      CHAR(1)
+ COMPONENTS_PER_ITEM                                NUMBER
+ SIZE_VARIES                                        VARCHAR2(1)
+SQL> desc receive_info
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ITEM_ID                                   NOT NULL NUMBER
+ SHELF_LIFE                                         VARCHAR2(25)
+ REQ_TESTING                                        CHAR(1)
+ REQ_CHEMLAB                                        CHAR(1)
+ RECERTIFIABLE                                      CHAR(1)
+ RECERT_PERIOD                                      VARCHAR2(25)
+ REQ_QUARANTINE                                     CHAR(1)
+ STORAGE_REQS                                       VARCHAR2(80)
+ FAC_PART_NO                                        VARCHAR2(25)
+ NOTES                                              VARCHAR2(80)
+ WAREHOUSE                                          VARCHAR2(30)
+SQL> desc buy_order
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PR_NUMBER                                 NOT NULL NUMBER
+ BUYER                                              VARCHAR2(30)
+ DATE_ASSIGNED                                      DATE
+ ITEM_ID                                            NUMBER
+ NEED_DATE                                          DATE
+ PART_ID                                            VARCHAR2(30)
+ ITEM_DESC                                          VARCHAR2(61)
+ SHELF_LIFE_DAYS                                    VARCHAR2(16)
+ LAST_PO                                            NUMBER
+ TRADE_NAME                                         VARCHAR2(80)
+ SIZE_UNIT                                          VARCHAR2(30)
+ MFG_ID                                             VARCHAR2(60)
+ MFG_PART_NO                                        VARCHAR2(30)
+ ITEM_TYPE                                          VARCHAR2(8)
+ ORDER_QUANTITY                                     NUMBER
+ UOM                                                VARCHAR2(2)
+ PRIORITY                                           NUMBER(1)
+ RADIAN_PO                                          NUMBER
+ SPECIFICATION                                      VARCHAR2(30)
+ SPEC_REVISION                                      VARCHAR2(8)
+ LAST_BUYER                                         VARCHAR2(60)
+ LAST_SUPPLIER                                      VARCHAR2(80)
+ PO_IN_JDE                                          CHAR(1)
+ FACILITY                                           VARCHAR2(20)
+ SALES_ORDER                                        NUMBER(8)
+ RAYTHEON_PO                                        VARCHAR2(40)
+ BRANCH_PLANT                                       VARCHAR2(12)
+ DATE_ISSUED                                        DATE
+ DATE_PO_CREATED                                    DATE
+ STATUS                                             VARCHAR2(30)
+ DATE_CHANGED                                       DATE
+ COMMENTS                                           VARCHAR2(160)
+ COMPANY_ID                                         VARCHAR2(30)
+ MR_NUMBER                                          NUMBER
+ MR_LINE_ITEM                                       VARCHAR2(30)
+ REORDER_POINT                                      NUMBER
+ STOCKING_LEVEL                                     NUMBER
+ AVAILABLE_QUANTITY                                 NUMBER
+ OPEN_PO_QUANTITY                                   NUMBER
+ OPEN_MR_QUANTITY                                   NUMBER
+SQL> desc order_status_snapshot
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ITEM_ID                                            NUMBER
+ PR_STATUS                                          CHAR(8)
+ REQUEST_ID                                         VARCHAR2(30)
+ PR_NUMBER                                          NUMBER
+ FAC_PART_NO                                        VARCHAR2(25)
+ MATERIAL_DESC                                      CHAR(61)
+ QUANTITY                                           NUMBER
+ PO_NUMBER                                          VARCHAR2(25)
+ FACILITY_ID                                        VARCHAR2(40)
+ WORK_AREA                                          VARCHAR2(30)
+ DATE_SUBMITTED                                     DATE
+ SALES_ORDER                                        NUMBER
+ PROJECTED_DELIVERY                                 DATE
+ LAST_SHIPPED                                       DATE
+ TOTAL_SHIPPED                                      NUMBER
+ ITEM_TYPE                                          VARCHAR2(8)
+ UOM                                                CHAR(2)
+ TCMIS_GEN                                          CHAR(1)
+ RADIAN_PO                                          NUMBER
+ NOTES                                              VARCHAR2(800)
+ EACH_QTY_SHIPPED                                   NUMBER
+ NEXT_QUANTITY                                      VARCHAR2(40)
+ NEXT_DATE                                          VARCHAR2(9)
+ STATUS_TYPE                                        VARCHAR2(3)
+ DELIVERY_DATE                                      DATE
+ BRANCH_PLANT                                       VARCHAR2(12)
+ NEED_DATE                                          DATE
+ JDE_SHIP_TO                                        NUMBER
+ COMPANY_ID                                         VARCHAR2(30)
+ REFRESH_DATE                                       DATE
+SQL> desc po_history_snapshot
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ RADIAN_PO                                 NOT NULL NUMBER(8)
+ LINE_ITEM                                 NOT NULL NUMBER(6)
+ ITEM_ID                                   NOT NULL NUMBER(8)
+ LINE_DESC                                 NOT NULL CHAR(30)
+ LAST_BUYER                                         CHAR(40)
+ SUPPLIER_ID                               NOT NULL NUMBER(8)
+ LAST_SUPPLIER                                      CHAR(40)
+ UNIT_PRICE                                         NUMBER
+ QTY                                       NOT NULL NUMBER(15)
+ UOM                                       NOT NULL CHAR(2)
+ UOM_CONVERSION                                     NUMBER
+ QTY_RECEIVED                              NOT NULL NUMBER(15)
+ QTY_OPEN                                  NOT NULL NUMBER(15)
+ ORDER_DATE                                         DATE
+ ORIGINAL_PROMISED_DATE                             DATE
+ RECEIVED_DATE                                      DATE
+ BRANCH_PLANT                                       VARCHAR2(12)
+ JDE_ACCT                                  NOT NULL CHAR(29)
+ REQUESTED_DATE                                     DATE
+ LAST_UPDATED                              NOT NULL NUMBER(6)
+ STATUS_LAST                               NOT NULL CHAR(3)
+ STATUS_NEXT                               NOT NULL CHAR(3)
+ ITEM_DESCRIPTION                                   CHAR(60)
+ ORIGINAL_ORDER_NUM                                 VARCHAR2(8)
+ JDE_SHIP_TO_ID                                     NUMBER
+ OPEN_PO_FLAG                                       NUMBER
+ PROMISED_DATE_FLAG                                 NUMBER
+ ITEM_FLAG                                          NUMBER
+ STATUS                                             VARCHAR2(10)
+ UPDATE_TIME                                        NUMBER(6)
+SQL> desc expedite_dates
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PO_NUMBER                                 NOT NULL NUMBER(8)
+ ITEM_ID                                   NOT NULL NUMBER(8)
+ REV_PROM_DATE                                      VARCHAR2(20)
+ REV_ENTERED                                        DATE
+ COMMENTS                                           VARCHAR2(160)
+ ORIG_PROM_DATE                                     DATE
+SQL> desc customer.request_line_item
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PR_NUMBER                                 NOT NULL NUMBER(38)
+ LINE_ITEM                                 NOT NULL VARCHAR2(30)
+ ITEM_ID                                            NUMBER(38)
+ APPLICATION                                        VARCHAR2(30)
+ SHIP_TO_LOCATION_ID                                VARCHAR2(30)
+ VENDOR_QUALIFIER                                   VARCHAR2(30)
+ PROPOSED_VENDOR                                    NUMBER(38)
+ QUANTITY                                           NUMBER(38)
+ QUOTED_PRICE                                       NUMBER
+ REMARK                                             VARCHAR2(30)
+ REQUIRED_DATETIME                                  DATE
+ PO_NUMBER                                          VARCHAR2(30)
+ RELEASE_NUMBER                                     VARCHAR2(30)
+ FAC_PART_NO                                        VARCHAR2(30)
+ RELEASE_DATE                                       DATE
+ CRITICAL                                           VARCHAR2(1)
+ LAST_UPDATED                                       DATE
+ LAST_UPDATED_BY                                    NUMBER
+ DOC_NUM                                            NUMBER
+ DOC_STATE                                          VARCHAR2(16)
+ SALES_ORDER                                        NUMBER
+ NOTES                                              VARCHAR2(1000)
+ DELIVERY_POINT                                     VARCHAR2(30)
+ DELIVERY_TYPE                                      VARCHAR2(20)
+ DELIVERY_QUANTITY                                  NUMBER
+ DELIVERY_FREQUENCY                                 VARCHAR2(20)
+ CHARGE_TYPE                                        VARCHAR2(12)
+ RELAX_SHELF_LIFE                                   VARCHAR2(1)
+ CANCEL_REQUEST                                     DATE
+ CANCEL_REQUESTER                                   NUMBER
+ CANCEL_STATUS                                      VARCHAR2(10)
+ CANCEL_AUTHORIZER                                  NUMBER(38)
+ CANCEL_ACTION_DATE                                 DATE
+ CANCEL_COMMENT                                     VARCHAR2(240)
+ ITEM_TYPE                                          VARCHAR2(8)
+ SO_CREATION_DATE                                   DATE
+ COMPANY_ID                                NOT NULL VARCHAR2(30)
+ EXAMPLE_ITEM_ID                                    NUMBER
+ CATALOG_ID                                         VARCHAR2(30)
+ SCRAP                                              CHAR(1)
+ CATALOG_NAME                                       VARCHAR2(30)
+ EXAMPLE_PACKAGING                                  VARCHAR2(40)
+ USE_APPROVAL_STATUS                                VARCHAR2(12)
+ USE_APPROVER                                       NUMBER
+ USE_APPROVAL_DATE                                  DATE
+ USE_APPROVAL_COMMENT                               VARCHAR2(120)
+ DPAS_CODE                                          VARCHAR2(10)
+ DO_NUMBER                                          VARCHAR2(12)
+ CARD_RECEIPT                                       VARCHAR2(20)
+ PAYLOAD_ID                                         VARCHAR2(100)
+ PART_GROUP_NO                                      NUMBER(38)
+ EXTENDED_PRICE                                     NUMBER
+ PREPAID_AMOUNT                                     NUMBER
+ INVENTORY_GROUP                                    VARCHAR2(30)
+SQL> desc notes_shot
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SALES_ORDER                                        NUMBER
+ NOTES                                              VARCHAR2(800)
+
+SQL> desc customer.catalog_part_item_group
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ COMPANY_ID                                NOT NULL VARCHAR2(30)
+ CATALOG_ID                                NOT NULL VARCHAR2(30)
+ CAT_PART_NO                               NOT NULL VARCHAR2(30)
+ PART_GROUP_NO                             NOT NULL NUMBER(15)
+ PRIORITY                                  NOT NULL NUMBER(38)
+ STATUS                                    NOT NULL CHAR(1)
+ ITEM_ID                                   NOT NULL NUMBER(38)
+ BUNDLE                                             VARCHAR2(2)
+
+SQL> desc customer.use_approval
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ USER_GROUP_ID                             NOT NULL VARCHAR2(30)
+ FACILITY_ID                               NOT NULL VARCHAR2(30)
+ FAC_PART_NO                               NOT NULL VARCHAR2(30)
+ EXPIRE_DATE                               NOT NULL DATE
+ APPLICATION                               NOT NULL VARCHAR2(30)
+ APPROVAL_ID                               NOT NULL NUMBER(38)
+ APPROVAL_STATUS                           NOT NULL VARCHAR2(30)
+ REVIEWED_DATE                                      DATE
+ APP_GROUP                                          VARCHAR2(15)
+ CATALOG_ID                                NOT NULL VARCHAR2(30)
+ COMPANY_ID                                NOT NULL VARCHAR2(30)
+ PART_GROUP_NO                             NOT NULL NUMBER
+ LIMIT_QUANTITY_PERIOD1                             NUMBER
+ DAYS_PERIOD1                                       NUMBER
+ LIMIT_QUANTITY_PERIOD2                             NUMBER
+ DAYS_PERIOD2                                       NUMBER
+SQL> desc fac_item_link
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ FACILITY_ID                               NOT NULL VARCHAR2(30)
+ FAC_PART_NO                               NOT NULL VARCHAR2(30)
+ ITEM_ID                                   NOT NULL NUMBER(38)
+ PREFERRED                                          VARCHAR2(1)
+ COMPANY_ID                                NOT NULL VARCHAR2(30)
+ BUNDLE                                             VARCHAR2(2)
+
+SQL> desc fac_spec
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ FACILITY_ID                               NOT NULL VARCHAR2(30)
+ FAC_PART_NO                               NOT NULL VARCHAR2(30)
+ SPEC_ID                                   NOT NULL VARCHAR2(30)
+ SPEC_LIBRARY                              NOT NULL VARCHAR2(20)
+ DETAIL                                             VARCHAR2(40)
+ COMPANY_ID                                NOT NULL VARCHAR2(30)
+
+SQL> desc inventory_history_snapshot
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ BRANCH_PLANT                                       VARCHAR2(12)
+ ITEM_ID                                   NOT NULL NUMBER(8)
+ QUANTITY                                  NOT NULL NUMBER(15)
+ TRANSACTION_DATE                                   DATE
+ BIN                                       NOT NULL CHAR(20)
+ LOT                                       NOT NULL CHAR(30)
+ STATUS                                    NOT NULL CHAR(1)
+ UOM                                       NOT NULL CHAR(2)
+ TRANSACTION_TYPE                          NOT NULL CHAR(2)
+ UNIT_COST                                          NUMBER
+ EXTENDED_COST                                      NUMBER
+ DOC_NUM                                   NOT NULL NUMBER(8)
+ BATCH                                     NOT NULL NUMBER(8)
+ KEY_ID                                             NUMBER
+ TRANSACTION_REMARK                                 CHAR(30)
+

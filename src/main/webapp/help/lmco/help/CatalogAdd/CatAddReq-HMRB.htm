@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Catalog Add</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/CatAddRqst.css" type="text/css" /> <!-- to style CatAddRequest page tab illustration -->
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="CatAddReq-HMRB" id="CatAddReq-HMRB"></a>Catalog Add Request - HMRB tab</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Cat Add Req</strong> (Catalog Add Request) page with its <strong>HMRB</strong> tab is used to view, edit, and
+   <a id="addcode">add approval codes</a> (needed for the Hazardous Material Review Board) for materials and items.</p>
+
+<div style="width: 50em; padding: 0 .5em; margin: 0 2em;" class="messages">
+	<p>Five individual tabs in the lower portion of the <strong>Cat Add Req</strong> page correspond to the basic elements of the Cat Add Req process.</p>
+		<ul id="catadd" class="noPrint">
+			<li><span class="box unselected" style="width: 1.75em;">
+				<span class="corner TL"></span>
+				<span class="corner TR"></span>
+				QPL
+				</span>
+			</li>
+			<li>&nbsp;</li>
+			<li><span class="box selected" style="width: 1.75em;">
+				<span class="corner TL"></span>
+				<span class="corner TR"></span>
+				HMRB
+				</span>
+			</li>
+			<li>&nbsp;</li>
+			<li><span class="box unselected" style="width: 7em;">
+				<span class="corner TL"></span>
+				<span class="corner TR"></span>
+				Use Approval
+				</span>
+			</li>
+			<li>&nbsp;</li>
+			<li><span class="box unselected" style="width: 2.5em;">
+				<span class="corner TL"></span>
+				<span class="corner TR"></span>
+				Spec
+				</span>
+			</li>
+			<li>&nbsp;</li>
+			<li><span class="box unselected" style="width: 4.5em;">
+				<span class="corner TL"></span>
+				<span class="corner TR"></span>
+				Flowdown
+				</span>
+			</li>
+		</ul>
+	<ul>
+		<li><strong><a href="CatAddReq-QPL.htm">QPL</a></strong> - the default tab (shown when the page is opened), used to 
+			 view and manage products on or being requested for the QPL.</li>
+		<li><strong>HMRB</strong> - used to view and manage Hazardous Material Review Form
+			information for the products on the QPL.</li> 
+		<li><strong><a href="CatAddReq-UseApproval.htm">Use Approval</a></strong> - used to view and manage use permissions on products on
+			the QPL.</li>
+		<li><strong><a href="CatAddReq-Spec.htm">Spec</a></strong> - used to view and manage specifications for the products on
+			the QPL.</li>
+		<li><strong><a href="CatAddReq-Flowdown.htm">Flowdown</a></strong> - used to view and manage flowdowns for the products
+			on the QPL.</li>
+	</ul>
+</div>
+<p>HMRB is accessed from the	<strong>Cat Add Req</strong> page by clicking on the <strong>HMRB</strong>	tab.</p>
+<div class="image"><img src="CatAddReq-HMRB1.png" alt="Cat Add Req page HMRB tab" height="532" width="754" />
+<div class="caption">Figure 1</div></div>
+
+<p>To add an approval code click on the <strong>Add Approval Code</strong> link. tcmIS will open a 
+	child window and display the <strong>Add/Edit Approval Code</strong> form. (This form will expand significantly 
+	as soon as the first selection is made.)</p>
+<ul>
+	<li>Select the intended purpose of the material from the <strong>Usage Category</strong> list, either <em>Production</em> 
+		 or <em>Non-Production</em>.</li>
+	<li>Select the usage subcategory from the <strong>Usage Subcategory</strong> list.</li>
+	<li>Select the material category from the <strong>Material Category</strong> list.
+		<ul>
+			<li><em>Most categories will cause a set of additional selection and text boxes to be made available in the 
+				 lower panel.</em></li>
+		</ul>
+	</li>
+	<li>Select the material subcategory from the <strong>Material Subcategory</strong> list.</li>
+	<li>You may specify, if appropriate, a start date, end date, or date range with the <strong>Begin Date</strong> and 
+		 <strong>End Date:</strong> boxes: clicking into either box will open a small calendar form in a child window where 
+		 you may select a date. (Choose the <strong>None</strong> button to close the calendar form without choosing any date.)</li>
+	<li>A <strong>Purchasing</strong> specification is required: select the appropriate check box to indicate which.
+		<ul>
+			<li><strong>Haas Purchased</strong></li>
+			<li><strong>P-Card</strong></li>
+			<li><strong>SAP</strong></li>
+			<li><strong>Haas Purchased</strong></li>
+			<li><strong>P-Card</strong></li>
+			<li><strong>SAP</strong></li>
+		</ul>
+	</li>
+	<li>Select either <em>Yes</em> or <em>No</em> from the drop-down list in answer to the question [do you
+		anticipate the] <strong>Maximum amount on hand &gt; 54 gallons?</strong></li>
+	<li>If pertinent, select the check box for either <strong>Import</strong> or <strong>Export</strong>.</li>
+	<li style="padding-bottom: 1em;">Provide any name, business, address, e-mail, or telephone information in the <strong>Point of Contact</strong> text box.</li>
+	<li>In the lower pane, labeled &lsquo;Process Information&rsquo;, additional check boxes, drop-down lists, and text boxes may 
+		 appear, depending on the Usage and Material selections made. Provide information on the Approval Code using these. 
+		 See Figure 2A for an example.</li>
+</ul>
+<p>When all the information is provided, click the <strong>Save New and Return</strong> link in the upper-left of the form 
+	to add the calculated approval code to the <strong>HMRB</strong> tab on the <strong>Cat Add Req</strong> page. The form 
+	and the child window will close.</p>
+<div class="image"><img src="CatAddReq-HMRB2.png" alt="HMRB information form" height="365" width="703" />
+<div class="caption">Figure 2</div></div>
+<div class="image"><img src="CatAddReq-HMRB2A.png" alt="expanded HMRB information form" height="529" width="871" />
+<div class="caption">Figure 2A</div></div>
+
+<p>See <a href="CatAddReq-QPL.htm#Finalizing">Finalizing a QPL modification request</a></p>
+
+</body>
+</html>

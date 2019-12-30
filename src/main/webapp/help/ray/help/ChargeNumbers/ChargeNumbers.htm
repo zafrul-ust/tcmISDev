@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Charge Numbers Set Up</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="ChargeNumbers" id="ChargeNumbers"></a>Charge Numbers Set Up</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Charge Numbers Set Up</strong> page is used to view, manage (add, edit, inactivate), and print information about valid
+   charge number combinations set up in tcmIS. The <strong>Charge Numbers Set Up</strong> page can be accessed from the <strong>Supply
+	Chain</strong>	menu. The <strong>Charge Numbers Set Up</strong> page is launched in a new tab.</p>
+<div class="image"><img src="ChgNbrs1.png" height="169" width="835" alt="Charge Numbers Set Up menu item" />
+<div class="caption">Figure 1</div></div>
+
+<p>Select the facility for the charge number(s) from the <strong>Facility</strong> box.</p>
+<p>In some cases you may also be able to choose the accounting system or the charge type from the
+   respective lists. In other cases there is only one possibility and only one value in the box.</p>
+<p>Additionally, for some facilities, you may narrow your search by specifying all or part of the charge number 
+   particulars in one or more text boxes on the right side of the search parameter panel. Depending on your own 
+   situation these possibilities may include one or more of the specific elements included in your charge system, for
+	example <strong>Cost Center</strong>, <strong>Charge #</strong>, <strong>Network</strong>, 
+	<strong>Work Order</strong>, etc. (Some locations have no charge number options.)</p>
+<p>Click the <strong>Search</strong> button. The work areas will be displayed in the data grid. </p>
+<div class="image"><img src="ChgNbrs2.png" height="296" width="707" alt="Charge Numbers Set Up search parameter panel" />
+<div class="caption">Figure 2: Charge Numbers Set Up search parameter panel</div></div>
+<br />
+<div class="image"><img src="ChgNbrs2A.png" height="259" width="1096" alt="Charge Number parameter examples" />
+<div class="caption">Figure 2A: Various Charge Numbers examples</div></div>
+
+<p>tcmIS will display the result of your search in a data grid. Each row in the grid has a check box to indicate 
+   whether the Charge Number(s) is Active and one column for each element in the charge number, e.g. one column 
+   for Network, or one for Cost Center and one for Charge #, etc. When there is more than one element, it is 
+   the combination of all elements that make up a single, valid, charge number. </p>
+<p>You may sort the list of charge numbers by any of the elements, ascending or descending, by
+   clicking in the header of the data grid for the element you want. A small upward- or downward-pointing
+	triangle will appear in the header to indicate the sort.</p>
+<div class="image"><img src="ChgNbrs3.png" height="485" width="707" alt="Charge Numbers Set Up page action links" />
+<div class="caption">Figure 3</div></div>
+
+<p>A charge number may be active or inactive. If it is inactive it cannot be used to place orders or add inventory.</p>
+<p>On the <strong>Charge Numbers Set Up</strong> page data grid the first (left-most) column is the <strong>Active</strong>
+   column. If the check box is selected for the line, the charge number on that line is active. If the box is clear, the
+	charge number is inactive; it is also highlighted with a dark background on the row.</p>
+<div class="image"><img src="ChgNbrs4.png" height="487" width="707" alt="Charge Numbers Set Up Active column" />
+<div class="caption">Figure 4</div></div>
+
+<p>When you attempt to inactivate a charge number (unselect the check box and click the <strong>Update</strong> link), tcmIS will 
+   notify you if the number is &rsquo;in use&rsquo; (meaning the charge number is the default charge number for a work area or a part 
+   number). A small message window will be shown. You must click the OK button on the message window to proceed with an 
+   inactivation in this situation.</p>
+<div class="image"><img src="ChgNbrs5.png" height="100" width="201" alt="Inactivation warning window" />
+<div class="caption">Figure 5</div></div>
+
+<p>In order to add a Charge Number to tcmIS you must click the <strong>New</strong> link on the upper-left of
+   the data grid. tcmIS will add a new, blank row to the data grid where you enter the values for all the elements
+	of the charge number combination in their respective columns. (The active check box is selected by default.)</p>
+<p>New charge numbers and any changes made on the <strong>Charge Numbers Set Up</strong> page are not saved until the
+   <strong>Update</strong> link is clicked.</p>
+<p>Note, also, that a <strong>Delete</strong> link is available to eliminate the newly created charge number
+   record if you realize it is incorrect or unneeded.</p>
+<div class="image"><img src="ChgNbrs6.png" height="485" width="707" alt="Creating a new charge number" />
+<div class="caption">Figure 6</div></div>
+
+<p>Any charge number may be edited directly in the row and column for the record and number element. No changes made on the
+   <strong>Charge Numbers Set Up</strong> page are saved until the <strong>Update</strong> link on this page is clicked.</p>
+<p>In the figure below, the highlighted section shows the change that has been made before the <strong>Update</strong>
+   link has been clicked.</p>
+<div class="image"><img src="ChgNbrs7.png" height="487" width="707" alt="Changing a charge number" />
+<div class="caption">Figure 7</div></div>
+
+<p>A right click on any record will display a context menu item to allow you to print the displayed 
+   list. <em>Note that only the portion of the list on the screen will be printed.</em></p>
+<div class="image"><img src="ChgNbrs8.png" height="485" width="707" alt="Context menu print item" />
+<div class="caption">Figure 8</div></div>
+
+<p>Click the <strong>Create Excel</strong> button on the page to export the data in Excel format.</p>
+
+</body>
+</html>

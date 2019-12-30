@@ -1,0 +1,6836 @@
+<html lang="en-US">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="expires" content="-1">
+<link rel="shortcut icon" href="https://www.tcmis.com/images/buttons/tcmIS.ico"></link>
+
+<!--Use this tag to get the correct CSS class.
+This looks at what the user's preffered font size and which application he is viewing to set the correct CSS. -->
+<link rel="stylesheet" type="text/css" href="/css/haasGlobal.css"></link>
+<!-- CSS for YUI -->
+<link rel="stylesheet" type="text/css" href="/yui/build/container/assets/container.css" />
+<!-- Add any other stylesheets you need for the page here -->
+
+
+
+
+
+<script type="text/javascript" src="/js/common/formchek.js"></script>
+<script type="text/javascript" src="/js/common/commonutil.js"></script>
+<!-- This handels which key press events are disabeled on this page -->
+<script src="/js/common/disableKeys.js"></script>
+
+<!-- This handels the menu style and what happens to the right click on the whole page -->
+<script type="text/javascript" src="/js/menu/milonic_src.js"></script>
+<script type="text/javascript" src="/js/menu/mmenudom.js"></script>
+<script type="text/javascript" src="/js/menu/mainmenudata.js"></script>
+<script type="text/javascript" src="/js/menu/contextmenu.js"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+with(milonic=new menuname("contextMenu")){
+top="offset=2"
+style = contextStyle;
+margin=3
+aI("text=Print;url=javascript:window.print();image=");
+}
+
+drawMenus();
+// -->
+</script>
+
+<script type="text/javascript" src="/js/hub/receivingqctest.js"></script>
+<!-- For Calendar support -->
+<script type="text/javascript" src="/js/calendar/newcalendar.js"></script>
+<script type="text/javascript" src="/js/calendar/AnchorPosition.js"></script>
+<script type="text/javascript" src="/js/calendar/PopupWindow.js"></script>
+
+<title>
+Receiving QC
+</title>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+var althubid = new Array(
+
+ 
+   
+   
+    "2101"
+   
+  
+
+ 
+   
+    ,"2157"
+   
+   
+  
+
+ 
+   
+    ,"2125"
+   
+   
+  
+
+ 
+   
+    ,"2139"
+   
+   
+  
+
+ 
+   
+    ,"2186"
+   
+   
+  
+
+ 
+   
+    ,"2183"
+   
+   
+  
+
+ 
+   
+    ,"2158"
+   
+   
+  
+
+ 
+   
+    ,"2151"
+   
+   
+  
+
+ 
+   
+    ,"2302"
+   
+   
+  
+
+ 
+   
+    ,"2147"
+   
+   
+  
+
+ 
+   
+    ,"2185"
+   
+   
+  
+
+ 
+   
+    ,"2123"
+   
+   
+  
+
+ 
+   
+    ,"2122"
+   
+   
+  
+
+ 
+   
+    ,"2134"
+   
+   
+  
+
+ 
+   
+    ,"2127"
+   
+   
+  
+
+ 
+   
+    ,"2129"
+   
+   
+  
+
+ 
+   
+    ,"2167"
+   
+   
+  
+
+ 
+   
+    ,"2401"
+   
+   
+  
+
+ 
+   
+    ,"2131"
+   
+   
+  
+
+ 
+   
+    ,"2132"
+   
+   
+  
+
+ 
+   
+    ,"2133"
+   
+   
+  
+
+ 
+   
+    ,"2102"
+   
+   
+  
+
+ 
+   
+    ,"2118"
+   
+   
+  
+
+ 
+   
+    ,"2191"
+   
+   
+  
+
+ 
+   
+    ,"2202"
+   
+   
+  
+
+ 
+   
+    ,"2203"
+   
+   
+  
+
+ 
+   
+    ,"2210"
+   
+   
+  
+
+ 
+   
+    ,"2206"
+   
+   
+  
+
+ 
+   
+    ,"2207"
+   
+   
+  
+
+ 
+   
+    ,"2208"
+   
+   
+  
+
+ 
+   
+    ,"2209"
+   
+   
+  
+
+ 
+   
+    ,"2205"
+   
+   
+  
+
+ 
+   
+    ,"2204"
+   
+   
+  
+
+ 
+   
+    ,"2117"
+   
+   
+  
+
+ 
+   
+    ,"2148"
+   
+   
+  
+
+ 
+   
+    ,"2119"
+   
+   
+  
+
+ 
+   
+    ,"2126"
+   
+   
+  
+
+ 
+   
+    ,"2145"
+   
+   
+  
+
+ 
+   
+    ,"2152"
+   
+   
+  
+
+ 
+   
+    ,"2162"
+   
+   
+  
+
+ 
+   
+    ,"2137"
+   
+   
+  
+
+ 
+   
+    ,"2146"
+   
+   
+  
+
+ 
+   
+    ,"2144"
+   
+   
+  
+
+ 
+   
+    ,"2104"
+   
+   
+  
+
+ 
+   
+    ,"2142"
+   
+   
+  
+
+ 
+   
+    ,"2156"
+   
+   
+  
+
+ 
+   
+    ,"2116"
+   
+   
+  
+
+ 
+   
+    ,"2402"
+   
+   
+  
+
+ 
+   
+    ,"2159"
+   
+   
+  
+
+ 
+   
+    ,"2400"
+   
+   
+  
+
+ 
+   
+    ,"2124"
+   
+   
+  
+
+ 
+   
+    ,"2199"
+   
+   
+  
+
+ 
+   
+    ,"2164"
+   
+   
+  
+
+ 
+   
+    ,"2114"
+   
+   
+  
+
+ 
+   
+    ,"2189"
+   
+   
+  
+
+ 
+   
+    ,"2160"
+   
+   
+  
+
+ 
+   
+    ,"2188"
+   
+   
+  
+
+ 
+   
+    ,"2154"
+   
+   
+  
+
+ 
+   
+    ,"2403"
+   
+   
+  
+
+ 
+   
+    ,"2140"
+   
+   
+  
+
+ 
+   
+    ,"2196"
+   
+   
+  
+
+ 
+   
+    ,"2174"
+   
+   
+  
+
+ 
+   
+    ,"2181"
+   
+   
+  
+
+ 
+   
+    ,"2179"
+   
+   
+  
+
+ 
+   
+    ,"2178"
+   
+   
+  
+
+ 
+   
+    ,"2168"
+   
+   
+  
+
+ 
+   
+    ,"2169"
+   
+   
+  
+
+ 
+   
+    ,"2182"
+   
+   
+  
+
+ 
+   
+    ,"2177"
+   
+   
+  
+
+ 
+   
+    ,"2170"
+   
+   
+  
+
+ 
+   
+    ,"2176"
+   
+   
+  
+
+ 
+   
+    ,"2171"
+   
+   
+  
+
+ 
+   
+    ,"2175"
+   
+   
+  
+
+ 
+   
+    ,"2172"
+   
+   
+  
+
+ 
+   
+    ,"2173"
+   
+   
+  
+
+ 
+   
+    ,"2106"
+   
+   
+  
+
+ 
+   
+    ,"2155"
+   
+   
+  
+
+ 
+   
+    ,"2190"
+   
+   
+  
+
+ 
+   
+    ,"2143"
+   
+   
+  
+
+ 
+   
+    ,"2128"
+   
+   
+  
+
+ 
+   
+    ,"2141"
+   
+   
+  
+
+ 
+   
+    ,"2136"
+   
+   
+  
+
+ 
+   
+    ,"2130"
+   
+   
+  
+
+ 
+   
+    ,"2165"
+   
+   
+  
+
+ 
+   
+    ,"2103"
+   
+   
+  
+
+ 
+   
+    ,"2301"
+   
+   
+  
+
+ 
+   
+    ,"2108"
+   
+   
+  
+
+ 
+   
+    ,"2135"
+   
+   
+  
+
+ 
+   
+    ,"2109"
+   
+   
+  
+
+ 
+   
+    ,"2110"
+   
+   
+  
+
+ 
+   
+    ,"2111"
+   
+   
+  
+
+ 
+   
+    ,"2112"
+   
+   
+  
+
+ 
+   
+    ,"2201"
+   
+   
+  
+
+ 
+   
+    ,"2107"
+   
+   
+  
+
+ 
+   
+    ,"2163"
+   
+   
+  
+
+ 
+   
+    ,"2187"
+   
+   
+  
+
+ 
+   
+    ,"2198"
+   
+   
+  
+
+ 
+   
+    ,"2153"
+   
+   
+  
+
+ 
+   
+    ,"2184"
+   
+   
+  
+
+ 
+   
+    ,"2150"
+   
+   
+  
+
+ 
+   
+    ,"2303"
+   
+   
+  
+
+ 
+   
+    ,"2149"
+   
+   
+  
+
+ 
+   
+    ,"2115"
+   
+   
+  
+
+ 
+   
+    ,"2161"
+   
+   
+  
+
+ 
+   
+    ,"2197"
+   
+   
+  
+
+);
+var altinvid = new Array();
+var altinvName = new Array();
+
+
+
+
+altinvid["2101"] = new Array(""
+ 
+,"SAIC Fee"
+  
+,"Salem"
+  
+,"Salem BAE"
+  
+,"Salem GD"
+  
+,"Salem General"
+  
+,"Salem HSD"
+  
+,"Salem Haas"
+  
+,"Salem LMC"
+  
+,"Salem PWA"
+  
+,"Salem Portsmouth"
+  
+,"Salem Raytheon"
+  
+,"Salem SAIC"
+  
+,"Salem Schweizer"
+  
+,"Salem Sikorsky"
+  
+,"Salem Trident"
+  
+,"Salem VMI"
+  
+
+  );
+altinvName["2101"] = new Array("All"
+ 
+,"SAIC Fee"
+  
+,"Salem"
+  
+,"Salem BAE"
+  
+,"Salem GD"
+  
+,"Salem General"
+  
+,"Salem HSD"
+  
+,"Salem Haas"
+  
+,"Salem LMC"
+  
+,"Salem PWA"
+  
+,"Salem Portsmouth"
+  
+,"Salem Raytheon"
+  
+,"Salem SAIC"
+  
+,"Salem Schweizer"
+  
+,"Salem Sikorsky"
+  
+,"Salem Trident"
+  
+,"Salem VMI"
+  
+
+  );
+ 
+
+
+
+altinvid["2157"] = new Array(""
+ 
+,"Albion"
+  
+,"Albion Grains/Loadout"
+  
+,"Albion Lab"
+  
+,"Albion Maintenance"
+  
+,"Albion Tanks"
+  
+,"Albion Water Treatment"
+  
+
+  );
+altinvName["2157"] = new Array("All"
+ 
+,"Albion"
+  
+,"Albion Grains/Loadout"
+  
+,"Albion Lab"
+  
+,"Albion Maintenance"
+  
+,"Albion Tanks"
+  
+,"Albion Water Treatment"
+  
+
+  );
+ 
+
+
+
+altinvid["2125"] = new Array(""
+ 
+,"Morristown"
+  
+,"York Oil House"
+  
+
+  );
+altinvName["2125"] = new Array("All"
+ 
+,"Morristown"
+  
+,"York Oil House"
+  
+
+  );
+ 
+
+
+
+altinvid["2139"] = new Array(""
+ 
+,"Aurora"
+  
+,"Aurora Admin"
+  
+,"Aurora First Aid Cabinet"
+  
+,"Aurora Grains/Ethanol Loadout"
+  
+,"Aurora Lab"
+  
+,"Aurora Maintenance"
+  
+,"Aurora Tanks"
+  
+,"Aurora Water Treatment"
+  
+
+  );
+altinvName["2139"] = new Array("All"
+ 
+,"Aurora"
+  
+,"Aurora Admin"
+  
+,"Aurora First Aid Cabinet"
+  
+,"Aurora Grains/Ethanol Loadout"
+  
+,"Aurora Lab"
+  
+,"Aurora Maintenance"
+  
+,"Aurora Tanks"
+  
+,"Aurora Water Treatment"
+  
+
+  );
+ 
+
+
+
+altinvid["2186"] = new Array(""
+ 
+,"Bad Neustadt"
+  
+
+  );
+altinvName["2186"] = new Array("All"
+ 
+,"Bad Neustadt"
+  
+
+  );
+ 
+
+
+
+altinvid["2183"] = new Array(""
+ 
+,"Belvidere"
+  
+
+  );
+altinvName["2183"] = new Array("All"
+ 
+,"Belvidere"
+  
+
+  );
+ 
+
+
+
+altinvid["2158"] = new Array(""
+ 
+,"Bloomingburg"
+  
+,"Bloomingburg Lab"
+  
+,"Bloomingburg Maintenance"
+  
+,"Bloomingburg Tanks"
+  
+,"Bloomingburg WT Tanks"
+  
+,"Bloomingburg Water Treatment"
+  
+
+  );
+altinvName["2158"] = new Array("All"
+ 
+,"Bloomingburg"
+  
+,"Bloomingburg Lab"
+  
+,"Bloomingburg Maintenance"
+  
+,"Bloomingburg Production Tanks"
+  
+,"Bloomingburg Water Treatment Tanks"
+  
+,"Bloomingburg Water Treatment"
+  
+
+  );
+ 
+
+
+
+altinvid["2151"] = new Array(""
+ 
+,"Brugherio"
+  
+
+  );
+altinvName["2151"] = new Array("All"
+ 
+,"Brugherio"
+  
+
+  );
+ 
+
+
+
+altinvid["2302"] = new Array(""
+ 
+,"CLE"
+  
+,"EWR"
+  
+,"GUM"
+  
+,"HNL"
+  
+,"HOU"
+  
+,"IAH"
+  
+,"LAX"
+  
+,"MCO"
+  
+,"MOR"
+  
+
+  );
+altinvName["2302"] = new Array("All"
+ 
+,"CLE Stores"
+  
+,"EWR Stores"
+  
+,"GUM Stores"
+  
+,"HNL Stores"
+  
+,"HOU Stores"
+  
+,"IAH Stores"
+  
+,"LAX Stores"
+  
+,"MCO Stores"
+  
+,"MOR Stores"
+  
+
+  );
+ 
+
+
+
+altinvid["2147"] = new Array(""
+ 
+,"Charles City"
+  
+,"Charles City Admin"
+  
+,"Charles City Grains/Loadout"
+  
+,"Charles City Lab"
+  
+,"Charles City Maintenance"
+  
+,"Charles City Tanks"
+  
+,"Charles City Water Treatment"
+  
+
+  );
+altinvName["2147"] = new Array("All"
+ 
+,"Charles City"
+  
+,"Charles City Admin"
+  
+,"Charles City Grains/Ethanol Loadout"
+  
+,"Charles City Lab"
+  
+,"Charles City Maintenance"
+  
+,"Charles City Tanks"
+  
+,"Charles City Water Treatment"
+  
+
+  );
+ 
+
+
+
+altinvid["2185"] = new Array(""
+ 
+,"Claverham"
+  
+
+  );
+altinvName["2185"] = new Array("All"
+ 
+,"Claverham"
+  
+
+  );
+ 
+
+
+
+altinvid["2123"] = new Array(""
+ 
+,"Brantford"
+  
+,"Burlington"
+  
+,"Burlington Plating"
+  
+,"Cambridge"
+  
+,"DropShip Brantford"
+  
+,"DropShip Oakville Plating"
+  
+,"Magog"
+  
+,"Mississauga"
+  
+,"Mount Forest"
+  
+,"Oakville Division Office"
+  
+,"Oakville Plating"
+  
+,"Oakville XL Plant"
+  
+,"Thorold"
+  
+
+  );
+altinvName["2123"] = new Array("All"
+ 
+,"Brantford"
+  
+,"Burlington"
+  
+,"Burlington Plating"
+  
+,"Cambridge"
+  
+,"DropShip Brantford"
+  
+,"DropShip Oakville Plating"
+  
+,"Magog"
+  
+,"Mississauga"
+  
+,"Mount Forest"
+  
+,"Oakville Division Office"
+  
+,"Oakville Plating"
+  
+,"Oakville XL Plant"
+  
+,"Thorold"
+  
+
+  );
+ 
+
+
+
+altinvid["2122"] = new Array(""
+ 
+,"Albion DANA"
+  
+,"Cape Girardeau"
+  
+,"Ft. Wayne"
+  
+,"Lima"
+  
+,"Manchester"
+  
+,"Marion"
+  
+,"Muskegon Harvey St Foundry"
+  
+,"Muskegon Harvey St Machining"
+  
+,"Muskegon Jefferson St Foundry"
+  
+,"Muskegon Product Distribution"
+  
+,"Muskegon Sanford St Machining"
+  
+,"Pottstown"
+  
+,"St. Johns"
+  
+,"Sterling"
+  
+,"Syracuse"
+  
+
+  );
+altinvName["2122"] = new Array("All"
+ 
+,"Albion"
+  
+,"Cape Girardeau"
+  
+,"Ft. Wayne"
+  
+,"Lima"
+  
+,"Manchester"
+  
+,"Marion"
+  
+,"Muskegon Harvey St Foundry"
+  
+,"Muskegon Harvey St Machining"
+  
+,"Muskegon Jefferson St Foundry"
+  
+,"Muskegon Product Distribution"
+  
+,"Muskegon Sanford St Machining"
+  
+,"Pottstown"
+  
+,"St. Johns"
+  
+,"Sterling"
+  
+,"Syracuse"
+  
+
+  );
+ 
+
+
+
+altinvid["2134"] = new Array(""
+ 
+,"DAP"
+  
+
+  );
+altinvName["2134"] = new Array("All"
+ 
+,"DAP"
+  
+
+  );
+ 
+
+
+
+altinvid["2127"] = new Array(""
+ 
+,"Etobicoke"
+  
+
+  );
+altinvName["2127"] = new Array("All"
+ 
+,"Etobicoke"
+  
+
+  );
+ 
+
+
+
+altinvid["2129"] = new Array(""
+ 
+,"Fenton North"
+  
+,"Fenton South"
+  
+
+  );
+altinvName["2129"] = new Array("All"
+ 
+,"Fenton North"
+  
+,"Fenton South"
+  
+
+  );
+ 
+
+
+
+altinvid["2167"] = new Array(""
+ 
+,"Jefferson North"
+  
+
+  );
+altinvName["2167"] = new Array("All"
+ 
+,"Jefferson North"
+  
+
+  );
+ 
+
+
+
+altinvid["2401"] = new Array(""
+ 
+,"Kokomo Casting"
+  
+
+  );
+altinvName["2401"] = new Array("All"
+ 
+,"Kokomo Casting"
+  
+
+  );
+ 
+
+
+
+altinvid["2131"] = new Array(""
+ 
+,"NAP"
+  
+
+  );
+altinvName["2131"] = new Array("All"
+ 
+,"NAP"
+  
+
+  );
+ 
+
+
+
+altinvid["2132"] = new Array(""
+ 
+,"SHAP"
+  
+
+  );
+altinvName["2132"] = new Array("All"
+ 
+,"SHAP"
+  
+
+  );
+ 
+
+
+
+altinvid["2133"] = new Array(""
+ 
+,"WAP"
+  
+
+  );
+altinvName["2133"] = new Array("All"
+ 
+,"WTAP"
+  
+
+  );
+ 
+
+
+
+altinvid["2102"] = new Array(""
+ 
+,"Dallas"
+  
+,"Dallas Haas"
+  
+,"Dallas SAIC"
+  
+,"Dallas VMI"
+  
+,"Virtual BOC"
+  
+
+  );
+altinvName["2102"] = new Array("All"
+ 
+,"Dallas"
+  
+,"Dallas Haas"
+  
+,"Dallas SAIC"
+  
+,"Dallas VMI"
+  
+,"Virtual BOC"
+  
+
+  );
+ 
+
+
+
+altinvid["2118"] = new Array(""
+ 
+,"Decatur Boeing"
+  
+,"Decatur Haas"
+  
+,"Decatur SAIC"
+  
+,"Decatur VMI"
+  
+
+  );
+altinvName["2118"] = new Array("All"
+ 
+,"Decatur ULA"
+  
+,"Decatur Haas"
+  
+,"Decatur SAIC"
+  
+,"Decatur VMI"
+  
+
+  );
+ 
+
+
+
+altinvid["2191"] = new Array(""
+ 
+,"Detroit Diesel"
+  
+
+  );
+altinvName["2191"] = new Array("All"
+ 
+,"Detroit Diesel"
+  
+
+  );
+ 
+
+
+
+altinvid["2202"] = new Array(""
+ 
+,"Albany MILLER"
+  
+,"DropShip"
+  
+,"DropShip ABL_AERO"
+  
+,"DropShip AERO_ECO"
+  
+,"DropShip FEC"
+  
+,"DropShip HSD"
+  
+,"DropShip KEMFAST"
+  
+,"DropShip MILLER"
+  
+,"DropShip OMMC"
+  
+,"DropShip PWA"
+  
+,"DropShip QOS"
+  
+,"DropShip RAC"
+  
+,"DropShip RAY Forest"
+  
+,"DropShip RAYTHEON"
+  
+,"DropShip SAC"
+  
+,"DropShip STARK"
+  
+,"DropShip SWA"
+  
+,"DropShip UTC"
+  
+,"Eden MILLER"
+  
+,"Fort Worth MILLER"
+  
+,"Irwindale MILLER"
+  
+,"Leinenkugel MILLER"
+  
+,"Milwaukee MILLER"
+  
+,"PWA Austin"
+  
+,"Watertown Hops MILLER"
+  
+
+  );
+altinvName["2202"] = new Array("All"
+ 
+,"Albany MILLER"
+  
+,"DropShip"
+  
+,"DropShip ABL Aerospace"
+  
+,"DropShip Aero Eco"
+  
+,"DropShip FEC"
+  
+,"DropShip HSD"
+  
+,"DropShip KEMFAST"
+  
+,"DropShip MILLER"
+  
+,"DropShip OMMC"
+  
+,"DropShip PWA"
+  
+,"DropShip QOS"
+  
+,"DropShip RAC"
+  
+,"DropShip RAY Forest"
+  
+,"DropShip RAYTHEON"
+  
+,"DropShip SAC"
+  
+,"DropShip Stark Aerospace"
+  
+,"DropShip SWA"
+  
+,"DropShip UTC"
+  
+,"Eden MILLER"
+  
+,"Fort Worth MILLER"
+  
+,"Irwindale MILLER"
+  
+,"Leinenkugel MILLER"
+  
+,"Milwaukee MILLER"
+  
+,"PWA Austin"
+  
+,"Watertown Hops MILLER"
+  
+
+  );
+ 
+
+
+
+altinvid["2203"] = new Array(""
+ 
+,"DropShip DANA Canada"
+  
+
+  );
+altinvName["2203"] = new Array("All"
+ 
+,"DropShip DANA Canada"
+  
+
+  );
+ 
+
+
+
+altinvid["2210"] = new Array(""
+ 
+,"DropShip China"
+  
+
+  );
+altinvName["2210"] = new Array("All"
+ 
+,"DropShip China"
+  
+
+  );
+ 
+
+
+
+altinvid["2206"] = new Array(""
+ 
+,"ARDC"
+  
+,"Chelsea"
+  
+,"Mansfield"
+  
+,"Mount Elliot Tool &amp; Die"
+  
+
+  );
+altinvName["2206"] = new Array("All"
+ 
+,"ARDC"
+  
+,"Chelsea"
+  
+,"Mansfield"
+  
+,"Mount Elliot Tool &amp; Die"
+  
+
+  );
+ 
+
+
+
+altinvid["2207"] = new Array(""
+ 
+,"DropShip AG"
+  
+,"DropShip Gas Other"
+  
+,"DropShip NWS"
+  
+,"DropShip Polchem"
+  
+
+  );
+altinvName["2207"] = new Array("All"
+ 
+,"DropShip AG"
+  
+,"DropShip Gas Other"
+  
+,"DropShip NWS"
+  
+,"DropShip Polchem"
+  
+
+  );
+ 
+
+
+
+altinvid["2208"] = new Array(""
+ 
+,"DropShip ALCOA"
+  
+,"DropShip GETRAG"
+  
+,"DropShip HANS SASSERATH"
+  
+
+  );
+altinvName["2208"] = new Array("All"
+ 
+,"DropShip ALCOA"
+  
+,"DropShip GETRAG"
+  
+,"DropShip HANS SASSERATH"
+  
+
+  );
+ 
+
+
+
+altinvid["2209"] = new Array(""
+ 
+,"DropShip Malaysia"
+  
+
+  );
+altinvName["2209"] = new Array("All"
+ 
+,"DropShip Malaysia"
+  
+
+  );
+ 
+
+
+
+altinvid["2205"] = new Array(""
+ 
+,"DropShip Microtecnica"
+  
+
+  );
+altinvName["2205"] = new Array("All"
+ 
+,"DropShip Microtecnica"
+  
+
+  );
+ 
+
+
+
+altinvid["2204"] = new Array(""
+ 
+,"DropShip NALCO"
+  
+,"DropShip NRG"
+  
+,"DropShip PEPSI"
+  
+
+  );
+altinvName["2204"] = new Array("All"
+ 
+,"DropShip NALCO"
+  
+,"DropShip NRG"
+  
+,"DropShip PEPSI"
+  
+
+  );
+ 
+
+
+
+altinvid["2117"] = new Array(""
+ 
+,"El Segundo"
+  
+,"El Segundo Trident"
+  
+
+  );
+altinvName["2117"] = new Array("All"
+ 
+,"El Segundo"
+  
+,"El Segundo Trident"
+  
+
+  );
+ 
+
+
+
+altinvid["2148"] = new Array(""
+ 
+,"Fort Dodge"
+  
+,"Fort Dodge Admin"
+  
+,"Fort Dodge Lab"
+  
+,"Fort Dodge Maintenance"
+  
+,"Fort Dodge Tanks"
+  
+,"Fort Dodge Water Treatment"
+  
+
+  );
+altinvName["2148"] = new Array("All"
+ 
+,"Fort Dodge"
+  
+,"Fort Dodge Admin"
+  
+,"Fort Dodge Lab"
+  
+,"Fort Dodge Maintenance"
+  
+,"Fort Dodge Tanks"
+  
+,"Fort Dodge Water Treatment"
+  
+
+  );
+ 
+
+
+
+altinvid["2119"] = new Array(""
+ 
+,"Fresno Haas"
+  
+,"Fresno SAIC"
+  
+,"Fresno VMI"
+  
+,"SV SLAC"
+  
+,"SV Seagate"
+  
+
+  );
+altinvName["2119"] = new Array("All"
+ 
+,"Fresno Haas"
+  
+,"Fresno SAIC"
+  
+,"Fresno VMI"
+  
+,"SV SLAC"
+  
+,"SV Seagate"
+  
+
+  );
+ 
+
+
+
+altinvid["2126"] = new Array(""
+ 
+,"GEMA Condat"
+  
+,"GEMA Dundee North"
+  
+,"GEMA Dundee South"
+  
+
+  );
+altinvName["2126"] = new Array("All"
+ 
+,"GEMA Condat"
+  
+,"GEMA Dundee North"
+  
+,"GEMA Dundee South"
+  
+
+  );
+ 
+
+
+
+altinvid["2145"] = new Array(""
+ 
+,"Bedford"
+  
+
+  );
+altinvName["2145"] = new Array("All"
+ 
+,"Bedford"
+  
+
+  );
+ 
+
+
+
+altinvid["2152"] = new Array(""
+ 
+,"Flint 560"
+  
+,"Flint 900"
+  
+,"Flint Powerhouse"
+  
+,"Flint WWT Plant"
+  
+
+  );
+altinvName["2152"] = new Array("All"
+ 
+,"Flint 560"
+  
+,"Flint Plant"
+  
+,"Flint Powerhouse"
+  
+,"Flint WWT Plant"
+  
+
+  );
+ 
+
+
+
+altinvid["2162"] = new Array(""
+ 
+,"Fort Wayne"
+  
+,"Fort Wayne General Stores"
+  
+
+  );
+altinvName["2162"] = new Array("All"
+ 
+,"Fort Wayne"
+  
+,"Fort Wayne General Stores"
+  
+
+  );
+ 
+
+
+
+altinvid["2137"] = new Array(""
+ 
+,"Livonia"
+  
+
+  );
+altinvName["2137"] = new Array("All"
+ 
+,"Livonia"
+  
+
+  );
+ 
+
+
+
+altinvid["2146"] = new Array(""
+ 
+,"Moraine"
+  
+,"Moraine WWT"
+  
+,"Paint Shop"
+  
+,"Plant 1"
+  
+
+  );
+altinvName["2146"] = new Array("All"
+ 
+,"Moraine"
+  
+,"Moraine WWT"
+  
+,"Moraine Paint Shop"
+  
+,"Moraine Plant 1 "
+  
+
+  );
+ 
+
+
+
+altinvid["2144"] = new Array(""
+ 
+,"Barracuda Tanks"
+  
+,"Wilmington"
+  
+
+  );
+altinvName["2144"] = new Array("All"
+ 
+,"Barracuda Tanks"
+  
+,"Wilmington"
+  
+
+  );
+ 
+
+
+
+altinvid["2104"] = new Array(""
+ 
+,"Goleta Rio Hub"
+  
+
+  );
+altinvName["2104"] = new Array("All"
+ 
+,"Goleta Rio Hub"
+  
+
+  );
+ 
+
+
+
+altinvid["2142"] = new Array(""
+ 
+,"APK Gravatai"
+  
+,"Gravatai"
+  
+
+  );
+altinvName["2142"] = new Array("All"
+ 
+,"APK Gravatai"
+  
+,"Gravatai"
+  
+
+  );
+ 
+
+
+
+altinvid["2156"] = new Array(""
+ 
+,"Greenville Haas"
+  
+,"Greenville SAIC"
+  
+,"Greenville VMI"
+  
+
+  );
+altinvName["2156"] = new Array("All"
+ 
+,"Greenville Haas"
+  
+,"Greenville SAIC"
+  
+,"Greenville VMI"
+  
+
+  );
+ 
+
+
+
+altinvid["2116"] = new Array(""
+ 
+,"HSD- Puerto Rico"
+  
+
+  );
+altinvName["2116"] = new Array("All"
+ 
+,"HSD- Puerto Rico"
+  
+
+  );
+ 
+
+
+
+altinvid["2402"] = new Array(""
+ 
+,"Hamburg AEROCZ"
+  
+,"Hamburg HSD"
+  
+
+  );
+altinvName["2402"] = new Array("All"
+ 
+,"Hamburg AEROCZ"
+  
+,"Hamburg HSD"
+  
+
+  );
+ 
+
+
+
+altinvid["2159"] = new Array(""
+ 
+,"Hartley"
+  
+,"Hartley Lab"
+  
+,"Hartley Maintenance"
+  
+,"Hartley Tanks"
+  
+,"Hartley Water Treatment"
+  
+,"Hartley Water Treatment Tanks"
+  
+
+  );
+altinvName["2159"] = new Array("All"
+ 
+,"Hartley"
+  
+,"Hartley Lab"
+  
+,"Hartley Maintenance"
+  
+,"Hartley Production Tanks"
+  
+,"Hartley Water Treatment"
+  
+,"Hartley Water Treatment Tanks"
+  
+
+  );
+ 
+
+
+
+altinvid["2400"] = new Array(""
+ 
+,"Inter-Company HAAS/AEROPIA"
+  
+,"Inter-Company HAAS/APE"
+  
+
+  );
+altinvName["2400"] = new Array("All"
+ 
+,"Inter-Company HAAS/AEROPIA"
+  
+,"Inter-Company HAAS/APE"
+  
+
+  );
+ 
+
+
+
+altinvid["2124"] = new Array(""
+ 
+,"Israel IAI"
+  
+,"Israel Kemfast"
+  
+
+  );
+altinvName["2124"] = new Array("All"
+ 
+,"Israel IAI"
+  
+,"Israel Kemfast"
+  
+
+  );
+ 
+
+
+
+altinvid["2199"] = new Array(""
+ 
+,"BSEC"
+  
+,"RPL"
+  
+
+  );
+altinvName["2199"] = new Array("All"
+ 
+,"PNNL BioSci Eng Lab"
+  
+,"PNNL Radiation Proj Lab"
+  
+
+  );
+ 
+
+
+
+altinvid["2164"] = new Array(""
+ 
+,"Lafayette"
+  
+
+  );
+altinvName["2164"] = new Array("All"
+ 
+,"Lafayette"
+  
+
+  );
+ 
+
+
+
+altinvid["2114"] = new Array(""
+ 
+,"Largo"
+  
+
+  );
+altinvName["2114"] = new Array("All"
+ 
+,"Largo"
+  
+
+  );
+ 
+
+
+
+altinvid["2189"] = new Array(""
+ 
+,"Leipzig"
+  
+
+  );
+altinvName["2189"] = new Array("All"
+ 
+,"Leipzig"
+  
+
+  );
+ 
+
+
+
+altinvid["2160"] = new Array(""
+ 
+,"Linden"
+  
+,"Linden Lab"
+  
+,"Linden Maintenance"
+  
+,"Linden Tanks"
+  
+,"Linden Water Treatment"
+  
+
+  );
+altinvName["2160"] = new Array("All"
+ 
+,"Linden"
+  
+,"Linden Lab"
+  
+,"Linden Maintenance"
+  
+,"Linden Tanks"
+  
+,"Linden Water Treatment"
+  
+
+  );
+ 
+
+
+
+altinvid["2188"] = new Array(""
+ 
+,"Ludwigsburg"
+  
+
+  );
+altinvName["2188"] = new Array("All"
+ 
+,"Ludwigsburg"
+  
+
+  );
+ 
+
+
+
+altinvid["2154"] = new Array(""
+ 
+,"Luserna"
+  
+
+  );
+altinvName["2154"] = new Array("All"
+ 
+,"Luserna"
+  
+
+  );
+ 
+
+
+
+altinvid["2403"] = new Array(""
+ 
+,"PZL Mielec"
+  
+
+  );
+altinvName["2403"] = new Array("All"
+ 
+,"PZL Mielec"
+  
+
+  );
+ 
+
+
+
+altinvid["2140"] = new Array(""
+ 
+,"Mogi"
+  
+,"WWT Lab"
+  
+
+  );
+altinvName["2140"] = new Array("All"
+ 
+,"Mogi"
+  
+,"WWT Lab/ETE Lab"
+  
+
+  );
+ 
+
+
+
+altinvid["2196"] = new Array(""
+ 
+,"PWC Montreal"
+  
+
+  );
+altinvName["2196"] = new Array("All"
+ 
+,"PWC Montreal"
+  
+
+  );
+ 
+
+
+
+altinvid["2174"] = new Array(""
+ 
+,"Arthur Kill"
+  
+,"Arthur Kill WWT"
+  
+
+  );
+altinvName["2174"] = new Array("All"
+ 
+,"Arthur Kill"
+  
+,"Arthur Kill WWT"
+  
+
+  );
+ 
+
+
+
+altinvid["2181"] = new Array(""
+ 
+,"Cabrillo"
+  
+,"Cabrillo WWT"
+  
+
+  );
+altinvName["2181"] = new Array("All"
+ 
+,"Cabrillo"
+  
+,"Cabrillo WWT"
+  
+
+  );
+ 
+
+
+
+altinvid["2179"] = new Array(""
+ 
+,"Dunkirk"
+  
+,"Dunkirk WWT"
+  
+
+  );
+altinvName["2179"] = new Array("All"
+ 
+,"Dunkirk"
+  
+,"Dunkirk WWT"
+  
+
+  );
+ 
+
+
+
+altinvid["2178"] = new Array(""
+ 
+,"El Segundo NRG"
+  
+,"El Segundo WWT"
+  
+
+  );
+altinvName["2178"] = new Array("All"
+ 
+,"El Segundo NRG"
+  
+,"El Segundo WWT"
+  
+
+  );
+ 
+
+
+
+altinvid["2168"] = new Array(""
+ 
+,"Huntley"
+  
+,"Huntley WWT"
+  
+
+  );
+altinvName["2168"] = new Array("All"
+ 
+,"Huntley"
+  
+,"Huntley WWT"
+  
+
+  );
+ 
+
+
+
+altinvid["2169"] = new Array(""
+ 
+,"Indian River"
+  
+,"Indian River WWT"
+  
+
+  );
+altinvName["2169"] = new Array("All"
+ 
+,"Indian River"
+  
+,"Indian River WWT"
+  
+
+  );
+ 
+
+
+
+altinvid["2182"] = new Array(""
+ 
+,"Long Beach"
+  
+,"Long Beach WWT"
+  
+
+  );
+altinvName["2182"] = new Array("All"
+ 
+,"Long Beach"
+  
+,"Long Beach WWT"
+  
+
+  );
+ 
+
+
+
+altinvid["2177"] = new Array(""
+ 
+,"Louisiana"
+  
+,"Louisiana WWT"
+  
+
+  );
+altinvName["2177"] = new Array("All"
+ 
+,"Louisiana"
+  
+,"Louisiana WWT"
+  
+
+  );
+ 
+
+
+
+altinvid["2170"] = new Array(""
+ 
+,"Middletown"
+  
+,"Middletown WWT"
+  
+
+  );
+altinvName["2170"] = new Array("All"
+ 
+,"Middletown"
+  
+,"Middletown WWT"
+  
+
+  );
+ 
+
+
+
+altinvid["2176"] = new Array(""
+ 
+,"Montville"
+  
+,"Montville WWT"
+  
+
+  );
+altinvName["2176"] = new Array("All"
+ 
+,"Montville"
+  
+,"Montville WWT"
+  
+
+  );
+ 
+
+
+
+altinvid["2171"] = new Array(""
+ 
+,"Norwalk Harbor"
+  
+,"Norwalk Harbor WWT"
+  
+
+  );
+altinvName["2171"] = new Array("All"
+ 
+,"Norwalk Harbor"
+  
+,"Norwalk Harbor WWT"
+  
+
+  );
+ 
+
+
+
+altinvid["2175"] = new Array(""
+ 
+,"Oswego Harbor"
+  
+,"Oswego Harbor WWT"
+  
+
+  );
+altinvName["2175"] = new Array("All"
+ 
+,"Oswego Harbor"
+  
+,"Oswego Harbor WWT"
+  
+
+  );
+ 
+
+
+
+altinvid["2172"] = new Array(""
+ 
+,"Somerset"
+  
+,"Somerset WWT"
+  
+
+  );
+altinvName["2172"] = new Array("All"
+ 
+,"Somerset"
+  
+,"Somerset WWT"
+  
+
+  );
+ 
+
+
+
+altinvid["2173"] = new Array(""
+ 
+,"Vienna"
+  
+,"Vienna WWT"
+  
+
+  );
+altinvName["2173"] = new Array("All"
+ 
+,"Vienna"
+  
+,"Vienna WWT"
+  
+
+  );
+ 
+
+
+
+altinvid["2106"] = new Array(""
+ 
+,"NRM"
+  
+
+  );
+altinvName["2106"] = new Array("All"
+ 
+,"NRM"
+  
+
+  );
+ 
+
+
+
+altinvid["2155"] = new Array(""
+ 
+,"NB 3000"
+  
+
+  );
+altinvName["2155"] = new Array("All"
+ 
+,"NB 3000 Crib"
+  
+
+  );
+ 
+
+
+
+altinvid["2190"] = new Array(""
+ 
+,"Oberstenfeld"
+  
+
+  );
+altinvName["2190"] = new Array("All"
+ 
+,"Oberstenfeld"
+  
+
+  );
+ 
+
+
+
+altinvid["2143"] = new Array(""
+ 
+,"Oshawa Body"
+  
+,"Oshawa Central Maintenance"
+  
+,"Oshawa Central Plant Eng."
+  
+,"Oshawa Central Salvage"
+  
+,"Oshawa Chassis"
+  
+,"Oshawa Delphi"
+  
+,"Oshawa Offsite Warehouse"
+  
+,"Oshawa Paint Shop"
+  
+,"Oshawa Powerhouse"
+  
+,"Oshawa Stamping"
+  
+,"Oshawa Truck"
+  
+,"Oshawa WWT"
+  
+,"Oshawa West Bern"
+  
+
+  );
+altinvName["2143"] = new Array("All"
+ 
+,"Oshawa Body"
+  
+,"Oshawa Central Maintenance"
+  
+,"Oshawa Central Plant Engineering"
+  
+,"Oshawa Central Salvage"
+  
+,"Oshawa Chassis"
+  
+,"Oshawa Delphi"
+  
+,"Oshawa Offsite Warehouse"
+  
+,"Oshawa Paint Shop"
+  
+,"Oshawa Powerhouse"
+  
+,"Oshawa Stamping"
+  
+,"Oshawa Truck"
+  
+,"Oshawa WWT"
+  
+,"Oshawa Westburne"
+  
+
+  );
+ 
+
+
+
+altinvid["2128"] = new Array(""
+ 
+,"DCPP Common"
+  
+,"DCPP Common RCA"
+  
+,"DCPP Common RCA Storage"
+  
+,"DCPP Intake"
+  
+,"DCPP Unit 1"
+  
+,"DCPP Unit 2"
+  
+,"DCPP Warehouse Bldg 115"
+  
+
+  );
+altinvName["2128"] = new Array("All"
+ 
+,"Common"
+  
+,"Common RCA"
+  
+,"Common RCA Storage"
+  
+,"Intake"
+  
+,"Unit 1"
+  
+,"Unit 2"
+  
+,"Warehouse Bldg 115"
+  
+
+  );
+ 
+
+
+
+altinvid["2141"] = new Array(""
+ 
+,"Carpentry"
+  
+,"Dept181"
+  
+,"EH 502 HotOps"
+  
+,"EH 502 HotOps D181"
+  
+,"EH HPT Blades"
+  
+,"EH TMC Vanes"
+  
+,"MTSCrib"
+  
+,"TurboTip"
+  
+
+  );
+altinvName["2141"] = new Array("All"
+ 
+,"F&amp;S Carpentry/Paint Shop"
+  
+,"CANMC Dept 181"
+  
+,"CSMC Dept 502 Hot Ops"
+  
+,"CSMC Dept 502 Hot Ops D181"
+  
+,"TMC Cell #1 Military HPT Blades"
+  
+,"TMC Cooled Vanes Cell #1"
+  
+,"CANMC MTS Crib"
+  
+,"TMC Turbo Tip"
+  
+
+  );
+ 
+
+
+
+altinvid["2136"] = new Array(""
+ 
+,"MT CSMC 3000"
+  
+
+  );
+altinvName["2136"] = new Array("All"
+ 
+,"MT CSMC 3000 Crib"
+  
+
+  );
+ 
+
+
+
+altinvid["2130"] = new Array(""
+ 
+,"Parkside Rockford"
+  
+
+  );
+altinvName["2130"] = new Array("All"
+ 
+,"Rockford"
+  
+
+  );
+ 
+
+
+
+altinvid["2165"] = new Array(""
+ 
+,"Philadelphia Haas"
+  
+,"Philadelphia Kilfrost"
+  
+,"Philadelphia SAIC"
+  
+,"Philadelphia VMI"
+  
+
+  );
+altinvName["2165"] = new Array("All"
+ 
+,"Philadelphia Haas"
+  
+,"Philadelphia Kilfrost"
+  
+,"Philadelphia SAIC"
+  
+,"Philadelphia VMI"
+  
+
+  );
+ 
+
+
+
+altinvid["2103"] = new Array(""
+ 
+,"Phoenix Haas"
+  
+,"Phoenix SAIC"
+  
+,"Phoenix VMI"
+  
+,"TucRaySubSpec"
+  
+,"Tucson HSD"
+  
+,"Tucson Ray"
+  
+
+  );
+altinvName["2103"] = new Array("All"
+ 
+,"Phoenix Haas"
+  
+,"Phoenix SAIC"
+  
+,"Phoenix VMI"
+  
+,"TucRaySubSpec"
+  
+,"Tucson HSD"
+  
+,"Tucson Ray"
+  
+
+  );
+ 
+
+
+
+altinvid["2301"] = new Array(""
+ 
+,"Rinchem MN Seagate"
+  
+
+  );
+altinvName["2301"] = new Array("All"
+ 
+,"Rinchem MN Seagate"
+  
+
+  );
+ 
+
+
+
+altinvid["2108"] = new Array(""
+ 
+,"Ames"
+  
+
+  );
+altinvName["2108"] = new Array("All"
+ 
+,"Ames"
+  
+
+  );
+ 
+
+
+
+altinvid["2135"] = new Array(""
+ 
+,"Easley"
+  
+
+  );
+altinvName["2135"] = new Array("All"
+ 
+,"Easley"
+  
+
+  );
+ 
+
+
+
+altinvid["2109"] = new Array(""
+ 
+,"Freeport"
+  
+
+  );
+altinvName["2109"] = new Array("All"
+ 
+,"Freeport"
+  
+
+  );
+ 
+
+
+
+altinvid["2110"] = new Array(""
+ 
+,"La Salle"
+  
+
+  );
+altinvName["2110"] = new Array("All"
+ 
+,"La Salle"
+  
+
+  );
+ 
+
+
+
+altinvid["2111"] = new Array(""
+ 
+,"Lawrence"
+  
+
+  );
+altinvName["2111"] = new Array("All"
+ 
+,"Lawrence"
+  
+
+  );
+ 
+
+
+
+altinvid["2112"] = new Array(""
+ 
+,"West Branch"
+  
+
+  );
+altinvName["2112"] = new Array("All"
+ 
+,"West Branch"
+  
+
+  );
+ 
+
+
+
+altinvid["2201"] = new Array(""
+ 
+,"Salem GD Old"
+  
+
+  );
+altinvName["2201"] = new Array("All"
+ 
+,"Salem GD Old"
+  
+
+  );
+ 
+
+
+
+altinvid["2107"] = new Array(""
+ 
+,"San Antonio"
+  
+,"San Antonio Haas"
+  
+,"San Antonio PWA"
+  
+,"San Antonio SAIC"
+  
+,"San Antonio VMI"
+  
+
+  );
+altinvName["2107"] = new Array("All"
+ 
+,"San Antonio"
+  
+,"San Antonio Haas"
+  
+,"San Antonio PWA"
+  
+,"San Antonio SAIC"
+  
+,"San Antonio VMI"
+  
+
+  );
+ 
+
+
+
+altinvid["2163"] = new Array(""
+ 
+,"Goodrich Singapore"
+  
+,"HSD-Singapore"
+  
+
+  );
+altinvName["2163"] = new Array("All"
+ 
+,"Goodrich Singapore"
+  
+,"HSD-Singapore"
+  
+
+  );
+ 
+
+
+
+altinvid["2187"] = new Array(""
+ 
+,"St Louis Haas"
+  
+,"St Louis Kilfrost"
+  
+,"St Louis SAIC"
+  
+,"St Louis VMI"
+  
+
+  );
+altinvName["2187"] = new Array("All"
+ 
+,"St Louis Haas"
+  
+,"St Louis Kilfrost"
+  
+,"St Louis SAIC"
+  
+,"St Louis VMI"
+  
+
+  );
+ 
+
+
+
+altinvid["2198"] = new Array(""
+ 
+,"GKN Tallassee"
+  
+
+  );
+altinvName["2198"] = new Array("All"
+ 
+,"GKN Tallassee"
+  
+
+  );
+ 
+
+
+
+altinvid["2153"] = new Array(""
+ 
+,"Walhalla"
+  
+
+  );
+altinvName["2153"] = new Array("All"
+ 
+,"Walhalla"
+  
+
+  );
+ 
+
+
+
+altinvid["2184"] = new Array(""
+ 
+,"Toledo North"
+  
+,"Toledo South"
+  
+
+  );
+altinvName["2184"] = new Array("All"
+ 
+,"Toledo"
+  
+,"Toledo South"
+  
+
+  );
+ 
+
+
+
+altinvid["2150"] = new Array(""
+ 
+,"Torino"
+  
+
+  );
+altinvName["2150"] = new Array("All"
+ 
+,"Torino"
+  
+
+  );
+ 
+
+
+
+altinvid["2303"] = new Array(""
+ 
+,"HSD-Singapore Victor"
+  
+
+  );
+altinvName["2303"] = new Array("All"
+ 
+,"HSD-Singapore Victor"
+  
+
+  );
+ 
+
+
+
+altinvid["2149"] = new Array(""
+ 
+,"New River Valley"
+  
+
+  );
+altinvName["2149"] = new Array("All"
+ 
+,"New River Valley"
+  
+
+  );
+ 
+
+
+
+altinvid["2115"] = new Array(""
+ 
+,"Waterfront"
+  
+
+  );
+altinvName["2115"] = new Array("All"
+ 
+,"Waterfront"
+  
+
+  );
+ 
+
+
+
+altinvid["2161"] = new Array(""
+ 
+,"Water Treatment Tanks"
+  
+,"Welcome"
+  
+,"Welcome Lab"
+  
+,"Welcome Maintenance"
+  
+,"Welcome Tanks"
+  
+,"Welcome Water Treatment"
+  
+
+  );
+altinvName["2161"] = new Array("All"
+ 
+,"Welcome Water Treatment Tanks"
+  
+,"Welcome"
+  
+,"Welcome Lab"
+  
+,"Welcome Maintenance"
+  
+,"Welcome Production Tanks"
+  
+,"Welcome Water Treatment"
+  
+
+  );
+ 
+
+
+
+altinvid["2197"] = new Array(""
+ 
+,"Windsor"
+  
+
+  );
+altinvName["2197"] = new Array("All"
+ 
+,"Windsor"
+  
+
+  );
+ 
+// -->
+</script>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+//add all the javascript messages here, this for internationalization of client side javascript messages
+var messagesData = new Array();
+messagesData={alert:"Alert",and:"and",
+validvalues:"Please enter valid values for:",submitOnlyOnce:"This form has already been submitted. Please Wait for Results. Thanks!"};
+// -->
+</script>
+</head>
+
+
+
+
+
+  
+  
+   <body bgcolor="#ffffff">
+  
+
+
+<form name="genericForm" method="post" action="receivingqc.html" onsubmit="return SubmitOnlyOnceNawaz();"><div><input type="hidden" name="TOKEN_NAME" value="e764d63ba3c774d5652a8fa7592bde8a"></div><div><input type="hidden" name="e764d63ba3c774d5652a8fa7592bde8a" value="e764d63ba3c774d5652a8fa7592bde8a"></div>
+
+ <div id="transitPage" class="optionTitleBoldCenter" style="display: none;">
+  <br><br><br>Please wait while the page refreshes...
+  <br><br><br><img src="/images/rel_interstitial_loading.gif" align="middle">
+ </div>
+ <div class="interface" id="mainPage">
+
+<!-- Top Navigation- we will not display this section after sometime, when we move to the new menu structure -->
+<div class="topNavigation" id="topNavigation">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td width="200">
+<img src="/images/tcmtitlegif.gif" align="left">
+</td>
+<td>
+<img src="/images/tcmistcmis32.gif" align="right">
+</td>
+</tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td width="70%" class="headingl">
+Receiving QC
+</td>
+<td width="30%" class="headingr">
+<a href="/tcmIS/hub/home.do" style="color:#FFFFFF">Home</a>
+</td>
+</tr>
+</table>
+</div>
+
+<div class="contentArea">
+
+<!-- Search Option Begins -->
+<table id="searchMaskTable" width="800" border="0" cellpadding="0" cellspacing="0">
+<tr><td>
+<div class="roundcont filterContainer">
+ <div class="roundright">
+   <div class="roundtop">
+     <div class="roundtopright"> <img src="/images/rndBoxes/borderTL_filter.gif" alt="" width="15" height="10" class="corner_filter" style="display: none" /></div>
+   </div>
+   <div class="roundContent">
+    <!-- Insert all the search option within this div -->
+<!-- code starts here -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="tableSearch">
+<tr>
+  <td width="5%" class="optionTitleBoldRight">
+      Category:
+  </td>
+  <td width="10%" class="optionTitleLeft">
+     <select name="category" id="category" class="selectBox"><option value="Chemicals" selected="selected">Chemicals</option>
+        <option value="Non-Chemicals">Non-Chemicals</option></select>
+  </td>
+  <td width="5%" class="optionTitleBoldRight">
+     Search:
+  </td>
+  <td width="8%" class="optionTitleLeft">
+     <select name="searchWhat" id="searchWhat" class="selectBox"><option value="PO" selected="selected">PO</option>
+       <option value="Receipt Id">Receipt ID</option>
+       <option value="Item ID">Item ID</option>
+       <option value="Item Desc">Item Desc</option></select>
+     <select name="searchType" id="searchType" class="selectBox"><option value="is" selected="selected">is</option>
+        <option value="contains">contains</option></select>
+  </td>
+  <td width="5%" class="optionTitleBoldLeft">
+   For<input type="text" name="search" size="20" value="" id="search" class="inputBox">
+  </td>
+</tr>
+
+<tr>
+ <td width="5%" class="optionTitleBoldRight">
+  Hub:
+ </td>
+ <td width="10%" class="optionTitleLeft">
+ 
+ 
+ <select name="sourceHub" id="sourceHub" onchange="hubchanged()" class="selectBox">
+   
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2101">Salem</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2157">Albion Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2125">Arvin Meritor Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2139">Aurora Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2186">Bad Neustadt Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2183">Belvidere Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2158">Bloomingburg Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2151">Brugherio Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2302">CAL Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2147">Charles City Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2185">Cheltenham Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2123">DANA CAN Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2122">DANA Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2134">DCX DAP Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2127">DCX Etobicoke Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2129">DCX Fenton Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2167">DCX Jefferson North Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2401">DCX Kokomo Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2131">DCX NAP Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2132">DCX SHAP Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2133">DCX WAP Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2102">Dallas</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2118">Decatur Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2191">Detroit Diesel Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2202">DropShip</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2203">DropShip Canada</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2210">DropShip China</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2206">DropShip DCX</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2207">DropShip DLA</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2208">DropShip Germany</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2209">DropShip Malaysia</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2205">DropShip Microtecnica</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2204">DropShip TCMPROC</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2117">El Segundo Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2148">Fort Dodge Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+    
+   
+  
+
+  
+   
+    <option value="2119" selected>Fresno Hub</option>
+    
+   
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2126">GEMA Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2145">GM Bedford Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2152">GM Flint Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2162">GM Fort Wayne Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2137">GM Livonia Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2146">GM Moraine Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2144">GM Wilmington Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2104">Goleta Rio Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2142">Gravatai Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2156">Greenville Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2116">HSD- Puerto Rico Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2402">Hamburg Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2159">Hartley Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2400">Inter-Company Germany Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2124">Israel Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2199">Kent Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2164">Lafayette Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2114">Largo Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2189">Leipzig Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2160">Linden Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2188">Ludwigsburg Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2154">Luserna Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2403">Mielec Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2140">Mogi Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2196">Montreal Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2174">NRG Arthur Kill Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2181">NRG Cabrillo Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2179">NRG Dunkirk Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2178">NRG El Segundo Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2168">NRG Huntley Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2169">NRG Indian River Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2182">NRG Long Beach Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2177">NRG Louisiana Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2170">NRG Middletown Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2176">NRG Montville Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2171">NRG Norwalk Harbor Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2175">NRG Oswego Harbor Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2172">NRG Somerset Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2173">NRG Vienna Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2106">Normandale Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2155">North Berwick Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2190">Oberstenfeld Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2143">Oshawa Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2128">PGE DCPP Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2141">PWA EH Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2136">PWA- MT Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2130">Parkside Warehouse</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2165">Philadelphia Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2103">Phoenix Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2301">Rinchem Minneapolis</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2108">SD- Ames</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2135">SD- Easley</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2109">SD- Freeport</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2110">SD- La Salle</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2111">SD- Lawrence</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2112">SD- West Branch</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2201">Salem GD</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2107">San Antonio</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2163">Singapore Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2187">St Louis Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2198">Tallassee Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2153">Timken Walhalla Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2184">Toledo Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2150">Torino Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2303">Victor Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2149">Volvo New River Valley Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2115">Waterfront Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2161">Welcome Hub</option>
+   
+  
+  
+  
+
+  
+   
+   
+  
+
+  
+   
+   
+    <option value="2197">Windsor Hub</option>
+   
+  
+  
+ </select>
+
+
+ 
+  
+ 
+   
+ </td>
+
+<td width="5%">&nbsp;</td>
+<td width="5%">&nbsp;</td>
+<td width="5%">&nbsp;</td>
+
+
+</tr>
+
+<tr>
+ <td width="5%" class="optionTitleBoldRight">
+ Inventory Group:
+ </td>
+ <td width="10%" class="optionTitleLeft">
+ 
+ 
+ <select name="inventoryGroup" id="inventoryGroup" class="selectBox">
+  <option value="">All</option>
+  
+    
+    
+    
+      
+        
+      
+      
+    
+
+    
+      
+      
+        <option value="Fresno Haas">Fresno Haas</option>
+      
+    
+  
+    
+    
+    
+      
+        
+      
+      
+    
+
+    
+      
+      
+        <option value="Fresno SAIC">Fresno SAIC</option>
+      
+    
+  
+    
+    
+    
+      
+        
+      
+      
+    
+
+    
+      
+      
+        <option value="Fresno VMI">Fresno VMI</option>
+      
+    
+  
+    
+    
+    
+      
+        
+      
+      
+    
+
+    
+      
+      
+        <option value="SV SLAC">SV SLAC</option>
+      
+    
+  
+    
+    
+    
+      
+        
+      
+      
+    
+
+    
+      
+      
+        <option value="SV Seagate">SV Seagate</option>
+      
+    
+  
+  
+ </select>
+ </td>
+ <td width="5%" class="optionTitleBoldRight">
+   Sort By:
+ </td>
+ <td width="8%" class="optionTitleLeft">
+   <select name="sort" id="sort" class="selectBox"><option value="Bin" selected="selected">Bin</option>
+    <option value="Mfg Lot">Mfg Lot</option>
+    <option value="Item Id">Item ID</option>
+    <option value="PO">PO</option>
+    <option value="Receipt ID">Receipt ID</option></select>
+ </td>
+
+<td width="5%" class="optionTitleLeft">
+&nbsp;
+ </td>
+
+</tr>
+<tr>
+<td width="5%" class="optionTitleLeft" colspan="5">
+ <input type="submit" name="submitSearch" value="Search" onclick="return searchForm()" onmouseover="this.className='inputBtns inputBtnsOver'" onmouseout="this.className='inputBtns'" id="submitSearch" class="inputBtns">
+
+ <input type="submit" name="submitCreateReport" value="Create Excel File" onclick="return doexcelpopup()" onmouseover="this.className='inputBtns inputBtnsOver'" onmouseout="this.className='inputBtns'" id="submitCreateReport" class="inputBtns">
+
+
+<input type="button" name="submitNewBin" value="Add New Bin" onclick="addnewBin()" onmouseover="this.className='inputBtns inputBtnsOver'" onmouseout="this.className='inputBtns'" class="inputBtns">
+
+
+ </td>
+</tr>
+</table>
+  <!-- End search options -->
+   </div>
+   <div class="roundbottom">
+     <div class="roundbottomright"> <img src="/images/rndBoxes/borderBL.gif" alt="" width="15" height="15" class="corner" style="display: none" /> </div>
+   </div>
+ </div>
+</div>
+</td></tr>
+</table>
+<!-- Search Option Ends -->
+
+<div class="spacerY">&nbsp;</div>
+
+<!-- Error Messages Begins -->
+<div id="errorMessagesArea" class="errorMessages">
+
+
+</div>
+<!-- Error Messages Ends -->
+
+
+<!-- Search results start -->
+<!-- If you want your results section to span only 50% set this to 50% and your main table will be 100% -->
+<table id="resultsMaskTable" width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td>
+<div class="roundcont contentContainer">
+<div class="roundright">
+  <div class="roundtop">
+    <div class="roundtopright"> <img src="/images/rndBoxes/borderTL.gif" alt="" width="15" height="15" class="corner" style="display: none" /></div>
+  </div>
+  <div class="roundContent">
+    <div class="boxhead">
+      
+      <a href="javascript:showreceivingpagelegend()">Legend</a> |
+      <span id="updateMlItemLink" style="">
+        
+         <a href="#" onclick="changeMlItem(); return false;">Change Item</a> |
+        
+      </span>
+      <span id="receivingLabelsLink" style="">
+        <a href="#" onclick="printReceivingBoxLabels(); return false;">Receiving Labels</a> |
+      </span>
+      <span id="generateLabelsLink" style="">
+        <a href="#" onclick="submitGenLabel('submitPrint'); return false;">Generate Labels</a>
+     </span>
+     
+     <span id="updateResultLink" style="">
+      | <a href="#" onclick="submitConfirm('submitReceive'); return false;">Confirm</a> |
+     </span>
+     
+     <input type="checkbox" name="skipKitLabels" value="Yes" id="skipKitLabels" class="radioBtns">Skip Kit/Case Qty Labels
+     
+    </div>
+    <div class="dataContent">
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="tableResults">
+ 
+ 
+
+ 
+  
+   <tr align="center">
+   <th width="5%">PO<br>(Customer PO)</th>
+   <th width="5%">PO Line</th>
+   <th width="5%">Item<br/>(Inventory Group)</th>
+   <th width="12%">Description</th>
+   
+    <th width="2%">OK</th>
+    <th width="8%">Mfg Lot<br/>(Orig Mfg Lot)</th>
+    <th width="5%">Lot Status</th>
+    <th width="5%">Act Supp Ship Date<br>mm/dd/yyyy</th>
+    <th width="5%">DOR<br>mm/dd/yyyy</th>
+    <th width="5%">DOM<br>mm/dd/yyyy</th>
+    <th width="5%">Manufacturer DOS<br>mm/dd/yyyy</th>
+    <th width="5%">Exp Date<br>mm/dd/yyyy</th>
+    <th width="4%" colspan="2">Bin</th>
+    <th width="5%">Qty Rec'd</th>
+    <th width="8%">Packaging</th>
+    <th width="2%">Close PO-Line</th>
+    <th width="4%">Receipt ID<BR>(Trans Receipt ID)</th>
+    <th width="5%"># Labels</th>
+    <th width="5%" colspan="2">Packaged Qty
+     x Packaged Size</th>
+    <th width="5%">Notes</th>
+    <th width="5%">Delivery Ticket</th>
+    <th width="5%">Unit Labeled per 129p?</th>
+    <th width="2%">Reverse Receipt</th>
+   
+   </tr>
+  
+
+  
+   
+    
+   
+   
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+   
+  
+
+  
+  
+
+  <tr class="green" id="rowId0">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+   
+  
+
+  
+  
+   
+  
+
+  
+  
+
+  
+
+  <td width="5%" rowspan="1">
+  
+   
+   
+     -
+   
+   
+  
+  
+   <br>(40824163-1)
+  
+  </td>
+
+  <td width="5%" rowspan="1">
+  
+   
+    &nbsp;
+   
+   
+  
+  </td>
+
+  <td width="5%" rowspan="1">
+   <a href="javascript:showPreviousReceivedQc(0)">547674</a>
+   <br>(Fresno SAIC)
+  </td>
+
+  
+   
+   
+   
+
+    
+    
+    
+     <td width="12%" class="optionTitleLeft" rowspan="1">Products Qualified for NSN 6810006826867: Water, Reagent...Reagent Grade...Any Qualified Manufacturer...1 gal plastic bottle</td>
+    
+   
+
+   <input type="hidden" name="receivingQcViewBean[0].radianPo" id="radianPo0" value="">
+   <input type="hidden" name="receivingQcViewBean[0].poLine" id="poLine0" value="">
+   <input type="hidden" name="receivingQcViewBean[0].itemId" id="itemId0" value="547674">
+   <input type="hidden" name="receivingQcViewBean[0].inventoryGroup" id="inventoryGroup0" value="Fresno SAIC">
+   <input type="hidden" name="receivingQcViewBean[0].docType" id="docType0" value="IA">
+   <input type="hidden" name="receivingQcViewBean[0].origMfgLot" id="origMfgLot0" value="">
+   <input type="hidden" name="receivingQcViewBean[0].receiptId" id="receiptId0" value="2586606">
+   <input type="hidden" name="receivingQcViewBean[0].rowNumber" id="rowNumber0" value="0">
+   <input type="hidden" name="receivingQcViewBean[0].receiptGroup" id="receiptGroup0" value="">
+   <input type="hidden" name="receivingQcViewBean[0].branchPlant" id="branchPlant0" value="2119">
+   <input type="hidden" name="receivingQcViewBean[0].newChemRequestId" id="newChemRequestId0" value="">
+   <input type="hidden" name="receivingQcViewBean[0].itemType" id="itemType0" value="ML">
+   <input type="hidden" name="receivingQcViewBean[0].catalogId" id="catalogId0" value="NSN">
+   <input type="hidden" name="receivingQcViewBean[0].catPartNo" id="catPartNo0" value="6810006826867">
+   <input type="hidden" name="receivingQcViewBean[0].catalogCompanyId" id="catalogCompanyId0" value="USGOV">
+   <input type="hidden" name="receivingQcViewBean[0].unitLabelCatPartNo" id="unitLabelCatPartNo0" value="">
+
+   
+      
+        <input type="hidden" name="receivingQcViewBean[0].updateStatus" id="receivingQcViewBean[0].updateStatus" value="">
+        
+        <input type="hidden" name="receivingQcViewBean[0].origLotStatus" id="origLotStatus0" value="Incoming">
+        <input type="hidden" name="receivingQcViewBean[0].rowSpan" id="rowSpan0" value="1">
+        <input type="hidden" name="receivingQcViewBean[0].transferRequestId" id="transferRequestId0" value="0">
+        <input type="hidden" name="receivingQcViewBean[0].lotStatusRootCause" id="lotStatusRootCause0" value="">
+        <input type="hidden" name="receivingQcViewBean[0].lotStatusRootCauseNotes" id="lotStatusRootCauseNotes0" value="">
+        <input type="hidden" name="receivingQcViewBean[0].responsibleCompanyId" id="responsibleCompanyId0" value="">
+
+        
+         
+          
+          
+          
+          
+          
+          
+          
+           
+          
+
+          <td width="2%">
+           
+            
+            
+            
+             <input type="checkbox" name="receivingQcViewBean[0].ok" id="ok0" value="0"  onclick="checkChemicalReceivingQcInput(0)" >
+            
+           
+          </td>
+
+	       <td width="8%">
+           <input type="text" name="receivingQcViewBean[0].mfgLot" id="mfgLot0" value="D1349" size="20" maxlength="30" class="inputBox" onchange="checkOriginalLot(0)">
+           
+                <br/>
+           
+          </td>
+
+          
+           <td width="5%" rowspan="1">
+             <select name="receivingQcViewBean[0].lotStatus" id="lotStatus0" class="selectBox" onchange="checkReceiptStatus(0)">
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="3PL Purchase">3PL Purchase</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="3PL Review">3PL Review</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Available">Available</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Cert Review">Cert Review</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Cert/Not Pickable">Cert/Not Pickable</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Client Review">Client Review</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Customer Purchase">Customer Purchase</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Damaged">Damaged</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Destroyed In Testing">Destroyed In Testing</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Expired">Expired</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Found">Found</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                  <option value="Incoming" selected="selected">Incoming</option>
+                 
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Lost">Lost</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Missing Certs">Missing Certs</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="NonConforming">NonConforming</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Not Airworthy">Not Airworthy</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Pending Recert">Pending Recert</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="RMA Pending">RMA Pending</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Receipt Disputed">Receipt Disputed</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Recert">Recert</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Sample Retain">Sample Retain</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Test">Test</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Write Off Requested">Write Off Requested</option>
+                 
+                
+               
+              </select>
+           </td>
+          
+
+         <td width="5%"><input type="text" name="receivingQcViewBean[0].vendorShipDate" id="vendorShipDate0" value="" size="8" maxlength="10" class="inputBox"><a href="javascript: void(0);" id="linkvendorShipDate0" onClick="return getCalendar(document.genericForm.vendorShipDate0);" class="datePopUpLink">&diams;</a></td>
+	       <td width="5%"><input type="text" name="receivingQcViewBean[0].dateOfReceipt" id="dateOfReceipt0" value="06/01/2009" size="8" maxlength="10" class="inputBox"><a href="javascript: void(0);" id="linkdateOfReceipt0" onClick="return getCalendar(document.genericForm.dateOfReceipt0);" class="datePopUpLink">&diams;</a></td>
+	       <td width="5%"><input type="text" name="receivingQcViewBean[0].dateOfManufacture" id="dateOfManufacture0" value="05/28/2009" size="8" maxlength="10" class="inputBox"><a href="javascript: void(0);" id="linkdateOfManufacture0" onClick="return getCalendar(document.genericForm.dateOfManufacture0);" class="datePopUpLink">&diams;</a></td>
+	       <td width="5%"><input type="text" name="receivingQcViewBean[0].dateOfShipment" id="dateOfShipment0" value="" size="8" maxlength="10" class="inputBox"><a href="javascript: void(0);" id="linkdateOfShipment0" onClick="return getCalendar(document.genericForm.dateOfShipment0);" class="datePopUpLink">&diams;</a></td>
+	       <td width="5%"><input type="text" name="receivingQcViewBean[0].expireDate" id="expireDate0" value="Indefinite" size="8" maxlength="10" class="inputBox"><a href="javascript: void(0);" id="linkexpireDate0" onClick="return getCalendar(document.genericForm.expireDate0);" class="datePopUpLink">&diams;</a></td>
+         <td width="1%">
+           <input type="button" class="smallBtns" onmouseover="this.className='smallBtns smallBtnsOver'" onmouseout="this.className='smallBtns'" name="addBin0" value="+" OnClick="showVvHubBins(0)" >
+         </td>
+	       <td width="4%" class="optionTitleLeft">
+	        
+          
+	        
+	        <select name="receivingQcViewBean[0].bin" id="bin0" class="selectBox">
+	         
+            
+            
+             
+              <option value="6C0001A" selected>6C0001A</option>
+             
+             
+            
+	         
+	         
+	        </select>
+	       </td>
+         
+
+	       
+	       
+         
+         
+          <td width="5%">3276</td>
+          <td width="8%">Bottle (packaged as 1 gal plastic bottle)</td>
+          <td width="5%">
+            
+             
+             
+              &nbsp;
+             
+            
+           </td>
+          <td width="4%">
+           2586606
+           
+            <br/>
+           
+            <br/>
+             
+             
+               <img src="/images/buttons/plus.gif" alt="Add Receipt Documents" title="Add Receipt Documents" onMouseOver="style.cursor='hand'" onclick="javascript:showProjectDocuments('2586606','0')">
+             
+            
+          </td>
+
+	        <td width="5%">
+            <input type="text" name="receivingQcViewBean[0].labelQuantity" id="labelQuantity0" value="3276" size="4" maxlength="10" class="inputBox">
+          </td>
+          
+           <td width="5%" rowspan="1" colspan="2">&nbsp;</td>
+          
+          <td width="5%">
+            <textarea name="receivingQcViewBean[0].notes" id="receivingQcViewBean[0].notes" cols="25" rows="3" class="inputBox">PID CONFORMING
+YL
+06/01/2009</textarea>
+          </td>
+          <td width="5%">
+            <input type="text" name="receivingQcViewBean[0].deliveryTicket" id="deliveryTicket0" value="52516" size="6" maxlength="30" class="inputBox">
+          </td>
+          <td width="5%">
+           
+            
+            
+             &nbsp;
+            
+           
+          </td>
+          <td width="2%" rowspan="1">
+             <input type="button" class="smallBtns" onmouseover="this.className='smallBtns smallBtnsOver'" onmouseout="this.className='smallBtns'" onclick= "reverseReceipt(0)" value="Reverse" name="reverseButton">
+          </td>
+          
+          
+	      
+        
+	    
+	   
+	   
+	  
+     
+	
+ </tr>
+
+  
+
+  
+   
+   
+    
+   
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  <tr class="alt" id="rowId1">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+   
+  
+
+  
+  
+   
+  
+
+  
+  
+
+  
+
+  <td width="5%" rowspan="1">
+  
+   
+     <a href=javascript:showrecforinvtransfrQc(1)>TR 749610</a>
+   
+   
+   
+  
+  
+  </td>
+
+  <td width="5%" rowspan="1">
+  
+   
+    &nbsp;
+   
+   
+  
+  </td>
+
+  <td width="5%" rowspan="1">
+   <a href="javascript:showPreviousReceivedQc(1)">530612</a>
+   <br>(Fresno Haas)
+  </td>
+
+  
+   
+   
+   
+
+    
+    
+    
+     <td width="12%" class="optionTitleLeft" rowspan="1">Cryotech E36 Lavatory Antifreeze...Cryotech Deicing Technology...2110-80...55 gal plastic drum</td>
+    
+   
+
+   <input type="hidden" name="receivingQcViewBean[1].radianPo" id="radianPo1" value="941378">
+   <input type="hidden" name="receivingQcViewBean[1].poLine" id="poLine1" value="1000">
+   <input type="hidden" name="receivingQcViewBean[1].itemId" id="itemId1" value="530612">
+   <input type="hidden" name="receivingQcViewBean[1].inventoryGroup" id="inventoryGroup1" value="Fresno Haas">
+   <input type="hidden" name="receivingQcViewBean[1].docType" id="docType1" value="IT">
+   <input type="hidden" name="receivingQcViewBean[1].origMfgLot" id="origMfgLot1" value="13378">
+   <input type="hidden" name="receivingQcViewBean[1].receiptId" id="receiptId1" value="2354641">
+   <input type="hidden" name="receivingQcViewBean[1].rowNumber" id="rowNumber1" value="1">
+   <input type="hidden" name="receivingQcViewBean[1].receiptGroup" id="receiptGroup1" value="">
+   <input type="hidden" name="receivingQcViewBean[1].branchPlant" id="branchPlant1" value="2119">
+   <input type="hidden" name="receivingQcViewBean[1].newChemRequestId" id="newChemRequestId1" value="">
+   <input type="hidden" name="receivingQcViewBean[1].itemType" id="itemType1" value="MA">
+   <input type="hidden" name="receivingQcViewBean[1].catalogId" id="catalogId1" value="">
+   <input type="hidden" name="receivingQcViewBean[1].catPartNo" id="catPartNo1" value="">
+   <input type="hidden" name="receivingQcViewBean[1].catalogCompanyId" id="catalogCompanyId1" value="">
+   <input type="hidden" name="receivingQcViewBean[1].unitLabelCatPartNo" id="unitLabelCatPartNo1" value="">
+
+   
+      
+        <input type="hidden" name="receivingQcViewBean[1].updateStatus" id="receivingQcViewBean[1].updateStatus" value="">
+        
+        <input type="hidden" name="receivingQcViewBean[1].origLotStatus" id="origLotStatus1" value="Incoming">
+        <input type="hidden" name="receivingQcViewBean[1].rowSpan" id="rowSpan1" value="1">
+        <input type="hidden" name="receivingQcViewBean[1].transferRequestId" id="transferRequestId1" value="749610">
+        <input type="hidden" name="receivingQcViewBean[1].lotStatusRootCause" id="lotStatusRootCause1" value="">
+        <input type="hidden" name="receivingQcViewBean[1].lotStatusRootCauseNotes" id="lotStatusRootCauseNotes1" value="">
+        <input type="hidden" name="receivingQcViewBean[1].responsibleCompanyId" id="responsibleCompanyId1" value="">
+
+        
+         
+          
+          
+          
+          
+          
+          
+          
+           
+          
+
+          <td width="2%">
+           
+            
+             &nbsp;
+            
+            
+            
+           
+          </td>
+
+	       <td width="8%">
+           <input type="text" name="receivingQcViewBean[1].mfgLot" id="mfgLot1" value="13378" size="20" maxlength="30" class="inputBox" onchange="checkOriginalLot(1)">
+           
+                <br/>13378
+           
+          </td>
+
+          
+           <td width="5%" rowspan="1">
+             <select name="receivingQcViewBean[1].lotStatus" id="lotStatus1" class="selectBox" onchange="checkReceiptStatus(1)">
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="3PL Purchase">3PL Purchase</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="3PL Review">3PL Review</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Available">Available</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Cert Review">Cert Review</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Cert/Not Pickable">Cert/Not Pickable</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Client Review">Client Review</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Customer Purchase">Customer Purchase</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Damaged">Damaged</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Destroyed In Testing">Destroyed In Testing</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Expired">Expired</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Found">Found</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                  <option value="Incoming" selected="selected">Incoming</option>
+                 
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Lost">Lost</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Missing Certs">Missing Certs</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="NonConforming">NonConforming</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Not Airworthy">Not Airworthy</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Pending Recert">Pending Recert</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="RMA Pending">RMA Pending</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Receipt Disputed">Receipt Disputed</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Recert">Recert</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Sample Retain">Sample Retain</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Test">Test</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Write Off Requested">Write Off Requested</option>
+                 
+                
+               
+              </select>
+           </td>
+          
+
+         <td width="5%"><input type="text" name="receivingQcViewBean[1].vendorShipDate" id="vendorShipDate1" value="01/28/2009" size="8" maxlength="10" class="inputBox"><a href="javascript: void(0);" id="linkvendorShipDate1" onClick="return getCalendar(document.genericForm.vendorShipDate1);" class="datePopUpLink">&diams;</a></td>
+	       <td width="5%"><input type="text" name="receivingQcViewBean[1].dateOfReceipt" id="dateOfReceipt1" value="12/23/2008" size="8" maxlength="10" class="inputBox"><a href="javascript: void(0);" id="linkdateOfReceipt1" onClick="return getCalendar(document.genericForm.dateOfReceipt1);" class="datePopUpLink">&diams;</a></td>
+	       <td width="5%"><input type="text" name="receivingQcViewBean[1].dateOfManufacture" id="dateOfManufacture1" value="12/01/2008" size="8" maxlength="10" class="inputBox"><a href="javascript: void(0);" id="linkdateOfManufacture1" onClick="return getCalendar(document.genericForm.dateOfManufacture1);" class="datePopUpLink">&diams;</a></td>
+	       <td width="5%"><input type="text" name="receivingQcViewBean[1].dateOfShipment" id="dateOfShipment1" value="" size="8" maxlength="10" class="inputBox"><a href="javascript: void(0);" id="linkdateOfShipment1" onClick="return getCalendar(document.genericForm.dateOfShipment1);" class="datePopUpLink">&diams;</a></td>
+	       <td width="5%"><input type="text" name="receivingQcViewBean[1].expireDate" id="expireDate1" value="Indefinite" size="8" maxlength="10" class="inputBox"><a href="javascript: void(0);" id="linkexpireDate1" onClick="return getCalendar(document.genericForm.expireDate1);" class="datePopUpLink">&diams;</a></td>
+         <td width="1%">
+           <input type="button" class="smallBtns" onmouseover="this.className='smallBtns smallBtnsOver'" onmouseout="this.className='smallBtns'" name="addBin1" value="+" OnClick="showVvHubBins(1)" >
+         </td>
+	       <td width="4%" class="optionTitleLeft">
+	        
+          
+	        
+	        <select name="receivingQcViewBean[1].bin" id="bin1" class="selectBox">
+	         
+            
+            
+             
+             
+              <option value="6B0031A">6B0031A</option>
+             
+            
+	         
+            
+            
+             
+             
+              <option value="6B0043A">6B0043A</option>
+             
+            
+	         
+            
+            
+             
+              <option value="6C0037A" selected>6C0037A</option>
+             
+             
+            
+	         
+            
+            
+             
+             
+              <option value="6D0065A">6D0065A</option>
+             
+            
+	         
+            
+            
+             
+             
+              <option value="6PR031X">6PR031X</option>
+             
+            
+	         
+	         
+	        </select>
+	       </td>
+         
+
+	       
+	       
+         
+         
+          <td width="5%">8</td>
+          <td width="8%">55 gal plastic drum (packaged as 55 gal plastic drum)</td>
+          <td width="5%">
+            
+             
+             
+              &nbsp;
+             
+            
+           </td>
+          <td width="4%">
+           2354641
+           
+            <br/>2286460
+           
+            <br/>
+             
+             
+               <img src="/images/buttons/plus.gif" alt="Add Receipt Documents" title="Add Receipt Documents" onMouseOver="style.cursor='hand'" onclick="javascript:showProjectDocuments('2354641','1')">
+             
+            
+          </td>
+
+	        <td width="5%">
+            <input type="text" name="receivingQcViewBean[1].labelQuantity" id="labelQuantity1" value="8" size="4" maxlength="10" class="inputBox">
+          </td>
+          
+           <td width="5%" rowspan="1" colspan="2">&nbsp;</td>
+          
+          <td width="5%">
+            <textarea name="receivingQcViewBean[1].notes" id="receivingQcViewBean[1].notes" cols="25" rows="3" class="inputBox">N/A packing slip
+Drums transfer from Greenville
+Jx
+02/05/2009</textarea>
+          </td>
+          <td width="5%">
+            <input type="text" name="receivingQcViewBean[1].deliveryTicket" id="deliveryTicket1" value="516044465" size="6" maxlength="30" class="inputBox">
+          </td>
+          <td width="5%">
+           
+            
+            
+             &nbsp;
+            
+           
+          </td>
+          <td width="2%" rowspan="1">
+             <input type="button" class="smallBtns" onmouseover="this.className='smallBtns smallBtnsOver'" onmouseout="this.className='smallBtns'" onclick= "reverseReceipt(1)" value="Reverse" name="reverseButton">
+          </td>
+          
+          
+	      
+        
+	    
+	   
+	   
+	  
+     
+	
+ </tr>
+
+  
+
+  
+   
+    
+   
+   
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  <tr class="" id="rowId2">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+   
+  
+
+  
+  
+   
+  
+
+  
+  
+
+  
+
+  <td width="5%" rowspan="1">
+  
+   
+   
+     -
+   
+   
+  
+  
+   <br>(40826080-1)
+  
+  </td>
+
+  <td width="5%" rowspan="1">
+  
+   
+    &nbsp;
+   
+   
+  
+  </td>
+
+  <td width="5%" rowspan="1">
+   <a href="javascript:showPreviousReceivedQc(2)">541797</a>
+   <br>(Fresno SAIC)
+  </td>
+
+  
+   
+   
+   
+
+    
+    
+    
+     <td width="12%" class="optionTitleLeft" rowspan="1">Hydratrans 135...D-A Lubricant Co Inc Div of Premier Industrial...Hydratrans 135...55 gal metal drum</td>
+    
+   
+
+   <input type="hidden" name="receivingQcViewBean[2].radianPo" id="radianPo2" value="">
+   <input type="hidden" name="receivingQcViewBean[2].poLine" id="poLine2" value="">
+   <input type="hidden" name="receivingQcViewBean[2].itemId" id="itemId2" value="541797">
+   <input type="hidden" name="receivingQcViewBean[2].inventoryGroup" id="inventoryGroup2" value="Fresno SAIC">
+   <input type="hidden" name="receivingQcViewBean[2].docType" id="docType2" value="IA">
+   <input type="hidden" name="receivingQcViewBean[2].origMfgLot" id="origMfgLot2" value="">
+   <input type="hidden" name="receivingQcViewBean[2].receiptId" id="receiptId2" value="2586870">
+   <input type="hidden" name="receivingQcViewBean[2].rowNumber" id="rowNumber2" value="2">
+   <input type="hidden" name="receivingQcViewBean[2].receiptGroup" id="receiptGroup2" value="">
+   <input type="hidden" name="receivingQcViewBean[2].branchPlant" id="branchPlant2" value="2119">
+   <input type="hidden" name="receivingQcViewBean[2].newChemRequestId" id="newChemRequestId2" value="">
+   <input type="hidden" name="receivingQcViewBean[2].itemType" id="itemType2" value="MA">
+   <input type="hidden" name="receivingQcViewBean[2].catalogId" id="catalogId2" value="">
+   <input type="hidden" name="receivingQcViewBean[2].catPartNo" id="catPartNo2" value="">
+   <input type="hidden" name="receivingQcViewBean[2].catalogCompanyId" id="catalogCompanyId2" value="">
+   <input type="hidden" name="receivingQcViewBean[2].unitLabelCatPartNo" id="unitLabelCatPartNo2" value="">
+
+   
+      
+        <input type="hidden" name="receivingQcViewBean[2].updateStatus" id="receivingQcViewBean[2].updateStatus" value="">
+        
+        <input type="hidden" name="receivingQcViewBean[2].origLotStatus" id="origLotStatus2" value="Incoming">
+        <input type="hidden" name="receivingQcViewBean[2].rowSpan" id="rowSpan2" value="1">
+        <input type="hidden" name="receivingQcViewBean[2].transferRequestId" id="transferRequestId2" value="0">
+        <input type="hidden" name="receivingQcViewBean[2].lotStatusRootCause" id="lotStatusRootCause2" value="">
+        <input type="hidden" name="receivingQcViewBean[2].lotStatusRootCauseNotes" id="lotStatusRootCauseNotes2" value="">
+        <input type="hidden" name="receivingQcViewBean[2].responsibleCompanyId" id="responsibleCompanyId2" value="">
+
+        
+         
+          
+          
+          
+          
+          
+          
+          
+           
+          
+
+          <td width="2%">
+           
+            
+            
+            
+             <input type="checkbox" name="receivingQcViewBean[2].ok" id="ok2" value="2"  onclick="checkChemicalReceivingQcInput(2)" >
+            
+           
+          </td>
+
+	       <td width="8%">
+           <input type="text" name="receivingQcViewBean[2].mfgLot" id="mfgLot2" value="060109" size="20" maxlength="30" class="inputBox" onchange="checkOriginalLot(2)">
+           
+                <br/>
+           
+          </td>
+
+          
+           <td width="5%" rowspan="1">
+             <select name="receivingQcViewBean[2].lotStatus" id="lotStatus2" class="selectBox" onchange="checkReceiptStatus(2)">
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="3PL Purchase">3PL Purchase</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="3PL Review">3PL Review</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Available">Available</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Cert Review">Cert Review</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Cert/Not Pickable">Cert/Not Pickable</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Client Review">Client Review</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Customer Purchase">Customer Purchase</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Damaged">Damaged</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Destroyed In Testing">Destroyed In Testing</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Expired">Expired</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Found">Found</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                  <option value="Incoming" selected="selected">Incoming</option>
+                 
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Lost">Lost</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Missing Certs">Missing Certs</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="NonConforming">NonConforming</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Not Airworthy">Not Airworthy</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Pending Recert">Pending Recert</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="RMA Pending">RMA Pending</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Receipt Disputed">Receipt Disputed</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Recert">Recert</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Sample Retain">Sample Retain</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Test">Test</option>
+                 
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+                 
+                 
+                  <option value="Write Off Requested">Write Off Requested</option>
+                 
+                
+               
+              </select>
+           </td>
+          
+
+         <td width="5%"><input type="text" name="receivingQcViewBean[2].vendorShipDate" id="vendorShipDate2" value="" size="8" maxlength="10" class="inputBox"><a href="javascript: void(0);" id="linkvendorShipDate2" onClick="return getCalendar(document.genericForm.vendorShipDate2);" class="datePopUpLink">&diams;</a></td>
+	       <td width="5%"><input type="text" name="receivingQcViewBean[2].dateOfReceipt" id="dateOfReceipt2" value="06/01/2009" size="8" maxlength="10" class="inputBox"><a href="javascript: void(0);" id="linkdateOfReceipt2" onClick="return getCalendar(document.genericForm.dateOfReceipt2);" class="datePopUpLink">&diams;</a></td>
+	       <td width="5%"><input type="text" name="receivingQcViewBean[2].dateOfManufacture" id="dateOfManufacture2" value="05/19/2009" size="8" maxlength="10" class="inputBox"><a href="javascript: void(0);" id="linkdateOfManufacture2" onClick="return getCalendar(document.genericForm.dateOfManufacture2);" class="datePopUpLink">&diams;</a></td>
+	       <td width="5%"><input type="text" name="receivingQcViewBean[2].dateOfShipment" id="dateOfShipment2" value="" size="8" maxlength="10" class="inputBox"><a href="javascript: void(0);" id="linkdateOfShipment2" onClick="return getCalendar(document.genericForm.dateOfShipment2);" class="datePopUpLink">&diams;</a></td>
+	       <td width="5%"><input type="text" name="receivingQcViewBean[2].expireDate" id="expireDate2" value="Indefinite" size="8" maxlength="10" class="inputBox"><a href="javascript: void(0);" id="linkexpireDate2" onClick="return getCalendar(document.genericForm.expireDate2);" class="datePopUpLink">&diams;</a></td>
+         <td width="1%">
+           <input type="button" class="smallBtns" onmouseover="this.className='smallBtns smallBtnsOver'" onmouseout="this.className='smallBtns'" name="addBin2" value="+" OnClick="showVvHubBins(2)" >
+         </td>
+	       <td width="4%" class="optionTitleLeft">
+	        
+          
+	        
+	        <select name="receivingQcViewBean[2].bin" id="bin2" class="selectBox">
+	         
+            
+            
+             
+              <option value="6D0001A" selected>6D0001A</option>
+             
+             
+            
+	         
+	         
+	        </select>
+	       </td>
+         
+
+	       
+	       
+         
+         
+          <td width="5%">32</td>
+          <td width="8%">Drum (packaged as 55 gal metal drum)</td>
+          <td width="5%">
+            
+             
+             
+              &nbsp;
+             
+            
+           </td>
+          <td width="4%">
+           2586870
+           
+            <br/>
+           
+            <br/>
+             
+             
+               <img src="/images/buttons/plus.gif" alt="Add Receipt Documents" title="Add Receipt Documents" onMouseOver="style.cursor='hand'" onclick="javascript:showProjectDocuments('2586870','2')">
+             
+            
+          </td>
+
+	        <td width="5%">
+            <input type="text" name="receivingQcViewBean[2].labelQuantity" id="labelQuantity2" value="32" size="4" maxlength="10" class="inputBox">
+          </td>
+          
+           <td width="5%" rowspan="1" colspan="2">&nbsp;</td>
+          
+          <td width="5%">
+            <textarea name="receivingQcViewBean[2].notes" id="receivingQcViewBean[2].notes" cols="25" rows="3" class="inputBox">PID CONFORMING
+YL
+06/01/2009</textarea>
+          </td>
+          <td width="5%">
+            <input type="text" name="receivingQcViewBean[2].deliveryTicket" id="deliveryTicket2" value="156613" size="6" maxlength="30" class="inputBox">
+          </td>
+          <td width="5%">
+           
+            
+            
+             &nbsp;
+            
+           
+          </td>
+          <td width="2%" rowspan="1">
+             <input type="button" class="smallBtns" onmouseover="this.className='smallBtns smallBtnsOver'" onmouseout="this.className='smallBtns'" onclick= "reverseReceipt(2)" value="Reverse" name="reverseButton">
+          </td>
+          
+          
+	      
+        
+	    
+	   
+	   
+	  
+     
+	
+ </tr>
+
+  
+
+  
+   
+   
+ 
+</table>
+
+   <!-- If the collection is empty say no data found -->
+
+
+  </div>
+  </div>
+  <div class="roundbottom">
+    <div class="roundbottomright"> <img src="/images/rndBoxes/borderBL.gif" alt="" width="15" height="15" class="corner" style="display: none" /> </div>
+  </div>
+</div>
+</div>
+</td></tr>
+</table>
+
+
+<!-- Hidden element start -->
+ <div id="hiddenElements" style="display: none;">
+   <input type="hidden" name="sourceHubName" id="sourceHubName" value="Fresno Hub">
+   <input type="hidden" name="labelReceipts" id="labelReceipts" value="2586606,2354641,2586870,2588124,2588125,2588126,2588127,2588128,2588129,2588130,2588131,2557140,2557141,2587286,2587990,2480546,2587141,2587036,2585162">
+   <input type="hidden" name="paperSize" id="paperSize" value="31">
+   <input type="hidden" name="totallines" id="totallines" value="19">
+
+   <input type="hidden" name="submitPrint" id="submitPrint" value="">
+   <input type="hidden" name="submitReceive" id="submitReceive" value="">
+
+   <input type="hidden" name="selectedItem" id="selectedItem" value="">
+   <input type="hidden" name="selectedInventoryGroup" id="selectedInventoryGroup" value="">
+   <input type="hidden" name="selectedCatalogId" id="selectedCatalogId" value="">
+   <input type="hidden" name="selectedCatPartNo" id="selectedCatPartNo" value="">
+   <input type="hidden" name="selectedCatalogCompanyId" id="selectedCatalogCompanyId" value="">
+   <input type="hidden" name="userAction" id="userAction" value="">
+   
+</div>
+<!-- Hidden elements end -->
+
+</div> <!-- close of contentArea -->
+
+<!-- Footer message start -->
+ <div class="messageBar">&nbsp;</div>
+<!-- Footer message end -->
+
+</div> <!-- close of interface -->
+
+</form>
+</body>
+</html>

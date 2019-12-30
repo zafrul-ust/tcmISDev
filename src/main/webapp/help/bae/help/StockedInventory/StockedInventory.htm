@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Stocked Inventory</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+<body>
+
+<h1><a name="StockedInventory" id="StockedInventory"></a>Stocked Inventory</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Stocked Inventory</strong> page displays information about on hand and on order inventory stocked for
+   BAE Systems facilities at HGI hubs.</p>
+<p>The <strong>Stocked Inventory</strong> page can be accessed from the	<strong>Report</strong> menu by selecting
+   <strong>Inventory</strong>, then <strong>Stocked Inventory</strong>. The <strong>Stocked Inventory</strong> page is launched in a new tab.</p>
+
+<div class="image"><img src="StockedInventory1.png" height="336" width="692" alt="Stocked Inventory menu item" />
+<div class="caption">Figure 1</div></div>
+
+<p>Select the facility and inventory group where the material is stored, from their respective boxes. In some cases 
+	there may be only a single inventory group in the list.</p>
+<p>You may narrow your search using other criteria on the form.</p>
+	<ul>
+		<li>Enter text associated with the desired material in the <strong>Search Text</strong> box. 
+			 Search text can include all or part of any of BAE Systems part number,	HGI item ID, packaging, 
+			 trade name, manufacturer, manufacturer's part number, or material description.
+			<ul>
+				<li>The more specific the information entered, the more the search is narrowed. Multiple words 
+					 as a logical expression can also be used to refine a search (separate words by <strong>and</strong>, 
+					 <strong>or</strong>, <strong>not</strong>; for example, prc AND 1750).</li>
+				<li>To search for <em>all</em> parts leave the <strong>Search Text</strong> box blank.</li>
+			</ul>	 
+		</li>
+		<li>An inventory search can also be limited to those chemicals whose shelf life expires within or 
+			 after a certain time frame by entering a number of days in the <strong>Expires Within</strong> or 
+			 <strong>Expires After</strong> text boxes. (<em>Be careful using both that you do not inadvertantly 
+			 enter contradictory limits, e.g., expires within 90 days and expires after 120 days.</em>)</li>
+		<li>On order items that are due to be delivered within a specific number of days can be located by 
+			 entering a number of days in the <strong>On Order Arrives within</strong> text box.</li>
+	</ul>
+<p>Click the <strong>Search</strong> button to see the inventory of active parts for the selected inventory 
+	group that match your criteria.</p>
+<p>Click the <strong>Create Excel</strong> button on the page to export data in Excel format.</p>
+<div class="image"><img src="StockedInventory2.png" height="499" width="879" alt="Stocked Inventory page" />
+<div class="caption">Figure 2</div></div>
+
+<p>To find out more about the inventory of a particular item right-click anywhere on the row for the part.</p>
+<ul>
+	<li>For inventory details, select the <strong>Inventory Details</strong> menu item. The <strong>Inventory for Part</strong> page will open in a new window.</li>
+</ul>
+<div class="image"><img src="StockedInventory3.png" height="512" width="879" alt="Inventory Details menu item" />
+<div class="caption">Figure 3</div></div>
+
+<p>On the <strong>Inventory for Part</strong> page the <strong>On Hand Material</strong> (inventory) is displayed and includes the
+   manufacturer's lot number and expiration date. On order items (<strong>In Supply Chain</strong>) are displayed and include the 
+   HGI purchase order number and any estimated date the material will be ready for shipment.</p>
+<p>Click the <strong>Create Excel</strong> link on the page to export the data in Excel format.</p>
+<div class="image"><img src="StockedInventory4.png" height="308" width="656" alt="Inventory for Part page" />
+<div class="caption">Figure 4</div></div>
+
+<ul>
+	<li>For a two-month inventory chart, select the <strong>Inventory - 2 months</strong> menu item. The <strong>Inventory for</strong> graph for two months will open in a new window.</li>
+	<li>For a one-year inventory chart, select the <strong>Inventory - 1 year</strong> menu item. The <strong>Inventory for</strong> graph for one year will open in a new window.</li>
+</ul>
+<div class="image"><img src="StockedInventory5.png" height="512" width="879" alt="Inventory chart menu items" />
+<div class="caption">Figure 5</div></div>
+
+<p>On the <strong>Inventory for</strong> page the inventory level is shown in red. The reorder point is shown in blue.
+   The maximum stocking level is shown in black.</p>
+<div class="image"><img src="StockedInventory6-7.png" height="313" width="923" alt="2 months and 1 year graphs" />
+<div class="caption">Figures 6 and 7 - 2 months and 1 year graphs</div></div>
+
+<ul>
+	<li>For a chart of material request lead times, select the <strong>MR Lead Time</strong> menu item. The MR <strong>Lead Time for</strong> graph will open in a new window.</li>
+</ul>
+<div class="image"><img src="StockedInventory8.png" height="512" width="879" alt="MR Lead Time menu item" />
+<div class="caption">Figure 8</div></div>
+
+<p>Each delivery from HGI to BAE Systems is plotted on the graph. The tenth, fiftieth, and ninetieth percentiles are also plotted.</p>
+<div class="image"><img src="StockedInventory9.png" height="313" width="456" alt="MR Lead Time graph" />
+<div class="caption">Figure 9</div></div>
+
+<ul>
+	<li>For a chart of supplier lead time, select the <strong>Supply Lead Time</strong> menu item. The supply <strong>Lead Time for</strong> graph will open in a new window.</li>
+</ul>
+<div class="image"><img src="StockedInventory10.png" height="512" width="879" alt="Supply Lead Time menu item" />
+<div class="caption">Figure 10</div></div>
+
+<p>Each delivery from the supplier to the HGI hub is plotted on the graph. The tenth, fiftieth, and ninetieth percentiles are also plotted.</p>
+<div class="image"><img src="StockedInventory11.png" height="313" width="456" alt="Supply Lead Time graph" />
+<div class="caption">Figure 11</div></div>
+
+<ul>
+	<li>For a graphed history of numbers of items delivered (issued) select the <strong>Issues</strong> menu item. The 
+		<strong>Issues</strong> graph will open in a new window.</li>
+</ul>
+<div class="image"><img src="StockedInventory12.png" height="512" width="879" alt="Issues menu item" />
+<div class="caption">Figure 12</div></div>
+
+<p>Deliveries from the HGI hub to BAE Systems are plotted on the graph.</p>
+<div class="image"><img src="StockedInventory13.png" height="313" width="456" alt="HGI deliveries to BAE Systems graph" />
+<div class="caption">Figure 13</div></div>
+
+
+<ul>
+	<li>For a chart of supplier receipt dates, select the <strong>Receipts</strong> menu item. The <strong>Receipts</strong> graph will open in a new window.</li>
+</ul>
+<div class="image"><img src="StockedInventory14.png" height="512" width="879" alt="[Supplier] Receipt dates menu item" />
+<div class="caption">Figure 14</div></div>
+
+<p>Receipts from suppliers to the HGI hub are plotted on the graph.</p>
+<div class="image"><img src="StockedInventory15.png" height="313" width="456" alt="HGI receipts from suppliers graph" />
+<div class="caption">Figure 15</div></div>
+
+</body>
+</html>
+

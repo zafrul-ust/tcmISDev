@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Add Nonmanaged Materials</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" />
+</head>
+
+<body>
+<h1><a name="AddTrackerItems" id="AddTrackerItems"></a>Nonmanaged Materials</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>From the <strong>Work Area Stock Mgmt</strong> page it is possible to add non-managed materials (often referred to as Tracker items). The 
+   process begins by clicking on the <strong>Add Nonmanaged Mat</strong>[erial]<strong>l</strong> link at the top left of
+    the data grid.</p>
+<div class="image"><img src="TrackerItems1.png" height="469" width="835" alt="Add Nonmanaged Matl link" />
+<div class="caption">Figure 1</div></div>
+
+<p>tcmIS will open a child window to display the <strong>Please choose a Work Area</strong> form. You must 
+	specify for which Work Area the material is to be added.</p> 
+<p>The available work areas are displayed in a drop-down list: the areas included are based on the Search criteria 
+	used to create the data grid just displayed on the <strong>Work Area Stock Mgmt</strong> page.</p>
+<p>Once the Work Area is chosen from the list, click the <strong>Select</strong> button to proceed.</p>
+<div class="image"><img src="TrackerItems2.png" height="134" width="496" alt="Please choose a Work Area form" />
+<div class="caption">Figure 2</div></div>
+
+<p>tcmIS will change the child window to display the <strong>Add Nonmanaged Material</strong> search form. This is used to 
+   identify the company-approved material that, while not supplied through HGI, is to be inventoried for a location and
+   tracked in tcmIS.</p>
+<p>Select the Catalog from which you want to select the material. (In many instances there is only one Catalog available.)</p>
+<p>You may narrow the range of the search with the three <strong><a href="../Administration/Searches.htm#searchby">Search by</a></strong> 
+  	boxes, using one of the listed fields: <em>Material ID</em>, <em>Material Description</em> (the default), <em>Manufacturer</em>, 
+  	or <em>MSDS Number</em>.</p>
+<p>Click the <strong>Search</strong> button to see the usage of consigned material including PO number, quantity issued, and unit price.
+  Provide this report to the supplier listed for accurate invoicing to HGI.</p>
+<p>Click the <strong>Create Excel</strong> button to export the results of the report in Excel format.</p>
+<div class="image"><img src="TrackerItems3.png" height="193" width="736" alt="Add Nonmanaged Material search form" />
+<div class="caption">Figure 3</div></div>
+
+<p>tcmIS will run the search and display the records in a data grid. The first of these records is selected by 
+   default but you may locate and select the exact item you want. Click on the row to select an item and it will 
+   be incorporated into the <strong>Return Selected Material</strong> link at the top of the data grid.</p>
+<p>Next, click on the <strong>Return Selected Material</strong> link. tcmIS will open an additional child 
+   window to display another <strong>Add Nonmanaged Material</strong> form where you must supply final details.</p>
+<div class="image"><img src="TrackerItems4.png" height="360" width="736" alt="Nonmanaged material data grid" />
+<div class="caption">Figure 4</div></div>
+
+<p>In this second <strong>Add Nonmanaged Material</strong> form you must supply additional details. All the 
+	elements are required.</p>
+	<ul>
+		<li>The <strong>Work Area</strong> is supplied based on your earlier choice.</li>
+		<li>Provide the <strong>MSDS Number</strong></li>
+		<li>Specify the <em>expected</em> <strong>Average Amount</strong> of the material to be 
+			 stored in the work area.</li>
+		<li>Indicate the <strong>Max</strong>[imum] <strong>Amount</strong> allowed in the work area for this material.</li>
+		<li>Specify the <strong>Largest Container Size</strong> allowed in the work area for this material, as measured 
+			 in the Unit specified below.</li>
+		<li>For the <strong>Unit</strong> choose the appropriate values from the list.</li>
+		<li>For the <strong>Tier II Storage Method</strong> choose the appropriate values from the list.</li>
+		<li>For the <strong>Tier II Storage Temperature</strong> choose the appropriate values from the list.</li>
+	</ul>	
+<p>When you have supplied the information for the form, click the <strong>Add</strong> button. The child window 
+   will close and the material will be added to the end of the <strong>Work Area Stock Mgmt</strong> data grid. </p>
+<div class="image"><img src="TrackerItems5.png" height="253" width="496" alt="Nonmanaged material details form" />
+<div class="caption">Figure 5</div></div>
+
+<p>You may repeat the steps above until all needed materials have been added to the data grid.</p>
+<p><em>The <strong>Add Nonmanaged Material process is not complete</strong>, however, until you click on the 
+   <strong>Update</strong> link at the top left of the data grid.</em> When you click the <strong>Update</strong> 
+   link, the materials are incorporated into the permanent record.</p>
+<div class="image"><img src="TrackerItems6.png" height="423" width="996" alt="New record for a nonmanaged material" />
+<div class="caption">Figure 6</div></div>
+
+</body>
+</html>

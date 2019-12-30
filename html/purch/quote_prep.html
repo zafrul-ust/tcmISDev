@@ -1,0 +1,108 @@
+<html>
+
+<head>
+<title>Buy Orders</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p>
+<center><h2>Buy Orders</h2></center>
+<p>
+<div align="center"><center>
+
+<form action="/cgi-bin/purch/quote_prep.cgi" method="post">
+Show Priority &nbsp;
+<input type="checkbox" name="one_filter" value="X" CHECKED>1 &nbsp;
+<input type="checkbox" name="two_filter" value="X" CHECKED>2 &nbsp;
+<input type="checkbox" name="three_filter" value="X" CHECKED>3 &nbsp;
+items for assigned buyer &nbsp;
+<select name="buyer">
+<option value="Buckler">Kathy Buckler</option>
+<option value="Baletka">Mark Baletka</option>
+<option value="Yancey">Ken Yancey</option>
+<option value="Mills">Ben Mills</option>
+<option value="Ford">Perry Ford</option>
+<option value="Phillips">Penny Phillips</option>
+<option value="Sherman">Don Sherman</option>
+<option value="Nicholson">Terry Nicholson</option>
+<option value="Williams">Lynne Williams</option>
+<option value="Tolan">Vicki Tolan</option>
+<option value="Arnett">Mary Arnett</option>
+</select>
+<br>
+from manufacturer which contains &nbsp;
+<input type="text" name="mfg"> &nbsp;
+<br>(blank means any manufacturer)
+<br>
+where the Raytheon Part # contains &nbsp;
+<input type="text" name="part_id"> &nbsp;
+<br>(blank means any part #)
+<br>
+where the Radian Item ID is &nbsp;
+<input type="text" name="item_id"> &nbsp;
+<br>(blank means any Item ID)
+<br>
+<table>
+<tr>
+<td> Include items </td>
+<td><input type="checkbox" name="in_jde" value="X"> with assigned PO #s in JDE</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td><input type="checkbox" name="notnull" value="X"> with assigned PO #s, but not in JDE</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td><input type="checkbox" name="isnull" value="X" CHECKED> without assigned PO #s</td>
+</tr>
+</table>
+<p>
+Sort by: <select name="sortby">
+        <option value="buyer">Assigned To</option>
+        <option value="pri" SELECTED>Priority</option>
+        <option value="man">Manufacturer</option>
+        <option value="need">Promised</option>
+        <option value="last_sup">Last Supplier</option>
+</select>
+<input type="radio" name="up" value="" CHECKED>Ascending
+<input type="radio" name="up" value="desc">Descending
+<br>
+to get quote from vendor &nbsp;
+<input type="text" name="vendor" size="40">
+<br>
+which can be FAXed at &nbsp;
+<input type="text" name="vfax" size="20">
+<br>
+to be delivered by &nbsp;
+<input type="text" name="vendby" size="20">
+<br>
+<input type="submit" value="Submit">
+</form>
+</body></html>
+<p>
+<!-- Currently there are a <B>total</B> of <B>#COUNT#</B> unprocessed buy orders,
+<B>#MYCOUNT#</B> meeting the search criteria
+<p>
+<form action="/cgi-bin/purch/buy_enter.cgi" method="post">
+<table border="3" cellpadding="0" cellspacing="3">
+    <tr>
+        <th align="left">Assigned To</th>
+	<th align="left">Radian PO</th>
+	<th align="left">PO in JDE</th>
+	<th align="left">Last Buyer</th>
+        <th align="left">Pri</th>
+        <th align="left">Manufacturer</th>
+	<th align="left">Last Supplier</th>
+        <th align="left">Last PO</th>
+        <th align="left">Radian Item</th>
+        <th align="left">Raytheon Part #</th>
+        <th align="left">Buy Order</th>
+        <th align="left">Pkg</th>
+        <th align="left">Mfg Part #</th>
+        <th align="left">Description</th>
+        <th align="left">Trade Name</th>
+        <th align="left">Spec/Rev</th>
+        <th align="left">Needed</th>
+        <th align="left">Type</th>
+    </tr> -->

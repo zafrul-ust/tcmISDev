@@ -1,0 +1,27 @@
+<html><head><title>Vendor Quality Program</title></head>
+
+<body bgcolor="#FFFFFF">
+<center>
+<h2>Vendor Quality Program</h2>
+<p>
+<form action="/cgi-bin/radweb/vqp.cgi" method="post">
+Enter an <b>Item Id</b> or <b>Raytheon Part #</b> to see elligible 
+suppliers for &nbsp;
+<select name="bp">
+<option value="2101" SELECTED>Salem
+<option value="2103">Tucson
+<option value="2102">Dallas
+</select>
+<br>
+<table>
+  <tr>
+    <td align="left">Radian Item ID:</td>
+    <td align="left"><input type="text" name="item_id" size="25"></td>
+  </tr>
+  <tr>
+    <td align="left">Raytheon Part #:</td>
+    <td align="left"><input type="text" name="part" size="25"></td>
+  </tr>
+</table>
+<input type="submit" value="Look Up Suppliers">
+</form></center></body></html>

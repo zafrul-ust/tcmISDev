@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Material Catalog</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="MaterialCat" id="MaterialCat"></a>Material Catalog</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>Use the <strong>Material Catalog</strong> search on the <strong>Catalog</strong> page to add new materials to a 
+	<strong>Facility</strong> Catalog. (After HMRB review and approval, the material may be assigned as an item included 
+	as a part and Use Approval can be given as needed. On the Catalog page begin by doing a search with the 
+	<strong>Search Type</strong> of <em>Material Catalog</em>.</p>
+   <ul>
+   	<li>You must specify the Facility using the <strong>Facility</strong> drop-down list.</li>
+   	<li><em>The Work Area is not directly relevant to the addition of a material. Choosing one from the 
+   		 <strong>Work Area</strong> drop-down list will probably reduce the number of records found in the search</em>.</li>
+		<li>You may restrict your search to materials that are already <strong>Active for the Facility</strong> by selecting 
+			 that check box; alternatively, search the <strong>Full Material Database</strong> by selecting that check box.</li>
+   </ul>
+<p>After you click the <strong>Search</strong> button and the data grid of results (if any) is displayed, there will be a 
+	<strong>New Material</strong> link on the top line of the data grid.</p> 
+<p>(Select a record and an <strong>Add Approval Code</strong> link will be provided. Clicking this link 
+	will cause tcmIS to open a <strong>Cat Add Req</strong> page where you may select the <strong>HMRB</strong> tab 
+	and then click another <strong>Add Approval Code</strong> link to proceed. See 
+	<a href="../CatalogAdd/CatAddReq-HMRB.htm#addcode">Add Approval Code</a> for details.)</p>	
+<p>Click on the <strong>New Material</strong> link to begin the add new material process.</p>
+<div class="image"><img src="MaterialCatalog1.png" height="532" width="835" alt="Material Catalog search and data grid" />
+<div class="caption">Figure 1</div></div>
+
+<p>tcmIS will open a new tab and display a limited version of the <strong>Cat Add Req</strong> page where you may continue the process to 
+	specify the material as well as provide appropriate approvals. <em>Because this page is used to add a new material</em> no material 
+	information is provided even if you had selected some specific material on the <strong>Catalog</strong> page data grid.</p>
+	<ul>
+		<li>In some cases the &rsquo;new&rsquo; material is new only to the facility but is already in the <strong>Full Material Database</strong>. 
+			 In this case you may proceed by selecting the <strong>Add Material</strong> link.
+			 <ul>
+			 	<li>You may choose this link even if you are uncertain as to whether the material is in the database at all. If you find it, you may 
+			 		 proceed. If not, you will still have the choice to move forward with a <a href="#newmaterial"><strong>New Material</strong> link.</a></li>
+			 </ul>
+		</li>
+		<li>In other cases the material is completely new and you may proceed by selecting the <a href="#newmaterial"><strong>New Material</strong> link. 
+			 (see below)</a></li>
+	</ul>
+<div class="image"><img src="MaterialCatalog2.png" height="524" width="835" alt="New Material Cat Add Req form" />
+<div class="caption">Figure 2</div></div>
+
+<h2>Add Material</h2>
+<p>When you select the <strong>Add Material</strong> link, tcmIS will open a child window to display the <strong>Search 
+	Material</strong> form. You may use this to attempt to locate the material that you want to add.</p>
+	<ul>
+		<li>To search the <strong>Full Material Database</strong>, select that check box.</li>
+		<li>Otherwise, leave it not selected.</li>
+	</ul>
+<p>After you click the <strong>Search</strong> button and the data grid of results (if any) is displayed, there will be a 
+	<a href="#newmaterial"><strong>New Material</strong></a> link on the top line of the data grid which you may use if the 
+	desired material is not in the search results data grid.</p>
+<p>If the material you want is in the data grid, selecting the record will highlight the row and cause a new link to 
+	appear at the top of the data grid which you may use to <strong>Return Selected MSDS</strong> to the
+	<strong>Cat Add Req</strong> page with a <strong>Status</strong> of <em>Pending Approval</em>.</p>
+<div class="image"><img src="MaterialCatalog3.png" height="345" width="736" alt="Search Material form and data grid" />
+<div class="caption">Figure 3</div></div>
+
+<h2><a id="newmaterial">New Material</a></h2>
+<p>In cases where the material does not exist in the <strong>Full Material Database</strong>, selecting the <strong>New Material</strong> 
+	link will cause tcmIS to open a child window and display a version of the <strong>Edit Material Info</strong> form. Using this 
+	form you may specify the minimum information required to add a New Material request to the <strong>Cat Add Req</strong> page.</p>
+	<ul>
+		<li>If you have it, provide the <strong>Material MSDS</strong>.</li>
+		<li>If available, specify whether the material fits any of these categories by selecting the respective check boxes:
+			<ul>
+				<li>it is an <strong>Aerosol</strong>;</li>
+				<li>it <strong>Contains Nano Material</strong>;</li>
+				<li>it is <strong>Radioactive</strong>.</li>
+			</ul>
+		</li>
+		<li>You are required to provide information for these items:
+			<ul>
+				<li><strong>Material Description</strong>;</li>
+				<li><strong>Manufacturer</strong> [name];</li>
+				<li><strong>Manufacturer&rsquo;s Trade Name</strong> for the material.</li>
+			</ul>
+		</li>
+	</ul>
+<p>When you have provided all the information, click the <strong>Submit</strong> link in the upper left of the form. The form will be closed 
+	and the material will be added to the <strong>Cat Add Req</strong> page with a <strong>Status</strong> of <em>Pending Approval</em>. (The
+	<strong>Cancel</strong> link will discard any provided information, close the form, and redisplay the <strong>Cat Add Req</strong> page 
+	without adding anything.)</p>
+<div class="image"><img src="MaterialCatalog4.png" height="289" width="656" alt="New Material Edit Material Info form" />
+<div class="caption">Figure 4</div></div>
+
+<p>When a material (added or new) appears on the <strong>Cat Add Req</strong> page with a status of <em>Pending Approval</em>, a 
+	right-click on the record will display a context menu one or more of these items:</p>
+	<ul>
+		<li>Choose the <strong>Delete Line</strong> item to remove the record from the form.</li>
+		<li>Choose the <strong><a href="#uploadmsds">Upload MSDS Image(s)</a></strong> link to store an MSDS image for the material. 
+			 (You may also use the <strong>Upload MSDS Images(s)</strong> link at the top of the data grid to do the same for 
+			 a selected record. (See below.)</li>
+		<li>Choose the <strong>View Component [or Kit] MSDS</strong> menu item to see an existing MSDS for the material (if there is one).</li>
+	</ul>
+<div class="image"><img src="MaterialCatalog5.png" height="470" width="835" alt="Add Material Cat Add Req form context menu" />
+<div class="caption">Figure 5</div></div>
+
+<h3><a id="uploadmsds">Upload an MSDS</a></h3>
+<p>Click the <strong>Browse</strong> button, locate and select the file to upload on your workstation. Click the <strong>Send
+	File</strong> button. The file will be stored in tcmIS and associated with the material record <strong>Cat Add Req</strong>. 
+	The <strong>Upload File</strong> form will then be closed.</p>
+<div class="image"><img src="../../images/UploadFile.png" width="416" height="164" alt="Upload File form" />
+<div class="caption">Figure 6</div></div>
+
+<h2><a id="addcode">HMRB: Add Approval Code</a></h2>
+<p>The <strong>HMRB</strong> tab on the <strong>Cat Add Req</strong> page provides access to view, add, or edit approval 
+	codes for the material before it is submitted for HMRB review. This code provides the use context for the material which 
+	is used to make an HMRB decision. 
+	(See the <a href="../CatalogAdd/CatAddReq-HMRB.htm">Cat Add Req - HMRB</a> page.)</p>
+<div class="image"><img src="MaterialCatalog7.png" height="469" width="835" alt="HMRB tab for Approvals" />
+<div class="caption">Figure 7</div></div>
+
+<p>When the material information and approvals are complete, click the <strong>Submit</strong> link in the upper left 
+	corner of the page to submit the added or new material as a request.</p>  
+
+</body>
+</html>

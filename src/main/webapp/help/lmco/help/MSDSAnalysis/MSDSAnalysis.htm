@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>MSDS Analysis Report</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="MSDSAnalysis"></a>MSDS Analysis Report</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>MSDS Analysis</strong> Report is used to locate and display specific Material Safety Data Sheets (MSDS) in order 
+	to analyze sets of materials. The <strong>MSDS Analysis</strong> report is accessed by selecting the <strong>MSDS Analysis</strong> 
+	item on the <strong>Report</strong> menu.</p>
+<div class="image"><img src="MSDSAnalysis1.png" height="247" width="753" alt="MSDS Analysis report menu item" />
+<div class="caption">Figure 1</div></div>
+
+<p>The <strong>MSDS Analysis</strong> report page consists primarily of ways to specify the criteria for the needed report.</p>
+	<ul>
+		<li>Select a Facility or accept the default <em>All</em> from the <strong>Facility</strong> drop-down list.</li>
+		<li>If desired, use the two <strong>Search</strong> boxes to narrow the range of the search.
+			<ul>
+				<li>Choose the particular category (or field) to match in the first box:
+					<ul>
+						<li><strong>Item ID</strong></li>
+						<li><strong>Material ID</strong></li>
+						<li><strong>Material Description</strong></li>
+						<li><strong>MSDS No.</strong></li>
+						<li><strong>Part Number</strong></li>
+						<li><strong>Product Code</strong></li>
+						<li><strong>Synonym</strong></li>
+						<li><strong>Trade Name</strong></li>
+					</ul>
+				</li>
+				<li>Enter the text or data to match for the selected category in the second box.
+					<ul>
+						<li>As with any MSDS search you may use the search words &rsquo;AND&rsquo;, &rsquo;OR&rsquo;, or &rsquo;BUT NOT&rsquo; to 
+							 combine multiple search terms. See <a href="../MSDS/MSDS.htm#msdssearch">MSDS Viewer</a> help for details and examples.</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>Select a Work Area or accept the default <em>All</em> from the <strong>Work Area</strong> drop-down list.</li>
+		<li>There are three check boxes to further characterize the material for the search.
+			<ul>
+				<li>The <strong>Approved Only</strong> check box, which is selected by default, will exclude unapproved materials from the 
+					 report unless it is unselected.</li>
+				<li>The <strong>Full Database</strong> check box will extend the search to the entire database if it is selected.</li>
+				<li>The <strong>Show Only Kit MSDS</strong> will restrict the report to materials which are a part of some Kit MSDS if it 
+					 is selected.</li>
+			</ul>
+		</li>
+		<li>The <strong>Manufacturer</strong> text box is used to select a specific manufacturer for the report data. Typing in the box 
+			 will automatically begin a search to match the entered text. When the correct manufacturer appears, move on to the next 
+			 element to specify.</li>
+		<li>The <strong>Physical State</strong> drop-down list allows specification of that by selecting from the list or accepting 
+			 the default <em>All</em>.</li>
+		<li>Five more physical characteristics can be requested explicitly using these sets of search boxes:
+			<ul>
+				<li><strong>pH</strong>
+					<ul>
+						<li>the first box allows a choice for pH of &gt; (greater than), &gt;= (greater than or equal), &lt;= (less than or equal), 
+							 or &lt; (less than) as compared to a value you specify in the second <strong>pH</strong> box.</li>
+					</ul>
+				</li>
+				<li><strong>Flashpoint</strong>
+					<ul>
+						<li>the first box allows a choice for Flashpoint of &lt; (less than), &gt; (greater than), &gt;= (greater than or equal), or 
+							 &lt;= (less than or equal) as compared to a value you specify in the second <strong>Flashpoint</strong> box.</li>
+						<li>Use the <strong>Flashpoint</strong> drop-down list to indicate the <strong>F</strong> (Fahrenheit) or <strong>C</strong> 
+							 (Centigrade) scale.</li>
+					</ul>
+				</li>
+				<li><strong>Vapor Pressure</strong>
+					<ul>
+						<li>the first box allows a choice for vapor pressure of &gt; (greater than), &gt;= (greater than or equal), &lt;= 
+							 (less than or equal), or &lt; (less than) as compared to a value you specify in the second <strong>Vapor Pressure</strong> box.</li>
+						<li>Use the <strong>Vapor Pressure</strong> scale drop-down list to indicate the units of measure.</li>
+					</ul>
+				</li>
+				<li><strong>%VOC</strong>
+					<ul>
+						<li>the first box allows a choice for the desired percentage of Volatile Organic Compounds (VOC) of &gt; (greater than), 
+							 &gt;= (greater than or equal), &lt;= (less than or equal), or &lt; (less than) as compared to a value you specify in 
+							 the second <strong>%VOC</strong> box. Specify the percentage number between 0 and 100.</li>
+					</ul>
+				</li>
+				<li><strong>% Solids</strong>
+					<ul>
+						<li>the first box allows a choice for the desired percentage of solids of &gt; (greater than), &gt;= (greater than or equal), 
+							 &lt;= (less than or equal), or &lt; (less than) as compared to a value you specify in the second <strong>% Solids</strong> box. 
+							 Specify the percentage number between 0 and 100.</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>The <strong>NFPA</strong> section allows the specification of any of the four NFPA parameters to be included on the report.
+			<ul>
+				<li><strong>Health</strong>
+					<ul>
+						<li>the first box allows a choice for the desired Health rating of = (equals), &gt; (greater than), &gt;= (greater than or equal), 
+							 &lt;= (less than or equal), or &lt; (less than) as compared to a value you specify in the second <strong>Health</strong> box.</li>
+					</ul>
+				</li>
+				<li><strong>Flammability</strong>
+					<ul>
+						<li>the first box allows a choice for the desired Flammability rating of = (equals), &gt; (greater than), &gt;= (greater 
+							 than or equal), &lt;= (less than or equal), or &lt; (less than) as compared to a value you specify in the second 
+							 <strong>Flammability</strong> box.</li>
+					</ul>
+				</li>
+				<li><strong>Reactivity</strong>
+					<ul>
+						<li>the first box allows a choice for the desired Reactivity rating of = (equals), &gt; (greater than), &gt;= (greater 
+							 than or equal), &lt;= (less than or equal), or &lt; (less than) as compared to a value you specify in the second 
+							 <strong>Reactivity</strong> box.</li>
+					</ul>
+				</li>
+				<li>The <strong>Hazard</strong> drop-down list allows a choice for the desired Hazard description.</li>
+			</ul>
+		</li>
+		<li>Similarly, the <strong>HMIS</strong> section allows the specification of any of the four HMIS parameters to be included on the report.
+			<ul>
+				<li><strong>Health</strong>
+					<ul>
+						<li>the first box allows a choice for the desired Health rating of = (equals), &gt; (greater than), &gt;= (greater than or equal), &lt;= (less than or equal), or 
+							 &lt; (less than) as compared to a value you specify in the second <strong>Health</strong> box.</li>
+					</ul>
+				</li>
+				<li><strong>Flammability</strong>
+					<ul>
+						<li>the first box allows a choice for the desired Flammability rating of = (equals), &gt; (greater than), &gt;= (greater than 
+							 or equal), &lt;= (less than or equal), or &lt; (less than) as compared to a value you specify in the second 
+							 <strong>Flammability</strong> box.</li>
+					</ul>
+				</li>
+				<li><strong>Reactivity</strong>
+					<ul>
+						<li>the first box allows a choice for the desired Reactivity rating of = (equals), &gt; (greater than), &gt;= (greater than 
+							 or equal), &lt;= (less than or equal), or &lt; (less than) as compared to a value you specify in the second 
+							 <strong>Reactivity</strong> box.</li>
+					</ul>
+				</li>
+				<li>The <strong>Personal Protections</strong> drop-down list allows a choice for the desired Personal Protections Code (and description).</li>
+			</ul>
+		</li>
+		<li>The final section of the report specification page may take two forms depending on whether the <strong><a href="listselection">List</a></strong> 
+			 option is selected or the <strong><a href="#CASselection">CAS Number</a></strong> is selected. (See below.)</li>
+	</ul>
+<p>When all desired criteria are specified, begin the <a href="#search">Search.</a></p>
+
+<div class="image"><img src="MSDSAnalysis2.png" height="555" width="835" alt="MSDS search" />
+<div class="caption">Figure 2</div></div>
+
+<h3><a id="listselection">List selection</a></h3>
+<p>The selection of the <strong>List</strong> option (which is the default) makes it possible to specify values for a particular list as a 
+	parameter for the report. For example, one could report on materials where the Arsenic Compounds had a minimum value greater than 10%.</p>
+	<ul>
+		<li>Select a list by clicking on it. To select more than one, hold down the CTRL key while selecting.</li>
+		<li>Using the first of the three boxes on the right of the list display, choose whether the comparison value is a <em>Min</em>[imum], 
+			 <em>Max</em>[imum], or <em>Average</em> value.
+			<ul>
+				<li>If more than one list is selected any comparison value will apply identically to all lists.</li>
+			</ul>	 
+		</li>
+		<li>Using the second of the three boxes, choose whether the min/max/average is = (equal), &gt; (greater than), &gt;= (greater than or equal), 
+			 &lt;= (less than or equal), or &lt; (less than) as compared to the value you specify in the third box.  Specify the percentage number between 0 and 100.</li>
+	</ul>
+<p>When any desired <strong>List</strong> items are specified, begin the <a href="#search">Search.</a></p>
+<div class="image"><img src="MSDSAnalysis3.png" height="235" width="834" alt="Sample MSDS Information sheet" />
+<div class="caption">Figure 3</div></div>
+
+<h3><a id="CASselection">CAS Number selection</a></h3>
+<p>The selection of the <strong>CAS Number</strong> option makes it possible to specify the proportion of one or several materials, as defined by 
+	CAS Numbers, as a parameter for the report. For example, one could report on materials where CAS #763-69-9 (Ethyl 3-Ethoxypropionate) made up 
+	at least 9% and CAS #123-86-4 (n-Butyl Acetate) made up no more than 15%.</p>
+	<ul>
+		<li><strong><em>Note</em></strong>: If there is more than one CAS Number in the criteria, choose at the head of the list whether to 
+			<ul>
+				<li>select &rsquo;and&rsquo; restrict material on the report to items which meet the criteria for ALL OF the indicated CAS Numbers or </li>
+				<li>select &rsquo;or&rsquo; restrict material on the report to items which meet the criteria for ANY OF the indicated CAS Numbers or </li>
+			</ul>
+		</li>
+		<li>Enter the first material CAS number in the left-hand <strong>CAS Number 1</strong> box.
+			<ul>
+				<li>Click on the small magnifying glass icon <img class="small" src="../../images/glass.gif" width="21" height="16" alt="magnifying glass icon" /> to 
+					 use a <a href="../Administration/Searches.htm#lookup">Lookup form</a> to find the CAS Number.</li>
+				<li>In the second box choose whether the comparison value is a <em>Min</em>[imum], <em>Max</em>[imum], or <em>Average</em> value.</li>
+				<li>In the third box, choose the comparison operator &gt;= (greater than or equal), &gt; (greater than), = (equal), &lt;= (less 
+					 than or equal), &lt; (less than), or NULL for the min/max/average value.
+				<li>In the fourth box specify the percentage number (between 0 and 100) for the comparison.</li>
+			</ul>
+		</li>
+		<li>Repeat the process for each additional CAS Number needed</li>
+		<li>If more lines are needed to add CAS Numbers, click on the <strong>Add Another CAS Number</strong> link to insert them at the end of the 
+			 list. Scroll down the list if necessary.</li>
+	</ul>
+<p>When any desired <strong>CAS Number</strong> items are specified, begin the <a href="#search">Search.</a></p>
+<div class="image"><img src="MSDSAnalysis4.png" height="226" width="829" alt="MSDS-related documents" />
+<div class="caption">Figure 4</div></div>
+
+<h3><a id="search">Begin the search</a></h3>
+<p>When all desired criteria are specified, click the <strong>Search</strong> button to begin the search. When the report is composed, 
+	tcmIS will redisplay the page and display the report in the lower panel.</p>
+<p>Click on the <strong>Create Excel</strong> button to export the report in Excel format.</p>
+<p>If at any time you want to start over on the report criteria, click the <strong>Clear All Fields</strong> button to wipe out all the values or entries
+	made anywhere on the criteria form.</p>
+<div class="image"><img src="MSDSAnalysis5.png" height="796" width="835" alt="MSDS Analysis report" />
+<div class="caption">Figure 5</div></div>
+
+<p>On the <strong>MSDS Analysis</strong> report in the leftmost column, following the <strong>Material Number</strong>, there will be a small 
+	page/paper icon <img class="small" src="../../images/paper.gif" width="21" height="21" alt="page icon" />. Clicking on that icon will open a 
+	child window to display the View MSDS page. See <a href="../MSDS/MSDS.htm">MSDS Viewer</a> for further details.</p>
+<p>Similarly, right click on any record in any column and there will be a context menu displayed. The first item on this context 
+	menu is <strong>View MSDS</strong> which will also open a child window to display the View MSDS page for the selected record.</p>
+<div class="image"><img src="MSDSAnalysis6.png" height="703" width="835" alt="View MSDS and context menu" />
+<div class="caption">Figure 6</div></div>
+
+<p>The second item on the context menu is <strong>Show Storage Locations</strong>.  Click on that item and a child window will be opened to display 
+	the <strong>Show Storage Locations</strong> form. If you have run the report for a specific Work Area, only storage locations for that Work Area 
+	are shown. If you are looking at a report for all work areas in a Facility, multiple storage locations may be shown.</p>
+<div class="image"><img src="MSDSAnalysis7.png" height="432" width="841" alt="Show Storage Locations form" />
+<div class="caption">Figure 7</div></div>
+
+</body>
+</html>

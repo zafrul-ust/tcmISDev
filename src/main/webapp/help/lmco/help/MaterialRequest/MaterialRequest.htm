@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Material Request (Orders)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="MaterialRequest" id="MaterialRequest"></a>Material Request (Orders)</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+   <a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Material Request</strong> (MR) page allows you to view, process, and manage an order. It is launched in its own tab. The 
+	<strong>Material Request</strong> page is always specific to one single Material Request and supports different actions based on the 
+	status of the MR.</p>
+<p>The <strong>Material Request</strong> page is used in the &rsquo;Shopping Cart&rsquo; process and in Order Tracking activity. </p>
+<ul>
+	<li>From the <strong>Catalog</strong> page, to create, view, or work on a Material Request, place items into the <strong>Shopping Cart</strong>. 
+		 When all the needed items are in the order, click on the <strong>Check Out</strong> link.</li>
+</ul>
+<div class="image"><img src="../Catalog/Catalog6.png" width="900" height="474" alt="Catalog page Check Out link" />
+<div class="caption">Figure 1</div></div>
+
+<ul>
+	<li>From the <strong>Order Tracking</strong> page, to view, or work on a Material Request (order) for an item, right click the item line 
+		 and select the <strong>View/Approve MR</strong> menu item.</li>
+</ul>
+<div class="image"><img src="MaterialRequest2.png" width="835" height="452" alt="Order Tracking page with MR menu items" />
+<div class="caption">Figure 2</div></div>
+
+<h2>MR page actions</h2>
+<p>A variety of actions are possible on the <strong>Material Request</strong> page depending on the status of the MR as well as the user&rsquo;s 
+	authority or responsibility. These include:</p>
+	<ul>
+		<li>Edit details on the <em>unsubmitted</em> MR by providing or modifying information. See 
+			 <a href="#OptionalInformation">MR optional information</a> and 
+			 <a href="#RequiredInformation">MR required information</a>.</li>
+		<li>Save the material request at draft status if you do not have all of the required information by clicking the 
+			 <strong>Save</strong> link. Draft orders can be retrieved and completed through the
+		 	<strong><a href="../OrderTracking/OrderTracking.htm">Order Tracking</a></strong> page.</li>
+		<li>Click the <strong>Delete</strong> link to delete the entire material request <em>if the MR has not been submitted.</em></li>
+		<li>Click the <strong>Delete Line</strong> link to remove a selected line from a material request <em>if the MR has not been submitted.</em></li>
+		<li>Click the <strong>Return to Cart</strong> link to return to the <strong>Catalog</strong> page if more parts need to
+	    	be added to the order. <em>This link does NOT remove the selected item FROM the Cart</em>: it displays the tab with the 
+	    	<strong>Catalog</strong> page so that additional items may be added to the Cart.</li>
+		<li>Click the <strong>Print This Page</strong> link to print a copy of the material request.</li>
+		<li>Click the <strong>Request Cancel</strong> link to request an MR be cancelled. See <a href="cancelMR">Cancel an Order</a> for 
+			 details on when, if, and how an order can be cancelled.</li>
+		<li>Authorizations
+			<ul>
+				<li>Click the <strong>Approve</strong> link to approve the order. See <a href="#approveMR">Approve the MR</a></li>
+				<li>Click the <strong>Reject</strong> link to disapprove the order. See <a href="#rejectMR">Reject the MR</a></li>
+				<li>Click the <strong>Release</strong> link to release the order. See <a href="#releaseMR">Reject the MR</a></li>
+			</ul>
+		</li>
+		<li>View the <a href="../MRAllocation/MRAllocation.htm">MR Allocation Report</a> by clicking the <strong>MR Allocation</strong> link.</li>
+	</ul>
+<div class="image"><img src="MaterialRequest3-3A.png" height="317" width="833" alt="Unsubmitted Material Request" />
+<div class="caption">Figure 3-3A</div></div>
+
+<h3><a id="OptionalInformation">Material Request page optional information</a></h3>
+<p>There is an opportunity on the <strong>Material Request</strong> page to provide additional delivery and user
+   information to indicate the point-of-use for the order. When provided, this information applies to all line items
+	on the request and will appear on the delivery ticket shipped with the material. These fields are flexible and
+	remarks can be tailored to assist the end user once the item is delivered.</p>
+<ul>
+	<li>You may enter the end user's name in the <strong>End User Name</strong> text box.</li>
+	<li>You may enter the end user's department in the <strong>Department</strong> text box.</li>
+	<li>You may enter contact information in the <strong>Contact Info</strong> text box.</li>
+</ul>
+<div class="image"><img src="MaterialRequest4.png" height="530" width="835" alt="Material Request" />
+<div class="caption">Figure 4</div></div>
+
+<ul>
+   <li>The <a id="MRquantity">quantity ordered</a> may be changed by updating the number in the <strong>Qty</strong> column.</li>
+	<li>Checking the <strong>Critical</strong> box notifies the HGI Purchasing Team that this is a Priority 1 buy, indicating
+	    this an order is one in which a late delivery will shut down production or the item's lead-time is long enough to
+		 create a problem with operations.</li>
+	<li>Notes on any item can be added for other information that needs to be communicated to the HGI Purchasing Team. Click
+	    anywhere in the <strong>Notes</strong> column for an item and a small text box is provided where you may
+		 this information. Click outside the small text box and anything you have added will be saved.</li>
+</ul>
+<div class="image"><img src="MaterialRequest5.png" height="531" width="835" alt="Adjusting item details on the Material Request form" />
+<div class="caption">Figure 5</div></div>
+
+<h3><a id="RequiredInformation">Material Request page required information</a></h3>
+<p>Charge numbers (lower left) and delivery information (lower right) <strong><em>must</em></strong> be provided for each line (item) in the <strong>Material 
+   Request</strong>. Select each line (item) on the order in turn and complete the required information. As each <strong>Line</strong> 
+   is selected, its line number is placed into the heading on the	<strong>Line Item Detail</strong> section. (But, see the 
+   <a href="#copyshortcut">Shortcut</a>, below.)</p>
+<ul>
+    <li>Under <strong>Line Item Detail</strong> select the <strong>Scrap/Obsolete</strong> check box if this order should
+	     be filled from material in inventory that has been declared scrap or obsolete.</li>
+    <li>Under <strong>Delivery Instructions</strong> any <strong>need by</strong> date was carried over from the 
+        shopping cart, but it may also be updated on this page.</li>
+    <li>There are two types of <strong><a id="MRdate">need by</a></strong> (&rsquo;Delivery by&rsquo;) dates. Your selection will 
+        inform HGI exactly when to deliver the material.
+    	<ul>
+        	<li><strong>Deliver By</strong> deliveries are those that are needed <em>on or before</em> a specified date. Enter the date in the 
+            	text box to the right of the &rsquo;Delivery by&rsquo; box using the calendar window that will open when you click into the box.</li>
+        	<li><strong>Schedule</strong> deliveries are those that are needed <em>exactly on</em> a specified date or set of dates. Click 
+            	the <strong>Schedule</strong> button that will appear the right of the &rsquo;Delivery by&rsquo; box (see below).</li>
+    	</ul>
+    </li>
+	 <li>Select the dock from the <strong>Dock</strong> list.</li>
+    <li>Select the work area from the <strong>Deliver To</strong> list.</li>
+</ul>
+<h4><a id="copyshortcut">Shortcut</a></h4>
+<p>As stated, each line (item) must be assigned charge numbers and delivery information. But there is a <strong>Copy</strong> button provided to 
+	speed the process. Once you have entered the required information for any one item, you may then click on the <strong>Copy</strong> button and 
+	the identical information will be added to all remaining items in every <em>BLANK</em> field. Items which already have charge numbers and/or 
+	delivery information will not be affected. Once you press the <strong>Copy</strong> button an <strong>Undo</strong> button will be provided 
+	in case you want to remove all copied information. After any Copy you may still manually update any field for any item.</p>
+<div class="image"><img src="MaterialRequest6.png" height="532" width="835" alt="Item-specific charge and delivery information" />
+<div class="caption">Figure 6</div></div>
+
+<h3><a id="ScheduledDeliveries">Scheduled Deliveries</a></h3>
+<p>If a delivery is to be scheduled for a <i>specific</i> date, whether it is a single delivery or multiple deliveries,
+   select <strong>Schedule</strong> from the <strong>Delivery Instructions</strong> box. tcmIS will change the 
+   date text box to a <strong>Schedule</strong> button. Click the <strong>Schedule</strong> button to open a child 
+   window to display the <strong>Delivery Schedule</strong> page.</p>
+<p>On the <strong>Delivery Schedule</strong> page repeated deliveries can be scheduled for specified dates or 
+	on a regularly scheduled (recurrent) basis. See the <a href="../Catalog/DeliverySchedule.htm">Delivery Schedule page</a></p>
+<div class="image"><img src="MaterialRequest7.png" height="485" width="725" alt="Schedule button" />
+<div class="caption">Figure 7</div></div>
+
+<h2><a id="Submitanorder">Submit an order</a></h2>
+<p>The final step in placing an order is to submit the order. Before submitting the order, you should review the 
+	order for accuracy and completeness.</p>
+<p>Click the <strong>Submit</strong> link to complete the process of placing the order.</p>
+<p><em>If the order is for a part that is an <strong>OOR</strong> whose item is currently in stock</em>, tcmIS will prompt 
+	   the requestor to allow the OOR shelf life requirement to be waived to allow the stocked item to be shipped immediately. 
+	   You are informed of the minimum remaining shelf life for the delivered items from stock. Often this material is 
+	   currently owned by your company and may be a lost value if no one accepts the material. If this transaction is 
+	   authorized, tcmIS will attempt to fill the request immediately. There are some occasions where shipping an OOR from 
+	   stock could threaten the ability to ship the stocked item to the Min/Max requirement. In these cases, the order will 
+	   revert to normal OOR processing.</p>
+<p>When a Material Request is submitted, tcmIS will open a child window and generate an 
+	<a href="../MRAllocation/MRAllocation.htm"><strong>MR Allocation Report</strong></a>. 
+	This is a detailed listing of all the items on the submitted MR. </p>
+<div class="image"><img src="../MRAllocation/MRAllocation4.png" width="875" height="383" alt="Sample MR Allocation Report" />
+<div class="caption">Figure 8</div></div>
+
+<p>Some organizations use the financial approval, use approval, and/or releaser functions of tcmIS. If any of these
+   features are used for the selected facility and work area, the material request may be sent to the designated approver
+	or releaser prior to being released to HGI. Use the <strong>Order Tracking</strong> page to locate an order to
+	view the status.</p>
+<p>When financial approval is needed for an order the approver's contact information is available from the <strong>Material
+   Request</strong> page. Click the <strong>Ext Price</strong> link to see it. The <strong>Finance Approver Information</strong>
+	form will be shown as a window on top of the <strong>Material Request</strong> page.</p>
+<div class="image"><img src="MaterialRequest9.png" height="524" width="835" alt="Material Request page Ext Price link and Approver contact information" />
+<div class="caption">Figure 9</div></div>
+
+<h3>Authorizations</h3>
+<p>To <a id="approveMR">Approve a Material Request</a>, click the <strong>Approve</strong> link.</p> 
+<p>To <a id="rejectMR">Reject the Material Request</a>, click the <strong>Reject</strong> link.</p> 
+<p>If you are <a id="releaseMR">working as a releaser</a>, there will be a <strong>Release</strong> link to click for that
+   action. </p>
+<div class="image"><img src="MaterialRequest10.png" height="532" width="835" alt="Approve/Release an MR" />
+<div class="caption">Figure 10</div></div>
+
+<h2><a id="cancelMR">Cancel an Order</a> (Cancel a Material Request, Cancel an MR)</h2>
+<p>Sometimes an order can be cancelled; sometimes it cannot. It depends on the type of order and the status of the order, therefore 
+	the initial cancellation is treated as a request until tcmIS, or HGI personnel, determine that all the criteria are met for cancellation.</p>
+	<ul>
+		<li>The <strong><em>requestor</em></strong> of an order can request a cancellation of the order. Locate the order (MR) on the 
+			 <strong>Order Tracking</strong> page and click the <strong>View/Approve MR</strong> context menu item. See the
+			 <a href="../Catalog/Catalog.htm">Catalog</a> page for details.</li>
+		<li>If the requestor is out of the office, or no longer with the company, the facility Administrator can request the order be cancelled.</li>
+		<li>Anyone in the company, with appropriate authority, can request that the HGI CSR cancel an order.</li>
+	</ul>
+<p>The type and status that determine whether an order can actually be cancelled are:</p>
+	<ul>
+		<li>If the MR Type is <em>MM</em> and allocated to stock, HGI will cancel the order. <em>A Restocking Fee may be 
+			 associated with the cancellation of an MR.</em></li>
+		<li>If the MR Type is <em>OOR</em> and the PO status is Open, the HGI buyer will contact the seller to request the order be cancelled.
+			<ul>
+				<li>If the seller agrees, HGI will cancel the order.</li>
+				<li>If the seller declines, the customer must take the material.</li>
+			</ul>
+		</li>
+		<li>If the MR Type is <em>OOR</em> and the PO has not been sent to the seller, HGI will cancel the order.</li>
+		<li>If the MR Type is <em>SCH</em> the HGI buyer will get in touch with the seller to negotiate the end of the 
+			 scheduled deliveries as close to the desired time as possible. The buyer will notify the requestor of the final delivery date.</li>
+	</ul>
+	
+</body>
+</html>

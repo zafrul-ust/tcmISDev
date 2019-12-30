@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Delivery Confirmation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css">
+</head>
+
+<body>
+<h1><a name="DeliveryConf" id="DeliveryConf"></a>Delivery Confirmation</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+
+<p>The <strong>Delivery Confirmation</strong> page is used to manually confirm deliveries after they have been received, and
+	to view any comments that have been entered on received deliveries. The <strong>Delivery Confirmation</strong> page can be 
+	accessed from the <strong>Order Management</strong> menu by selecting <strong>Delivery Confirmation</strong>. The	
+	<strong>Delivery Confirmation</strong> page is launched in a new tab.</p>
+<div class="image"><img src="DeliveryConf1.png" height="234" width="835" alt="Delivery Confirmation report menu item">
+<div class="caption">Figure 1</div></div>
+
+<p>The <strong>Facility</strong> list allows you to specify the facility for which you want to enter or see delivery 
+	information.</p>
+<p>The <strong>Shipment ID</strong> text box allows you to specify the exact shipment you want to see.</p>
+	<ul>
+		<li>The <strong>Shipment ID</strong> text box uses the <a href="../Administration/Searches.htm#exact">’is’ search</a>  
+			 (exact match) and will not return a record if there is only a partial match.</li>
+	</ul>
+<p>The <strong>Ship Date: From </strong> and <strong>To</strong> input boxes allow you to specify a starting and/or ending date for the 
+   deliveries you want to see reported. Clicking into either input box will cause a small calendar to be displayed 
+   from which you may choose the date you want.</p>
+<p>You may include records of shipments already marked as Delivered by selecting the check box for 
+	<strong>Show Confirmed</strong>.</p>
+<p>Click the <strong>Search</strong> button.</p>
+<p>Click the <strong>Create Excel</strong> button on the <strong>Catalog Add Tracking</strong>
+  page to export results in Excel format.</p>
+
+<div class="image"><img src="DeliveryConf2.png" height="498" width="835" alt="Delivery Confirmation report specification form">
+<div class="caption">Figure 2</div></div>
+
+<p>To acknowledge receipt of a delivery, locate the Shipment ID and select the check box in the OK column for that record. You may also 
+	click into the <strong>Comment</strong> column to add remarks. tcmIS will open a multi-line text box to allow you to type whatever 
+	you need to include.</p>
+<p>When all the receipt information is provided, click on the <strong>Confirm</strong> link in the upper-left corner of the window 
+   to complete the process. You may wait to click the <strong>Confirm</strong> link until you have entered receipt information for 
+   multiple shipments if you wish.</p>
+<p>Before you ever click the <strong>Confirm</strong> link, you may abandon the process and disregard 
+   the transfer steps by simply closing the page without ever clicking <strong>Confirm</strong>.</p>
+<div class="image"><img src="DeliveryConf3.png" height="498" width="835" alt="Entering delivery confirmation information">
+<div class="caption">Figure 3</div></div>
+
+<p>When you choose to include <strong>Show Confirm</strong>ed records, a <strong>Confirmed By</strong> column is added to the 
+	data grid (even if no Confirmed records are actually found). As you would expect, the ID of the person who added the confirmation 
+	is shown on that column for the confirmed record.</p>
+<div class="image"><img src="DeliveryConf4.png" height="498" width="835" alt="Delivery Confirmation with confirmed record information">
+<div class="caption">Figure 4</div></div>
+
+</body>
+</html>

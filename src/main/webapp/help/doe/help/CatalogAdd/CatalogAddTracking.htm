@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Catalog Add Tracking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="CatalogAddTracking" id="CatalogAddTracking"></a>Catalog Add Tracking</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+<p>The <strong>Catalog Add Tracking </strong> page enables users to view the status
+  of a Catalog Add request. This page also allows approvers to locate Catalog
+  Addition requests needing their approval.</p>
+<p>The <strong>Catalog Add Tracking</strong> page can be accessed from the <strong>Order
+   Management</strong> menu by selecting the <strong>Catalog Add</strong> menu item, then the
+	<strong>Catalog Add Tracking</strong> menu item. The <strong>Catalog Add Tracking</strong> page
+	is opened in a new tab.</p>
+<div class="image"><img src="CatalogAddTracking1.png" height="210" width="835" alt="Catalog Add Tracking menu item" />
+<div class="caption">Figure 1</div></div>
+
+<p>The <strong>Catalog Add Tracking</strong> page allows you to tailor your search for requested
+   materials and view their status. You may select all facilities for which you have authority by
+	selecting <strong>My Facilities</strong> from the <strong>Facility</strong> list or
+	select one specific facility; likewise, the work area can be all work areas for which you
+	have authority by selecting <strong>My Work Areas</strong> from the <strong>Work
+	Area</strong> list or select one specific work area.</p>
+<ul>
+   <li>The <strong>Requester</strong> box can be used to limit the search to requests by a specific individual.
+	    <em>There is no default Requester.</em>
+   	<ul>
+      	<li>Leave the <strong>Requester</strong> box blank to see requests regardless of who placed the request.</li>
+      	<li>Enter the name of the person who placed the request in the <strong>Requester</strong> box to see only those
+		    	requests. Start typing and tcmIS will display up to ten names that match your entry. 
+		    	(See <a href="../Administration/Searches.htm#typeahead">Type ahead searches</a>.)</li>
+			<li>By default the <strong>Active Only</strong> check box is selected to limit the type-ahead search to actiave accounts; to 
+				 include deactivated accounts, unselect that check box.</li>
+		</ul>
+	</li>
+   <li>Similarly, the <strong>Approver</strong> box can be used to limit the search to those request that have to be approved by specific individual.
+	    <em>There is no default Approver.</em>
+   	<ul>
+      	<li>Leave the <strong>Approver</strong> box blank to see requests regardless of who is supposed to approve.</li>
+      	<li>Enter the name of the person to approve the request in the <strong>Approver</strong> box to see only those
+		    	requests. Start typing and tcmIS will display up to ten names that match your entry. 
+		    	(See <a href="../Administration/Searches.htm#typeahead">Type ahead searches</a>.)</li>
+			<li>By default the <strong>Active Only</strong> check box is selected to limit the type-ahead search to actiave accounts; to 
+				 include deactivated accounts, unselect that check box.</li>
+		</ul>
+	</li>
+	<li>The Catalog Add request number can be entered in the <strong>Request ID</strong>
+  box to locate a specific request.</li>
+	<li>Checking the <strong>Show all request needing my Approval</strong> box limits the search to only those requests needing
+	    your approval (see below).</li>
+	<li>The search can also be limited to only those requests in a certain status by selecting one
+	    or more of the <strong>Status</strong> check boxes at the right.
+	<ul>
+		<li><strong>Draft (New Material)</strong> selects only those requests still in draft status
+		    and for addition of new material.</li>
+		<li><strong>Draft (New Size/Pkg)</strong> selects only those requests still in draft status
+		    and for addition of an existing material in a new size or new packaging.</li>
+		<li><strong>Draft (New part No)</strong> selects only those requests still in draft status
+		    and for addition of a new part number.</li>
+		<li><strong>Draft (New Approval)</strong> selects only those requests still in draft status
+		    and for a new work area approval of an existing material.</li>
+		<li><strong>Pending TCM QC</strong> selects only those requests that have been submitted and await
+		    completion by the HGI Catalog Team of gathering required data (including the MSDS) and validation
+			 of the material with the manufacturer.</li>
+		<li><strong>Pending Approval</strong> selects those requests that have been submitted and await
+		    approval through your company's internal processes.</li>
+		<li><strong>Pending Pricing</strong> selects only those requests that have been submitted
+		    and await complete baseline pricing information.</li>
+		<li><strong>Pending Catalog</strong> selects only those requests that have been submitted
+		     and await final verification by the HGI Catalog Team of quality requirements (specifications) after all other approvals are
+			  complete.</li>
+		<li><strong>Ready to Order</strong> selects only those requests that have been fully approved and the materials are now available for ordering.</li>
+		<li><strong>Rejected</strong> selects only those requests that have been disapproved in the request process.</li>
+	</ul>
+	</li>
+</ul>
+<p>You may narrow the range of your catalog request search by using the three <strong>Search</strong> boxes.</p>
+<ul>
+	<li>In the first box choose whether to base the search on <strong>Part</strong>
+	    (LM part number), <strong>Part Desc</strong>[ription], [HGI] <strong>Item ID</strong>, or
+		 [Catalog Add] <strong>Request ID</strong>.</li>
+	<li>In the second box specify whether the search is for an exact match, using
+	    <strong>is</strong>, or a partial match, using <strong>contains</strong>. <em>Keep in
+		 mind</em> that an exact match is exactly that, so typos must be avoided with <strong>is</strong>.</li>
+   <li>In the third box enter the number or description you want fully or partially to match in the search.</li>
+</ul>
+<p>Search for requests by clicking the <strong>Search</strong> button.</p>
+<div class="image"><img src="CatalogAddTracking2.png" height="507" width="862" alt="Catalog Add Tracking page" />
+<div class="caption">Figure 2</div></div>
+
+<p>Click the <strong>Create Excel</strong> button on the <strong>Catalog Add Tracking</strong>
+  page to export results in Excel format.</p>
+
+<p>The status of a request can be read in the <strong>Status</strong> column. Further
+   information about the status in the approval process can be viewed by right-clicking anywhere
+	on the request line and selecting the <strong>Approval Detail</strong> menu item. </p>
+<div class="image"><img src="CatalogAddTracking3.png" height="544" width="862" alt="Approval Detail menu item" />
+<div class="caption">Figure 3</div></div>
+
+<p>The <strong>Approval Detail</strong> page will be opened in a new window on top of the
+   <strong>Catalog Add Tracking</strong> page.</p>
+<p>The Approval Detail page displays the material details along with the status and date of
+   every approval associated with the request.</p>
+<div class="image"><img src="CatalogAddTracking4.png" height="544" width="862" alt="Approval Detail window" />
+<div class="caption">Figure 4</div></div>
+
+<p>Approvers should check <strong>Show all requests needing my approval</strong> before a search
+  to display all Catalog Add requests awaiting their approval. </p>
+<p>For each record in the display grid, the <strong>Cat Add Request</strong> page
+  can be viewed by right-clicking anywhere on the line and selecting the <strong>View/Approve
+  Cat Add</strong> menu item. The <strong>Cat Add Request</strong> page will be opened in a new tab.</p>
+<div class="image"><img src="CatalogAddTracking5.png" height="544" width="862" alt="View/Approve Cat Add menu item" />
+<div class="caption">Figure 5</div></div>
+
+<p><a id="ApproveCatAddReq">To approve the request</a>, the approver should click the <strong>Approve/Reject</strong> link in the top left
+   of the <strong>Cat Add Request</strong> page. The <strong>Approve Detail</strong> form
+	will open on top of the <strong>Cat Add Request</strong> page.</p>
+<div class="image"><img src="CatalogAddTracking6.png" height="490" width="862" alt="Approve Detail link" />
+<div class="caption">Figure 6</div></div>
+
+<p>Select the check box next to each approval role you are taking. (There may be only one role, or there may be more,
+   depending on your responsibilities and authority.) Enter any notes in the
+   <strong>Comments</strong> text box.  Click the <strong>Approve</strong> button to record
+	your approval or the <strong>Reject</strong> button to record your rejection.</p>
+<p>The request will be sent to the next approver. Once all approvals are complete,
+  the requestor will receive an email documenting that the request has been
+  completed and the product is ready to order or that the request has been rejected.</p>
+<div class="image"><img src="CatalogAddTracking7.png" height="520" width="848" alt="Approval Detail form" />
+<div class="caption">Figure 7</div></div>
+
+</body>
+</html>

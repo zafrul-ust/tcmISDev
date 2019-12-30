@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>User Profile</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript" language="JavaScript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+</head>
+
+<body>
+<h1><a name="UserProfile" id="UserProfile"></a>User Profile</h1>
+<p class="noPrint"><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png" height="16" width="34" alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png" height="16" width="34" alt="Decrease font size" /></a></p>
+<p>The <strong>User Profile</strong> page is used to create new users and edit user information and certain
+   permissions in tcmIS. The <strong>User Profile</strong> page can be accessed from the <strong>Administration</strong>
+	menu by selecting <strong>User Profile</strong>. The <strong>User Profile</strong> page is displayed in a new tab.</p>
+<p>You must have administrative permission to add or change user information or permissions in tcmIS. Contact
+	the Technical Center to request administrative permissions. </p>
+<div class="image"><img src="UserProfile1.png" height="243" width="835" alt="User Profile Menu Item">
+<div class="caption">Figure 1</div></div>
+
+<p>Your user account is displayed by default. You may update any of the information displayed including first name, last
+   name, middle initial, phone number, fax number, mobile number, email, and printer location. Click the <strong>Update
+   Personal Info</strong> link to save any changes. You may also reset your password by clicking the <strong>Change
+   Password</strong> link.</p>
+<div class="image"><img src="UserProfile2.png" height="554" width="835" alt="User Profile page">
+<div class="caption">Figure 2</div></div>
+
+<p>You may look up an existing tcmIS user and his or her personal information by clicking the magnifying glass icon
+   <img class="small" src="../../images/glass.gif" height="16" width="21" alt="magnifying glass" />. Enter the first name or last name of the user in the <strong>Search</strong>
+	box and click <strong>Search</strong>. Locate the user in the resulting list and click anywhere on the line to select
+	the user. Click the <strong>Return Selected User</strong> link to place that user's personal information on the
+	<strong>User Profile</strong> page.</p>
+<div class="image"><img src="UserProfile3.png" height="282" width="434" alt="User Search form">
+<div class="caption">Figure 3</div></div>
+
+<div class="image"><img src="UserProfile4.png" height="571" width="828" alt="Looked up User Account Profile page">
+<div class="caption">Figure 4</div></div>
+
+<p>If you are a tcmIS administrator:</p>
+<ul>
+	<li>you may edit the user's personal information as you would your own.</li>
+	<li>you may also create new user accounts. Click the <strong>New</strong> button.
+       A blank <strong>User Profile</strong> page is displayed in the existing tab.
+	<ul>
+		<li>Use the <strong>Company</strong> drop-down list to specify the organization for the new user account.</li>
+		<li>The following three fields are required:
+		<ul>
+			<li>Provide a <em>unique</em> Logon ID for the new user account in the <strong>Logon ID</strong> text box.</li>
+			<li>Enter a password in the <strong>Password</strong> text box. </li>
+	   	<li>Enter the password again in the <strong>Confirm Password</strong> text box.</li>
+		</ul>
+		</li>
+		<li>Provide as much of the following information as you can:
+		<ul>
+			<li>Enter the user's first name, last name, email address, phone number, fax number, and cell phone number
+	    		in the corresponding text boxes.</li>
+			<li>Select a printer location if this user works at a warehouse and needs to print labels.
+				<ul>
+					<li>If the needed printer location does not exist or you are unsure which to select, contact the Technical Center.</li>
+				</ul>
+			</li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+</ul>
+<p>After all required personal information is completed, click the <strong>Create User</strong> link at the top left of
+   the page. Click the <strong>Cancel</strong> link to abandon creation of this new user.</p>
+<div class="image"><img src="UserProfile5.png" height="335" width="828" alt="blank User Profile page">
+<div class="caption">Figure 5</div></div>
+
+<h2>Startup Pages button</h2>
+<p>The <strong>Startup Pages</strong> button gives access to control which pages are launched automatically when tcmIS is 
+	started for the selected user. Click the <strong>Startup Pages</strong> button in the upper panel to open the 
+	<strong>Startup Pages</strong> page in a child window.</p>
+	<ul>
+		<li>To add a page to the user's startup display select the check box in the <strong>Startup</strong> column for the page.</li>
+		<li>To remove a page from the user's startup display, clear the check box for the page.</li>
+		<li>As an option, you may specify the order of the pages (from left to right) by entering numbers, starting with 1, in the
+			 <strong>Startup Order</strong> column.</li>
+	</ul>
+<p>Click the <strong>Update</strong> link above the data grid to save any changes that were made. Click the
+   <strong>Create Excel</strong> link to export the displayed data in Excel format. Click the <strong>Cancel</strong> 
+   link to close the page.</p>
+<div class="image"><img src="UserProfile6.png" height="485" width="434" alt="User Account Startup Pages form" />
+<div class="caption">Figure 6</div></div>
+
+<h2>Companies button</h2>
+<p>The <strong>Companies</strong> button gives access to control which companies the current user may access as well as 
+	administrative privileges for each company. Click the <strong>Companies</strong> button in the lower panel to open the 
+	<strong>Companies</strong> page in a child window.</p>
+	<ul>
+	<li>Select the check box in the <strong>Access</strong> column for each company that the user needs to view.</li>
+		<li>Select the check box in the <strong>Admin</strong> column for each company where the user is to have administrative 
+			 privileges.
+			<ul>
+			 	<li>Company Admin privileges include the functionality to create new users for the company.</li>
+			 	<li>You must have <strong>Grant Admin permission</strong> for a company to give others administrative
+					 permissions for that company.</li>
+			 </ul>	 
+		</li>
+		<li>To keep a user account active but eliminate that account's access to a particular company, select the check 
+			 box in the <strong>Locked</strong> column for that company.</li>
+	</ul>
+<p>Click the <strong>Update</strong> link above the data grid to save any changes that were made. Click the <strong>Create
+   Excel</strong> link to export the displayed data in Excel format. Click the <strong>Cancel</strong> link to close this page.</p>
+<div class="image"><img src="UserProfile7.png" height="247" width="434" alt="Company Permissions form">
+<div class="caption">Figure 7</div></div>
+
+<h2>Pages button</h2>
+<p>The <strong>Pages</strong> button gives access to control which tcmIS pages the current user may access as well as 
+	administrative privileges for each page. Click the <strong>Pages</strong> button in the lower panel to open the 
+	<strong>Pages</strong> page in a child window.</p>
+<p>Select the company for page permissions from the <strong>Company</strong> drop-down list; then click the
+   <strong>Search</strong> button. All active pages for that company will be displayed.</p>
+	<ul>
+		<li>Select the check box in the <strong>Access</strong> column for each page that the user needs to use.</li>
+		<li>Select the check box in the <strong>Admin</strong> column for each page where the user is to have administrative 
+			 privileges.
+			<ul>
+			 	<li>You must have <strong>Grant Admin permission</strong> for a company to give others administrative
+					 permissions for pages.</li>
+			 </ul>	 
+		</li>
+	</ul>
+<p>Click the <strong>Update</strong> link above the data grid to save any changes that were made. Click the <strong>Create
+   Excel</strong> button to export the displayed data in Excel format. Click the <strong>Cancel</strong> button to close this page.</p>
+<div class="image"><img src="UserProfile8.png" height="383" width="434" alt="User Page Permissions form">
+<div class="caption">Figure 8</div></div>
+
+<h2>Facilities button</h2>
+<p>The <strong>Facilities</strong> button gives access to control the current user&rsquo;s functionality for each facility of a company. 
+	Functionality includes administrative privileges and operational permissions, all of which are granted (or denied) separately for each facility. 
+	Click the <strong>Facilities</strong> button in the lower panel to open the <strong>Facilities Permissions for</strong> page in a child window.</p>
+<p>Select a facility from the <strong>Facility</strong> drop-down list, or if available, choose to display <em>My Facilities</em>.</p>
+	<ul>
+		<li>Clear the <strong>Show current permission only</strong> check box to display all company facilities regardless of current user settings.</li>
+		<li>Click the <strong>Search</strong> button to display permissions for the current user.</li>
+	</ul>
+<p>For each facility (in rows) the columns specify functional capabilities. Select or clear the check boxes as needed.</p>
+	<ul>
+		<li>A selected check box grants the current user account the functionality named in a column title.
+			<ul>
+				<li>You must have <strong>Grant Admin permission</strong> for a facility to give others <em>Administrator</em> permission.</li>
+			</ul>
+		</li>
+		<li>A cleared check box denies the column&rsquo;s functionality to the user account.</li>
+	</ul>
+<p>Click the <strong>Update</strong> link above the data grid to save any changes that were made. Click the <strong>Create
+   Excel</strong> button to export the displayed data in Excel format. Click the <strong>Cancel</strong> button to close this page.</p>
+<div class="image"><img src="UserProfile9-10.png" height="287" width="950" alt="User Facility Permissions forms" />
+<div class="caption">Figure 9 and 10</div></div>
+
+<p>On the <strong>Facility Permissions for</strong> page, click the <strong>Edit List</strong> button to add or remove
+   facilities from the selected user's profile. The new <strong>Facilities Permissions</strong> page, listing all
+	the company Facilities, will be displayed in a new window.</p>
+<ul>
+	<li>Select the check box in the <strong>Access</strong> column for each facility that the user needs to view in tcmIS.</li>
+	<li>Select <em>one</em> default facility by Selecting the check box in the <strong>Default</strong> column for
+	    the desired facility. <em>(You will receive an error message window if you click more than one box in the 
+	    <strong>Default</strong> column.)</em></li>
+	<li>If the user is an administrator for a facility, select the check box in the <strong>Admin</strong>	column.</li>
+</ul>
+<p>Click the <strong>Update</strong> link above the data grid to save any changes that were made. Click the <strong>Create
+   Excel</strong> link to export the displayed data in Excel format. Click the <strong>Cancel</strong> link to close this page.</p>
+<div class="image"><img src="UserProfile11.png" height="376" width="574" alt="Facility Permissions edit page" />
+<div class="caption">Figure 11</div></div>
+
+<h2>Work Areas button</h2>
+<p>The <strong>Work Areas</strong> button is used to manage the current user&rsquo;s work area-level access within each facility. 
+	Click the <strong>Work Areas</strong> button in the lower panel to open the <strong>Facilities Work Area Permissions for</strong> 
+	page in a child window.</p>
+<p>Select a facility from the <strong>Facility</strong> drop-down list, or (for some users) choose to display <em>My Facilities</em>, 
+	to view work areas by facility and grant or edit permissions.</p>
+	<ul>
+		<li>Clear the <strong>Show current permission only</strong> check box to display all company facility work areas regardless of 
+			 current user settings.</li>
+		<li>Click the <strong>Search</strong> button to display permissions for the current user.</li>
+	</ul>
+<p>For each facility work area (in rows) the columns specify functional capabilities. Select or clear the check boxes as needed. 
+	(By default, permissions are granted or denied for All Work Areas in a facility and you will often only see one &rsquo;All 
+	Work Areas&rsquo; row for each facility)</p>
+	<ul>
+		<li>A selected check box grants the current user account the functionality named in a column title.
+			<ul>
+				<li>Select the check box in the <strong>Access</strong> column for each work area the user needs to view in tcmIS.
+   				Clear those check boxes the user does not need.</li>
+				<li>Select the check box in the <strong>Display Application</strong> column for work areas for which the user 
+	   				is to have permission to use the Java Application. (Java Application is not discussed in this help system.)</li>
+				<li>Select the check box in the <strong>Create MR</strong> column for all work areas for which the user can
+   				enter Material Requests in tcmIS.</li>
+		<!-- Scan is not used by LMCO - vh - 3/21/12   	
+				<li>Select the check box in the <strong>Scan</strong> column for all areas for which the user has
+   				scanning responsibility.</li>
+		-->
+			</ul>
+		</li>
+		<li>A cleared check box denies the column&rsquo;s functionality to the user account.</li>
+	</ul>
+<p>Click the <strong>Update</strong> link above the data grid to save any changes that were made. Click the <strong>Create
+   Excel</strong> button to export the displayed data in Excel format. Click the <strong>Cancel</strong> button to close this page.</p>
+<div class="image"><img src="UserProfile12-13.png" height="321" width="946" alt="Work Areas Permissions page" />
+<div class="caption">Figures 12 and 13</div></div>
+
+<h2>Docks button</h2>
+<p>The <strong>Docks</strong> button is used to manage the current user&rsquo;s Dropship Receiving privileges associated with each Dock.  
+	Click the <strong>Docks</strong> button in the lower panel to open the <strong>Facility Dock Permissions</strong> page in a child window.</p>
+<p>Select a facility from the <strong>Facility</strong> drop-down list, or (for some users) choose to display <em>My Facilities</em>, 
+	to view docks by facility and grant or edit permissions.</p>
+	<ul>
+		<li>Clear the <strong>Show current permission only</strong> check box to display all facility docks regardless of current user settings.</li>
+		<li>Click the <strong>Search</strong> button to display permissions for the current user.</li>
+	</ul>
+<p>Select the check box in the <strong>Dropship Receiving</strong> column for each Dock where the user should be
+   allowed to view open orders and perform dropship receiving. Clear the check box for each facility where the user
+	account is not supposed to have that permission. <em>Where a user may not be granted privilege the box will 
+	be inactive.</em></p>
+<p>Click the <strong>Update</strong> link above the data grid to save any changes that were made. Click the <strong>Create
+   Excel</strong> button to export the displayed data in Excel format. Click the <strong>Cancel</strong> button to close this page.</p>
+<div class="image"><img src="UserProfile14-15.png" height="287" width="945" alt="Dock Permissions page - show current permissions" />
+<div class="caption">Figures 14 and 15</div></div>
+<h2>Financial Approver button</h2>
+<p>The Financial Approver list is used to manage approval authority, spending limits, and approval limits for creating MR’s. A user not listed can create an MR but not authorize any expense; an MR that exceeds a user's authorized order limit requires financial approval from a user with an adequate approval limit. Only some facilities use the Financial Approver list. The financial approval feature can be turned on or off for a facility by the Technical Center.</p>
+<p>Click the <strong>Financial Approver</strong> button in the lower panel to open the <strong>Financial Approver</strong> page in a child window.</p>
+<p>Select a facility from the <strong>Facility</strong> drop-down list, or (for some users) choose to display <em>My Facilities</em>. Click the
+	<strong>Search</strong> button to display the <strong>Financial Approver</strong> page.</p>
+<ul>
+	<li>To add a user to the financial approver list click the <strong>Add</strong> link--      
+		<ul>
+			 <li>Identify the new user on the Financial Approver detail form that is opened. Search for the user by clicking the magnifying glass
+				  icon <img class="small" src="../../images/glass.gif" height="16" width="21" alt="magnifying glass" />. (See  <a href="Searches.htm#lookup">Lookup forms</a>.)</li>
+			 <li>Enter the <strong>Users Order Limit</strong> in the displayed currency.</li>
+			 <li>If the user is also a financial approver, enter the <strong>User Approval Limit</strong> in the displayed currency.</li>
+			 <li>Select the designated approver from the <strong>Next Level</strong> drop-down list.</li>
+			 <li>Click the <strong>OK</strong> button to add the user to the financial approver list.</li>
+		</ul>	 
+	</li>
+	<li>To edit a user on the financial approver list select the name on the Approver list, then click the
+	    <strong>Edit</strong> link. Here, too, the Financial Approver detail form will be displayed in a child
+	    window. Make any needed change to the <strong>Users Order Limit</strong>, the
+		 <strong>User Approval Limit</strong>, and the designated approver from the <strong>Next Level</strong>
+		 box. Click the <strong>OK</strong> button to confirm the changes to the user record.</li>
+	<li>To remove a user from the financial approver list select the name on the Approver list and click the
+	    <strong>Delete</strong> link.</li>
+</ul>
+<div class="image"><img src="UserProfile16-17.png" height="331" width="954" alt="Financial Approver page, Approver detail form" />
+<div class="caption">Figures 16 and 17</div></div>
+
+<ul>
+	<li>To add an Alternate Approver to the financial approver list select the user for whom the Alternate will
+	    act by clicking the user's name, then click the <strong>Alt Approver</strong> link.    
+		<ul>
+			<li>The <strong>Alternate Approver</strong> page will be displayed in a new window including any existing Alternate Approvers.</li>
+			<li>Click on the <strong>New Alt Approver</strong> button. The <strong>Name Search</strong> form will be opened
+		 		 in a new window.</li>
+		 	<li>Locate and select the user who will be designated the new Alternate Approver and click the <strong>Return Selected User</strong> 
+		 		 link to place the name in the Alternate Approver page.</li>
+		</ul>
+	</li>
+	<li>Click on the <strong>Close</strong> button to complete the addition.</li>
+</ul>
+<p>Alternate approvers receive email notification from tcmIS and have the same approval authority as the approver.</p>
+<div class="image"><img src="UserProfile18-19.png" height="382" width="837" alt="Alternate Approver page, Name Search form" />
+<div class="caption">Figures 18 and 19</div></div>
+
+<h2>Order User Group button</h2>
+<p>User groups are a way to associate sets of users who have particular responsibilities, or shared interests, for 
+	specific materials. User groups are specific to a single facility but may have members from other facilities in some
+   situations. The same User Group name (e.g., Acids) can therefore be used at more than one facility and
+	even have members in common. For example, Tom Jones might be a member of the Acids user group at both
+	Facility A and Facility B. User Groups can be used to limit who can order specific categories of material.</p>
+<p>Click the <strong>Order User Group</strong> button in the lower panel to open the <strong>User Group Permissions</strong> page in a child window.</p> 
+<p>Select a facility on the <strong>Facility</strong> drop-down list, or (for some users) choose to display <em>My Facilities</em>.</p>
+	<ul>
+		<li>Leave the default <strong>This User's Access</strong> radio button selected. (See below on working with the 
+			 <strong>All Users&rsquo; Access</strong> radio button selected.)</li>
+		<li>Click the <strong>Search</strong> button to display the User Group Permissions.</li>
+	</ul>
+<p>Select (or leave selected) the checkbox in the <strong>Member</strong> column for each Group where the user should be a member. 
+	Clear the check box for each group where the user account is not supposed to be a member. <em>Where a user may not be granted 
+	membership the box will be inactive</em>.</p>
+<p>Click the <strong>Update</strong> link above the data grid to save any changes that were made. Click the <strong>Create
+   Excel</strong> button to export the displayed data in Excel format. Click the <strong>Cancel</strong> button to close this page.</p>
+<div class="image"><img src="UserProfile20.png" height="375" width="496" alt="User Groups Permissions page" />
+<div class="caption">Figure 20</div></div>
+
+<p>Select the <strong>All User&rsquo;s Access</strong> option and click the <strong>Search</strong> button to display an 
+	alternative <strong>User Group Permissions</strong> form. Here you may Add or Delete a user account from a group, or delete a 
+	group altogether. There is no <strong>Update</strong> link as <strong><em>any changes are made immediately</em></strong>.</p>
+<ul>
+	<li>Click on the plus sign (+) icon for any group to expand the list which displays all the user accounts assigned to that group.
+		<ul>
+			<li>Select a group and click the <strong>Add User To Group</strong> link to add the current user to the selected group.</li>
+			<li>Select a user within a group list and click the <strong>Delete User From Group</strong> link to remove the current 
+				 user from that group list.</li>
+		</ul>
+	</li>
+	<li>Click on the minus sign (-) icon to hide (collapse) all user accounts assigned to that group.</li>
+	<li>Regardless of whether a group is expanded or collapsed, selecting the group and clicking the <strong>Delete Group</strong> 
+		 link will delete the selected group from tcmIS.</li>
+</ul>
+<div class="image"><img src="UserProfile21.png" height="374" width="496" alt="Expanded groups on the User Group Permissions page" />
+<div class="caption">Figure 21</div></div>
+
+<p>On either form of the <strong>User Group Permissions</strong> and regardless of whether any data grid has been displayed, 
+	click on the <strong>New User Group</strong> button to create a new User Group. tcmIS will display the <strong>New User Group</strong>
+   form in a child window. Enter a descriptive name in the <strong>Description</strong> text box. Click the 
+   <strong>New User Group</strong> button to add the group to tcmIS. Click the <strong>Cancel</strong> button to discard the 
+   group you started. (After a Group is created it is still necessary to add members to it before it can be used.)</p>
+<p>Click the <strong>Cancel</strong> button to discard the group you started.</p>. 
+<div class="image"><img src="UserProfile22.png" height="138" width="472" alt="Add New User Group page" />
+<div class="caption">Figure 22</div></div>
+
+<!-- LMCO does not use List Approval - vh - 3/21/12
+<h2>List Approval User Group button</h2>
+<p>List Approval is established to identify which users may specify allowable quantity limits for materials. tcmIS has many named 
+	lists for this purpose. List Approval is used to identify the user accounts authorized for each list. Click the 
+	<strong>List Approval</strong> Group button in the lower panel to open the <strong>List Approval</strong> page in a child window.</p>
+<p>Select a facility from the <strong>Facility</strong> drop-down list, or (for some users) choose to display <em>My Facilities</em>.</p>
+	<ul>
+	 	<li>Leave the default <strong>This User&rsquo;s Approvals</strong> radio button selected. (See below on working with the 
+	 		 <strong>All Users Approvals</strong> radio button selected.</li>
+	 	<li>Click the <strong>Search</strong> button to display the <strong>List Approval</strong> records.</li>
+	 </ul> 
+<p>Select (or leave selected) the checkbox in the <strong>Approver</strong> column for each List where the user should be an approver. 
+	Clear the check box for each list where the user account is not supposed to be an approver. <em>Where a user may not be an approver 
+	the box will be inactive</em>.</p>
+<p>Click the <strong>Update</strong> link above the data grid to save any changes that were made. Click the <strong>Create
+   Excel</strong> button to export the displayed data in Excel format. Click the <strong>Cancel</strong> button to close this page.</p>
+<div class="image"><img src="UserProfile23.png" height="328" width="496" alt="List Approval page" />
+<div class="caption">Figure 23</div></div>
+
+<p>Select the <strong>All Users&rsquo; Approvals</strong> and click the <strong>Search</strong> button to display an alternative 
+	<strong>List Approval</strong> form. Here you may Add or Delete a user account from a List. There is no <strong>Update</strong> 
+	link as <strong><em>any changes are made immediately</em></strong>.</p>
+	<ul> 
+		<li>Click on the plus sign (+) icon for any list to expand it and display the user accounts assigned to that list.
+			<ul>
+				<li>Select a list and click the <strong>Add User to List</strong> link to add the current user to the list.</li>
+				<li>Select a user within a list and click the <strong>Delete User From List</strong> link to remove the 
+					 current user from the List.</li>
+			</ul>
+		</li>
+		<li>Click on a minus sign (-) icon to hide (collapse) all user accounts assigned to that list.</li>
+</ul>
+<p>Click the <strong>Cancel</strong> button to close this screen without saving changes.</p>
+<div class="image"><img src="UserProfile24.png" height="338" width="496" alt="All User Accounts List Approval Permissions page" />
+<div class="caption">Figure 24</div></div>
+
+<p>On either of the <strong>List Approval</strong> forms and regardless of whether any data grid has been displayed, 
+	click on the <strong>Add List</strong> button to display the <strong>Add List to</strong> page in a child window. 
+	(You must have a specific <strong>Facility</strong> selected from its drop-down list.)</p> 
+	<ul>
+		<li>Locate each list to be activated and select the check box in the <strong>Active</strong> column for it.
+			<ul>
+				<li>Complete at least one of the three <strong>Limit</strong> columns.</li>
+			</ul>
+		</li>
+		<li>To inactivate a list, clear the <strong>Active</strong> check box.</li>
+	</ul>
+<p>Click the <strong>Update</strong> link above the data grid to save any changes that were made. Click the <strong>Create
+   Excel</strong> link to export the displayed data in Excel format. Click the <strong>Cancel</strong> link to close this page.</p>
+<div class="image"><img src="UserProfile25.png" height="369" width="776" alt="Manage Approval List characteristics page" />
+<div class="caption">Figure 25</div></div>
+-->
+
+<h2>Report User Group button</h2>
+<p>Report User Groups are established to manage those who can create, edit, or run reports. Click the <strong>Report 
+   User Group</strong> button in the lower panel to open the <strong>Report User Group</strong> page in a child window.</p>
+	<ul>
+		<li>Leave the default <strong>This User's Access</strong> radio button selected. (See below on working with the 
+			 <strong>All Users&rsquo; Access</strong> radio button selected.)</li>
+		<li>Click the <strong>Search</strong> button to display the User Group Permissions.</li>
+		<li>If you are an Administrator, the current user's permissions may be changed by checking or unchecking the box in the appropriate 
+	    column. <em>Where a user may not be granted permission the box will be inactive</em>.
+			<ul>
+				<li>Those groups of which the current user is an administrator have the check box selected in the <strong>Admin</strong> column.</li>
+				<li>Those groups for which the current user may publish templates have the check box selected in the <strong>Publish</strong> column.</li>
+				<li>Those groups to which the current user has access have the check box selected in the <strong>Access</strong> column.</li>
+			</ul>
+		</li>
+	</ul>
+<p>Click the <strong>Update</strong> link above the data grid to save any changes that were made. Click the <strong>Create
+   Excel</strong> button to export the displayed data in Excel format. Click the <strong>Cancel</strong> button to close this page.</p>
+<div class="image"><img src="UserProfile26.png" height="328" width="496" alt="Current user Report Groups Permissions page" />
+<div class="caption">Figure 26</div></div>
+
+<p>Select the <strong>All User&rsquo;s Access</strong> option and click the <strong>Search</strong> button to display an 
+	alternative <strong>User Group Permissions</strong> form. Here you may Add or Delete a user account from a group, or delete a 
+	group altogether. There is no <strong>Update</strong> link as <strong><em>any changes are made immediately</em></strong>.</p>
+<ul>
+	<li>Click on the plus sign (+) icon for any group to expand the list which displays all the user accounts assigned to that group.
+		<ul>
+			<li>Select a group and click the <strong>Add User To Group</strong> link to add the current user to the selected group.</li>
+			<li>Select a user within a group list and click the <strong>Delete User From Group</strong> link to remove the current 
+				 user from that group list.</li>
+		</ul>
+	</li>
+	<li>Click on the minus sign (-) icon to hide (collapse) all user accounts assigned to that group.</li>
+	<li>Regardless of whether a group is expanded or collapsed, selecting the group and clicking the <strong>Delete Group</strong> 
+		 link will delete the selected group from tcmIS.</li>
+</ul>
+<p>Click the <strong>Cancel</strong> button to close this screen.</p>
+<div class="image"><img src="UserProfile27.png" height="328" width="496" alt="All User Accounts Report Groups Permissions page" />
+<div class="caption">Figure 27</div></div>
+
+<p>On either form of the <strong>User Group Permissions</strong> and regardless of whether any data grid has been displayed, 
+	click on the <strong>New User Group</strong> button to create a new User Group. tcmIS will display the <strong>New User Group</strong>
+   form in a child window. Enter a descriptive name in the <strong>Description</strong> text box. Click the 
+   <strong>New User Group</strong> button to add the group to tcmIS. Click the <strong>Cancel</strong> button to discard the 
+   group you started. (After a Group is created it is still necessary to add members to it before it can be used.)</p>
+<p>Click the <strong>Cancel</strong> button to discard the group you started.</p>. 
+<div class="image"><img src="UserProfile28.png" height="160" width="472" alt="Add New Report Group page" />
+<div class="caption">Figure 28</div></div>
+
+</body>
+</html>

@@ -1,0 +1,294 @@
+﻿<html>
+
+
+<head>
+<title>采购订单的收货列表</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p>
+<center><h2>采购订单的收货列表</h2></center>
+<p>
+<form action="/cgi-bin/radweb/po_receive.cgi" method="post">
+
+<div align="center"><center>
+显示 &nbsp;
+<input type="checkbox" name="print" value="X"#PRINT#>已打印 &nbsp;
+<input type="checkbox" name="noprint" value="X"#NOPRINT#>未打印 &nbsp;
+的项目
+<br>
+仓库
+<select name="bp">
+<option value="3000"#TIANJIN#>天津仓库
+</select>
+<br>
+Haas 订单号为 &nbsp;
+<input type="text" name="po_num" value="#PONUM#">
+<br>
+Haas 产品编号为 &nbsp;
+<input type="text" name="item_id" value="#ITEM_ID#">
+<br>
+供应商名称含有 &nbsp;
+<input type="text" name="supp" value="#SUPP#">
+<br>
+订货日期在此之后 &nbsp;
+&nbsp;
+<select name="oamon">
+        <option value="01"#OAM01#>一月
+        <option value="02"#OAM02#>二月
+        <option value="03"#OAM03#>三月
+        <option value="04"#OAM04#>四月
+        <option value="05"#OAM05#>五月
+        <option value="06"#OAM06#>六月
+        <option value="07"#OAM07#>七月
+        <option value="08"#OAM08#>八月
+        <option value="09"#OAM09#>九月
+        <option value="10"#OAM10#>十月
+        <option value="11"#OAM11#>十一月
+        <option value="12"#OAM12#>十二月
+</select>
+&nbsp;
+<select name="oaday">
+        <option value="01"#OAD01#>01
+        <option value="02"#OAD02#>02
+        <option value="03"#OAD03#>03
+        <option value="04"#OAD04#>04
+        <option value="05"#OAD05#>05
+        <option value="06"#OAD06#>06
+        <option value="07"#OAD07#>07
+        <option value="08"#OAD08#>08
+        <option value="09"#OAD09#>09
+        <option value="10"#OAD10#>10
+        <option value="11"#OAD11#>11
+        <option value="12"#OAD12#>12
+        <option value="13"#OAD13#>13
+        <option value="14"#OAD14#>14
+        <option value="15"#OAD15#>15
+        <option value="16"#OAD16#>16
+        <option value="17"#OAD17#>17
+        <option value="18"#OAD18#>18
+        <option value="19"#OAD19#>19
+        <option value="20"#OAD20#>20
+        <option value="21"#OAD21#>21
+        <option value="22"#OAD22#>22
+        <option value="23"#OAD23#>23
+        <option value="24"#OAD24#>24
+        <option value="25"#OAD25#>25
+        <option value="26"#OAD26#>26
+        <option value="27"#OAD27#>27
+        <option value="28"#OAD28#>28
+        <option value="29"#OAD29#>29
+        <option value="30"#OAD30#>30
+        <option value="31"#OAD31#>31
+</select>
+&nbsp;
+<select name="oayr">
+        <option value="2013"#OAY2013#>2013
+        <option value="2014"#OAY2014#>2014
+        <option value="2015"#OAY2015#>2015
+        <option value="2016"#OAY2016#>2016
+        <option value="2017"#OAY2017#>2017
+</select>
+<br>
+订货日期在此或之前 &nbsp;
+&nbsp;
+<select name="obmon">
+        <option value="01"#OBM01#>一月
+        <option value="02"#OBM02#>二月
+        <option value="03"#OBM03#>三月
+        <option value="04"#OBM04#>四月
+        <option value="05"#OBM05#>五月
+        <option value="06"#OBM06#>六月
+        <option value="07"#OBM07#>七月
+        <option value="08"#OBM08#>八月
+        <option value="09"#OBM09#>九月
+        <option value="10"#OBM10#>十月
+        <option value="11"#OBM11#>十一月
+        <option value="12"#OBM12#>十二月
+</select>
+&nbsp;
+<select name="obday">
+        <option value="01"#OBD01#>01
+        <option value="02"#OBD02#>02
+        <option value="03"#OBD03#>03
+        <option value="04"#OBD04#>04
+        <option value="05"#OBD05#>05
+        <option value="06"#OBD06#>06
+        <option value="07"#OBD07#>07
+        <option value="08"#OBD08#>08
+        <option value="09"#OBD09#>09
+        <option value="10"#OBD10#>10
+        <option value="11"#OBD11#>11
+        <option value="12"#OBD12#>12
+        <option value="13"#OBD13#>13
+        <option value="14"#OBD14#>14
+        <option value="15"#OBD15#>15
+        <option value="16"#OBD16#>16
+        <option value="17"#OBD17#>17
+        <option value="18"#OBD18#>18
+        <option value="19"#OBD19#>19
+        <option value="20"#OBD20#>20
+        <option value="21"#OBD21#>21
+        <option value="22"#OBD22#>22
+        <option value="23"#OBD23#>23
+        <option value="24"#OBD24#>24
+        <option value="25"#OBD25#>25
+        <option value="26"#OBD26#>26
+        <option value="27"#OBD27#>27
+        <option value="28"#OBD28#>28
+        <option value="29"#OBD29#>29
+        <option value="30"#OBD30#>30
+        <option value="31"#OBD31#>31
+</select>
+&nbsp;
+<select name="obyr">
+        <option value="2013"#OBY2013#>2013
+        <option value="2014"#OBY2014#>2014
+        <option value="2015"#OBY2015#>2015
+        <option value="2016"#OBY2016#>2016
+        <option value="2017"#OBY2017#>2017
+</select>
+<br>
+承诺递送日期在此之后 &nbsp;
+&nbsp;
+<select name="pamon">
+        <option value="01"#PAM01#>一月
+        <option value="02"#PAM02#>二月
+        <option value="03"#PAM03#>三月
+        <option value="04"#PAM04#>四月
+        <option value="05"#PAM05#>五月
+        <option value="06"#PAM06#>六月
+        <option value="07"#PAM07#>七月
+        <option value="08"#PAM08#>八月
+        <option value="09"#PAM09#>九月
+        <option value="10"#PAM10#>十月
+        <option value="11"#PAM11#>十一月
+        <option value="12"#PAM12#>十二月
+</select>
+&nbsp;
+<select name="paday">
+        <option value="01"#PAD01#>01
+        <option value="02"#PAD02#>02
+        <option value="03"#PAD03#>03
+        <option value="04"#PAD04#>04
+        <option value="05"#PAD05#>05
+        <option value="06"#PAD06#>06
+        <option value="07"#PAD07#>07
+        <option value="08"#PAD08#>08
+        <option value="09"#PAD09#>09
+        <option value="10"#PAD10#>10
+        <option value="11"#PAD11#>11
+        <option value="12"#PAD12#>12
+        <option value="13"#PAD13#>13
+        <option value="14"#PAD14#>14
+        <option value="15"#PAD15#>15
+        <option value="16"#PAD16#>16
+        <option value="17"#PAD17#>17
+        <option value="18"#PAD18#>18
+        <option value="19"#PAD19#>19
+        <option value="20"#PAD20#>20
+        <option value="21"#PAD21#>21
+        <option value="22"#PAD22#>22
+        <option value="23"#PAD23#>23
+        <option value="24"#PAD24#>24
+        <option value="25"#PAD25#>25
+        <option value="26"#PAD26#>26
+        <option value="27"#PAD27#>27
+        <option value="28"#PAD28#>28
+        <option value="29"#PAD29#>29
+        <option value="30"#PAD30#>30
+        <option value="31"#PAD31#>31
+</select>
+&nbsp;
+<select name="payr">
+        <option value="2013"#PAY2013#>2013
+        <option value="2014"#PAY2014#>2014
+        <option value="2015"#PAY2015#>2015
+        <option value="2016"#PAY2016#>2016
+        <option value="2017"#PAY2017#>2017
+</select>
+<br>
+承诺递送日期在此或之前 &nbsp;
+&nbsp;
+<select name="pbmon">
+        <option value="01"#PBM01#>一月
+        <option value="02"#PBM02#>二月
+        <option value="03"#PBM03#>三月
+        <option value="04"#PBM04#>四月
+        <option value="05"#PBM05#>五月
+        <option value="06"#PBM06#>六月
+        <option value="07"#PBM07#>七月
+        <option value="08"#PBM08#>八月
+        <option value="09"#PBM09#>九月
+        <option value="10"#PBM10#>十月
+        <option value="11"#PBM11#>十一月
+        <option value="12"#PBM12#>十二月
+</select>
+&nbsp;
+<select name="pbday">
+        <option value="01"#PBD01#>01
+        <option value="02"#PBD02#>02
+        <option value="03"#PBD03#>03
+        <option value="04"#PBD04#>04
+        <option value="05"#PBD05#>05
+        <option value="06"#PBD06#>06
+        <option value="07"#PBD07#>07
+        <option value="08"#PBD08#>08
+        <option value="09"#PBD09#>09
+        <option value="10"#PBD10#>10
+        <option value="11"#PBD11#>11
+        <option value="12"#PBD12#>12
+        <option value="13"#PBD13#>13
+        <option value="14"#PBD14#>14
+        <option value="15"#PBD15#>15
+        <option value="16"#PBD16#>16
+        <option value="17"#PBD17#>17
+        <option value="18"#PBD18#>18
+        <option value="19"#PBD19#>19
+        <option value="20"#PBD20#>20
+        <option value="21"#PBD21#>21
+        <option value="22"#PBD22#>22
+        <option value="23"#PBD23#>23
+        <option value="24"#PBD24#>24
+        <option value="25"#PBD25#>25
+        <option value="26"#PBD26#>26
+        <option value="27"#PBD27#>27
+        <option value="28"#PBD28#>28
+        <option value="29"#PBD29#>29
+        <option value="30"#PBD30#>30
+        <option value="31"#PBD31#>31
+</select>
+&nbsp;
+<select name="pbyr">
+        <option value="2013"#PBY2013#>2013
+        <option value="2014"#PBY2014#>2014
+        <option value="2015"#PBY2015#>2015
+        <option value="2016"#PBY2016#>2016
+        <option value="2017"#PBY2017#>2017
+</select>
+<p>
+排序标准: <select name="sortby">
+        <option value="item_id"#ISORT#>Haas产品编号
+        <option value="po_number"#PSORT#>采购订单号
+        <option value="supplier"#SSORT#>供应商名称
+</select>
+<input type="radio" name="up" value=""#ASC#>升序
+<input type="radio" name="up" value="desc"#DESC#>降序
+<p>
+<input type="submit" value = "搜索">
+</form>
+<p>
+<form action="/cgi-bin/radweb/po_rec_mark.cgi" method="post">
+<table border="1">
+    <tr>
+	<th>是否标记为已打印?</th>
+	<th>采购订单号<br>(顾客产品号在底部)</th>
+	<th>采购订单号<br>(顾客产品号在顶部)</th>
+	<th>采购订单行</th>
+	<th>Haas产品编号</th>
+	<th>订单行未收货数量</th>
+	<th>订货日期</th>
+	<th>承诺递送日期</th>
+	<th>供应商</th>
+    </tr>

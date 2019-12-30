@@ -1,0 +1,41 @@
+<html><head><title>Change qty on SAIC PO</title></head>
+<body bgcolor="#FFFFFF">
+<center>
+<h2>Change qty on SAIC PO</h2>
+<p>
+<form action="/cgi-bin/radweb/saic_qty_lookup.cgi" method="POST">
+Show open SAIC POs for inventory group &nbsp;
+<select name="ig">
+<option value="Atlanta SAIC">Dallas SAIC
+<option value="Atlanta VMI">Dallas VMI
+<option value="Dallas SAIC">Dallas SAIC
+<option value="Dallas VMI">Dallas VMI
+<option value="Decatur SAIC">Decatur SAIC
+<option value="Decatur VMI">Decatur VMI
+<option value="Fresno SAIC">Fresno SAIC
+<option value="Fresno VMI">Fresno VMI
+<option value="Greenville SAIC">Greenville SAIC
+<option value="Greenville VMI">Greenville VMI
+<option value="Harrisburg SAIC">Harrisburg SAIC
+<option value="Harrisburg VMI">Harrisburg VMI
+<option value="MSP SAIC">MSP SAIC
+<option value="MSP VMI">MSP VMI
+<option value="Philadelphia SAIC">Philadelphia SAIC
+<option value="Philadelphia VMI">Philadelphia VMI
+<option value="Phoenix SAIC">Phoenix SAIC
+<option value="Phoenix VMI">Phoenix VMI
+<option value="Sacramento SAIC">Sacramento SAIC
+<option value="Sacramento VMI">Sacramento VMI
+<option value="Salem SAIC">Salem SAIC
+<option value="Salem VMI">Salem VMI
+<option value="San Antonio SAIC">San Antonio SAIC
+<option value="San Antonio VMI">San Antonio VMI
+<option value="St Louis SAIC">St Louis SAIC
+<option value="St Louis VMI">St Louis VMI
+</select>
+<p>
+where the SAIC PO number contains &nbsp;
+<input type="text" name="po_str">
+<p>
+<input type="submit" name="Show Open POs" value="Show Open POs">
+</form></center></body></html>

@@ -1,0 +1,204 @@
+<html>
+<head>
+<title>Haas TCM Inventory Allocation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript" src="../Allocation/textsizer.js">
+
+/***********************************************
+* Document Text Sizer- Copyright 2003 - Taewook Kang.  All rights reserved.
+* Coded by: Taewook Kang (http://www.txkang.com)
+* This notice must stay intact for use
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+</head>
+
+<body bgcolor="#FFFFFF">
+<h3><font face="Tahoma"><a name="InventoryAllocation" id="InventoryAllocation"></a> 
+  Inventory Allocation</font></h3>
+<a href="javascript:ts('body',1)"><font face="tahoma">+ Larger Font</font></a><font face="tahoma"> 
+| <a
+href="javascript:ts('body',-1)">+ Smaller Font</a> </font><br>
+<p><font face="Tahoma" size="-1">The <b> Inventory Allocation</b> process is used 
+  to allocate inventory to a material line on a Scratch Pad or Material Request. 
+  TcmIS can automatically allocate material to a line on a Scratch Pad or Material 
+  Request based on shelf life and specification requirements entered on the material 
+  line. TcmIS will allocate first to inventory held in stock in the default inventory 
+  group which meets the required shelf life and specification requirements entered 
+  on the material line. Next, tcmIS will allocate to material on a confirmed Purchase 
+  Order for the default inventory group. Next, tcmIS will allocate to open Buy 
+  Orders for the default inventory group. If no material meeting the customer's 
+  requirements is in stock, on order, or on a Buy Order, then a new Buy Order 
+  will be generated and the material line will be automatically allocated to the 
+  new Buy Order. </font></p>
+<p><font size="-1" face="Tahoma">Note that allocations to Scratch Pads and Draft 
+  Material Requests will only last 8 hours. After 10 hours, if an MR has not been 
+  confirmed, the allocations will be dropped. Material cannot be allocated to 
+  a Quote.</font></p>
+<p><font face="Tahoma" size="-1">To automatically allocate a specific MR line, 
+  right-click on the line and select <strong>Auto Allocate Line</strong>.</font></p>
+<p><img src="Allocation28.gif" width="850" height="472"></p>
+<h6><font face="Tahoma">Figure 1</font></h6>
+<p><font size="-1" face="Tahoma">TcmIS displays the results of the automatic allocation. 
+  All material in inventory or in the supply chain for the default inventory group 
+  and selected Catalog Item is displayed. The allocated material is highlighted 
+  in green. Click <strong>Submit </strong>to accept the allocation. </font></p>
+<p><img src="Allocation39.gif" width="850" height="269"></p>
+<h6><font face="Tahoma">Figure 2</font></h6>
+<p><font size="-1" face="Tahoma">You may change the allocation if needed. Enter 
+  the quantity to allocate on the desired line or lines. To unallocate a material 
+  line, enter <em>0</em> in the <strong>Alloc Qty</strong> column and click the 
+  <strong>Submit</strong> link.</font></p>
+<p><img src="Allocation40.gif" width="850" height="269"></p>
+<h6><font face="Tahoma">Figure 3</font></h6>
+<p><font size="-1" face="Tahoma">You may automatically allocate all material lines 
+  on a Material Request by clicking the <strong>Auto Allocate</strong> link at 
+  the top of the<strong> </strong>Scratch Pad or Material Request.</font></p>
+<p><img src="Allocation25.gif" width="850" height="436"></p>
+<h6><font face="Tahoma">Figure 4</font></h6>
+<p><font size="-1" face="Tahoma">You may forego the automated allocation process 
+  and manually allocate material by right-clicking on a material line and selecting 
+  <strong>Show Allocatable for InvGrp</strong>.</font></p>
+<p><img src="Allocation26.gif" width="850" height="436"></p>
+<h6><font face="Tahoma">Figure 5</font></h6>
+<p><font size="-1" face="Tahoma">You may also begin the <strong>Inventory Allocation 
+  </strong>process when searching for a Catalog Item to add a line to a Scratch 
+  Pad, Quote, or Material Request. After locating the desired Catalog Item, right-click 
+  anywhere on the line and select <strong>Show Allocatable for InvGrp</strong>.</font></p>
+<p><img src="Allocation30.gif" width="850" height="402"></p>
+<h6><font face="Tahoma">Figure 6</font></h6>
+<p><font size="-1" face="Tahoma">The quantity in inventory or on order is displayed. 
+  If the <strong>Type </strong>column displays <em>Receipt, </em>the material 
+  is in inventory and unallocated. The Receipt ID is displayed in the <strong>Reference 
+  </strong>column. The unit cost, manufacturer's batch number, expiration date, 
+  and remaining shelf life are also displayed. The status of the Receipt is shown 
+  in the <strong>Lot Status </strong>column.</font></p>
+<p><font size="-1" face="Tahoma">If the <strong>Type </strong>column displays 
+  <em>Issue-MR</em> then a Picklist has been printed and the material is in the 
+  process of being shipped. The <strong>Quantity </strong>column displays the 
+  quantity allocated. The <strong>Reference</strong> column contains the Issue 
+  ID followed by the MR Number and line item which the receipt is currently allocated 
+  to.</font> </p>
+<p><font size="-1" face="Tahoma">If the <strong>Type </strong>column displays 
+  <em>Receipt-MR</em> then the Receipt ID is currently allocated to a Material 
+  Request. The <strong>Quantity </strong>column displays the quantity allocated. 
+  The <strong>Reference</strong> column contains the Receipt ID followed by the 
+  MR Number and line item which the receipt is currently allocated to. The Date 
+  of Receipt is also displayed.</font></p>
+<p><font size="-1" face="Tahoma">If the <strong>Type </strong>column displays 
+  <em>Receipt-SP </em>then the Receipt ID is currently allocated to a Scratch 
+  Pad. The <strong>Quantity </strong>column displays the quantity allocated. The 
+  <strong>Reference</strong> column contains the Receipt ID followed by the Scratch 
+  Pad Number and line item which the receipt is currently allocated to.</font> 
+  <font size="-1" face="Tahoma">The Date of Receipt is also displayed.</font> 
+</p>
+<p><font size="-1" face="Tahoma">If the <strong>Type </strong> column displays 
+  <em>PO, </em>the material is on order and unallocated. The <strong>Quantity 
+  </strong>column displays the quantity on order. The PO number is displayed in 
+  the <strong>Reference </strong>column. The expected delivery date of the Purchase 
+  Order is shown in t he <strong>Mfg Batch </strong> column. The unit cost is 
+  also displayed.</font></p>
+<p><font size="-1" face="Tahoma">If the <strong>Type </strong> column displays 
+  <em>PO-MR, </em>the material is on order allocated to an MR. The <strong>Quantity 
+  </strong>column displays the quantity allocated. The <strong>Reference</strong> 
+  column contains the PO Number followed by the MR Number and line item which 
+  the PO is currently allocated to.</font> <font size="-1" face="Tahoma"> The 
+  expected delivery date of the Purchase Order is shown in the <strong>Mfg Batch 
+  </strong> column. The unit cost is also displayed.</font></p>
+<p><font size="-1" face="Tahoma">If the <strong>Type </strong> column displays 
+  <em>PO-SP, </em>the material is on order allocated to a Scratch Pad. The <strong>Quantity 
+  </strong>column displays the quantity allocated. The <strong>Reference</strong> 
+  column contains the PO Number followed by the SP Number and line item which 
+  the PO is currently allocated to.</font> <font size="-1" face="Tahoma"> The 
+  expected delivery date of the Purchase Order is shown in the <strong>Mfg Batch 
+  </strong> column. The unit cost is also displayed.</font> </p>
+<p><font size="-1" face="Tahoma">If the <strong>Type </strong> column displays 
+  <em>BO, </em>the material is unallocated and on a Buy Order. This is typically 
+  material being purchased for stock. Purchasing has been notified of the demand 
+  for the material, but has not yet created a Purchase Order. The <strong>Quantity 
+  </strong>column displays the quantity on the Buy Order. The BO number is displayed 
+  in the <strong>Reference </strong>column. </font></p>
+<p><font size="-1" face="Tahoma">If the <strong>Type </strong> column displays 
+  <em>BO-MR, </em>the material is on a Buy Order and allocated to an MR. The <strong>Quantity 
+  </strong>column displays the quantity allocated. The <strong>Reference</strong> 
+  column contains the BO Number followed by the MR Number and line item which 
+  the BO is currently allocated to.</font> <font size="-1" face="Tahoma"> </font></p>
+<p><img src="Allocation41.gif" width="850" height="280"></p>
+<h6><font face="Tahoma">Figure 7</font></h6>
+<p><font size="-1" face="Tahoma">The quantity available in the region is also 
+  displayed in the column labeled <strong>Region. </strong>Click the <strong>Region 
+  </strong>link in the top left above the data grid to view inventory in other 
+  warehouses in the region.</font></p>
+<p><font size="-1" face="Tahoma">The quantity available globally is also displayed 
+  in the column labeled <strong>Global. </strong>Click the <strong>Global </strong>link 
+  in the top left above the data grid to view inventory all warehouses worldwide.</font></p>
+<p><img src="Allocation42.gif" width="850" height="313"></p>
+<h6><font face="Tahoma">Figure 8</font></h6>
+<p><font size="-1" face="Tahoma">To allocate material, enter the quantity to allocate 
+  on the desired line or lines. If you are in the process of adding a line to 
+  a Scratch Pad, Quote, or Material Request, you may enter a price in the <strong>Price 
+  Override </strong>column to add the material to a Scratch Pad, or Material Request 
+  at the entered price.</font></p>
+<p><font size="-1" face="Tahoma">Click the <strong>Submit </strong>link at the 
+  top left to proceed with the inventory allocation.</font></p>
+<p><img src="Allocation43.gif" width="850" height="219"></p>
+<h6><font face="Tahoma">Figure 9</font></h6>
+<p><font size="-1" face="Tahoma">If the line is red, the highlighted Receipt ID 
+  does not meet the default shelf life requirements or specification requirements 
+  entered. </font> <font size="-1" face="Tahoma">If you are in the process of 
+  adding a line to a Scratch Pad or Material Request, you may override the default 
+  % Shelf Life Required if approved by the customer. You may still allocate to 
+  lines colored red if the customer has approved.</font></p>
+<p><img src="Allocation44.gif" width="850" height="220"></p>
+<h6><font face="Tahoma">Figure 10</font></h6>
+<p><font size="-1" face="Tahoma">If the Catalog Item was not already added to 
+  the Scratch Pad, or Material Request, allocating material will add it as a new 
+  line. Scroll to the right to view allocated quantities in the <strong>Allocated 
+  Qty</strong> columns.</font></p>
+<p><font size="-1" face="Tahoma">If the line has already been added to the Scratch 
+  Pad or Material Request and the customer has approved a change in the default 
+  shelf life requirement, change the <strong>% Shelf Life Requirement </strong>for 
+  the line on the Scratch Pad or Material Request to less than the remaining shelf 
+  life of the Receipt ID and view the <strong>Inventory Allocation</strong> screen 
+  again.</font></p>
+<p><font size="-1" face="Tahoma">Note that the lines which previously did not 
+  meet the shelf life requirement but now do meet the new shelf life requirement 
+  entered are no longer highlighted red. You may enter the quantity to allocate 
+  in the <strong>Alloc Qty</strong> column for the Receipt ID and click the <strong>Submit 
+  </strong>link to allocate.</font></p>
+<p><img src="Allocation35.gif" width="850" height="472"></p>
+<h6><font face="Tahoma">Figure 11</font></h6>
+<p><font size="-1" face="Tahoma">If you would like to allocate to a Receipt but 
+  you would like to put the MR line on hold while the stock is offered to the 
+  customer, allocate as usual and also check the box <strong>Force Spec Hold</strong> 
+  or <strong>Force Quality Hold</strong>.</font></p>
+<p><font size="-1" face="Tahoma">This will prevent a Buy Order from being created 
+  while the customer decides if the material in inventory is acceptable. If the 
+  material is acceptable, it should be released from the <strong>MR Release </strong>page. 
+  For more information please see the <strong>MR Release </strong>help page: <a href="https://www.tcmis.com/tcmIS/help/MRRelease/MRRelease.htm">https://www.tcmis.com/tcmIS/help/MRRelease/MRRelease.htm</a>. 
+  If the material is not acceptable and new material should be purchased, simply 
+  unallocate the MR Line and Auto Allocate. A Buy Order will be generated.</font></p>
+<p><img src="Allocation45.gif" width="850" height="259"></p>
+<h6><font face="Tahoma">Figure 12</font></h6>
+<p><font size="-1" face="Tahoma">When viewing viewing allocatable resources you 
+  can view Customer Price Lists for the selected item by right-clicking on the 
+  line and selecting <strong>Show Price List Info. </strong></font></p>
+<p><img src="Allocation46.gif" width="850" height="253"></p>
+<h6><font face="Tahoma">Figure 12</font></h6>
+<p><font size="-1" face="Tahoma">When viewing allocatable Receipts, you may view 
+  and add Receipt Specs by right-clicking on the line and selecting <strong>Receipt 
+  Specs. </strong>For more information on Receipt Specs please see the <strong>Receiving 
+  QC </strong>help page:<a href="https://www.tcmis.com/tcmIS/help/ReceivingQC/ReceivingQC2.htm#AddingSpecs"> 
+  https://www.tcmis.com/tcmIS/help/ReceivingQC/ReceivingQC2.htm#AddingSpecs</a>.</font></p>
+<p><img src="Allocation48.gif" width="850" height="253"></p>
+<h6><font face="Tahoma">Figure 13</font></h6>
+<p><font size="-1" face="Tahoma">When viewing allocatable Receipts, you may view 
+  and add Receipt Documents by right-clicking on the line and selecting <strong>View/Add 
+  Receipt Documents. </strong>For more information on Receipt Documents please 
+  see the <strong>Receiving QC </strong>help page:<a href="https://www.tcmis.com/tcmIS/help/ReceivingQC/ReceivingQC2.htm#UploadingDocuments"> 
+  https://www.tcmis.com/tcmIS/help/ReceivingQC/ReceivingQC2.htm#UploadingDocuments</a>.</font></p>
+<p><img src="Allocation47.gif" width="850" height="253"></p>
+<h6><font face="Tahoma">Figure 14</font></h6>
+</body>
+</html>

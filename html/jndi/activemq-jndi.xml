@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.4.2_02" class="java.beans.XMLDecoder">
+  <object class="com.ervacon.xnam.XMLContext">
+    <void method="put">
+      <string>brokerURL</string>
+      <string>tcp://linux-web-nas.tcmis.com:61616</string>
+    </void>
+    <void method="put">
+      <string>ConnectionFactory</string>
+      <object class="org.codehaus.activemq.ActiveMQConnectionFactory">
+		<void property="brokerURL"> 
+		   <string>tcp://linux-web-nas.tcmis.com:61616</string> 
+		</void> 
+      </object>
+    </void>
+    <void method="put">
+      <string>customer</string>
+      <object class="com.ervacon.xnam.XMLContext">
+        <void method="put">
+          <string>raytheon</string>
+          <object class="com.ervacon.xnam.XMLContext">
+            <void method="put">
+              <string>rac</string>
+              <object class="com.ervacon.xnam.XMLContext">
+                <void method="put">
+                  <string>RACTopic</string>
+                  <object class="org.codehaus.activemq.message.ActiveMQTopic">
+                    <void property="physicalName">
+                      <string>RACTopic</string>
+                    </void>
+                  </object>
+                </void>
+                <void method="put">
+                  <string>RACQueue</string>
+                  <object class="org.codehaus.activemq.message.ActiveMQQueue">
+                    <void property="physicalName">
+                      <string>RACQueue</string>
+                    </void>
+                  </object>
+                </void>
+              </object>
+            </void>
+          </object>
+        </void>
+      </object>
+    </void>
+  </object>
+</java>

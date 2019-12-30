@@ -1,0 +1,16 @@
+<html><head><title>Ack></title>
+<script language="JavaScript">
+function pop() {
+var one = document.getElementById("one");
+var two = document.getElementById("two");
+alert(one.value);
+two.value=one.value;
+}
+</script>
+</head>
+<body bgcolor="#EEEEEE">
+<form action="/cgi-bin/gen/echo.cgi" method="POST">
+One: <input type="text" name="one" onChange="pop()">
+<p>
+Two: <input type="text" name="two">
+</form></body></html>

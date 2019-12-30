@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Dropship Receiving</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="../../JavaScript/textsizer.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../../css/tcmISHelp.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/tcmISPrintHelp.css" type="text/css" media="print" />
+
+</head>
+
+<body>
+<p class="crumbs">Order Management &gt;&gt;</p>
+<h1><a name="DropshipReceiving" id="DropshipReceiving"></a>Dropship Receiving </h1>
+<p><a href="javascript:ts('body',1)"><img src="../../images/button-bigfont.png"  alt="Increase font size" /></a>
+<a href="javascript:ts('body',-1)"><img src="../../images/button-smallfont.png"  alt="Decrease font size" /></a></p>
+
+<p>The <strong>Dropship Receiving</strong> page is used by HGI customers or staff to record the receipt of an order in
+  tcmIS when the material was shipped directly to the customer's facility and did not pass through an HGI hub. The dropship
+  receiving process essentially creates a receipt into inventory and a delivery against a Material Request in tcmIS all in
+  one step. The <strong>Dropship Receiving</strong> page can be accessed from the <strong>Order Management</strong> menu
+  by selecting <strong>Dropship Receiving</strong>. The page is launched in a new tab.</p>
+<div class="image"><img src="DropshipReceiving1.png" alt="Dropship Receiving menu item" height="191" width="835" />
+<div>Figure 1</div></div>
+
+<p>There are a number of selections that define the search:</p>
+<ul>
+	<li>You must use the <strong>Operating Entity</strong> and <strong>Hub</strong> drop-down lists to select those for which dropship 
+		receiving will be performed. In some cases there is only a single <strong>Inventory Group</strong> associated with the Hub. In other 
+		cases the <strong>Inventory Group</strong> drop-down list allows you to choose either the default <em>My Inventory Groups</em> or
+		select one particular Inventory Group. If you do select a particular Inventory Group, there may be a further choice available in the 
+		<strong>Ship To </strong> drop-down list of the default <em>All Docks</em> or you may choose one particular dock.</li>
+	<li>You may provide something to at least partially identify the material you want using the <strong>Search by</strong> boxes. Your 
+		search may be specified by <strong>Item Desc</strong>[ription], <strong>Item ID</strong>, <strong>MR Number</strong>, or 
+		<strong>Haas PO</strong>. See <a href="#customerlookup">"below</a> and <a href="../Introduction/Searches.htm">Search functions</a> for more information.</li>
+	<li>You may specify the order in which the items are listed using the <strong>Sort</strong> list.
+		<ul>
+			<li>by date expected and, within date, by supplier when you select <strong>Date Exptd/Supplier</strong>;</li>
+			<li>by Material Request line number when you select <strong>MR-Line</strong>;</li>
+			<li>by Purchase Order and, within PO, by line when you select <strong>PO/PO Line</strong>;</li>
+			<li>by supplier and, within supplier, by date expected when you select <strong>Supplier/Date Exptd</strong>.</li>
+		</ul>
+	</li>
+	<li>By default only orders expected to be delivered in the next 30 days are listed. To see more orders,
+		increase the number of days in the <strong>Expected Within</strong> box.</li>
+	<li>To limit the dropship receiving activity to items for a particular customer, click the magnifying glass icon 
+		<img src="../../images/glass.gif" height="16" width="21" alt="magnifying glass" /> across from the <strong>Customer</strong> 
+		label to open the <strong>Customer</strong> Lookup form. See <a href="../Administration/Searches.htm#lookup">Lookup forms</a> 
+		for further information.</li>	
+</ul>
+<p>Click the <strong>Search</strong> button.</p>
+<p>Click the <strong>Create Excel</strong> button on the page to export the data in Excel format.</p>
+<div class="image"><img src="DropshipReceiving2.png" height="314" width="835" alt="Dropship receiving search form" />
+<div>Figure 2</div></div>
+
+<p>The <a id="customerlookup">customer selection form</a> provides five different selections to specify exactly which customer is to be used for
+	the dropship receiving activity. You may use any or all of them.</p>
+<ul>
+	<li>The <strong>Customer ID</strong> search term always uses the <strong>is</strong> drop-down item to locate an exact match to any customer 
+		 ID number entered.</li>
+	<li>The remaining search terms,
+		<ul>
+			<li><strong>Customer Name</strong></li>
+			<li><strong>Synonym</strong></li>
+			<li><strong>Bill To</strong></li>
+			<li><strong>Ship To</strong></li>
+		</ul>
+	</li>
+	<li style="list-style-type: none;">allow you to choose the types of match: <strong>is</strong>; <strong>contains</strong>; <strong>starts with</strong>; or 
+		 <strong>ends with</strong>. See <a href="../Introduction/Searches.htm">Search functions</a> for more information.</li>
+	<li><em>Do not use any combination that results in excluding the customer you want.</em> For example, there may be 
+		no customer with a <strong>Bill To</strong> containing &#39;Florida&#39; and a <strong>Ship To</strong> containing 
+		&#39;Kenya&#39;.</li>
+</ul>
+<p>Click the <strong>Search</strong> button, select the row with the customer you want, and click 
+	the <strong>Return Selected Customer</strong> link that will appear at the top of the list. The 
+	<strong>Customer</strong> will be added to the Dropship Receiving search form and included in
+	the search criteria for that page.</p>
+<div class="image"><img src="DropshipReceiving3.png" alt="Customer Selection form" height="338" width="656" />
+<div>Figure 3</div></div>
+
+<p>You may view the Purchase Order (PO) by right-clicking on the line and selecting <strong>View Purchase Order</strong>. The PO is opened
+  in a new window. See the <a href="../Purchasing/PurchaseOrders.htm">Purchase Orders</a> help information for details.</p>
+<p>Click the <strong>Create Excel</strong> button on the page to export a list of open orders in Excel format.</p>
+<div class="image"><img src="DropshipReceiving4.png" alt="View Purchase Order context menu item" height="628" width="835" />
+<div>Figure 4</div></div>
+
+<p>When you have located the shipment you want to 'receive' (by entering details into tcmIS), use the input
+   boxes on the selected line of the <strong>Dropship Receiving</strong> page to enter the needed details. 
+   <em>Scroll the page to the left to view the columns if necessary.</em></p>
+<ul>
+	<li>Although the <strong>OK</strong> check box is the first field available for action, it is actually the
+	   very last thing to do when receiving the order into tcmIS. Fill in all the other information before you
+		select this box.</li>
+
+	<li>Begin by entering the manufacturer's lot number from the material in the <strong>Lot</strong> column.</li>
+	<li>If the supplier ship date is known, enter that date in the <strong>Actual Supplier Ship Date</strong>
+	    column. Place your cursor in the field and the Date Selector form will open to allow you to
+		 choose the date. This is not a required field and can be left blank if this information is not
+		 provided by the supplier.</li>
+	<li>Enter the actual date the material was delivered to your facility in the <strong>DOR</strong> ("date of
+	    receipt") column. The date defaults to today's date which you may leave if that is correct. Click your
+		 cursor in the field and the Date Selector form will open to allow you to choose another date
+		 (but you may not use a date later than today). </li>
+	<li>Enter the expiration date of the material in the <strong>Exp Date</strong> column. Place your
+	    cursor in the field and the Date Selector form will open to allow you to choose the date. If
+		 this is not a shelf life sensitive product, enter the word Indefinite by clicking the <strong>
+		 Indefinite</strong> button at the bottom of the calendar form.</li>
+	<li>Enter the quantity delivered in the <strong>Qty Rec'd</strong> column. <em>Note that it is very
+	    important to receive material in terms of the unit of measure displayed in the packaging
+		 field</em>.</li>
+	<li>Enter any notes in the <strong>Notes</strong> text box. </li>
+	<li>Provide the supplier's delivery ticket information in the <strong>Delivery Ticket</strong>
+	    text box. </li>
+	<li>Select the country of origin for the material from the <strong>Ship From Country</strong> list. </li>
+
+</ul>
+<div class="image"><img src="DropshipReceiving5.png" height="527" width="1041" alt="Dropship receiving input boxes" />
+<div>Figure 5</div></div>
+
+<p>If the material delivered has more than a single lot number or more than a single expiration date,
+   split the shipment into enough lines to record each lot number and expiration date combination on
+	a separate line. Click the <strong>Dupl</strong>[icate] button to add a split line, repeating
+	until you have all the lines you need for the shipment. Complete all the required fields for each
+	line.</p>
+<div class="image"><img src="DropshipReceiving6.png" height="527" width="834" alt="Dupl button and duplicated line" />
+<div>Figure 6</div></div>
+
+<p>Items are sometimes shipped in different quantities in different deliveries. These items are known as
+   variably sized or MV items. For MV items on the <strong>Dropship Receiving</strong> page,
+	you must enter both quantity and size in the <strong>Packaged Qty x Packaged Size</strong> column.
+   If more than one size was delivered, use the <strong>Dup Kit/Pkg</strong> button as needed and enter the
+   <strong>Packaged Qty x Packaged Size</strong> for each size.</p>
+
+<div class="image"><img src="DropshipReceiving7.png" height="176" width="286" alt="Packaged Qty x Packaged Size column and text boxes" />
+<div>Figure 7</div></div>
+
+<p>Complete all the data entry for each line received. After all lines are complete, select the check box
+   in the <strong>OK</strong> column for each completed line.</p>
+<p>After all lines are marked OK, click the <strong>Receive</strong> link at the top left of the data
+   grid to complete the process. Unchecked lines will be left for future action.</p>
+<div class="image"><img src="DropshipReceiving8.png" height="612" width="975" alt="Completed lines to be marked Received" />
+<div>Figure 8</div></div>
+
+<p>A summary of all receipts made is displayed. This page can be printed for your records by
+   clicking the <strong>Print This Page</strong> button. If the customer is equipped with a Zebra printer, and
+	it has been configured to work with tcmIS, container labels can be printed by clicking the 
+	<strong>Container Labels</strong> button. Contact the Technical Center to enable label printing.</p>
+<div class="image"><img src="DropshipReceiving9.png" alt="Received items summary page" />
+<div>Figure 9</div></div>
+
+</body>
+</html>

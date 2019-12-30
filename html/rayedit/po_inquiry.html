@@ -1,0 +1,28 @@
+<html>
+
+<head>
+<title>Price & Delivery Inquiry Status</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p>
+<center><h2>Price & Delivery Inquiry Status</h2></center>
+<p>
+<div align="center"><center>
+<form action="/cgi-bin/rayedit/po_inquiry.cgi" method="post">
+
+<div align="center"><center>
+Sort by: <select name="sortby">
+        <option value="o.client_po">Raytheon PO
+        <option value="s.request_id">Request ID
+        <option value="s.order_placed" SELECTED>Order Placed
+        <option value="s.requested">Requested
+        <option value="s.promised_date">Promised
+        <option value="s.order_id">Sales Order ID
+</select>
+<input type="radio" name="up" value="" CHECKED>Ascending
+<input type="radio" name="up" value="desc">Descending
+<input type="submit" value="Resubmit & Sort">
+</form>
+</body></html>

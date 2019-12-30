@@ -1,0 +1,37 @@
+.box {
+	position: relative;
+	padding: .25em;
+	font-size: 0.8em;
+	text-align: center;
+}
+#catadd li {
+	display: inline;
+	list-style-type: none;
+}
+.selected {
+	background: #757575;
+	color: #fff;
+	font-weight: 900;
+}
+.unselected {
+	background: #e8e8cc;
+	color: black;
+	font-weight: 500;
+}
+.corner {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background: url(../images/SelTab2.png) no-repeat;
+}
+.TL {
+	top: 0;
+	left: 0;
+	background-position: 0 0;
+}
+.TR {
+	top: 0;
+	right: 0;
+	background-position: 100% 0;
+}
+
