@@ -6,9 +6,9 @@
   <packaging>war</packaging>
 
   <scm>
-    <connection>scm:svn:https://svn.tcmis.com/prd/cappuccino/tcmis/trunk</connection>
-    <developerConnection>scm:svn:https://svn.tcmis.com/prd/cappuccino/tcmis/branches/dev</developerConnection>
-    <url>https://svn.tcmis.com/prd/cappuccino/tcmis/</url>
+    <url>https://github.com/Wescoair/tcmis</url>
+    <connection>scm:git:git@github.com:Wescoair/tcmis.git</connection>
+	  <developerConnection>scm:git:git@github.com:Wescoair/tcmis.git</developerConnection>
   </scm>
 
   <build>
