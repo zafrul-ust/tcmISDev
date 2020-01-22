@@ -2,12 +2,13 @@ package com.tcmis.internal.distribution.beans;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Locale;
 
-import com.tcmis.common.framework.BaseDataBean;
+import org.apache.struts.action.ActionForm;
 
-public class CustomerReturnRequestInputBean extends BaseDataBean {
-		
-	
+import com.tcmis.common.framework.BaseInputBean;
+
+public class CustomerReturnRequestInputBean extends BaseInputBean {
 	private static final long serialVersionUID = -7033842200708915355L;
 	private String operatingEntityId;
 	private String prNumber;
@@ -17,7 +18,6 @@ public class CustomerReturnRequestInputBean extends BaseDataBean {
 	private String quantity;
 	private String unitPriceCurrenty;
 	private String unitPrice;
-	private String action;
 	private String rmaStatus;
 	private BigDecimal personnelId;
 	private String companyId;
@@ -58,6 +58,22 @@ public class CustomerReturnRequestInputBean extends BaseDataBean {
 	
 	private String returnNotes;
 	private String correctItemShipped;
+	private String catalogId;
+	private String returnType;
+	private Date approvalDate;
+	private Date requestStartDate;
+	private String dataTransferStatus;
+	private String distributionReturn;
+	
+	public CustomerReturnRequestInputBean() {}
+	
+	public CustomerReturnRequestInputBean(ActionForm inputForm, Locale locale) {
+		super(inputForm, locale);
+	}
+	
+	public boolean isConfirm() {
+		return "confirm".equalsIgnoreCase(getuAction());
+	}
 
     public String getInventoryGroup() {
         return inventoryGroup;
@@ -546,9 +562,62 @@ public class CustomerReturnRequestInputBean extends BaseDataBean {
 		this.correctItemShipped = correctItemShipped;
 	}
 
-	
+	@Override
+	public void setHiddenFormFields() {
+		removeHiddenFormField("uAction");
+		addHiddenFormField("action");
+		addHiddenFormField("rmaId");
+		addHiddenFormField("companyId");
+		addHiddenFormField("prNumber");
+		addHiddenFormField("lineItem");
+		addHiddenFormField("returnType");
+	}
 
+	public String getCatalogId() {
+		return catalogId;
+	}
 
-	
-	
+	public void setCatalogId(String catalogId) {
+		this.catalogId = catalogId;
+	}
+
+	public String getReturnType() {
+		return returnType;
+	}
+
+	public void setReturnType(String returnType) {
+		this.returnType = returnType;
+	}
+
+	public Date getApprovalDate() {
+		return approvalDate;
+	}
+
+	public void setApprovalDate(Date approvalDate) {
+		this.approvalDate = approvalDate;
+	}
+
+	public Date getRequestStartDate() {
+		return requestStartDate;
+	}
+
+	public void setRequestStartDate(Date requestStartDate) {
+		this.requestStartDate = requestStartDate;
+	}
+
+	public String getDataTransferStatus() {
+		return dataTransferStatus;
+	}
+
+	public void setDataTransferStatus(String dataTransferStatus) {
+		this.dataTransferStatus = dataTransferStatus;
+	}
+
+	public String getDistributionReturn() {
+		return distributionReturn;
+	}
+
+	public void setDistributionReturn(String distributionReturn) {
+		this.distributionReturn = distributionReturn;
+	}
 }

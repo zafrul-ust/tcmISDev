@@ -103,6 +103,9 @@ public class CatalogInputBean extends BaseDataBean {
  private String prAccountRequired;
  private String approvalPath;
 
+ private String payloadTimestamp;
+ private String ecommerceLanguage;
+
 //constructor
  public CatalogInputBean() {
  }
@@ -680,5 +683,21 @@ public boolean isPrintScreen() {
 
 	public void setFacilityOrAllShelflife(boolean facilityOrAllShelflife) {
 		this.facilityOrAllShelflife = facilityOrAllShelflife;
+	}
+
+	public String getPayloadTimestamp() {
+		return payloadTimestamp;
+	}
+
+	public void setPayloadTimestamp(String payloadTimestamp) {
+		this.payloadTimestamp = payloadTimestamp;
+	}
+
+	public String getEcommerceLanguage() {
+		return ecommerceLanguage;
+	}
+
+	public void setEcommerceLanguage(String ecommerceLanguage) {
+		this.ecommerceLanguage = ecommerceLanguage;
 	}
 }  //end of class

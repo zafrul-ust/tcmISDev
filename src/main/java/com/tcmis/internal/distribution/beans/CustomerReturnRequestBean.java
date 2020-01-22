@@ -5,53 +5,44 @@ import java.util.Date;
 
 import com.tcmis.common.framework.BaseDataBean;
 
-
-/******************************************************************************
- * CLASSNAME: CustomerReturnRequestBean <br>
- * @version: 1.0, Jul 14, 2009 <br>
- *****************************************************************************/
-
-
 public class CustomerReturnRequestBean extends BaseDataBean {
-	
-	
-	
-	//private BigDecimal csrPersonnelId;	
-	
-	
 	private static final long serialVersionUID = -6528122199124718149L;
-	private BigDecimal customerRmaId;
-	private String companyId;
-	private BigDecimal prNumber;
-	private String lineItem;
-	private String opsEntityId;
-	private BigDecimal quantityReturnRequested;
-	private BigDecimal quantityReturnAuthorized;
-	private BigDecimal originalUnitPrice;
-	private BigDecimal newUnitPrice;
-	private String returnMaterial;
-	private String wantReplacementMaterial;
-	private String returnRequestorName;
-	private String rmaStatus;
-	private String returnRequestorPhone;
-	private String returnRequestorEmail;
-	private BigDecimal customerServiceRepId;
+	
+	private Date approvalDate;
 	private BigDecimal approverId;
 	private String catalogCompanyId;
-	private Date requestStartDate;
 	private String catalogId;
-	private Date approvalDate;
-	private String replacementCatPartNo;
+	private String companyId;
+	private String correctItemShipped;
+	private BigDecimal customerRmaId;
+	private BigDecimal customerServiceRepId;
+	private String dataTransferStatus;
+	private String distributionReturn;
+	private String lineItem;
+	private BigDecimal newUnitPrice;
+	private String opsEntityId;
+	private BigDecimal originalUnitPrice;
+	private BigDecimal prNumber;
+	private BigDecimal quantityReturnAuthorized;
+	private BigDecimal quantityReturnRequested;
 	private String rejectionComment;
+	private String replacementCatPartNo;
 	private String replacementLineItem;
-	private Date replacementRequiredDatetime;
 	private Date replacementPromiseDate;
-	
+	private Date replacementRequiredDatetime;
+	private Date requestStartDate;
+	private String returnMaterial;
+	private String returnNotes;
+	private String returnRequestorEmail;
+	private String returnRequestorName;
+	private String returnRequestorPhone;
+	private String returnType;
+	private String rmaStatus;
+	private String wantReplacementMaterial;
 
 	//constructor
 	public CustomerReturnRequestBean() {
 	}
-
 
 	/**
 	 * @return the customerRmaId
@@ -466,6 +457,46 @@ public class CustomerReturnRequestBean extends BaseDataBean {
 	 */
 	public void setReplacementPromiseDate(Date replacementPromiseDate) {
 		this.replacementPromiseDate = replacementPromiseDate;
+	}
+
+	public String getCorrectItemShipped() {
+		return correctItemShipped;
+	}
+
+	public void setCorrectItemShipped(String correctItemShipped) {
+		this.correctItemShipped = correctItemShipped;
+	}
+
+	public String getReturnType() {
+		return returnType;
+	}
+
+	public void setReturnType(String returnType) {
+		this.returnType = returnType;
+	}
+
+	public String getReturnNotes() {
+		return returnNotes;
+	}
+
+	public void setReturnNotes(String returnNotes) {
+		this.returnNotes = returnNotes;
+	}
+
+	public String getDataTransferStatus() {
+		return dataTransferStatus;
+	}
+
+	public void setDataTransferStatus(String dataTransferStatus) {
+		this.dataTransferStatus = dataTransferStatus;
+	}
+
+	public String getDistributionReturn() {
+		return distributionReturn;
+	}
+
+	public void setDistributionReturn(String distributionReturn) {
+		this.distributionReturn = distributionReturn;
 	}
 
 	

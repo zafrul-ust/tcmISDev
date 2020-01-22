@@ -348,7 +348,7 @@ if (typeof dhtmlXGridObject != "undefined") {
 			for (var i = 0; i < max; i++) {
 				var rowId = this.getRowId(i);
 				if (rowsArray[rowId]) {
-					if (!this._haas_ok_column || cellValue(rowId, this._haas_ok_column) == "true") {
+					if (!this._haas_ok_column || gridCellValue(this, rowId, this._haas_ok_column) == "true") {
 						var row = rowsArray[rowId];
 						if (row.childNodes) {
 							for (var c = 0; c < colCount; c++) {
@@ -2465,4 +2465,43 @@ function gridConfigColIndex(columnId, config) {
 			return index;
 	
 	return -1;
+}
+
+function setGridWidthFromColWidth(inputGridConfig, maxWidth) {
+	var inputGrid = window[inputGridConfig.beanGrid];
+	
+	//18 value comes from dhtmlxgrid.js - setSizes() - scrfix variable's value
+	var gridColTotalWidth = 18;
+	for (var index = 0; index < inputGrid.getColumnsNum(); index++) {
+		gridColTotalWidth += inputGrid.getColWidth(index);
+	}
+	//if maxWidth is provided and grid's total width is more than maxWidth, use maxWidth. Otherwise, use grid's total width.
+	$(inputGridConfig.divName).style.width = (maxWidth && gridColTotalWidth > maxWidth ? maxWidth : gridColTotalWidth) + "px";
+}
+
+function setGridHeightFromRowHeight(gridConfig, maxRowDisplayed) {
+	var inputGrid = window[gridConfig.beanGrid];
+
+	//Note:
+	//	- 18 value comes from dhtmlxgrid.js - setSizes() - scrfix variable's value
+	//	- _srdh is the default height of smart rendering
+	//	- grid's row's offsetHeight is the height of the row
+	//	- inputGrid.entBox is the displayed part of the grid, aka the main div that is created in a .jsp file for the grid
+	//	- inputGrid.hdrBox is the header part of the grid
+	//	- inputGrid.objBox is the detail part of the grid
+	var gridDetailHeight = 18;
+	if (inputGrid.getRowsNum() == 0) {
+		gridDetailHeight = inputGrid._srdh;
+	} else {
+		for (var index = 0; index < inputGrid.getRowsNum(); index++) {
+			if (maxRowDisplayed && index >= maxRowDisplayed) {
+				break;
+			}
+			
+			gridDetailHeight += (inputGrid.getRowById(inputGrid.getRowId(index)).offsetHeight || inputGrid._srdh);
+		}
+	}
+
+	inputGrid.entBox.style.height = (Math.max(parseFloat(inputGrid.hdrBox.style.height), 60) + gridDetailHeight) + "px";
+	inputGrid.objBox.style.height = gridDetailHeight + "px";
 }
