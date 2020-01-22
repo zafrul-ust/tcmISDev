@@ -1413,6 +1413,8 @@ showNewFeesGrid = true;
 <input type="hidden" name="cocConcat" id="cocConcat" value="${customerReturnRequestResultBean.specCocList}"/>
 <input type="hidden" name="coaConcat" id="coaConcat" value="${customerReturnRequestResultBean.specCoaList}"/>
 <input type="hidden" name="customerId" id="customerId" value="${customerReturnRequestResultBean.customerId}"/>
+<input name="catalogId" id="catalogId" type="hidden"  value="${customerReturnRequestResultBean.catalogId}" />
+<input name="catalogCompanyId" id="catalogCompanyId" type="hidden"  value="${customerReturnRequestResultBean.catalogCompanyId}" />
 </div>
 <!-- Hidden elements end -->
 <!-- Error Messages Ends -->

@@ -1263,8 +1263,11 @@ function Checkout() {
 				submitSeagateCheckout();
 			}
 		}
-	}
-	else {
+	}else if ('ARIBA' == $("ecommerceSource").value){
+        if (validateCheckout()) {
+            submitEcommerceCheckout();
+        }
+    }else {
 		if (validateCheckout()) {
 			if ($v("catalog").startsWith('POS:')) {
 				submitPointOfSaleCheckout();
@@ -2476,6 +2479,19 @@ function catalogFacilityOkClose() {
       }
     }
 } //end of method
+
+function submitEcommerceCheckout() {
+	messagesData.pleasewait = messagesData.checkoutinprocess;
+	showTransitWin("");
+	enableFieldsForFormSubmit();
+	document.genericForm.action = "ecommercecheckout.do";
+	$("uAction").value = "checkOut";
+	document.genericForm.target= top.name;
+	cartgrid.parentFormOnSubmit(); //prepare grid for data sending
+	document.genericForm.submit();
+	clearShoppingCart();
+    window.close();
+}
 
 function submitAerojetCheckout() {
 	messagesData.pleasewait = messagesData.checkoutinprocess;

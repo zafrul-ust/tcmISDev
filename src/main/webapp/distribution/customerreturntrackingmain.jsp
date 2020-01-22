@@ -13,8 +13,8 @@
 
 <html:html lang="true">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta http-equiv="expires" content="-1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="expires" content="-1"/>
 <link rel="shortcut icon" href="https://www.tcmis.com/images/buttons/tcmIS.ico"></link>
 
 <%@ include file="/common/locale.jsp" %>
@@ -55,6 +55,7 @@ This looks at what the user's preffered font size and which application he is vi
 <script type="text/javascript" src="/dhtmlxLayout/codebase/dhtmlxlayout.js"></script>
 <script type="text/javascript" src="/dhtmlxWindows/codebase/dhtmlxwindows.js"></script>
 
+<script type="text/javascript" src="/js/jquery/jquery-1.6.4.js"></script>
 <title>
 <fmt:message key="label.customerreturntracking"/>
 </title>
@@ -64,11 +65,11 @@ This looks at what the user's preffered font size and which application he is vi
 //add all the javascript messages here, this for internationalization of client side javascript messages
 var messagesData = new Array();
 messagesData={alert:"<fmt:message key="label.alert"/>",and:"<fmt:message key="label.and"/>",all:"<fmt:message key="label.all"/>",
-showlegend:"<fmt:message key="label.showlegend"/>",errors:"<fmt:message key="label.errors"/>",  
+showlegend:"<fmt:message key="label.showlegend"/>",errors:"<fmt:message key="label.errors"/>",
 validvalues:"<fmt:message key="label.validvalues"/>",
 materialrequest:"<fmt:message key="label.materialrequest"/>",
 days:"<fmt:message key="label.days"/>",
-submitOnlyOnce:"<fmt:message key="label.submitOnlyOnce"/>", 
+submitOnlyOnce:"<fmt:message key="label.submitOnlyOnce"/>",
 rma:"<fmt:message key="label.rma"/>",
 itemInteger:"<fmt:message key="error.item.integer"/>"};
 
@@ -82,11 +83,49 @@ var searchMyArr = new Array(
 		,{value:'startsWith', text: '<fmt:message key="label.startswith"/>'}
 		,{value:'endsWith', text: '<fmt:message key="label.endswith"/>'}
 		);
+
+function checkAutoSearch() {
+	if ('<tcmis:jsReplace value="${param.uAction}"/>' == 'autoSearch') {
+		var searchValue = '<tcmis:jsReplace value="${param.opsEntityId}"/>';
+		if (!isWhitespace(searchValue)) {
+			$('opsEntityId').value = searchValue;
+			opsChanged();
+		}
+
+		searchValue = '<tcmis:jsReplace value="${param.hub}"/>';
+		if (!isWhitespace(searchValue)) {
+			$('hub').value = searchValue;
+			hubChanged();
+		}
+
+		searchValue = '<tcmis:jsReplace value="${param.inventoryGroup}"/>';
+		if (!isWhitespace(searchValue)) {
+			$('inventoryGroup').value = searchValue;
+		}
+
+		searchValue = '<tcmis:jsReplace value="${param.searchArgument}"/>';
+		if (!isWhitespace(searchValue)) {
+			$('searchField').value = '<tcmis:jsReplace value="${param.searchField}"/>';
+			$('searchMode').value = '<tcmis:jsReplace value="${param.searchMode}"/>';
+			$('searchArgument').value = searchValue;
+		}
+		$('rmaStatus').value = '<tcmis:jsReplace value="${param.rmaStatus}"/>';
+
+		var isHideSearchPanel = '<tcmis:jsReplace value="${param.isHideSearchPanel}"/>';
+		if (isHideSearchPanel == 'true') {
+			try {
+				j$(".dhtmlxPolyInfoBar").eq(0).children()[4].click();
+			} catch (e) {}
+		}
+
+		submitSearchForm();
+	}
+}
 // -->
 </script>
 </head>
 
-<body bgcolor="#ffffff" onload="loadLayoutWin('','customerReturnTracking');setOps();" onresize="resizeFrames()">
+<body bgcolor="#ffffff" onload="loadLayoutWin('','customerReturnTracking');setOps();checkAutoSearch();" onresize="resizeFrames()">
 
 <div class="interface" id="mainPage" style="">
 
@@ -119,21 +158,13 @@ var searchMyArr = new Array(
           <option value="customerName"><fmt:message key="label.customer"/></option>
           <option value="poNumber"><fmt:message key="label.customerpo"/></option>
           <option value="customerRmaId"><fmt:message key="label.rma"/></option>
-          
+
         </select>
         <select name="searchMode" id="searchMode" class="selectBox">
             <option value="is" selected="selected"><fmt:message key="label.is"/></option>
             <option value="startsWith"><fmt:message key="label.startswith"/></option>
           </select>
-        <input class="inputBox" type="text" name="searchArgument" id="searchArgument" value='<c:out value="${param.searchString1}"/>' size="25" >
-      <%-- 
-      	  <fmt:message key="label.customer"/>: </td>
-		  <input name="customerName" id="customerName" type="text" maxlength="18" size="15" class="invGreyInputText" readonly onkeypress="onKeySearch(event,lookupCustomer);" />                                                           
-          <input name="customerId" id="customerId" type="hidden" value=""/>                                    
-          <input class="lookupBtn" onmouseover="this.className='lookupBtn lookupBtnOver'" onmouseout="this.className='lookupBtn'" name="selectedCustomer" value="..." onclick="lookupCustomer()" type="button">
-          <button class="smallBtns" onmouseover="this.className='smallBtns smallBtnsOver'" onMouseout="this.className='smallBtns'"
-                    name="None" value=""  OnClick="clearCustomer()"><fmt:message key="label.clear"/> </button>  --%>
-      
+        <input class="inputBox" type="text" name="searchArgument" id="searchArgument" value='<c:out value="${param.searchString1}"/>' size="25" />
       </td>
     </tr>
     <tr>
@@ -154,7 +185,7 @@ var searchMyArr = new Array(
           <option value="Completed"><fmt:message key="label.completed"/></option>
           <option value="Problem"><fmt:message key="label.problem"/></option>
         </select>
-      </td>     
+      </td>
     </tr>
     <tr>
       <td width="10%" class="optionTitleBoldRight" nowrap><fmt:message key="label.inventorygroup"/>:&nbsp;</td>
@@ -163,23 +194,15 @@ var searchMyArr = new Array(
        </select>
       </td>
       <td width="10%" class="optionTitleBoldLeft" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      	<%--<input type="radio" name="searchOption" id="searchOption" onclick="setValue('1');" value="1" checked="checked">&nbsp;<fmt:message key="label.pendingrequestsonly"/>--%>
-        <input type="checkbox" name="searchOption" id="searchOption" onclick="setValue('2');" value="2">&nbsp;<fmt:message key="label.allrequestswithin"/>&nbsp;
-		<input class="inputBox" type="text" name="days" id="days" value="30" size="5" >&nbsp;<fmt:message key="label.days"/>
+        <input type="checkbox" name="searchOption" id="searchOption" onclick="setValue('2');" value="2"/>&nbsp;<fmt:message key="label.allrequestswithin"/>&nbsp;
+		<input class="inputBox" type="text" name="days" id="days" value="30" size="5" />&nbsp;<fmt:message key="label.days"/>
       </td>
     </tr>
-    <!--<tr>
-      <td width="10%" class="optionTitleBoldRight" colspan="2">&nbsp;</td>
-      <td width="10%" class="optionTitleBoldLeft" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-	  </td>     
-    </tr>
-   -->
     <tr>
      <td colspan="4" width="100%" class="optionTitleBoldLeft">
-          <input name="submitSearch" type="submit" class="inputBtns" value="<fmt:message key="label.search"/>" id="submitSearch" onmouseover="this.className='inputBtns inputBtnsOver'" onMouseout="this.className='inputBtns'"
-          		 onclick= "return submitSearchForm()">
-          <input name="xslButton" type="button" class="inputBtns" value="<fmt:message key="label.createExcel"/>" id="xslButton" onmouseover="this.className='inputBtns inputBtnsOver'" onMouseout="this.className='inputBtns'"
+          <input name="submitSearch" type="button" class="inputBtns" value="<fmt:message key="label.search"/>" id="submitSearch" onmouseover="this.className='inputBtns inputBtnsOver'" onmouseout="this.className='inputBtns'"
+          		 onclick= "return submitSearchForm()"/>
+          <input name="xslButton" type="button" class="inputBtns" value="<fmt:message key="label.createExcel"/>" id="xslButton" onmouseover="this.className='inputBtns inputBtnsOver'" onmouseout="this.className='inputBtns'"
           		 onclick= "return createXSL()"/>
       </td>
     </tr>
@@ -250,14 +273,10 @@ var searchMyArr = new Array(
           Do not remove mainUpdateLinks div, even if you don't have any links. You can remove content inside the div but not the div itself.
       --%>
       <div id="mainUpdateLinks" style="display: none"> <%-- mainUpdateLinks Begins --%>
-        <%--<a href="#" onclick="call('printGrid'); return false;"><fmt:message key="label.print"/></a>--%>
-      <%-- <span id="showlegendLink">
-        <a href="javascript:showreceivingpagelegend()"><fmt:message key="label.showlegend"/></a>
-      </span> --%>
-      <span id="updateResultLink" style="display: none">               
+      <span id="updateResultLink" style="display: none">
           <span id="selectedRow">&nbsp;</span>
-       
-      </span> 
+
+      </span>
      </div> <%-- mainUpdateLinks Ends --%>
     </div> <%-- boxhead Ends --%>
 
@@ -276,7 +295,7 @@ var searchMyArr = new Array(
 </div>
 </td></tr>
 </table>
-</div>  
+</div>
 </div><!-- Result Frame Ends -->
 
 </div> <!-- close of interface -->

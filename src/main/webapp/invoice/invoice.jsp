@@ -149,12 +149,14 @@ if(document.getElementById("invoicePeriod").value.length == 0  && document.getEl
            	<html:option value="AAM RAMOS 1|AMERICAN_AXLE_File1|Group">AAM Ramos 1</html:option>
            	<html:option value="AAM ROCHESTER|AMERICAN_AXLE_File1|Group">AAM Rochester</html:option>
            	<html:option value="AAM ROCHESTER HILLS TECH|AMERICAN_AXLE_File1|Group">AAM Rochester Hills Technical</html:option>
-           	<html:option value="AAM ROYAL OAK|AMERICAN_AXLE_File1|Group">AAM Royal Oaks</html:option>
+           	<html:option value="AAM ROYAL OAK|AMERICAN_AXLE_SF_EXCLUDED_File1|Group">AAM Royal Oaks Material + Add Charge</html:option>
+           	<html:option value="AAM ROYAL OAK|AMERICAN_AXLE_SF_File1|Group">AAM Royal Oaks Service Fee</html:option>
           	<html:option value="AAM ROYAL OAK FEE|AMERICAN_AXLE_FEEInvoiceReportDefinition|">AAM Royal Oaks Fee</html:option>
           	<html:option value="AAM SUBIACO|AMERICAN_AXLE_File1|Group">AAM Subiaco</html:option>
           	<html:option value="AAM THREE RIVERS|AAM_THREE_RIVERS_File1|Group">AAM Three Rivers</html:option>
             <html:option value="AAM FEE|AMERICAN_AXLE_FEEInvoiceReportDefinition|">AAM Three Rivers Fee</html:option>
-            <html:option value="AAM TROY|AMERICAN_AXLE_File1|Group">AAM Troy</html:option>
+            <html:option value="AAM TROY|AMERICAN_AXLE_SF_EXCLUDED_File1|Group">AAM Troy Material + Add Charge</html:option>
+            <html:option value="AAM TROY|AMERICAN_AXLE_SF_File1|Group">AAM Troy Service Fee</html:option>
           	<html:option value="AAM TROY FEE|AMERICAN_AXLE_FEEInvoiceReportDefinition|">AAM Troy Fee</html:option>
             <html:option value="AERNNOVA_MEX|AERNNOVA_MEX_File1|Group">AERNNOVA Mexico</html:option>
           	<html:option value="AMT|AMT_File1|Group">AMT</html:option>

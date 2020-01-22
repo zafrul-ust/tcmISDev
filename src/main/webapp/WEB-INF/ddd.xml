@@ -1277,9 +1277,9 @@
             type="com.tcmis.internal.hub.action.CustomerReturnAction"
             name="genericForm"
             validate="false"
-            input="/customerreturns.jsp"
+            input="/customerreturnsmain.jsp"
             scope="request">
-        <forward name="showresults" path="/customerreturns.jsp"/>
+        <forward name="showresults" path="/customerreturnsmain.jsp"/>
    </action>
 
    <action path="/transfertransactions"

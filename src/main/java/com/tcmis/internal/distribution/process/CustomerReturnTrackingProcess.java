@@ -1,113 +1,106 @@
 package com.tcmis.internal.distribution.process;
 
-import java.util.*;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Locale;
 
-import org.apache.commons.logging.*;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import com.tcmis.common.admin.beans.PersonnelBean;
-import com.tcmis.common.db.*;
-import com.tcmis.common.exceptions.*;
+import com.tcmis.common.db.DbManager;
+import com.tcmis.common.exceptions.BaseException;
+import com.tcmis.common.exceptions.NoDataException;
 import com.tcmis.common.framework.BaseProcess;
 import com.tcmis.common.framework.GenericSqlFactory;
-import com.tcmis.common.util.*;
+import com.tcmis.common.util.DateHandler;
+import com.tcmis.common.util.ExcelHandler;
+import com.tcmis.common.util.ResourceLibrary;
+import com.tcmis.common.util.SqlHandler;
+import com.tcmis.common.util.StringHandler;
 import com.tcmis.internal.distribution.beans.CustomerReturnTrackingInputBean;
 import com.tcmis.internal.distribution.beans.CustomerReturnRequestViewBean;
 
+public class CustomerReturnTrackingProcess extends BaseProcess {
+	Log log = LogFactory.getLog(this.getClass());
 
+	public CustomerReturnTrackingProcess(String client, Locale locale) {
+		super(client, locale);
+	}
 
-/******************************************************************************
- * Process for logistics
- * @version 1.0
- *****************************************************************************/
-public class CustomerReturnTrackingProcess
-    extends BaseProcess {
-  Log log = LogFactory.getLog(this.getClass());
+	@SuppressWarnings("unchecked")
+	public Collection<CustomerReturnRequestViewBean> getSearchResult(CustomerReturnTrackingInputBean inputBean, PersonnelBean personnelBean, boolean isLimitSearch) throws BaseException {
+		StringBuilder query = new StringBuilder("SELECT v.*");
+		query.append(", crr.return_type");
 
-  public CustomerReturnTrackingProcess(String client,Locale locale) {
-    super(client,locale);
-  }
+		query.append(", decode(");
+		query.append("(SELECT count(*) FROM PURCHASE_REQUEST WHERE pr_number = v.pr_number AND account_sys_id not in ('DIST', 'Haas'))");
+		query.append(", 0, 'Y'");
+		query.append(", 'N') is_distribution");
 
-  public Collection getSearchResult(CustomerReturnTrackingInputBean inputBean, PersonnelBean personnelBean) throws BaseException {
-		DbManager dbManager = new DbManager(getClient(),getLocale());
+		query.append(" FROM CUSTOMER_RETURN_REQUEST_VIEW v, CUSTOMER_RETURN_REQUEST crr");
 
-		GenericSqlFactory factory = new GenericSqlFactory(dbManager,new CustomerReturnRequestViewBean());
-		
-		SearchCriteria searchCriteria = new SearchCriteria();
-	
-		if(!StringHandler.isBlankString(inputBean.getOpsEntityId())) 
-			searchCriteria.addCriterion("opsEntityId", SearchCriterion.EQUALS, inputBean.getOpsEntityId());
-		if(!StringHandler.isBlankString(inputBean.getHub())) 
-			searchCriteria.addCriterion("hub", SearchCriterion.EQUALS, inputBean.getHub());
-	    if(!StringHandler.isBlankString(inputBean.getInventoryGroup())){ 
-	        searchCriteria.addCriterion("inventoryGroup", SearchCriterion.EQUALS, inputBean.getInventoryGroup());
-	    }
-        else {
-            String invQuery = " select distinct inventory_group from user_inventory_group where personnel_id = " + personnelBean.getPersonnelId() ;
-            if( personnelBean.getCompanyId() != null && personnelBean.getCompanyId().length() != 0 )
-                invQuery +=  " and company_id = '" + personnelBean.getCompanyId() +"' ";
-            searchCriteria.addCriterion("inventoryGroup", SearchCriterion.IN, invQuery);
-        }
-	    
+		query.append(" WHERE v.customer_rma_id = crr.customer_rma_id(+)");
 
-	    String s = null;
+		if(!StringHandler.isBlankString(inputBean.getOpsEntityId())) {
+			query.append(" AND v.ops_entity_id = ").append(SqlHandler.delimitString(inputBean.getOpsEntityId()));
+		}
 
-	    s = inputBean.getSearchArgument();
-	    if ( s != null && !s.equals("") ) {
-	    	String mode = inputBean.getSearchMode();
-	    	String field = inputBean.getSearchField();
+		if(!StringHandler.isBlankString(inputBean.getHub())) {
+			query.append(" AND v.hub = ").append(SqlHandler.delimitString(inputBean.getHub()));
+		}
 
-	    	if( mode.equals("is") )
-	    	{
-	    		if( field.equalsIgnoreCase("prNumber") )
-	    		{
-	    			searchCriteria.addCriterion(field,SearchCriterion.EQUALS,s);
-	    		}
-	    		else if ( field.equalsIgnoreCase("customerRmaId") )
-	    		{
-	    			searchCriteria.addCriterion(field,SearchCriterion.EQUALS,s);
-	    		}
-	    		else
-	    		{
-	    			searchCriteria.addCriterion(field,SearchCriterion.EQUALS,
-	    					s,SearchCriterion.IGNORE_CASE);
-	    		}
-	    	}
-	    	if( mode.equals("contains"))
-	    		searchCriteria.addCriterion(field,
-	    				SearchCriterion.LIKE,
-	    				s,SearchCriterion.IGNORE_CASE);
-	    	if( mode.equals("startsWith"))
-	    		searchCriteria.addCriterion(field,
-	    				SearchCriterion.STARTS_WITH,
-	    				s,SearchCriterion.IGNORE_CASE); 
-	    	if( mode.equals("endsWith"))
-	    		searchCriteria.addCriterion(field,
-	    				SearchCriterion.ENDS_WITH,
-	    				s,SearchCriterion.IGNORE_CASE);
-	    }
-	    
-	    if ( inputBean.getRmaStatus() != null && !("").equals(inputBean.getRmaStatus()) ) {
-	    	searchCriteria.addCriterion("rmaStatus",SearchCriterion.EQUALS,inputBean.getRmaStatus());
-	    }
-	    
-	    if(inputBean.getSearchOption() != null && "1".equals(inputBean.getSearchOption())) 
-	    	searchCriteria.addCriterion("rmaStatus",SearchCriterion.NOT_IN,"'Complete','Draft'");
-//	    	searchCriteria.addCriterion("rmaStatus",SearchCriterion.IN,"'Submitted', 'Draft'");
-	    if (inputBean.getSearchOption() != null && "2".equals(inputBean.getSearchOption()) && inputBean.getDays() != null) {
-	    	Calendar cal = Calendar.getInstance();   
-	        int days =(inputBean.getDays().intValue())*(-1);
-	        cal.add(Calendar.DATE,days);  	    	
-            searchCriteria.addCriterion("requestStartDate",SearchCriterion.FROM_DATE,cal.getTime());
-         }
-	    SortCriteria scriteria = new SortCriteria();
-	    
-	return factory.select(searchCriteria, scriteria,"customer_return_request_view");
+		if(!StringHandler.isBlankString(inputBean.getInventoryGroup())) {
+			query.append(" AND v.inventory_group = ").append(SqlHandler.delimitString(inputBean.getInventoryGroup()));
+		} else if (isLimitSearch) {
+			StringBuilder subQuery = new StringBuilder("SELECT DISTINCT inventory_group");
+			subQuery.append(" FROM user_inventory_group");
+			subQuery.append(" WHERE personnel_id = ").append(personnelBean.getPersonnelId());
+			if (!StringHandler.isBlankString(personnelBean.getCompanyId())) {
+				subQuery.append(" AND company_id = ").append(SqlHandler.delimitString(personnelBean.getCompanyId()));
+			}
+
+			query.append(" AND v.inventory_group in (").append(subQuery).append(")");
+		}
+
+		if (!StringHandler.isBlankString(inputBean.getSearchArgument())) {
+			query.append(" AND v.").append(StringHandler.convertBeanPropertyToDatabaseColumn(inputBean.getSearchField()));
+
+			switch (inputBean.getSearchMode()) {
+				case "is":
+					query.append(" = ").append(SqlHandler.delimitString(inputBean.getSearchArgument()));
+					break;
+				case "contains":
+					query.append(" like ").append(SqlHandler.delimitString("%" + inputBean.getSearchArgument() + "%"));
+					break;
+				case "startsWith":
+					query.append(" like ").append(SqlHandler.delimitString(inputBean.getSearchArgument() + "%"));
+					break;
+				case "endsWith":
+					query.append(" like ").append(SqlHandler.delimitString("%" + inputBean.getSearchArgument()));
+					break;
+			}
+		}
+
+		if(!StringHandler.isBlankString(inputBean.getRmaStatus())) {
+			query.append(" AND v.rma_status = ").append(SqlHandler.delimitString(inputBean.getRmaStatus()));
+		}
+
+		if ("2".equals(inputBean.getSearchOption()) && inputBean.getDays() != null) {
+			Calendar cal = Calendar.getInstance();
+			cal.add(Calendar.DATE, (inputBean.getDays().intValue()) * (-1));
+
+			query.append(" AND v.request_start_date >= ").append(DateHandler.getOracleToDateFunction(cal.getTime()));
+		} else if ("1".equals(inputBean.getSearchOption())) {
+			query.append(" AND v.rma_status NOT IN ('Complete', 'Draft')");
+		}
+
+	return new GenericSqlFactory(new DbManager(getClient(),getLocale())).setBean(new CustomerReturnRequestViewBean()).selectQuery(query.toString());
  }
 
-
-public ExcelHandler getExcelReport(Collection customerReturnRequestColl) throws
+public ExcelHandler getExcelReport(CustomerReturnTrackingInputBean inputBean, PersonnelBean personnelBean) throws
   NoDataException, BaseException, Exception {
-	Collection<CustomerReturnRequestViewBean> data = customerReturnRequestColl; 
+	Collection<CustomerReturnRequestViewBean> data = getSearchResult(inputBean, personnelBean, true);
 	ResourceLibrary library = new ResourceLibrary("com.tcmis.common.resources.CommonResources", this.getLocaleObject());
 
 	ExcelHandler pw = new ExcelHandler(library);
@@ -147,8 +140,8 @@ for (CustomerReturnRequestViewBean member : data) {
 
   pw.addCell(member.getCustomerRmaId());
   pw.addCell(member.getCsrName());
-  pw.addCell(member.getOpsEntityName()); 
-  pw.addCell(member.getInventoryGroupName()); 
+  pw.addCell(member.getOpsEntityName());
+  pw.addCell(member.getInventoryGroupName());
   pw.addCell(member.getCustomerName());
   if (member.getPoNumber() == null) member.setPoNumber("");
   if (member.getReleaseNumber() == null) member.setReleaseNumber("");
@@ -163,7 +156,7 @@ for (CustomerReturnRequestViewBean member : data) {
   if(member.getQuantityReturnAuthorized() == null || member.getUnitPrice() == null)
 	  pw.addCell("");
   else
-	  pw.addCell(member.getQuantityReturnAuthorized().multiply(member.getUnitPrice()));    
+	  pw.addCell(member.getQuantityReturnAuthorized().multiply(member.getUnitPrice()));
   pw.addCell(member.getRmaStatus());
   pw.addCell(member.getReasonDescription());
   pw.addCell(member.getReturnNotes());

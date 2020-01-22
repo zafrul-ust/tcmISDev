@@ -1,6 +1,7 @@
 package com.tcmis.internal.distribution.action;
 
 import java.util.Collection;
+import java.util.Date;
 import java.math.BigDecimal;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,17 +20,13 @@ import com.tcmis.common.util.ResourceLibrary;
 import com.tcmis.internal.distribution.beans.CustomerReturnFeeBean;
 import com.tcmis.internal.distribution.beans.CustomerReturnRequestInputBean;
 import com.tcmis.internal.distribution.beans.CustomerReturnRcptShpViewBean;
-import com.tcmis.internal.distribution.beans.MrAddChargeViewBean;
-import com.tcmis.internal.distribution.beans.MrReturnChargeViewBean;
-import com.tcmis.internal.distribution.beans.NewFeesItemsViewBean;
 import com.tcmis.internal.distribution.beans.VvReturnReasonBean;
 import com.tcmis.internal.distribution.process.CustomerReturnRequestProcess;
 
 public class CustomerReturnRequestAction extends TcmISBaseAction {
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public ActionForward executeAction(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-
 		//Login
 		if (!this.isLoggedIn(request)) {
 			request.setAttribute("requestedPage", "customerreturnrequest");
@@ -39,22 +36,24 @@ public class CustomerReturnRequestAction extends TcmISBaseAction {
 
 		//Process search
 		PersonnelBean personnelBean = (PersonnelBean) this.getSessionObject(request, "personnelBean");
-		/*if (!personnelBean.getPermissionBean().hasUserPagePermission("salesOrders"))
-		{
-		   return (mapping.findForward("nopermissions"));
-		}*/
+		
 		CustomerReturnRequestProcess process = new CustomerReturnRequestProcess(this.getDbUser(request));
 		CustomerReturnRequestInputBean inputBean = new CustomerReturnRequestInputBean();
 		BeanHandler.copyAttributes(form, inputBean, getTcmISLocale(request));
 
 		// Insert
 		if (null != inputBean.getAction() && "insert".equals(inputBean.getAction())) {
-			//inputBean.setPersonnelId(personnelBean.getPersonnelId());	    	
+			inputBean.setRmaStatus("Draft");
+			inputBean.setReturnMaterial("Y");
+			inputBean.setCorrectItemShipped("Y");
+			inputBean.setWantReplacement("Y");
+			inputBean.setRequestStartDate(new Date());
+			inputBean.setDistributionReturn("Y");
+			
 			inputBean.setRmaId(process.addCustomerReturnRequest(inputBean, personnelBean));
-			request.setAttribute("customerReturnRequestResultBean", process.getCustomerReturnRequestData(inputBean));
+			request.setAttribute("customerReturnRequestResultBean", process.getCustomerReturnRequestData(inputBean, personnelBean));
 			request.setAttribute("rmaId", inputBean.getRmaId());
 			saveTcmISToken(request);
-			//  return (mapping.findForward("success"));
 		}
 		// Delete
 		else if (null != inputBean.getAction() && ("delete".equals(inputBean.getAction()))) {
@@ -62,20 +61,15 @@ public class CustomerReturnRequestAction extends TcmISBaseAction {
 			if (!personnelBean.getPermissionBean().hasInventoryGroupPermission("GenerateOrders", null, null, null)) {
 				request.setAttribute("tcmISError", getResourceBundleValue(request, "error.noaccesstopage"));
 				return mapping.findForward("success");
-
 			}
-
-//			if( 1==0) 
+			
 			try {
 				checkToken(request);
 				process.deleteCustomerReturnRequest(inputBean);
-
-
 			} catch (Exception ex) {
-
-				request.setAttribute("tcmISErrors", ex.toString());
+				log.error(ex.getMessage(), ex);
+				request.setAttribute("tcmISErrors", ex.getMessage());
 			}
-			//request.setAttribute("customerReturnRequestResultBean", process.getCustomerReturnRequestData(inputBean));
 			request.setAttribute("rmaId", inputBean.getRmaId());
 			request.setAttribute("deleted", "deleted");
 			return mapping.findForward("success");
@@ -83,13 +77,12 @@ public class CustomerReturnRequestAction extends TcmISBaseAction {
 		// Update
 		else
 		if (null != inputBean.getAction() && ("update".equals(inputBean.getAction()) || "submit".equals(inputBean.getAction()) || "approve".equals(inputBean.getAction()) || "deny".equals(inputBean.getAction()))) {
-
 			String err = "";
             if (inputBean.getReturnQuantityRequested() == null || inputBean.getReturnQuantityRequested().compareTo(BigDecimal.ONE) == -1)
             {
 			ResourceLibrary library = new ResourceLibrary("com.tcmis.common.resources.CommonResources", getTcmISLocale(request));
 			request.setAttribute("tcmISError", library.getString("error.returnquantityrequestedpositiveinteger"));
-			request.setAttribute("customerReturnRequestResultBean", process.getCustomerReturnRequestData(inputBean));
+			request.setAttribute("customerReturnRequestResultBean", process.getCustomerReturnRequestData(inputBean, personnelBean));
 			request.setAttribute("rmaId", inputBean.getRmaId());
 			saveTcmISToken(request);
 			return mapping.findForward("success");
@@ -97,13 +90,11 @@ public class CustomerReturnRequestAction extends TcmISBaseAction {
             if (!personnelBean.getPermissionBean().hasInventoryGroupPermission("GenerateOrders", null, null, null)) {
 				request.setAttribute("tcmISErrors", getResourceBundleValue(request, "error.noaccesstopage"));
 
-				request.setAttribute("customerReturnRequestResultBean", process.getCustomerReturnRequestData(inputBean));
+				request.setAttribute("customerReturnRequestResultBean", process.getCustomerReturnRequestData(inputBean, personnelBean));
 
 				request.setAttribute("rmaId", inputBean.getRmaId());
 
 				request.setAttribute("vvReasonBeanCollection", process.getReasonList());
-
-				//	request.setAttribute("originalFeeHeaderChargeCollection", process.getOriginalFeeHeaderChargeList(inputBean));
 
 				request.setAttribute("originalFeeLineChargeCollection", process.getOriginalFeeLineChargeList(inputBean));
 
@@ -111,19 +102,11 @@ public class CustomerReturnRequestAction extends TcmISBaseAction {
 
 				Collection<VvReturnReasonBean> addedReasonsBeanCollection = process.getAddedCustomerReasons(inputBean);
 
-				//Collection <MrReturnChargeViewBean> addedNewFeesBeanCollection = process.getAddedNewsFeesList(inputBean);
-
 				int addedReasonsCollectionSize = addedReasonsBeanCollection.size();
-
-				//int addedFeesCollectionSize = addedNewFeesBeanCollection.size();
 
 				request.setAttribute("reasonAddLimit", addedReasonsCollectionSize);
 
-				//request.setAttribute("newFeesAddLimit", addedFeesCollectionSize);
-
 				request.setAttribute("reasonsBeanCollection", addedReasonsBeanCollection);
-
-				//request.setAttribute("newFeesAddedBeanCollection",addedNewFeesBeanCollection );
 
 				request.setAttribute("prNumber", inputBean.getPrNumber());
 
@@ -147,8 +130,7 @@ public class CustomerReturnRequestAction extends TcmISBaseAction {
 				}
 				
 				Collection<CustomerReturnRcptShpViewBean> rcptBeans = BeanHandler.getBeans((DynaBean) form, "returnItemDiv", new CustomerReturnRcptShpViewBean(), getTcmISLocale(request));
-				process.updateCustomerReturnRcptShipped(rcptBeans, inputBean);
-
+				process.updateReceiptItemShippedIncorrectly(rcptBeans, inputBean);
 
 				if (!StringHandler.isBlankString(inputBean.getCopyNewFeesBean()) && "Yes".equals(inputBean.getCopyNewFeesBean())) {
 					CustomerReturnFeeBean bean = new CustomerReturnFeeBean();
@@ -170,31 +152,28 @@ public class CustomerReturnRequestAction extends TcmISBaseAction {
 						try {
 							err = process.approveRejectCustomerReturnRequest(inputBean, personnelBean);
 						} catch (Exception e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-							err = e.toString();
+							log.error(e.getMessage(), e);
+							err = e.getMessage();
 						}
-						if (err.trim().length() > 0) request.setAttribute("tcmISError", err);
+						if (!StringHandler.isBlankString(err))
+							request.setAttribute("tcmISError", err);
 					}
 				}
-
 			} catch (Exception ex) {
-				request.setAttribute("tcmISErrors", ex.toString());
+				log.error(ex.getMessage(), ex);
+				request.setAttribute("tcmISErrors", ex.getMessage());
 			}
 			if (err != null && !("OK").equalsIgnoreCase(err) && !("").equalsIgnoreCase(err))
 				request.setAttribute("tcmISErrors", err);
-			request.setAttribute("customerReturnRequestResultBean", process.getCustomerReturnRequestData(inputBean));
+			request.setAttribute("customerReturnRequestResultBean", process.getCustomerReturnRequestData(inputBean, personnelBean));
 			request.setAttribute("rmaId", inputBean.getRmaId());
-
-
 		}
 		// Search
 		else if (null != inputBean.getAction() && "search".equals(inputBean.getAction())) {
-			request.setAttribute("customerReturnRequestResultBean", process.getCustomerReturnRequestData(inputBean));
+			request.setAttribute("customerReturnRequestResultBean", process.getCustomerReturnRequestData(inputBean, personnelBean));
 			request.setAttribute("rmaId", inputBean.getRmaId());
 			saveTcmISToken(request);
 		}
-
 
 		request.setAttribute("vvReasonBeanCollection", process.getReasonList());
 
@@ -206,19 +185,13 @@ public class CustomerReturnRequestAction extends TcmISBaseAction {
 
 		Collection<VvReturnReasonBean> addedReasonsBeanCollection = process.getAddedCustomerReasons(inputBean);
 
-//		Collection <MrReturnChargeViewBean> addedNewFeesBeanCollection = process.getAddedNewsFeesList(inputBean);
-
 		int addedReasonsCollectionSize = addedReasonsBeanCollection.size();
-
-		//int addedFeesCollectionSize = addedNewFeesBeanCollection.size();
 
 		request.setAttribute("reasonAddLimit", addedReasonsCollectionSize);
 
-		//request.setAttribute("newFeesAddLimit", addedFeesCollectionSize);
-
 		request.setAttribute("reasonsBeanCollection", addedReasonsBeanCollection);
 
-		request.setAttribute("newFeesAddedBeanCollection", process.getAddedNewsFeesList(inputBean));//addedNewFeesBeanCollection
+		request.setAttribute("newFeesAddedBeanCollection", process.getAddedNewsFeesList(inputBean));
 
 		request.setAttribute("prNumber", inputBean.getPrNumber());
 
@@ -226,5 +199,4 @@ public class CustomerReturnRequestAction extends TcmISBaseAction {
 
 		return mapping.findForward("success");
 	}
-
 }

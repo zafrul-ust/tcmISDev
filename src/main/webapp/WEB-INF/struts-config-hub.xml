@@ -379,6 +379,8 @@
              path="/binlabelsresults.do" />
     <forward name="customerreturns"
              path="/customerreturns.do" />
+    <forward name="customerreturnsresults"
+             path="/customerreturnsresults.do" />
     <forward name="receivingqcmain"
              path="/receivingqcmain.do" />
     <forward name="receivingmain"
@@ -581,6 +583,8 @@
              path="/storagerulesmain.do" />
       <forward name="storagedataemail"
              path="/storagedataemail.do" />
+      <forward name="cmscustomerreturnrequest"
+               path="/cmscustomerreturnrequest.do" />
   </global-forwards>
 
   <action-mappings>
@@ -2543,9 +2547,9 @@
     <action path="/customerreturns"
             type="com.tcmis.internal.hub.action.CustomerReturnsAction"
             validate="true"
-            input="/customerreturns.jsp"
+            input="/customerreturnsmain.jsp"
             scope="request">
-        <forward name="success" path="/customerreturns.jsp"/>
+        <forward name="success" path="/customerreturnsmain.jsp"/>
     </action>
 
     <action path="/customerreturnsresults"
@@ -3933,6 +3937,15 @@
               validate="true"
               scope="request">
     </action>
+      
+   <action path="/cmscustomerreturnrequest"
+           type="com.tcmis.internal.hub.action.CmsCustomerReturnRequestAction"
+           name="genericForm"
+           validate="false"
+           input="/cmscustomerreturnrequest.jsp"
+           scope="request">
+           <forward name="success" path="/cmscustomerreturnrequest.jsp"/>
+   </action>
     
       <!-- ==================================================================== -->
 <!-- ==================================================================== -->

@@ -474,8 +474,7 @@ public class HubInvenLabelsTables
 	  rootcausenotes = BothHelpObjs.changeSingleQuotetoTwoSingleQuote(rootcausenotes);
 	  String qualitycntitem = ( hD.get( "QUALITY_CONTROL_ITEM" ) == null ? " " : hD.get( "QUALITY_CONTROL_ITEM" ).toString() );
 	  String certupdate = (hD.get("CERTUPDATE")==null?" ":hD.get("CERTUPDATE").toString());
-	  String expiredateUpdate = (hD.get("EXPIREDATEUPDATE")==null?" ":hD.get("EXPIREDATEUPDATE").toString());    
-	  String lotstatusupdate =  (hD.get("LOTSTATUSUPDATE")==null?" ":hD.get("LOTSTATUSUPDATE").toString());
+	  String expiredateUpdate = (hD.get("EXPIREDATEUPDATE")==null?" ":hD.get("EXPIREDATEUPDATE").toString());
 	  String dateOfShipment  =  (hD.get("DATE_OF_SHIPMENT")==null?"":hD.get("DATE_OF_SHIPMENT").toString());
 	  String dateOfManufacture= hD.get( "DATE_OF_MANUFACTURE" )==null?"":hD.get( "DATE_OF_MANUFACTURE" ).toString().trim();
 	  String deliveryTicket= BothHelpObjs.changeSingleQuotetoTwoSingleQuote(hD.get( "DELIVERY_TICKET" )==null?"":hD.get( "DELIVERY_TICKET" ).toString().trim());
@@ -497,47 +496,49 @@ public class HubInvenLabelsTables
 	  String countryOfOrigin   = (hD.get("COUNTRY_OF_ORIGIN")==null?"":hD.get("COUNTRY_OF_ORIGIN").toString());
 
 	  String qualityTrackingNumber  =BothHelpObjs.changeSingleQuotetoTwoSingleQuote(hD.get("QUALITY_TRACKING_NUMBER")==null?"":hD.get("QUALITY_TRACKING_NUMBER").toString());
-
-
-    int recertintnum = 0;
-    boolean updaterecert = false;
-
-    try{recertintnum = Integer.parseInt(recertnum);updaterecert = true;}catch(Exception ee){recertintnum=0;}
-
-    if ("Indefinite".equalsIgnoreCase(expdate))
-    {
-      expdate = "01/01/3000";
-    }
-
-    if ("Indefinite".equalsIgnoreCase(mfgLabelExpireDate))
-    {
-       mfgLabelExpireDate = "01/01/3000";
-    }
-
+	
+	boolean updaterecert = false;
+	
+	try{
+		Integer.parseInt(recertnum);
+		updaterecert = true;
+	} catch(Exception ee){}
+	
+	if ("Indefinite".equalsIgnoreCase(expdate))
+	{
+		expdate = "01/01/3000";
+	}
+	
+	if ("Indefinite".equalsIgnoreCase(mfgLabelExpireDate))
+	{
+		mfgLabelExpireDate = "01/01/3000";
+	}
+	
 	if ( (expdate.length() > 0 ) && expdate.length() != 10)
 	{
-	  result=false;
-      return result;
+		return false;
 	}
 
-    CallableStatement cs=null;
-    String updquery="";
-    try
-    {
-      if ( "Customer Purchase".equalsIgnoreCase(Sel_status) || "Write Off Requested".equalsIgnoreCase(Sel_status) || "3PL Purchase".equalsIgnoreCase(Sel_status) )
-      {
-        if (rootcause.trim().length() == 0 || rootcausecompany.trim().length() == 0)
-        {
-          result=false;
-          return result;
-        }
-      }
-
-      updquery="update receipt set QA_STATEMENT = '"+qaStatement+"',SUPPLIER_CAGE_CODE = '"+supplierCageCode+"',UNIT_LABEL_PRINTED='"+unitLabelPrinted+"',DELIVERY_TICKET='"+deliveryTicket+"',BIN='" + bin_name1 + "',EXPIRE_DATE=to_date('" + expdate + "'" + "," +"'MM/DD/YYYY'),MFG_LABEL_EXPIRE_DATE=to_date('" + mfgLabelExpireDate + "'" + "," +"'MM/DD/YYYY'),MFG_LOT='" + mfglot + "',LAST_MODIFIED_BY = '"+loginID+"'"+ ",QUALITY_TRACKING_NUMBER = '"+ qualityTrackingNumber +"'";
-	  if (!"Incoming".equalsIgnoreCase(Sel_status))
-      {
-        updquery+=",LOT_STATUS='" + Sel_status + "'";
-      }
+	CallableStatement cs=null;
+	String updquery="";
+	try
+	{
+		if ( "Customer Purchase".equalsIgnoreCase(Sel_status) || "Write Off Requested".equalsIgnoreCase(Sel_status) || "3PL Purchase".equalsIgnoreCase(Sel_status) )
+		{
+			if (rootcause.trim().length() == 0 || rootcausecompany.trim().length() == 0)
+			{
+				return false;
+			}
+		}
+		
+		updquery="update receipt set QA_STATEMENT = '"+qaStatement+"',SUPPLIER_CAGE_CODE = '"+supplierCageCode+"',UNIT_LABEL_PRINTED='"+unitLabelPrinted+"',DELIVERY_TICKET='"+deliveryTicket+"',BIN='" + bin_name1 + "',EXPIRE_DATE=to_date('" + expdate + "'" + "," +"'MM/DD/YYYY'),MFG_LABEL_EXPIRE_DATE=to_date('" + mfgLabelExpireDate + "'" + "," +"'MM/DD/YYYY'),MFG_LOT='" + mfglot + "',LAST_MODIFIED_BY = '"+loginID+"'"+ ",QUALITY_TRACKING_NUMBER = '"+ qualityTrackingNumber +"'";
+		if (!"Incoming".equalsIgnoreCase(Sel_status)) {
+			updquery+=",LOT_STATUS='" + Sel_status + "'";
+			
+			if((Boolean) hD.getOrDefault("SYNCWITHWMS", false) == true) {
+				updquery+=",WMS_SYNCHRONIZED='N'";
+			}
+		}
 
         if (dateOfManufacture.length() > 0)
 			{
@@ -578,9 +579,6 @@ public class HubInvenLabelsTables
 	  }
 	  
 	  updquery+=",COUNTRY_OF_ORIGIN='" + countryOfOrigin + "'";
-	  
-	  if(hD.get("SYNCWITHWMS") != null && (Boolean)hD.get("SYNCWITHWMS") == true)
-		  updquery+=",WMS_SYNCHRONIZED='N'";
 
       updquery += " where RECEIPT_ID = " + Oreceipt_id + " ";
 

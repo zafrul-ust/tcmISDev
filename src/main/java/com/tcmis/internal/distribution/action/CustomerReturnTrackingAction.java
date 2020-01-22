@@ -1,6 +1,4 @@
-  package com.tcmis.internal.distribution.action;
-
-  import java.util.Collection;
+package com.tcmis.internal.distribution.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,16 +16,10 @@ import com.tcmis.common.util.BeanHandler;
 import com.tcmis.internal.distribution.beans.CustomerReturnTrackingInputBean;
 import com.tcmis.internal.distribution.process.CustomerReturnTrackingProcess;
 
-  /******************************************************************************
-   * Controller for CustomerAddressSearch
-   * @version 1.0
-   ******************************************************************************/
-  public class CustomerReturnTrackingAction
-      extends TcmISBaseAction {
+public class CustomerReturnTrackingAction extends TcmISBaseAction {
     public ActionForward executeAction(ActionMapping mapping, ActionForm form,
                                        HttpServletRequest request,
-                                       HttpServletResponse response) throws
-        BaseException, Exception {
+                                       HttpServletResponse response) throws BaseException, Exception {
 
     	if (!this.isLoggedIn(request)) {
     	      request.setAttribute("requestedPage", "customerreturntrackingmain");
@@ -51,11 +43,11 @@ import com.tcmis.internal.distribution.process.CustomerReturnTrackingProcess;
     	    BeanHandler.copyAttributes(form, inputBean, this.getTcmISLocale(request));
     	    String action =  (String)( (DynaBean) form).get("uAction");			//
     	    if ( "search".equals(action) ) {
-    	    	request.setAttribute("customerReturnRequestViewCollection", process.getSearchResult(inputBean, personnelBean));
+    	    	request.setAttribute("customerReturnRequestViewCollection", process.getSearchResult(inputBean, personnelBean, true));
     	    }
     	    else if ( "createExcel".equals(action) ) {  	    	
     				this.setExcel(response,"CustomerReturnRequest");
-    				process.getExcelReport(process.getSearchResult(inputBean, personnelBean)).write(response.getOutputStream());  			
+    				process.getExcelReport(inputBean, personnelBean).write(response.getOutputStream());  			
     			return noForward;
     	    }
     	   

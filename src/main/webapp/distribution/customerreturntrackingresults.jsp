@@ -13,8 +13,8 @@
 
 <html:html lang="true">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta http-equiv="expires" content="-1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="expires" content="-1"/>
 <link rel="shortcut icon" href="https://www.tcmis.com/images/buttons/tcmIS.ico"></link>
 
 <%@ include file="/common/locale.jsp" %>
@@ -86,6 +86,7 @@ searchDuration:"<fmt:message key="label.searchDuration"/>",minutes:"<fmt:message
 validvalues:"<fmt:message key="label.validvalues"/>",
 submitOnlyOnce:"<fmt:message key="label.submitOnlyOnce"/>",
 customerreturnrequest:"<fmt:message key="customerreturnrequest.title"/>",
+cmscustomerreturnrequest:"<fmt:message key="cmscustomerreturnrequest.title"/>",
 viewrma:"<fmt:message key="label.viewrma"/>", 
 itemInteger:"<fmt:message key="error.item.integer"/>"};
 
@@ -194,10 +195,11 @@ var config = [
   {columnId:"prNumber"
   },
   {
-   columnId:"hasPermission",
-   columnName:''
+   columnId:"hasPermission"
+  },
+  {
+	columnId:"isDistribution"
   }
-
   ];
 
 
@@ -285,7 +287,8 @@ rows:[
   '<tcmis:jsReplace value="${bean.returnNotes}" processMultiLines="true" />',
   '${bean.lineItem}',
   '${bean.prNumber}',
-  '${showUpdateLink}'	
+  '${showUpdateLink}',
+  '${bean.isDistribution}'
   ]
 }
 

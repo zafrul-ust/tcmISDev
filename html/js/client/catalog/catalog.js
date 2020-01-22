@@ -141,9 +141,9 @@ function getComment( comment , callbackParam ) {
 
 function editComment() {
 var url = 'editcomment.do?catPartNo='+ encodeURIComponent( cellValue(selectedRowId,"catPartNo") ) +
-			'&catalogCompanyId='+ cellValue(selectedRowId,"catalogCompanyId") +
-            '&partGroupNo='+ cellValue(selectedRowId,"partGroupNo") +
-            '&catalogId='+ cellValue(selectedRowId,"catalogId") +
+			'&catalogCompanyId='+ encodeURIComponent(cellValue(selectedRowId,"catalogCompanyId")) +
+            '&partGroupNo='+ encodeURIComponent(cellValue(selectedRowId,"partGroupNo")) +
+            '&catalogId='+ encodeURIComponent(cellValue(selectedRowId,"catalogId")) +
    			'&facilityId=' + encodeURIComponent($('facilityId').value) +
    			'&callback=getComment' +
    			'&callbackParam=' +selectedRowId +
@@ -160,10 +160,10 @@ function approvedWorkAreas() {
     }catch(ex){}
 
     var url = 'approvedworkareas.do?facPartNo='+ encodeURIComponent( cellValue(selectedRowId,"catPartNo")) +
-            '&partGroupNo='+ cellValue(selectedRowId,"partGroupNo") +
-            '&catalogCompanyId='+cellValue(selectedRowId,"catalogCompanyId") +
-            '&catalogId='+cellValue(selectedRowId,"catalogId")+
-            '&companyId='+$('companyId').value+
+            '&partGroupNo='+ encodeURIComponent(cellValue(selectedRowId,"partGroupNo")) +
+            '&catalogCompanyId='+encodeURIComponent(cellValue(selectedRowId,"catalogCompanyId")) +
+            '&catalogId='+encodeURIComponent(cellValue(selectedRowId,"catalogId"))+
+            '&companyId='+encodeURIComponent($('companyId').value)+
             '&facilityId='+encodeURIComponent($('facilityId').value)+
             '&allCatalog='+allCatalog;
 
@@ -173,39 +173,39 @@ function approvedWorkAreas() {
 function workAreasComments() {
 
 openWinGeneric('workareacommentsmain.do?catPartNo='+ encodeURIComponent( cellValue(selectedRowId,"catPartNo") ) +
-            '&partGroupNo='+ cellValue(selectedRowId,"partGroupNo") +
+            '&partGroupNo='+ encodeURIComponent(cellValue(selectedRowId,"partGroupNo")) +
             '&applicationId=' + encodeURIComponent( $('applicationId').value ) +
    			'&facilityId=' + encodeURIComponent($('facilityId').value) +
-            '&catalogId='+ cellValue(selectedRowId,"catalogId")
+            '&catalogId='+ encodeURIComponent(cellValue(selectedRowId,"catalogId"))
             ,"workareacomments",700,500,'yes' );
 }
 
 function partComments() {
-var url = 'partnotesmain.do?catalogId='+cellValue(selectedRowId,"catalogId") +
+var url = 'partnotesmain.do?catalogId='+encodeURIComponent(cellValue(selectedRowId,"catalogId")) +
        '&readonly=yes&catPartNo='+encodeURIComponent( cellValue(selectedRowId,"catPartNo") ) +
-       '&catalogCompanyId='+cellValue(selectedRowId,"catalogCompanyId") +
-       '&companyId='+$('companyId').value ;
+       '&catalogCompanyId='+encodeURIComponent(cellValue(selectedRowId,"catalogCompanyId")) +
+       '&companyId='+encodeURIComponent($('companyId').value) ;
 openWinGeneric(url,"PartComment",600,300,'yes' );
 }
 
 function leadTimePlots() {
 //leadtime splot:
 openWinGeneric('createleadtimechart.do?catPartNo='+ encodeURIComponent( cellValue(selectedRowId,"catPartNo") ) +
-            '&inventoryGroup='+ cellValue(selectedRowId,"inventoryGroup") +
-            '&catalogId='+cellValue(selectedRowId,"catalogId")+
-            '&catalogCompanyId='+cellValue(selectedRowId,"catalogCompanyId") +
-            '&partGroupNo='+ cellValue(selectedRowId,"partGroupNo") +
-            '&inventoryGroupName=' + cellValue(selectedRowId,"inventoryGroupName")
+            '&inventoryGroup='+ encodeURIComponent(cellValue(selectedRowId,"inventoryGroup")) +
+            '&catalogId='+encodeURIComponent(cellValue(selectedRowId,"catalogId"))+
+            '&catalogCompanyId='+encodeURIComponent(cellValue(selectedRowId,"catalogCompanyId")) +
+            '&partGroupNo='+ encodeURIComponent(cellValue(selectedRowId,"partGroupNo")) +
+            '&inventoryGroupName=' + encodeURIComponent(cellValue(selectedRowId,"inventoryGroupName"))
             ,"LeadTimePlots","600","600",'yes' );
 
 }
 
 function callItemInventory() {
 openWinGeneric('inventorydetail.do?catPartNo='+ encodeURIComponent( cellValue(selectedRowId,"catPartNo") ) +
-            '&inventoryGroup='+ cellValue(selectedRowId,"inventoryGroup") +
-            '&catalogId='+cellValue(selectedRowId,"catalogId")+
-            '&catalogCompanyId='+cellValue(selectedRowId,"catalogCompanyId")+
-            '&partGroupNo='+ cellValue(selectedRowId,"partGroupNo")
+            '&inventoryGroup='+ encodeURIComponent(cellValue(selectedRowId,"inventoryGroup")) +
+            '&catalogId='+encodeURIComponent(cellValue(selectedRowId,"catalogId"))+
+            '&catalogCompanyId='+encodeURIComponent(cellValue(selectedRowId,"catalogCompanyId"))+
+            '&partGroupNo='+ encodeURIComponent(cellValue(selectedRowId,"partGroupNo"))
             ,"ItemInventory","600","600",'yes' );
 }
 
@@ -213,7 +213,7 @@ function qualitySummary() {
 	openWinGeneric('qualitysummary.do?catPartNo='+ encodeURIComponent(cellValue(selectedRowId,"catPartNo") ) +
 	               '&catalogId='+encodeURIComponent(cellValue(selectedRowId,"catalogId")) +
 	               '&catalogCompanyId='+encodeURIComponent(cellValue(selectedRowId,"catalogCompanyId"))+
-                   '&partGroupNo='+ cellValue(selectedRowId,"partGroupNo")+
+                   '&partGroupNo='+ encodeURIComponent(cellValue(selectedRowId,"partGroupNo"))+
                    '&catalogDesc=' + encodeURIComponent(cellValue(selectedRowId,"catalogDesc"))+
                    '&facilityId=' + encodeURIComponent($('facilityId').value)
                    ,"QualitySummary","800","600",'yes' );
@@ -232,7 +232,7 @@ function showSpec( specId ) {
     openWinGeneric(tmpUrl + 'docViewer.do?uAction=viewSpec' +
 			'&spec=' + encodeURIComponent(specId) +
             '&hasSpecificFacility='+hasSpecificFacility+
-            '&companyId=' + $v('companyId') +
+            '&companyId=' + encodeURIComponent($v('companyId')) +
 			'&facility=' + encodeURIComponent($v('facilityId')) +
 			'&catalogId=' + encodeURIComponent(cellValue(selectedRowId,"catalogId")) +
 			'&catpartno=' + encodeURIComponent(cellValue(selectedRowId,"catPartNo"))
@@ -242,32 +242,32 @@ function showSpec( specId ) {
 function viewMSDS() {
 	if(newMsdsViewer)
 		openWinGeneric('viewmsds.do?act=msds'+
-			'&materialId='+ cellValue(selectedRowId,"materialId") +
+			'&materialId='+ encodeURIComponent(cellValue(selectedRowId,"materialId")) +
 			'&showspec=N' +
 			'&spec=' + // do we need to know spec id?
-			'&cl='+$v('companyId') +
+			'&cl='+encodeURIComponent($v('companyId')) +
 			'&facility=' + encodeURIComponent($('facilityId').value) +
 			'&catpartno=' + encodeURIComponent( cellValue(selectedRowId,"catPartNo")  )
 			,"ViewMSDS","1024","720",'yes' );
 	else 
 		openWinGeneric('ViewMsds?act=msds'+
-			'&id='+ cellValue(selectedRowId,"materialId") +
+			'&id='+ encodeURIComponent(cellValue(selectedRowId,"materialId")) +
 			'&showspec=N' +
 			'&spec=' + // do we need to know spec id?
-			'&cl='+$v('companyId') +
+			'&cl='+encodeURIComponent($v('companyId')) +
 			'&facility=' + encodeURIComponent($('facilityId').value) +
 			'&catpartno=' + encodeURIComponent( cellValue(selectedRowId,"catPartNo")  )
 			,"ViewMSDS","1024","720",'yes' );
 }
 
 function viewMaterialDoc() {
-	var loc = "showmsdsdocuments.do?showDocuments=Yes&materialId="+cellValue(selectedRowId,"materialId")+'&documentTypeSource=Catalog'+'&companyId='+$v('companyId');
+	var loc = "showmsdsdocuments.do?showDocuments=Yes&materialId="+encodeURIComponent(cellValue(selectedRowId,"materialId"))+'&documentTypeSource=Catalog'+'&companyId='+encodeURIComponent($v('companyId'));
 	openWinGeneric(loc,"showMsdsDocuments","800","350",'yes' );
 }
 
 function addEditSynonym() {
 	parent.showTransitWin("",formatMessage(messagesData.waitingforinput, messagesData.addeditsynonym+" "+cellValue(selectedRowId,"materialId"))+"...");
-	openWinGeneric('addeditsynonym.do?materialId='+ cellValue(selectedRowId,"materialId")  +
+	openWinGeneric('addeditsynonym.do?materialId='+ encodeURIComponent(cellValue(selectedRowId,"materialId"))  +
 			'&facilityId=' + encodeURIComponent($v('facilityId')) 
 			,"addEditSynonym","450","190",'no' );
 }
@@ -429,11 +429,11 @@ function selectRow()
          fid    = $('facilityId').value;
 		 appid = $('applicationId').value;
 		 url = "catalogmenu.do?uAction=loaddata&catPartNo="+ encodeURIComponent( catp ) +
-															  "&catalogId="+ catid +
-															  "&catalogCompanyId="+ catcom +
-															  "&partGroupNo="+ pgn +
-															  "&inventoryGroup="+ ig +
-															  "&itemId="+ itemid +
+															  "&catalogId="+ encodeURIComponent(catid) +
+															  "&catalogCompanyId="+ encodeURIComponent(catcom) +
+															  "&partGroupNo="+ encodeURIComponent(pgn) +
+															  "&inventoryGroup="+ encodeURIComponent(ig) +
+															  "&itemId="+ encodeURIComponent(itemid) +
                                                               "&companyId="+ encodeURIComponent(cid) +
                                                               "&facilityId="+ encodeURIComponent(fid) +
 															  "&applicationId="+ encodeURIComponent( appid );
@@ -695,27 +695,27 @@ if( buildbaseline ) {
 }
 
 function editApprovalCode() {
-	openWinGeneric('editapprovalcodes.do?uAction=view&companyId='+$v("companyId")+
+	openWinGeneric('editapprovalcodes.do?uAction=view&companyId='+encodeURIComponent($v("companyId"))+
             '&facilityId='+encodeURIComponent($v("facilityId"))+
             '&catalogId='+encodeURIComponent(cellValue(selectedRowId,"catalogId")) +
-            '&catalogCompanyId='+cellValue(selectedRowId,"catalogCompanyId")+
+            '&catalogCompanyId='+encodeURIComponent(cellValue(selectedRowId,"catalogCompanyId"))+
             '&catPartNo='+encodeURIComponent(cellValue(selectedRowId,"catPartNo"))+
-            '&partGroupNo='+cellValue(selectedRowId,"partGroupNo"),"editApprovalCodes","950","475",'yes');
+            '&partGroupNo='+encodeURIComponent(cellValue(selectedRowId,"partGroupNo")),"editApprovalCodes","950","475",'yes');
 }
 
 function testDefinition() {
-	openWinGeneric('testdefinition.do?companyId='+$v("companyId")+
+	openWinGeneric('testdefinition.do?companyId='+encodeURIComponent($v("companyId"))+
                    '&facilityId='+encodeURIComponent($v("facilityId"))+
 	               '&catalogId='+encodeURIComponent(cellValue(selectedRowId,"catalogId")) +
-                   '&catalogCompanyId='+cellValue(selectedRowId,"catalogCompanyId")+
+                   '&catalogCompanyId='+encodeURIComponent(cellValue(selectedRowId,"catalogCompanyId"))+
 	               '&catPartNo='+encodeURIComponent(cellValue(selectedRowId,"catPartNo"))+
-                   '&partGroupNo='+cellValue(selectedRowId,"partGroupNo")+
+                   '&partGroupNo='+encodeURIComponent(cellValue(selectedRowId,"partGroupNo"))+
 	               '&partDesc='+encodeURIComponent(cellValue(selectedRowId,"partDescription")),"testDefinition","950","650",'yes');
 }
 
 function showCatalogAddRequestScreen(requestId) {
     if ( requestId != null &&  requestId != 0) {
-        var loc = "catalogaddrequest.do?uAction=view&requestId="+requestId;
+        var loc = "catalogaddrequest.do?uAction=view&requestId="+encodeURIComponent(requestId);
        
         try{
             parent.parent.openIFrame("cataddreq"+requestId,loc,""+messagesData.cataddreq+" "+requestId,"","N");
@@ -1113,17 +1113,17 @@ function editDirectedCharge(accountSysId) {
 	curAccountSysId = accountSysId;
 
 	var url = 'clientcabinetmanagementmain.do?uAction=editCabinetDirectedCharge';
-	url += '&companyId='+$v("companyId");
-	url += '&accountSysId='+accountSysId;
-	url += '&facilityId='+$v("facilityId");
-	url += '&facilityName='+parent.$v("lastSearchFacilityDesc");
+	url += '&companyId='+encodeURIComponent($v("companyId"));
+	url += '&accountSysId='+encodeURIComponent(accountSysId);
+	url += '&facilityId='+encodeURIComponent($v("facilityId"));
+	url += '&facilityName='+encodeURIComponent(parent.$v("lastSearchFacilityDesc"));
 	url += '&sourcePage=clientCabinetManagement';
 	url += '&searchText=part';   //I am using this field to keep track of where this is called from
-	url += '&applicationId='+$v("applicationId");
-	url += '&catalogCompanyId='+cellValue(mygrid.getSelectedRowId(),"catalogCompanyId");
-	url += '&catalogId='+cellValue(mygrid.getSelectedRowId(),"catalogId");
-	url += '&catalogAddPartGroupNo='+cellValue(mygrid.getSelectedRowId(),"partGroupNo");
-	url += '&catalogAddCatPartNo='+cellValue(mygrid.getSelectedRowId(),"catPartNo");  //the reason I am using this is because cat_part_no is an array
+	url += '&applicationId='+encodeURIComponent($v("applicationId"));
+	url += '&catalogCompanyId='+encodeURIComponent(cellValue(mygrid.getSelectedRowId(),"catalogCompanyId"));
+	url += '&catalogId='+encodeURIComponent(cellValue(mygrid.getSelectedRowId(),"catalogId"));
+	url += '&catalogAddPartGroupNo='+encodeURIComponent(cellValue(mygrid.getSelectedRowId(),"partGroupNo"));
+	url += '&catalogAddCatPartNo='+encodeURIComponent(cellValue(mygrid.getSelectedRowId(),"catPartNo"));  //the reason I am using this is because cat_part_no is an array
     if (directedChargeAssignment) {
         url += '&canEditData=Y';    
     }else {
@@ -1135,22 +1135,22 @@ function editDirectedCharge(accountSysId) {
 
 function setWorkAreaDirectedChargeNumbers(chargeType,chargeNumbers,poNumber,releaseNumber,userEnteredChargeNumber,ignoreNullChargeNumber) {
 	var url = "clientcabinetmanagementmain.do?uAction=setWorkAreaCabinetPartDirectedCharge";
-	url += "&companyId="+$v("companyId");
-	url += "&accountSysId="+curAccountSysId;
-	url += "&facilityId="+$v("facilityId");
-	url += "&poNumber="+poNumber;
-	url += "&poLine="+releaseNumber;
-	url += "&chargeType="+chargeType;
-	url += "&chargeNumbers="+chargeNumbers;
-	url += "&userEnteredChargeNumber="+userEnteredChargeNumber;
-    url += "&ignoreNullChargeNumber="+ignoreNullChargeNumber;
+	url += "&companyId="+encodeURIComponent($v("companyId"));
+	url += "&accountSysId="+encodeURIComponent(curAccountSysId);
+	url += "&facilityId="+encodeURIComponent($v("facilityId"));
+	url += "&poNumber="+encodeURIComponent(poNumber);
+	url += "&poLine="+encodeURIComponent(releaseNumber);
+	url += "&chargeType="+encodeURIComponent(chargeType);
+	url += "&chargeNumbers="+encodeURIComponent(chargeNumbers);
+	url += "&userEnteredChargeNumber="+encodeURIComponent(userEnteredChargeNumber);
+    url += "&ignoreNullChargeNumber="+encodeURIComponent(ignoreNullChargeNumber);
     url += "&sourcePage=clientCabinetManagement";
 	url += "&searchText=part";   //I am using this field to keep track of where this is called from
-	url += '&applicationId='+$v("applicationId");
-	url += '&catalogCompanyId='+cellValue(mygrid.getSelectedRowId(),"catalogCompanyId");
-	url += '&catalogId='+cellValue(mygrid.getSelectedRowId(),"catalogId");
-	url += '&catalogAddPartGroupNo='+cellValue(mygrid.getSelectedRowId(),"partGroupNo");
-	url += '&catalogAddCatPartNo='+cellValue(mygrid.getSelectedRowId(),"catPartNo");  //the reason I am using this is because cat_part_no is an array
+	url += '&applicationId='+encodeURIComponent($v("applicationId"));
+	url += '&catalogCompanyId='+encodeURIComponent(cellValue(mygrid.getSelectedRowId(),"catalogCompanyId"));
+	url += '&catalogId='+encodeURIComponent(cellValue(mygrid.getSelectedRowId(),"catalogId"));
+	url += '&catalogAddPartGroupNo='+encodeURIComponent(cellValue(mygrid.getSelectedRowId(),"partGroupNo"));
+	url += '&catalogAddCatPartNo='+encodeURIComponent(cellValue(mygrid.getSelectedRowId(),"catPartNo"));  //the reason I am using this is because cat_part_no is an array
 
 	callToServer(url);
 } //end of method
@@ -1166,16 +1166,16 @@ function setChargeNumberPoData(chargeType,chargeNumber,poNumber,releaseNumber,us
 
 function deleteDirectedCharge(chargeType) {
 	var url = "clientcabinetmanagementmain.do?uAction=deleteDirectedCharge";
-	url += "&companyId="+$v("companyId");
-	url += "&facilityId="+$v("facilityId");
+	url += "&companyId="+encodeURIComponent($v("companyId"));
+	url += "&facilityId="+encodeURIComponent($v("facilityId"));
     url += "&sourcePage=clientCabinetManagement";
     url += "&searchText=part";   //I am using this field to keep track of where this is called from
-	url += "&applicationId="+$v("applicationId");
-    url += "&chargeType="+chargeType;
-    url += '&catalogCompanyId='+cellValue(mygrid.getSelectedRowId(),"catalogCompanyId");
-	url += '&catalogId='+cellValue(mygrid.getSelectedRowId(),"catalogId");
-	url += '&catalogAddPartGroupNo='+cellValue(mygrid.getSelectedRowId(),"partGroupNo");
-	url += '&catalogAddCatPartNo='+cellValue(mygrid.getSelectedRowId(),"catPartNo");  //the reason I am using this is because cat_part_no is an array
+	url += "&applicationId="+encodeURIComponent($v("applicationId"));
+    url += "&chargeType="+encodeURIComponent(chargeType);
+    url += '&catalogCompanyId='+encodeURIComponent(cellValue(mygrid.getSelectedRowId(),"catalogCompanyId"));
+	url += '&catalogId='+encodeURIComponent(cellValue(mygrid.getSelectedRowId(),"catalogId"));
+	url += '&catalogAddPartGroupNo='+encodeURIComponent(cellValue(mygrid.getSelectedRowId(),"partGroupNo"));
+	url += '&catalogAddCatPartNo='+encodeURIComponent(cellValue(mygrid.getSelectedRowId(),"catPartNo"));  //the reason I am using this is because cat_part_no is an array
 	callToServer(url);
 }
 
@@ -1201,32 +1201,32 @@ function addWorkAreaCabinetPartDirectedChargeNumbers(chargeType,chargeNumbers,po
 	parent.showTransitWin("",formatMessage(messagesData.waitingforinput, messagesData.directedCharge)+"...");
 
 	var url = "clientcabinetmanagementmain.do?uAction=addWorkAreaCabinetPartDirectedCharge";
-	url += "&companyId="+$v("companyId");
-	url += "&accountSysId="+curAccountSysId;
-	url += "&facilityId="+$v("facilityId");
-	url += "&poNumber="+poNumber;
-	url += "&poLine="+releaseNumber;
-	url += "&chargeType="+chargeType;
-	url += "&chargeNumbers="+chargeNumbers;
-	url += "&userEnteredChargeNumber="+userEnteredChargeNumber;
+	url += "&companyId="+encodeURIComponent($v("companyId"));
+	url += "&accountSysId="+encodeURIComponent(curAccountSysId);
+	url += "&facilityId="+encodeURIComponent($v("facilityId"));
+	url += "&poNumber="+encodeURIComponent(poNumber);
+	url += "&poLine="+encodeURIComponent(releaseNumber);
+	url += "&chargeType="+encodeURIComponent(chargeType);
+	url += "&chargeNumbers="+encodeURIComponent(chargeNumbers);
+	url += "&userEnteredChargeNumber="+encodeURIComponent(userEnteredChargeNumber);
 	url += "&sourcePage=clientCabinetManagement";
 	url += "&searchText=part";   //I am using this field to keep track of where this is called from
-	url += '&applicationId='+$v("applicationId");
-	url += '&catalogCompanyId='+cellValue(mygrid.getSelectedRowId(),"catalogCompanyId");
-	url += '&catalogId='+cellValue(mygrid.getSelectedRowId(),"catalogId");
-	url += '&catalogAddPartGroupNo='+cellValue(mygrid.getSelectedRowId(),"partGroupNo");
-	url += '&catalogAddCatPartNo='+cellValue(mygrid.getSelectedRowId(),"catPartNo");  //the reason I am using this is because cat_part_no is an array
+	url += '&applicationId='+encodeURIComponent($v("applicationId"));
+	url += '&catalogCompanyId='+encodeURIComponent(cellValue(mygrid.getSelectedRowId(),"catalogCompanyId"));
+	url += '&catalogId='+encodeURIComponent(cellValue(mygrid.getSelectedRowId(),"catalogId"));
+	url += '&catalogAddPartGroupNo='+encodeURIComponent(cellValue(mygrid.getSelectedRowId(),"partGroupNo"));
+	url += '&catalogAddCatPartNo='+encodeURIComponent(cellValue(mygrid.getSelectedRowId(),"catPartNo"));  //the reason I am using this is because cat_part_no is an array
 
 	callToServer(url);
 }
 
 function viewKitMsds() {
 	var reportLoc = "/HaasReports/report/printConfigurableReport.do"+
-                    "?pr_itemId="+cellValue(mygrid.getSelectedRowId(),"itemId")+
-                    "&pr_companyId="+$v("companyId")+
+                    "?pr_itemId="+encodeURIComponent(cellValue(mygrid.getSelectedRowId(),"itemId"))+
+                    "&pr_companyId="+encodeURIComponent($v("companyId"))+
 				    "&pr_custMsdsDb="+
-				    "&pr_custMsdsNo="+kitMsdsNumber+
-                    "&pr_catalogCompanyId="+cellValue(mygrid.getSelectedRowId(),"catalogCompanyId")+
+				    "&pr_custMsdsNo="+encodeURIComponent(kitMsdsNumber)+
+                    "&pr_catalogCompanyId="+encodeURIComponent(cellValue(mygrid.getSelectedRowId(),"catalogCompanyId"))+
                     "&pr_catalogId="+encodeURIComponent(cellValue(mygrid.getSelectedRowId(),"catalogId"))+
                     "&rpt_ReportBeanId=MSDSKitReportDefinition";
 	openWinGeneric(reportLoc,"viewKitMsds","800","550","yes","100","100");
@@ -1236,16 +1236,16 @@ function viewKitMsds() {
 function printSecondaryLabelInformation() {
 var labelQty = 1;
 labelQty = prompt(messagesData.labelquantity,labelQty);
-openWinGeneric('printsecondarylabelinformation.do?materialId='+ cellValue(selectedRowId,"materialId") +
+openWinGeneric('printsecondarylabelinformation.do?materialId='+ encodeURIComponent(cellValue(selectedRowId,"materialId")) +
 			'&facilityId=' + encodeURIComponent($('facilityId').value) +
 			'&catalogId=' + encodeURIComponent( cellValue(selectedRowId,"catalogId"))+
-            '&labelQty=' + labelQty
+            '&labelQty=' + encodeURIComponent(labelQty)
             ,"SecondaryLabelInformation","900","600",'yes' );
 }
 
 function updateSecondaryLabelInformation() {
 	parent.showTransitWin("",formatMessage(messagesData.waitingforinput, messagesData.secondarylabelinformationformaterialid+" "+cellValue(selectedRowId,"materialId"))+"...");
-	openWinGeneric('secondarylabelinformation.do?materialId='+ cellValue(selectedRowId,"materialId") +
+	openWinGeneric('secondarylabelinformation.do?materialId='+ encodeURIComponent(cellValue(selectedRowId,"materialId")) +
 			'&facilityId=' + encodeURIComponent($('facilityId').value) +
 			'&catalogId=' + encodeURIComponent( cellValue(selectedRowId,"catalogId"))
 			,"SecondaryLabelInformation","900","600",'yes' );
@@ -1265,9 +1265,9 @@ function viewImage(loc) {
 
 function printGHSLabel() {
 	var reportLoc = "/HaasReports/report/printghslabels.do"+
-    	"?itemId="+cellValue(selectedRowId,"itemId") + 
-    	"&personnel_Id="+$v('personnelId') + 
-    	"&printerLocation="+$v('printerLocation');
+    	"?itemId="+encodeURIComponent(cellValue(selectedRowId,"itemId")) + 
+    	"&personnel_Id="+encodeURIComponent($v('personnelId')) + 
+    	"&printerLocation="+encodeURIComponent($v('printerLocation'));
 	openWinGeneric(reportLoc,"printGHSLabels","300","200","yes","200","200");
 }
 
