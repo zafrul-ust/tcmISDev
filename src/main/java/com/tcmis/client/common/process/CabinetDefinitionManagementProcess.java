@@ -48,6 +48,8 @@ import com.tcmis.internal.hub.process.CabinetLevelProcess;
 public class CabinetDefinitionManagementProcess extends GenericProcess {
 
 	Log log = LogFactory.getLog(this.getClass());
+	public static final String MY_WORK_AREAS = "My Work Areas";
+	public static final String ALL = "All";
 
 
 	public CabinetDefinitionManagementProcess(String client) {
@@ -293,6 +295,8 @@ public class CabinetDefinitionManagementProcess extends GenericProcess {
 			StringBuilder query = new StringBuilder("select distinct account_sys_id from pr_rules where company_id = '").append(inputBean.getCompanyId()).append("'");
 			query.append(" and facility_id = '").append(inputBean.getFacilityId()).append("' and status = 'A'");
 			genericSqlFactory.setBeanObject(new PrRulesViewBean());
+			//if no Workareas is selected, application ID should be set to 'All'
+			checkApplicationId(inputBean);
 			Iterator iter = genericSqlFactory.selectQuery(query.toString(),connection).iterator();
 			while (iter.hasNext()) {
 				PrRulesViewBean bean = (PrRulesViewBean)iter.next();
@@ -332,6 +336,8 @@ public class CabinetDefinitionManagementProcess extends GenericProcess {
 		GenericSqlFactory genericSqlFactory = new GenericSqlFactory(dbManager);
 		try {
 			genericSqlFactory.setBeanObject(new DirectedChargeBean());
+			//if no Workareas is selected, application ID should be set to 'All'
+			checkApplicationId(inputBean);
 			StringBuilder query = new StringBuilder("select * from table (pkg_directed_charge_util.fx_get_directed_charges('").append(inputBean.getCompanyId()).append("','");
 			query.append(inputBean.getFacilityId()).append("','").append(inputBean.getApplicationId()).append("','");
 			if (!StringHandler.isBlankString(inputBean.getUseApplication())) {
@@ -484,6 +490,8 @@ public class CabinetDefinitionManagementProcess extends GenericProcess {
 		DbManager dbManager = new DbManager(getClient(), getLocale());
 		GenericSqlFactory genericSqlFactory = new GenericSqlFactory(dbManager);
 		try {
+			//if no Workareas is selected, application ID should be set to 'All'
+			checkApplicationId(inputBean);
 			StringBuilder query = getDeleteDirectedChargeString(inputBean);
 			genericSqlFactory.deleteInsertUpdate(query.toString());
 		} catch (Exception e) {
@@ -513,10 +521,12 @@ public class CabinetDefinitionManagementProcess extends GenericProcess {
 		Connection connection = dbManager.getConnection();
 		GenericSqlFactory genericSqlFactory = new GenericSqlFactory(dbManager);
 		try {
+			//if no Workareas is selected, application ID should be set to 'All'
+			checkApplicationId(inputBean);
 			//first delete up existing data
 			StringBuilder query = getDeleteDirectedChargeString(inputBean);
 			genericSqlFactory.deleteInsertUpdate(query.toString(),connection);
-
+			
 			//insert new data
 			query = new StringBuilder("insert into directed_charge (company_id,facility_id,application,account_sys_id,charge_type");
 			StringBuilder value = new StringBuilder(" values('").append(inputBean.getCompanyId()).append("','").append(inputBean.getFacilityId());
@@ -1664,4 +1674,11 @@ public class CabinetDefinitionManagementProcess extends GenericProcess {
         return pw;
     }
 	
+	//to set the value for application ID to All, if no workareas selected
+	private void checkApplicationId(CatalogInputBean inputBean) {
+		if(inputBean.getApplicationId() != null && 
+				MY_WORK_AREAS.equalsIgnoreCase(inputBean.getApplicationId())) {
+			inputBean.setApplicationId(ALL);
+    	}
+	}
 } //end of class

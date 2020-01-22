@@ -6,28 +6,27 @@ function setValue(selectedOption) {
 
 
 
-function submitSearchForm()
-{
- /*Make sure to not set the target of the form to anything other than resultFrame*/
- // var isValidSearchForm = true;
-  var now = new Date();
-  document.getElementById("startSearchTime").value = now.getTime();
-  
-  if(null!=document.getElementById("selectedRow"))
-  { document.getElementById("selectedRow").innerHTML="";
-  
-  }
-  
-  if(validateSearchForm()) { 
-   $('uAction').value = 'search';
-   document.genericForm.target='resultFrame';
-   showPleaseWait();
-   return true;
-  }
-  else
-  {
-    return false;
-  }
+function submitSearchForm() {
+	/*
+	 * Make sure to not set the target of the form to anything other than
+	 * resultFrame
+	 */
+	var now = new Date();
+	$("startSearchTime").value = now.getTime();
+
+	if (null != $("selectedRow")) {
+		$("selectedRow").innerHTML = "";
+	}
+
+	if (validateSearchForm()) {
+		$('uAction').value = 'search';
+		document.genericForm.target = 'resultFrame';
+		showPleaseWait();
+		document.genericForm.submit();
+		return true;
+	} else {
+		return false;
+	}
 }
 
 function validateSearchForm() {
@@ -113,30 +112,33 @@ function doOnRowSelected(rowId,cellInd) {
   var selectedRMA = parent.window.document.getElementById("selectedRow");
   var customerRmaId = beanGrid.cellById(rowId, beanGrid.getColIndexById("customerRmaId")).getValue();
   selectedRMA.innerHTML = "<a href=\"#\" onclick=call('viewRMA'); return false;>"+messagesData.viewrma+" : "+customerRmaId+"</a>";
- }	
-
-    	 
+ }
 }
 
-//to refine
 function viewRMA() {
-  var customerRmaId = beanGrid.cellById(selectedRowId, beanGrid.getColIndexById("customerRmaId")).getValue(); 
-  var lineItem = beanGrid.cellById(selectedRowId, beanGrid.getColIndexById("lineItem")).getValue();
-  var prNumber = beanGrid.cellById(selectedRowId, beanGrid.getColIndexById("prNumber")).getValue();
-  var rmaId =  beanGrid.cellById(selectedRowId, beanGrid.getColIndexById("customerRmaId")).getValue();
-  var loc = "/tcmIS/distribution/customerreturnrequest.do?action=search&rmaId="+customerRmaId+"&lineItem="+lineItem+"&prNumber="+prNumber; 
-   
-  try
-	{
-		parent.parent.openIFrame("showcustomerreturnrequest"+rmaId+"",loc,""+messagesData.customerreturnrequest+" "+rmaId+"","","N");
-	}
-	catch (ex)
-	{
-		openWinGeneric(loc,"showcustomerreturnrequest","900","600","yes","80","80","yes");	
-	}	
+	var lineItem = gridCellValue(beanGrid, selectedRowId, "lineItem");
+	var prNumber = gridCellValue(beanGrid, selectedRowId, "prNumber");
+	var rmaId = gridCellValue(beanGrid, selectedRowId, "customerRmaId");
 	
-}
+	var loc;
+	var tabName;
+	if (gridCellValue(beanGrid, selectedRowId, "isDistribution") == 'N') {
+		loc = "/tcmIS/hub/cmscustomerreturnrequest.do?";
+		tabName = messagesData.cmscustomerreturnrequest;
+	} else {
+		loc = "/tcmIS/distribution/customerreturnrequest.do?action=search&";
+		tabName = messagesData.customerreturnrequest;
+	}
+	loc += "rmaId=" + rmaId
+		+ "&lineItem=" + lineItem
+		+ "&prNumber=" + prNumber;
 
+	try {
+		parent.parent.openIFrame("showcustomerreturnrequest" + rmaId, loc, tabName + " " + rmaId, "", "N");
+	} catch (ex) {
+		openWinGeneric(loc, "showcustomerreturnrequest", "900", "600", "yes", "80", "80", "yes");
+	}
+}
 
 function selectRightclick(rowId,cellInd){
 	beanGrid.selectRowById(rowId,null,false,false);	

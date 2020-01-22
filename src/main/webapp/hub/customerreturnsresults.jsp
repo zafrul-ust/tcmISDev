@@ -13,8 +13,8 @@
 
 <html:html lang="true">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta http-equiv="expires" content="-1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="expires" content="-1"/>
 <link rel="shortcut icon" href="https://www.tcmis.com/images/buttons/tcmIS.ico"></link>
 
 <%@ include file="/common/locale.jsp" %>
@@ -55,478 +55,340 @@ This looks at what the users preffered font size and which application he is vie
 <script type="text/javascript" src="/dhtmlxGrid/codebase/ext/dhtmlxgrid_srnd.js"></script>
 <script type="text/javascript" src="/dhtmlxGrid/codebase/ext/dhtmlxgrid_json.js"></script>
 <script type="text/javascript" src="/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_customized.js"></script>
+<script type="text/javascript" src="/dhtmlxLayout/codebase/dhtmlxlayout.js"></script>
+<script type="text/javascript" src="/dhtmlxWindows/codebase/dhtmlxwindows.js"></script>
 <script type="text/javascript" src="/dhtmlxGrid/codebase/dhtmlxcommon_haas.js"></script>
+<script type="text/javascript" src="/dhtmlxGrid/codebase/ext/dhtmlxgrid_rowspan.js"></script>
+<script type="text/javascript" src="/dhtmlxGrid/codebase/ext/rowspan_cell_patch.js"></script>
 
-<title>
-Customer Return Results.
-</title>
+<script type="text/javascript" src="/js/hub/customerreturnsresults.js"></script>
+
+<title></title>
 
 <script language="JavaScript" type="text/javascript">
-<!--
-//add all the javascript messages here, this for internationalization of client side javascript messages
-var messagesData = new Array();
-messagesData={alert:"<fmt:message key="label.alert"/>",
-                and:"<fmt:message key="label.and"/>",
-        recordFound:"<fmt:message key="label.recordFound"/>",
-     searchDuration:"<fmt:message key="label.searchDuration"/>",
-            minutes:"<fmt:message key="label.minutes"/>",
-            seconds:"<fmt:message key="label.seconds"/>",
-        validvalues:"<fmt:message key="label.validvalues"/>",
-     submitOnlyOnce:"<fmt:message key="label.submitOnlyOnce"/>", 
-        qtyRetInteger:"<fmt:message key="error.quantity.integer"/>",
-        qtyReturnNotLess:"<fmt:message key="error.customerreturns.qtyreturnednotless"/>",
-        createnewbin:"<fmt:message key="label.createnewbin"/>",
-        pleaseSelectARow:"<fmt:message key="label.pleaseselectarowforupdate"/>"
-        };
-
-function receiveReturns() 
-{
-	if (validateReceive())
-	{
-    	/*Set any variables you want to send to the server*/
-    	$('uAction').value = 'receiveReturns';
-    	parent.showPleaseWait();
-    	haasGrid.parentFormOnSubmit(); //prepare grid for data sending
-    	/*Submit the form in the result frame*/
-   		document.genericForm.submit();
- 	}
-}
-
-function validateReceive() 
-{
-   var resultForm = document.genericForm;
-
-  //var mydoc = parent.document.frame[1];
-//  var okName = 'resultForm.ok';
- // var qtyName = 'resultForm.quantity';
-  //var qtyRetName = 'resultForm.quantityReturned';
-  //var dorName = 'resultForm.dor';
-  var totalLines = $v("totalLines")
-  // alert(" totalLines  "+totalLines+"");
-  var okCheckedCount = 0;
-  
-//  alert( resultFrame.cellValue(1,"replacementMaterial") +":" + resultFrame.cellValue(1,"ok"));
-  for (i=1; i <= totalLines; i++) 
-  {
-//    okCheckbox = eval(okName + i);
-//    if (okCheckbox.checked) 
-//	alert( resultFrame.cellValue(i,"ok") + resultFrame.cellValue(i,"quantity"));
-	if ( "true" == cellValue(i,"ok") || "Y" == cellValue(i,"ok"))
-    {
-		okCheckedCount++;
-      	qtyInputbox = cellValue(i,"quantity")
-      	qtyRetInputbox = cellValue(i,"quantityReturned");
-<c:if test="${param.returnForCredit ne 'Y'}" >
-	if (! cellValue(i,"bin") ) 
-  	{
-		alert('<fmt:message key="label.pleaseselect"/> : <fmt:message key="label.bin"/>');
-    	return false;
-  	}
-</c:if>
-//      dorInputbox = eval(dorName + i);
-      	if (!isInteger(qtyRetInputbox.trim(),false)) 
-      	{
-        	alert(messagesData.qtyRetInteger);
-        	return false;
-      	}
-/*      if (!checkdate(dorInputbox)) 
-      {
-        alert(messagesData.dorDate);
-        return false;
-      }   */
-      // check to see the Quantity Returned < Quantity
-      	if (parseInt(qtyRetInputbox.trim()) > parseInt(qtyInputbox.trim())) 
-      	{
-        	alert(messagesData.qtyReturnNotLess);
-        	return false;
-      	}
-    }
-  }
-  if (okCheckedCount > 0)
-  {
-     return true;
-  }
-  else
-  {
-     //alert("Please select..");
-     alert(messagesData.pleaseSelectARow);
-     return false;
-  }
-}
-
-_gridConfig.onRowSelect = selectRow;
-_gridConfig.onRightClick = selectRow;
-_gridConfig.submitDefault = true;
-
-var selectedRowId = null;
-function selectRow()
-{
-// to show menu directly
-   rightClick = false;
-   rowId0 = arguments[0];
-   colId0 = arguments[1];
-   ee     = arguments[2];
-
-   selectedRowId = rowId0;
-   if( ee != null ) { 
-   		if( ee.button != null && ee.button == 2 ) rightClick = true;
-   		else if( ee.which == 3  ) rightClick = true;
-   }
-   
-   <c:if test="${param.returnForCredit ne 'Y'}" >
-   if( showUpdateLinks ) {
-	   toggleContextMenu("addBin");
-   }
-   </c:if>
-   
-   //alert("${param.hubName}");
-}
-
-
-var config = [
-{ columnId:"permission"
-},
-{ columnId:"ok",
-	columnName:'<fmt:message key="label.ok"/>',
-  type:"hchstatus",
-  width:4
-},
-{ columnId:"companyId",
-  columnName:'<fmt:message key="label.company"/>',
-  width:8
-},
-{ columnId:"facilityId",
-	columnName:'<fmt:message key="label.facility"/>',
-  width:8
-},
-{ columnId:"mrline",
-	columnName:'<fmt:message key="label.mrline"/>*',
-  width:8
-},
-{ columnId:"itemId",
-	columnName:'<fmt:message key="label.item"/>',
-  width:8
-},
-{ columnId:"catPartNo",
-	columnName:'<fmt:message key="label.part"/>',
-  width:10
-},
-{ columnId:"receiptId",
-	columnName:'<fmt:message key="label.receiptid"/>*',
-  width:8
-},
-{ columnId:"mfgLot",
-	columnName:'<fmt:message key="label.mfglot"/>',
-  width:8
-},
-{ columnId:"quantity",
-	columnName:'<fmt:message key="label.qty"/>',
-	align:'middle',
-  width:5
-},
-<c:if test="${param.returnForCredit ne 'Y'}" >
-{ columnId:"bin",
-	columnName:'<fmt:message key="label.returninfo"/>',
-//  	columnName:'#cspan',
-  	attachHeader:'<fmt:message key="label.bin"/>',
-  	type:'hcoro',
-  width:10
-},
-{ columnId:"dor"
-  ,columnName:'#cspan',
-  attachHeader:'<fmt:message key="receivedreceipts.label.dor"/>',
-  type:'hcal', 
-  width:8,
-  align:'center'
-},
-{ columnId:"quantityReturned",
-	columnName:'#cspan',
-	  attachHeader:'<fmt:message key="label.qtyreturned"/>',
-	type:'hed',
-	align:'middle',
-  width:10
-},
-</c:if>
-<c:if test="${param.returnForCredit eq 'Y'}" >
-{ columnId:"quantityReturned",
-	columnName:'<fmt:message key="label.returninfo"/>',
-	attachHeader:'<fmt:message key="label.qtyreturned"/>',
-	type:'hed',
-  width:10
-},
-{ columnId:"shipmentId",
-	columnName:'#cspan',
-	  attachHeader:'<fmt:message key="label.shipmentid"/>',
-  width:10
-},
-{ columnId:"dateShipped",
-	columnName:'#cspan',
-	  attachHeader:'<fmt:message key="label.dateshipped"/>',
-  width:10
-},
-{ columnId:"issueId",
-	columnName:'#cspan',
-	  attachHeader:'<fmt:message key="label.issueid"/>',
-  width:10
-},
-{ columnId:"replacementMaterial",
-  columnName:'#cspan',
-  attachHeader:'<fmt:message key="label.replacementmaterial"/>',
-  type:"hch",
-  width:8,
-  align:'center'
-},
-</c:if>
-{ columnId:"prNumber"
-},
-{ columnId:"lineItem"
-},
-{ columnId:"orderQuantity"
-}
-];
-
-with(milonic=new menuname("addBin")){
-	 top="offset=2"
-	 style = contextStyle;
-	 margin=3
-
-	 aI("text=<fmt:message key="receiving.button.newbin"/>;url=javascript:addBin();");
-<tcmis:inventoryGroupPermission indicator="true" userGroupId="addNewBin" facilityId="${param.hubName}">
-	 aI("text=" + messagesData.createnewbin + ";url=javascript:createNewBin();" );
-</tcmis:inventoryGroupPermission>
+	//add all the javascript messages here, this for internationalization of client side javascript messages
+	var messagesData = {
+		alert:"<fmt:message key="label.alert"/>",
+		and:"<fmt:message key="label.and"/>",
+		recordFound:"<fmt:message key="label.recordFound"/>",
+		searchDuration:"<fmt:message key="label.searchDuration"/>",
+		minutes:"<fmt:message key="label.minutes"/>",
+		seconds:"<fmt:message key="label.seconds"/>",
+		validvalues:"<fmt:message key="label.validvalues"/>",
+		submitOnlyOnce:"<fmt:message key="label.submitOnlyOnce"/>",
+		createReturnRequest:"<fmt:message key="label.createreturnrequest"/>",
+		xIsRequired:"<fmt:message key="errors.required"/>",
+		returnQty:"<fmt:message key="label.returnqty"/>",
+		xxPositiveInteger:"<fmt:message key="label.xxpositiveinteger"/>",
+		xCannotBeMoreThanY:"<fmt:message key="label.cannotbemore"/>",
+		availableQty:"<fmt:message key="label.availableqty"/>"
+	};
+	
+	with(milonic=new menuname("customerReturnRmcMenu")) {
+		top="offset=2"
+		style = contextStyle;
+		margin=3
+		aI("text=<fmt:message key="label.viewcustomerreturnrequest"/>;url=javascript:openCustomerReturnTracking();");
 	}
-
+	
 	drawMenus();
 	
-	function getBin(value,text,rowid) {
-		   obj = document.getElementById("bin"+rowid);
-		   var index = obj.length;
-		   obj.options[index]=new Option(text,value);
-		   obj.options[index].selected = true; 
-	}
-	
-	function addBin(){
+	var config = [
 		{
-			var loc = "/tcmIS/hub/showhubbin.do?callbackparam="+selectedRowId+"&branchPlant=" + $v('hub') + "&userAction=showBins";
-			var winname = null;
-			try {
-				winname = openWinGeneric(loc, "showVvHubBins", "300", "150", "no", "80", "80");
-				children[children.length] = winname;
-				} catch (ex) {
-//				openWinGeneric(loc, "showVvHubBins", "300", "150", "no", "80", "80");
-			}
+			columnId:"permission"
+		},
+		{
+			columnId:"mrLine",
+			columnName:'<fmt:message key="label.mrline"/>',
+			width:8,
+			align:'center'
+		},
+		{
+			columnId:"inventoryGroupName",
+			columnName:'<fmt:message key="label.inventorygroup"/>',
+			width:8,
+			align:'center'
+		},
+		{
+			columnId:"companyName",
+			columnName:'<fmt:message key="label.company"/>',
+			width:8,
+			align:'center'
+		},
+		{
+			columnId:"receiptId",
+			columnName:'<fmt:message key="label.receiptid"/>',
+			width:8,
+			align:'center'
+		},
+		{
+			columnId:"lotStatus",
+			columnName:'<fmt:message key="label.lotstatus"/>',
+			width:8,
+			align:'center'
+		},
+		{
+			columnId:"mfgLot",
+			columnName:'<fmt:message key="label.mfglot"/>',
+			width:8,
+			align:'center'
+		},
+		{
+			columnId:"expireDate",
+			columnName:'<fmt:message key="label.expiredate"/>',
+			width:10,
+			align:'center'
+		},
+		{
+			columnId:"itemId",
+			columnName:'<fmt:message key="label.item"/>',
+			width:8,
+			align:'center'
+		},
+		{
+			columnId:"catPartNo",
+			columnName:'<fmt:message key="label.catpartno"/>',
+			width:10,
+			align:'center'
+		},
+		{
+			columnId:"totalShipped",
+			columnName:'<fmt:message key="label.quantity"/>',
+			attachHeader:'<fmt:message key="label.shipped"/>',
+			width:8,
+			align:'center'
+		},
+		{
+			columnId:"totalReturned",
+			columnName:'#cspan',
+			attachHeader:'<fmt:message key="label.returned"/>',
+			width:10,
+			align:'center'
+		},
+		{
+			columnId:"totalPendingReturn",
+			columnName:'#cspan',
+			attachHeader:'<fmt:message key="label.pendingreturn"/>',
+			width:10,
+			align:'center'
+		},
+		{
+			columnId:"totalAvailable",
+			columnName:'#cspan',
+			attachHeader:'<fmt:message key="label.availabletorequest"/>',
+			width:10,
+			align:'center'
+		},
+		{
+			columnId:"prNumber"
+		},
+		{
+			columnId:"lineItem"
+		},
+		{
+			columnId:"companyId"
+		},
+		{
+			columnId:"sourceHub"
+		},
+		{
+			columnId:"inventoryGroup"
+		},
+		{
+			columnId:"prTotalAvailable"
 		}
-	}
-
-// it's kind of misleading, it's expecting hub id not hub name.	
-	function createNewBin()
-	{
-	  var newbinURL = "/tcmIS/Hub/AddNewBin?";
-	  newbinURL = newbinURL + "HubName=" + '${param.hub}';
-	  openWinGeneric(newbinURL,"add_newbin","400","200","Yes")
-	}
+	];
 	
-	function doUnConfPopup()
-	{
-<c:if test="${ param.uAction eq 'receiveReturns' }">
-	  var unconfURL = "/tcmIS/Hub/ShowUnconfirmedReceipts?session=Active";
-	  unconfURL = unconfURL + "&HubNo=" + '${param.hub}'
-	  unconfURL = unconfURL + "&customownd=yes";
-	  unconfURL = unconfURL + "&genLabels=1";
-	  openWinGeneric(unconfURL,"Generate_customer_returns_labels","640","600","yes")
-</c:if>
-	}
+	var gridConfig = {
+		divName: 'mrIssueReceiptDetailViewBean',	<%--  the div id for the grid. This is the also the variable name used to pass data back in updates --%>
+		beanData: 'jsonMainData',			<%--  the data variable name for jsonparse, as in grid.parse( beanData ,"json" ) --%>
+		beanGrid: 'beanGrid',				<%--  variable to put the grid object in for later use --%>
+		config: 'config',					<%--  the column config var name, as in var columnConfig = { [ columnId:..,columnName... --%>
+		onRowSelect: selectRow,
+		onRightClick: selectRow,			<%--  a javascript function to be called on right click with rowId & cellId as args --%>
+		submitDefault: true,
+		rowSpan: true,						<%--  this page has rowSpan > 1 or not. --%>
+		noSmartRender: false
+	};
 	
-<%--
-		name='addBin<c:out value="${rowcount}"/>' value="+" onclick='showVvHubBins("<c:out value="${receipt.itemId}"/>","<c:out value="${param.hub}"/>",<c:out value="${rowcount}"/>)'>
---%>
-	
-// -->
+	//set up the rows to be merged, and the variables needed
+	var rowSpanCols = getRowSpanColsArr("mrLine, inventoryGroupName, companyName");
+	var lineMap = new Array();
+	var lineMap3 = new Array();
 </script>
 </head>
 
-<body bgcolor="#ffffff" onload="resultOnLoadWithGrid(_gridConfig);doUnConfPopup();">
-
-<tcmis:form action="/customerreturnsresults.do" onsubmit="return submitFrameOnlyOnce();">
-
-<!-- You can build your error messages below. But we want to trigger the pop-up from the main page.
-So this is just used to feed the pop-up in the main page.
-Similar divs would have to be built to show any other messages in a pop-up.-->
-<!-- Error Messages Begins -->
-<div id="errorMessagesAreaBody" style="display:none;">
-  <c:if test="${! empty tcmISError}">
-  	${tcmISError}<br/>
-  </c:if>
-  <c:forEach items="${tcmISErrors}" varStatus="status">
-  	${status.current}<br/>
-  </c:forEach>
-<c:if test="${! empty custOwnedReceiptColl}">
-  <fmt:message key="receiving.successmessage"/>
-  Receipts:<br/>
-  <c:forEach items="${custOwnedReceiptColl}" var="ownedReceipt">
-     <c:out value="${ownedReceipt}"/><br/>
-  </c:forEach>
-</c:if>
-<c:if test="${! empty custOwnedErrorColl}">
-  Errors:<br/>
-  <c:forEach items="${custOwnedErrorColl}" var="ownedError">
-     <c:out value="${ownedError}"/><br/>
-  </c:forEach>
-</c:if>
-</div>
-
-<script type="text/javascript">
-/*Check if there is any error messages to show and set the variable you use in javascript to true or false.*/
-	showErrorMessage = false;
-<c:if test="${! empty tcmISError || ! empty custOwnedReceiptColl || ! empty custOwnedErrorColl}"> 
-    showErrorMessage = true;
- </c:if>
-
-</script>
-<!-- Error Messages Ends -->
-
-<div class="interface" id="resultsPage">
-
-<div class="backGroundContent">    
-<c:if test="${empty returnReceiptColl}" >
-  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tableNoData" id="resultsPageTable">
-   <tr>
-    <td width="100%">
-      <fmt:message key="main.nodatafound"/>
-    </td>
-   </tr>
-  </table>
-</c:if>
-<!--Give the div name that holds the grid the same name as your viewbean or dynabean you want for updates-->
-<div id="beanData" style="width:100%;height:600px;" style="display: none;"></div>
-<!-- Search results start -->
-<c:if test="${!empty returnReceiptColl}" >
-  <script type="text/javascript">
-  /*This is to keep track of whether to show any update links.
-    If the user has any update permisions for any row then we show update links.*/
-    // set up bin array .
-<c:set var="ugid" value='customerReturns'/>
-<c:if test="${param.returnForCredit eq 'Y' }">
-	<c:set var="ugid" value='returnForCredit'/>
-</c:if>
-	var bin = new Array();
-    var binArr = null;
-    <c:forEach var="receipt" items="${returnReceiptColl}" varStatus="status">
-		binArr = new Array(
-				{text:'<fmt:message key="label.none"/>',value:''}
-		<c:forEach var="binBean" items="${receipt.receiptItemPriorBinViewBeanCollection}" varStatus="status2">
-				,{text:'${binBean.bin}',value:'${binBean.bin}'}
-		</c:forEach>
-		);
-    	bin[${status.index +1}] = binArr;
-    </c:forEach>    	
-	
-  <c:set var="dataCount" value='${0}'/>
-  /*Storing the data to be displayed in a JSON object array.*/
-  <c:set var="today"><tcmis:getDateTag numberOfDaysFromToday="0" datePattern="${dateFormatPattern}"/></c:set>
-  var jsonData = new Array();
-  var jsonData = {
-  rows:[
-  <c:forEach var="receipt" items="${returnReceiptColl}" varStatus="status">
-    <c:if test="${status.index > 0}">,</c:if>
-    <fmt:formatDate var="dateShipped" value="${status.current.shipConfirmDate}" pattern="${dateFormatPattern}"/>
- 	<c:set var="rowperm" value='N'/>
-	<tcmis:inventoryGroupPermission indicator="true" userGroupId="${ugid}" companyId="${personnelBean.companyId}" facilityId="All" inventoryGroup="${receipt.inventoryGroup}">
-	 <c:set var="showUpdateLink" value='Y'/>
-	 <c:set var="rowperm" value='Y'/>
-	</tcmis:inventoryGroupPermission>
-    {    id:${status.index +1},
-        data:['${rowperm}',
-              false,
-              '${receipt.companyId}',
-              '${receipt.facilityId}',
-              '${receipt.prNumber}-${receipt.lineItem}',
-              '${receipt.itemId}',
-              '${receipt.catPartNo}',
-              '${receipt.receiptId}',
-              '<tcmis:jsReplace value="${receipt.mfgLot}" processMultiLines="true"/>',
-              '${receipt.quantity}',
-              <c:if test="${param.returnForCredit ne 'Y'}" >
-			    '${receipt.bin}',
-                '${today}',
-              </c:if>
-              '',
-              <c:if test="${param.returnForCredit eq 'Y'}" >
-                '${receipt.shipmentId}',
-                '${dateShipped}',
-                '${receipt.issueId}',
-                "",
-              </c:if>              
-              '${receipt.prNumber}',
-              '${receipt.lineItem}',
-              '${receipt.orderQuantity}'
-              ]}
-    <c:set var="dataCount" value='${dataCount+1}'/>
-  </c:forEach>
-  ]};
-  </script>
-</c:if>       
-<!-- If the collection is empty say no data found -->
-
-<!-- Search results end -->
-
-<!-- Hidden element start -->
-<div id="hiddenElements" style="display: none;">
-  <input name="totalLines" id="totalLines" value="${dataCount}" type="hidden"/>
-  <%--  <tcmis:saveRequestParameter/>Need to store search input options here. This is used to re-do the original search upon updates etc.--%>    
-  <input name="uAction" id="uAction" value="" type="hidden"/>
-  <input name="inventoryGroup" id="dodaacType" type="hidden" value="${param.inventoryGroup} "/>
-  <input name="receiptId" id="receiptId" type="hidden" value="${param.receiptId}"/>
-  <input name="hub" id="hub" type="hidden" value="${param.hub}"/>
-  <input name="mrNumber" id="mrNumber" type="hidden" value="${param.mrNumber}"/>
-  <input name="returnForCredit" id="returnForCredit" type="hidden" value="${param.returnForCredit}"/>
-  <input name="catPartNo" id="catPartNo" type="hidden" value="${param.catPartNo}"/>
-  <input name="facilityId" id="facilityId" type="hidden" value="${param.facilityId}"/>
-  <input name="itemId" id="itemId" type="hidden" value="${param.itemId}"/>
-  <input name="sortBy" id="sortBy" type="hidden" value="${param.sortBy}"/>
-  
-  <!--This sets the start time for time elapesed.-->
-  <input name="startSearchTime" id="startSearchTime" type="hidden" value="${startSearchTime}"/>
-  <input name="endSearchTime" id="endSearchTime" type="hidden" value="${endSearchTime}"/>
-  <input name="minHeight" id="minHeight" type="hidden" value="100"/>
-  					<input type="hidden" name="blockBefore_dor" id="blockBefore_dor" value=""/>
-					<input type="hidden" name="blockAfter_dor" id="blockAfter_dor" value=""/>
-					<input type="hidden" name="blockBeforeExclude_dor" id="blockBeforeExclude_dor" value=""/>
-					<input type="hidden" name="blockAfterExclude_dor" id="blockAfterExclude_dor" value="<tcmis:getDateTag numberOfDaysFromToday="0" datePattern="${dateFormatPattern}"/>"/>
-					<input type="hidden" name="inDefinite_dor" id="inDefinite_dor" value=""/>
-  
-  <!-- Popup Calendar input options for hcal column Type in the grid-->
-  <!--
-  <input type="hidden" name="blockBefore_columnId" id="blockBefore_columnId" value=""/>
-  <input type="hidden" name="blockAfter_columnId" id="blockAfter_columnId" value=""/>
-  <input type="hidden" name="blockBeforeExclude_columnId" id="blockBeforeExclude_columnId" value=""/>
-  <input type="hidden" name="blockAfterExclude_columnId" id="blockAfterExclude_columnId" value=""/>
-  <input type="hidden" name="inDefinite_columnId" id="inDefinite_columnId" value=""/>
-  -->
-
-  <%--This is the minimum height of the result section you want to display--%>
-  <input name="minHeight" id="minHeight" type="hidden" value="0">
-</div>
-<!-- Hidden elements end -->
-
- <%-- result count and time --%>
- <div id="footer" class="messageBar"></div>
-
-</div> <!-- backGroundContent -->
-
-</div> <!-- close of interface -->
-
-<!-- If the user has permissions and needs to see the update links,set the variable showUpdateLinks javascript to true.
-     The default value of showUpdateLinks is false.
--->
-<c:if test="${showUpdateLink == 'Y'}">
-    <script type="text/javascript">
-        <!--
-        showUpdateLinks = true;
-        //-->
-    </script>
-</c:if>
-
-</tcmis:form>
+<body bgcolor="#ffffff" onload="resultOnLoadWithGrid();">
+	<tcmis:form action="/customerreturnsresults.do" onsubmit="return submitFrameOnlyOnce();">
+		<!-- You can build your error messages below. But we want to trigger the pop-up from the main page.
+		So this is just used to feed the pop-up in the main page.
+		Similar divs would have to be built to show any other messages in a pop-up.-->
+		<!-- Error Messages Begins -->
+		<div id="errorMessagesAreaBody" style="display:none;">
+			<c:if test="${not empty tcmISError}">
+				${tcmISError}<br/>
+			</c:if>
+			<c:forEach items="${tcmISErrors}" varStatus="status">
+				${status.current}<br/>
+			</c:forEach>
+		</div>
+		
+		<script type="text/javascript">
+			/*Check if there is any error messages to show and set the variable you use in javascript to true or false.*/
+			showErrorMessage = false;
+			<c:if test="${not empty tcmISError or not empty tcmISErrors}"> 
+				showErrorMessage = true;
+			</c:if>
+		</script>
+		<!-- Error Messages Ends -->
+		
+		<div class="interface" id="resultsPage">
+			<div class="backGroundContent">
+				<!-- Search results start -->
+				<c:choose>
+					<c:when test="${empty mrIssueReceiptDetailViewBeanColl}">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0" class="tableNoData" id="resultsPageTable">
+							<tr>
+								<td width="100%">
+									<fmt:message key="main.nodatafound"/>
+								</td>
+							</tr>
+						</table>
+					</c:when>
+					<c:otherwise>
+						<!--Give the div name that holds the grid the same name as your viewbean or dynabean you want for updates-->
+						<div id="mrIssueReceiptDetailViewBean" style="width:100%;height:600px;" style="display: none;"></div>
+						<script type="text/javascript">
+							/*This is to keep track of whether to show any update links.
+							If the user has any update permisions for any row then we show update links.*/
+							// set up bin array .
+							var jsonMainData = {
+								rows:[
+									<c:forEach var="receipt" items="${mrIssueReceiptDetailViewBeanColl}" varStatus="status">
+										<c:if test="${status.index > 0}">,</c:if>
+										{
+											id:${status.count},
+											data:[
+												'Y',
+												'${receipt.prNumber}-${receipt.lineItem}',
+												'<tcmis:jsReplace value="${receipt.inventoryGroupName}" processMultiLines="true"/>',
+												'<tcmis:jsReplace value="${receipt.companyName}" processMultiLines="true"/>',
+												'${receipt.receiptId}',
+												'<tcmis:jsReplace value="${receipt.lotStatus}" processMultiLines="true"/>',
+												'<tcmis:jsReplace value="${receipt.mfgLot}" processMultiLines="true"/>',
+												'<fmt:formatDate value="${receipt.expireDate}" pattern="${dateFormatPattern}"/>',
+												'${receipt.itemId}',
+												'<tcmis:jsReplace value="${receipt.catPartNo}" processMultiLines="true"/>',
+												'${receipt.totalShipped}',
+												'${receipt.totalReturned}',
+												'${receipt.totalPendingReturn}',
+												'${receipt.totalAvailable}',
+												'${receipt.prNumber}',
+												'${receipt.lineItem}',
+												'<tcmis:jsReplace value="${receipt.companyId}"/>',
+												'<tcmis:jsReplace value="${receipt.sourceHub}"/>',
+												'<tcmis:jsReplace value="${receipt.inventoryGroup}"/>',
+												''
+											]
+										}
+									</c:forEach>
+								]
+							};
+							
+					    	showUpdateLinks = true;
+					    	
+		                	<c:set var="prevKey" value=''/>
+							<c:set var="dataCount" value='0'/>
+							<c:forEach var="bean" items="${mrIssueReceiptDetailViewBeanColl}" varStatus="status">
+								<c:set var="curKey" value='${bean.prNumber}-${bean.lineItem}'/>
+								<c:choose>
+									<c:when test="${curKey != prevKey}">
+										lineMap[${status.index}] = 1;
+										<c:set var="prevKey" value='${curKey}'/>
+										<c:set var="dataCount" value="${dataCount + 1}"/>
+										<c:set var="parent" value="${status.index}"/>
+									</c:when>
+									<c:otherwise>
+										lineMap[${parent}]++;
+									</c:otherwise>
+								</c:choose>
+								lineMap3[${status.index}] = ${dataCount % 2};
+							</c:forEach>
+						</script>
+					</c:otherwise>
+				</c:choose>
+				<!-- Search results end -->
+				
+				<!-- Hidden element start -->
+				<div id="hiddenElements" style="display: none;">
+					<%-- Retrieve all the Search Criteria here for re-search after update--%>
+					<tcmis:setHiddenFields beanName="searchInput"/>
+				</div>
+				<!-- Hidden elements end -->
+				
+				<%-- result count and time --%>
+				<div id="footer" class="messageBar"></div>
+			</div>
+			<!-- backGroundContent -->
+		</div>
+		<!-- close of interface -->
+		
+		<div id="inWindowPopupDiv" style="display: none;">
+			<table id="inWindowPopup" width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td>
+						<div class="roundcont filterContainer">
+							<div class="roundright">
+								<div class="roundtop">
+									<div class="roundtopright">
+										<img src="/images/rndBoxes/borderTL_filter.gif" alt=""
+											width="15" height="10" class="corner_filter" style="display: none" />
+									</div>
+								</div>
+								<div class="roundContent">
+									<!-- Insert all the search option within this div -->
+									<table width="100%" border="0" cellpadding="0" cellspacing="0" class="tableSearch">
+										<tr>
+											<td nowrap="nowrap" class="optionTitleBoldLeft" colspan="4">
+												<fmt:message key="msg.pleaseselectreturntype" />:
+											</td>
+										</tr>
+										<tr>
+											<td nowrap="nowrap" colspan="4">
+												<input name="returnType" id="returnTypeCO" value="CO" checked="checked"
+													type="radio" class="radioBtns" /><fmt:message key="label.customerowned"/>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<input name="returnType" id="returnTypeCR" value="CR"
+													type="radio" class="radioBtns" /><fmt:message key="label.forcredit"/>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<input name="Ok" id="Ok" type="button" value="<fmt:message key="label.ok"/>"
+													onclick="openCmsCustomerReturnRequestPage()" class="inputBtns"
+													onmouseover="this.className='inputBtns inputBtnsOver'" onmouseout="this.className='inputBtns'"/>
+												<input name="cancel" id="cancel" type="button" value="<fmt:message key="label.cancel"/>"
+													onclick="closeInWindowPopup()" class="inputBtns"
+													onmouseover="this.className='inputBtns inputBtnsOver'" onmouseout="this.className='inputBtns'"/>
+											</td>
+										</tr>
+									</table>
+									<!-- End search options -->
+								</div>
+								<div class="roundbottom">
+									<div class="roundbottomright">
+										<img src="/images/rndBoxes/borderBL.gif" alt="" width="15" height="15" class="corner" style="display: none" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</tcmis:form>
 </body>
 </html:html>

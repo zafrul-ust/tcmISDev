@@ -246,6 +246,10 @@
       		   path="/managecataddsds.do"/>
       <forward name="catshelflifestortempsplashmain"
              path="/catshelflifestortempsplashmain.do" />
+      <forward name="launchtcmis"
+               path="/launchtcmis.do"/>
+      <forward name="ecommercecheckout"
+               path="/ecommercecheckout.do"/>
   </global-forwards>
   
   <action-mappings>
@@ -1631,6 +1635,66 @@
             scope="request">
           <forward name="success" path="/client/catalog/catshelflifestortempsplashresults.jsp" module=""/>
     </action>
+
+    <action path="/launchtcmis"
+           type="com.tcmis.client.api.action.LaunchTcmisAction"
+           validate="false"
+           input="/../client/catalog/catalogmain.jsp"
+           scope="request">
+           <forward name="success" path="/client/catalog/catalogmain.jsp" module=""/>
+           <forward name="application" path="/application.do?redirectToHome=Y"/>
+    </action>
+
+    <action path="/tcmisauthentication"
+           type="com.tcmis.client.api.action.LaunchTcmisSetupAction"
+           name="genericForm"
+           validate="false"
+           input="/error.jsp"
+           scope="request">
+    </action>
+
+    <action path="/ecommercecheckout"
+           type="com.tcmis.client.api.action.EcommerceCheckoutAction"
+           name="genericForm"
+           validate="false"
+           input="/../client/catalog/ecommercepunchout.jsp"
+           scope="request">
+           <forward name="success" path="/client/catalog/ecommercepunchout.jsp" module=""/>
+           <forward name="callToServerCallback" path="/client/catalog/ecommercepunchout.jsp" module=""/>
+    </action>
+    
+    <action path="/purchaserequest"
+            type="com.tcmis.client.api.action.CreateMrAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+    </action>
+
+    <action path="/ecommerceshipmentnotification"
+            type="com.tcmis.client.api.action.EcommerceShipmentNotificationAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+    </action>
+
+    <action path="/ecommerceinvoice"
+            type="com.tcmis.client.api.action.EcommerceInvoiceAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+    </action>
+    
+    <action path="/ecommerceinvoiceupdate"
+            type="com.tcmis.client.api.action.EcommerceInvoiceUpdateAction"
+            name="genericForm"
+            validate="false"
+            input="/error.jsp"
+            scope="request">
+    </action> 
+
   </action-mappings>
   <message-resources parameter="com.tcmis.common.resources.CommonResources"/>
   

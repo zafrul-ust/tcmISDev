@@ -109,6 +109,14 @@ j$().ready(function() {
 		  	invalidateCustomer();
 	}));
 	
+	j$('#customerName').bind('blur',(function() {
+		var customerName  =  document.getElementById("customerName");
+		if (customerName.value.length == 0) {
+			clearCustomerId();
+		}
+		
+	}));
+	
 	j$("#customerName").result(log).next().click(function() {
 		j$(this).prev().search();
 	});
@@ -117,12 +125,17 @@ j$().ready(function() {
 function invalidateCustomer()
 {
  var customerName  =  document.getElementById("customerName");
- var customerId  =  document.getElementById("customerId");
+ 
  if (customerName.value.length == 0) {
    customerName.className = "inputBox";
  }else {
    customerName.className = "inputBox red";
  }
+ clearCustomerId();
+}
+
+function clearCustomerId() {
+ var customerId  =  document.getElementById("customerId");
  //set to empty
  customerId.value = "";
 }

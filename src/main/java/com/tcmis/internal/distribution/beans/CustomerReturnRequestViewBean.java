@@ -5,12 +5,10 @@ import java.util.Date;
 
 import com.tcmis.common.framework.BaseDataBean;
 
-
 /******************************************************************************
  * CLASSNAME: CustomerReturnRequestViewBean <br>
  * @version: 1.0, Jul 14, 2009 <br>
  *****************************************************************************/
-
 
 public class CustomerReturnRequestViewBean extends BaseDataBean {
 
@@ -110,6 +108,8 @@ public class CustomerReturnRequestViewBean extends BaseDataBean {
 	private String returnNotes;
 	
 	private String correctItemShipped;
+	private String returnType;
+	private String isDistribution;
 
 	//constructor
 	public CustomerReturnRequestViewBean() {
@@ -1517,6 +1517,26 @@ public class CustomerReturnRequestViewBean extends BaseDataBean {
 
 	public void setCorrectItemShipped(String correctItemShipped) {
 		this.correctItemShipped = correctItemShipped;
+	}
+
+
+	public String getReturnType() {
+		return returnType;
+	}
+
+
+	public void setReturnType(String returnType) {
+		this.returnType = returnType;
+	}
+
+
+	public String getIsDistribution() {
+		return isDistribution;
+	}
+
+
+	public void setIsDistribution(String isDistribution) {
+		this.isDistribution = isDistribution;
 	}
 
 	
