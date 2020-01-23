@@ -38,6 +38,7 @@
 		<forward name="react-work-area-transfer-history"
 			path="/react-work-area-transfer-history" />
 		<forward name="react-sds-search" path="/react-sds-search" />
+		<forward name="react-catalog-part-detail" path="/react-catalog-part-detail" />
 	</global-forwards>
 	<!-- ========== Action Mapping Definitions ============================== -->
 	<action-mappings>
@@ -87,6 +88,10 @@
 		</action>
 		<action path="/react-work-area-transfer-history"
 			type="com.tcmis.internal.react.actions.authentication.WorkAreaTransferHistoryAction"
+			name="genericForm" validate="false" scope="request">
+		</action>
+		<action path="/react-catalog-part-detail"
+			type="com.tcmis.internal.react.actions.order-management.CatalogPartDetailAction"
 			name="genericForm" validate="false" scope="request">
 		</action>
 	</action-mappings>
