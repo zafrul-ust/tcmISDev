@@ -71,7 +71,7 @@ public class LoginAction extends TcmisReactAction {
 		    personnelBean.setClearTextPassword(personnelBean.getPassword());
 		    LoginProcess loginProcess = new LoginProcess(this.getDbUser(request));
 		    personnelBean = loginProcess.loginWeb(personnelBean, needpass);
-		    if (!loginProcess.isPasswordExpired(personnelBean)) {
+		    if (loginProcess.isPasswordExpired(personnelBean)) {
 			if (this.log.isDebugEnabled()) {
 			    this.log.debug("Password Expired!");
 			}

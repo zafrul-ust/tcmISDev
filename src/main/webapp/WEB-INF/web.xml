@@ -101,7 +101,8 @@
                     /WEB-INF/struts-config-common-login.xml,
                     /WEB-INF/struts-config-common-catalog.xml,
                     /WEB-INF/struts-config-catalog.xml,
-                    /WEB-INF/struts-config-distribution.xml
+                    /WEB-INF/struts-config-distribution.xml,
+                    /WEB-INF/struts-config-react.xml
                 </param-value>
         	</init-param>
         	<init-param>
@@ -395,7 +396,8 @@
         			/WEB-INF/struts-config-ws.xml,
 					/WEB-INF/struts-config-common-cabinet.xml,
 					/WEB-INF/struts-config-lmco.xml,
-        			/WEB-INF/struts-config-common-userprofile.xml
+        			/WEB-INF/struts-config-common-userprofile.xml,
+        			/WEB-INF/struts-config-react.xml
         		</param-value>
         	</init-param>
         	<init-param>
