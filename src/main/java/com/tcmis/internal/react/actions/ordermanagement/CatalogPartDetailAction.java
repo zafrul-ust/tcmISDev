@@ -17,8 +17,11 @@ import org.json.JSONObject;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.tcmis.client.catalog.beans.CatalogInputBean;
 import com.tcmis.client.catalog.beans.PrCatalogScreenSearchBean;
+import com.tcmis.client.catalog.beans.QualitySummaryInputBean;
+import com.tcmis.client.catalog.beans.QualitySummaryViewBean;
 import com.tcmis.client.catalog.process.CatalogProcess;
 import com.tcmis.client.catalog.process.InventoryProcess;
+import com.tcmis.client.catalog.process.QualitySummaryProcess;
 import com.tcmis.common.admin.beans.PersonnelBean;
 import com.tcmis.common.exceptions.BaseException;
 import com.tcmis.common.util.BeanHandler;
@@ -76,6 +79,7 @@ public class CatalogPartDetailAction extends TcmisReactAction {
 			String catalogId = pbean.getCatalogId();
 			BigDecimal partGroupNo = pbean.getPartGroupNo();
 			String catalogCompanyId = pbean.getCatalogCompanyId();
+			String facilityId = pbean.getFacilityId();
 
 			/**
 			 * lista de view Approbal = requestIdColl.requestId
@@ -89,6 +93,26 @@ public class CatalogPartDetailAction extends TcmisReactAction {
 			responseBody.put("inventoryColl", inventoryColl);
 
 			// End Inventory
+
+			// Quality Summary
+
+			QualitySummaryInputBean qbean = new QualitySummaryInputBean();
+			qbean.setCatPartNo(catPartNo);
+			qbean.setCatalogCompanyId(catalogCompanyId);
+			qbean.setPartGroupNo(partGroupNo.toString());
+			qbean.setCatalogId(catalogId);
+			qbean.setFacilityId(facilityId);
+
+			QualitySummaryProcess qualitySummaryProcess = new QualitySummaryProcess(
+				this.getDbUser(request));
+			QualitySummaryViewBean qualitySummaryViewBean = qualitySummaryProcess.getSearchData(qbean,
+				personnelId);
+			Collection c = qualitySummaryProcess.getQualifiedProducts(qbean);
+			responseBody.put("qualityProductsRelationColl",
+				qualitySummaryProcess.createRelationalObject(c));
+			responseBody.put("qualitySummaryViewBean", qualitySummaryViewBean);
+
+			// End Quality Summary
 
 			boolean editApprovalCode = personnelBean.getPermissionBean().hasFacilityPermission(
 				"EditUseCodeExpiration", bean.getFacilityId(), bean.getCompanyId());
