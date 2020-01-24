@@ -91,7 +91,7 @@
 			name="genericForm" validate="false" scope="request">
 		</action>
 		<action path="/react-catalog-part-detail"
-			type="com.tcmis.internal.react.actions.order-management.CatalogPartDetailAction"
+			type="com.tcmis.internal.react.actions.ordermanagement.CatalogPartDetailAction"
 			name="genericForm" validate="false" scope="request">
 		</action>
 	</action-mappings>

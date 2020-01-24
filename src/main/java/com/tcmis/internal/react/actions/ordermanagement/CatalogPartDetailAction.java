@@ -18,6 +18,7 @@ import com.auth0.jwt.exceptions.JWTCreationException;
 import com.tcmis.client.catalog.beans.CatalogInputBean;
 import com.tcmis.client.catalog.beans.PrCatalogScreenSearchBean;
 import com.tcmis.client.catalog.process.CatalogProcess;
+import com.tcmis.client.catalog.process.InventoryProcess;
 import com.tcmis.common.admin.beans.PersonnelBean;
 import com.tcmis.common.exceptions.BaseException;
 import com.tcmis.common.util.BeanHandler;
@@ -59,16 +60,35 @@ public class CatalogPartDetailAction extends TcmisReactAction {
 			Collection specColl = catalogProcess.getSpecMenu(pbean);
 			Object partInvColl = catalogProcess.getInventoryMenu(pbean);
 			Object stockingReorder = catalogProcess.getStockingReorder(pbean);
-			Object ImgLit = catalogProcess.getImgLit(pbean);
+			Object imgLit = catalogProcess.getImgLit(pbean);
 			Object kitMsdsNumber = catalogProcess.getKitMsdsNumber(pbean);
 			Collection requestIdColl = catalogProcess.getRequestIdColl(pbean);
 
 			responseBody.put("specColl", specColl);
 			responseBody.put("partInvColl", partInvColl);
 			responseBody.put("stockingReorder", stockingReorder);
-			responseBody.put("ImgLit", ImgLit);
+			responseBody.put("ImgLit", imgLit);
 			responseBody.put("kitMsdsNumber", kitMsdsNumber);
 			responseBody.put("requestIdColl", requestIdColl);
+
+			String catPartNo = pbean.getCatPartNo();
+			String inventoryGroup = pbean.getInventoryGroup();
+			String catalogId = pbean.getCatalogId();
+			BigDecimal partGroupNo = pbean.getPartGroupNo();
+			String catalogCompanyId = pbean.getCatalogCompanyId();
+
+			/**
+			 * lista de view Approbal = requestIdColl.requestId
+			 */
+
+			// Inventory
+
+			InventoryProcess inventoryProcess = new InventoryProcess(this.getDbUser(request));
+			Collection inventoryColl = inventoryProcess.getInventoryDetails(catPartNo, inventoryGroup,
+				catalogId, partGroupNo.toString(), catalogCompanyId);
+			responseBody.put("inventoryColl", inventoryColl);
+
+			// End Inventory
 
 			boolean editApprovalCode = personnelBean.getPermissionBean().hasFacilityPermission(
 				"EditUseCodeExpiration", bean.getFacilityId(), bean.getCompanyId());
@@ -79,6 +99,7 @@ public class CatalogPartDetailAction extends TcmisReactAction {
 			    showDirectedCharge = catalogProcess.showDirectedCharge(pbean);
 			}
 			request.setAttribute("showDirectedCharge", showDirectedCharge);
+
 			ok = true;
 			responseMsg = "Success!";
 
