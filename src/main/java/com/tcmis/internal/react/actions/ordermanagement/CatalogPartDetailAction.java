@@ -19,6 +19,8 @@ import com.tcmis.client.catalog.beans.CatalogInputBean;
 import com.tcmis.client.catalog.beans.PrCatalogScreenSearchBean;
 import com.tcmis.client.catalog.beans.QualitySummaryInputBean;
 import com.tcmis.client.catalog.beans.QualitySummaryViewBean;
+import com.tcmis.client.catalog.beans.UseApprovalDetailViewBean;
+import com.tcmis.client.catalog.process.ApprovedWorkAreasProcess;
 import com.tcmis.client.catalog.process.CatalogProcess;
 import com.tcmis.client.catalog.process.InventoryProcess;
 import com.tcmis.client.catalog.process.QualitySummaryProcess;
@@ -113,6 +115,27 @@ public class CatalogPartDetailAction extends TcmisReactAction {
 			responseBody.put("qualitySummaryViewBean", qualitySummaryViewBean);
 
 			// End Quality Summary
+
+			// Approved Work Areas
+
+			UseApprovalDetailViewBean awaBean = new UseApprovalDetailViewBean();
+			awaBean.setFacPartNo(catPartNo);
+			awaBean.setCatalogCompanyId(catalogCompanyId);
+			awaBean.setPartGroupNo(partGroupNo);
+			awaBean.setCatalogId(catalogId);
+			awaBean.setFacilityId(facilityId);
+			awaBean.setAllCatalog(false);
+
+			ApprovedWorkAreasProcess approvedWorkAreasProcess = new ApprovedWorkAreasProcess(
+				this.getDbUser(request));
+
+			Collection approvedWorkAreasBeanCollection = approvedWorkAreasProcess.getsearchResult(awaBean);
+			boolean useCodeRequired = approvedWorkAreasProcess.isUseCodeRequired(awaBean);
+
+			responseBody.put("approvedWorkAreasBeanCollection", approvedWorkAreasBeanCollection);
+			responseBody.put("useCodeRequired", useCodeRequired);
+
+			// End Approved Work Areas
 
 			boolean editApprovalCode = personnelBean.getPermissionBean().hasFacilityPermission(
 				"EditUseCodeExpiration", bean.getFacilityId(), bean.getCompanyId());
