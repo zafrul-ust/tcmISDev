@@ -24,6 +24,7 @@ import com.tcmis.client.catalog.process.ApprovedWorkAreasProcess;
 import com.tcmis.client.catalog.process.CatalogProcess;
 import com.tcmis.client.catalog.process.InventoryProcess;
 import com.tcmis.client.catalog.process.QualitySummaryProcess;
+import com.tcmis.client.report.process.ChartProcess;
 import com.tcmis.common.admin.beans.PersonnelBean;
 import com.tcmis.common.exceptions.BaseException;
 import com.tcmis.common.util.BeanHandler;
@@ -136,6 +137,28 @@ public class CatalogPartDetailAction extends TcmisReactAction {
 			responseBody.put("useCodeRequired", useCodeRequired);
 
 			// End Approved Work Areas
+
+			// Lead time plots
+
+			ChartProcess process = new ChartProcess(getDbUser(request));
+
+			String inventoryGroupName = "Atlanta%20LM%20Marietta";
+			String x = pbean.getInventoryGroupName();
+
+			String issueGeneration = "";
+
+			String fileName = process.generateLeadtimeChart(inventoryGroup, catPartNo,
+				partGroupNo.toString(), inventoryGroupName, catalogId, issueGeneration,
+				catalogCompanyId);
+			String map = process.getMap();
+			responseBody.put("fileName", fileName);
+			responseBody.put("chartType", "Lead time for " + catPartNo + " in " + inventoryGroupName);
+
+			if (log.isDebugEnabled()) {
+			    log.debug("FILENAME:" + fileName);
+			}
+
+			// End Lead time plots
 
 			boolean editApprovalCode = personnelBean.getPermissionBean().hasFacilityPermission(
 				"EditUseCodeExpiration", bean.getFacilityId(), bean.getCompanyId());
