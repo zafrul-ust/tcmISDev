@@ -227,7 +227,7 @@ public class CustomerReturnProcess extends BaseProcess {
 			throws NoDataException, BaseException, Exception {
 		ResourceLibrary res = new ResourceLibrary("com.tcmis.common.resources.CommonResources", getLocaleObject());
 		ExcelHandler pw = new ExcelHandler(res);
-		pw.addTable();
+		pw.addTable(res.getString("newCustomerReturns"));
 
 		pw.addRow();
 		pw.addCellBold(res.getString("label.operatingentity"));

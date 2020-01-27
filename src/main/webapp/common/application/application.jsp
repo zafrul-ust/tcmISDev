@@ -371,7 +371,7 @@ pageData["newInvoicePrint"]="<fmt:message key="newInvoicePrint"/>";
 pageData["newPickingQc"]="<fmt:message key="newPickingQc"/>";
 pageData["specLookup"]="<fmt:message key="specLookup"/>";
 pageData["materialTransferHistory"]="<fmt:message key="materialTransferHistory"/>";
-pageData["newCustomerReturns"]="<fmt:message key="customerReturns"/>";
+pageData["newCustomerReturns"]="<fmt:message key="newCustomerReturns"/>";
 pageData["msdssUsedAtLocations"]="<fmt:message key="msdssUsedAtLocations"/>";
 pageData["materialConsolidation"]="<fmt:message key="materialConsolidation"/>";
 pageData["itemConsolidation"]="<fmt:message key="itemConsolidation"/>";
