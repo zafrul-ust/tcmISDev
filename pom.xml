@@ -240,7 +240,7 @@
   <dependency>
   	<groupId>com.tcmis</groupId>
   	<artifactId>tcmis-core</artifactId>
-  	<version>V_20200118</version>
+  	<version>V_20200208-SNAPSHOT</version>
   	<exclusions>
   		<exclusion>
   			<groupId>xml-apis</groupId>

@@ -31,7 +31,6 @@ public class CreateMrDataMapper extends GenericSqlFactory implements ICreateMrDa
 				.append(" where company_application_logon_id = ")
 				.append(SqlHandler.delimitString(addressId));
 		
-		String personnelId = selectSingleValue(query.toString());
 		return new BigDecimal(selectSingleValue(query.toString()));
 	}
 
@@ -68,6 +67,51 @@ public class CreateMrDataMapper extends GenericSqlFactory implements ICreateMrDa
 				.append(" set end_user = ").append(SqlHandler.delimitString(endUser))
 				.append(", contact_info = ").append(SqlHandler.delimitString(contactInfo))
 				.append(" where pr_number = ").append(prNumber);
+		
+		deleteInsertUpdate(query.toString());
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Optional<RequestLineItemBean> getPrLineFromPoLine(String poNumber, String releaseNumber, 
+			String companyId, String facilityId, String catalogCompanyId, String catalogId) throws BaseException {
+		StringBuilder query = new StringBuilder("select pr_number, line_item from request_line_item")
+				.append(" where po_number = ").append(SqlHandler.delimitString(poNumber))
+				.append(" and release_number = ").append(SqlHandler.delimitString(releaseNumber))
+				.append(" and company_id = ").append(SqlHandler.delimitString(companyId))
+				.append(" and facility_id = ").append(SqlHandler.delimitString(facilityId))
+				.append(" and catalog_company_id = ").append(SqlHandler.delimitString(catalogCompanyId))
+				.append(" and catalog_id = ").append(SqlHandler.delimitString(catalogId));
+		
+		this.setBean(new RequestLineItemBean());
+		return selectQuery(query.toString()).stream().findFirst();
+	}
+
+	@Override
+	public void updateMrLine(RequestLineItemBean rli) throws BaseException {
+		StringBuilder stmt = new StringBuilder("update request_line_item set quantity = ")
+				.append(rli.getQuantity())
+				.append(" where quantity != ").append(rli.getQuantity())
+				.append(" and pr_number = ").append(rli.getPrNumber())
+				.append(" and line item = ").append(SqlHandler.delimitString(rli.getLineItem()));
+		
+		stmt = new StringBuilder("update request_line_item set quantity = ")
+				.append(rli.getQuantity())
+				.append(" where quantity != ").append(rli.getQuantity())
+				.append(" and pr_number = ").append(rli.getPrNumber())
+				.append(" and line_item = ").append(SqlHandler.delimitString(rli.getLineItem()));
+		
+		deleteInsertUpdate(stmt.toString());
+	}
+	
+	@Override
+	public void cancelMrLine(RequestLineItemBean rli) throws BaseException {
+		StringBuilder query = new StringBuilder("update request_line_item ")
+				.append("set cancel_request = sysdate,cancel_status = 'rqcancel'")
+				.append(",request_line_status = 'Pending Cancellation',cancel_comment = ''")
+				.append(",cancel_requester = ").append(rli.getCancelRequester())
+	            .append(" where pr_number = ").append(rli.getPrNumber())
+	            .append(" and line_item = ").append(SqlHandler.delimitString(rli.getLineItem()));
 		
 		deleteInsertUpdate(query.toString());
 	}
