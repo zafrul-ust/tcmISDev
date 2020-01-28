@@ -16,7 +16,12 @@ import org.json.JSONObject;
 
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.tcmis.client.catalog.beans.CatalogInputBean;
+import com.tcmis.client.catalog.beans.InventoryDetailInSupplyChainBean;
+import com.tcmis.client.catalog.beans.InventoryDetailOnHandMaterialBean;
+import com.tcmis.client.catalog.beans.ItemBean;
+import com.tcmis.client.catalog.beans.PkgInventoryDetailWebPrInventoryDetailBean;
 import com.tcmis.client.catalog.beans.PrCatalogScreenSearchBean;
+import com.tcmis.client.catalog.beans.QualityProductsBean;
 import com.tcmis.client.catalog.beans.QualitySummaryInputBean;
 import com.tcmis.client.catalog.beans.QualitySummaryViewBean;
 import com.tcmis.client.catalog.beans.UseApprovalDetailViewBean;
@@ -30,7 +35,6 @@ import com.tcmis.common.exceptions.BaseException;
 import com.tcmis.common.util.BeanHandler;
 import com.tcmis.common.util.StringHandler;
 import com.tcmis.internal.react.actions.TcmisReactAction;
-import com.tcmis.internal.react.beans.TokenReactBean;
 
 public class CatalogPartDetailAction extends TcmisReactAction {
 
@@ -45,142 +49,211 @@ public class CatalogPartDetailAction extends TcmisReactAction {
 
 	if (requestMethod.equalsIgnoreCase("POST")) {
 	    try {
-		TokenReactBean token = tokenVerify(request.getHeader("authorization"));
-		if (token.isValid()) {
-		    JSONObject requestBody = StringUtils.isNotBlank(jsonString) ? new JSONObject(jsonString)
-			    : new JSONObject();
-		    PersonnelBean personnelBean = this.getSessionPersonnelBean(request);
-		    BigDecimal personnelId = new BigDecimal(personnelBean.getPersonnelId());
-		    JSONArray searchResults = new JSONArray();
+		// TokenReactBean token = tokenVerify(request.getHeader("authorization"));
+		// if (token.isValid()) {
+		JSONObject requestBody = StringUtils.isNotBlank(jsonString) ? new JSONObject(jsonString)
+			: new JSONObject();
+		PersonnelBean personnelBean = this.getSessionPersonnelBean(request);
+		BigDecimal personnelId = new BigDecimal(personnelBean.getPersonnelId());
+		JSONArray searchResults = new JSONArray();
 
-		    if (personnelBean.getPermissionBean().hasUserPagePermission("catalogReport")
-			    && personnelBean.getPermissionBean().hasUserPagePermission("newcatalog")) {
+		if (personnelBean.getPermissionBean().hasUserPagePermission("catalogReport")
+			&& personnelBean.getPermissionBean().hasUserPagePermission("newcatalog")) {
 
-			CatalogProcess catalogProcess = new CatalogProcess(this.getDbUser(request),
-				this.getTcmISLocaleString(request));
-			CatalogInputBean bean = (CatalogInputBean) BeanHandler.getJsonBeans(requestBody,
-				new CatalogInputBean());
-			PrCatalogScreenSearchBean pbean = (PrCatalogScreenSearchBean) BeanHandler
-				.getJsonBeans(requestBody, new PrCatalogScreenSearchBean());
+		    CatalogProcess catalogProcess = new CatalogProcess(this.getDbUser(request),
+			    this.getTcmISLocaleString(request));
+		    CatalogInputBean bean = (CatalogInputBean) BeanHandler.getJsonBeans(requestBody,
+			    new CatalogInputBean());
+		    PrCatalogScreenSearchBean pbean = (PrCatalogScreenSearchBean) BeanHandler.getJsonBeans(requestBody,
+			    new PrCatalogScreenSearchBean());
 
-			Collection specColl = catalogProcess.getSpecMenu(pbean);
-			Object partInvColl = catalogProcess.getInventoryMenu(pbean);
-			Object stockingReorder = catalogProcess.getStockingReorder(pbean);
-			Object imgLit = catalogProcess.getImgLit(pbean);
-			Object kitMsdsNumber = catalogProcess.getKitMsdsNumber(pbean);
-			Collection requestIdColl = catalogProcess.getRequestIdColl(pbean);
+		    pbean.setCompanyId(personnelBean.getCompanyId());
+		    BigDecimal groupNo = new BigDecimal(1);
+		    pbean.setPartGroupNo(groupNo);
+		    pbean.setInventoryGroup("LM Marietta");
+		    pbean.setFacilityId("Marietta");
 
-			responseBody.put("specColl", specColl);
-			responseBody.put("partInvColl", partInvColl);
-			responseBody.put("stockingReorder", stockingReorder);
-			responseBody.put("ImgLit", imgLit);
-			responseBody.put("kitMsdsNumber", kitMsdsNumber);
-			responseBody.put("requestIdColl", requestIdColl);
+		    Collection requestIdColl = catalogProcess.getRequestIdColl(pbean);
+		    Collection specColl = catalogProcess.getSpecMenu(pbean);
 
-			String catPartNo = pbean.getCatPartNo();
-			String inventoryGroup = pbean.getInventoryGroup();
-			String catalogId = pbean.getCatalogId();
-			BigDecimal partGroupNo = pbean.getPartGroupNo();
-			String catalogCompanyId = pbean.getCatalogCompanyId();
-			String facilityId = pbean.getFacilityId();
+		    Object partInvColl = catalogProcess.getInventoryMenu(pbean);
+		    Object stockingReorder = catalogProcess.getStockingReorder(pbean);
+		    Object imgLit = catalogProcess.getImgLit(pbean);
+		    Object kitMsdsNumber = catalogProcess.getKitMsdsNumber(pbean);
 
-			/**
-			 * lista de view Approbal = requestIdColl.requestId
-			 */
+		    // responseBody.put("specColl", specColl);
+		    // responseBody.put("partInvColl", partInvColl);
+		    // responseBody.put("stockingReorder", stockingReorder);
+		    // responseBody.put("ImgLit", imgLit);
+		    // responseBody.put("kitMsdsNumber", kitMsdsNumber);
+		    // responseBody.put("requestIdColl", requestIdColl);
 
-			// Inventory
+		    String catPartNo = pbean.getCatPartNo();
+		    String catalogId = pbean.getCatalogId();
+		    BigDecimal partGroupNo = pbean.getPartGroupNo();
+		    String catalogCompanyId = pbean.getCompanyId();
 
-			InventoryProcess inventoryProcess = new InventoryProcess(this.getDbUser(request));
-			Collection inventoryColl = inventoryProcess.getInventoryDetails(catPartNo, inventoryGroup,
-				catalogId, partGroupNo.toString(), catalogCompanyId);
-			responseBody.put("inventoryColl", inventoryColl);
+		    String inventoryGroup = pbean.getInventoryGroup();
+		    String facilityId = pbean.getFacilityId();
 
-			// End Inventory
+		    // Inventory
+		    JSONArray itemDescription = new JSONArray();
+		    JSONArray inventoryPartsForItem = new JSONArray();
+		    JSONArray inventoryOnHandMaterial = new JSONArray();
+		    JSONArray inventoryInSupplyChain = new JSONArray();
 
-			// Quality Summary
+		    InventoryProcess inventoryProcess = new InventoryProcess(this.getDbUser(request));
+		    Collection<PkgInventoryDetailWebPrInventoryDetailBean> inventoryColl = inventoryProcess
+			    .getInventoryDetails(catPartNo, inventoryGroup, catalogId, partGroupNo.toString(),
+				    catalogCompanyId);
 
-			QualitySummaryInputBean qbean = new QualitySummaryInputBean();
-			qbean.setCatPartNo(catPartNo);
-			qbean.setCatalogCompanyId(catalogCompanyId);
-			qbean.setPartGroupNo(partGroupNo.toString());
-			qbean.setCatalogId(catalogId);
-			qbean.setFacilityId(facilityId);
-
-			QualitySummaryProcess qualitySummaryProcess = new QualitySummaryProcess(
-				this.getDbUser(request));
-			QualitySummaryViewBean qualitySummaryViewBean = qualitySummaryProcess.getSearchData(qbean,
-				personnelId);
-			Collection c = qualitySummaryProcess.getQualifiedProducts(qbean);
-			responseBody.put("qualityProductsRelationColl",
-				qualitySummaryProcess.createRelationalObject(c));
-			responseBody.put("qualitySummaryViewBean", qualitySummaryViewBean);
-
-			// End Quality Summary
-
-			// Approved Work Areas
-
-			UseApprovalDetailViewBean awaBean = new UseApprovalDetailViewBean();
-			awaBean.setFacPartNo(catPartNo);
-			awaBean.setCatalogCompanyId(catalogCompanyId);
-			awaBean.setPartGroupNo(partGroupNo);
-			awaBean.setCatalogId(catalogId);
-			awaBean.setFacilityId(facilityId);
-			awaBean.setAllCatalog(false);
-
-			ApprovedWorkAreasProcess approvedWorkAreasProcess = new ApprovedWorkAreasProcess(
-				this.getDbUser(request));
-
-			Collection approvedWorkAreasBeanCollection = approvedWorkAreasProcess.getsearchResult(awaBean);
-			boolean useCodeRequired = approvedWorkAreasProcess.isUseCodeRequired(awaBean);
-
-			responseBody.put("approvedWorkAreasBeanCollection", approvedWorkAreasBeanCollection);
-			responseBody.put("useCodeRequired", useCodeRequired);
-
-			// End Approved Work Areas
-
-			// Lead time plots
-
-			ChartProcess process = new ChartProcess(getDbUser(request));
-
-			String inventoryGroupName = "Atlanta%20LM%20Marietta";
-			String x = pbean.getInventoryGroupName();
-
-			String issueGeneration = "";
-
-			String fileName = process.generateLeadtimeChart(inventoryGroup, catPartNo,
-				partGroupNo.toString(), inventoryGroupName, catalogId, issueGeneration,
-				catalogCompanyId);
-			String map = process.getMap();
-			responseBody.put("fileName", fileName);
-			responseBody.put("chartType", "Lead time for " + catPartNo + " in " + inventoryGroupName);
-
-			if (log.isDebugEnabled()) {
-			    log.debug("FILENAME:" + fileName);
-			}
-
-			// End Lead time plots
-
-			boolean editApprovalCode = personnelBean.getPermissionBean().hasFacilityPermission(
-				"EditUseCodeExpiration", bean.getFacilityId(), bean.getCompanyId());
-
-			String showDirectedCharge = "N";
-			if (!StringHandler.isBlankString(pbean.getApplicationId())
-				&& !"My Work Areas".equals(pbean.getApplicationId())) {
-			    showDirectedCharge = catalogProcess.showDirectedCharge(pbean);
-			}
-			request.setAttribute("showDirectedCharge", showDirectedCharge);
-
-			ok = true;
-			responseMsg = "Success!";
-
-		    } else {
-			responseMsg = "user has not permissions!";
+		    if (inventoryColl.size() > 0) {
+			inventoryColl.forEach(result -> {
+			    if (result != null) {
+				Collection<ItemBean> item = result.getItemDescription();
+				Collection<InventoryDetailOnHandMaterialBean> onHands = result.getOnHandMaterial();
+				Collection<InventoryDetailInSupplyChainBean> inSupplys = result.getInSupplyChain();
+				Collection parts = result.getPartsForItem();
+				if (item.size() > 0) {
+				    item.forEach(itemResult -> {
+					if (itemResult != null) {
+					    try {
+						itemDescription.put(BeanHandler.getJsonObject(itemResult));
+					    } catch (BaseException e) {
+					    }
+					}
+				    });
+				}
+				if (onHands.size() > 0) {
+				    onHands.forEach(onHandResults -> {
+					if (onHandResults != null) {
+					    try {
+						inventoryOnHandMaterial.put(BeanHandler.getJsonObject(onHandResults));
+					    } catch (BaseException e) {
+					    }
+					}
+				    });
+				}
+				if (inSupplys.size() > 0) {
+				    inSupplys.forEach(inSupplyResults -> {
+					if (inSupplyResults != null) {
+					    try {
+						inventoryInSupplyChain.put(BeanHandler.getJsonObject(inSupplyResults));
+					    } catch (BaseException e) {
+					    }
+					}
+				    });
+				}
+			    }
+			});
 		    }
+		    responseBody.put("itemDescription", itemDescription);
+		    responseBody.put("inventoryOnHandMaterialList", inventoryOnHandMaterial);
+		    responseBody.put("inventoryInSupplyChainList", inventoryInSupplyChain);
+		    // End Inventory
 
-		    responseBody.put("ok", ok);
-		    responseBody.put("message", responseMsg);
-		    responseCode = HttpServletResponse.SC_OK;
+		    // Quality Summary
+		    JSONArray qualitySummaryBean = new JSONArray();
+		    JSONArray qualitySummaryResults = new JSONArray();
+
+		    QualitySummaryInputBean qbean = new QualitySummaryInputBean();
+		    qbean.setCatPartNo(catPartNo);
+		    qbean.setCatalogCompanyId(catalogCompanyId);
+		    qbean.setPartGroupNo(partGroupNo.toString());
+		    qbean.setCatalogId(catalogId);
+		    qbean.setFacilityId(facilityId);
+
+		    QualitySummaryProcess qualitySummaryProcess = new QualitySummaryProcess(this.getDbUser(request));
+		    QualitySummaryViewBean qualitySummaryViewBean = qualitySummaryProcess.getSearchData(qbean,
+			    personnelId);
+		    Collection<QualityProductsBean> c = qualitySummaryProcess.getQualifiedProducts(qbean);
+		    Collection<QualityProductsBean> qualitySummaryColl = qualitySummaryProcess
+			    .createRelationalObject(c);
+
+		    if (qualitySummaryColl.size() > 0) {
+			qualitySummaryColl.forEach(qualitySummaryCollResult -> {
+			    if (qualitySummaryCollResult != null) {
+				try {
+				    qualitySummaryResults.put(BeanHandler.getJsonObject(qualitySummaryCollResult));
+				} catch (BaseException e) {
+				}
+			    }
+			});
+		    }
+		    if (qualitySummaryViewBean != null) {
+			try {
+			    qualitySummaryBean.put(BeanHandler.getJsonObject(qualitySummaryViewBean));
+			} catch (BaseException e) {
+			}
+		    }
+		    responseBody.put("qualitySummaryBean", qualitySummaryBean);
+		    responseBody.put("qualitySummaryResults", qualitySummaryResults);
+		    // End Quality Summary
+
+		    // Approved Work Areas
+		    JSONArray approvedWorkAreasResults = new JSONArray();
+		    UseApprovalDetailViewBean awaBean = new UseApprovalDetailViewBean();
+		    awaBean.setFacPartNo(catPartNo);
+		    awaBean.setCatalogCompanyId(catalogCompanyId);
+		    awaBean.setPartGroupNo(partGroupNo);
+		    awaBean.setCatalogId(catalogId);
+		    awaBean.setFacilityId(facilityId);
+		    awaBean.setAllCatalog(false);
+
+		    ApprovedWorkAreasProcess approvedWorkAreasProcess = new ApprovedWorkAreasProcess(
+			    this.getDbUser(request));
+
+		    Collection<UseApprovalDetailViewBean> approvedWorkAreasBeanCollection = approvedWorkAreasProcess
+			    .getsearchResult(awaBean);
+		    boolean useCodeRequired = approvedWorkAreasProcess.isUseCodeRequired(awaBean);
+		    if (approvedWorkAreasBeanCollection.size() > 0) {
+			approvedWorkAreasBeanCollection.forEach(approvedWorkAreaResult -> {
+			    if (approvedWorkAreaResult != null) {
+				try {
+				    approvedWorkAreasResults.put(BeanHandler.getJsonObject(approvedWorkAreaResult));
+				} catch (BaseException e) {
+				}
+			    }
+
+			});
+		    }
+		    responseBody.put("approvedWorkAreasResults", approvedWorkAreasResults);
+		    responseBody.put("useCodeRequired", useCodeRequired);
+		    // End Approved Work Areas
+
+		    // Lead time plots
+		    ChartProcess process = new ChartProcess(getDbUser(request));
+		    String inventoryGroupName = "Atlanta%20LM%20Marietta";
+		    String x = pbean.getInventoryGroupName();
+		    String issueGeneration = "";
+		    String fileName = process.generateLeadtimeChart(inventoryGroup, catPartNo, partGroupNo.toString(),
+			    inventoryGroupName, catalogId, issueGeneration, catalogCompanyId);
+		    String map = process.getMap();
+		    responseBody.put("fileName", fileName);
+		    if (log.isDebugEnabled()) {
+			log.debug("FILENAME:" + fileName);
+		    }
+		    // End Lead time plots
+
+		    boolean editApprovalCode = personnelBean.getPermissionBean()
+			    .hasFacilityPermission("EditUseCodeExpiration", bean.getFacilityId(), bean.getCompanyId());
+
+		    String showDirectedCharge = "N";
+		    if (!StringHandler.isBlankString(pbean.getApplicationId())
+			    && !"My Work Areas".equals(pbean.getApplicationId())) {
+			showDirectedCharge = catalogProcess.showDirectedCharge(pbean);
+		    }
+		    ok = true;
+		    responseMsg = "Success!";
+
+		} else {
+		    responseMsg = "user has not permissions!";
 		}
+
+		responseBody.put("ok", ok);
+		responseBody.put("message", responseMsg);
+		responseCode = HttpServletResponse.SC_OK;
+		// }
 	    } catch (JSONException e) {
 		responseCode = HttpServletResponse.SC_BAD_REQUEST;
 		responseMsg = "Request body is not valid JSON";
