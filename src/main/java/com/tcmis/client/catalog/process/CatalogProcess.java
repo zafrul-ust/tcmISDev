@@ -1435,7 +1435,10 @@ extends BaseProcess {
 			pw.addCell(bean.getCatPartNo());
 			pw.addCell(bean.getPartDescription());
 			String storageTemp = bean.getStorageTemp();
-			if( storageTemp == null || storageTemp.trim().length() == 0 )
+			if(inputbean.isFacilityOrAllShelflife()) {
+				storageTemp = bean.getShelfLifeList();
+			}
+			else if( storageTemp == null || storageTemp.trim().length() == 0 )
 				storageTemp = "";
 			else {
 				if( ! "Indefinite".equals(bean.getShelfLife() ) ) {
