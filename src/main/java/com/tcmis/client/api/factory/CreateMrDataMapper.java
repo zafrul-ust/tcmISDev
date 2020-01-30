@@ -1,11 +1,16 @@
 package com.tcmis.client.api.factory;
 
 import java.math.BigDecimal;
+import java.util.Collection;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+import org.apache.commons.collections.CollectionUtils;
+
+import com.tcmis.client.api.beans.EcommerceShipmentNotificationBean;
 import com.tcmis.client.catalog.beans.CatalogInputBean;
 import com.tcmis.client.order.beans.RequestLineItemBean;
+import com.tcmis.common.admin.beans.FeatureReleaseBean;
 import com.tcmis.common.db.DbManager;
 import com.tcmis.common.exceptions.BaseException;
 import com.tcmis.common.framework.GenericSqlFactory;
@@ -114,6 +119,46 @@ public class CreateMrDataMapper extends GenericSqlFactory implements ICreateMrDa
 	            .append(" and line_item = ").append(SqlHandler.delimitString(rli.getLineItem()));
 		
 		deleteInsertUpdate(query.toString());
+	}
+	
+	@Override
+	public EcommerceShipmentNotificationBean getRequestByPrNumber(BigDecimal prNumber) throws BaseException {
+		StringBuilder query = new StringBuilder("select pr.pr_number, rli.po_number, pr.contact_info, pr.end_user, rli.application_desc")
+				.append(" from purchase_request pr, request_line_item rli")
+				.append(" where pr.pr_number = ").append(prNumber)
+				.append(" and rli.pr_number = pr.pr_number");
+		
+		this.setBean(new EcommerceShipmentNotificationBean());
+		return (EcommerceShipmentNotificationBean)selectQuery(query.toString()).stream().findFirst().get();
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public Collection<EcommerceShipmentNotificationBean> getRequestLinesByPrNumber(BigDecimal prNumber) throws BaseException {
+		StringBuilder query = new StringBuilder("select line_item, part_description, quantity, fac_part_no")
+				.append(" from line_item_ii_view where pr_number = ").append(prNumber);
+		
+		this.setBean(new EcommerceShipmentNotificationBean());
+		return selectQuery(query.toString());
+	}
+	
+	@Override
+	public boolean isSendOrderConfirmationEmail(BigDecimal prNumber) {
+		StringBuilder query = new StringBuilder("select scope from feature_release fr, purchase_request pr")
+				.append(" where fr.feature = 'SendPRConfirmation'")
+				.append(" and pr.pr_number = ").append(prNumber)
+				.append(" and pr.company_id = fr.company_id")
+				.append(" and scope in ('ALL', pr.facility_id)")
+				.append(" and active = 'Y'");
+		
+		this.setBean(new FeatureReleaseBean());
+		boolean empty = false;
+		try {
+			empty = CollectionUtils.isEmpty(selectQuery(query.toString()));
+		} catch(BaseException e) {
+			empty = true;
+		}
+		return ! empty;
 	}
 	
 }
