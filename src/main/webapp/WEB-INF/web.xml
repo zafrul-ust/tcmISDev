@@ -2239,6 +2239,18 @@
 					/WEB-INF/struts-config-common-userprofile.xml
 				</param-value>
 		</init-param>
+		
+		<init-param>
+				<param-name>config/burrana</param-name>
+				<param-value>
+					/WEB-INF/struts-config-common-report.xml,
+					/WEB-INF/struts-config-common-catalog.xml,
+					/WEB-INF/struts-config-common-login.xml,
+					/WEB-INF/struts-config-ws.xml,
+					/WEB-INF/struts-config-common-cabinet.xml,
+					/WEB-INF/struts-config-common-userprofile.xml
+				</param-value>
+		</init-param>
 <!-- Next Customer Config Auto Gen Tag -->
        <init-param>
         		<param-name>debug</param-name>
