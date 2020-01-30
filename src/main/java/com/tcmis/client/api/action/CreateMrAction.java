@@ -24,6 +24,12 @@ public class CreateMrAction extends JsonRequestResponseAction {
 			String jsonString) throws BaseException {
 		JSONObject responseBody = null;
 		try {
+			StringBuilder requestDetails = new StringBuilder("Request Details:\n")
+					.append("Content-Type: ").append(request.getHeader("Content-Type")).append("\n")
+					.append("URI: ").append(request.getRequestURI()).append("\n")
+					.append("Request Body: ").append(jsonString);
+			log.debug(requestDetails.toString());
+			
 			CreateMrProcess process = new CreateMrProcess(this.getDbUser(request), this.getTcmISLocale(request));
 			JSONObject json = process.transformJson(new JSONObject(jsonString), this.getPathCompany(request));
 			
@@ -53,6 +59,11 @@ public class CreateMrAction extends JsonRequestResponseAction {
 		}
 		
 		try {
+			try {
+				log.debug(String.format("Response Body: %s", responseBody.toString(4)));
+			} catch(JSONException e) {
+				log.debug(String.format("Response Body: %s", responseBody.toString()));
+			}
 			PrintWriter out = response.getWriter();
 			out.write(responseBody.toString());
 			out.close();

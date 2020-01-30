@@ -1,8 +1,10 @@
 package com.tcmis.client.api.factory;
 
 import java.math.BigDecimal;
+import java.util.Collection;
 import java.util.Optional;
 
+import com.tcmis.client.api.beans.EcommerceShipmentNotificationBean;
 import com.tcmis.client.catalog.beans.CatalogInputBean;
 import com.tcmis.client.order.beans.RequestLineItemBean;
 import com.tcmis.common.exceptions.BaseException;
@@ -23,4 +25,10 @@ public interface ICreateMrDataMapper {
 	void updateMrLine(RequestLineItemBean rli) throws BaseException;
 
 	void cancelMrLine(RequestLineItemBean rli) throws BaseException;
+	
+	EcommerceShipmentNotificationBean getRequestByPrNumber(BigDecimal prNumber) throws BaseException;
+
+	Collection<EcommerceShipmentNotificationBean> getRequestLinesByPrNumber(BigDecimal prNumber) throws BaseException;
+
+	boolean isSendOrderConfirmationEmail(BigDecimal prNumber);
 }

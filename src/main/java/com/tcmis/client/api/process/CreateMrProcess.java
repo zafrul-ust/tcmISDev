@@ -20,6 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.tcmis.client.api.beans.EcommerceShipmentNotificationBean;
 import com.tcmis.client.api.factory.CreateMrDataMapper;
 import com.tcmis.client.api.factory.ICreateMrDataMapper;
 import com.tcmis.client.catalog.beans.CatalogInputBean;
@@ -63,9 +64,11 @@ public class CreateMrProcess extends GenericProcess {
 	public static final String CANCEL_ACTION = "cancel";
 	
 	private ICreateMrDataMapper database;
+	private ResourceLibrary commonResources;
 	
 	public CreateMrProcess(String client, Locale locale) {
 		super(client, locale);
+		commonResources = new ResourceLibrary("com.tcmis.common.resources.CommonResources", this.getLocaleObject());
 	}
 
 	public CreateMrProcess(String client, Locale locale, ICreateMrDataMapper database) {
@@ -174,13 +177,14 @@ public class CreateMrProcess extends GenericProcess {
 			}
 			ShoppingCartProcess process = new ShoppingCartProcess(this.getClient(), this.getLocale());
 			BigDecimal prNumber = process.buildNewRequest(inputBean,cartLineList, personnelId);
-			getDatabase().setEndUserContactInfo(prNumber, header.getString("endUser"), header.getString("contactInfo"));
 			confirmation = buildConfirmation(json, prNumber);
 			
 			MaterialRequestProcess mrProcess = new MaterialRequestProcess(this.getClient(), this.getLocale());
 	    	MaterialRequestInputBean mrInputBean = new MaterialRequestInputBean();
 	    	BeanHandler.copyAttributes(inputBean, mrInputBean);
 	    	mrInputBean.setPrNumber(prNumber);
+	    	mrInputBean.setEndUser(header.getString("endUser"));
+	    	mrInputBean.setContactInfo(header.getString("contactInfo"));
 	    	
 	    	LoginProcess loginProcess = new LoginProcess(this.getClient());
 	    	PersonnelBean personnelBean = new PersonnelBean();
@@ -343,7 +347,13 @@ public class CreateMrProcess extends GenericProcess {
 	public void confirmOrder(JSONObject confirmationRequest, Throwable ex) {
 		try {
 			ResourceLibrary library = new ResourceLibrary("ecommerce");
-			int httpMessage = NetHandler.sendHttpPost(library.getString("confirm_order_url"), confirmationRequest);
+			String confirmOrderUrl = library.getString("confirm_order_url");
+			StringBuilder requestDetails = new StringBuilder("Posting Order Confirmation\n")
+					.append("URL: ").append(confirmOrderUrl).append("\n")
+					.append("Request Body: ").append(confirmationRequest.toString(4));
+			log.debug(requestDetails.toString());
+			
+			int httpMessage = NetHandler.sendHttpPost(confirmOrderUrl, confirmationRequest);
 			if (httpMessage != 200) {
 				log.debug("Failed to POST to WDI");
 				MailProcess.sendEmail("deverror@tcmis.com", null,"deverror@tcmis.com","Unable to send order confirmation to ecommerce system",
@@ -353,10 +363,57 @@ public class CreateMrProcess extends GenericProcess {
 			}
 			else {
 				log.debug("Successfully POST to WDI");
+				BigDecimal prNumber = new BigDecimal(confirmationRequest
+						.getJSONObject("Request")
+						.getJSONObject("ConfirmationRequest")
+						.getJSONObject("ConfirmationHeader")
+						.getInt("confirmID"));
+
+				if (getDatabase().isSendOrderConfirmationEmail(prNumber)) {
+					EcommerceShipmentNotificationBean request = getDatabase().getRequestByPrNumber(prNumber);
+					Collection<EcommerceShipmentNotificationBean> requestLines = getDatabase().getRequestLinesByPrNumber(prNumber);
+					sendOrderConfirmationEmail(request, requestLines);
+				}
 			}
 		} catch(Exception e) {
 			log.info("Exceptional completion");
 			log.info(e);
 		}
+	}
+	
+	private void sendOrderConfirmationEmail(EcommerceShipmentNotificationBean request, Collection<EcommerceShipmentNotificationBean> requestLines) {
+		StringBuilder lines = new StringBuilder();
+		for (EcommerceShipmentNotificationBean rli : requestLines) {
+			lines.append("\n").append(commonResources.getString("label.lineitem"))
+					.append(" : ").append(rli.getLineItem())
+					.append("\n").append(commonResources.getString("label.partnumber"))
+					.append(" : ").append(rli.getFacPartNo())
+					.append("\n").append(commonResources.getString("label.partdescription"))
+					.append(" : ").append(rli.getPartDescription())
+					.append("\n").append(commonResources.getString("label.quantity"))
+					.append(": ").append(rli.getQuantity()).append("\n");
+		}
+
+		StringBuilder body = new StringBuilder(commonResources.getString("label.requestcreated"))
+				.append("\n\n").append(commonResources.getString("label.requestor"))
+				.append(" : ").append(request.getEndUser())
+				.append("\n").append(commonResources.getString("label.email"))
+				.append(" : ").append(request.getContactInfo())
+				.append("\n").append(commonResources.getString("label.po"))
+				.append(" : ").append(request.getPoNumber())
+				.append("\n\n").append(commonResources.getString("label.materialrequest"))
+				.append(" : ").append(request.getPrNumber())
+				.append(lines);
+		
+		StringBuilder subject = new StringBuilder()
+				.append(commonResources.format("label.orderconfirmed", 
+						request.getPrNumber(), 
+						request.getApplicationDesc(), 
+						request.getEndUser(),
+						request.getPoNumber()));
+		
+		String recipient = request.getContactInfo();
+		
+		MailProcess.sendEmail(recipient, null, "deverror@tcmis.com", subject.toString(), body.toString());
 	}
 }

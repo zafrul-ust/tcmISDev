@@ -22,6 +22,7 @@ public class EcommerceShipmentNotificationBean extends BaseDataBean {
     private BigDecimal itemId;
     private String shipToLocationId;
     private String application;
+    private String applicationDesc;
     private Date releaseDate;
     private String facPartNo;
     private BigDecimal catalogPrice;
@@ -270,4 +271,12 @@ public class EcommerceShipmentNotificationBean extends BaseDataBean {
     public void setDetailData(Collection detailData) {
         this.detailData = detailData;
     }
+
+	public String getApplicationDesc() {
+		return applicationDesc;
+	}
+
+	public void setApplicationDesc(String applicationDesc) {
+		this.applicationDesc = applicationDesc;
+	}
 }
