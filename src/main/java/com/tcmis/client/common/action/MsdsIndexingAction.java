@@ -314,13 +314,19 @@ public class MsdsIndexingAction extends TcmISBaseAction{
 					if ( ! queueRow.filter(q -> ! q.isClosedStatus()).isPresent()) {
 						catAddReq = process.getRequest(input);
 						request.setAttribute("chemRequest", catAddReq);
+						BigDecimal chemRequestStatus = catAddReq == null ? null : catAddReq.getRequestStatus();
+						//added new attribute as chemRequest attribute also used as string type in case 3
+						request.setAttribute("chemRequestStatus", chemRequestStatus);
 						request.setAttribute("kitData", process.getKitData(input));
 						request.setAttribute("tabs", process.getNumComponents(input));
 						//since catAddReq can be null, needs to check
 						BigDecimal catAddReqId = catAddReq == null ? null : catAddReq.getRequestId();
 						request.setAttribute("beforeOrAfterSdsQc", process.getApprovalRoleBefore(catAddReqId, "SDS QC"));
 						request.setAttribute("hasOutOfScopeFeature", process.getRejectOutOfScopeFeature(catAddReqId));
-						input.setGenerateSdsFromSequence(user.isFeatureReleased("GenerateSdsFromSequence",catAddReq.getEngEvalFacilityId(),catAddReq.getCompanyId())?"true":"false");
+						//since catAddReq can be null, needs to check
+						String engEvalFacilityId = catAddReq == null ? null : catAddReq.getEngEvalFacilityId();
+						String companyId = catAddReq == null ? null : catAddReq.getCompanyId();
+						input.setGenerateSdsFromSequence(user.isFeatureReleased("GenerateSdsFromSequence",engEvalFacilityId,companyId)?"true":"false");
 					}
 					input.setuAction("getComponent");
 				case 2: // getComponent
