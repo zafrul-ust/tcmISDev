@@ -94,6 +94,8 @@ vatinvalidforcountryregion:"<fmt:message key="label.invvalidvarforcountryregion"
 vatinvalidforcountry:"<fmt:message key="label.invvalidvarforcountry"/>",
 einvoiceemailaddressinvalid:"<fmt:message key="error.einvoiceemailaddressinvalid"/>",
 jdecustomerbillto:"<fmt:message key="label.jdebilltoabno"/>"
+autoEmailAddressesRequired:"<fmt:message key="label.einvoiceemailaddress"/>",
+einvoicesbatchsizeRequired:"<fmt:message key="label.einvoicesbatchsize"/>"
 };
 
 function clearRep(rowid) {

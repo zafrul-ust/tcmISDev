@@ -956,6 +956,22 @@ function validateForm(approvestage) {
 			  }
 		  }
 		  
+
+		   if(document.getElementById("autoEmailInvoice").checked)
+			   {
+			      if(autoEmailAddresses == null ||autoEmailAddresses.trim().length == 0)
+			      {
+		        	  errorMsg += "\n"+messagesData.autoEmailAddressesRequired;        	
+				  
+				  } 
+			      
+			      var autoEmailBatchSize = $v("autoEmailBatchSize");
+			      
+			      if(autoEmailBatchSize == null || autoEmailBatchSize.trim().length == 0) {
+			    	  errorMsg += "\n"+messagesData.einvoicesbatchsizeRequired;    
+			      }
+			   }          
+		  
 	  if( errorMsg != '' ) {
 		  alert(messagesData.validvalues+errorMsg);
 		  return false;
