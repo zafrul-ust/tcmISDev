@@ -205,7 +205,8 @@ leadtime:"<fmt:message key="label.leadtime"/>",
 newApprovalCode:"<fmt:message key="label.newapprovalcode"/>",
 editapprovalcodeexpiration:"<fmt:message key="label.editapprovalcodeexpiration"/>",
 showlegend:"<fmt:message key="label.legend"/>",
-viewMaterialDoc:"<fmt:message key="label.viewmaterialdoc"/>"
+viewMaterialDoc:"<fmt:message key="label.viewmaterialdoc"/>",
+costPerVolume:"<fmt:message key="label.costpervolume"/>"
 };
 
 var newMsdsViewer = false;
@@ -232,6 +233,11 @@ showPartRevision = true;
 var showLeadTime = false;
 <tcmis:featureReleased feature="ShowLeadTime" scope="${param.facilityId}">
 showLeadTime = true;
+</tcmis:featureReleased>
+
+var showCostPerVolume = false;
+<tcmis:featureReleased feature="ShowCostPerVolume" scope="${param.facilityId}">
+showCostPerVolume = true;
 </tcmis:featureReleased>
 
 var map = null;
@@ -543,7 +549,13 @@ YAHOO.util.Event.addListener(window, "load", init);*/
           </c:if>
 	   </tcmis:featureReleased>
 	   
-      
+	   
+	   <c:set var="pricePerUnitVolumeDisp" value=""/>
+	   <c:if test="${!empty p.pricePerUnitVolume}">
+	     <fmt:formatNumber var="pricePerVolumeFormat" maxFractionDigits="4" minFractionDigits="4">${p.pricePerUnitVolume}</fmt:formatNumber>
+	   	 <c:set var="pricePerUnitVolumeDisp" value="${pricePerVolumeFormat} ${p.pricePerUnitVolumeUnit}"/>
+	   </c:if>
+	   
       { id:${status.index +1},
         <c:if test="${p.serviceFeeRow == 'Y' && !empty p.availableQtyForFee}">
             'class':"grid_green",
@@ -559,27 +571,24 @@ YAHOO.util.Event.addListener(window, "load", init);*/
               {value:'${p.catalogDesc}'},
               {value:'${catalogImage}'},
               {value:'<tcmis:jsReplace value="${p.catPartNo}" processMultiLines="true" processSpaces="true"/>'},
-              <tcmis:featureReleased feature="ShowPartRevision" scope="${param.facilityId}">{value:'<tcmis:jsReplace value="${p.customerPartRevision}" processMultiLines="true"/>'},</tcmis:featureReleased>
+              {value:'<tcmis:jsReplace value="${p.customerPartRevision}" processMultiLines="true"/>'},
               {value:'<tcmis:jsReplace value="${p.partDescription}" processMultiLines="true"/>'},
               {value:'${p.stockingMethod}'},
-              <tcmis:featureReleased feature="ShowLeadTime" scope="${param.facilityId}">{value:'<c:choose><c:when test="${!empty leadTimeValue}">${leadTimeValueDisplay}</c:when><c:otherwise>${showDefaultLeadTime} <c:if test="${!empty showDefaultLeadTime}"><a href="javascript:showLegend()" style="text-decoration: none;"><sup>*</sup></a></c:if></c:otherwise></c:choose>'},</tcmis:featureReleased>
+              {value:'<c:choose><c:when test="${!empty leadTimeValue}">${leadTimeValueDisplay}</c:when><c:otherwise>${showDefaultLeadTime} <c:if test="${!empty showDefaultLeadTime}"><a href="javascript:showLegend()" style="text-decoration: none;"><sup>*</sup></a></c:if></c:otherwise></c:choose>'},
               {value:''},
               {value:'${p.unitOfSale}'},
               {value:'${p.qtyOfUomPerItem}'},
+              {value:'${pricePerUnitVolumeDisp}'},
               {value:''},
               {value:'${p.itemId} ${obsoletePartDesc}'},
-              <c:if test="${isCompanyUsesCustomerMSDS == 'Y'}">
               {value:'${p.kitMsdsNumber}'},
-              </c:if>
               {value:''},
               {value:'<tcmis:jsReplace value="${p.grade}" processMultiLines="true"/>'},
               {value:'<tcmis:jsReplace value="${p.packaging}" processMultiLines="true"/>'},
               {value:'<tcmis:jsReplace value="${p.mfgDesc}" processMultiLines="true"/>'},
               {value:'<tcmis:jsReplace value="${p.mfgPartNo}"  processMultiLines="true"/>'},
 		      {value:'${p.approvalStatus}'},
-		  	  <c:if test="${isCompanyUsesCustomerMSDS == 'Y'}">
 			  {value:'${p.componentMsdsNumber}'},
-			  </c:if>
 	 		  {value:'${p.catalogCompanyId}'},
               {value:'${p.partGroupNo}'},
               {value:'${p.inventoryGroup}'},
@@ -780,56 +789,36 @@ YAHOO.util.Event.addListener(window, "load", init);*/
 		<script language="JavaScript" type="text/javascript">
 <!--
 
-<c:choose>
-	<c:when test="${tcmis:isFeatureReleased(personnelBean,'ShowPartRevision', param.facilityId) && tcmis:isFeatureReleased(personnelBean,'ShowLeadTime', param.facilityId)}">
-		jsonMainData.rows[${status.index}].data[6].value = '${finalPriceDisplay}';
-		jsonMainData.rows[${status.index}].data[9].value = '${shelfLifeDisplay}';
-		<c:choose>
-			<c:when test="${isCompanyUsesCustomerMSDS == 'Y'}">
-				jsonMainData.rows[${status.index}].data[12].value = '${materialDesc}';
-				jsonMainData.rows[${status.index}].data[29].value = '${finalPrice}';
-				jsonMainData.rows[${status.index}].data[36].value = '${finalUnitPrice}';
-			</c:when>
-			<c:otherwise>
-				jsonMainData.rows[${status.index}].data[11].value = '${materialDesc}';
-				jsonMainData.rows[${status.index}].data[27].value = '${finalPrice}';
-				jsonMainData.rows[${status.index}].data[34].value = '${finalUnitPrice}';
-			</c:otherwise>
-		</c:choose>
-	</c:when>
-	<c:when test="${tcmis:isFeatureReleased(personnelBean,'ShowPartRevision', param.facilityId) || tcmis:isFeatureReleased(personnelBean,'ShowLeadTime', param.facilityId)}">
-		jsonMainData.rows[${status.index}].data[5].value = '${finalPriceDisplay}';
-		jsonMainData.rows[${status.index}].data[8].value = '${shelfLifeDisplay}';
-		<c:choose>
-			<c:when test="${isCompanyUsesCustomerMSDS == 'Y'}">
-				jsonMainData.rows[${status.index}].data[11].value = '${materialDesc}';
-				jsonMainData.rows[${status.index}].data[28].value = '${finalPrice}';
-				jsonMainData.rows[${status.index}].data[35].value = '${finalUnitPrice}';
-			</c:when>
-			<c:otherwise>
-				jsonMainData.rows[${status.index}].data[10].value = '${materialDesc}';
-				jsonMainData.rows[${status.index}].data[26].value = '${finalPrice}';
-				jsonMainData.rows[${status.index}].data[33].value = '${finalUnitPrice}';
-			</c:otherwise>
-		</c:choose>
-	</c:when>
-	<c:otherwise>
-		jsonMainData.rows[${status.index}].data[4].value = '${finalPriceDisplay}';
-		jsonMainData.rows[${status.index}].data[7].value = '${shelfLifeDisplay}';
-		<c:choose>
-			<c:when test="${isCompanyUsesCustomerMSDS == 'Y'}">
-				jsonMainData.rows[${status.index}].data[10].value = '${materialDesc}';
-				jsonMainData.rows[${status.index}].data[27].value = '${finalPrice}';
-				jsonMainData.rows[${status.index}].data[34].value = '${finalUnitPrice}';
-			</c:when>
-			<c:otherwise>
-				jsonMainData.rows[${status.index}].data[9].value = '${materialDesc}';
-				jsonMainData.rows[${status.index}].data[25].value = '${finalPrice}';
-				jsonMainData.rows[${status.index}].data[32].value = '${finalUnitPrice}';
-			</c:otherwise>
-		</c:choose>
-	</c:otherwise>
-</c:choose>
+<c:set var="finalPriceDispIdx" value="${6}"/>
+<c:set var="slstIdx" value="${10}"/>
+<c:set var="matlDescIdx" value="${13}"/>
+<c:set var="finalPriceIdx" value="${30}"/>
+<c:set var="finalUnitPriceIdx" value="${37}"/>
+
+var finalPriceDispData = jsonMainData.rows[${status.index}].data[${finalPriceDispIdx}];
+if (finalPriceDispData) {
+	finalPriceDispData.value = '${finalPriceDisplay}';
+}
+
+var slstData = jsonMainData.rows[${status.index}].data[${slstIdx}];
+if (slstData) {
+	slstData.value = '${shelfLifeDisplay}';
+}
+
+var matlDescData = jsonMainData.rows[${status.index}].data[${matlDescIdx}];
+if (matlDescData) {
+	matlDescData.value = '${materialDesc}';
+}
+
+var finalPriceData = jsonMainData.rows[${status.index}].data[${finalPriceIdx}];
+if (finalPriceData) {
+	finalPriceData.value = '${finalPrice}';
+}
+
+var finalUnitPriceData = jsonMainData.rows[${status.index}].data[${finalUnitPriceIdx}];
+if (finalUnitPriceData) {
+	finalUnitPriceData.value = '${finalUnitPrice}';
+}
 
 
 	<c:if test="${!(curPar eq prePar)}">
