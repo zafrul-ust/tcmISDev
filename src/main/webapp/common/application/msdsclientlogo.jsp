@@ -112,6 +112,7 @@
 <c:when test='${module == "gulfstream"}'><img src="/images/logo/gulfstream.png" width="240" height="43"></c:when>
 <c:when test='${module == "rollins"}'><img src="/images/logo/rollins.png"  height="43"></c:when>
 <c:when test='${module == "burrana"}'><img src="/images/logo/burrana_inc.jpg"  height="43"></c:when>
+<c:when test='${module == "tpl_bil"}'><img src="/images/logo/logo_bersatu.png"  height="43"></c:when>
 <%-- Next Customer Config Auto Gen Tag --%>
 <c:otherwise><img src="/images/logo/logo_HASS.gif" width="44" height="43"></c:otherwise>
 </c:choose>
