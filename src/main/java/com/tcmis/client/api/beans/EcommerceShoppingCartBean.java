@@ -2,6 +2,8 @@ package com.tcmis.client.api.beans;
 
 import com.tcmis.common.framework.BaseDataBean;
 
+import java.math.BigDecimal;
+
 /******************************************************************************
  * CLASSNAME: EcommerceShoppingCartBean <br>
  * @version: 1.0, Jan 8, 2020 <br>
@@ -9,18 +11,18 @@ import com.tcmis.common.framework.BaseDataBean;
 
 public class EcommerceShoppingCartBean extends BaseDataBean {
 
-	private String unspsc;
+	private BigDecimal unspsc;
     private String mfgDesc;
 
 	//constructor
 	public EcommerceShoppingCartBean() {
 	}
 
-    public String getUnspsc() {
+    public BigDecimal getUnspsc() {
         return unspsc;
     }
 
-    public void setUnspsc(String unspsc) {
+    public void setUnspsc(BigDecimal unspsc) {
         this.unspsc = unspsc;
     }
 

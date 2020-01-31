@@ -11,26 +11,31 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="/WEB-INF/tcmis.tld" prefix="tcmis" %>
 
-<HTML>
-    <HEAD>
-        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
-        <META HTTP-EQUIV="Content-Type" CONTENT="application/json; charset=UTF-8">
-        <LINK REL="SHORTCUT ICON" HREF="https://www.tcmis.com/images/buttons/tcmIS.ico"></LINK>
-        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
-        <META HTTP-EQUIV="Expires" CONTENT="-1">
-        <TITLE>Submit Checkout</TITLE>
-        <LINK REL="stylesheet" TYPE="text/css" HREF="/stylesheets/global.css"></LINK>
-        <script src="/js/common/disableKeys.js" language="JavaScript"></script>
-    </HEAD>
+<HTML><HEAD>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+    <LINK REL="SHORTCUT ICON" HREF="https://www.tcmis.com/images/buttons/tcmIS.ico"></LINK>
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="-1">
+    <TITLE>Submit Punchout</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="/stylesheets/global.css"></LINK>
+    <script SRC="/clientscripts/iprocurement.js" LANGUAGE="JavaScript"></script>
+    <script src="/js/common/disableKeys.js" language="JavaScript"></script>
 
-    <BODY onLoad="window.close();">
-        <TABLE BORDER="0" CELLSPACING=1 CELLPADDING=0 WIDTH="100%" CLASS="moveup">
-            <TR>
-                <TD width="10%" CLASS="announce">
-                </TD>
-                <TD width="30%" CLASS="announce"><FONT SIZE="4" FACE="Arial" COLOR="#fc0303"><B>Please wait Checkout in Progress..</B></FONT><BR>
-                </TD>
-            </TR>
-        </TABLE>
-    </BODY>
+</HEAD>
+
+<BODY onLoad="submitheform()">
+
+<TABLE BORDER="0" CELLSPACING=1 CELLPADDING=0 WIDTH="100%" CLASS="moveup"><TR>
+    <TD width="10%" CLASS="announce">
+    </TD>
+    <TD width="30%" CLASS="announce"><FONT SIZE="4" FACE="Arial" COLOR="#fc0303"><B>Please wait Checkout in Progress..</B></FONT><BR>
+    </TD>
+</TR></TABLE>
+
+<form  NAME="puchoutiproc" action="${browserPost}" method="post">
+
+    <input type="hidden" name="cxml-urlencoded" value='${postBodyUrlUtf8}'></form>
+</BODY>
+
 </HTML>

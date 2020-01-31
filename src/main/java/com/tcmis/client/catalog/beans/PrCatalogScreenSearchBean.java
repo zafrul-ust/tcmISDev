@@ -112,7 +112,7 @@ public class PrCatalogScreenSearchBean extends BaseDataBean {
 	private String		source;
 	private BigDecimal  pricePerUnitVolume;
 	private String      pricePerUnitVolumeUnit;
-	private String 		image_content;
+	private String 		imageContent;
 	
 	public String getSource() {
 		return source;
@@ -874,11 +874,11 @@ public class PrCatalogScreenSearchBean extends BaseDataBean {
 		this.pricePerUnitVolumeUnit = pricePerUnitVolumeUnit;
   }
   
-	public String getImage_content() {
-		return image_content;
+	public String getImageContent() {
+		return imageContent;
 	}
 
-	public void setImage_content(String image_content) {
-		this.image_content = image_content;
+	public void setImageContent(String image_content) {
+		this.imageContent = image_content;
 	}
 } // end of class

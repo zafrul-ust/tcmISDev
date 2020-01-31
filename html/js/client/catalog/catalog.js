@@ -343,10 +343,7 @@ function selectRow()
 				parent.document.getElementById('updateResultLink').style["display"] = "none";
 			 }
 		 }else {  //else not coming from an ecommerce application
-             if (ecommerceFacility.value == 'SEAGATEIP' || ecommerceFacility.value == 'y') {
-                parent.document.getElementById('updateResultLink').style["display"] = "none";
-                addToCartLinkExist = false;
-             }else if(ecommerceFacility.value != 'Y' && cellValue(selectedRowId,"applicationPermission") == 'Y'
+			 if((ecommerceFacility.value == 'N' || ecommerceFacility.value == 'AEROJETIP' || ecommerceFacility.value == 'OCI') && cellValue(selectedRowId,"applicationPermission") == 'Y'
 				 && cellValue(selectedRowId,'approvalStatus') == 'approved' ) {
 			 	if (intcmIsApplication) {
 		 			parent.document.getElementById('updateResultLink').style["display"] = "";
@@ -798,14 +795,14 @@ function doInitGrid(){
 	mygrid = new dhtmlXGridObject('prCatalogScreenSearchBean');
 	mygrid.setImagePath("/dhtmlxGrid/codebase/imgs/");
 	/*To internationalize column headers, get the values from messagesData*/
-	var colVAlign = "middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,"+
+	var colVAlign = "middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,"+
 		"middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,"+
 		"middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,"+
 		"middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,"+
 		"middle,middle,middle,middle,middle";
-		console.log(colVAlign.split(",").length);
-		
+
 		var header = messagesData.catalog
+			+","+(showImageCol?messagesData.image:"")
 			+","+messagesData.part
 			+","+(showPartRevision?messagesData.revision:"")
 			+","+messagesData.description
@@ -828,29 +825,25 @@ function doInitGrid(){
 			+",,,,,,,,,,,,,,,,,,,,,,,,,,"+(('--Hide--' == qualityIdLabelColumnHeader)?"":qualityIdLabelColumnHeader)
 			+","+(('--Hide--' == catPartAttrColumnHeader)?"":catPartAttrColumnHeader)
 			+",";
-		console.log(header.split(",").length);
 
-		var colAlign = "left,left,left,left,left,left,left,left,left,left,left,"+
+		var colAlign = "left,center,left,left,left,left,left,left,left,left,left,left,"+
 						 "left,left,left,left,left,left,left,left,left,left,left,"+
 						 "left,left,left,left,left,left,left,left,left,left,"+
 						 "left,left,left,left,left,left,left,left,left,left,left,"+
 						 "left,left,left,left,left";
-		console.log(colAlign.split(",").length);
-		
-		var colTypes = "ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,"+
+
+		var colTypes = "ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,"+
 						"ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,"+
 						"ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,"+
 						"ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,"+
 						"ro,ro,ro,ro,ro";
-		console.log(colTypes.split(",").length);
-		
-		var toolTips = "false,false,false,true,false,false,false,false,false,false,"+
+
+		var toolTips = "false,false,false,false,true,false,false,false,false,false,false,"+
 						"false,false,false,true,"+
 						"true,false,false,false,false,false,false,false,false,false,false,"+
 						"false,false,false,false,false,false,false,false,false,false," +
 						"false,false,false,false,false,false,false,false,false,"+
 						"false,true,true,false";
-		console.log(toolTips.split(",").length);
 		
 		mygrid.setHeader(header);
 		mygrid.setColVAlign(colVAlign);
@@ -860,6 +853,7 @@ function doInitGrid(){
 
 		var idArr = new Array();
 		idArr.push("catalogDesc");
+		idArr.push("itemImage");
 		idArr.push("catPartNo");
 		idArr.push("customerPartRevision");
 		idArr.push("partDescription");
@@ -908,11 +902,11 @@ function doInitGrid(){
 		idArr.push("qualityId");
 		idArr.push("catPartAttribute");
 		idArr.push("prop65Warning");
-		console.log(idArr.length);
-		
+
 		mygrid.setColumnIds(idArr.join(","));
 		var initWidths = ""
 			+(hideCatalogCol?"0":"7")
+			+","+(showImageCol?"5":"0")
 			+",10"
 			+","+(showPartRevision?"4":"0")
 			+",15,5"
@@ -928,15 +922,14 @@ function doInitGrid(){
 			+","+(('--Hide--' == qualityIdLabelColumnHeader)?"0":"10")
 			+","+(('--Hide--' == catPartAttrColumnHeader)?"0":"10")
 			+",0";
-		console.log(initWidths.split(",").length);
-		
+
 		mygrid.setInitWidths(initWidths);
 		
 		mygrid._haas_row_span = true;
 		mygrid._haas_row_span_map = rowSpanMap;
 		mygrid._haas_row_span_class_map = rowSpanClassMap;
 
-		var rowSpanInterval = [10,1,2];
+		var rowSpanInterval = [11,1,2];
 		var rowSpanGap = [0,9,27];
 		
 		mygrid._haas_row_span_cols = calculateRowSpan(rowSpanInterval, rowSpanGap);

@@ -44,7 +44,7 @@ public class CreateMrDataMapper extends GenericSqlFactory implements ICreateMrDa
 	public Optional<CatalogInputBean> getPrRulesByCompanyFacility(String companyId, String facilityId)
 			throws BaseException {
 		StringBuilder query = new StringBuilder("select account_sys_id, charge_type")
-				.append(" from pr_rules where company_id = ")
+				.append(" from pr_rules where status = 'A' and company_id = ")
 				.append(SqlHandler.delimitString(companyId))
 				.append(" and facility_id = ")
 				.append(SqlHandler.delimitString(facilityId));
@@ -94,13 +94,7 @@ public class CreateMrDataMapper extends GenericSqlFactory implements ICreateMrDa
 
 	@Override
 	public void updateMrLine(RequestLineItemBean rli) throws BaseException {
-		StringBuilder stmt = new StringBuilder("update request_line_item set quantity = ")
-				.append(rli.getQuantity())
-				.append(" where quantity != ").append(rli.getQuantity())
-				.append(" and pr_number = ").append(rli.getPrNumber())
-				.append(" and line item = ").append(SqlHandler.delimitString(rli.getLineItem()));
-		
-		stmt = new StringBuilder("update request_line_item set quantity = ")
+		StringBuilder stmt = new StringBuilder("update request_line_item set last_updated = sysdate, last_updated_by = -1, quantity = ")
 				.append(rli.getQuantity())
 				.append(" where quantity != ").append(rli.getQuantity())
 				.append(" and pr_number = ").append(rli.getPrNumber())

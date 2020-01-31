@@ -2490,7 +2490,6 @@ function submitEcommerceCheckout() {
 	cartgrid.parentFormOnSubmit(); //prepare grid for data sending
 	document.genericForm.submit();
 	clearShoppingCart();
-    window.close();
 }
 
 function submitAerojetCheckout() {
@@ -2508,7 +2507,6 @@ function submitAerojetCheckout() {
 	cartgrid.parentFormOnSubmit(); //prepare grid for data sending
 	document.genericForm.submit();
 	clearShoppingCart();
-//	window.close();
 }
 
 function submitSeagateCheckout() {

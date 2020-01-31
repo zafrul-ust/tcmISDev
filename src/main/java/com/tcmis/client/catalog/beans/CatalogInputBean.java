@@ -105,6 +105,7 @@ public class CatalogInputBean extends BaseDataBean {
 
  private String payloadTimestamp;
  private String ecommerceLanguage;
+ private String browserCookie;
 
 //constructor
  public CatalogInputBean() {
@@ -699,5 +700,13 @@ public boolean isPrintScreen() {
 
 	public void setEcommerceLanguage(String ecommerceLanguage) {
 		this.ecommerceLanguage = ecommerceLanguage;
+	}
+
+	public String getBrowserCookie() {
+		return browserCookie;
+	}
+
+	public void setBrowserCookie(String browserCookie) {
+		this.browserCookie = browserCookie;
 	}
 }  //end of class

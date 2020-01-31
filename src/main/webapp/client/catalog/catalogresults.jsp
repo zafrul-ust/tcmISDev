@@ -240,6 +240,11 @@ var showCostPerVolume = false;
 showCostPerVolume = true;
 </tcmis:featureReleased>
 
+var showImageCol = false;
+<tcmis:featureReleased feature="ShowItemImageColumn" scope="ALL">
+	showImageCol = true;
+</tcmis:featureReleased>
+
 var map = null;
 var map2 = null;
 var prerow = null;
@@ -561,9 +566,9 @@ YAHOO.util.Event.addListener(window, "load", init);*/
             'class':"grid_green",
         </c:if>
             
-        <c:set var="catalogImage" value="<div class=\"divCatalogItemImages\"><img class=\"catalogItemThumbnail\" src=\"https://via.placeholder.com/500.png?text=No%20image\"/><img class=\"catalogItemImage\" src=\"https://via.placeholder.com/500.png?text=No%20image\"/></div>" />         	 
-       	<c:if test="${!empty p.image_content}">
-       		<c:set var="catalogImage" value="<div class=\"divCatalogItemImages\"><img class=\"catalogItemThumbnail\" src=\"${p.image_content}\"/><img class=\"catalogItemImage\" src=\"${p.image_content}\"/></div>" />
+        <c:set var="catalogImage" value="" />
+       	<c:if test="${!empty p.imageContent}">
+       		<c:set var="catalogImage" value="<div class=\"divCatalogItemImages\"><img class=\"catalogItemThumbnail\" src=\"${p.imageContent}\"/><img class=\"catalogItemImage\" src=\"${p.imageContent}\"/></div>" />
     	</c:if>
         
         
@@ -789,11 +794,11 @@ YAHOO.util.Event.addListener(window, "load", init);*/
 		<script language="JavaScript" type="text/javascript">
 <!--
 
-<c:set var="finalPriceDispIdx" value="${6}"/>
-<c:set var="slstIdx" value="${10}"/>
-<c:set var="matlDescIdx" value="${13}"/>
-<c:set var="finalPriceIdx" value="${30}"/>
-<c:set var="finalUnitPriceIdx" value="${37}"/>
+<c:set var="finalPriceDispIdx" value="${7}"/>
+<c:set var="slstIdx" value="${11}"/>
+<c:set var="matlDescIdx" value="${14}"/>
+<c:set var="finalPriceIdx" value="${31}"/>
+<c:set var="finalUnitPriceIdx" value="${38}"/>
 
 var finalPriceDispData = jsonMainData.rows[${status.index}].data[${finalPriceDispIdx}];
 if (finalPriceDispData) {

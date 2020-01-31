@@ -111,7 +111,7 @@ public class CreateMrProcess extends GenericProcess {
 				}
 				
 				JSONObject itemDetail = itemOut.getJSONObject("ItemDetail");
-				DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+				DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss-hh:mm");
 				
 				mrLine.put("lineItem", i+1);
 				mrLine.put("poNumber", orderRequestHeader.getString("orderID"));
@@ -147,6 +147,7 @@ public class CreateMrProcess extends GenericProcess {
 				mrHeader.put("endUser", shipToAddress.getJSONObject("PostalAddress").getJSONArray("DeliverTo").get(0));
 				mrHeader.put("contactInfo", shipToAddress.getJSONObject("Email").getString("value"));
 				mrHeader.put("operation", orderRequestHeader.get("type"));
+				mrHeader.put("deploymentMode",json.getJSONObject("Request").getString("deploymentMode"));
 			jsonOut.put("mrHeader", mrHeader);
 		} catch(JSONException e) {
 			throw new BaseException(e);
@@ -255,7 +256,7 @@ public class CreateMrProcess extends GenericProcess {
 	
 	private JSONObject buildConfirmation(JSONObject requestBody, BigDecimal prNumber) throws BaseException {
 		try {
-			DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+			DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss-hh:mm");
 			RequestLineItemBean mrData = prNumber==null?null:getDatabase().getRequestLineItemByPrNumber(prNumber);
 			String[] payloadTs = getPayloadTs(mrData, requestBody);
 			String confirmationType = mrData == null?"reject":"accept";
@@ -287,7 +288,7 @@ public class CreateMrProcess extends GenericProcess {
 					}});
 				}});
 				this.put("Request", new JSONObject() {{
-					this.put("deploymentMode", "");
+					this.put("deploymentMode", requestBody.getJSONObject("mrHeader").getString("deploymentMode"));
 					this.put("ConfirmationRequest", new JSONObject() {{
 						this.put("ConfirmationHeader", new JSONObject() {{
 							this.put("value", "");
