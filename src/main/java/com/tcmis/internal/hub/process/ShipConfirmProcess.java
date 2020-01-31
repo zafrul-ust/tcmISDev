@@ -503,17 +503,31 @@ public class ShipConfirmProcess extends GenericProcess {
 			Iterator it = shipmentBeanCollection.iterator();
 			while (it.hasNext()) {
 				ShipmentBean bean = (ShipmentBean) it.next();
+				StringBuilder shipmentIdStr = new StringBuilder(bean.getShipmentId().toString());
+				
+				/* retrieve the email address of every personnel 
+				 * who is part of the 'DeliveryNotification' group for this shipment's ship to location 
+				 */
 				Iterator iterator = factory.selectShipmentNotificationEmail(bean.getShipmentId()).iterator();
 				while (iterator.hasNext()) {
 					PersonnelBean personnelBean = (PersonnelBean) iterator.next();
-					if (!emailAddress.containsKey(personnelBean.getEmail())) {
-						StringBuilder s = new StringBuilder(bean.getShipmentId().toString());
-						emailAddress.put(personnelBean.getEmail(), s);
+					if (!emailAddress.containsKey(personnelBean.getEmail())) {					
+						emailAddress.put(personnelBean.getEmail(), shipmentIdStr);
 					}
 					else {
 						StringBuilder s = (StringBuilder) emailAddress.get(personnelBean.getEmail());
 						s.append(",").append(bean.getShipmentId().toString());
 					}
+				}
+				
+				/* if feature release 'DeliveryNotificationToPRContact' is set
+				 * retrieve email address of this shipment's purchase request contact
+				 */
+				if(isSendPRDeliveryNotification(bean.getShipmentId())) {
+					String contact = getPurchaseRequestContact(bean.getShipmentId());
+					
+					if(!StringHandler.isBlankString(contact))
+						emailAddress.put(contact, shipmentIdStr);
 				}
 			}
 			Enumeration myenum = emailAddress.keys();
@@ -537,22 +551,37 @@ public class ShipConfirmProcess extends GenericProcess {
 	public void sendNotAutoConfirmNotification(Collection shipConfirmInputBeanCollection) throws BaseException {
 		DbManager dbManager = new DbManager(this.getClient(), getLocale());
 		PersonnelBeanFactory factory = new PersonnelBeanFactory(dbManager);
+		
 		try {
 			Hashtable emailAddress = new Hashtable();
 			Iterator it = shipConfirmInputBeanCollection.iterator();
 			while (it.hasNext()) {
 				ShipConfirmInputBean bean = (ShipConfirmInputBean) it.next();
+				StringBuilder shipmentIdStr = new StringBuilder(bean.getShipmentId().toString());
+				
+				/* retrieve the email address of every personnel 
+				 * who is part of the 'DeliveryNotification' group for this shipment's ship to location 
+				 */
 				Iterator iterator = factory.selectShipmentNotificationEmail(bean.getShipmentId()).iterator();
 				while (iterator.hasNext()) {
 					PersonnelBean personnelBean = (PersonnelBean) iterator.next();
-					if (!emailAddress.containsKey(personnelBean.getEmail())) {
-						StringBuilder s = new StringBuilder(bean.getShipmentId().toString());
-						emailAddress.put(personnelBean.getEmail(), s);
+					if (!emailAddress.containsKey(personnelBean.getEmail())) {						
+						emailAddress.put(personnelBean.getEmail(), shipmentIdStr);
 					}
 					else {
 						StringBuilder s = (StringBuilder) emailAddress.get(personnelBean.getEmail());
 						s.append("," + bean.getShipmentId().toString());
 					}
+				}
+				
+				/* if feature release 'DeliveryNotificationToPRContact' is set
+				 * retrieve email address of this shipment's purchase request contact
+				 */
+				if(isSendPRDeliveryNotification(bean.getShipmentId())) {
+					String contact = getPurchaseRequestContact(bean.getShipmentId());
+					
+					if(!StringHandler.isBlankString(contact))
+						emailAddress.put(contact, shipmentIdStr);
 				}
 			}
 			Enumeration myenum = emailAddress.keys();
@@ -843,5 +872,42 @@ public class ShipConfirmProcess extends GenericProcess {
 				}
 			}
 		}
+	}
+	
+	public String getPurchaseRequestContact(BigDecimal shipmentId) throws BaseException, Exception {
+
+		GenericSqlFactory factory = new GenericSqlFactory(dbManager, new ShipmentBean());
+
+		String query = "SELECT pr.contact_info " + 
+						 "FROM customer.purchase_request pr, tcm_ops.issue i  " + 
+						"WHERE i.shipment_id = " + shipmentId.intValue() + 
+						  "AND pr.pr_number = i.pr_number";
+
+		return factory.selectSingleValue(query);
+
+	}
+	
+	public boolean isSendPRDeliveryNotification(BigDecimal shipmentId) throws BaseException, Exception {
+
+		GenericSqlFactory factory = new GenericSqlFactory(dbManager, new ShipmentBean());
+
+		String query = "SELECT scope " + 
+						 "FROM customer.feature_release fr, tcm_ops.shipment s " + 
+						"WHERE fr.feature = 'PRDeliveryNotification' " + 
+						  "AND s.shipment_id = " + shipmentId.intValue() + 
+						  "AND fr.company_id = s.company_id " + 
+						  "AND fr.scope in ('ALL', (SELECT pr.facility_id " + 
+						  							 "FROM customer.purchase_request pr " + 
+						  							"WHERE pr.pr_number = (SELECT i.pr_number " + 
+						  													"FROM issue i " + 
+						  													"WHERE i.shipment_id = s.shipment_id)))" +
+						  "AND fr.active = 'Y'"; 
+
+		Collection results = factory.selectQuery(query);
+		
+		if(results != null && results.size() >= 1)
+			return true;
+		
+		return false;
 	}
 }
