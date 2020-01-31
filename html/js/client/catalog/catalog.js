@@ -792,10 +792,10 @@ function doInitGrid(){
 	mygrid = new dhtmlXGridObject('prCatalogScreenSearchBean');
 	mygrid.setImagePath("/dhtmlxGrid/codebase/imgs/");
 	/*To internationalize column headers, get the values from messagesData*/
-	var colVAlign = "middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,"+
-		"middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,"+
-		"middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,"+
-		"middle,middle,middle,middle,middle,middle,middle";
+	var colVAlign = "middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,"
+		+ "middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,"
+		+ "middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,"
+		+ "middle,middle,middle,middle,middle,middle,middle,middle";
 		
 		if (showPartRevision) {
 			colVAlign += ",middle";
@@ -808,8 +808,8 @@ function doInitGrid(){
 		}
 		colVAlign += ",middle,middle,middle,middle";
 		
-		var header = messagesData.catalog
-			+","+messagesData.part;
+		var header = messagesData.catalog + ",Catalog Image," + messagesData.part;
+		
 		if (showPartRevision) {
 		  header += ","+messagesData.revision;
 		}
@@ -840,10 +840,11 @@ function doInitGrid(){
 
 		header += ",,,,,,,,,,,,,,,,,,,,,,,,,,"+qualityIdLabelColumnHeader+","+catPartAttrColumnHeader+",";
 
-		var colAlign = "left,left,left,left,left,left,left,left,left,left,left,"+
-						 "left,left,left,left,left,left,left,left,left,left,left,"+
-						 "left,left,left,left,left,left,left,left,left,left,"+
-						 "left,left,left,left,left,left,left,left";
+		var colAlign = "left,center,left,left,left,left,left,left,left,left,left,left,"+
+		 "left,left,left,left,left,left,left,left,left,left,left,"+
+		 "left,left,left,left,left,left,left,left,left,left,"+
+		 "left,left,left,left,left,left,left,left";
+		
 		if (showPartRevision) {
 			colAlign += ",left";
 		}
@@ -858,7 +859,8 @@ function doInitGrid(){
 		var colTypes = "ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,"+
 						"ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,"+
 						"ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,"+
-						"ro,ro,ro,ro,ro,ro,ro,ro";
+						"ro,ro,ro,ro,ro,ro,ro,ro,ro";
+		
 		if (showPartRevision) {
 			colTypes += ",ro";
 		}
@@ -870,7 +872,7 @@ function doInitGrid(){
 		}
 		colTypes += ",ro,ro,ro,ro";
 		
-		var toolTips = "false,false"
+		var toolTips = "false,false,false"
 		if (showPartRevision) {
 			toolTips += ",false";
 		}
@@ -896,6 +898,7 @@ function doInitGrid(){
 
 		var idArr = new Array();
 		idArr.push("catalogDesc");
+		idArr.push("catalogImage");
 		idArr.push("catPartNo");
 		if (showPartRevision) {
 			idArr.push("customerPartRevision");
@@ -958,9 +961,9 @@ function doInitGrid(){
 		
 		mygrid.setColumnIds(idArr.join(","));
 		if(hideCatalogCol)
-			var initWidths = "0,10";
+			var initWidths = "0,10,10";
 		else
-			var initWidths = "7,10";
+			var initWidths = "7,10,10";
 		if (showPartRevision) {
 			initWidths += ",4";
 		}

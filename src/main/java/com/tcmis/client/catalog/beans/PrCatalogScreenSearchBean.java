@@ -109,6 +109,7 @@ public class PrCatalogScreenSearchBean extends BaseDataBean {
 	private String		catPartAttribute;
 	private String		prop65Warning;
 	private String		source;
+	private String 		image_content;
 	
 	public String getSource() {
 		return source;
@@ -852,5 +853,13 @@ public class PrCatalogScreenSearchBean extends BaseDataBean {
 
 	public void setShelfLifeList(String shelfLifeList) {
 		this.shelfLifeList = shelfLifeList;
+	}
+
+	public String getImage_content() {
+		return image_content;
+	}
+
+	public void setImage_content(String image_content) {
+		this.image_content = image_content;
 	}
 } // end of class

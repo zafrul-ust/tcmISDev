@@ -1,75 +1,123 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib uri="/WEB-INF/tcmis.tld" prefix="tcmis" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="/WEB-INF/tcmis.tld" prefix="tcmis"%>
 
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta http-equiv="expires" content="-1">
-<link rel="shortcut icon" href="/images/buttons/tcmIS.ico"></link>
-<%@ include file="/common/locale.jsp" %>
-<!--Use this tag to get the correct CSS class.
+	<meta http-equiv="expires" content="-1">
+		<link rel="shortcut icon" href="/images/buttons/tcmIS.ico"></link>
+		<%@ include file="/common/locale.jsp"%>
+		<!--Use this tag to get the correct CSS class.
 This looks at what the user's preffered font size and which application he is viewing to set the correct CSS. -->
-<tcmis:gridFontSizeCss />
-<!-- Add any other stylesheets you need for the page here -->
+		<tcmis:gridFontSizeCss />
+		<!-- Add any other stylesheets you need for the page here -->
+		<style>
+			.divCatalogItemImages {padding: 3px;}
 
-<script type="text/javascript" src="/js/common/formchek.js"></script>
-<script type="text/javascript" src="/js/common/commonutil.js"></script>  
-<%--NEW - grid resize--%>
-<script type="text/javascript" src="/js/common/grid/resultiframegridresize.js"></script>
-<!-- This handels which key press events are disabeled on this page -->
-<script src="/js/common/disableKeys.js"></script>
+			.catalogItemThumbnail {display: block;width: 30px;}
 
-<!-- This handels the menu style and what happens to the right click on the whole page -->
-<script type="text/javascript" src="/js/menu/milonic_src.js"></script>
-<script type="text/javascript" src="/js/menu/mmenudom.js"></script>
-<script type="text/javascript" src="/js/menu/mainmenudata.js"></script>
-<script type="text/javascript" src="/js/menu/contextmenu.js"></script>
-<script type="text/javascript" src="/js/menu/mm_menueditapi.js"></script>
-<%@ include file="/common/rightclickmenudata.jsp" %>
+			.divCatalogItemImages:hover>.catalogItemImage {display: block;}
+       </style>
+		
 
-<!-- Add any other javascript you need for the page here -->
-<script type="text/javascript" src="/js/client/catalog/catalog.js"></script>
+<!--[if !IE]> -->
+    <style>
+	 .catalogItemImage {display: none;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);}
+	</style>
+<!-- <![endif]-->
 
-<script type="text/javascript" src="/dhtmlxWindows/codebase/dhtmlxwindows.js"></script>
 
-<!-- These are for the Grid, uncomment if you are going to use the grid -->
-<script type="text/javascript" src="/dhtmlxGrid/codebase/dhtmlxcommon.js"></script>
-<script type="text/javascript" src="/dhtmlxGrid/codebase/dhtmlxgrid.js"></script>
-<script type="text/javascript" src="/dhtmlxGrid/codebase/dhtmlxgridcell.js"></script>
-<script type="text/javascript" src="/dhtmlxGrid/codebase/ext/dhtmlxgrid_form.js"></script>
-<script type="text/javascript" src="/dhtmlxGrid/codebase/ext/dhtmlxgrid_srnd.js"></script>
-<script type="text/javascript" src="/dhtmlxGrid/codebase/ext/dhtmlxgrid_json.js"></script>
+<!--[if IE]>
 
-<%--Uncomment below if you are providing header menu to switch columns on/off--%>
-<!--<script type="text/javascript" src="/dhtmlxGrid/codebase/ext/dhtmlxgrid_hmenu.js"></script>-->
+<!--[if lt IE 9]>
+	  <style>
+       .catalogItemImage {display: none;position: fixed;top: 25%;left: 25%;}
+    </style>
+<![endif]-–>
 
-<%--Uncomment the below if your grid has rwospans >1--%>
-<script type="text/javascript" src="/dhtmlxGrid/codebase/ext/dhtmlxgrid_rowspan.js"></script>
-<script type="text/javascript" src="/dhtmlxGrid/codebase/ext/rowspan_cell_patch.js"></script>
+<!--[if gt IE 8]>
+  <style>
+	 .catalogItemImage {display: none;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);}
+	</style>
+<![endif]-–>
 
-<%--This is to allow copy and paste. works only in IE--%>
-<script type="text/javascript" src="/dhtmlxGrid/codebase/ext/dhtmlxgrid_selection.js"></script>
-<script type="text/javascript" src="/dhtmlxGrid/codebase/ext/dhtmlxgrid_nxml.js"></script>
-<%--This has the custom cells we built, hcal - the internationalized calendar which we use
+<![endif]-->
+
+
+
+		<script type="text/javascript" src="/js/common/formchek.js"></script>
+		<script type="text/javascript" src="/js/common/commonutil.js"></script>
+		<%--NEW - grid resize--%>
+		<script type="text/javascript"
+			src="/js/common/grid/resultiframegridresize.js"></script>
+		<!-- This handels which key press events are disabeled on this page -->
+		<script src="/js/common/disableKeys.js"></script>
+
+		<!-- This handels the menu style and what happens to the right click on the whole page -->
+		<script type="text/javascript" src="/js/menu/milonic_src.js"></script>
+		<script type="text/javascript" src="/js/menu/mmenudom.js"></script>
+		<script type="text/javascript" src="/js/menu/mainmenudata.js"></script>
+		<script type="text/javascript" src="/js/menu/contextmenu.js"></script>
+		<script type="text/javascript" src="/js/menu/mm_menueditapi.js"></script>
+		<%@ include file="/common/rightclickmenudata.jsp"%>
+
+		<!-- Add any other javascript you need for the page here -->
+		<script type="text/javascript" src="/js/client/catalog/catalog.js"></script>
+
+		<script type="text/javascript"
+			src="/dhtmlxWindows/codebase/dhtmlxwindows.js"></script>
+
+		<!-- These are for the Grid, uncomment if you are going to use the grid -->
+		<script type="text/javascript"
+			src="/dhtmlxGrid/codebase/dhtmlxcommon.js"></script>
+		<script type="text/javascript"
+			src="/dhtmlxGrid/codebase/dhtmlxgrid.js"></script>
+		<script type="text/javascript"
+			src="/dhtmlxGrid/codebase/dhtmlxgridcell.js"></script>
+		<script type="text/javascript"
+			src="/dhtmlxGrid/codebase/ext/dhtmlxgrid_form.js"></script>
+		<script type="text/javascript"
+			src="/dhtmlxGrid/codebase/ext/dhtmlxgrid_srnd.js"></script>
+		<script type="text/javascript"
+			src="/dhtmlxGrid/codebase/ext/dhtmlxgrid_json.js"></script>
+
+		<%--Uncomment below if you are providing header menu to switch columns on/off--%>
+		<!--<script type="text/javascript" src="/dhtmlxGrid/codebase/ext/dhtmlxgrid_hmenu.js"></script>-->
+
+		<%--Uncomment the below if your grid has rwospans >1--%>
+		<script type="text/javascript"
+			src="/dhtmlxGrid/codebase/ext/dhtmlxgrid_rowspan.js"></script>
+		<script type="text/javascript"
+			src="/dhtmlxGrid/codebase/ext/rowspan_cell_patch.js"></script>
+
+		<%--This is to allow copy and paste. works only in IE--%>
+		<script type="text/javascript"
+			src="/dhtmlxGrid/codebase/ext/dhtmlxgrid_selection.js"></script>
+		<script type="text/javascript"
+			src="/dhtmlxGrid/codebase/ext/dhtmlxgrid_nxml.js"></script>
+		<%--This has the custom cells we built, hcal - the internationalized calendar which we use
     hlink- this is for any links you want tp provide in the grid, the URL/function to call
     can be attached based on a even (rowselect etc)
 --%>
-<script type="text/javascript" src="/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_customized.js"></script>
-<%--Custom sorting.
+		<script type="text/javascript"
+			src="/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_customized.js"></script>
+		<%--Custom sorting.
 This custom sorting function implements case insensitive sorting.
 --%>
-<script type="text/javascript" src="/dhtmlxGrid/codebase/dhtmlxcommon_haas.js"></script>
+		<script type="text/javascript"
+			src="/dhtmlxGrid/codebase/dhtmlxcommon_haas.js"></script>
 
-<c:set var="module">
-	 <tcmis:module/>
-</c:set>
+		<c:set var="module">
+			<tcmis:module />
+		</c:set>
 
-<script language="JavaScript" type="text/javascript">
+		<script language="JavaScript" type="text/javascript">
 <!--
 //add all the javascript messages here, this for internationalization of client side javascript messages
 contextDisabled = true;
@@ -358,53 +406,61 @@ buildbaseline = true;
 
 // -->
 </script>
-
 </head>
 
 <body bgcolor="#ffffff" onload="newinit();">
-<tcmis:form action="/catalogresults.do" onsubmit="return submitFrameOnlyOnce();">
+	<tcmis:form action="/catalogresults.do"
+		onsubmit="return submitFrameOnlyOnce();">
 
-<!-- Check if the user has permissions and needs to see the update links,set the variable you use in javascript to true.
+		<!-- Check if the user has permissions and needs to see the update links,set the variable you use in javascript to true.
      The default value of showUpdateLinks is false.
 -->
-<c:set var="catalogAddPermission" value="N"/>
-<c:if test="${isNewCatalogAddProcessReadyForFacility == 'Y'}">
-	<tcmis:facilityPermission indicator="true" userGroupId="CreateNewChemical" companyId="${personnelBean.companyId}" facilityId="${param.facilityId}">
-		<c:set var="catalogAddPermission" value="Y"/>
-	</tcmis:facilityPermission>
-</c:if>
+		<c:set var="catalogAddPermission" value="N" />
+		<c:if test="${isNewCatalogAddProcessReadyForFacility == 'Y'}">
+			<tcmis:facilityPermission indicator="true"
+				userGroupId="CreateNewChemical"
+				companyId="${personnelBean.companyId}"
+				facilityId="${param.facilityId}">
+				<c:set var="catalogAddPermission" value="Y" />
+			</tcmis:facilityPermission>
+		</c:if>
 
-<tcmis:facilityPermission indicator="true" userGroupId="ChargeNumberSetup" companyId="${personnelBean.companyId}" facilityId="${param.facilityId}">
-	<script type="text/javascript">
+		<tcmis:facilityPermission indicator="true"
+			userGroupId="ChargeNumberSetup"
+			companyId="${personnelBean.companyId}"
+			facilityId="${param.facilityId}">
+			<script type="text/javascript">
 		<!--
 		chargeNumberSetup = true;
 		//-->
 	</script>
-</tcmis:facilityPermission>
+		</tcmis:facilityPermission>
 
-<tcmis:facilityPermission indicator="true" userGroupId="DirectedChargeAssignment" companyId="${personnelBean.companyId}" facilityId="${param.facilityId}">
-	<script type="text/javascript">
+		<tcmis:facilityPermission indicator="true"
+			userGroupId="DirectedChargeAssignment"
+			companyId="${personnelBean.companyId}"
+			facilityId="${param.facilityId}">
+			<script type="text/javascript">
 		<!--
 		directedChargeAssignment = true;
 		//-->
 	</script>
-</tcmis:facilityPermission>
+		</tcmis:facilityPermission>
 
- <script type="text/javascript">
+		<script type="text/javascript">
  <!--
   showUpdateLinks = false;  
  //-->
  </script>
 
-<!-- You can build your error messages below. But we want to trigger the YUI pop-up from the main page.
+		<!-- You can build your error messages below. But we want to trigger the YUI pop-up from the main page.
 So this is just used to feed the YUI pop-up in the main page.
 Similar divs would have to be built to show any other messages in a pop-up.-->
-<!-- Error Messages Begins -->
-<div id="errorMessagesAreaBody" style="display:none;">
-${tcmisError}
-</div>
+		<!-- Error Messages Begins -->
+		<div id="errorMessagesAreaBody" style="display: none;">
+			${tcmisError}</div>
 
-<script type="text/javascript">
+		<script type="text/javascript">
 <!--
 /*YAHOO.namespace("example.aqua");
 YAHOO.util.Event.addListener(window, "load", init);*/
@@ -420,9 +476,9 @@ YAHOO.util.Event.addListener(window, "load", init);*/
 </c:choose>
 //-->
 </script>
-<!-- Error Messages Ends -->
+		<!-- Error Messages Ends -->
 
-<script type="text/javascript">
+		<script type="text/javascript">
 <!--
 <c:if test="${prCatalogScreenSearchBeanCollection != null}" >
  <c:if test="${!empty prCatalogScreenSearchBeanCollection}" >
@@ -492,8 +548,16 @@ YAHOO.util.Event.addListener(window, "load", init);*/
         <c:if test="${p.serviceFeeRow == 'Y' && !empty p.availableQtyForFee}">
             'class':"grid_green",
         </c:if>
+            
+        <c:set var="catalogImage" value="<div class=\"divCatalogItemImages\"><img class=\"catalogItemThumbnail\" src=\"https://via.placeholder.com/500.png?text=No%20image\"/><img class=\"catalogItemImage\" src=\"https://via.placeholder.com/500.png?text=No%20image\"/></div>" />         	 
+       	<c:if test="${!empty p.image_content}">
+       		<c:set var="catalogImage" value="<div class=\"divCatalogItemImages\"><img class=\"catalogItemThumbnail\" src=\"${p.image_content}\"/><img class=\"catalogItemImage\" src=\"${p.image_content}\"/></div>" />
+    	</c:if>
+        
+        
         data:[
               {value:'${p.catalogDesc}'},
+              {value:'${catalogImage}'},
               {value:'<tcmis:jsReplace value="${p.catPartNo}" processMultiLines="true" processSpaces="true"/>'},
               <tcmis:featureReleased feature="ShowPartRevision" scope="${param.facilityId}">{value:'<tcmis:jsReplace value="${p.customerPartRevision}" processMultiLines="true"/>'},</tcmis:featureReleased>
               {value:'<tcmis:jsReplace value="${p.partDescription}" processMultiLines="true"/>'},
@@ -556,142 +620,164 @@ YAHOO.util.Event.addListener(window, "load", init);*/
  </c:if>
 //-->
 </script>
-<!-- json data Ends -->
+		<!-- json data Ends -->
 
-<div class="interface" id="resultsPage">
-<div class="backGroundContent">
+		<div class="interface" id="resultsPage">
+			<div class="backGroundContent">
 
-<%--NEW - there is no results table anymore--%>  
-<div id="prCatalogScreenSearchBean" style="width:100%;%;height:400px;" style="display: none;"></div>
+				<%--NEW - there is no results table anymore--%>
+				<div id="prCatalogScreenSearchBean"
+					style="width: 100%; %; height: 400px;" style="display: none;"></div>
 
 
-<c:if test="${prCatalogScreenSearchBeanCollection != null}" >
-   <!-- If the collection is empty say no data found -->
-   <c:if test="${empty prCatalogScreenSearchBeanCollection}" >
-    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tableNoData" id="resultsPageTable">
-     <tr>
-      <td width="100%">
-       <fmt:message key="main.nodatafound"/>
-      </td>
-     </tr>
-    </table>
-   </c:if>
-</c:if>
+				<c:if test="${prCatalogScreenSearchBeanCollection != null}">
+					<!-- If the collection is empty say no data found -->
+					<c:if test="${empty prCatalogScreenSearchBeanCollection}">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0"
+							class="tableNoData" id="resultsPageTable">
+							<tr>
+								<td width="100%"><fmt:message key="main.nodatafound" /></td>
+							</tr>
+						</table>
+					</c:if>
+				</c:if>
 
-<!-- Hidden element start -->
-<div id="hiddenElements" style="display: none;">
-<input name="totalLines" id="totalLines" value="${dataCount}" type="hidden"/>
-<input name="uAction" id="uAction" value="" type="hidden"/>
-<input name="facilityId" id="facilityId" value="${param.facilityId}" type="hidden"/>
-<input name="applicationId" id="applicationId" value="${param.applicationId}" type="hidden"/>
-<input name="companyId" id="companyId" value="${personnelBean.companyId}" type="hidden"/>
-<input name="catalogAddPermission" id="catalogAddPermission" value="${catalogAddPermission}" type="hidden"/>
-<input type="hidden" name="showCatalogPrice" id="showCatalogPrice" value="${param.showCatalogPrice}"/>
-<input type="hidden" name="secureDocViewer" id="secureDocViewer" value="${tcmis:isCompanyFeatureReleased(personnelBean,'SecureDocViewer','', personnelBean.companyId)}"/>
-<input type="hidden" name="personnelId" id="personnelId" value="${personnelBean.personnelId}">
-<input type="hidden" name="printerLocation" id="printerLocation" value="${personnelBean.printerLocation}">
-<input type="hidden" name="hasHmrbTab" id="hasHmrbTab" value="${tcmis:isFeatureReleased(personnelBean,'HmrbTab',param.facilityId)}"/>
-<input type="hidden" name="showProp65Warning" id="showProp65Warning" value="${showProp65Warning}" />
-</div>
-<!-- Hidden elements end -->
+				<!-- Hidden element start -->
+				<div id="hiddenElements" style="display: none;">
+					<input name="totalLines" id="totalLines" value="${dataCount}"
+						type="hidden" /> <input name="uAction" id="uAction" value=""
+						type="hidden" /> <input name="facilityId" id="facilityId"
+						value="${param.facilityId}" type="hidden" /> <input
+						name="applicationId" id="applicationId"
+						value="${param.applicationId}" type="hidden" /> <input
+						name="companyId" id="companyId" value="${personnelBean.companyId}"
+						type="hidden" /> <input name="catalogAddPermission"
+						id="catalogAddPermission" value="${catalogAddPermission}"
+						type="hidden" /> <input type="hidden" name="showCatalogPrice"
+						id="showCatalogPrice" value="${param.showCatalogPrice}" /> <input
+						type="hidden" name="secureDocViewer" id="secureDocViewer"
+						value="${tcmis:isCompanyFeatureReleased(personnelBean,'SecureDocViewer','', personnelBean.companyId)}" />
+					<input type="hidden" name="personnelId" id="personnelId"
+						value="${personnelBean.personnelId}"> <input type="hidden"
+						name="printerLocation" id="printerLocation"
+						value="${personnelBean.printerLocation}"> <input
+							type="hidden" name="hasHmrbTab" id="hasHmrbTab"
+							value="${tcmis:isFeatureReleased(personnelBean,'HmrbTab',param.facilityId)}" />
+							<input type="hidden" name="showProp65Warning"
+							id="showProp65Warning" value="${showProp65Warning}" />
+				</div>
+				<!-- Hidden elements end -->
 
-</div> <!-- close of backGroundContent -->
-</div> <!-- close of interface -->
+			</div>
+			<!-- close of backGroundContent -->
+		</div>
+		<!-- close of interface -->
 
-<tcmis:featureReleased feature="ShowQualitySummary" scope="ALL">
-<script type="text/javascript">
+		<tcmis:featureReleased feature="ShowQualitySummary" scope="ALL">
+			<script type="text/javascript">
   showQualitySummary = true;
 </script>
-</tcmis:featureReleased>
+		</tcmis:featureReleased>
 
-</tcmis:form>
+	</tcmis:form>
 
-	<c:set var="prePar" value=""/>
-	<c:set var="parCount" value="1"/>
+	<c:set var="prePar" value="" />
+	<c:set var="parCount" value="1" />
 
-  <c:forEach var="p" items="${prCatalogScreenSearchBeanCollection}" varStatus="status">
-						<c:set var="finalPrice" value='' />
-	               <c:set var="finalUnitPrice" value='' />
-						<c:set var="facilityOrAllCatalog" value='${param.facilityOrAllCatalog}' />
-						<c:set var="minCatalogPrice" value='${status.current.minCatalogPrice}' />
-						<c:set var="maxCatalogPrice" value='${status.current.maxCatalogPrice}' />
-						<c:set var="minUnitPrice" value='${status.current.minUnitPrice}' />
-						<c:set var="maxUnitPrice" value='${status.current.maxUnitPrice}' />
-						<c:choose>
-							<c:when test="${facilityOrAllCatalog == 'All Catalog'}">
-								<c:choose>
-									<c:when test="${!empty minCatalogPrice && !empty maxCatalogPrice}">
-										<c:set var="finalPrice" value='${maxCatalogPrice}' />
-									</c:when>
-									<c:otherwise>
-										<c:if test="${!empty minCatalogPrice}">
-											<c:set var="finalPrice" value='${minCatalogPrice}' />
-										</c:if>
-										<c:if test="${!empty maxCatalogPrice}">
-											<c:set var="finalPrice" value='${maxCatalogPrice}' />
-										</c:if>
-									</c:otherwise>
-								</c:choose>
+	<c:forEach var="p" items="${prCatalogScreenSearchBeanCollection}"
+		varStatus="status">
+		<c:set var="finalPrice" value='' />
+		<c:set var="finalUnitPrice" value='' />
+		<c:set var="facilityOrAllCatalog"
+			value='${param.facilityOrAllCatalog}' />
+		<c:set var="minCatalogPrice" value='${status.current.minCatalogPrice}' />
+		<c:set var="maxCatalogPrice" value='${status.current.maxCatalogPrice}' />
+		<c:set var="minUnitPrice" value='${status.current.minUnitPrice}' />
+		<c:set var="maxUnitPrice" value='${status.current.maxUnitPrice}' />
+		<c:choose>
+			<c:when test="${facilityOrAllCatalog == 'All Catalog'}">
+				<c:choose>
+					<c:when test="${!empty minCatalogPrice && !empty maxCatalogPrice}">
+						<c:set var="finalPrice" value='${maxCatalogPrice}' />
+					</c:when>
+					<c:otherwise>
+						<c:if test="${!empty minCatalogPrice}">
+							<c:set var="finalPrice" value='${minCatalogPrice}' />
+						</c:if>
+						<c:if test="${!empty maxCatalogPrice}">
+							<c:set var="finalPrice" value='${maxCatalogPrice}' />
+						</c:if>
+					</c:otherwise>
+				</c:choose>
 
-								<c:choose>
-									<c:when test="${!empty minUnitPrice && !empty maxUnitPrice}">
-										<c:set var="finalUnitPrice" value='${maxUnitPrice}' />
-									</c:when>
-									<c:otherwise>
-										<c:if test="${!empty minUnitPrice}">
-											<c:set var="finalUnitPrice" value='${minUnitPrice}' />
-										</c:if>
-										<c:if test="${!empty maxUnitPrice}">
-											<c:set var="finalUnitPrice" value='${maxUnitPrice}' />
-										</c:if>
-									</c:otherwise>
-								</c:choose>
-							</c:when>
-							<c:otherwise>
-								<c:set var="finalPrice" value='${minCatalogPrice}' />
-								<c:set var="finalUnitPrice" value='${minUnitPrice}' />
-							</c:otherwise>
-						</c:choose>
+				<c:choose>
+					<c:when test="${!empty minUnitPrice && !empty maxUnitPrice}">
+						<c:set var="finalUnitPrice" value='${maxUnitPrice}' />
+					</c:when>
+					<c:otherwise>
+						<c:if test="${!empty minUnitPrice}">
+							<c:set var="finalUnitPrice" value='${minUnitPrice}' />
+						</c:if>
+						<c:if test="${!empty maxUnitPrice}">
+							<c:set var="finalUnitPrice" value='${maxUnitPrice}' />
+						</c:if>
+					</c:otherwise>
+				</c:choose>
+			</c:when>
+			<c:otherwise>
+				<c:set var="finalPrice" value='${minCatalogPrice}' />
+				<c:set var="finalUnitPrice" value='${minUnitPrice}' />
+			</c:otherwise>
+		</c:choose>
 
-	<c:set var="finalPriceDisplay" value="" />
-   	<c:if test="${!empty finalPrice}">
-	 <fmt:formatNumber var="finalPriceDisplay" maxFractionDigits="4" minFractionDigits="4">${finalPrice}</fmt:formatNumber>
-	 <c:set var="finalPriceDisplay" value="${finalPriceDisplay} ${status.current.currencyId}" />
-	</c:if>
+		<c:set var="finalPriceDisplay" value="" />
+		<c:if test="${!empty finalPrice}">
+			<fmt:formatNumber var="finalPriceDisplay" maxFractionDigits="4"
+				minFractionDigits="4">${finalPrice}</fmt:formatNumber>
+			<c:set var="finalPriceDisplay"
+				value="${finalPriceDisplay} ${status.current.currencyId}" />
+		</c:if>
 
 
 		<c:set var="storageTemp" value='${status.current.storageTemp}' />
 		<c:set var="shelfLife" value='${status.current.shelfLife}' />
 		<c:set var="shelfLifeDisplay" value="" />
-			<c:choose>
-					<c:when test="${empty storageTemp || storageTemp == ' '}">
- 							</c:when>
-							<c:otherwise>
-								<c:choose>
-									<c:when test="${shelfLife != 'Indefinite'}">
-										<c:set var="shelfLifeBasis" value='${status.current.shelfLifeBasis}' />
-										<c:if test="${!empty shelfLifeBasis}">
-											<c:set var="shelfLifeDisplay" value="${status.current.shelfLife} ${shelfLifeBasis} @ ${storageTemp}" />
-										</c:if>
-										<c:if test="${empty shelfLifeBasis}">
-											<c:set var="shelfLifeDisplay" value="${status.current.shelfLife} @ ${storageTemp}" />
-										</c:if>
-									</c:when>
-									<c:otherwise>
-										<c:set var="shelfLifeDisplay" value="${status.current.shelfLife} @ ${storageTemp}" />
-									</c:otherwise>
-								</c:choose>
-							</c:otherwise>
-			</c:choose>
+		<c:choose>
+			<c:when test="${empty storageTemp || storageTemp == ' '}">
+			</c:when>
+			<c:otherwise>
+				<c:choose>
+					<c:when test="${shelfLife != 'Indefinite'}">
+						<c:set var="shelfLifeBasis"
+							value='${status.current.shelfLifeBasis}' />
+						<c:if test="${!empty shelfLifeBasis}">
+							<c:set var="shelfLifeDisplay"
+								value="${status.current.shelfLife} ${shelfLifeBasis} @ ${storageTemp}" />
+						</c:if>
+						<c:if test="${empty shelfLifeBasis}">
+							<c:set var="shelfLifeDisplay"
+								value="${status.current.shelfLife} @ ${storageTemp}" />
+						</c:if>
+					</c:when>
+					<c:otherwise>
+						<c:set var="shelfLifeDisplay"
+							value="${status.current.shelfLife} @ ${storageTemp}" />
+					</c:otherwise>
+				</c:choose>
+			</c:otherwise>
+		</c:choose>
 
-		<tcmis:jsReplace var="shelfLifeDisplay" value="${shelfLifeDisplay}" processMultiLines="true"/>
-		<tcmis:jsReplace var="materialDesc" value="${p.materialDesc}" processMultiLines="true"/>
+		<tcmis:jsReplace var="shelfLifeDisplay" value="${shelfLifeDisplay}"
+			processMultiLines="true" />
+		<tcmis:jsReplace var="materialDesc" value="${p.materialDesc}"
+			processMultiLines="true" />
 
-    <c:set var="curPar" value="${status.current.catPartNo}${status.current.catalogId}${status.current.catalogCompanyId}${status.current.partGroupNo}"/>
-	<c:set var="curItem" value="itemId${status.current.itemId}"/>
+		<c:set var="curPar"
+			value="${status.current.catPartNo}${status.current.catalogId}${status.current.catalogCompanyId}${status.current.partGroupNo}" />
+		<c:set var="curItem" value="itemId${status.current.itemId}" />
 
 
-<script language="JavaScript" type="text/javascript">
+		<script language="JavaScript" type="text/javascript">
 <!--
 
 <c:choose>
@@ -757,13 +843,14 @@ YAHOO.util.Event.addListener(window, "load", init);*/
   	rowSpanClassMap[${status.index}] = ${parCount % 2} ;
 // -->
 </script>
-						
-	 <c:set var="prePar" value="${status.current.catPartNo}${status.current.catalogId}${status.current.catalogCompanyId}${status.current.partGroupNo}"/>
-	<c:set var="preItem" value="itemId${status.current.itemId}"/>
 
-</c:forEach>
+		<c:set var="prePar"
+			value="${status.current.catPartNo}${status.current.catalogId}${status.current.catalogCompanyId}${status.current.partGroupNo}" />
+		<c:set var="preItem" value="itemId${status.current.itemId}" />
 
-<script language="JavaScript" type="text/javascript">
+	</c:forEach>
+
+	<script language="JavaScript" type="text/javascript">
 <!--
 var altAccountSysId = new Array(
 <c:forEach var="prRulesViewBean" items="${prRulesViewCollection}" varStatus="status2">
@@ -791,12 +878,17 @@ var altCatalogFacility = new Array(
 // -->
 </script>
 
-<%-- show legend Begins --%>
- <div id="showLegendAreaDisclaimer" style="display: none;overflow: auto;">
-   <table width=100% class="tableResults" border="0" cellpadding="0" cellspacing="0">
-     <tr><td class="legendText"><fmt:message key="label.leadtimedisclaimer"/></td></tr>     
-   </table>
- </div>
+	<%-- show legend Begins --%>
+	<div id="showLegendAreaDisclaimer"
+		style="display: none; overflow: auto;">
+		<table width=100% class="tableResults" border="0" cellpadding="0"
+			cellspacing="0">
+			<tr>
+				<td class="legendText"><fmt:message
+						key="label.leadtimedisclaimer" /></td>
+			</tr>
+		</table>
+	</div>
 
 </body>
 </html>
