@@ -2,14 +2,12 @@ package com.tcmis.internal.hub.action;
 
 import java.math.BigDecimal;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
 
 import org.apache.commons.beanutils.DynaBean;
 import org.apache.commons.beanutils.LazyDynaBean;
@@ -18,15 +16,12 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import com.tcmis.common.admin.beans.PersonnelBean;
-import com.tcmis.common.admin.beans.PermissionBean;
-import com.tcmis.common.admin.process.VvDataProcess;
 import com.tcmis.common.exceptions.BaseException;
 import com.tcmis.common.framework.TcmISBaseAction;
 import com.tcmis.common.util.BeanHandler;
 import com.tcmis.internal.hub.beans.BoxLabelBean;
 import com.tcmis.internal.hub.beans.LabelInputBean;
 import com.tcmis.internal.hub.beans.PicklistReprintViewBean;
-import com.tcmis.internal.hub.process.AllocationAnalysisProcess;
 import com.tcmis.internal.hub.process.PicklistPickingProcess;
 import com.tcmis.internal.print.process.UnitExtLabelProcess;
 import com.tcmis.common.util.ResourceLibrary;
@@ -36,6 +31,8 @@ import com.tcmis.common.util.ResourceLibrary;
  * @version 1.0
  ******************************************************************************/
 public class PicklistReprintAction extends TcmISBaseAction {
+	
+	private static ResourceLibrary reportProperties	= new ResourceLibrary("report");
 
 	public ActionForward executeAction(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) 
 			throws BaseException, Exception {
@@ -125,12 +122,34 @@ public class PicklistReprintAction extends TcmISBaseAction {
 		else if ("printUnitExtLabels".equals(action)) {
 			@SuppressWarnings("unchecked")
 			Collection<LabelInputBean> labelInputs = BeanHandler.getBeans((DynaBean) form, "picklistBean", new LabelInputBean(), "ok");
+			HashMap<String,LabelInputBean> processedPallets = new HashMap<String,LabelInputBean>();
+			StringBuilder printPalletSerialNumbers = new StringBuilder();
+			
 			UnitExtLabelProcess labelProcess = new UnitExtLabelProcess(this.getDbUser(request));
+			
       	    for (LabelInputBean unitExtBean : labelInputs) {
 				labelProcess.completeInput(unitExtBean, personnelBean);
-				labelProcess.buildUnitExtLabels(unitExtBean);
+				
+				// only print labels if this pallet hasn't already been printed
+				if(!processedPallets.containsKey(unitExtBean.getPalletId())) {
+					labelProcess.buildUnitExtLabels(unitExtBean);					
+
+					processedPallets.put(unitExtBean.getPalletId(), unitExtBean);
+					
+					if(unitExtBean.isPrintBoxLabel() && unitExtBean.getNumBoxLabels() > 5) {
+						if(printPalletSerialNumbers.length() > 0)
+							printPalletSerialNumbers.append(",");
+						printPalletSerialNumbers.append(unitExtBean.getPalletId());
+					}
+				}
       	    }
-      	    return noForward;
+
+      	    if(printPalletSerialNumbers.length() > 0) {
+      	    	String reportRequest = reportProperties.getString("report.hosturl") + "HaasReports/report/printserialnumbers.do?palletIds=" + printPalletSerialNumbers.toString();   	    
+      	    	response.sendRedirect(response.encodeRedirectURL(reportRequest));
+      	    }
+      	  
+      	    return null;
 		}
 
 		else if (((DynaBean) form).get("action") != null) {

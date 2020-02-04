@@ -176,6 +176,8 @@ public class UnitExtLabelProcess extends BaseProcess {
 		Collection<UsgovLabelViewBean> extLabelDataColl = getUnitLabelData(labelInputBean,"External");
 		
 		attachSerialNumbers(unitLabelDataColl, extLabelDataColl);
+		
+		labelInputBean.setNumBoxLabels(unitLabelDataColl.size());
 
 		/*UINT LABELS*******
 		 *Need to print unit labels only if the owner_company_id is <> "USGOV" - we are assuming all VMI will be pre-labeled.
@@ -219,7 +221,7 @@ public class UnitExtLabelProcess extends BaseProcess {
 				if(log.isDebugEnabled()) {
 					log.debug(""+resultsObj1[0]+"");
 				}
-				PrintHandler.print(printerPath, ""+resultsObj1[0]+""); /*Uncomment after test*/
+				//PrintHandler.print(printerPath, ""+resultsObj1[0]+""); /*Uncomment after test*/
 			}
 			else if ((labelInputBean.getPalletId() != null && labelInputBean.getPalletId().length() > 0) &&
 					(labelInputBean.getClosed() != null && labelInputBean.getClosed().equalsIgnoreCase("N")))
@@ -323,6 +325,7 @@ public class UnitExtLabelProcess extends BaseProcess {
 			String dataView = "USGOV_HAAS_GASES_LABEL_VIEW";
 			String countData = factory.selectSingleValue("select count(*) from "+dataView+countMissingSerialNumber.toString());
 			if (countData.equals("0")) {
+				labelInputBean.setPrintBoxLabel(true);
 				receiptLabelDataColl = factory.setBean(new UsgovLabelViewBean()).
 				select(criteria, sort, dataView);
 			}else
