@@ -1,21 +1,20 @@
 package com.tcmis.supplier.shipping.process;
 
 import java.io.File;
-import java.math.BigDecimal;
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
+import java.util.List;
 import java.util.Vector;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import radian.tcmis.common.util.StringHandler;
-
 import com.tcmis.common.admin.beans.PersonnelBean;
-import com.tcmis.common.admin.factory.UserSupplierLocationBeanFactory;
+import com.tcmis.common.admin.process.ZplDataProcess;
 import com.tcmis.common.db.DbManager;
 import com.tcmis.common.exceptions.BaseException;
 import com.tcmis.common.framework.BaseProcess;
@@ -36,6 +35,8 @@ import com.tcmis.supplier.shipping.factory.MslPalletViewBeanFactory;
 import com.tcmis.supplier.shipping.factory.SupplierUsgovLabelViewBeanFactory;
 import com.tcmis.supplier.shipping.factory.UsgovDd250ViewBeanFactory;
 
+import radian.tcmis.common.util.StringHandler;
+
 /******************************************************************************
  * Process for receiving qc
  * 
@@ -44,6 +45,8 @@ import com.tcmis.supplier.shipping.factory.UsgovDd250ViewBeanFactory;
 public class LabelProcess extends BaseProcess
 {
 	Log log = LogFactory.getLog(this.getClass());
+	
+	private static final long TOTAL_SECONDS_TO_PAUSE_PRINT_JOB = 10;
 
 	public LabelProcess(String client)
 	{
@@ -188,6 +191,38 @@ public class LabelProcess extends BaseProcess
 		Object[] objs = { fileAbsolutePath, labelUrl };
 		return objs;
 	}
+	
+
+	public Object[] buildPrintCaseMSLByBatch(LabelInputBean labelInputBean,
+			Collection locationLabelPrinterCollection,
+			Collection labelDataCollection) throws BaseException
+	{
+		String labelUrl = "";
+		String fileAbsolutePath = "";
+		ResourceLibrary resource = new ResourceLibrary("label");
+		MslZplProcess mslZplProcess = new MslZplProcess(this.getClient());
+		File dir = new File(resource.getString("label.serverpath"));
+		try
+		{
+			File file = File.createTempFile("labeljnlp", ".jnlp", dir);
+			fileAbsolutePath = mslZplProcess.buildCaseMslZpl(
+					labelDataCollection, labelInputBean.getLabelType(),
+					labelInputBean.getSourcePage(), "",
+					locationLabelPrinterCollection,
+					!"Yes".equalsIgnoreCase(labelInputBean.getSkipKitLabels()),
+					file.getAbsolutePath());
+
+			labelUrl = resource.getString("label.hosturl")
+					+ resource.getString("label.urlpath") + file.getName();
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+			labelUrl = "";
+		}
+		Object[] objs = { fileAbsolutePath, labelUrl };
+		return objs;
+	}
 
 	public Object[] buildPrintPalletMSL(PersonnelBean personnelBean,
 			LabelInputBean labelInputBean,
@@ -250,6 +285,48 @@ public class LabelProcess extends BaseProcess
 		}
 		Object[] objs = { fileAbsolutePath, labelUrl };
 		return objs;
+	}
+
+	public Object[] printPalletMSL(PersonnelBean personnelBean,LabelInputBean labelInputBean,
+			Collection locationLabelPrinterCollection,
+			Collection suppPackSummaryViewBeanCollection) throws BaseException
+	{
+		MslZplProcess mslZplProcess = new MslZplProcess(this.getClient());
+		Collection labelDataCollection = getPalletMSLData(suppPackSummaryViewBeanCollection);
+		List<String> fileAbsolutePath = new ArrayList<String>();
+		String filePath="";
+		try
+		{
+			fileAbsolutePath = mslZplProcess.buildPalletMslZpl(
+					labelDataCollection, labelInputBean.getLabelType(),
+					"usgovpalletmsl", labelInputBean.getSourcePage(), "",
+					locationLabelPrinterCollection);
+			
+			for(String pathUrl : fileAbsolutePath) {
+				printLabel(personnelBean,labelInputBean, pathUrl);
+				filePath = pathUrl;
+				//making the process to delay for some seconds. 
+				//But it may not needed as each batch is going to be an each job for printer.
+				//Will be removed after code review
+				if (fileAbsolutePath.indexOf(pathUrl) != fileAbsolutePath.size() - 1) {
+					TimeUnit.SECONDS.sleep(TOTAL_SECONDS_TO_PAUSE_PRINT_JOB);
+			    }
+			}
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		Object[] objs = { fileAbsolutePath, filePath };
+		return objs;
+	}
+	
+	public void printLabel(PersonnelBean personnelBean,LabelInputBean labelInputBean, String filePath) throws BaseException,Exception {
+		ZplDataProcess zplDataProcess = new ZplDataProcess(this.getClient());
+		Collection locationLabelPrinterCollection = new Vector();
+		locationLabelPrinterCollection = zplDataProcess.getLocationLabelPrinter(personnelBean,labelInputBean);
+		String printerPath = zplDataProcess.getPrinterPath(locationLabelPrinterCollection);
+		//PrintHandler.print(printerPath, ""+filePath+""); /*Uncomment after test*/
 	}
 
 	public Object[] buildPrintPlacardLabels(PersonnelBean personnelBean,

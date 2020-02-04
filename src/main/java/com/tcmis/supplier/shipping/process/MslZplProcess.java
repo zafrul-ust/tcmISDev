@@ -3,8 +3,11 @@ package com.tcmis.supplier.shipping.process;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Vector;
 
 import org.apache.commons.logging.Log;
@@ -25,6 +28,9 @@ import com.tcmis.supplier.shipping.beans.MslPalletViewBean;
 
 public class MslZplProcess extends BaseProcess {
 	Log log = LogFactory.getLog(this.getClass());
+	
+	//value should be changed to 10 later
+	private static final int TOTAL_LABELS_IN_A_BATCH = 1;
 
 	public MslZplProcess(String client) {
 		super(client);
@@ -426,14 +432,13 @@ public class MslZplProcess extends BaseProcess {
 		}
 		/*Do not want to send a file path back if no project code labels are printed*/
 		int quantityProjectCode = 0;
+		
 		try {
 			mainIterator = labelDataCollection.iterator();
 			while (mainIterator.hasNext()) {
 				MslPalletViewBean mslPalletViewBean = (MslPalletViewBean) mainIterator.next();
-
 				StringBuilder boxLabel = new StringBuilder();
 				//StringBuilder unitLabel = new StringBuilder();
-
 				String labelQuantity = "1";
 				if (sourcePage != null && sourcePage.equalsIgnoreCase("POLCHEM")) {
 					labelQuantity = "2";
@@ -447,7 +452,6 @@ public class MslZplProcess extends BaseProcess {
 				}
 				else {
 					boxLabel.append(palletMsl(mslPalletViewBean, labelQuantity, labelFormatCollection, labelFieldDefinitionCollection, labelFormatLocaleCollection, labelFieldDefinitionLocaleCollection));
-
 					if (sourcePage != null && sourcePage.equalsIgnoreCase("POLCHEM") && !StringHandler.isBlankString(mslPalletViewBean.getFlashpointInfo())) {
 						boxLabel.append(flashPointLabel(mslPalletViewBean.getFlashpointInfo(), labelQuantity));
 					}
@@ -469,6 +473,142 @@ public class MslZplProcess extends BaseProcess {
 		else {
 			com.tcmis.common.util.ZplHandler.writeJnlpFileToDisk(filePath, file.getName(), printerPath, zpl.toString());
 			return fileAbsolutePath;
+		}
+	}
+	
+	//split up labels and JNLP files based on TOTAL_LABELS_IN_A_BATCH. 
+	public List<String> buildPalletMslZpl(Collection labelDataCollection, String labelType, String labelFormatType, String sourcePage, String printerPath, Collection locationLabelPrinterCollection) throws Exception {
+		
+		ResourceLibrary resource = new ResourceLibrary("label");
+		File dir = new File(resource.getString("label.serverpath"));
+
+		DbManager dbManager = new DbManager(getClient());
+		ZplDataProcess zplDataProcess = new ZplDataProcess(getClient());
+
+		Vector distinctInventoryGroupVector = new Vector();
+		Iterator mainIterator = labelDataCollection.iterator();
+		while (mainIterator.hasNext()) {
+			MslPalletViewBean mslPalletViewBean = (MslPalletViewBean) mainIterator.next();
+
+			String currentInventoryGroup = mslPalletViewBean.getInventoryGroup();
+
+			if (!distinctInventoryGroupVector.contains(currentInventoryGroup)) {
+				distinctInventoryGroupVector.add(currentInventoryGroup);
+			}
+		}
+
+		Collection labelFormatCollection = new Vector();
+		Collection labelFormatLocaleCollection = new Vector();
+		labelFormatCollection = zplDataProcess.getLabelFormats(distinctInventoryGroupVector, labelFormatType);
+		labelFormatLocaleCollection = zplDataProcess.getLabelFormats(distinctInventoryGroupVector, "" + labelFormatType + "Locale");
+
+		String printerResolution = "";
+		Iterator printerIterator = locationLabelPrinterCollection.iterator();
+		while (printerIterator.hasNext()) {
+			LocationLabelPrinterBean locationLabelPrinterBean = (LocationLabelPrinterBean) printerIterator.next();
+
+			printerResolution = "" + locationLabelPrinterBean.getPrinterResolutionDpi() + "";
+			printerPath = locationLabelPrinterBean.getPrinterPath();
+		}
+
+		Collection labelFieldDefinitionCollection = new Vector();
+		labelFieldDefinitionCollection = zplDataProcess.getLabelFormatFieldDefinition(labelFormatCollection, printerResolution);
+
+		Collection labelFieldDefinitionLocaleCollection = new Vector();
+		labelFieldDefinitionLocaleCollection = zplDataProcess.getLabelFormatFieldDefinition(labelFormatLocaleCollection, printerResolution);
+
+		if (labelFieldDefinitionCollection == null || labelFieldDefinitionCollection.size() == 0) {
+			BaseException ex = new BaseException();
+			ex.setMessageKey("error.nolabeltemplate.defined");
+			throw ex;
+		}
+
+//		StringBuilder zpl = new StringBuilder();
+		final String zpl;
+		StringBuilder jnplZpl = new StringBuilder();
+		
+		if (labelType.equalsIgnoreCase("PROJECTCODE")) {
+			zpl = com.tcmis.common.util.ZplHandler.printTemplatesNoFiles(zplDataProcess.getTemplates(distinctInventoryGroupVector, "projectcode", printerResolution));
+		}
+		else {
+			zpl = com.tcmis.common.util.ZplHandler.printTemplatesNoFiles(zplDataProcess.getTemplates(distinctInventoryGroupVector, labelFormatType, printerResolution));
+		}
+		
+		/*Do not want to send a file path back if no project code labels are printed*/
+		int quantityProjectCode = 0;
+		
+		File dirLocation = new File(resource.getString("label.serverpath"));
+		//jnlp file Creation
+		File jnlpFile = null;
+		PrintWriter jnlpPrintWriter = null;
+		//label file creation
+		File labelFile = null;
+		PrintWriter labelPrintWriter = null;
+		int labelCount = 0;
+		List<String> jnlpFileNames = new ArrayList<String>();
+		try {
+			mainIterator = labelDataCollection.iterator();
+			while (mainIterator.hasNext()) {
+				MslPalletViewBean mslPalletViewBean = (MslPalletViewBean) mainIterator.next();
+				//create new text file for label and JNLP file
+				if(labelCount == 0) {
+					jnlpFile = File.createTempFile("labeljnlp", ".jnlp", dir);
+					jnplZpl = new StringBuilder();
+					jnplZpl.append(zpl);
+					labelFile = File.createTempFile("labeltxt", ".txt", dirLocation);
+					labelPrintWriter = new PrintWriter(new FileOutputStream(labelFile.getAbsolutePath()));
+					
+				}
+				StringBuilder boxLabel = new StringBuilder();
+				//StringBuilder unitLabel = new StringBuilder();
+				String labelQuantity = "1";
+				if (sourcePage != null && sourcePage.equalsIgnoreCase("POLCHEM")) {
+					labelQuantity = "2";
+				}
+
+				if (labelType.equalsIgnoreCase("PROJECTCODE")) {
+					if (sourcePage != null && sourcePage.equalsIgnoreCase("POLCHEM") && !StringHandler.isBlankString(mslPalletViewBean.getPalletProjectCode())) {
+						boxLabel.append(projectCodeLabel(mslPalletViewBean.getPalletProjectCode(), labelQuantity));
+						quantityProjectCode++;
+						++labelCount;
+					}
+				}
+				else {
+					boxLabel.append(palletMsl(mslPalletViewBean, labelQuantity, labelFormatCollection, labelFieldDefinitionCollection, labelFormatLocaleCollection, labelFieldDefinitionLocaleCollection));
+					if (sourcePage != null && sourcePage.equalsIgnoreCase("POLCHEM") && !StringHandler.isBlankString(mslPalletViewBean.getFlashpointInfo())) {
+						boxLabel.append(flashPointLabel(mslPalletViewBean.getFlashpointInfo(), labelQuantity));
+					}
+					++labelCount;
+				}
+
+				jnplZpl.append(boxLabel);
+				labelPrintWriter.print(jnplZpl.toString());
+				//save label and JNLP file
+				if(labelCount == TOTAL_LABELS_IN_A_BATCH ) {
+					com.tcmis.common.util.ZplHandler.writeJnlpFileToDisk(jnlpFile.getAbsolutePath(), labelFile.getName(), printerPath, jnplZpl.toString());
+					labelPrintWriter.close();
+					labelCount = 0;
+					jnlpFileNames.add(jnlpFile.getAbsolutePath());
+				}
+			}
+			if(labelCount > 0) {
+				com.tcmis.common.util.ZplHandler.writeJnlpFileToDisk(jnlpFile.getAbsolutePath(), labelFile.getName(), printerPath, jnplZpl.toString());
+				labelPrintWriter.close();
+				labelCount = 0;
+				jnlpFileNames.add(jnlpFile.getAbsolutePath());
+			}
+		}
+		catch (Exception e11) {
+			e11.printStackTrace();
+		}
+		finally {
+			labelPrintWriter.close();
+		}
+		if (labelType.equalsIgnoreCase("PROJECTCODE") && quantityProjectCode == 0) {
+			return null;
+		}
+		else {
+			return jnlpFileNames.size() > 0 ? jnlpFileNames : Collections.emptyList();
 		}
 	}
 

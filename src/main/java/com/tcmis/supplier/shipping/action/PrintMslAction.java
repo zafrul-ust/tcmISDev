@@ -142,7 +142,7 @@ public class PrintMslAction
    }
    else if (labelInputBean.getUserAction().equalsIgnoreCase("printPalletMSL"))
 	 {
-		 Object[] results = labelProcess.buildPrintPalletMSL(personnelBean,labelInputBean,locationLabelPrinterCollection,suppPackViewBeanCollection);
+		 Object[] results = labelProcess.printPalletMSL(personnelBean,labelInputBean,locationLabelPrinterCollection,suppPackViewBeanCollection);
      labelUrl = ""+results[1]+"";
    }
    else if (labelInputBean.getUserAction().equalsIgnoreCase("printPlacardLabels"))
