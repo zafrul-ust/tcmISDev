@@ -149,7 +149,7 @@ public class PicklistReprintAction extends TcmISBaseAction {
       	    	response.sendRedirect(response.encodeRedirectURL(reportRequest));
       	    }
       	  
-      	    return null;
+      	    return noForward;
 		}
 
 		else if (((DynaBean) form).get("action") != null) {

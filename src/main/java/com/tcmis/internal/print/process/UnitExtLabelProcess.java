@@ -221,7 +221,7 @@ public class UnitExtLabelProcess extends BaseProcess {
 				if(log.isDebugEnabled()) {
 					log.debug(""+resultsObj1[0]+"");
 				}
-				//PrintHandler.print(printerPath, ""+resultsObj1[0]+""); /*Uncomment after test*/
+				PrintHandler.print(printerPath, ""+resultsObj1[0]+""); /*Uncomment after test*/
 			}
 			else if ((labelInputBean.getPalletId() != null && labelInputBean.getPalletId().length() > 0) &&
 					(labelInputBean.getClosed() != null && labelInputBean.getClosed().equalsIgnoreCase("N")))
