@@ -49,6 +49,7 @@ public class CustomerReturnRequestAction extends TcmISBaseAction {
 			inputBean.setWantReplacement("Y");
 			inputBean.setRequestStartDate(new Date());
 			inputBean.setDistributionReturn("Y");
+			inputBean.setReturnType("CR");
 			
 			inputBean.setRmaId(process.addCustomerReturnRequest(inputBean, personnelBean));
 			request.setAttribute("customerReturnRequestResultBean", process.getCustomerReturnRequestData(inputBean, personnelBean));
