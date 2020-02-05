@@ -119,36 +119,57 @@ public class PicklistReprintAction extends TcmISBaseAction {
 			process.getConsPicklistExcelReport(picklistIdParam, getTcmISLocale()).write(response.getOutputStream());
 			return noForward;
 		}
-		else if ("printUnitExtLabels".equals(action)) {
-			@SuppressWarnings("unchecked")
-			Collection<LabelInputBean> labelInputs = BeanHandler.getBeans((DynaBean) form, "picklistBean", new LabelInputBean(), "ok");
-			HashMap<String,LabelInputBean> processedPallets = new HashMap<String,LabelInputBean>();
-			StringBuilder printPalletSerialNumbers = new StringBuilder();
-			
-			UnitExtLabelProcess labelProcess = new UnitExtLabelProcess(this.getDbUser(request));
-			
-      	    for (LabelInputBean unitExtBean : labelInputs) {
-				labelProcess.completeInput(unitExtBean, personnelBean);
+		else if ("printUnitExtLabels".equals(action)) {			
+			Collection<PicklistReprintViewBean> picklistReprintViewBeans = BeanHandler.getBeans((DynaBean)form,"picklistBean",new PicklistReprintViewBean(),this.getTcmISLocale(request), "ok");
+						
+			if (picklistReprintViewBeans.size() > 0) {	
+				// avoid duplicate prints by checking if a box or pallet has been processed
+				HashMap<String,LabelInputBean> processedBoxes = new HashMap<String,LabelInputBean>();
+				HashMap<String,LabelInputBean> processedPallets = new HashMap<String,LabelInputBean>();
 				
-				// only print labels if this pallet hasn't already been printed
-				if(!processedPallets.containsKey(unitExtBean.getPalletId())) {
-					labelProcess.buildUnitExtLabels(unitExtBean);					
-
-					processedPallets.put(unitExtBean.getPalletId(), unitExtBean);
+				Collection<BoxLabelBean> boxLabels = new Vector();
+				StringBuilder printPalletSerialNumbers = new StringBuilder();
+				
+				UnitExtLabelProcess labelProcess = new UnitExtLabelProcess(this.getDbUser(request));
+				
+				// get all box label fields for the issue(s) selected for printings
+				for(PicklistReprintViewBean selectedLine : picklistReprintViewBeans) {
+					Collection<BoxLabelBean> selectedLineBoxes = BeanHandler.getBeans((DynaBean)form, selectedLine.getPrNumber()+"-"+selectedLine.getLineItem()+"-"
+							+selectedLine.getBin()+"boxLabelBean",new BoxLabelBean(),this.getTcmISLocale(request));
 					
-					if(unitExtBean.isPrintBoxLabel() && unitExtBean.getNumBoxLabels() > 5) {
-						if(printPalletSerialNumbers.length() > 0)
-							printPalletSerialNumbers.append(",");
-						printPalletSerialNumbers.append(unitExtBean.getPalletId());
+					for(BoxLabelBean box : selectedLineBoxes) {
+						if(!processedBoxes.containsKey(box.getBoxId())) {
+							LabelInputBean labelInput = new LabelInputBean();
+							
+							labelInput.setFacilityId(selectedLine.getFacilityId());
+							labelInput.setPackingGroupId(selectedLine.getPackingGroupId().toString());
+							labelInput.setBoxId(box.getBoxId());
+							
+							labelProcess.completeInput(labelInput, personnelBean);
+							
+							if(!processedPallets.containsKey(labelInput.getPalletId())) {
+								labelProcess.buildUnitExtLabels(labelInput);																
+								
+								if(labelInput.isTrackSerialNumber() && !labelInput.isPalletMissingSerialNumber() && labelInput.getPalletSerialNumberCount() > 5) {
+									if(printPalletSerialNumbers.length() > 0)
+										printPalletSerialNumbers.append(",");
+									printPalletSerialNumbers.append(labelInput.getPalletId());
+								}
+								
+								processedPallets.put(labelInput.getPalletId(), labelInput);
+							}
+							
+							processedBoxes.put(box.getBoxId(), labelInput);
+						}
 					}
-				}
-      	    }
-
-      	    if(printPalletSerialNumbers.length() > 0) {
-      	    	String reportRequest = reportProperties.getString("report.hosturl") + "HaasReports/report/printserialnumbers.do?palletIds=" + printPalletSerialNumbers.toString();   	    
-      	    	response.sendRedirect(response.encodeRedirectURL(reportRequest));
-      	    }
-      	  
+				}			
+				
+				if(printPalletSerialNumbers.length() > 0) {
+	      	    	String reportRequest = reportProperties.getString("report.hosturl") + "HaasReports/report/printserialnumbers.do?palletIds=" + printPalletSerialNumbers.toString();   	    
+	      	    	response.sendRedirect(response.encodeRedirectURL(reportRequest));
+	      	    }			
+			}
+ 	  
       	    return noForward;
 		}
 
