@@ -6,11 +6,20 @@ import com.tcmis.common.framework.BaseDataBean;
 
 public class BoxLabelBean extends BaseDataBean {
 
+	private String boxId;
 	private BigDecimal boxLabelId;
 	private String serialNumber;
 	
 	public BoxLabelBean() {}
 	
+	public String getBoxId() {
+		return this.boxId;
+	}
+
+	public void setBoxId(String boxId) {
+		this.boxId = boxId;
+	}
+
 	public BigDecimal getBoxLabelId() {
 		return this.boxLabelId;
 	}

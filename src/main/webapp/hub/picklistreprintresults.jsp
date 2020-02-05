@@ -314,6 +314,7 @@ YAHOO.util.Event.addListener(window, "load", init);*/
 						<c:forEach var="boxLabelBean" items="${status.current.boxLabels}" varStatus="boxLabel">
 							<tr class='<c:out value="${colorClass}"/>'>
 								<td>
+									<input type="hidden" name='<c:out value="${status.current.prNumber}"/>-<c:out value="${status.current.lineItem}"/>-<c:out value="${status.current.bin}"/>boxLabelBean[<c:out value="${boxLabel.index}"/>].boxId' id='boxId<c:out value="${status.index}"/>_<c:out value="${boxLabel.index}"/>' value='<c:out value="${boxLabel.current.boxId}"/>'>		     					
 									<input type="hidden" name='<c:out value="${status.current.prNumber}"/>-<c:out value="${status.current.lineItem}"/>-<c:out value="${status.current.bin}"/>boxLabelBean[<c:out value="${boxLabel.index}"/>].boxLabelId' id='boxLabelId<c:out value="${status.index}"/>_<c:out value="${boxLabel.index}"/>' value='<c:out value="${boxLabel.current.boxLabelId}"/>'>
 		     						${boxLabel.current.boxLabelId}
 		     					</td>
