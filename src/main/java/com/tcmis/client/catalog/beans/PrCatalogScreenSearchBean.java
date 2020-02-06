@@ -1,6 +1,7 @@
 package com.tcmis.client.catalog.beans;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Collection;
 import java.util.Date;
 
@@ -109,6 +110,9 @@ public class PrCatalogScreenSearchBean extends BaseDataBean {
 	private String		catPartAttribute;
 	private String		prop65Warning;
 	private String		source;
+	private BigDecimal  pricePerUnitVolume;
+	private String      pricePerUnitVolumeUnit;
+	private String 		imageContent;
 	
 	public String getSource() {
 		return source;
@@ -852,5 +856,29 @@ public class PrCatalogScreenSearchBean extends BaseDataBean {
 
 	public void setShelfLifeList(String shelfLifeList) {
 		this.shelfLifeList = shelfLifeList;
+	}
+
+	public BigDecimal getPricePerUnitVolume() {
+		return pricePerUnitVolume;
+	}
+
+	public void setPricePerUnitVolume(BigDecimal pricePerUnitVolume) {
+		this.pricePerUnitVolume = pricePerUnitVolume;
+	}
+
+	public String getPricePerUnitVolumeUnit() {
+		return pricePerUnitVolumeUnit;
+	}
+
+	public void setPricePerUnitVolumeUnit(String pricePerUnitVolumeUnit) {
+		this.pricePerUnitVolumeUnit = pricePerUnitVolumeUnit;
+  }
+  
+	public String getImageContent() {
+		return imageContent;
+	}
+
+	public void setImageContent(String image_content) {
+		this.imageContent = image_content;
 	}
 } // end of class

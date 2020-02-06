@@ -742,6 +742,7 @@ extends BaseProcess {
         boolean hideCatalogCol = personnel.isFeatureReleased("HideCatalogCol", "ALL",inputbean.getCompanyId());
         boolean includeObsoleteParts = inputbean.getIncludeObsoleteParts() != null && inputbean.getIncludeObsoleteParts().trim().length() > 0 ? true:false;
 		boolean showPartRevision = personnel.isFeatureReleased("ShowPartRevision", inputbean.getFacilityId(),inputbean.getCompanyId());
+		boolean showCostPerVolume = personnel.isFeatureReleased("ShowCostPerVolume", inputbean.getFacilityId(),inputbean.getCompanyId());
 
 		int partDescPosition = 0;
 		int pricePosition = 0;
@@ -770,6 +771,9 @@ extends BaseProcess {
         }
 		hk.add("label.partuom");
 		hk.add("catalog.label.unitOfSaleQuantityPerEach");
+		if (showCostPerVolume) {
+			hk.add("label.costpervolume");
+		}
 		hk.add("catalog.label.shelflife");
 		hk.add("label.item");
         if (showMsds)
@@ -824,6 +828,14 @@ extends BaseProcess {
             }
 			pw.addCell(bean.getUnitOfSale());
 			pw.addCell(bean.getQtyOfUomPerItem());
+			if (showCostPerVolume) {
+				if (bean.getPricePerUnitVolume() == null) {
+					pw.addCell("");
+				}
+				else {
+					pw.addCell(bean.getPricePerUnitVolume()+" "+bean.getPricePerUnitVolumeUnit());
+				}
+			}
 			String storageTemp = bean.getStorageTemp();
 			if( storageTemp == null || storageTemp.trim().length() == 0 )
 				storageTemp = "";

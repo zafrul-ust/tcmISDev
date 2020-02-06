@@ -2,14 +2,12 @@ package com.tcmis.internal.hub.action;
 
 import java.math.BigDecimal;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
 
 import org.apache.commons.beanutils.DynaBean;
 import org.apache.commons.beanutils.LazyDynaBean;
@@ -18,15 +16,12 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import com.tcmis.common.admin.beans.PersonnelBean;
-import com.tcmis.common.admin.beans.PermissionBean;
-import com.tcmis.common.admin.process.VvDataProcess;
 import com.tcmis.common.exceptions.BaseException;
 import com.tcmis.common.framework.TcmISBaseAction;
 import com.tcmis.common.util.BeanHandler;
 import com.tcmis.internal.hub.beans.BoxLabelBean;
 import com.tcmis.internal.hub.beans.LabelInputBean;
 import com.tcmis.internal.hub.beans.PicklistReprintViewBean;
-import com.tcmis.internal.hub.process.AllocationAnalysisProcess;
 import com.tcmis.internal.hub.process.PicklistPickingProcess;
 import com.tcmis.internal.print.process.UnitExtLabelProcess;
 import com.tcmis.common.util.ResourceLibrary;
@@ -36,6 +31,8 @@ import com.tcmis.common.util.ResourceLibrary;
  * @version 1.0
  ******************************************************************************/
 public class PicklistReprintAction extends TcmISBaseAction {
+	
+	private static ResourceLibrary reportProperties	= new ResourceLibrary("report");
 
 	public ActionForward executeAction(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) 
 			throws BaseException, Exception {
@@ -122,14 +119,57 @@ public class PicklistReprintAction extends TcmISBaseAction {
 			process.getConsPicklistExcelReport(picklistIdParam, getTcmISLocale()).write(response.getOutputStream());
 			return noForward;
 		}
-		else if ("printUnitExtLabels".equals(action)) {
-			@SuppressWarnings("unchecked")
-			Collection<LabelInputBean> labelInputs = BeanHandler.getBeans((DynaBean) form, "picklistBean", new LabelInputBean(), "ok");
-			UnitExtLabelProcess labelProcess = new UnitExtLabelProcess(this.getDbUser(request));
-      	    for (LabelInputBean unitExtBean : labelInputs) {
-				labelProcess.completeInput(unitExtBean, personnelBean);
-				labelProcess.buildUnitExtLabels(unitExtBean);
-      	    }
+		else if ("printUnitExtLabels".equals(action)) {			
+			Collection<PicklistReprintViewBean> picklistReprintViewBeans = BeanHandler.getBeans((DynaBean)form,"picklistBean",new PicklistReprintViewBean(),this.getTcmISLocale(request), "ok");
+						
+			if (picklistReprintViewBeans.size() > 0) {	
+				// avoid duplicate prints by checking if a box or pallet has been processed
+				HashMap<String,LabelInputBean> processedBoxes = new HashMap<String,LabelInputBean>();
+				HashMap<String,LabelInputBean> processedPallets = new HashMap<String,LabelInputBean>();
+				
+				Collection<BoxLabelBean> boxLabels = new Vector();
+				StringBuilder printPalletSerialNumbers = new StringBuilder();
+				
+				UnitExtLabelProcess labelProcess = new UnitExtLabelProcess(this.getDbUser(request));
+				
+				// get all box label fields for the issue(s) selected for printings
+				for(PicklistReprintViewBean selectedLine : picklistReprintViewBeans) {
+					Collection<BoxLabelBean> selectedLineBoxes = BeanHandler.getBeans((DynaBean)form, selectedLine.getPrNumber()+"-"+selectedLine.getLineItem()+"-"
+							+selectedLine.getBin()+"boxLabelBean",new BoxLabelBean(),this.getTcmISLocale(request));
+					
+					for(BoxLabelBean box : selectedLineBoxes) {
+						if(!processedBoxes.containsKey(box.getBoxId())) {
+							LabelInputBean labelInput = new LabelInputBean();
+							
+							labelInput.setFacilityId(selectedLine.getFacilityId());
+							labelInput.setPackingGroupId(selectedLine.getPackingGroupId().toString());
+							labelInput.setBoxId(box.getBoxId());
+							
+							labelProcess.completeInput(labelInput, personnelBean);
+							
+							if(!processedPallets.containsKey(labelInput.getPalletId())) {
+								labelProcess.buildUnitExtLabels(labelInput);																
+								
+								if(labelInput.isTrackSerialNumber() && !labelInput.isPalletMissingSerialNumber() && labelInput.getPalletSerialNumberCount() > 5) {
+									if(printPalletSerialNumbers.length() > 0)
+										printPalletSerialNumbers.append(",");
+									printPalletSerialNumbers.append(labelInput.getPalletId());
+								}
+								
+								processedPallets.put(labelInput.getPalletId(), labelInput);
+							}
+							
+							processedBoxes.put(box.getBoxId(), labelInput);
+						}
+					}
+				}			
+				
+				if(printPalletSerialNumbers.length() > 0) {
+	      	    	String reportRequest = reportProperties.getString("report.hosturl") + "HaasReports/report/printserialnumbers.do?palletIds=" + printPalletSerialNumbers.toString();   	    
+	      	    	response.sendRedirect(response.encodeRedirectURL(reportRequest));
+	      	    }			
+			}
+ 	  
       	    return noForward;
 		}
 

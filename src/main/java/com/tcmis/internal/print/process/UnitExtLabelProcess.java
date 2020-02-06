@@ -77,44 +77,14 @@ public class UnitExtLabelProcess extends BaseProcess {
 	public void completeInput(LabelInputBean labelInputBean, PersonnelBean user) throws BaseException {
 		DbManager dbManager = new DbManager(getClient());
 		GenericSqlFactory factory = new GenericSqlFactory(dbManager);
-		StringBuilder query = new StringBuilder()
-				.append("SELECT facility_id, transportation_mode from packing_group_view where packing_group_id = ")
-				.append(SqlHandler.delimitString(labelInputBean.getPackingGroupId()));
-		
-		StringBuilder palletQuery = new StringBuilder()
-				.append("select pallet_id, pallet_closed closed, ")
-				.append("(select count(distinct packing_group_id) from box where packing_group_id <> ")
-				.append(labelInputBean.getPackingGroupId()).append(" and pallet_id = p.pallet_id) other_pac_ct")
-				.append(" from pallet p where pallet_id = ");
-		
-		@SuppressWarnings("unchecked")
-		Collection<PackShipConfirmInputBean> labelData = factory.setBean(new PackShipConfirmInputBean()).selectQuery(query.toString());
-		Optional<PackShipConfirmInputBean> labelDataBean = labelData.stream().findFirst();
-		
-		if (labelDataBean.isPresent()) {
-			PackShipConfirmInputBean bean = labelDataBean.get();
-			if (StringHandler.isBlankString(labelInputBean.getFacilityId())) {
-				labelInputBean.setFacilityId(bean.getFacilityId());
-			}
+
+		String palletQuery = "SELECT p.pallet_id, p.pallet_closed AS closed " +
+						 "FROM tcm_ops.pallet p, tcm_ops.box b " +
+						"WHERE p.pallet_id = b.pallet_id " +
+						"  AND b.box_id = " + SqlHandler.delimitString(labelInputBean.getBoxId());
 			
-			if (DLA_GASES_FACILITY.equals(bean.getFacilityId())) {
-				if ( ! PARCEL_MODE.equals(bean.getTransportationMode())) {
-					palletQuery.append(SqlHandler.delimitString(DLA_GASES_PALLET_RFID));
-				}
-				else {
-					palletQuery.append(SqlHandler.delimitString(DEFAULT_PALLET_RFID));
-				}
-			}
-			else {
-				palletQuery.append(SqlHandler.delimitString(DEFAULT_PALLET_RFID));
-			}
-		}
-		else {
-			palletQuery.append(SqlHandler.delimitString(DEFAULT_PALLET_RFID));
-		}
-		
 		@SuppressWarnings("unchecked")
-		Collection<LabelInputBean> palletData = factory.setBean(new LabelInputBean()).selectQuery(palletQuery.toString());
+		Collection<LabelInputBean> palletData = factory.setBean(new LabelInputBean()).selectQuery(palletQuery);
 		Optional<LabelInputBean> palletDataBean = palletData.stream().findFirst();
 		if (palletDataBean.isPresent()) {
 			LabelInputBean bean = palletDataBean.get();
@@ -176,6 +146,8 @@ public class UnitExtLabelProcess extends BaseProcess {
 		Collection<UsgovLabelViewBean> extLabelDataColl = getUnitLabelData(labelInputBean,"External");
 		
 		attachSerialNumbers(unitLabelDataColl, extLabelDataColl);
+		
+		labelInputBean.setPalletSerialNumberCount(unitLabelDataColl.size());
 
 		/*UINT LABELS*******
 		 *Need to print unit labels only if the owner_company_id is <> "USGOV" - we are assuming all VMI will be pre-labeled.
@@ -323,10 +295,14 @@ public class UnitExtLabelProcess extends BaseProcess {
 			String dataView = "USGOV_HAAS_GASES_LABEL_VIEW";
 			String countData = factory.selectSingleValue("select count(*) from "+dataView+countMissingSerialNumber.toString());
 			if (countData.equals("0")) {
+				labelInputBean.setPalletMissingSerialNumber(false);
+				
 				receiptLabelDataColl = factory.setBean(new UsgovLabelViewBean()).
 				select(criteria, sort, dataView);
-			}else
+			}else {
 				printBoxLabel = false;
+				labelInputBean.setPalletMissingSerialNumber(true);
+			}
 		}
 		else
 		{
@@ -335,8 +311,10 @@ public class UnitExtLabelProcess extends BaseProcess {
 		}
 		
 		for (UsgovLabelViewBean labelData : receiptLabelDataColl) {
-	        if(labelData.isSerialNumberTracked())
+	        if(labelData.isSerialNumberTracked()) {
 	        	labelData.setSerialNo1(labelData.getSerialNumber());
+	        	labelInputBean.setTrackSerialNumber(true);
+	        }
         }
 
 		return receiptLabelDataColl;

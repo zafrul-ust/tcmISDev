@@ -5,6 +5,7 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.tcmis.client.api.process.EcommerceCheckoutProcess;
 import com.tcmis.client.api.process.LaunchTcmisProcess;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -38,11 +39,11 @@ public class LaunchTcmisAction extends TcmISBaseAction {
 				LaunchTcmisProcess process = new LaunchTcmisProcess(this.getDbUser(request));
 				if(Integer.parseInt(process.getPayloadIdCount(payloadId,logonId)) > 0) {
 					user.setCompanyId(this.getClient(request));
-					user.setLogonId(logonId);				
+					user.setLogonId(logonId);
 					LoginProcess loginProcess = new LoginProcess(this.getDbUser(request));
 					user = loginProcess.loginWeb(user, false);
-	                user.setDbUser(this.getDbUser(request));
-	                this.setSessionObject(request, user, "personnelBean");
+					user.setDbUser(this.getDbUser(request));
+					this.setSessionObject(request, user, "personnelBean");
 					Locale locale = null;
 					locale = new Locale("en", "US");
 					com.tcmis.common.admin.action.LoginAction.setLocaleAnyway(request, request.getSession(), locale.toString());
@@ -60,6 +61,9 @@ public class LaunchTcmisAction extends TcmISBaseAction {
 			user.setEcommerceSource(ecommerceSource);
 			user.setPayloadTimestamp(request.getParameter("timestamp"));
 			user.setEcommerceLanguage(request.getParameter("lang"));
+			user.setBrowserCookie(request.getParameter("buyerCookie"));
+			EcommerceCheckoutProcess ecommerceCheckoutProcess = new EcommerceCheckoutProcess(this.getDbUser(request));
+			user.setEcommerceBrowserFormPostUrl(ecommerceCheckoutProcess.getBrowserPostFromPayloadId(payloadId));
 			return mapping.findForward("application");
 		}
 		return mapping.findForward("success");

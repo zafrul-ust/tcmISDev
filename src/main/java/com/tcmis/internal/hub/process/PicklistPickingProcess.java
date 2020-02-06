@@ -606,7 +606,7 @@ public class PicklistPickingProcess extends BaseProcess {
 		for(PicklistReprintViewBean line: mrLines) {
 			
 			if(line.isSerialNumberTracked()) {
-				String query  = "SELECT bx.box_label_id, bx.serial_number " + 
+				String query  = "SELECT bx.box_id, bx.box_label_id, bx.serial_number " + 
 							   "   FROM picklist_view1 p,box_label_issue bi, box_label bx" +
 							   "  WHERE p.picklist_id = " + line.getPicklistId() +
 							   "	AND p.pr_number = " + line.getPrNumber() +

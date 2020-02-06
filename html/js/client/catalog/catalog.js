@@ -343,10 +343,7 @@ function selectRow()
 				parent.document.getElementById('updateResultLink').style["display"] = "none";
 			 }
 		 }else {  //else not coming from an ecommerce application
-             if (ecommerceFacility.value == 'SEAGATEIP' || ecommerceFacility.value == 'y') {
-                parent.document.getElementById('updateResultLink').style["display"] = "none";
-                addToCartLinkExist = false;
-             }else if(ecommerceFacility.value != 'Y' && cellValue(selectedRowId,"applicationPermission") == 'Y'
+			 if((ecommerceFacility.value == 'N' || ecommerceFacility.value == 'AEROJETIP' || ecommerceFacility.value == 'OCI') && cellValue(selectedRowId,"applicationPermission") == 'Y'
 				 && cellValue(selectedRowId,'approvalStatus') == 'approved' ) {
 			 	if (intcmIsApplication) {
 		 			parent.document.getElementById('updateResultLink').style["display"] = "";
@@ -403,15 +400,7 @@ function selectRow()
 	 
     if( disableMenu ) return;
 
-   var itemColumnEndIndex = 8;
-   if (showPartRevision && isCompanyUsesCustomerMSDS == 'Y') {
-	    itemColumnEndIndex = 10;
-   }
-   else if(showPartRevision  || isCompanyUsesCustomerMSDS == 'Y') {
-    itemColumnEndIndex = 9;
-   }
-   if (showLeadTime)
-	   itemColumnEndIndex = itemColumnEndIndex +1;
+   var itemColumnEndIndex = 12;
    if( colId0 < mygrid.getColIndexById("shelfLifeDisplay"))contextMenuName = 'addToCartMenu';
    else if( colId0 > itemColumnEndIndex ) { preContextMenuName = contextMenuName = 'addToCartMenu3'; }
    else contextMenuName = 'addToCartMenu2';
@@ -787,106 +776,74 @@ function newinit() {
 	
 } //end of method
 
+function calculateRowSpan(intervals, gaps) {
+	var rowSpanArray = [];
+	var column = 0;
+	for (var i = 0; i < intervals.length; i++) {
+		column += gaps[i];
+		for (var j = 0;j < intervals[i]; j++) {
+			rowSpanArray.push(column++);
+		}
+		column--;
+	}
+	console.log(rowSpanArray);
+	return rowSpanArray;
+}
+
 function doInitGrid(){
 	/*Give the div name that holds the grdi the same name as your dynabean*/
 	mygrid = new dhtmlXGridObject('prCatalogScreenSearchBean');
 	mygrid.setImagePath("/dhtmlxGrid/codebase/imgs/");
 	/*To internationalize column headers, get the values from messagesData*/
-	var colVAlign = "middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,"+
+	var colVAlign = "middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,"+
 		"middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,"+
 		"middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,"+
-		"middle,middle,middle,middle,middle,middle,middle";
-		
-		if (showPartRevision) {
-			colVAlign += ",middle";
-		}
-		if(isCompanyUsesCustomerMSDS == 'Y') {
-			colVAlign += ",middle,middle";
-		}
-		if (showLeadTime) {
-		    colVAlign += ",middle";
-		}
-		colVAlign += ",middle,middle,middle,middle";
-		
+		"middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,middle,"+
+		"middle,middle,middle,middle,middle";
+
 		var header = messagesData.catalog
-			+","+messagesData.part;
-		if (showPartRevision) {
-		  header += ","+messagesData.revision;
-		}
-		  header += ","+messagesData.description+
-		  ","+messagesData.type;
-		if (showLeadTime) {
-		  header += ","+messagesData.leadtime;
-		}
-		  header += ","+messagesData.price+
-		  ","+messagesData.partuom+
-		  ","+messagesData.qtyOfUomPerItem+
-		  ","+messagesData.shelflife+
-		  ","+messagesData.item;
-		if(isCompanyUsesCustomerMSDS == 'Y') {
-			header += ","+messagesData.kitMsds;
-		}
-		  header += ","+messagesData.componentdescription+
-		  ","+messagesData.grade+
-		  ","+messagesData.packaging+
-		  ","+messagesData.manufacturer+
-		  ","+messagesData.mfgpartno+
-		  ","+messagesData.status;
-		if(isCompanyUsesCustomerMSDS == 'Y') {
-			header += ","+messagesData.materialMsds;
-		}
-		// unfortunatelly setHeaderCol seems to work only after initialized...
-		//		mygrid.setHeaderCol(baseColumn,'${qualityIdLabelColumnHeader}');
+			+","+(showImageCol?messagesData.image:"")
+			+","+messagesData.part
+			+","+(showPartRevision?messagesData.revision:"")
+			+","+messagesData.description
+			+","+messagesData.type
+			+","+(showLeadTime?messagesData.leadtime:"")
+			+","+messagesData.price
+			+","+messagesData.partuom
+			+","+messagesData.qtyOfUomPerItem
+			+","+(showCostPerVolume?messagesData.costPerVolume:"")
+			+","+messagesData.shelflife
+			+","+messagesData.item
+			+","+((isCompanyUsesCustomerMSDS == 'Y')?messagesData.kitMsds:"")
+		  	+","+messagesData.componentdescription
+		  	+","+messagesData.grade
+		  	+","+messagesData.packaging
+		  	+","+messagesData.manufacturer
+		  	+","+messagesData.mfgpartno
+		  	+","+messagesData.status
+			+","+((isCompanyUsesCustomerMSDS == 'Y')?messagesData.materialMsds:"")
+			+",,,,,,,,,,,,,,,,,,,,,,,,,,"+(('--Hide--' == qualityIdLabelColumnHeader)?"":qualityIdLabelColumnHeader)
+			+","+(('--Hide--' == catPartAttrColumnHeader)?"":catPartAttrColumnHeader)
+			+",";
 
-		header += ",,,,,,,,,,,,,,,,,,,,,,,,,,"+qualityIdLabelColumnHeader+","+catPartAttrColumnHeader+",";
-
-		var colAlign = "left,left,left,left,left,left,left,left,left,left,left,"+
+		var colAlign = "left,center,left,left,left,left,left,left,left,left,left,left,"+
 						 "left,left,left,left,left,left,left,left,left,left,left,"+
 						 "left,left,left,left,left,left,left,left,left,left,"+
-						 "left,left,left,left,left,left,left,left";
-		if (showPartRevision) {
-			colAlign += ",left";
-		}
-		if (isCompanyUsesCustomerMSDS == 'Y') {
-			colAlign += ",left,left";
-		}
-		if (showLeadTime) {
-			colAlign += ",left";
-		}
-		colAlign += ",left,left,left,left";
-		
-		var colTypes = "ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,"+
+						 "left,left,left,left,left,left,left,left,left,left,left,"+
+						 "left,left,left,left,left";
+
+		var colTypes = "ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,"+
 						"ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,"+
 						"ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,"+
-						"ro,ro,ro,ro,ro,ro,ro,ro";
-		if (showPartRevision) {
-			colTypes += ",ro";
-		}
-		if (isCompanyUsesCustomerMSDS == 'Y') {
-			colTypes += ",ro,ro";
-		}
-		if (showLeadTime) {
-			colTypes += ",ro";
-		}
-		colTypes += ",ro,ro,ro,ro";
-		
-		var toolTips = "false,false"
-		if (showPartRevision) {
-			toolTips += ",false";
-		}
-		toolTips += ",true,false";
-		if (showLeadTime) {
-			toolTips += ",false";
-		}
-		toolTips += ",false,false,false,false,false,false,true,"+
+						"ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,ro,"+
+						"ro,ro,ro,ro,ro";
+
+		var toolTips = "false,false,false,false,true,false,false,false,false,false,false,"+
+						"false,false,false,true,"+
 						"true,false,false,false,false,false,false,false,false,false,false,"+
-						"false,false,false,false,false,false,false,false,false,false,"
-						"false,false,false,false,false,false,false";
-		if (isCompanyUsesCustomerMSDS == 'Y') {
-			toolTips += ",false,false";
-		}
-		
-		toolTips += ",false,true,true,false";
+						"false,false,false,false,false,false,false,false,false,false," +
+						"false,false,false,false,false,false,false,false,false,"+
+						"false,true,true,false";
 		
 		mygrid.setHeader(header);
 		mygrid.setColVAlign(colVAlign);
@@ -896,33 +853,26 @@ function doInitGrid(){
 
 		var idArr = new Array();
 		idArr.push("catalogDesc");
+		idArr.push("itemImage");
 		idArr.push("catPartNo");
-		if (showPartRevision) {
-			idArr.push("customerPartRevision");
-		}
+		idArr.push("customerPartRevision");
 		idArr.push("partDescription");
 		idArr.push("stockingMethod");
-		if (showLeadTime) {
-			idArr.push("leadTime");
-		}
+		idArr.push("leadTime");
 		idArr.push("finalPriceDisplay");
 		idArr.push("unitOfSale");
 		idArr.push("qtyOfUomPerItem");
+		idArr.push("costPerVolume");
 		idArr.push("shelfLifeDisplay");
 		idArr.push("itemIdDisplay");
-		if (isCompanyUsesCustomerMSDS == 'Y') {
-			idArr.push("kitMsdsNumber");
-		}
+		idArr.push("kitMsdsNumber");
 		idArr.push("materialDesc");
-
 		idArr.push("grade");
 		idArr.push("packaging");
 		idArr.push("mfgDesc");
 		idArr.push("mfgPartNo");
 		idArr.push("approvalStatus");
-		if (isCompanyUsesCustomerMSDS == 'Y') {
-			idArr.push("componentMsdsNumber");
-		}
+		idArr.push("componentMsdsNumber");
 		idArr.push("catalogCompanyId");
 		idArr.push("partGroupNo");
 		idArr.push("inventoryGroup");
@@ -949,111 +899,51 @@ function doInitGrid(){
 		idArr.push("itemType");
 		idArr.push("itemId");
 		idArr.push("catalogId");
-//      In ratheon case, the qualityId column will be hidden,
-//      in Lockheed case, both will be displayed.
-//      In all other case, they will be hidden.		
 		idArr.push("qualityId");
 		idArr.push("catPartAttribute");
 		idArr.push("prop65Warning");
-		
+
 		mygrid.setColumnIds(idArr.join(","));
-		if(hideCatalogCol)
-			var initWidths = "0,10";
-		else
-			var initWidths = "7,10";
-		if (showPartRevision) {
-			initWidths += ",4";
-		}
-		initWidths += ",15,5";
-		if (showLeadTime) {
-			initWidths += ",7";
-		}
-		if($v('showCatalogPrice') == 'Y') {
-			initWidths += ",10";
-		}
-		else {
-			initWidths += ",0";
-		}
-		initWidths += ",0,0,15,9";
-		if (isCompanyUsesCustomerMSDS == 'Y') { 
-			initWidths += ",10";
-		}	
-		initWidths += ",15,10,15,15,10";
-		if (isCompanyUsesCustomerMSDS == 'Y') { 
-			initWidths += ",5";
-		}
-		initWidths += ",10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,10,0";
+		var initWidths = ""
+			+(hideCatalogCol?"0":"7")
+			+","+(showImageCol?"5":"0")
+			+",10"
+			+","+(showPartRevision?"4":"0")
+			+",15,5"
+			+","+(showLeadTime?"7":"0")
+			+","+(($v('showCatalogPrice') == 'Y')?"10":"0")
+			+",0,0"
+			+","+(showCostPerVolume?"10":"0")
+			+",15,9"
+			+","+((isCompanyUsesCustomerMSDS == 'Y')?"10":"0")
+			+",15,10,15,15,10,10"
+			+","+((isCompanyUsesCustomerMSDS == 'Y')?"5":"0")
+			+",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
+			+","+(('--Hide--' == qualityIdLabelColumnHeader)?"0":"10")
+			+","+(('--Hide--' == catPartAttrColumnHeader)?"0":"10")
+			+",0";
 
 		mygrid.setInitWidths(initWidths);
-//		mygrid.setColumnsVisibility("false,false,false,false,false,true,true,false,false,false,false,"+
-//									"false,false,false,false,false,false,true,true,true,true,true,"+
-//									"true,true,true,true,true,true,true,true,true,true,"+
-//									"true,true,true,true,true,true,true,false,false");
-// Larry Note: if everything counted 47 columns.
-// The two column would be top level as those are part info.		
-// 		showPartRevision +1
-//		showLeadTime +1
-//      isCompanyUsesCustomerMSDS +2
-		var baseColumn = 40;
-		if (showLeadTime) baseColumn++;
-		if (showPartRevision) baseColumn++;
-		if (isCompanyUsesCustomerMSDS == 'Y') baseColumn+=2;
-		if( '--Hide--' ==	qualityIdLabelColumnHeader )	
-			mygrid.setColumnHidden( baseColumn,true );
-		if( '--Hide--' ==	catPartAttrColumnHeader )	
-			mygrid.setColumnHidden( baseColumn +1 ,true );
+		
 		mygrid._haas_row_span = true;
 		mygrid._haas_row_span_map = rowSpanMap;
-		mygrid._haas_row_span_class_map = rowSpanClassMap;		
-		if (showLeadTime) {
-			if (showPartRevision && isCompanyUsesCustomerMSDS == 'Y') {
-					mygrid._haas_row_span_cols = [0,1,2,3,4,5,6,7,8,17,baseColumn,baseColumn+1];
-				}
-				else if (showPartRevision|| isCompanyUsesCustomerMSDS == 'Y') {
-				mygrid._haas_row_span_cols = [0,1,2,3,4,5,6,7,16,baseColumn,baseColumn+1];
-			}
-				else {
-					mygrid._haas_row_span_cols = [0,1,2,3,4,5,6,15,baseColumn,baseColumn+1];
-				}
-		} else {
-			if (showPartRevision && isCompanyUsesCustomerMSDS == 'Y') {
-				mygrid._haas_row_span_cols = [0,1,2,3,4,5,6,7,16,baseColumn,baseColumn+1];
-			}
-			else if (showPartRevision|| isCompanyUsesCustomerMSDS == 'Y') {
-				mygrid._haas_row_span_cols = [0,1,2,3,4,5,6,15,baseColumn,baseColumn+1];
-			}
-			else {
-				mygrid._haas_row_span_cols = [0,1,2,3,4,5,14,baseColumn,baseColumn+1];
-			}
-		}
+		mygrid._haas_row_span_class_map = rowSpanClassMap;
+
+		var rowSpanInterval = [11,1,2];
+		var rowSpanGap = [0,9,27];
+		
+		mygrid._haas_row_span_cols = calculateRowSpan(rowSpanInterval, rowSpanGap);
 		
 		if (rowSpanLvl2Map) {
 			mygrid._haas_row_span_lvl2 = true;
 			mygrid._haas_row_span_lvl2_map = rowSpanLvl2Map;
-			if (showLeadTime) {
-			if (showPartRevision && isCompanyUsesCustomerMSDS == 'Y') {
-					mygrid._haas_row_span_lvl2_cols = [9,10,11];
-				}
-				else if (showPartRevision || isCompanyUsesCustomerMSDS == 'Y') {
-				mygrid._haas_row_span_lvl2_cols = [8,9,10];
-			}
-				else {
-					mygrid._haas_row_span_lvl2_cols = [7,8,9];
-				}	
-			} else {
-				if (showPartRevision && isCompanyUsesCustomerMSDS == 'Y') {
-					mygrid._haas_row_span_lvl2_cols = [8,9,10];
-				}
-			else if (showPartRevision || isCompanyUsesCustomerMSDS == 'Y') {
-				mygrid._haas_row_span_lvl2_cols = [7,8,9];
-			}
-			else {
-				mygrid._haas_row_span_lvl2_cols = [6,7,8];
-				}	
-			}
+			
+			var rowSpanLvl2Interval = [3];
+			var rowSpanLvl2Gap = [rowSpanGap[0]+rowSpanInterval[0]];
+			
+			mygrid._haas_row_span_lvl2_cols = calculateRowSpan(rowSpanLvl2Interval,rowSpanLvl2Gap);
+			mygrid._haas_row_span_lvl2_child_select = true;
 		}
-
-		mygrid._haas_row_span_lvl2_child_select = true;
 
 	/*This keeps the row height the same*/
 	mygrid.enableMultiline(false);
