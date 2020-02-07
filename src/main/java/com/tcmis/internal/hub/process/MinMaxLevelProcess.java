@@ -376,7 +376,7 @@ private boolean isLookAheadDaysChanged(MinMaxLevelInputBean bean)  throws
     if(log.isDebugEnabled()) {
       log.debug("Result:" + result);
     }
-    if(result != null && result.indexOf("THERE IS NO CHANGE OR NO RECORD IN CPI WITH YOUR CRITERIA") == -1 ) {
+    if(result != null && result.indexOf("THERE IS NO CHANGE OR NO RECORD IN CPI WITH YOUR CRITERIA") != -1 ) {
       return ("There was an error calling PKG_LEVEL_MANAGEMENT.PR_UPDATE_LEVELS_FOR_EXITMM:" + result);
     }
     if(this.isLookAheadDaysChanged(bean)) {

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<!-- ========== Form Bean Definitions =================================== -->
+	<form-beans>
+		<form-bean name="fileUploadForm"
+			type="com.tcmis.internal.catalog.beans.FileUploadForm" />
+		<form-bean name="genericForm"
+			type="org.apache.struts.validator.LazyValidatorActionForm" />
+		<form-bean name="itemConsolidationForm"
+			type="org.apache.struts.validator.LazyValidatorActionForm">
+			<form-property name="consolidationStatusChkbxArray"
+				type="java.lang.String[]" />
+		</form-bean>
+	</form-beans>
+	<!-- ========== Global Forward Definitions ============================== -->
+	<global-forwards>
+		<forward name="react-login" path="/react-login" />
+		<forward name="react-logout" path="/react-logout" />
+		<forward name="react-forget-password"
+			path="/react-forget-password" />
+		<forward name="react-order-tracking"
+			path="/react-order-tracking" />
+		<forward name="react-delivery-confirm"
+			path="/react-delivery-confirm" />
+		<forward name="react-catalog-report"
+			path="/react-catalog-report" />
+		<forward name="react-report-back-order"
+			path="/react-report-back-order" />
+		<forward name="react-report-delivery"
+			path="/react-report-delivery" />
+		<forward name="react-report-facility-stock-level"
+			path="/react-report-facility-stock-level" />
+		<forward name="react-report-usage-import-info"
+			path="/react-report-usage-import-info" />
+		<forward name="react-work-area-transfer-history"
+			path="/react-work-area-transfer-history" />
+		<forward name="react-sds-search" path="/react-sds-search" />
+	</global-forwards>
+	<!-- ========== Action Mapping Definitions ============================== -->
+	<action-mappings>
+		<action path="/react-login"
+			type="com.tcmis.internal.react.actions.authentication.LoginAction"
+			name="loginForm" validate="false" scope="request">
+		</action>
+		<action path="/react-logout"
+			type="com.tcmis.internal.react.actions.authentication.LogoutAction"
+			name="logoutForm" validate="false" scope="request">
+		</action>
+		<action path="/react-forget-password"
+			type="com.tcmis.internal.react.actions.authentication.ForgetPasswordAction"
+			name="ForgetPasswordForm" validate="false" scope="request">
+		</action>
+		<action path="/react-sds-search"
+			type="com.tcmis.internal.react.actions.authentication.SdsSearchAction"
+			name="genericForm" validate="false" scope="request">
+		</action>
+		<action path="/react-order-tracking"
+			type="com.tcmis.internal.react.actions.authentication.OrderTrackingAction"
+			name="genericForm" validate="false" scope="request">
+		</action>
+		<action path="/react-delivery-confirm"
+			type="com.tcmis.internal.react.actions.authentication.DeliveryConfirmAction"
+			name="genericForm" validate="false" scope="request">
+		</action>
+		<action path="/react-catalog-report"
+			type="com.tcmis.internal.react.actions.authentication.CatalogReportAction"
+			name="genericForm" validate="false" scope="request">
+		</action>
+		<action path="/react-report-back-order"
+			type="com.tcmis.internal.react.actions.authentication.ReportBackOrderAction"
+			name="genericForm" validate="false" scope="request">
+		</action>
+		<action path="/react-report-delivery"
+			type="com.tcmis.internal.react.actions.authentication.ReportDeliveryAction"
+			name="genericForm" validate="false" scope="request">
+		</action>
+		<action path="/react-report-facility-stock-level"
+			type="com.tcmis.internal.react.actions.authentication.ReportFacilityStockLevelAction"
+			name="genericForm" validate="false" scope="request">
+		</action>
+		<action path="/react-report-usage-import-info"
+			type="com.tcmis.internal.react.actions.authentication.ReportUsageImportInfoAction"
+			name="genericForm" validate="false" scope="request">
+		</action>
+		<action path="/react-work-area-transfer-history"
+			type="com.tcmis.internal.react.actions.authentication.WorkAreaTransferHistoryAction"
+			name="genericForm" validate="false" scope="request">
+		</action>
+	</action-mappings>
+	<!-- ========== Message Resources Definitions =========================== -->
+	<message-resources
+		parameter="com.tcmis.common.resources.CommonResources" null="false" />
+	<!-- ========== Plug Ins Configuration ================================== -->
+	<!-- Add multiple validator resource files by setting the pathnames property 
+		with a comma delimitted list of resource files to load. -->
+	<plug-in
+		className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property
+			value="/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml"
+			property="pathnames" />
+	</plug-in>
+</struts-config>

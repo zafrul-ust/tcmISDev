@@ -1,6 +1,7 @@
 package com.tcmis.client.api.process;
 
 import java.math.BigDecimal;
+import java.sql.Connection;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,12 +15,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.tcmis.client.api.beans.EcommerceShipmentNotificationBean;
 import com.tcmis.client.api.factory.CreateMrDataMapper;
 import com.tcmis.client.api.factory.ICreateMrDataMapper;
 import com.tcmis.client.catalog.beans.CatalogInputBean;
@@ -53,13 +54,21 @@ public class CreateMrProcess extends GenericProcess {
 	private static final char AUXILIARY_DELIMITER = '|';
 	private static final char PAYLOAD_DELIMITER = '|';
 	private static final String EXAMPLE_PACKAGING = "EA";
-	private static final int PAYLOAD_ID = 0;
-	private static final int TIMESTAMP = 1;
+	
+	public static final int PAYLOAD_ID = 0;
+	public static final int TIMESTAMP = 1;
+	
+	public static final String NEW_ACTION = "new";
+	public static final String UPDATE_ACTION = "update";
+	public static final String DELETE_ACTION = "delete";
+	public static final String CANCEL_ACTION = "cancel";
 	
 	private ICreateMrDataMapper database;
+	private ResourceLibrary commonResources;
 	
 	public CreateMrProcess(String client, Locale locale) {
 		super(client, locale);
+		commonResources = new ResourceLibrary("com.tcmis.common.resources.CommonResources", this.getLocaleObject());
 	}
 
 	public CreateMrProcess(String client, Locale locale, ICreateMrDataMapper database) {
@@ -102,7 +111,7 @@ public class CreateMrProcess extends GenericProcess {
 				}
 				
 				JSONObject itemDetail = itemOut.getJSONObject("ItemDetail");
-				DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+				DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss-hh:mm");
 				
 				mrLine.put("lineItem", i+1);
 				mrLine.put("poNumber", orderRequestHeader.getString("orderID"));
@@ -138,6 +147,7 @@ public class CreateMrProcess extends GenericProcess {
 				mrHeader.put("endUser", shipToAddress.getJSONObject("PostalAddress").getJSONArray("DeliverTo").get(0));
 				mrHeader.put("contactInfo", shipToAddress.getJSONObject("Email").getString("value"));
 				mrHeader.put("operation", orderRequestHeader.get("type"));
+				mrHeader.put("deploymentMode",json.getJSONObject("Request").getString("deploymentMode"));
 			jsonOut.put("mrHeader", mrHeader);
 		} catch(JSONException e) {
 			throw new BaseException(e);
@@ -168,17 +178,19 @@ public class CreateMrProcess extends GenericProcess {
 			}
 			ShoppingCartProcess process = new ShoppingCartProcess(this.getClient(), this.getLocale());
 			BigDecimal prNumber = process.buildNewRequest(inputBean,cartLineList, personnelId);
-			database.setEndUserContactInfo(prNumber, header.getString("endUser"), header.getString("contactInfo"));
 			confirmation = buildConfirmation(json, prNumber);
 			
 			MaterialRequestProcess mrProcess = new MaterialRequestProcess(this.getClient(), this.getLocale());
 	    	MaterialRequestInputBean mrInputBean = new MaterialRequestInputBean();
 	    	BeanHandler.copyAttributes(inputBean, mrInputBean);
 	    	mrInputBean.setPrNumber(prNumber);
+	    	mrInputBean.setEndUser(header.getString("endUser"));
+	    	mrInputBean.setContactInfo(header.getString("contactInfo"));
 	    	
 	    	LoginProcess loginProcess = new LoginProcess(this.getClient());
 	    	PersonnelBean personnelBean = new PersonnelBean();
 	    	personnelBean.setPersonnelId(json.getInt("personnelId"));
+	    	personnelBean.setClient(this.getClient());
 	    	personnelBean = loginProcess.loginWeb(personnelBean, false);
 	    	MaterialRequestHeaderViewBean mrData = mrProcess.getMrData(mrInputBean, personnelBean);
 			List<MaterialRequestInputBean> mrLineList = streamRawtypeCollection(mrData.getLineItemColl(), LineItemViewBean.class)
@@ -198,9 +210,53 @@ public class CreateMrProcess extends GenericProcess {
 		return confirmation;
 	}
 	
+	public void updateMr(JSONObject json) throws BaseException {
+		Connection conn = null;
+		try {
+			MaterialRequestProcess mrProcess = new MaterialRequestProcess(this.getClient(), this.getLocale());
+			
+			JSONObject mrHeader = json.getJSONObject("mrHeader");
+			String companyId = mrHeader.getString("companyId");
+			JSONArray lines = json.getJSONArray("mrLines");
+
+			conn = this.dbManager.getConnection();
+			for (int i = 0; i < lines.length(); i++) {
+				JSONObject line = lines.getJSONObject(i);
+				Optional<RequestLineItemBean> rliWrap = getDatabase().getPrLineFromPoLine(
+						line.getString("poNumber"),
+						line.getString("releaseNumber"),
+						companyId,
+						mrHeader.getString("facilityId"),
+						line.getString("catalogCompanyId"),
+						line.getString("catalogId"));
+				
+				if (rliWrap.isPresent()) {
+					RequestLineItemBean rli = rliWrap.get();
+					if (CANCEL_ACTION.equals(mrHeader.getString("operation")) ||
+							DELETE_ACTION.equals(mrHeader.getString("operation"))) {
+						BigDecimal personnelId = new BigDecimal(json.getInt("personnelId"));
+						rli.setCancelRequester(personnelId);
+						getDatabase().cancelMrLine(rli);
+					}
+					else if (UPDATE_ACTION.equals(mrHeader.getString("operation"))) {
+						rli.setQuantity(new BigDecimal(line.getInt("quantity")));
+						getDatabase().updateMrLine(rli);
+					}
+					mrProcess.setFactoryConnection(this.factory, conn);
+					mrProcess.allocateLineItem(rli.getPrNumber(), rli.getLineItem(), companyId, companyId);
+				}
+			}
+		} catch(Exception e) {
+			log.info(e);
+			throw new BaseException(e);
+		} finally {
+			this.dbManager.returnConnection(conn);
+		}
+	}
+	
 	private JSONObject buildConfirmation(JSONObject requestBody, BigDecimal prNumber) throws BaseException {
 		try {
-			DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+			DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss-hh:mm");
 			RequestLineItemBean mrData = prNumber==null?null:getDatabase().getRequestLineItemByPrNumber(prNumber);
 			String[] payloadTs = getPayloadTs(mrData, requestBody);
 			String confirmationType = mrData == null?"reject":"accept";
@@ -232,7 +288,7 @@ public class CreateMrProcess extends GenericProcess {
 					}});
 				}});
 				this.put("Request", new JSONObject() {{
-					this.put("deploymentMode", "");
+					this.put("deploymentMode", requestBody.getJSONObject("mrHeader").getString("deploymentMode"));
 					this.put("ConfirmationRequest", new JSONObject() {{
 						this.put("ConfirmationHeader", new JSONObject() {{
 							this.put("value", "");
@@ -242,7 +298,7 @@ public class CreateMrProcess extends GenericProcess {
 							this.put("confirmID", mrData==null?"":mrData.getPrNumber().intValue());
 						}});
 						this.put("OrderReference", new JSONObject() {{
-							this.put("orderDate", mrData==null?"":mrData.getRequiredDatetime());
+							this.put("orderDate", mrData==null?"":format.format(mrData.getRequiredDatetime()));
 							this.put("orderID", mrData==null?"":mrData.getPoNumber());
 							this.put("DocumentReference", new JSONObject() {{
 								this.put("value", "");
@@ -259,7 +315,7 @@ public class CreateMrProcess extends GenericProcess {
 		}
 	}
 	
-	private String[] getPayloadTs(RequestLineItemBean mrData, JSONObject requestBody) throws JSONException {
+	public String[] getPayloadTs(RequestLineItemBean mrData, JSONObject requestBody) throws JSONException {
 		String[] payloadTs = null;
 		if (mrData == null) {
 			payloadTs = StringUtils.split(requestBody.getJSONObject("mrHeader").getString("payloadId"),PAYLOAD_DELIMITER);
@@ -292,8 +348,15 @@ public class CreateMrProcess extends GenericProcess {
 	public void confirmOrder(JSONObject confirmationRequest, Throwable ex) {
 		try {
 			ResourceLibrary library = new ResourceLibrary("ecommerce");
-			int httpMessage = NetHandler.sendHttpsPost(library.getString("confirm_order_url"), null, null, confirmationRequest.toString(), null);
+			String confirmOrderUrl = library.getString("confirm_order_url");
+			StringBuilder requestDetails = new StringBuilder("Posting Order Confirmation\n")
+					.append("URL: ").append(confirmOrderUrl).append("\n")
+					.append("Request Body: ").append(confirmationRequest.toString(4));
+			log.debug(requestDetails.toString());
+			
+			int httpMessage = NetHandler.sendHttpPost(confirmOrderUrl, confirmationRequest);
 			if (httpMessage != 200) {
+				log.debug("Failed to POST to WDI");
 				MailProcess.sendEmail("deverror@tcmis.com", null,"deverror@tcmis.com","Unable to send order confirmation to ecommerce system",
 						"Error while trying to send order confirmation.\n"
 								+ "Status Code: " + httpMessage + "\n"
@@ -301,10 +364,57 @@ public class CreateMrProcess extends GenericProcess {
 			}
 			else {
 				log.debug("Successfully POST to WDI");
+				BigDecimal prNumber = new BigDecimal(confirmationRequest
+						.getJSONObject("Request")
+						.getJSONObject("ConfirmationRequest")
+						.getJSONObject("ConfirmationHeader")
+						.getInt("confirmID"));
+
+				if (getDatabase().isSendOrderConfirmationEmail(prNumber)) {
+					EcommerceShipmentNotificationBean request = getDatabase().getRequestByPrNumber(prNumber);
+					Collection<EcommerceShipmentNotificationBean> requestLines = getDatabase().getRequestLinesByPrNumber(prNumber);
+					sendOrderConfirmationEmail(request, requestLines);
+				}
 			}
 		} catch(Exception e) {
 			log.info("Exceptional completion");
 			log.info(e);
 		}
+	}
+	
+	private void sendOrderConfirmationEmail(EcommerceShipmentNotificationBean request, Collection<EcommerceShipmentNotificationBean> requestLines) {
+		StringBuilder lines = new StringBuilder();
+		for (EcommerceShipmentNotificationBean rli : requestLines) {
+			lines.append("\n").append(commonResources.getString("label.lineitem"))
+					.append(" : ").append(rli.getLineItem())
+					.append("\n").append(commonResources.getString("label.partnumber"))
+					.append(" : ").append(rli.getFacPartNo())
+					.append("\n").append(commonResources.getString("label.partdescription"))
+					.append(" : ").append(rli.getPartDescription())
+					.append("\n").append(commonResources.getString("label.quantity"))
+					.append(": ").append(rli.getQuantity()).append("\n");
+		}
+
+		StringBuilder body = new StringBuilder(commonResources.getString("label.requestcreated"))
+				.append("\n\n").append(commonResources.getString("label.requestor"))
+				.append(" : ").append(request.getEndUser())
+				.append("\n").append(commonResources.getString("label.email"))
+				.append(" : ").append(request.getContactInfo())
+				.append("\n").append(commonResources.getString("label.po"))
+				.append(" : ").append(request.getPoNumber())
+				.append("\n\n").append(commonResources.getString("label.materialrequest"))
+				.append(" : ").append(request.getPrNumber())
+				.append(lines);
+		
+		StringBuilder subject = new StringBuilder()
+				.append(commonResources.format("label.orderconfirmed", 
+						request.getPrNumber(), 
+						request.getApplicationDesc(), 
+						request.getEndUser(),
+						request.getPoNumber()));
+		
+		String recipient = request.getContactInfo();
+		
+		MailProcess.sendEmail(recipient, null, "deverror@tcmis.com", subject.toString(), body.toString());
 	}
 }

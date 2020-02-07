@@ -33,17 +33,21 @@ public class EcommerceCheckoutAction extends TcmISBaseAction {
 			String uAction = request.getParameter("uAction");
 			PersonnelBean personnelBean = (PersonnelBean)this.getSessionObject(request,"personnelBean");
 			if ("checkOut".equals(uAction)) {
-                CatalogInputBean bean = new CatalogInputBean();
-                BeanHandler.copyAttributes(form, bean, this.getTcmISLocale(request));
-                bean.setPayloadId(personnelBean.getCustomerReturnId());
-                bean.setPayloadTimestamp(personnelBean.getPayloadTimestamp());
-                bean.setEcommerceLanguage(personnelBean.getEcommerceLanguage());
+				CatalogInputBean bean = new CatalogInputBean();
+				BeanHandler.copyAttributes(form, bean, this.getTcmISLocale(request));
+				bean.setPayloadId(personnelBean.getCustomerReturnId());
+				bean.setPayloadTimestamp(personnelBean.getPayloadTimestamp());
+				bean.setEcommerceLanguage(personnelBean.getEcommerceLanguage());
+				bean.setBrowserCookie(personnelBean.getBrowserCookie());
 				Collection<ShoppingCartBean> beans = BeanHandler.getBeans((DynaBean)form,"cartTableDiv",new ShoppingCartBean(),this.getTcmISLocale(request));
 				EcommerceCheckoutProcess process = new EcommerceCheckoutProcess(this.getDbUser(request));
-                process.sendShoppingCart(bean,beans);
-
-                return mapping.findForward("callToServerCallback");
-            }
+				String xmlString = process.sendShoppingCart(bean,beans);
+				xmlString = xmlString.replaceAll("&", "&amp;");
+				xmlString = xmlString.replaceAll("\"", "&quot;");
+				request.setAttribute("postBodyUrlUtf8", xmlString);
+				request.setAttribute("browserPost", personnelBean.getEcommerceBrowserFormPostUrl());
+				return mapping.findForward("callToServerCallback");
+			}
 		}
 		return mapping.findForward("success");
 	}

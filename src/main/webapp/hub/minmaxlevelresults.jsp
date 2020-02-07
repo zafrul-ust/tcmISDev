@@ -806,13 +806,8 @@ rows:[
 	<c:set var="dropship" value="true"/>
 </c:if>
 
-<c:set var="catPartNo"><tcmis:replace value="${bean.catPartNo}" from="  " to="&nbsp;&nbsp;"/></c:set>
-<tcmis:jsReplace var="catPartNo" value="${catPartNo}"/>
 
-<%--
-<fmt:formatDate var="dateApproved" value="${bean.dateApproved}" pattern="${dateFormatPattern}"/>
-<tcmis:jsReplace value="${bean.remarks}" processMultiLines="true"/>
---%>
+<c:set var="catPartNo" value="${bean.catPartNo}"/>
 
 <fmt:formatDate var="levelHoldEndDate" value="${bean.levelHoldEndDate}" pattern="${dateFormatPattern}"/>
 

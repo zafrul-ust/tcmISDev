@@ -2,7 +2,6 @@ package com.tcmis.client.api.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.math.BigDecimal;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executors;
 
@@ -25,19 +24,46 @@ public class CreateMrAction extends JsonRequestResponseAction {
 			String jsonString) throws BaseException {
 		JSONObject responseBody = null;
 		try {
+			StringBuilder requestDetails = new StringBuilder("Request Details:\n")
+					.append("Content-Type: ").append(request.getHeader("Content-Type")).append("\n")
+					.append("URI: ").append(request.getRequestURI()).append("\n")
+					.append("Request Body: ").append(jsonString);
+			log.debug(requestDetails.toString());
+			
 			CreateMrProcess process = new CreateMrProcess(this.getDbUser(request), this.getTcmISLocale(request));
 			JSONObject json = process.transformJson(new JSONObject(jsonString), this.getPathCompany(request));
 			
-			CompletableFuture<JSONObject> future = CompletableFuture.supplyAsync(
-					() -> process.createMr(json), Executors.newSingleThreadExecutor());
-			future.whenComplete((requestBody,ex) -> process.confirmOrder(requestBody,ex));
-			responseBody = constructResponse(200, "OK", json.getJSONObject("mrHeader").getString("payloadId"));
+			String operation = json.getJSONObject("mrHeader").getString("operation");
+			switch(operation) {
+			case CreateMrProcess.NEW_ACTION: 
+				CompletableFuture<JSONObject> future = CompletableFuture.supplyAsync(
+						() -> process.createMr(json), Executors.newSingleThreadExecutor());
+				future.whenComplete((requestBody,ex) -> process.confirmOrder(requestBody,ex));
+				break;
+			case CreateMrProcess.UPDATE_ACTION: 
+			case CreateMrProcess.CANCEL_ACTION: 
+			case CreateMrProcess.DELETE_ACTION:
+				process.updateMr(json);
+				break;
+			default:
+				throw new BaseException(String.format("Invalid type %s for request", operation));
+			}
+			
+			responseBody = constructResponse(200, "OK", process.getPayloadTs(null, json));
 		} catch (JSONException e) {
 			log.error(String.format("Error: Invalid JSON Object; Cause - %s; Message - %s", e.getCause(), e.getMessage()));
-			responseBody = constructResponse(400, "Invalid JSON in request body", "");
+			responseBody = constructResponse(400, "Invalid JSON in request body", new String[0]);
+		} catch (Exception e) {
+			log.error(e);
+			responseBody = constructResponse(500, String.format("Unexpected error on host; Cause - %s; Message - %s", e.getCause(), e.getMessage()), new String[0]);
 		}
 		
 		try {
+			try {
+				log.debug(String.format("Response Body: %s", responseBody.toString(4)));
+			} catch(JSONException e) {
+				log.debug(String.format("Response Body: %s", responseBody.toString()));
+			}
 			PrintWriter out = response.getWriter();
 			out.write(responseBody.toString());
 			out.close();
@@ -47,7 +73,7 @@ public class CreateMrAction extends JsonRequestResponseAction {
 		return noForward;
 	}
 	
-	private JSONObject constructResponse(final int responseCode, final String message, final String payloadId) {
+	private JSONObject constructResponse(final int responseCode, final String message, final String[] payloadTs) {
 		try {
 			return new JSONObject() {{
 				this.put("Response", new JSONObject() {{
@@ -56,8 +82,9 @@ public class CreateMrAction extends JsonRequestResponseAction {
 						this.put("text", message);
 					}});
 				}});
-				if ( ! payloadId.isEmpty()) {
-					this.put("payloadID", payloadId);
+				if (payloadTs.length > 0) {
+					this.put("payloadID", payloadTs[CreateMrProcess.PAYLOAD_ID]);
+					this.put("timestamp", payloadTs[CreateMrProcess.TIMESTAMP]);
 				}
 			}};
 		} catch(JSONException e2) {

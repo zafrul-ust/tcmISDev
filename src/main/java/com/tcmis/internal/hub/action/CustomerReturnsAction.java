@@ -52,7 +52,7 @@ public class CustomerReturnsAction extends TcmISBaseAction {
 					DropDownNamesInputBean dBean = new DropDownNamesInputBean();
 					BeanHandler.copyAttributes(form, dBean, getTcmISLocale(request));
 					
-					setExcel(response, "Customer Return Excel Report");
+					setExcel(response, "CMS Customer Return Excel Report");
 					process.getExcelReport(inputBean, dBean).write(response.getOutputStream());
 				}
 				catch (Exception ex) {

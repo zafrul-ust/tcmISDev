@@ -26,6 +26,7 @@ public class LaunchTcmisSetupAction extends BaseApiAction {
 			JSONObject punchOutSetupResponseJSON = new JSONObject();
 			JSONObject punchOutSetupResponseStartPageJSON = new JSONObject();
 			try {
+				log.debug("Punchout setup input JSON:"+input.toString());
 				LaunchTcmisProcess process = new LaunchTcmisProcess(this.getDbUser(request));
 				StringBuffer requestURL = request.getRequestURL();
 				String launchUrl = process.setupLaunchData(input,requestURL.substring(0,requestURL.lastIndexOf("/")));
@@ -39,7 +40,7 @@ public class LaunchTcmisSetupAction extends BaseApiAction {
 				}
 
 			} catch (JSONException jse) {
-				jse.printStackTrace();
+                log.error("JSON exception",jse);
 				responseStatusJSON.put("code", RESPONSE_INVALID_INPUT);
 				responseStatusJSON.put("text", RESPONSE_INVALID_INPUT_TEXT);
 			}
@@ -52,6 +53,7 @@ public class LaunchTcmisSetupAction extends BaseApiAction {
 			results.put("lang",input.getString("lang"));
 			results.put("payloadID",input.getString("payloadID"));
 			results.put("timestamp",input.getString("timestamp"));
+			log.debug("Punchout setup output JSON:"+results.toString());
 			// Write out the data
 			PrintWriter out = response.getWriter();
 			out.write(results.toString(3));

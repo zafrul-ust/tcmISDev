@@ -192,6 +192,10 @@ public class DLAGasOrderTrackingProcess extends BaseProcess {
 			{
 				criteria.addCriterion("orderStatus", SearchCriterion.EQUALS, "Awaiting Address");
 			}
+			else if (status.equalsIgnoreCase("ALLEXCEPTCANCELED"))
+			{
+				criteria.addCriterion("orderStatus", SearchCriterion.NOT_EQUAL, "Canceled");
+			} 
 		}
 		
 		/* Searching for order FROM date */

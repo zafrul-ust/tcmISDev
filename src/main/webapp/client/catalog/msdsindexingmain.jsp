@@ -262,7 +262,7 @@
 					<input type="hidden" name="approve" id="approve" />
 					<input type="hidden" name="submitForQc" id="submitForQc" />
 					<input name="hasOutOfScopeFeature" id="hasOutOfScopeFeature" type="hidden" value="${hasOutOfScopeFeature}"/>
-					<input type="hidden" name="requestStatus" id="requestStatus" value="${empty chemRequest?'':chemRequest.requestStatus}"/>
+					<input type="hidden" name="requestStatus" id="requestStatus" value="${empty chemRequestStatus?'':chemRequestStatus}"/>
 					<input type="hidden" name="catalogQueueRowStatus" id="catalogQueueRowStatus" value="${empty catalogQueueRow?'':catalogQueueRow.status}"/>
 					<input type="hidden" name="catalogQueueRowTask" id="catalogQueueRowTask" value="${empty catalogQueueRow?'':catalogQueueRow.task}"/>
 					<input type="hidden" name="catalogAddRequestId" id="catalogAddRequestId" value="${empty catalogQueueRow?'':catalogQueueRow.catalogAddRequestId}"/>

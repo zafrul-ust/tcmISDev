@@ -5,7 +5,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import com.tcmis.common.admin.beans.PersonnelBean;
@@ -16,7 +19,6 @@ import com.tcmis.common.util.SqlHandler;
 import com.tcmis.internal.catalog.beans.ItemStorageBean;
 
 public class ItemStorageDataMapper extends GenericSqlFactory implements IItemStorageDataMapper {
-	
 	public ItemStorageDataMapper(DbManager dbManager) {
 		super(dbManager);
 	}
@@ -34,24 +36,24 @@ public class ItemStorageDataMapper extends GenericSqlFactory implements IItemSto
 	}
 	
 	@SuppressWarnings("unchecked")
-	private Collection<ItemStorageBean> listConfirmedPurchaseOrders() throws BaseException {
-		List<ItemStorageBean> poList = new ArrayList<>();
+	private Collection<BigDecimal> findInUseItems() throws BaseException {
+		Set<ItemStorageBean> itemSet = new HashSet<>();
 		this.setBean(new ItemStorageBean());
 		String dataTransferStatusConstraint = "IN ('OPEN', 'ERROR', 'IN_WAREHOUSE')";
 		
 		String query = "SELECT item_id FROM po_detail_view WHERE data_transfer_status " + dataTransferStatusConstraint;
-		poList.addAll(this.selectQuery(query));
+		itemSet.addAll(this.selectQuery(query));
 		
 		query = "SELECT item_id FROM transfer_inbound_detail_view WHERE data_transfer_status_inbound " + dataTransferStatusConstraint;
-		poList.addAll(this.selectQuery(query));
+		itemSet.addAll(this.selectQuery(query));
 		
 		query = "SELECT item_id FROM citr_detail_view WHERE data_transfer_status " + dataTransferStatusConstraint;
-		poList.addAll(this.selectQuery(query));
+		itemSet.addAll(this.selectQuery(query));
 		
 		query = "SELECT item_id FROM customer_return_detail_view WHERE data_transfer_status " + dataTransferStatusConstraint;
-		poList.addAll(this.selectQuery(query));
+		itemSet.addAll(this.selectQuery(query));
 		
-		return poList;
+		return itemSet.stream().map(ItemStorageBean::getItemId).collect(Collectors.toSet());
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -103,16 +105,32 @@ public class ItemStorageDataMapper extends GenericSqlFactory implements IItemSto
 			}
 		}
 		return findItemsWithIncompleteStorageData(Arrays.asList(inputBean.getInventoryGroup()), additionalConstraints);
-	} //end of method
+	}
 	
 	@Override
 	public Collection<BigDecimal> findItemsWithIncompleteStorageData() throws BaseException {
-		return findItemsWithIncompleteStorageData(
-				listWmsEnabledInventoryGroups(),
-				Arrays.asList("p.item_id in ("+listConfirmedPurchaseOrders().stream()
-						.map(po -> po.getItemId().toString())
-						.collect(Collectors.joining(","))+")"))
-				.stream().map(ItemStorageBean::getItemId).collect(Collectors.toSet());
+		Collection<String> wmsEnabledInventoryGroups = listWmsEnabledInventoryGroups();
+		List<BigDecimal> inUseItemsList = new ArrayList<>(findInUseItems());
+		Set<BigDecimal> resultSet = new HashSet<>();
+		
+		int startPos = 0;
+		while (startPos < inUseItemsList.size()) {
+			int endPos = Math.min(startPos + 1000, inUseItemsList.size());
+			List<String> itemConstraintList = Collections.singletonList(String.format("p.item_id in (%s)",
+																		inUseItemsList.subList(startPos, endPos)
+																						.stream()
+																						.map(BigDecimal::toString)
+																						.collect(Collectors.joining(","))));
+			
+			resultSet.addAll(findItemsWithIncompleteStorageData(wmsEnabledInventoryGroups,
+																itemConstraintList).stream()
+																					.map(ItemStorageBean::getItemId)
+																					.collect(Collectors.toSet()));
+			
+			startPos = endPos;
+		}
+		
+		return resultSet;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -126,4 +144,4 @@ public class ItemStorageDataMapper extends GenericSqlFactory implements IItemSto
 		
 		return this.setBean(new PersonnelBean()).selectQuery(query);
 	}
-} //end of class
+}

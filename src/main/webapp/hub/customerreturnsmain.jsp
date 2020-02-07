@@ -50,7 +50,7 @@ This looks at what the users preffered font size and which application he is vie
 <script type="text/javascript" src="/dhtmlxWindows/codebase/dhtmlxwindows.js"></script>
 <script type="text/javascript" src="/dhtmlxGrid/codebase/dhtmlxcommon_haas.js"></script>
 
-<title><fmt:message key="cmscustomerreturns.title" /></title>
+<title><fmt:message key="newCustomerReturns" /></title>
 
 <script language="JavaScript" type="text/javascript">
 	//add all the javascript messages here, this for internationalization of client side javascript messages
