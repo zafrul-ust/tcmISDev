@@ -4,7 +4,6 @@ import com.tcmis.client.api.beans.EcommerceShipmentNotificationBean;
 import com.tcmis.common.db.DbManager;
 import com.tcmis.common.framework.BaseProcess;
 import com.tcmis.common.framework.GenericSqlFactory;
-import org.apache.commons.lang.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import radian.tcmis.common.util.BeanHandler;
@@ -13,14 +12,16 @@ import radian.tcmis.common.util.StringHandler;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.Random;
 import java.util.Vector;
+import java.util.Collection;
+
 
 public class EcommerceShipmentNotificationProcess extends BaseProcess {
     private GenericSqlFactory factory = null;
-    private DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss-hh:mm");
+    private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss-hh:mm");
 
     public EcommerceShipmentNotificationProcess(String client) {
         super(client);
@@ -35,6 +36,7 @@ public class EcommerceShipmentNotificationProcess extends BaseProcess {
         try {
             log.debug("Shipment Notification output JSON:"+input.toString());
             Iterator iter = getShipmentData(input).iterator();
+            Random random = new Random();
             while (iter.hasNext()) {
                 EcommerceShipmentNotificationBean ecommerceShipmentNotificationBean = (EcommerceShipmentNotificationBean)iter.next();
                 //
@@ -69,12 +71,8 @@ public class EcommerceShipmentNotificationProcess extends BaseProcess {
                 requestJSON.put("deploymentMode","");
                 poJSON.put("Request",requestJSON);
                 //
-                String[] payloadTimestamp = StringUtils.split(ecommerceShipmentNotificationBean.getPayloadId(),"|");
-                poJSON.put("payloadID",payloadTimestamp[0]);
-                if (payloadTimestamp.length == 2)
-                    poJSON.put("timestamp",payloadTimestamp[1]);
-                else
-                    poJSON.put("timestamp","");
+                poJSON.put("payloadID",dateFormat.format(new Date())+random.nextInt()+"@www.tcmis.com");
+                poJSON.put("timestamp",dateFormat.format(new Date()));
                 poJSON.put("lang","en-US");
                 shipmentNotificationJSONArray.put(poJSON);
             }
@@ -165,7 +163,7 @@ public class EcommerceShipmentNotificationProcess extends BaseProcess {
         documentReferenceJSON.put("value","");
         documentReferenceJSON.put("payloadID",ecommerceShipmentNotificationBean.getPayloadId().substring(0,ecommerceShipmentNotificationBean.getPayloadId().indexOf("@")));
         orderReferenceJSON.put("DocumentReference",documentReferenceJSON);
-        orderReferenceJSON.put("orderDate",format.format(ecommerceShipmentNotificationBean.getReleaseDate()));
+        orderReferenceJSON.put("orderDate",dateFormat.format(ecommerceShipmentNotificationBean.getReleaseDate()));
         orderReferenceJSON.put("orderID",ecommerceShipmentNotificationBean.getPoNumber());
     }
 
@@ -204,8 +202,7 @@ public class EcommerceShipmentNotificationProcess extends BaseProcess {
         extrinsicJSON.put("name","");
         shipNoticeHeaderJSON.put("Extrinsic",extrinsicJSON);
         //
-        DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss-hh:mm");
-        shipNoticeHeaderJSON.put("noticeDate",format.format(new Date()));
+        shipNoticeHeaderJSON.put("noticeDate",dateFormat.format(new Date()));
         shipNoticeHeaderJSON.put("operation","notice");
         shipNoticeHeaderJSON.put("shipmentID",ecommerceShipmentNotificationBean.getShipmentId());
     }

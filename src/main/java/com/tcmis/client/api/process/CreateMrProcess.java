@@ -5,13 +5,15 @@ import java.sql.Connection;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Collection;
+
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -260,10 +262,10 @@ public class CreateMrProcess extends GenericProcess {
 			RequestLineItemBean mrData = prNumber==null?null:getDatabase().getRequestLineItemByPrNumber(prNumber);
 			String[] payloadTs = getPayloadTs(mrData, requestBody);
 			String confirmationType = mrData == null?"reject":"accept";
-			
+			Random random = new Random();
 			JSONObject confirmation = new JSONObject() {{
-				this.put("payloadID", payloadTs[PAYLOAD_ID]);
-				this.put("timestamp", payloadTs[TIMESTAMP]);
+				this.put("payloadID", format.format(new Date())+random.nextInt()+"@www.tcmis.com");
+				this.put("timestamp", format.format(new Date()));
 				this.put("version", requestBody.getString("version"));
 				this.put("lang", requestBody.getString("lang"));
 				this.put("Header", new JSONObject() {{
@@ -298,7 +300,7 @@ public class CreateMrProcess extends GenericProcess {
 							this.put("confirmID", mrData==null?"":mrData.getPrNumber().intValue());
 						}});
 						this.put("OrderReference", new JSONObject() {{
-							this.put("orderDate", mrData==null?"":format.format(mrData.getRequiredDatetime()));
+							this.put("orderDate", payloadTs[TIMESTAMP]);
 							this.put("orderID", mrData==null?"":mrData.getPoNumber());
 							this.put("DocumentReference", new JSONObject() {{
 								this.put("value", "");
