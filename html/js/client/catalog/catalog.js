@@ -786,7 +786,6 @@ function calculateRowSpan(intervals, gaps) {
 		}
 		column--;
 	}
-	console.log(rowSpanArray);
 	return rowSpanArray;
 }
 
