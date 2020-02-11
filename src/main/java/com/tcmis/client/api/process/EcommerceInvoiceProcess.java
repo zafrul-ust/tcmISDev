@@ -358,7 +358,7 @@ public class EcommerceInvoiceProcess extends BaseProcess {
 				documentReference.put("value", "");
 
 				orderReference.put("orderID", StringHandler.emptyIfNull(firstLine.getCustomerPo()));
-				orderReference.put("orderDate", firstLine.getCustomerPoDate() != null ? dateFormat.format(firstLine.getCustomerPoDate()) : "");
+				orderReference.put("orderDate", JSONObject.NULL);
 				orderReference.put("DocumentReference", documentReference);
 
 				invoiceDetailOrderInfo.put("OrderReference", orderReference);

@@ -163,7 +163,7 @@ public class EcommerceShipmentNotificationProcess extends BaseProcess {
         documentReferenceJSON.put("value","");
         documentReferenceJSON.put("payloadID",ecommerceShipmentNotificationBean.getPayloadId().substring(0,ecommerceShipmentNotificationBean.getPayloadId().indexOf("@")));
         orderReferenceJSON.put("DocumentReference",documentReferenceJSON);
-        orderReferenceJSON.put("orderDate",dateFormat.format(ecommerceShipmentNotificationBean.getReleaseDate()));
+        orderReferenceJSON.put("orderDate",JSONObject.NULL);
         orderReferenceJSON.put("orderID",ecommerceShipmentNotificationBean.getPoNumber());
     }
 
