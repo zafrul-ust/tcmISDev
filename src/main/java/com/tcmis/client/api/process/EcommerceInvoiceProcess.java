@@ -1,6 +1,8 @@
 package com.tcmis.client.api.process;
 
 import java.util.Collection;
+import java.util.Date;
+import java.util.Random;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -156,6 +158,7 @@ public class EcommerceInvoiceProcess extends BaseProcess {
 		String[] payloadIdSplit;
 		String[] countrySplit;
 
+		Random random = new Random();
 		for(InvoicePrintRollinsViewBean invoice : invoices) {
 			// an invoice may not have lines if it hasn't been fully confirmed
 			if(invoice.getInvoiceLines() != null && !invoice.getInvoiceLines().isEmpty()) {
@@ -166,8 +169,8 @@ public class EcommerceInvoiceProcess extends BaseProcess {
 
 				payloadIdSplit = StringHandler.emptyIfNull(firstLine.getPayloadId()).split("|");
 
-				cXML.put("payloadID", payloadIdSplit.length >= 2 ? payloadIdSplit[0] : "");
-				cXML.put("timestamp", payloadIdSplit.length >= 2 ? payloadIdSplit[1] : "");
+				cXML.put("payloadID", dateFormat.format(new Date())+random.nextInt()+"@www.tcmis.com");
+				cXML.put("timestamp", dateFormat.format(new Date()));
 				cXML.put("version", "");
 				cXML.put("lang", "en");
 				cXML.put("Header", header);

@@ -1,5 +1,6 @@
 package com.tcmis.client.api.action;
 
+import java.util.Base64;
 import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,9 +43,7 @@ public class EcommerceCheckoutAction extends TcmISBaseAction {
 				Collection<ShoppingCartBean> beans = BeanHandler.getBeans((DynaBean)form,"cartTableDiv",new ShoppingCartBean(),this.getTcmISLocale(request));
 				EcommerceCheckoutProcess process = new EcommerceCheckoutProcess(this.getDbUser(request));
 				String xmlString = process.sendShoppingCart(bean,beans);
-				xmlString = xmlString.replaceAll("&", "&amp;");
-				xmlString = xmlString.replaceAll("\"", "&quot;");
-				request.setAttribute("postBodyUrlUtf8", xmlString);
+				request.setAttribute("postBodyBase64", Base64.getEncoder().encodeToString(xmlString.getBytes()));
 				request.setAttribute("browserPost", personnelBean.getEcommerceBrowserFormPostUrl());
 				return mapping.findForward("callToServerCallback");
 			}
