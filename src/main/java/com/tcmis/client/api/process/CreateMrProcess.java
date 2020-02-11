@@ -300,7 +300,7 @@ public class CreateMrProcess extends GenericProcess {
 							this.put("confirmID", mrData==null?"":mrData.getPrNumber().intValue());
 						}});
 						this.put("OrderReference", new JSONObject() {{
-							this.put("orderDate", payloadTs[TIMESTAMP]);
+							this.put("orderDate", JSONObject.NULL);
 							this.put("orderID", mrData==null?"":mrData.getPoNumber());
 							this.put("DocumentReference", new JSONObject() {{
 								this.put("value", "");
