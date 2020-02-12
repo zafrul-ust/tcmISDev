@@ -21,7 +21,7 @@ import java.util.Collection;
 
 public class EcommerceShipmentNotificationProcess extends BaseProcess {
     private GenericSqlFactory factory = null;
-    private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss-hh:mm");
+    private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ssXXX");
 
     public EcommerceShipmentNotificationProcess(String client) {
         super(client);

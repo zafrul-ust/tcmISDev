@@ -26,7 +26,7 @@ public class EcommerceInvoiceProcess extends BaseProcess {
 	public EcommerceInvoiceProcess(String client) {
 		super(client);
 		factory = new GenericSqlFactory(new DbManager(getClient()));
-		dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss-hh:mm");
+		dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ssXXX");
 	}
 
 	public void submitInvoices(JSONArray invoices) throws Exception {
