@@ -34,8 +34,7 @@
 </TR></TABLE>
 
 <form  NAME="puchoutiproc" action="${browserPost}" method="post">
-
-    <input type="hidden" name="cxml-urlencoded" value='${postBodyUrlUtf8}'></form>
+    <input type="hidden" name="cxml-base64" value='${postBodyBase64}'></form>
 </BODY>
 
 </HTML>
