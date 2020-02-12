@@ -26,7 +26,7 @@ public class EcommerceInvoiceProcess extends BaseProcess {
 	public EcommerceInvoiceProcess(String client) {
 		super(client);
 		factory = new GenericSqlFactory(new DbManager(getClient()));
-		dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss-hh:mm");
+		dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ssXXX");
 	}
 
 	public void submitInvoices(JSONArray invoices) throws Exception {
@@ -358,7 +358,7 @@ public class EcommerceInvoiceProcess extends BaseProcess {
 				documentReference.put("value", "");
 
 				orderReference.put("orderID", StringHandler.emptyIfNull(firstLine.getCustomerPo()));
-				orderReference.put("orderDate", firstLine.getCustomerPoDate() != null ? dateFormat.format(firstLine.getCustomerPoDate()) : "");
+				orderReference.put("orderDate", JSONObject.NULL);
 				orderReference.put("DocumentReference", documentReference);
 
 				invoiceDetailOrderInfo.put("OrderReference", orderReference);

@@ -21,7 +21,7 @@ import java.util.Collection;
 
 public class EcommerceShipmentNotificationProcess extends BaseProcess {
     private GenericSqlFactory factory = null;
-    private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss-hh:mm");
+    private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ssXXX");
 
     public EcommerceShipmentNotificationProcess(String client) {
         super(client);
@@ -163,7 +163,7 @@ public class EcommerceShipmentNotificationProcess extends BaseProcess {
         documentReferenceJSON.put("value","");
         documentReferenceJSON.put("payloadID",ecommerceShipmentNotificationBean.getPayloadId().substring(0,ecommerceShipmentNotificationBean.getPayloadId().indexOf("@")));
         orderReferenceJSON.put("DocumentReference",documentReferenceJSON);
-        orderReferenceJSON.put("orderDate",dateFormat.format(ecommerceShipmentNotificationBean.getReleaseDate()));
+        orderReferenceJSON.put("orderDate",JSONObject.NULL);
         orderReferenceJSON.put("orderID",ecommerceShipmentNotificationBean.getPoNumber());
     }
 

@@ -70,7 +70,7 @@ public class EcommerceCheckoutProcess extends BaseProcess {
 
         shoppingCartJSON.put("Message",messageJSON);
 
-        DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss-hh:mm");
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ssXXX");
         Random random = new Random();
         shoppingCartJSON.put("payloadID",format.format(new Date())+random.nextInt()+"@www.tcmis.com");
         shoppingCartJSON.put("timestamp",format.format(new Date()));
