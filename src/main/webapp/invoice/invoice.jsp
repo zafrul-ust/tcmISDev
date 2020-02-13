@@ -344,6 +344,8 @@ if(document.getElementById("invoicePeriod").value.length == 0  && document.getEl
             <html:option value="HOERBIGER|HOERBIGERInvoiceReportDefinition|">GERMANY HOERBIGER</html:option>
             <html:option value="ZWL|ZWLInvoiceReportDefinition|">GERMANY NZWL</html:option>
             <html:option value="SIEMENS|SIEMENSReportDefinition|">GERMANY SIEMENS</html:option>
+            <html:option value="GKN EL CAJON|GKN_EL_CAJON_File1|Group">GKN El Cajon</html:option>
+            <html:option value="GKN EL CAJON FEE|GKN_EL_CAJON_FEEInvoiceReportDefinition|">GKN El Cajon Fee</html:option>     
             <html:option value="GKN FOKKER|GKNFokkerInvoiceReportDefinition|">GKN Fokker</html:option>
             <html:option value="GKN FOKKER|GKNFokkerMaterialDetailReportDefinition|">GKN Fokker Material Detail</html:option>
           	<html:option value="GKN FOKKER FEE|GKN_FOKKER_FEEInvoiceReportDefinition|">GKN Fokker Fee</html:option>
