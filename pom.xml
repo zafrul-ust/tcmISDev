@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.tcmis</groupId>
   <artifactId>tcmis</artifactId>
-  <version>P_20200222-SNAPSHOT</version>
+  <version>V_2020_MAR-SNAPSHOT</version>
   <packaging>war</packaging>
 
   <scm>
