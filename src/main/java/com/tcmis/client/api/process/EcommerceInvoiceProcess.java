@@ -1,27 +1,24 @@
 package com.tcmis.client.api.process;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Random;
 
+import com.tcmis.common.util.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.ibm.icu.text.SimpleDateFormat;
 import com.tcmis.client.api.beans.InvoicePrintRollinsViewBean;
 import com.tcmis.client.api.beans.InvoicePrtRollinsLineViewBean;
 import com.tcmis.common.db.DbManager;
 import com.tcmis.common.framework.BaseProcess;
 import com.tcmis.common.framework.GenericSqlFactory;
-import com.tcmis.common.util.SearchCriteria;
-import com.tcmis.common.util.SearchCriterion;
-import com.tcmis.common.util.SortCriteria;
-import com.tcmis.common.util.SqlHandler;
-import com.tcmis.common.util.StringHandler;
 
 public class EcommerceInvoiceProcess extends BaseProcess {
 	private GenericSqlFactory factory = null;
-	private SimpleDateFormat dateFormat;
+	private DateFormat dateFormat;
 
 	public EcommerceInvoiceProcess(String client) {
 		super(client);
@@ -159,6 +156,7 @@ public class EcommerceInvoiceProcess extends BaseProcess {
 		String[] countrySplit;
 
 		Random random = new Random();
+		ResourceLibrary library = new ResourceLibrary("ecommerce");
 		for(InvoicePrintRollinsViewBean invoice : invoices) {
 			// an invoice may not have lines if it hasn't been fully confirmed
 			if(invoice.getInvoiceLines() != null && !invoice.getInvoiceLines().isEmpty()) {
@@ -176,7 +174,7 @@ public class EcommerceInvoiceProcess extends BaseProcess {
 				cXML.put("Header", header);
 
 				request = new JSONObject();
-				request.put("deploymentMode","");
+				request.put("deploymentMode",library.getString("deployment_mode"));
 
 				invoiceDetailRequest = new JSONObject();
 
@@ -517,6 +515,7 @@ public class EcommerceInvoiceProcess extends BaseProcess {
 			}
 		}
 
+		log.debug("Invoice response JSON:"+results.toString());
 		return results;
 	}
 }
