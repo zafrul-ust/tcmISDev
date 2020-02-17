@@ -280,7 +280,7 @@ public class ManualCabinetCountProcess extends BaseProcess {
 		Iterator iter = workAreaBinCountBeans.iterator();
 		while (iter.hasNext()) {
 			WorkAreaBinCountBean workAreaBinCountBean = (WorkAreaBinCountBean) iter.next();
-			query = new StringBuilder("insert into work_area_bin_count (upload_sequence,bin_id,count_datetime,company_id,count_type,personnel_id,count_quantity,count_source,processing_status)");
+			query = new StringBuilder("insert into work_area_bin_count (upload_sequence,bin_id,count_datetime,company_id,count_type,personnel_id,count_quantity,count_source,processing_status,reporting_item_id)");
 			query.append(" values (").append(workAreaBinCountBean.getUploadSequence()).append(",").append(workAreaBinCountBean.getBinId()).append(",");
 			query.append(DateHandler.getOracleToDateFunction(workAreaBinCountBean.getCountDatetime())).append(",");
 			query.append("'").append(workAreaBinCountBean.getCompanyId()).append("',");
@@ -293,6 +293,8 @@ public class ManualCabinetCountProcess extends BaseProcess {
 				query.append(",'").append(workAreaBinCountBean.getCountSource()).append("'");
 			}
 			query.append(",'NEW'");
+			String reporting_item_id = ",pkg_work_area_bin_count.fx_bin_best_item_id ("+workAreaBinCountBean.getBinId()+")";
+			query.append(reporting_item_id);
 			query.append(")");
 			genericSqlFactory.deleteInsertUpdate(query.toString(), connection);
 		}
