@@ -197,6 +197,8 @@ if(document.getElementById("invoicePeriod").value.length == 0  && document.getEl
             <html:option value="BAE_AUSTIN|BAE_AUSTINInvoiceReportDefinition|">BAE Austin</html:option>
             <html:option value="BAE RDT|BaeRDTConsolidatedInvoiceReportDefinition|">BAE Hillend</html:option>
             <html:option value="BAE">BAE Johnson City</html:option>
+            <html:option value="BAE_LOUISVILLE|BAE_LOUISVILLE_File1|Group">BAE Louisville</html:option>
+          	<html:option value="BAE_LOUISVILLE FEE|BAE_LOUISVILLE_FEEInvoiceReportDefinition|">BAE Louisville Fee</html:option>
             <html:option value="BAE_NASHUA|BAENashua_File1|Group">BAE Nashua</html:option>
             <html:option value="BAE_NASHUA_FEE|BAE_NASHUA_FEEInvoiceReportDefinition|">BAE Nashua Fee</html:option>
             <html:option value="BAZ Original|BAZInvoiceReportDefinition|">BAZ Original</html:option>
