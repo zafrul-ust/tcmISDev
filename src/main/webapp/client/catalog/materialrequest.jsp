@@ -1475,7 +1475,7 @@ var config = [
 									'${lineItem.listApprovalStatus}',
                                     '${lineItem.chargeApprovalStatus}',  
                                     '${lineItem.releaseNumber}',
-                                    '${lineItem.cancelComment}',
+                                    '<tcmis:jsReplace value="${lineItem.cancelComment}" processMultiLines="true"/>',
 									'${lineItem.chargeNumbersFromDirectedChargeD}',
 									'${lineItem.chargeNumbersFromDirectedChargeI}',
 									'${lineItem.canEditLineChargeData}',
