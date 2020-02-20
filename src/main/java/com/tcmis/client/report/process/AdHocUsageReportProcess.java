@@ -2,10 +2,13 @@ package com.tcmis.client.report.process;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.lang.reflect.Array;
 import java.math.BigDecimal;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +18,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -28,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
 
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -118,10 +120,7 @@ public class AdHocUsageReportProcess extends BaseExcelReportProcess {
 			interactiveTimeout = true;
 			BatchReport bp = new BatchReport();
 			new Thread(bp).start();
-			writer.write("<html>");
-			writer.write(library.getString("label.batchreportmessage") + " " + personnelBean.getEmail());
-			writer.write("</html>");
-			writer.close();
+			writeBatchReportResponse(personnelBean.getEmail(), os);
 		} else {
 			ExecutorService executor = Executors.newSingleThreadExecutor();
 			Future<?> future = executor.submit(new InteractiveReport());
@@ -149,6 +148,13 @@ public class AdHocUsageReportProcess extends BaseExcelReportProcess {
 		return interactiveTimeout;
 	}
 
+	public void writeBatchReportResponse(String email, OutputStream os) throws Exception {
+		writer = new OutputStreamWriter(os);
+		writer.write("<html>");
+		writer.write(library.getString("label.batchreportmessage") + " " + email);
+		writer.write("</html>");
+		writer.close();
+	}
 
 	public void convertDateStringToDateObject(AdHocUsageInputBean bean, UsageReportTemplateBean templateBean) {
 		SimpleDateFormat dateParser = new SimpleDateFormat(library.getString("java.dateformat"),locale);
@@ -1212,6 +1218,12 @@ public class AdHocUsageReportProcess extends BaseExcelReportProcess {
 			writeErrorReport(eh);
 			eh.write(os);
 		}
+	}
+
+	public void writeWorkbookToBrowser(OutputStream os, String reportFileName) throws IOException {
+		InputStream is = Files.newInputStream(Paths.get(reportFileName));
+		IOUtils.copy(is, os);
+		is.close();
 	}
 
 	private void writeReportHeader(ExcelHandlerSXSSF eh, String reportHeader, String reportName, Connection conn) throws BaseException, Exception {

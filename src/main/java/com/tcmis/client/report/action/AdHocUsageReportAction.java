@@ -1,24 +1,43 @@
 package com.tcmis.client.report.action;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.Vector;
+import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.tcmis.common.admin.beans.PersonnelBean;
 import com.tcmis.common.exceptions.BaseException;
 import com.tcmis.common.framework.TcmISBaseAction;
 import com.tcmis.common.util.BeanHandler;
+import com.tcmis.common.util.NetHandler;
+import com.tcmis.common.util.ResourceLibrary;
 import com.tcmis.common.util.StringHandler;
 import com.tcmis.client.report.process.*;
 import com.tcmis.client.report.beans.*;
 import com.tcmis.client.common.process.MsdsViewerProcess;
+import com.tcmis.internal.report.process.AdhocUsageReportProcess;
 
 
 /**
@@ -91,16 +110,20 @@ public class AdHocUsageReportAction
 		  getTemplateInfo(request,personnelBean,adHocUsageReportProcess,bean);
 
 		  adHocUsageReportProcess.getDefaultReportDate(bean);
-		}else if ("submit".equalsIgnoreCase(bean.getSubmitValue())) {
-			UsageReportTemplateBean templateBean = new UsageReportTemplateBean();
-			BeanHandler.copyAttributes(bean, templateBean,getLocale(request));
-			adHocUsageReportProcess.convertDateStringToDateObject(bean,templateBean);
-			boolean timedOut = adHocUsageReportProcess.runReport(templateBean, personnelBean, response.getOutputStream());
-			if ( ! timedOut && "interactive".equalsIgnoreCase(templateBean.getReportGenerationType())) {
-				this.setExcelHeaderXlsx(response);
-				adHocUsageReportProcess.writeWorkbookToBrowser();
-			}
-			return noForward;
+	  } else if ("submit".equalsIgnoreCase(bean.getSubmitValue())) {
+		  UsageReportTemplateBean templateBean = new UsageReportTemplateBean();
+		  BeanHandler.copyAttributes(bean, templateBean, getLocale(request));
+		  adHocUsageReportProcess.convertDateStringToDateObject(bean, templateBean);
+		  if (personnelBean.isFeatureReleased("useExternalReportingService","ALL", personnelBean.getCompanyId())) {
+			  getReportFromExternalService(templateBean, personnelBean.getEmail(), adHocUsageReportProcess, response);
+		  } else {
+			  boolean timedOut = adHocUsageReportProcess.runReport(templateBean, personnelBean, response.getOutputStream());
+			  if (!timedOut && "interactive".equalsIgnoreCase(templateBean.getReportGenerationType())) {
+				  this.setExcelHeaderXlsx(response);
+				  adHocUsageReportProcess.writeWorkbookToBrowser();
+			  }
+		  }
+		  return noForward;
         }else if ("clearTemplate".equalsIgnoreCase(bean.getSubmitValue())) {
 			//load dropdown data
 		   loadDropdownData(request,genericReportProcess,personnelBean);
@@ -122,6 +145,160 @@ public class AdHocUsageReportAction
     }
     return (mapping.findForward("success"));
   }
+
+	protected void getReportFromExternalService(UsageReportTemplateBean usageReportTemplate, String email,
+												AdHocUsageReportProcess process, HttpServletResponse response) throws Exception {
+
+  		ResourceLibrary library = new ResourceLibrary("externalServices");
+		String service = library.getLabel("reporting-services.url");
+		String uri = library.getLabel("reporting-services.adHocUsageReport.uri");
+		String serviceUrl = String.format("%s%s", service, uri);
+		boolean batch = "batch".equalsIgnoreCase(usageReportTemplate.getReportGenerationType());
+
+		JSONObject request = new JSONObject();
+		request.put("batchMode", String.valueOf(batch));
+		request.put("email", email);
+		request.put("filters", createExternalServiceReportFilterList(usageReportTemplate));
+		request.put("fields", createExternalServiceReportFieldList(usageReportTemplate));
+
+		String[] responseData = NetHandler.getHttpPost(serviceUrl, request);
+		String responseCode = responseData[NetHandler.RESPONSE_CODE];
+		String responseMessage = responseData[NetHandler.RESPONSE_MESSAGE];
+
+		if ("200".equals(responseCode)) {
+			if (batch) {
+				process.writeBatchReportResponse(email, response.getOutputStream());
+			} else {
+				setExcelHeader(response);
+				process.writeWorkbookToBrowser(response.getOutputStream(), responseMessage);
+			}
+		} else {
+			String errorMessage = String.format("External Reporting Service Error. Response Code: %s. Response Message: %s", responseCode, responseMessage);
+			log.error(errorMessage);
+			throw new BaseException(errorMessage);
+		}
+	}
+
+	private JSONArray createExternalServiceReportFieldList(UsageReportTemplateBean usageReportTemplate) throws JSONException {
+		List<String> fieldIds = Arrays.stream(usageReportTemplate.getBaseFieldId().split("\\|")).collect(Collectors.toList());
+		List<String> fieldNames = Arrays.stream(usageReportTemplate.getBaseFieldName().split("\\|")).collect(Collectors.toList());
+		List<String> fieldDescriptions = Arrays.stream(usageReportTemplate.getBaseDescription().split("\\|")).collect(Collectors.toList());
+
+		JSONArray fields = new JSONArray();
+
+		for (int i = 0; i < fieldIds.size(); i++) {
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("id", fieldIds.get(i));
+			jsonObject.put("name", fieldNames.get(i));
+			jsonObject.put("description", fieldDescriptions.get(i));
+			fields.put(jsonObject);
+		}
+
+		return fields;
+	}
+
+	private JSONObject createExternalServiceReportFilterList(UsageReportTemplateBean usageReportTemplate) throws JSONException {
+		JSONObject filters = new JSONObject();
+		filters.put("facilityGroupId", usageReportTemplate.getFacilityGroupId());
+		filters.put("facilityId", usageReportTemplate.getFacilityId());
+		filters.put("areaId", usageReportTemplate.getAreaId());
+		filters.put("buildingId", usageReportTemplate.getBuildingId());
+		filters.put("floorId", usageReportTemplate.getFloorId());
+		filters.put("roomId", usageReportTemplate.getRoomId());
+		filters.put("deptId", usageReportTemplate.getDeptId());
+		filters.put("dockId", usageReportTemplate.getDockId());
+		filters.put("deliveryPoint", usageReportTemplate.getDeliveryPoint());
+		filters.put("beginDate", usageReportTemplate.getBeginDate());
+		filters.put("endDate", usageReportTemplate.getEndDate());
+		filters.put("dayOfMonth", usageReportTemplate.getSelDayOfMonth());
+		filters.put("dayOfWeek", usageReportTemplate.getSelDayOfWeek());
+		filters.put("numOfDays", usageReportTemplate.getNumOfDays());
+		filters.put("materialCategory", usageReportTemplate.getMaterialCategory());
+		filters.put("materialSubcategory", usageReportTemplate.getMaterialSubcategoryId());
+		filters.put("manufacturer", usageReportTemplate.getManufacturer());
+		filters.put("manufacturerCriteria", usageReportTemplate.getManufacturerCriteria());
+		filters.put("partNumber", usageReportTemplate.getPartNumber());
+		filters.put("partNumberCriteria", usageReportTemplate.getPartNumberCriteria());
+
+		if ("list".equalsIgnoreCase(usageReportTemplate.getGridType())) {
+			List<String> gridSubmitElements = Arrays.stream(usageReportTemplate.getGridSubmit().split(";")).collect(Collectors.toList());
+			List<String> gridDescElements = Arrays.stream(usageReportTemplate.getGridDesc().split("&@#")).collect(Collectors.toList());
+			List<String> chemListIds = Arrays.stream(usageReportTemplate.getChemicalFieldListId().split("\\|")).collect(Collectors.toList());
+			List<String> listFormats = Arrays.stream(usageReportTemplate.getListFormat().split("\\|")).collect(Collectors.toList());
+
+			if (!(gridSubmitElements.size() == 1 && StringUtils.isEmpty(gridSubmitElements.get(0))
+					&& gridDescElements.size() == 1 && StringUtils.isEmpty(gridDescElements.get(0)))) {
+
+				JSONArray materialList = new JSONArray();
+
+				for (int i = 0; i < gridSubmitElements.size(); i++) {
+					JSONObject jsonObject = new JSONObject();
+					String id = gridSubmitElements.get(i).substring(0, gridSubmitElements.get(i).indexOf('|'));
+					String remainingElements = gridSubmitElements.get(i).substring(gridSubmitElements.get(i).indexOf('|') + 1);
+					String[] gsElements = remainingElements.split(" ");
+
+					jsonObject.put("materialListId", id);
+					jsonObject.put("materialListName", gridDescElements.get(i));
+
+					JSONArray format = new JSONArray();
+					Iterator<String> chemListIdsIterator = chemListIds.iterator();
+					Iterator<String> listFormatsIterator = listFormats.iterator();
+
+					while (chemListIdsIterator.hasNext() && listFormatsIterator.hasNext()) {
+						String chemListId = chemListIdsIterator.next();
+						String listFormat = listFormatsIterator.next();
+						boolean emptyFormat = StringUtils.isEmpty(chemListId) && StringUtils.isEmpty(listFormat);
+						if (chemListId.equals(id) || emptyFormat) {
+							if (!emptyFormat)
+								format.put(listFormat);
+							chemListIdsIterator.remove();
+							listFormatsIterator.remove();
+						} else {
+							break;
+						}
+					}
+
+					jsonObject.put("materialListFormat", format);
+
+					if (gsElements.length > 0)
+						jsonObject.put("listConstraint", gsElements[0]);
+					if (gsElements.length > 1)
+						jsonObject.put("listOperator", gsElements[1]);
+					if (gsElements.length > 2)
+						jsonObject.put("listValue", gsElements[2]);
+
+					materialList.put(jsonObject);
+				}
+
+				filters.put("materialList", materialList);
+			}
+
+		} else if ("cas".equalsIgnoreCase(usageReportTemplate.getGridType())) {
+			List<String> gridSubmitElements = Arrays.stream(usageReportTemplate.getGridSubmit().split(";")).collect(Collectors.toList());
+			List<String> gridDescElements = Arrays.stream(usageReportTemplate.getGridDesc().split("&@#")).collect(Collectors.toList());
+
+			if (!(gridSubmitElements.size() == 1 && StringUtils.isEmpty(gridSubmitElements.get(0))
+					&& gridDescElements.size() == 1 && StringUtils.isEmpty(gridDescElements.get(0)))) {
+
+				JSONArray casNumberList = new JSONArray();
+
+				for (int i = 0; i < gridSubmitElements.size(); i++) {
+					JSONObject jsonObject = new JSONObject();
+					String[] gsElements = gridSubmitElements.get(i).split(" ");
+					String[] gdElements = gridDescElements.get(i).split("#@&");
+					jsonObject.put("casNumber", gsElements[0]);
+					jsonObject.put("chemicalName", gdElements[1]);
+					jsonObject.put("listConstraint", gsElements[1]);
+					jsonObject.put("listOperator", gsElements[2]);
+					jsonObject.put("listValue", gsElements[3]);
+					casNumberList.put(jsonObject);
+				}
+
+				filters.put("casNumberList", casNumberList);
+			}
+		}
+		return filters;
+	}
 
 //	void getTemplateInfo(HttpServletRequest request,PersonnelBean personnelBean,AdHocUsageReportProcess adHocUsageReportProcess, AdHocUsageInputBean bean) {
 //		try {
