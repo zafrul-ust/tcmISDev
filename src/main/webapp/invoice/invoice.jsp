@@ -782,6 +782,8 @@ if(document.getElementById("invoicePeriod").value.length == 0  && document.getEl
             <html:option value="TRIUMPH_UK FEE|UK_TRIUMPH_FEEInvoiceReportDefinition|">UK Triumph Fee</html:option>
             <html:option value="UK_MONTHLY_TITAN|TITANConsolidatedInvoiceReportDefinition|">UK Titan</html:option>
             <html:option value="CAL">UNITED AIRLINES</html:option>
+            <html:option value="UMW MALAYSIA|UMW_MALAYSIA_File1|Group">UMW Malaysia</html:option>
+          	<html:option value="UMW MALAYSIA FEE|UMW_MALAYSIA_FEEInvoiceReportDefinition|">UMW Malaysia Fee</html:option>
             <html:option value="UNITED_AVIATION_SING|UnitedAviationConsolidatedInvoiceReportDefinition|">United Aviation Consignment Singapore</html:option>
             <html:option value="UTAS-BAMBERG|UTAS_BAMBERG_File1|Group">UTAS Bamberg</html:option>
             <html:option value="UTAS-CHESHIRE|UTAS_CHESHIREInvoiceReportDefinition|">UTAS Cheshire</html:option>
