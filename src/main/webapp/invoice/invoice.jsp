@@ -658,6 +658,8 @@ if(document.getElementById("invoicePeriod").value.length == 0  && document.getEl
             <html:option value="BINGHAMTON|RC_BINGHAMTON_File2|Group">ROCKWELL COLLINS Sterling (Binghamton) (XLS)</html:option>
             <html:option value="WILSONVILLE|RC_WILSONVILLE_File1|Group">ROCKWELL COLLINS Wilsonville (PDF)</html:option>
             <html:option value="WILSONVILLE|RC_WILSONVILLE_File2|Group">ROCKWELL COLLINS Wilsonville (XLS)</html:option>
+            <html:option value="ROLLINS IFC|ROLLINS_File1|Group">ROLLINS Industrial Fumigant</html:option>            
+            <html:option value="ROLLINS FEE|ROLLINS_FEEInvoiceReportDefinition|">ROLLINS Fee</html:option>
             <html:option value="RR-SGP|ROLLSROYCEInvoiceReportDefinition|">ROLLS ROYCE</html:option>
             <html:option value="RR-SGP FEE|RR_SGP_FEEInvoiceReportDefinition|">ROLLS ROYCE Fee</html:option>
             <html:option value="RR-SGP-ACHORD|ROLLSROYCEACHORD_File1|Group">ROLLS ROYCE Achord</html:option>
